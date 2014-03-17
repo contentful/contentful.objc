@@ -1,0 +1,46 @@
+PODS:
+  - AFNetworking (2.2.0):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+    - AFNetworking/UIKit
+  - AFNetworking/NSURLConnection (2.2.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.2.0):
+    - AFNetworking/NSURLConnection
+  - AFNetworking/Reachability (2.2.0)
+  - AFNetworking/Security (2.2.0)
+  - AFNetworking/Serialization (2.2.0)
+  - AFNetworking/UIKit (2.2.0):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - ContentfulDeliveryAPI (0.1.0):
+    - AFNetworking
+    - ISO8601DateFormatter
+  - FBSnapshotTestCase (1.1)
+  - ISO8601DateFormatter (0.7)
+  - VCRURLConnection (0.2.0)
+
+DEPENDENCIES:
+  - AFNetworking
+  - ContentfulDeliveryAPI (from `.`)
+  - FBSnapshotTestCase
+  - ISO8601DateFormatter
+  - VCRURLConnection
+
+EXTERNAL SOURCES:
+  ContentfulDeliveryAPI:
+    :path: .
+
+SPEC CHECKSUMS:
+  AFNetworking: e8cfd8f3fe3bfe19124a0cc63f4d45752d892a56
+  ContentfulDeliveryAPI: 3e7ebe36dd1d29a826e3b145f86d11a1cef02e68
+  FBSnapshotTestCase: 188c80bfcb72e744eb0b99d45989d12687c40cf8
+  ISO8601DateFormatter: 00944e437ea647f4244454ce8809d313861d08de
+  VCRURLConnection: 7c5471d671641dbd0f1b46903ebeb4b88caae04c
+
+COCOAPODS: 0.29.0

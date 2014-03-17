@@ -1,0 +1,18 @@
+## Appledoc
+
+doc
+
+## OS X
+
+.DS_Store
+
+## Other
+
+.pt
+Examples/ContentfulDeliveryAPI.zip
+Examples/UFO.zip
+
+## Xcode
+
+*.xccheckout
+xcuserdata

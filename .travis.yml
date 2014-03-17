@@ -1,0 +1,15 @@
+language: objective-c
+before_install: gem install cocoapods travis-artifacts xcpretty
+script: make test && cd Examples/UFO && set -o pipefail && xcodebuild \
+  -sdk iphonesimulator | xcpretty -c; cd -
+after_script:
+  - cd Examples; ./ship_it.sh; cd ..
+  - "travis-artifacts upload --target-path downloads/iOS --path Examples/ContentfulDeliveryAPI.zip --path Examples/UFO.zip"
+notifications:
+  flowdock:
+  - secure: U4gtZEqkpYsKig2KmpuOIqqntNCikrXFfVCdPQz0938oBpXVTp2h1iRrzTFzEgZ3pemEmfZOsfE5AaNrqDzipc0UhBNIjq9vgGe3+4do9KNU5+QY4GV8QaxAm75WIctTZzbzm4W/6Pj15xeoq1gQQWb0DDujUgWIJ9HyZnStRGk=
+env:
+  global:
+  - "ARTIFACTS_S3_BUCKET=static.cdnorigin.contentful.com"
+  - secure: dFc6aeloqD/ciIBN6W7D3fD8zs8+eT/a9ohsrREvWvLZzk6qztNZ11iRX1ishHBMaGvcj/+Gajr7WfVR08aJ84SsdwnQ8Xs0aF1SGVvMHehMoIAA/zHDVT1yn7dOWaHYkpDHD5iVr/kDmZRTmMsmukOfnb7rObGeUF3/2WK9la4=
+  - secure: NlVA92i34LtyTNGHBF0NICuWvBvEB54y2X56nL+98I0HIOYQeizNwjHIPgeAE6OR0IKqJyqdTUzJy0cJUeNRS4IG3SZtvdY4T9ka6kZnTPEojAr0xuSrqTz9ruiS+Rn4dmQpf+7N8T3T9ddHoxuibQOa3fhYoKFJ/2TTkuL1HL0=
