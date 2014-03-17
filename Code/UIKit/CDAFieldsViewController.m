@@ -6,12 +6,14 @@
 //
 //
 
+#import <ContentfulDeliveryAPI/CDAAsset.h>
 #import <ContentfulDeliveryAPI/CDAContentType.h>
 #import <ContentfulDeliveryAPI/CDAEntry.h>
 #import <ContentfulDeliveryAPI/CDAField.h>
 
 #import "CDAFieldCell.h"
 #import "CDAFieldsViewController.h"
+#import "CDAImageViewController.h"
 #import "CDALocationViewController.h"
 #import "CDATextViewController.h"
 
@@ -34,8 +36,18 @@
 
 -(void)didSelectRowWithValue:(id)value forField:(CDAField *)field {
     if (field.type == CDAFieldTypeLink && [value fetched]) {
-        CDAFieldsViewController* linkedFieldsVC = [[CDAFieldsViewController alloc] initWithEntry:value];
-        [self.navigationController pushViewController:linkedFieldsVC animated:YES];
+        if ([value isKindOfClass:[CDAAsset class]]) {
+            CDAImageViewController* imageVC = [CDAImageViewController new];
+            imageVC.asset = value;
+            imageVC.title = field.name;
+            [self.navigationController pushViewController:imageVC animated:YES];
+        }
+        
+        if ([value isKindOfClass:[CDAEntry class]]) {
+            CDAFieldsViewController* linkedFieldsVC = [[CDAFieldsViewController alloc]
+                                                       initWithEntry:value];
+            [self.navigationController pushViewController:linkedFieldsVC animated:YES];
+        }
     }
 }
 
