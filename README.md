@@ -10,7 +10,7 @@ Objective-C SDK for [Contentful's][1] Content Delivery API.
 
 The `CDAClient` manages all your interaction with the Contentful Delivery API.
 
-    CDAClient* client = [CDAClient new];
+    CDAClient* client = [[CDAClient alloc] initWithSpaceKey:@"cfexampleapi" accessToken:@"b4c0n73n7fu1"];
     [client fetchEntryWithIdentifier:@"nyancat"
                              success:^(CDAResponse *response, CDAEntry *entry) {
                                  NSLog(@"%@", entry.fields);
