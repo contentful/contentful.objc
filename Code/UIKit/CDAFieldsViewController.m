@@ -11,6 +11,7 @@
 #import <ContentfulDeliveryAPI/CDAEntry.h>
 #import <ContentfulDeliveryAPI/CDAField.h>
 
+#import "CDAEntriesViewController.h"
 #import "CDAFieldCell.h"
 #import "CDAFieldsViewController.h"
 #import "CDAImageViewController.h"
@@ -35,6 +36,21 @@
 #pragma mark -
 
 -(void)didSelectRowWithValue:(id)value forField:(CDAField *)field {
+    if (field.type == CDAFieldTypeArray && [value isKindOfClass:[NSArray class]]) {
+        NSArray* array = (NSArray*)value;
+        
+        CDAEntry* entry = [array firstObject];
+        if (![entry isKindOfClass:[CDAEntry class]] || !entry.fetched) {
+            // TODO: Support unfetched arrays
+            return;
+        }
+        
+        CDAEntriesViewController* entriesVC = [[CDAEntriesViewController alloc] initWithCellMapping:@{ @"textLabel.text": [@"fields." stringByAppendingString:entry.contentType.displayField] } items:array];
+        entriesVC.title = field.name;
+        [self.navigationController pushViewController:entriesVC animated:YES];
+    }
+    
+    // TODO: Support unfetched links
     if (field.type == CDAFieldTypeLink && [value fetched]) {
         if ([value isKindOfClass:[CDAAsset class]]) {
             CDAImageViewController* imageVC = [CDAImageViewController new];
