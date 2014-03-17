@@ -111,6 +111,7 @@ static NSString* const CDASpaceKey          = @"CDASpaceKey";
     
     CDATextEntryCell* cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([self class])
                                                          forIndexPath:indexPath];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     switch (indexPath.row) {
         case 0:
@@ -162,6 +163,13 @@ static NSString* const CDASpaceKey          = @"CDASpaceKey";
     
     [view addSubview:button];
     return view;
+}
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [[self textFieldAtRow:indexPath.row] becomeFirstResponder];
 }
 
 #pragma mark - UITextFieldDelegate
