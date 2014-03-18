@@ -28,7 +28,8 @@
 @implementation CDAField
 
 -(NSString *)description {
-    return [NSString stringWithFormat:@"CDAField %@ of type %ld", self.identifier, (long)self.type];
+    NSString* type = [[self.fieldTypes allKeysForObject:@(self.type)] firstObject];
+    return [NSString stringWithFormat:@"CDAField %@ of type %@", self.identifier, type];
 }
 
 -(NSDictionary*)fieldTypes {
