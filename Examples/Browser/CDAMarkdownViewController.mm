@@ -24,7 +24,10 @@
     _markdownText = markdownText;
     
     BPDocument* document = [[BPParser new] parse:markdownText];
-    NSAttributedString* attributedText = [[BPAttributedStringConverter new] convertDocument:document];
+    BPAttributedStringConverter* converter = [BPAttributedStringConverter new];
+    converter.displaySettings.quoteFont = [UIFont fontWithName:@"Marion-Italic"
+                                                          size:[UIFont systemFontSize] + 1.0f];
+    NSAttributedString* attributedText = [converter convertDocument:document];
     
     self.textView.attributedText = attributedText;
 }
