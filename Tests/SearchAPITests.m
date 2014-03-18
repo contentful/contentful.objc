@@ -320,7 +320,7 @@
 - (void)testIncludes {
     StartBlock();
     
-    [self.client fetchEntriesMatching:@{ @"sys.id": @"nyancat", }
+    [self.client fetchEntriesMatching:@{ @"sys.id": @"nyancat", @"include": @(1) }
                               success:^(CDAResponse *response, CDAArray *array) {
                                   XCTAssertEqual(1U, array.items.count, @"");
                                   CDAEntry* nyanCat = [array.items firstObject];
