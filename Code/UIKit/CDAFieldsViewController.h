@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class CDAEntry;
+
 /**
  `CDAFieldsViewController` is designed to make it easy to display Field values of a single Entry in a
  simple way.
@@ -36,8 +38,12 @@
  *  This is a convenience method which sits on top of `tableView:didSelectRowAtIndexPath:`, making it
  *  easy to react on cell selection by the user. It is intended to be overridden in subclasses.
  *
- *  This method will only be called for Fields of type `CDAFieldTypeArray` and `CDAFieldTypeLink` as
- *  the values for all other types of Fields are shown inline in the table view.
+ *  By default, this method pushes new view controller's specific to the corresponding field's content
+ *  type to this view controller's navigation controller. It will act on fields of the types 
+ *  `CDAFieldTypeArray`, `CDAFieldTypeLink` and `CDAFieldTypeLocation`. For fields of type
+ *  `CDAFieldTypeText` or `CDAFieldTypeSymbol`, it will act if the text is too long to be completely
+ *  shown inline. As values for any other types are always shown inline, nothing will be done for them
+ *  by default.
  *
  *  @param value The Entry's value shown in the cell the user selected.
  *  @param field The Field definition for the cell the user selected.

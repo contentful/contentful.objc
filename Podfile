@@ -17,6 +17,7 @@ end
 target "Browser", :exclusive => true do
 
 pod 'ContentfulDeliveryAPI', :path => '.'
+pod 'Bypass', :inhibit_warnings => true
 
 end
 

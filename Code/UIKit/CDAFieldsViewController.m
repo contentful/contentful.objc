@@ -36,34 +36,67 @@
 #pragma mark -
 
 -(void)didSelectRowWithValue:(id)value forField:(CDAField *)field {
-    if (field.type == CDAFieldTypeArray && [value isKindOfClass:[NSArray class]]) {
-        NSArray* array = (NSArray*)value;
-        
-        CDAEntry* entry = [array firstObject];
-        if (![entry isKindOfClass:[CDAEntry class]] || !entry.fetched) {
-            // TODO: Support unfetched arrays
-            return;
+    switch (field.type) {
+        case CDAFieldTypeArray: {
+            NSArray* array = (NSArray*)value;
+            if (![array isKindOfClass:[NSArray class]]) {
+                return;
+            }
+            
+            CDAEntry* entry = [array firstObject];
+            if (![entry isKindOfClass:[CDAEntry class]] || !entry.fetched) {
+                // TODO: Support unfetched arrays
+                return;
+            }
+            
+            CDAEntriesViewController* entriesVC = [[CDAEntriesViewController alloc] initWithCellMapping:@{ @"textLabel.text": [@"fields." stringByAppendingString:entry.contentType.displayField] } items:array];
+            entriesVC.title = field.name;
+            [self.navigationController pushViewController:entriesVC animated:YES];
+            break;
         }
-        
-        CDAEntriesViewController* entriesVC = [[CDAEntriesViewController alloc] initWithCellMapping:@{ @"textLabel.text": [@"fields." stringByAppendingString:entry.contentType.displayField] } items:array];
-        entriesVC.title = field.name;
-        [self.navigationController pushViewController:entriesVC animated:YES];
-    }
-    
-    // TODO: Support unfetched links
-    if (field.type == CDAFieldTypeLink && [value fetched]) {
-        if ([value isKindOfClass:[CDAAsset class]]) {
-            CDAImageViewController* imageVC = [CDAImageViewController new];
-            imageVC.asset = value;
-            imageVC.title = field.name;
-            [self.navigationController pushViewController:imageVC animated:YES];
+            
+            
+        case CDAFieldTypeLink:
+            // TODO: Support unfetched links
+            if (![value fetched]) {
+                return;
+            }
+            
+            if ([value isKindOfClass:[CDAAsset class]]) {
+                CDAImageViewController* imageVC = [CDAImageViewController new];
+                imageVC.asset = value;
+                imageVC.title = field.name;
+                [self.navigationController pushViewController:imageVC animated:YES];
+            }
+            
+            if ([value isKindOfClass:[CDAEntry class]]) {
+                CDAFieldsViewController* linkedFieldsVC = [[CDAFieldsViewController alloc]
+                                                           initWithEntry:value];
+                [self.navigationController pushViewController:linkedFieldsVC animated:YES];
+            }
+            break;
+            
+            
+        case CDAFieldTypeLocation: {
+            CDALocationViewController* locationViewController = [CDALocationViewController new];
+            locationViewController.location = [self.entry CLLocationCoordinate2DFromFieldWithIdentifier:field.identifier];
+            locationViewController.title = field.name;
+            [self.navigationController pushViewController:locationViewController animated:YES];
+            break;
         }
-        
-        if ([value isKindOfClass:[CDAEntry class]]) {
-            CDAFieldsViewController* linkedFieldsVC = [[CDAFieldsViewController alloc]
-                                                       initWithEntry:value];
-            [self.navigationController pushViewController:linkedFieldsVC animated:YES];
-        }
+            
+        case CDAFieldTypeSymbol:
+        case CDAFieldTypeText:
+            if ([value length] > 25) {
+                CDATextViewController* textViewController = [CDATextViewController new];
+                textViewController.text = value;
+                textViewController.title = field.name;
+                [self.navigationController pushViewController:textViewController animated:YES];
+            }
+            break;
+            
+        default:
+            break;
     }
 }
 
@@ -139,34 +172,7 @@
     }
     
     CDAFieldCell* cell = (CDAFieldCell*)[tableView cellForRowAtIndexPath:indexPath];
-    
-    switch (cell.field.type) {
-        case CDAFieldTypeArray:
-        case CDAFieldTypeLink:
-            [self didSelectRowWithValue:cell.value forField:cell.field];
-            break;
-            
-        case CDAFieldTypeLocation: {
-            CDALocationViewController* locationViewController = [CDALocationViewController new];
-            locationViewController.location = [self.entry CLLocationCoordinate2DFromFieldWithIdentifier:cell.field.identifier];
-            locationViewController.title = cell.field.name;
-            [self.navigationController pushViewController:locationViewController animated:YES];
-            break;
-        }
-            
-        case CDAFieldTypeSymbol:
-        case CDAFieldTypeText:
-            if (cell.detailTextLabel.text.length > 25) {
-                CDATextViewController* textViewController = [CDATextViewController new];
-                textViewController.text = cell.value;
-                textViewController.title = cell.field.name;
-                [self.navigationController pushViewController:textViewController animated:YES];
-            }
-            break;
-            
-        default:
-            break;
-    }
+    [self didSelectRowWithValue:cell.value forField:cell.field];
 }
 
 @end
