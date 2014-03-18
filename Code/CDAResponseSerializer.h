@@ -10,6 +10,8 @@
 
 @interface CDAResponseSerializer : AFJSONResponseSerializer
 
+@property (nonatomic, weak, readonly) CDAClient* client;
+
 -(id)initWithClient:(CDAClient*)client;
 
 @end

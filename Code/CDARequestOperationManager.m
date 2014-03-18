@@ -10,6 +10,8 @@
 #import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 #endif
 
+#import <objc/runtime.h>
+
 #import "CDAArray+Private.h"
 #import "CDAClient+Private.h"
 #import "CDAConfiguration.h"
@@ -53,6 +55,9 @@
           }
       }];
     
+    CDAClient* client = [(CDAResponseSerializer*)self.responseSerializer client];
+    objc_setAssociatedObject(operation, "client", client, OBJC_ASSOCIATION_RETAIN);
+    
     return [[CDARequest alloc] initWithRequestOperation:operation];
 }
 
@@ -74,6 +79,9 @@
               failure([CDAResponse responseWithHTTPURLResponse:operation.response], error);
           }
       }];
+    
+    CDAClient* client = [(CDAResponseSerializer*)self.responseSerializer client];
+    objc_setAssociatedObject(operation, "client", client, OBJC_ASSOCIATION_RETAIN);
     
     return [[CDARequest alloc] initWithRequestOperation:operation];
 }

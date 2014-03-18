@@ -16,6 +16,23 @@
 
 @implementation ErrorTests
 
+- (void)testHoldStrongReferenceToClientUntilRequestIsDone
+{
+    StartBlock();
+    
+    CDAClient* client = [CDAClient new];
+    [client fetchAssetsWithSuccess:^(CDAResponse *response, CDAArray *array) {
+        EndBlock();
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTFail(@"Error: %@", error);
+        
+        EndBlock();
+    }];
+    client = nil;
+    
+    WaitUntilBlockCompletes();
+}
+
 - (void)testNonLocationFieldsThrow
 {
     StartBlock();
