@@ -7,13 +7,14 @@
 //
 
 #import <ContentfulDeliveryAPI/CDAAsset.h>
+#import <ContentfulDeliveryAPI/CDAClient.h>
 #import <ContentfulDeliveryAPI/CDAContentType.h>
 #import <ContentfulDeliveryAPI/CDAEntry.h>
 #import <ContentfulDeliveryAPI/CDAField.h>
 
 #import "CDAEntriesViewController.h"
 #import "CDAFieldCell.h"
-#import "CDAFieldsViewController.h"
+#import "CDAFieldsViewController+Private.h"
 #import "CDAImageViewController.h"
 #import "CDALocationViewController.h"
 #import "CDATextViewController.h"
@@ -45,37 +46,39 @@
             
             CDAEntry* entry = [array firstObject];
             if (![entry isKindOfClass:[CDAEntry class]] || !entry.fetched) {
-                // TODO: Support unfetched arrays
-                return;
+                [self.client resolveLinksFromArray:array
+                                           success:^(NSArray *items) {
+                                               [self showResourcesFromArray:items withTitle:field.name];
+                                           } failure:^(CDAResponse *response, NSError *error) {
+                                               [self showError:error];
+                                           }];
+            } else {
+                [self showResourcesFromArray:array withTitle:field.name];
             }
-            
-            CDAEntriesViewController* entriesVC = [[CDAEntriesViewController alloc] initWithCellMapping:@{ @"textLabel.text": [@"fields." stringByAppendingString:entry.contentType.displayField] } items:array];
-            entriesVC.title = field.name;
-            [self.navigationController pushViewController:entriesVC animated:YES];
             break;
         }
             
             
-        case CDAFieldTypeLink:
-            // TODO: Support unfetched links
-            if (![value fetched]) {
-                return;
-            }
-            
-            if ([value isKindOfClass:[CDAAsset class]]) {
-                CDAImageViewController* imageVC = [CDAImageViewController new];
-                imageVC.asset = value;
-                imageVC.title = field.name;
-                [self.navigationController pushViewController:imageVC animated:YES];
-            }
-            
-            if ([value isKindOfClass:[CDAEntry class]]) {
-                CDAFieldsViewController* linkedFieldsVC = [[CDAFieldsViewController alloc]
-                                                           initWithEntry:value];
-                [self.navigationController pushViewController:linkedFieldsVC animated:YES];
-            }
+        case CDAFieldTypeLink: {
+            [value resolveWithSuccess:^(CDAResponse *response, CDAResource *resource) {
+                if ([resource isKindOfClass:[CDAAsset class]]) {
+                    CDAImageViewController* imageVC = [CDAImageViewController new];
+                    imageVC.asset = (CDAAsset*)resource;
+                    imageVC.title = field.name;
+                    [self.navigationController pushViewController:imageVC animated:YES];
+                }
+                
+                if ([resource isKindOfClass:[CDAEntry class]]) {
+                    CDAFieldsViewController* linkedFieldsVC = [[CDAFieldsViewController alloc]
+                                                               initWithEntry:(CDAEntry*)resource];
+                    linkedFieldsVC.client = self.client;
+                    [self.navigationController pushViewController:linkedFieldsVC animated:YES];
+                }
+            } failure:^(CDAResponse *response, NSError *error) {
+                [self showError:error];
+            }];
             break;
-            
+        }
             
         case CDAFieldTypeLocation: {
             CDALocationViewController* locationViewController = [CDALocationViewController new];
@@ -125,6 +128,28 @@
                forCellReuseIdentifier:NSStringFromClass([self class])];
     }
     return self;
+}
+
+-(void)showResourcesFromArray:(NSArray*)array withTitle:(NSString*)title {
+    NSDictionary* cellMapping = nil;
+    CDAResource* resource = [array firstObject];
+    
+    if ([resource isKindOfClass:[CDAAsset class]]) {
+        cellMapping = @{ @"textLabel.text": @"fields.title" };
+    }
+    
+    if ([resource isKindOfClass:[CDAEntry class]]) {
+        CDAEntry* entry = (CDAEntry*)resource;
+        cellMapping = @{ @"textLabel.text": [@"fields." stringByAppendingString:entry.contentType.displayField] };
+    }
+    
+    CDAEntriesViewController* entriesVC = [[CDAEntriesViewController alloc]
+                                           initWithCellMapping:cellMapping items:array];
+    
+    entriesVC.client = self.client;
+    entriesVC.title = title;
+    
+    [self.navigationController pushViewController:entriesVC animated:YES];
 }
 
 -(void)showError:(NSError*)error {

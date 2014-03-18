@@ -45,12 +45,8 @@
             return;
             
         case CDAFieldTypeLink: {
-            if ([value fetched]) {
-                self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-                self.selectionStyle = UITableViewCellSelectionStyleDefault;
-            } else {
-                self.detailTextLabel.text = NSLocalizedString(@"not fetched", nil);
-            }
+            self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            self.selectionStyle = UITableViewCellSelectionStyleDefault;
             return;
         }
         

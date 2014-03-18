@@ -9,7 +9,8 @@
 #import <ContentfulDeliveryAPI/ContentfulDeliveryAPI.h>
 
 #import "CDAEntriesViewController.h"
-#import "CDAFieldsViewController.h"
+#import "CDAFieldsViewController+Private.h"
+#import "CDAImageViewController.h"
 
 @interface CDAEntriesViewController () <CDAEntriesViewControllerDelegate>
 
@@ -85,7 +86,16 @@
 
 -(void)entriesViewController:(CDAEntriesViewController *)entriesViewController
        didSelectRowWithEntry:(CDAEntry *)entry {
+    if ([entry isKindOfClass:[CDAAsset class]]) {
+        CDAImageViewController* imageVC = [CDAImageViewController new];
+        imageVC.asset = (CDAAsset*)entry;
+        imageVC.title = entry.fields[@"title"];
+        [self.navigationController pushViewController:imageVC animated:YES];
+        return;
+    }
+    
     CDAFieldsViewController* fieldsVC = [[CDAFieldsViewController alloc] initWithEntry:entry];
+    fieldsVC.client = self.client;
     [self.navigationController pushViewController:fieldsVC animated:YES];
 }
 
