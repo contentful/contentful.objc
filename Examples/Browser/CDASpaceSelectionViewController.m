@@ -66,6 +66,7 @@ static NSString* const CDASpaceKey          = @"CDASpaceKey";
     
     [client fetchContentTypesWithSuccess:^(CDAResponse *response, CDAArray *array) {
         CDAEntriesViewController* contentTypesVC = [[CDAEntriesViewController alloc] initWithCellMapping:@{ @"textLabel.text": @"name" } items:array.items];
+        contentTypesVC.client = client;
         contentTypesVC.delegate = self;
         contentTypesVC.title = NSLocalizedString(@"Content Types", nil);
         [self.navigationController pushViewController:contentTypesVC animated:YES];
