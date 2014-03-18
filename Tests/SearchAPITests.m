@@ -235,6 +235,7 @@
             XCTAssertEqualObjects((@{ @"errors": @[ @{ @"name": @"unknownContentType",
                                                        @"value": @"restaurant" } ] }),
                                   error.userInfo[@"details"], @"");
+            XCTAssertEqualObjects(@"InvalidQuery", error.userInfo[@"identifier"], @"");
             
             EndBlock();
     }];

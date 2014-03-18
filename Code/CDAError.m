@@ -37,6 +37,7 @@ static NSString* const CDAErrorDomain = @"CDAErrorDomain";
 -(NSError *)errorRepresentationWithCode:(NSInteger)code {
     return [[self class] buildErrorWithCode:code
                                    userInfo:@{ @"details": self.details ?: @{},
+                                               @"identifier": self.identifier,
                                                NSLocalizedDescriptionKey: self.message }];
 }
 
