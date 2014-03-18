@@ -48,6 +48,12 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking_UIKit 2
 #define COCOAPODS_VERSION_PATCH_AFNetworking_UIKit 0
 
+// Bypass
+#define COCOAPODS_POD_AVAILABLE_Bypass
+#define COCOAPODS_VERSION_MAJOR_Bypass 1
+#define COCOAPODS_VERSION_MINOR_Bypass 0
+#define COCOAPODS_VERSION_PATCH_Bypass 1
+
 // ContentfulDeliveryAPI
 #define COCOAPODS_POD_AVAILABLE_ContentfulDeliveryAPI
 #define COCOAPODS_VERSION_MAJOR_ContentfulDeliveryAPI 0

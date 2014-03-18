@@ -1,6 +1,6 @@
 FRAMEWORK_SEARCH_PATHS = $(inherited) "$(SDKROOT)/Developer/Library/Frameworks"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/AFNetworking" "${PODS_ROOT}/Headers/ContentfulDeliveryAPI" "${PODS_ROOT}/Headers/FBSnapshotTestCase" "${PODS_ROOT}/Headers/ISO8601DateFormatter" "${PODS_ROOT}/Headers/VCRURLConnection"
-OTHER_CFLAGS = $(inherited) "-isystem${PODS_ROOT}/Headers" "-isystem${PODS_ROOT}/Headers/AFNetworking" "-isystem${PODS_ROOT}/Headers/ContentfulDeliveryAPI" "-isystem${PODS_ROOT}/Headers/FBSnapshotTestCase" "-isystem${PODS_ROOT}/Headers/ISO8601DateFormatter" "-isystem${PODS_ROOT}/Headers/VCRURLConnection"
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/AFNetworking" "${PODS_ROOT}/Headers/Bypass" "${PODS_ROOT}/Headers/ContentfulDeliveryAPI" "${PODS_ROOT}/Headers/FBSnapshotTestCase" "${PODS_ROOT}/Headers/ISO8601DateFormatter" "${PODS_ROOT}/Headers/VCRURLConnection"
+OTHER_CFLAGS = $(inherited) "-isystem${PODS_ROOT}/Headers" "-isystem${PODS_ROOT}/Headers/AFNetworking" "-isystem${PODS_ROOT}/Headers/Bypass" "-isystem${PODS_ROOT}/Headers/ContentfulDeliveryAPI" "-isystem${PODS_ROOT}/Headers/FBSnapshotTestCase" "-isystem${PODS_ROOT}/Headers/ISO8601DateFormatter" "-isystem${PODS_ROOT}/Headers/VCRURLConnection"
 OTHER_LDFLAGS = -ObjC -framework XCTest
 PODS_ROOT = ${SRCROOT}/Pods
