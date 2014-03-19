@@ -67,6 +67,11 @@
                                   } failure:failure];
 }
 
+-(CGSize)size {
+    NSDictionary* size = self.fields[@"file"][@"details"][@"image"];
+    return size ? CGSizeMake([size[@"width"] floatValue], [size[@"height"] floatValue]) : CGSizeZero;
+}
+
 -(NSURL *)URL {
     return self.fields[@"file"][@"url"];
 }
