@@ -17,6 +17,16 @@
 @class CDARequest;
 @class CDASpace;
 
+/** Possible Resource types. */
+typedef NS_ENUM(NSInteger, CDAResourceType) {
+    /** Asset */
+    CDAResourceTypeAsset,
+    /** Content Type */
+    CDAResourceTypeContentType,
+    /** Entry */
+    CDAResourceTypeEntry,
+};
+
 typedef void(^CDAArrayFetchedBlock)(CDAResponse* response, CDAArray* array);
 typedef void(^CDAAssetFetchedBlock)(CDAResponse* response, CDAAsset* asset);
 typedef void(^CDAContentTypeFetchedBlock)(CDAResponse* response, CDAContentType* contentType);
@@ -140,6 +150,27 @@ typedef void(^CDASpaceFetchedBlock)(CDAResponse* response, CDASpace* space);
 -(CDARequest*)fetchEntryWithIdentifier:(NSString*)identifier
                                success:(CDAEntryFetchedBlock)success
                                failure:(CDARequestFailureBlock)failure;
+
+/** @name Fetching Resources */
+
+/**
+ *  Fetch any kind of Resource from the server.
+ *
+ *  This method can be used in cases where the actual type of Resource to be fetched is determined at
+ *  runtime.
+ *
+ *  @param resourceType The type of Resource to be fetched.
+ *  @param query        The query which retrieved Entries shall match. Queries are expressed as
+ *                      dictionaries, see [Search Parameters](https://www.contentful.com/developers/documentation/content-delivery-api/#search) for more information. If `nil`, any Resource matches.
+ *  @param success      A block which gets called upon successful retrieval of all matching Resources.
+ *  @param failure      A block which gets called if an error occured during the retrieval process.
+ *
+ *  @return The request used for fetching data.
+ */
+-(CDARequest*)fetchResourcesOfType:(CDAResourceType)resourceType
+                          matching:(NSDictionary*)query
+                           success:(CDAArrayFetchedBlock)success
+                           failure:(CDARequestFailureBlock)failure;
 
 /** @name Fetching Spaces */
 
