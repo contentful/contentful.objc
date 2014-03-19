@@ -28,6 +28,7 @@
     self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
         self.examples = @{
+                          @"Image gallery": NSClassFromString(@"CDAImageGalleryViewController"),
                           @"Loading assets": NSClassFromString(@"CDALoadAssetsViewController"),
                           };
         self.title = NSLocalizedString(@"Examples", nil);
