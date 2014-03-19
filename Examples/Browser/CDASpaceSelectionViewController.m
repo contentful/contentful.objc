@@ -154,13 +154,13 @@ static NSString* const CDASpaceKey          = @"CDASpaceKey";
     UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, tableView.frame.size.width, 64.0)];
     
     UIButton* button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    button.enabled = self.done;
     button.frame = CGRectMake(10.0, 10.0, view.frame.size.width - 20.0, view.frame.size.height - 20.0);
     
     [button addTarget:self action:@selector(loadSpaceTapped) forControlEvents:UIControlEventTouchUpInside];
     [button setTitle:NSLocalizedString(@"Load Space", nil) forState:UIControlStateNormal];
     
     self.loadButton = button;
+    self.loadButton.enabled = self.done;
     
     [view addSubview:button];
     return view;
