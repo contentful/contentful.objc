@@ -122,7 +122,7 @@
     [self.cellMapping enumerateKeysAndObjectsUsingBlock:^(NSString* cellKeyPath,
                                                           NSString* entryKeyPath,
                                                           BOOL *stop) {
-        [cell setValue:[[entry valueForKeyPath:entryKeyPath] description] forKeyPath:cellKeyPath];
+        [cell setValue:[entry valueForKeyPath:entryKeyPath] forKeyPath:cellKeyPath];
     }];
     
     return cell;

@@ -29,8 +29,8 @@
         XCTAssertEqual(100U, [[entriesVC valueForKeyPath:@"entries.items"] count], @"");
         
         UITableViewCell* cell = [entriesVC.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-        XCTAssertEqualObjects(@"United States", cell.detailTextLabel.text, @"");
-        XCTAssertEqualObjects(@"Doylestown, PA", cell.textLabel.text, @"");
+        XCTAssertEqualObjects(@"2013-06-27 14:36:52 +0000", cell.detailTextLabel.text, @"");
+        XCTAssertEqualObjects(@"La Puente, CA", cell.textLabel.text, @"");
     }
     
     if ([keyPath isEqualToString:@"image"]) {
@@ -45,9 +45,9 @@
 - (void)testEntriesViewController {
     self.client = [[CDAClient alloc] initWithSpaceKey:@"lzjz8hygvfgu" accessToken:@"0c6ef483524b5e46b3bafda1bf355f38f5f40b4830f7599f790a410860c7c271"];
     
-    CDAEntriesViewController* entriesVC = [[CDAEntriesViewController alloc] initWithCellMapping:@{ @"textLabel.text": @"fields.locationName", @"detailTextLabel.text": @"fields.country" }];
+    CDAEntriesViewController* entriesVC = [[CDAEntriesViewController alloc] initWithCellMapping:@{ @"textLabel.text": @"fields.locationName", @"detailTextLabel.text": @"sys.updatedAt.description" }];
     entriesVC.client = self.client;
-    entriesVC.query = @{ @"content_type": @"7ocuA1dfoccWqWwWUY4UY" };
+    entriesVC.query = @{ @"content_type": @"7ocuA1dfoccWqWwWUY4UY", @"order": @"sys.createdAt" };
     
     self.waiting = YES;
     
