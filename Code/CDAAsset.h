@@ -33,5 +33,7 @@
 @property (nonatomic, readonly) NSDictionary* fields;
 /** File type of the asset. */
 @property (nonatomic, readonly) NSString* MIMEType;
+/** Size of the asset, if it is an image. */
+@property (nonatomic, readonly) CGSize size;
 
 @end
