@@ -41,7 +41,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: e8cfd8f3fe3bfe19124a0cc63f4d45752d892a56
   Bypass: 05609ba2727ae711aa82256e7600b7ac7a174927
-  ContentfulDeliveryAPI: 9a7bdc0acf3016bf82dbaf277e8179c0a4ef65cb
+  ContentfulDeliveryAPI: b6b7adb7e5c00c39ffdcf3a5acb7003ef1098817
   FBSnapshotTestCase: 188c80bfcb72e744eb0b99d45989d12687c40cf8
   ISO8601DateFormatter: 00944e437ea647f4244454ce8809d313861d08de
   VCRURLConnection: 7c5471d671641dbd0f1b46903ebeb4b88caae04c
