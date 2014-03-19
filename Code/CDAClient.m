@@ -220,6 +220,20 @@
     }
 }
 
+-(CDARequest *)fetchResourcesOfType:(CDAResourceType)resourceType
+                           matching:(NSDictionary *)query
+                            success:(CDAArrayFetchedBlock)success
+                            failure:(CDARequestFailureBlock)failure {
+    switch (resourceType) {
+        case CDAResourceTypeAsset:
+            return [self fetchAssetsMatching:query success:success failure:failure];
+        case CDAResourceTypeContentType:
+            return [self fetchContentTypesWithSuccess:success failure:failure];
+        case CDAResourceTypeEntry:
+            return [self fetchEntriesMatching:query success:success failure:failure];
+    }
+}
+
 -(CDARequest*)fetchSpaceWithSuccess:(CDASpaceFetchedBlock)success
                             failure:(CDARequestFailureBlock)failure {
     return [self.requestOperationManager fetchSpaceWithSuccess:success failure:failure];
