@@ -24,6 +24,7 @@ PODS:
     - ISO8601DateFormatter
   - FBSnapshotTestCase (1.1)
   - ISO8601DateFormatter (0.7)
+  - PDKTCollectionViewWaterfallLayout (0.1)
   - VCRURLConnection (0.2.0)
 
 DEPENDENCIES:
@@ -32,6 +33,7 @@ DEPENDENCIES:
   - ContentfulDeliveryAPI (from `.`)
   - FBSnapshotTestCase
   - ISO8601DateFormatter
+  - PDKTCollectionViewWaterfallLayout
   - VCRURLConnection
 
 EXTERNAL SOURCES:
@@ -41,9 +43,10 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: e8cfd8f3fe3bfe19124a0cc63f4d45752d892a56
   Bypass: 05609ba2727ae711aa82256e7600b7ac7a174927
-  ContentfulDeliveryAPI: b6b7adb7e5c00c39ffdcf3a5acb7003ef1098817
+  ContentfulDeliveryAPI: 02e21648138ea540e483c5d5973adc780905e373
   FBSnapshotTestCase: 188c80bfcb72e744eb0b99d45989d12687c40cf8
   ISO8601DateFormatter: 00944e437ea647f4244454ce8809d313861d08de
+  PDKTCollectionViewWaterfallLayout: be8dd399763b9b925aa78dff0f788e0221e72c54
   VCRURLConnection: 7c5471d671641dbd0f1b46903ebeb4b88caae04c
 
 COCOAPODS: 0.29.0

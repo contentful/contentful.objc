@@ -22,4 +22,6 @@
 #if TARGET_OS_IPHONE
 #import <ContentfulDeliveryAPI/CDAEntriesViewController.h>
 #import <ContentfulDeliveryAPI/CDAFieldsViewController.h>
+#import <ContentfulDeliveryAPI/CDAResourceCell.h>
+#import <ContentfulDeliveryAPI/CDAResourcesCollectionViewController.h>
 #endif

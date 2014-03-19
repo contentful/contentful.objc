@@ -24,6 +24,7 @@ end
 target "Catalog", :exclusive => true do
 
 pod 'ContentfulDeliveryAPI', :path => '.'
+pod 'PDKTCollectionViewWaterfallLayout'
 
 end
 
