@@ -79,6 +79,8 @@
         NSMutableDictionary* systemProperties = [@{} mutableCopy];
         
         NSAssert(dictionary[@"sys"], @"A resource needs system properties");
+        NSAssert([dictionary[@"sys"] isKindOfClass:[NSDictionary class]],
+                 @"Expected a dictionary of system properties");
         [dictionary[@"sys"] enumerateKeysAndObjectsUsingBlock:^(NSString* key, id value, BOOL *stop) {
             if ([@[ @"id", @"type" ] containsObject:key]) {
                 NSAssert([value isKindOfClass:[NSString class]], @"id, type needs to be a string");
