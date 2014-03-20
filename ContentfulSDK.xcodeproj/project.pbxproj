@@ -434,10 +434,10 @@
 				A19FD86818C631E60081677E /* Products */,
 				A19FD88018C631E60081677E /* Tests */,
 				90200B3A436647AB8348744F /* Pods-Browser.xcconfig */,
+				0B495CE794E74562AF135B03 /* Pods-Catalog.xcconfig */,
 				4D80285CF848406AB5A046E3 /* Pods-CDA Tests.xcconfig */,
 				F12433681A394D509E9437F6 /* Pods-ContentfulDeliveryAPI.xcconfig */,
 				0ED294D677CF44BC8A18AFAF /* Pods-UFO Example.xcconfig */,
-				0B495CE794E74562AF135B03 /* Pods-Catalog.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -461,10 +461,10 @@
 				A19FD87B18C631E60081677E /* UIKit.framework */,
 				A19FD87818C631E60081677E /* XCTest.framework */,
 				C931C0393B35446B949B5C8D /* libPods-Browser.a */,
+				EFFE921E0BC44C43A834B48F /* libPods-Catalog.a */,
 				A45B6755413841BF9C6157A1 /* libPods-CDA Tests.a */,
 				156E10B7438D48D69C9CBD05 /* libPods-ContentfulDeliveryAPI.a */,
 				6C0CBBA8A43044059BA56429 /* libPods-UFO Example.a */,
-				EFFE921E0BC44C43A834B48F /* libPods-Catalog.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
