@@ -30,6 +30,10 @@
 @implementation CDAResource
 
 +(instancetype)resourceObjectForDictionary:(NSDictionary *)dictionary client:(CDAClient*)client {
+    if (![dictionary isKindOfClass:[NSDictionary class]]) {
+        return nil;
+    }
+    
     NSString* resultType = dictionary[@"sys"][@"type"];
     
     BOOL isLink = [resultType isEqualToString:@"Link"];
