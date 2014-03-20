@@ -6,6 +6,7 @@
 //
 //
 
+#import <ContentfulDeliveryAPI/CDAAsset.h>
 #import <ContentfulDeliveryAPI/UIImageView+CDAAsset.h>
 
 #import "CDAImageViewController.h"
@@ -23,13 +24,22 @@
 -(void)setAsset:(CDAAsset *)asset {
     _asset = asset;
     
-    [self.imageView cda_setImageWithAsset:asset];
+    if ([asset.MIMEType hasPrefix:@"image/"]) {
+        [self.imageView cda_setImageWithAsset:asset];
+    } else {
+        self.imageView.hidden = YES;
+    }
 }
 
 -(void)viewDidLoad {
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    UILabel* unsupportedAssetTypeLabel = [[UILabel alloc] initWithFrame:self.view.bounds];
+    unsupportedAssetTypeLabel.text = NSLocalizedString(@"Unsupported asset type.", nil);
+    unsupportedAssetTypeLabel.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:unsupportedAssetTypeLabel];
     
     self.imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
     self.imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;

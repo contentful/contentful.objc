@@ -94,6 +94,10 @@
         return;
     }
     
+    if (![entry isKindOfClass:[CDAEntry class]]) {
+        return;
+    }
+    
     CDAFieldsViewController* fieldsVC = [[CDAFieldsViewController alloc] initWithEntry:entry];
     fieldsVC.client = self.client;
     [self.navigationController pushViewController:fieldsVC animated:YES];
