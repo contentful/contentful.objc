@@ -22,7 +22,6 @@
  */
 +(instancetype)defaultConfiguration;
 
-
 /** @name Configuring parameters */
 
 /** If `YES`, a secure HTTPS connection will be used instead of regular HTTP. Default value: `YES` */
