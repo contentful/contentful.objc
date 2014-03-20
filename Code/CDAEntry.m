@@ -64,6 +64,8 @@
         
         NSMutableDictionary* fields = [@{} mutableCopy];
         
+        NSAssert([dictionary[@"fields"] isKindOfClass:[NSDictionary class]],
+                 @"Entry Fields are expected to be a dictionary.");
         [dictionary[@"fields"] enumerateKeysAndObjectsUsingBlock:^(NSString* key, id value, BOOL *stop) {
             CDAField* field = [self.contentType fieldForIdentifier:key];
             NSAssert(field, @"Entry contains unknown field '%@'.", key);

@@ -21,6 +21,7 @@
 @implementation CDAContentTypeRegistry
 
 -(void)addContentType:(CDAContentType*)contentType {
+    NSAssert(contentType.identifier, @"Content Type needs an identifier");
     self.contentTypes[contentType.identifier] = contentType;
 }
 
