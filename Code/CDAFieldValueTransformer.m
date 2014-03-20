@@ -6,9 +6,11 @@
 //
 //
 
+#import <ContentfulDeliveryAPI/CDAConfiguration.h>
 #import <ISO8601DateFormatter/ISO8601DateFormatter.h>
 #import <MapKit/MapKit.h>
 
+#import "CDAClient+Private.h"
 #import "CDAFieldValueTransformer.h"
 #import "CDAResource+Private.h"
 
@@ -68,6 +70,18 @@
 }
 
 -(id)transformedValue:(id)value {
+    if (self.client.configuration.previewMode) {
+        if ([value count] == 1) {
+            value = [[value allValues] firstObject];
+        } else {
+            NSAssert([[value allKeys] containsObject:self.client.configuration.previewLocale],
+                     @"Selected locale %@ is not present in Entry.",
+                     self.client.configuration.previewLocale);
+            
+            value = [value valueForKey:self.client.configuration.previewLocale];
+        }
+    }
+    
     switch (self.type) {
         case CDAFieldTypeArray:
             if (value == [NSNull null] || ![value isKindOfClass:[NSArray class]]) {

@@ -62,6 +62,8 @@
 		A173F59918D9A2A9000E6F92 /* CDAImageGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A173F59818D9A2A9000E6F92 /* CDAImageGalleryViewController.m */; };
 		A173F59C18D9A2FD000E6F92 /* CDAResourceCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A173F59A18D9A2FD000E6F92 /* CDAResourceCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A173F59D18D9A2FD000E6F92 /* CDAResourceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A173F59B18D9A2FD000E6F92 /* CDAResourceCell.m */; };
+		A173F60318DB3E1E000E6F92 /* PreviewModeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A173F60218DB3E1E000E6F92 /* PreviewModeTests.m */; };
+		A173F60518DB412C000E6F92 /* PreviewModeTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A173F60418DB412C000E6F92 /* PreviewModeTests.json */; };
 		A193EB3B18D084C50017B777 /* ValueObjectsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A193EB3A18D084C50017B777 /* ValueObjectsTests.m */; };
 		A193EB3C18D096C50017B777 /* CDAResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A0313618C644B5006470B7 /* CDAResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A193EB3E18D09AC10017B777 /* CDAResponse+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A193EB3D18D09AC10017B777 /* CDAResponse+Private.h */; };
@@ -215,6 +217,8 @@
 		A173F59818D9A2A9000E6F92 /* CDAImageGalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAImageGalleryViewController.m; sourceTree = "<group>"; };
 		A173F59A18D9A2FD000E6F92 /* CDAResourceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAResourceCell.h; sourceTree = "<group>"; };
 		A173F59B18D9A2FD000E6F92 /* CDAResourceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAResourceCell.m; sourceTree = "<group>"; };
+		A173F60218DB3E1E000E6F92 /* PreviewModeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewModeTests.m; sourceTree = "<group>"; };
+		A173F60418DB412C000E6F92 /* PreviewModeTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PreviewModeTests.json; sourceTree = "<group>"; };
 		A193EB3A18D084C50017B777 /* ValueObjectsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValueObjectsTests.m; sourceTree = "<group>"; };
 		A193EB3D18D09AC10017B777 /* CDAResponse+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDAResponse+Private.h"; sourceTree = "<group>"; };
 		A193EB3F18D09D180017B777 /* UIKitAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIKitAdditionsTests.m; sourceTree = "<group>"; };
@@ -491,6 +495,8 @@
 				A1D1D35E18C8ABB800261A1C /* DocumentationTests.m */,
 				A173F54518D386CD000E6F92 /* ErrorTests.json */,
 				A1E9797718CBEDFC00E79632 /* ErrorTests.m */,
+				A173F60418DB412C000E6F92 /* PreviewModeTests.json */,
+				A173F60218DB3E1E000E6F92 /* PreviewModeTests.m */,
 				A144FAFD18C9F8CA00110B35 /* SearchAPITests.json */,
 				A1A0314E18C756B7006470B7 /* SearchAPITests.m */,
 				A144FAFB18C9F8C200110B35 /* StagingTests.json */,
@@ -847,6 +853,7 @@
 				A144FAFC18C9F8C200110B35 /* StagingTests.json in Resources */,
 				A193EB6818D21B260017B777 /* UIKitAdditionsTests in Resources */,
 				A193EB5618D1C88A0017B777 /* UIKitAdditionsTests.json in Resources */,
+				A173F60518DB412C000E6F92 /* PreviewModeTests.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1121,6 +1128,7 @@
 			files = (
 				A193EB4018D09D180017B777 /* UIKitAdditionsTests.m in Sources */,
 				A193EB3B18D084C50017B777 /* ValueObjectsTests.m in Sources */,
+				A173F60318DB3E1E000E6F92 /* PreviewModeTests.m in Sources */,
 				A1D1D35F18C8ABB800261A1C /* DocumentationTests.m in Sources */,
 				A1A0314F18C756B7006470B7 /* SearchAPITests.m in Sources */,
 				A1D1D35C18C8A94800261A1C /* ContentfulBaseTestCase.m in Sources */,

@@ -6,9 +6,11 @@
 //
 //
 
+#import <ContentfulDeliveryAPI/CDAConfiguration.h>
 #import <ContentfulDeliveryAPI/CDAResource.h>
 
 #import "CDAAsset.h"
+#import "CDAClient+Private.h"
 #import "CDAEntry.h"
 #import "CDAResource+Private.h"
 #import "CDAResponseSerializer.h"
@@ -29,7 +31,13 @@
         self.client = client;
         
         NSMutableSet* acceptableContentTypes = [self.acceptableContentTypes mutableCopy];
-        [acceptableContentTypes addObject:@"application/vnd.contentful.delivery.v1+json"];
+        
+        if (self.client.configuration.previewMode) {
+            [acceptableContentTypes addObject:@"application/vnd.contentful.management.v1+json"];
+        } else {
+            [acceptableContentTypes addObject:@"application/vnd.contentful.delivery.v1+json"];
+        }
+        
         self.acceptableContentTypes = acceptableContentTypes;
     }
     return self;
