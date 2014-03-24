@@ -122,6 +122,7 @@
 		A1E3D05A18C87D3B00E4F488 /* CDARequestOperationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A1E3D05818C87D3B00E4F488 /* CDARequestOperationManager.h */; };
 		A1E3D05B18C87D3B00E4F488 /* CDARequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E3D05918C87D3B00E4F488 /* CDARequestOperationManager.m */; };
 		A1E43F0318CE1CF80060A89A /* CDAArray+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A1E43F0218CE1CF80060A89A /* CDAArray+Private.h */; };
+		A1E832D818E0A1640092F926 /* LinkTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A1E832D718E0A1640092F926 /* LinkTests.json */; };
 		A1E8391518CE29E700B697F6 /* CDAAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A0315718C76D38006470B7 /* CDAAsset.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1E8391618CE2A1800B697F6 /* CDAConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = A19FD8D618C63AE10081677E /* CDAConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1E8391718CE2A5400B697F6 /* CDAField.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A0314618C6708C006470B7 /* CDAField.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -295,6 +296,7 @@
 		A1E3D05818C87D3B00E4F488 /* CDARequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDARequestOperationManager.h; sourceTree = "<group>"; };
 		A1E3D05918C87D3B00E4F488 /* CDARequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDARequestOperationManager.m; sourceTree = "<group>"; };
 		A1E43F0218CE1CF80060A89A /* CDAArray+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDAArray+Private.h"; sourceTree = "<group>"; };
+		A1E832D718E0A1640092F926 /* LinkTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LinkTests.json; sourceTree = "<group>"; };
 		A1E9797418CA2D5900E79632 /* CDAField+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CDAField+Private.h"; sourceTree = "<group>"; };
 		A1E9797518CBE93A00E79632 /* CDAResource+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDAResource+Private.h"; sourceTree = "<group>"; };
 		A1E9797718CBEDFC00E79632 /* ErrorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorTests.m; sourceTree = "<group>"; };
@@ -497,6 +499,7 @@
 				A1D1D35E18C8ABB800261A1C /* DocumentationTests.m */,
 				A173F54518D386CD000E6F92 /* ErrorTests.json */,
 				A1E9797718CBEDFC00E79632 /* ErrorTests.m */,
+				A1E832D718E0A1640092F926 /* LinkTests.json */,
 				A1C8DCD218E098E80019A519 /* LinkTests.m */,
 				A173F60418DB412C000E6F92 /* PreviewModeTests.json */,
 				A173F60218DB3E1E000E6F92 /* PreviewModeTests.m */,
@@ -856,6 +859,7 @@
 				A173F54618D386CD000E6F92 /* ErrorTests.json in Resources */,
 				A144FAFC18C9F8C200110B35 /* StagingTests.json in Resources */,
 				A193EB6818D21B260017B777 /* UIKitAdditionsTests in Resources */,
+				A1E832D818E0A1640092F926 /* LinkTests.json in Resources */,
 				A193EB5618D1C88A0017B777 /* UIKitAdditionsTests.json in Resources */,
 				A173F60518DB412C000E6F92 /* PreviewModeTests.json in Resources */,
 			);
