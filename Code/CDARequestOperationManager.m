@@ -38,6 +38,14 @@
                    failure:(CDARequestFailureBlock)failure {
     AFHTTPRequestOperation* operation = [self GET:URLPath parameters:parameters
       success:^(AFHTTPRequestOperation *operation, id responseObject) {
+          if (!responseObject) {
+              if (failure) {
+                  failure([CDAResponse responseWithHTTPURLResponse:operation.response], [NSError errorWithDomain:NSURLErrorDomain code:kCFURLErrorZeroByteResource userInfo:nil]);
+              }
+              
+              return;
+          }
+          
           if (success) {
               NSAssert([responseObject isKindOfClass:[CDAArray class]],
                        @"Response object needs to be an array.");
@@ -65,6 +73,14 @@
                             failure:(CDARequestFailureBlock)failure {
     AFHTTPRequestOperation* operation = [self GET:@"" parameters:nil
       success:^(AFHTTPRequestOperation *operation, id responseObject) {
+          if (!responseObject) {
+              if (failure) {
+                  failure([CDAResponse responseWithHTTPURLResponse:operation.response], [NSError errorWithDomain:NSURLErrorDomain code:kCFURLErrorZeroByteResource userInfo:nil]);
+              }
+              
+              return;
+          }
+          
           if (success) {
               NSAssert([responseObject isKindOfClass:[CDASpace class]],
                        @"Response object needs to be a space.");

@@ -6,6 +6,8 @@
 //
 //
 
+#import <OHHTTPStubs/OHHTTPStubs.h>
+
 #import "CDAResource+Private.h"
 #import "ContentfulBaseTestCase.h"
 
@@ -74,6 +76,33 @@
     XCTAssertEqualObjects(@"", brokenEntry.fields[@"someText"], @"");
 }
 
+- (void)testBrokenJSON
+{
+    [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
+        return YES;
+    } withStubResponse:^OHHTTPStubsResponse *(NSURLRequest *request) {
+        return [OHHTTPStubsResponse responseWithData:nil statusCode:200 headers:nil];
+    }];
+    
+    StartBlock();
+    
+    [self.client fetchEntriesWithSuccess:^(CDAResponse *response,
+                                           CDAArray *array) {
+        XCTFail(@"Should never be reached.");
+        
+        EndBlock();
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTAssertEqual(error.code, kCFURLErrorZeroByteResource, @"");
+        XCTAssertEqualObjects(error.domain, NSURLErrorDomain, @"");
+        
+        EndBlock();
+    }];
+    
+    WaitUntilBlockCompletes();
+ 
+    [OHHTTPStubs removeLastStub];
+}
+
 - (void)testHoldStrongReferenceToClientUntilRequestIsDone
 {
     StartBlock();
@@ -89,6 +118,32 @@
     client = nil;
     
     WaitUntilBlockCompletes();
+}
+
+- (void)testNoNetwork
+{
+    [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
+        return YES;
+    } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
+        return [OHHTTPStubsResponse responseWithError:[NSError errorWithDomain:NSURLErrorDomain code:kCFURLErrorNotConnectedToInternet userInfo:nil]];
+    }];
+    
+    StartBlock();
+    
+    [self.client fetchEntriesWithSuccess:^(CDAResponse *response, CDAArray *array) {
+        XCTFail(@"Request should not succeed.");
+        
+        EndBlock();
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTAssertEqual(error.code, kCFURLErrorNotConnectedToInternet, @"");
+        XCTAssertEqualObjects(error.domain, NSURLErrorDomain, @"");
+        
+        EndBlock();
+    }];
+    
+    WaitUntilBlockCompletes();
+    
+    [OHHTTPStubs removeLastStub];
 }
 
 - (void)testNonLocationFieldsThrow
