@@ -9,8 +9,7 @@ before_install:
 - pyenv rehash
 - pip install cpp-coveralls
 - pyenv rehash
-script: make test && cd Examples/UFO && set -o pipefail && xcodebuild \ -sdk iphonesimulator
-  | xcpretty -c && cd -
+script: make test && cd Examples/UFO && set -o pipefail && xcodebuild -sdk iphonesimulator | xcpretty -c && cd -
 after_script:
 - cd Examples && ./ship_it.sh && cd ..
 - ./scripts/coveralls.sh
