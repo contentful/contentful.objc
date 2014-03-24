@@ -22,6 +22,71 @@
     self.client = [[CDAClient alloc] initWithSpaceKey:@"lzjz8hygvfgu" accessToken:@"0c6ef483524b5e46b3bafda1bf355f38f5f40b4830f7599f790a410860c7c271"];
 }
 
+- (void)testFetchResourcesOfTypeAsset {
+    StartBlock();
+    
+    [self.client fetchResourcesOfType:CDAResourceTypeAsset
+                             matching:nil
+                              success:^(CDAResponse *response, CDAArray *array) {
+                                  XCTAssertEqual(0U, array.items.count, @"");
+                                  
+                                  EndBlock();
+                              }
+                              failure:^(CDAResponse *response, NSError *error) {
+                                  XCTFail(@"%@", error);
+                                  
+                                  EndBlock();
+                              }];
+    
+    WaitUntilBlockCompletes();
+}
+
+- (void)testFetchResourcesOfTypeContentType {
+    StartBlock();
+    
+    [self.client fetchResourcesOfType:CDAResourceTypeContentType
+                             matching:nil
+                              success:^(CDAResponse *response, CDAArray *array) {
+                                  XCTAssertEqual(2U, array.items.count, @"");
+                                  
+                                  for (CDAContentType* ct in array.items) {
+                                      XCTAssert([ct isKindOfClass:[CDAContentType class]], @"");
+                                  }
+                                  
+                                  EndBlock();
+                              }
+                              failure:^(CDAResponse *response, NSError *error) {
+                                  XCTFail(@"%@", error);
+                                  
+                                  EndBlock();
+                              }];
+    
+    WaitUntilBlockCompletes();
+}
+
+- (void)testFetchResourcesOfTypeEntry {
+    StartBlock();
+    
+    [self.client fetchResourcesOfType:CDAResourceTypeEntry
+                             matching:nil
+                              success:^(CDAResponse *response, CDAArray *array) {
+                                  XCTAssertEqual(100U, array.items.count, @"");
+                                  
+                                  for (CDAEntry* entry in array.items) {
+                                      XCTAssert([entry isKindOfClass:[CDAEntry class]], @"");
+                                  }
+                                  
+                                  EndBlock();
+                              }
+                              failure:^(CDAResponse *response, NSError *error) {
+                                  XCTFail(@"%@", error);
+                                  
+                                  EndBlock();
+                              }];
+    
+    WaitUntilBlockCompletes();
+}
+
 - (void)testPaging {
     StartBlock();
     
