@@ -16,6 +16,7 @@
 
 @property (nonatomic) NSDictionary* allFields;
 @property (nonatomic) NSString* displayField;
+@property (nonatomic) NSArray* fields;
 @property (nonatomic) NSString* name;
 @property (nonatomic) NSString* userDescription;
 
@@ -40,10 +41,6 @@
     return self.allFields[identifier];
 }
 
--(NSArray*)fields {
-    return [self.allFields.allValues sortedArrayUsingComparator:^NSComparisonResult(CDAField* field1, CDAField* field2) { return [field1.name localizedStandardCompare:field2.name]; }];
-}
-
 -(id)initWithDictionary:(NSDictionary *)dictionary client:(CDAClient*)client {
     self = [super initWithDictionary:dictionary client:client];
     if (self) {
@@ -52,13 +49,17 @@
         self.userDescription = dictionary[@"description"];
         
         NSMutableDictionary* allFields = [@{} mutableCopy];
+        NSMutableArray* fields = [@[] mutableCopy];
         
         for (NSDictionary* field in dictionary[@"fields"]) {
             CDAField* fieldObject = [[CDAField alloc] initWithDictionary:field client:self.client];
+            
             allFields[fieldObject.identifier] = fieldObject;
+            [fields addObject:fieldObject];
         }
         
         self.allFields = allFields;
+        self.fields = fields;
         
         [self.client.contentTypeRegistry addContentType:self];
     }

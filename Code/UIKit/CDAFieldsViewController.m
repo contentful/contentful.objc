@@ -109,8 +109,7 @@
         self.entry = entry;
         self.title = entry.fields[entry.contentType.displayField];
         
-        self.fields = [self.entry.fields.allKeys
-                       sortedArrayUsingSelector:@selector(localizedStandardCompare:)];
+        self.fields = self.entry.contentType.fields;
         
         if (self.visibleFields) {
             NSMutableArray* fields = [@[] mutableCopy];
