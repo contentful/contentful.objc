@@ -29,7 +29,7 @@ static-lib:
 	@sed -i '' -e 's/GCC_GENERATE_TEST_COVERAGE_FILES = YES/GCC_GENERATE_TEST_COVERAGE_FILES = NO/g' ContentfulSDK.xcodeproj/project.pbxproj
 	@sed -i '' -e 's/GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES/GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = NO/g' ContentfulSDK.xcodeproj/project.pbxproj
 
-	set -o pipefail && xcodebuild -workspace $(WORKSPACE) \
+	set -o pipefail && xcodebuild VALID_ARCHS='i386 x86_64' -workspace $(WORKSPACE) \
 		-scheme Pods-ContentfulDeliveryAPI \
 		-sdk iphonesimulator | xcpretty -c
 	set -o pipefail && xcodebuild -workspace $(WORKSPACE) \
