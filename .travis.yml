@@ -1,9 +1,9 @@
 language: objective-c
 before_install: gem install cocoapods travis-artifacts xcpretty
 script: make test && cd Examples/UFO && set -o pipefail && xcodebuild \
-  -sdk iphonesimulator | xcpretty -c; cd -
+  -sdk iphonesimulator | xcpretty -c && cd -
 after_script:
-  - cd Examples; ./ship_it.sh; cd ..
+  - cd Examples && ./ship_it.sh && cd ..
   - "travis-artifacts upload --target-path downloads/iOS --path Examples/ContentfulDeliveryAPI.zip --path Examples/UFO.zip"
 notifications:
   flowdock:
