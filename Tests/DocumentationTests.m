@@ -71,38 +71,38 @@
         
         XCTAssertEqual(8U, ct.fields.count, @"");
         [self assertField:ct.fields[0]
-            hasIdentifier:@"bestFriend"
-                     name:@"Best Friend"
-                     type:CDAFieldTypeLink];
+            hasIdentifier:@"name"
+                     name:@"Name"
+                     type:CDAFieldTypeText];
         [self assertField:ct.fields[1]
-            hasIdentifier:@"birthday"
-                     name:@"Birthday"
-                     type:CDAFieldTypeDate];
+            hasIdentifier:@"likes"
+                     name:@"Likes"
+                     type:CDAFieldTypeArray];
+        XCTAssertEqual(CDAFieldTypeSymbol, [ct.fields[1] itemType], @"");
         [self assertField:ct.fields[2]
             hasIdentifier:@"color"
                      name:@"Color"
                      type:CDAFieldTypeSymbol];
         [self assertField:ct.fields[3]
-            hasIdentifier:@"image"
-                     name:@"Image"
+            hasIdentifier:@"bestFriend"
+                     name:@"Best Friend"
                      type:CDAFieldTypeLink];
         [self assertField:ct.fields[4]
+            hasIdentifier:@"birthday"
+                     name:@"Birthday"
+                     type:CDAFieldTypeDate];
+        [self assertField:ct.fields[5]
             hasIdentifier:@"lifes"
                      name:@"Lifes left"
                      type:CDAFieldTypeInteger];
-        [self assertField:ct.fields[5]
-            hasIdentifier:@"likes"
-                     name:@"Likes"
-                     type:CDAFieldTypeArray];
-        XCTAssertEqual(CDAFieldTypeSymbol, [ct.fields[5] itemType], @"");
         [self assertField:ct.fields[6]
             hasIdentifier:@"lives"
                      name:@"Lives left"
                      type:CDAFieldTypeInteger];
         [self assertField:ct.fields[7]
-            hasIdentifier:@"name"
-                     name:@"Name"
-                     type:CDAFieldTypeText];
+            hasIdentifier:@"image"
+                     name:@"Image"
+                     type:CDAFieldTypeLink];
         
         EndBlock();
     } failure:^(CDAResponse *response, NSError *error) {
