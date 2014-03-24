@@ -11,6 +11,7 @@
 
 @interface UIKitAdditionsTests : ContentfulBaseTestCase
 
+@property (nonatomic) SEL currentTestSelector;
 @property (nonatomic) BOOL waiting;
 
 @end
@@ -18,6 +19,41 @@
 #pragma mark -
 
 @implementation UIKitAdditionsTests
+
+- (void)imageViewTestHelperForAssetWithIdentifier:(NSString*)identifier
+                                          success:(void (^)(UIImageView* imageView,
+                                                            CDAAsset* asset))success
+                                          failure:(CDARequestFailureBlock)failure {
+    StartBlock();
+    
+    UIImageView* imageView = imageView = [UIImageView new];
+    
+    self.waiting = YES;
+    
+    [imageView addObserver:self forKeyPath:@"image" options:0 context:NULL];
+    
+    [self.client fetchAssetWithIdentifier:identifier
+                                  success:^(CDAResponse *response, CDAAsset *asset) {
+                                      success(imageView, asset);
+                                      
+                                      EndBlock();
+                                  } failure:^(CDAResponse *response, NSError *error) {
+                                      failure(response, error);
+                                      
+                                      EndBlock();
+                                  }];
+    
+    WaitUntilBlockCompletes();
+    
+    NSDate* now = [NSDate date];
+    WaitWhile(self.waiting && [[NSDate date] timeIntervalSinceDate:now] < 3.0);
+    
+    [imageView removeObserver:self forKeyPath:@"image" context:NULL];
+    
+    XCTAssertFalse(self.waiting, @"Observer hasn't fired after 3 seconds.");
+}
+
+#pragma mark -
 
 - (void)observeValueForKeyPath:(NSString *)keyPath
                       ofObject:(id)object
@@ -36,7 +72,7 @@
     if ([keyPath isEqualToString:@"image"]) {
         UIImageView* imageView = (UIImageView*)object;
         
-        [self compareImage:imageView.image forTestSelector:@selector(testImageViewCategory)];
+        [self compareImage:imageView.image forTestSelector:self.currentTestSelector];
     }
     
     self.waiting = NO;
@@ -63,36 +99,30 @@
 }
 
 - (void)testImageViewCategory {
-    StartBlock();
+    self.currentTestSelector = _cmd;
     
-    __block UIImageView* imageView = nil;
+    [self imageViewTestHelperForAssetWithIdentifier:@"nyancat"
+                                            success:^(UIImageView *imageView, CDAAsset *asset) {
+                                                [imageView cda_setImageWithAsset:asset];
+                                            } failure:^(CDAResponse *response, NSError *error) {
+                                                XCTFail(@"Error: %@", error);
+                                            }];
     
-    [self.client fetchAssetWithIdentifier:@"nyancat"
-                                  success:^(CDAResponse *response, CDAAsset *asset) {
-                                      imageView = [UIImageView new];
-                                      [imageView cda_setImageWithAsset:asset];
-                                      
-                                      EndBlock();
-                                  } failure:^(CDAResponse *response, NSError *error) {
-                                      XCTFail(@"Error: %@", error);
-                                      
-                                      EndBlock();
-                                  }];
+    self.currentTestSelector = NULL;
+}
+
+- (void)testImageViewCategoryWithPlaceholder {
+    self.currentTestSelector = _cmd;
     
-    WaitUntilBlockCompletes();
+    [self imageViewTestHelperForAssetWithIdentifier:@"nyancat"
+                                            success:^(UIImageView *imageView, CDAAsset *asset) {
+                                                [imageView cda_setImageWithAsset:asset
+                                                                placeholderImage:nil];
+                                            } failure:^(CDAResponse *response, NSError *error) {
+                                                XCTFail(@"Error: %@", error);
+                                            }];
     
-    if (imageView) {
-        self.waiting = YES;
-        
-        [imageView addObserver:self forKeyPath:@"image" options:0 context:NULL];
-        
-        NSDate* now = [NSDate date];
-        WaitWhile(self.waiting && [[NSDate date] timeIntervalSinceDate:now] < 3.0);
-        
-        [imageView removeObserver:self forKeyPath:@"image" context:NULL];
-        
-        XCTAssertFalse(self.waiting, @"Observer hasn't fired after 3 seconds.");
-    }
+    self.currentTestSelector = NULL;
 }
 
 @end
