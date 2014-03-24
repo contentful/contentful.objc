@@ -761,6 +761,7 @@
 				A19FD87418C631E60081677E /* Frameworks */,
 				A19FD87518C631E60081677E /* Resources */,
 				3AF5B382E22644A885EFB5FF /* Copy Pods Resources */,
+				A1C8DCD018E042E30019A519 /* Fix XCTest */,
 			);
 			buildRules = (
 			);
@@ -985,6 +986,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "KEYWORDS=\"TODO:|FIXME:|\\?\\?\\?:|\\!\\!\\!:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($KEYWORDS).*\\$\" | grep -v '/Pods/' | perl -p -e \"s/($KEYWORDS)/ warning: \\$1/\"";
+		};
+		A1C8DCD018E042E30019A519 /* Fix XCTest */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Fix XCTest";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# http://stackoverflow.com/questions/22329447/running-unit-tests-from-the-command-line-fail-after-upgrading-to-xcode-5-1\ninstall_name_tool -change \"/Developer/Library/Frameworks/XCTest.framework/XCTest\" \"${SDKROOT}/Developer/Library/Frameworks/XCTest.framework/XCTest\" \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\"";
 		};
 		A1E3CFF318C8651D00E4F488 /* Prepare Framework */ = {
 			isa = PBXShellScriptBuildPhase;
