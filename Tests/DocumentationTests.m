@@ -202,6 +202,8 @@
         XCTAssertEqualObjects(@12273, asset.fields[@"file"][@"details"][@"size"], @"");
         XCTAssertEqualObjects([NSURL URLWithString:@"https://images.contentful.com/cfexampleapi/4gp6taAwW4CmSgumq2ekUm/9da0cd1936871b8d72343e895a00d611/Nyan_cat_250px_frame.png"],
                               asset.URL, @"");
+        XCTAssertEqual(250.0, asset.size.width, @"");
+        XCTAssertEqual(250.0, asset.size.height, @"");
         
         EndBlock();
     } failure:^(CDAResponse *response, NSError *error) {
