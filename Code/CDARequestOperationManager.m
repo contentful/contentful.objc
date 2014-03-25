@@ -123,6 +123,11 @@
         self.accessToken = accessToken;
         self.responseSerializer = [[CDAResponseSerializer alloc] initWithClient:client];
         
+        NSString* userAgent = self.requestSerializer.HTTPRequestHeaders[@"User-Agent"];
+        NSRange bracketRange = [userAgent rangeOfString:@"("];
+        [self.requestSerializer setValue:[userAgent stringByReplacingCharactersInRange:NSMakeRange(0, bracketRange.location - 1) withString:@"contentful.objc/0.1"]
+                      forHTTPHeaderField:@"User-Agent"];
+        
 #if TARGET_OS_IPHONE
         [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
 #endif
