@@ -16,6 +16,7 @@
 @class CDAResponse;
 @class CDARequest;
 @class CDASpace;
+@class CDASyncedSpace;
 
 /** Possible Resource types. */
 typedef NS_ENUM(NSInteger, CDAResourceType) {
@@ -33,6 +34,7 @@ typedef void(^CDAContentTypeFetchedBlock)(CDAResponse* response, CDAContentType*
 typedef void(^CDAEntryFetchedBlock)(CDAResponse* response, CDAEntry* entry);
 typedef void(^CDARequestFailureBlock)(CDAResponse* response, NSError* error);
 typedef void(^CDASpaceFetchedBlock)(CDAResponse* response, CDASpace* space);
+typedef void(^CDASyncedSpaceFetchedBlock)(CDAResponse* response, CDASyncedSpace* space);
 
 /**
  The CDAClient is used to request any information from the server. A client is associated with exactly
@@ -199,6 +201,22 @@ typedef void(^CDASpaceFetchedBlock)(CDAResponse* response, CDASpace* space);
 -(void)fetchAllItemsFromArray:(CDAArray*)array
                       success:(void (^)(NSArray* items))success
                       failure:(CDARequestFailureBlock)failure;
+
+/** @name Synchronization */
+
+/**
+ *  Perform the initial synchronization of a Space.
+ *
+ *  A `CDASyncedSpace` instance will be available once the initial synchronization is done.
+ *  Subsequent updates can be done using that object.
+ *
+ *  @param success A block which gets called upon successful retrieval of all content.
+ *  @param failure A block which gets called if an error occured during the retrieval process.
+ *
+ *  @return The request used for fetching data.
+ */
+-(CDARequest*)initialSynchronizationWithSuccess:(CDASyncedSpaceFetchedBlock)success
+                                        failure:(CDARequestFailureBlock)failure;
 
 /** @name Register classes for custom value objects */
 

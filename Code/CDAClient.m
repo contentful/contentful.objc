@@ -17,6 +17,7 @@
 #import "CDAContentTypeRegistry.h"
 #import "CDAError.h"
 #import "CDARequestOperationManager.h"
+#import "CDASyncedSpace+Private.h"
 
 @interface CDAClient ()
 
@@ -237,6 +238,49 @@
 -(CDARequest*)fetchSpaceWithSuccess:(CDASpaceFetchedBlock)success
                             failure:(CDARequestFailureBlock)failure {
     return [self.requestOperationManager fetchSpaceWithSuccess:success failure:failure];
+}
+
+-(CDARequest*)initialSynchronizationWithSuccess:(CDASyncedSpaceFetchedBlock)success
+                                        failure:(CDARequestFailureBlock)failure {
+    CDAArrayFetchedBlock handler = ^(CDAResponse *response, CDAArray *array) {
+        NSMutableArray* assets = [@[] mutableCopy];
+        NSMutableArray* entries = [@[] mutableCopy];
+        
+        for (id item in array.items) {
+            if ([item isKindOfClass:[CDAAsset class]]) {
+                [assets addObject:item];
+            }
+            
+            if ([item isKindOfClass:[CDAEntry class]]) {
+                [entries addObject:item];
+            }
+        }
+        
+        CDASyncedSpace* space = [[CDASyncedSpace alloc] initWithAssets:[assets copy]
+                                                               entries:[entries copy]];
+        
+        space.client = self;
+        space.nextPageUrl = array.nextPageUrl;
+        space.nextSyncUrl = array.nextSyncUrl;
+        
+        if (success) {
+            success(response, space);
+        }
+    };
+    
+    if (self.contentTypeRegistry.fetched) {
+        return [self.requestOperationManager fetchArrayAtURLPath:@"sync"
+                                                      parameters:@{ @"initial": @"true" }
+                                                         success:handler
+                                                         failure:failure];
+    } else {
+        return [self fetchContentTypesWithSuccess:^(CDAResponse *response, CDAArray *array) {
+            [self.requestOperationManager fetchArrayAtURLPath:@"sync"
+                                                   parameters:@{ @"initial": @"true" }
+                                                      success:handler
+                                                      failure:failure];
+        } failure:failure];
+    }
 }
 
 -(id)init {

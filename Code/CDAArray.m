@@ -13,6 +13,8 @@
 
 @property (nonatomic) NSArray* items;
 @property (nonatomic) NSUInteger limit;
+@property (nonatomic) NSString* nextPageUrlString;
+@property (nonatomic) NSString* nextSyncUrlString;
 @property (nonatomic) NSUInteger skip;
 @property (nonatomic) NSUInteger total;
 
@@ -39,6 +41,9 @@
         self.skip = [dictionary[@"skip"] unsignedIntegerValue];
         self.total = [dictionary[@"total"] unsignedIntegerValue];
         
+        self.nextPageUrlString = dictionary[@"nextPageUrl"];
+        self.nextSyncUrlString = dictionary[@"nextSyncUrl"];
+        
         NSMutableArray* items = [@[] mutableCopy];
         for (NSDictionary* item in dictionary[@"items"]) {
             CDAResource* resource = [CDAResource resourceObjectForDictionary:item client:self.client];
@@ -47,6 +52,14 @@
         self.items = [items copy];
     }
     return self;
+}
+
+-(NSURL *)nextPageUrl {
+    return self.nextPageUrlString ? [NSURL URLWithString:self.nextPageUrlString] : nil;
+}
+
+-(NSURL *)nextSyncUrl {
+    return self.nextSyncUrlString ? [NSURL URLWithString:self.nextSyncUrlString] : nil;
 }
 
 -(void)resolveLinksWithIncludedAssets:(NSDictionary*)assets entries:(NSDictionary*)entries {

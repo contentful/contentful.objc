@@ -82,6 +82,15 @@
         }
     }
     
+    // FIXME: Find a better way for dealing with locales in synchronization
+    if (self.type != CDAFieldTypeLink && self.type != CDAFieldTypeLocation && [value isKindOfClass:[NSDictionary class]]) {
+        if ([value count] == 1) {
+            value = [[value allValues] firstObject];
+        } else {
+            value = [NSNull null];
+        }
+    }
+    
     switch (self.type) {
         case CDAFieldTypeArray:
             if (value == [NSNull null] || ![value isKindOfClass:[NSArray class]]) {

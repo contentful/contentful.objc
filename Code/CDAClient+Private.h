@@ -9,6 +9,7 @@
 #import <ContentfulDeliveryAPI/CDAClient.h>
 
 @class CDAContentTypeRegistry;
+@class CDARequestOperationManager;
 
 @interface CDAClient ()
 
@@ -16,5 +17,6 @@
 
 -(CDAConfiguration*)configuration;
 -(CDAContentTypeRegistry*)contentTypeRegistry;
+-(CDARequestOperationManager*)requestOperationManager;
 
 @end
