@@ -26,7 +26,8 @@
 /**
  *  This delegate method is called when the user selects a row in the table view of entries.
  *
- *  @param entry The Entry associated with the row the user selected.
+ *  @param entriesViewController    The sender of the delegate method.
+ *  @param entry                    The Entry associated with the row the user selected.
  */
 -(void)entriesViewController:(CDAEntriesViewController*)entriesViewController
        didSelectRowWithEntry:(CDAEntry*)entry;
