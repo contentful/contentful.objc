@@ -6,7 +6,7 @@
 //
 //
 
-#import <ContentfulDeliveryAPI/ContentfulDeliveryAPI.h>
+#import <ContentfulDeliveryAPI/CDAResource.h>
 
 /**
  Spaces are containers for Content Types, Entries and Assets.
