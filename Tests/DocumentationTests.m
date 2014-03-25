@@ -95,10 +95,12 @@
             hasIdentifier:@"lifes"
                      name:@"Lifes left"
                      type:CDAFieldTypeInteger];
+        XCTAssert([ct.fields[5] disabled], @"");
         [self assertField:ct.fields[6]
             hasIdentifier:@"lives"
                      name:@"Lives left"
                      type:CDAFieldTypeInteger];
+        XCTAssertFalse([ct.fields[6] disabled], @"");
         [self assertField:ct.fields[7]
             hasIdentifier:@"image"
                      name:@"Image"
