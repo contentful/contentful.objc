@@ -47,6 +47,8 @@ typedef NS_ENUM(NSInteger, CDAFieldType) {
 @property (nonatomic, readonly) NSString* name;
 /** Type of the field. */
 @property (nonatomic, readonly) CDAFieldType type;
+/** Whether the field was disabled. */
+@property (nonatomic, readonly) BOOL disabled;
 
 /** @name Accessing the Type of Array Items */
 

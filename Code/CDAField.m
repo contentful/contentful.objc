@@ -14,10 +14,13 @@
 @interface CDAField ()
 
 @property (nonatomic, weak) CDAClient* client;
+@property (nonatomic) BOOL disabled;
 @property (nonatomic, readonly) NSDictionary* fieldTypes;
 @property (nonatomic) NSString* identifier;
 @property (nonatomic) CDAFieldType itemType;
+@property (nonatomic) BOOL localized;
 @property (nonatomic) NSString* name;
+@property (nonatomic) BOOL required;
 @property (nonatomic) CDAFieldValueTransformer* transformer;
 @property (nonatomic) CDAFieldType type;
 
@@ -66,6 +69,10 @@
         }
         
         self.type = [self stringToFieldType:dictionary[@"type"]];
+        
+        self.disabled = [dictionary[@"disabled"] boolValue];
+        self.localized = [dictionary[@"localized"] boolValue];
+        self.required = [dictionary[@"required"] boolValue];
         
         self.transformer = [CDAFieldValueTransformer transformerOfType:self.type client:self.client];
         self.transformer.itemType = self.itemType;
