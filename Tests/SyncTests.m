@@ -68,6 +68,52 @@
     WaitUntilBlockCompletes();
 }
 
+-(void)testSyncAddAsset {
+    StartBlock();
+    
+    CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response,
+                                                                           CDASyncedSpace *space) {
+        [space performSynchronizationWithSuccess:^{
+            XCTAssertEqual(1U, space.assets.count, @"");
+            XCTAssertEqual(2U, space.entries.count, @"");
+            
+            [space performSynchronizationWithSuccess:^{
+                XCTAssertEqual(1U, space.assets.count, @"");
+                XCTAssertEqual(1U, space.entries.count, @"");
+                
+                [space performSynchronizationWithSuccess:^{
+                    XCTAssertEqual(2U, space.assets.count, @"");
+                    XCTAssertEqual(1U, space.entries.count, @"");
+                    
+                    CDAAsset* asset = [space.assets lastObject];
+                    XCTAssertEqualObjects(@"6koKmTXVzUquae6ewQQ8Eu", asset.identifier, @"");
+                    
+                    EndBlock();
+                } failure:^(CDAResponse *response, NSError *error) {
+                    XCTFail(@"Error: %@", error);
+                    
+                    EndBlock();
+                }];
+            } failure:^(CDAResponse *response, NSError *error) {
+                XCTFail(@"Error: %@", error);
+                
+                EndBlock();
+            }];
+        } failure:^(CDAResponse *response, NSError *error) {
+            XCTFail(@"Error: %@", error);
+            
+            EndBlock();
+        }];
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTFail(@"Error: %@", error);
+        
+        EndBlock();
+    }];
+    XCTAssertNotNil(request, @"");
+    
+    WaitUntilBlockCompletes();
+}
+
 -(void)testSyncAddEntry {
     StartBlock();
     
