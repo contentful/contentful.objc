@@ -87,6 +87,34 @@
     WaitUntilBlockCompletes();
 }
 
+- (void)testIncludes {
+    StartBlock();
+    
+    self.client = [[CDAClient alloc] initWithSpaceKey:@"b61be4nhwivb" accessToken:@"92df7fe7c01a0429a8d22a1cd6173a7f05a7313835202ae1170158825d35e64f"];
+    [self.client fetchEntriesMatching:@{ @"content_type": @"1IXmNJUSVOcuCiKaQUiSO4", @"include": @1 } success:^(CDAResponse *response, CDAArray *array) {
+        XCTAssertEqual(1U, array.items.count, @"");
+        
+        CDAEntry* entry = [array.items firstObject];
+        XCTAssertEqualObjects(@"some post", entry.fields[@"title"], @"");
+        
+        NSArray* linkedEntries = entry.fields[@"tags"];
+        XCTAssertEqual(2U, linkedEntries.count, @"");
+        for (CDAEntry* linkedEntry in linkedEntries) {
+            NSString* name = linkedEntry.fields[@"name"];
+            XCTAssert([name isEqualToString:@"foo"] || [name isEqualToString:@"bar"],
+                      @"Unexpected name '%@'", name);
+        }
+        
+        EndBlock();
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTFail(@"%@", error);
+        
+        EndBlock();
+    }];
+    
+    WaitUntilBlockCompletes();
+}
+
 - (void)testPaging {
     StartBlock();
     

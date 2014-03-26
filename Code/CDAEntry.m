@@ -94,22 +94,53 @@
     NSMutableDictionary* fields = [self.fields mutableCopy];
     
     [self.fields enumerateKeysAndObjectsUsingBlock:^(NSString* key, id value, BOOL *stop) {
-        if ([value isKindOfClass:[CDAResource class]]) {
-            if (![value fetched]) {
-                CDAResource* possibleResource = assets[[value identifier]];
-                if (possibleResource) {
-                    fields[key] = possibleResource;
+        CDAField* field = [self.contentType fieldForIdentifier:key];
+        
+        if (field.type == CDAFieldTypeArray && [value isKindOfClass:[NSArray class]]) {
+            NSArray* array = value;
+            
+            if (array.count > 0 && [[array firstObject] isKindOfClass:[CDAResource class]]) {
+                NSMutableArray* newArray = [@[] mutableCopy];
+                
+                for (CDAResource* resource in array) {
+                    CDAResource* possibleResource = [self resolveSingleResource:resource
+                                                             withIncludedAssets:assets
+                                                                        entries:entries];
+                    [newArray addObject:possibleResource ?: resource];
                 }
                 
-                possibleResource = entries[[value identifier]];
-                if (possibleResource) {
-                    fields[key] = possibleResource;
-                }
+                fields[key] = [newArray copy];
             }
+        }
+        
+        if (field.type == CDAFieldTypeLink && [value isKindOfClass:[CDAResource class]]) {
+            CDAResource* possibleResource = [self resolveSingleResource:value
+                                                     withIncludedAssets:assets
+                                                                entries:entries];
+            
+            fields[key] = possibleResource ?: value;
         }
     }];
     
     self.fields = fields;
+}
+
+-(CDAResource*)resolveSingleResource:(CDAResource*)resource
+               withIncludedAssets:(NSDictionary*)assets
+                          entries:(NSDictionary*)entries {
+    if (!resource.fetched) {
+        NSString* linkType = resource.sys[@"linkType"];
+        
+        if ([linkType isEqualToString:@"Asset"]) {
+            return assets[resource.identifier];
+        }
+        
+        if ([linkType isEqualToString:@"Entry"]) {
+            return entries[resource.identifier];
+        }
+    }
+    
+    return nil;
 }
 
 -(void)resolveWithSuccess:(void (^)(CDAResponse *, CDAResource *))success

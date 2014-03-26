@@ -86,7 +86,7 @@
         NSAssert([dictionary[@"sys"] isKindOfClass:[NSDictionary class]],
                  @"Expected a dictionary of system properties");
         [dictionary[@"sys"] enumerateKeysAndObjectsUsingBlock:^(NSString* key, id value, BOOL *stop) {
-            if ([@[ @"id", @"type" ] containsObject:key]) {
+            if ([@[ @"id", @"type", @"linkType" ] containsObject:key]) {
                 NSAssert([value isKindOfClass:[NSString class]], @"id, type needs to be a string");
                 systemProperties[key] = value;
             }
