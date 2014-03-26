@@ -20,6 +20,17 @@
 /** Value of all system properties of this Resource. */
 @property (nonatomic, readonly) NSDictionary* sys;
 
+/** @name Comparing Resources */
+
+/**
+ *  Returns a Boolean value that indicates whether a given Resource is equal to the receiver.
+ *
+ *  @param resource The Resource with which to compare the receiver.
+ *
+ *  @return `YES` if `resource` is equivalent to the receiver, otherwise `NO`.
+ */
+-(BOOL)isEqualToResource:(CDAResource*)resource;
+
 /** @name Accessing Remote Data */
 
 /** 

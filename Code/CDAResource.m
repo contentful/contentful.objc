@@ -16,6 +16,10 @@
 #import "CDAResource+Private.h"
 #import "CDAUtilities.h"
 
+// From: https://www.mikeash.com/pyblog/friday-qa-2010-06-18-implementing-equality-and-hashing.html
+#define NSUINT_BIT (CHAR_BIT * sizeof(NSUInteger))
+#define NSUINTROTATE(val, howmuch) ((((NSUInteger)val) << howmuch) | (((NSUInteger)val) >> (NSUINT_BIT - howmuch)))
+
 @interface CDAResource ()
 
 @property (nonatomic, weak) CDAClient* client;
@@ -69,6 +73,10 @@
     return self.lastFetchedDate != nil;
 }
 
+-(NSUInteger)hash {
+    return NSUINTROTATE([self.identifier hash], NSUINT_BIT / 2) ^ [self.sys[@"type"] hash];
+}
+
 -(NSString *)identifier {
     return self.sys[@"id"];
 }
@@ -120,6 +128,17 @@
         self.lastFetchedDate = self.isLink ? nil : [NSDate date];
     }
     return self;
+}
+
+-(BOOL)isEqual:(id)object {
+    if ([object isKindOfClass:[CDAResource class]]) {
+        return [self isEqualToResource:object];
+    }
+    return [super isEqual:object];
+}
+
+-(BOOL)isEqualToResource:(CDAResource*)resource {
+    return [self.sys[@"type"] isEqualToString:resource.sys[@"type"]] && [self.identifier isEqualToString:resource.identifier];
 }
 
 -(BOOL)isLink {
