@@ -11,6 +11,7 @@
 
 #import "CDAArray+Private.h"
 #import "CDAClient+Private.h"
+#import "CDADeletedAsset.h"
 #import "CDADeletedEntry.h"
 #import "CDARequestOperationManager.h"
 #import "CDASyncedSpace+Private.h"
@@ -57,6 +58,15 @@
                                  failure:(CDARequestFailureBlock)failure {
     [self.client.requestOperationManager fetchArrayAtURLPath:@"sync" parameters:@{ @"sync_token": self.syncToken } success:^(CDAResponse *response, CDAArray *array) {
         for (CDAResource* item in array.items) {
+            if ([item isKindOfClass:[CDADeletedAsset class]]) {
+                for (CDAAsset* asset in self.syncedAssets) {
+                    if ([asset.identifier isEqualToString:item.identifier]) {
+                        [self.syncedAssets removeObject:asset];
+                        break;
+                    }
+                }
+            }
+            
             if ([item isKindOfClass:[CDADeletedEntry class]]) {
                 for (CDAEntry* entry in self.syncedEntries) {
                     if ([entry.identifier isEqualToString:item.identifier]) {
