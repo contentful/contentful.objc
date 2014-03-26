@@ -92,6 +92,10 @@ static NSString* const CDASpaceKey          = @"CDASpaceKey";
     // Cast necessary because we essentially abuse a view controller made for Entries
     CDAContentType* contentType = (CDAContentType*)entry;
     
+    if (!contentType.displayField) {
+        return;
+    }
+    
     CDAEntriesViewController* entriesVC = [[CDAEntriesViewController alloc] initWithCellMapping:@{ @"textLabel.text": [@"fields." stringByAppendingString:contentType.displayField] }];
     entriesVC.client = [UIApplication sharedApplication].client;
     entriesVC.query = @{ @"content_type": contentType.identifier };
