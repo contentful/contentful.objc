@@ -124,6 +124,7 @@
         self.responseSerializer = [[CDAResponseSerializer alloc] initWithClient:client];
         
         NSString* userAgent = self.requestSerializer.HTTPRequestHeaders[@"User-Agent"];
+        userAgent = [userAgent stringByReplacingOccurrencesOfString:@"(null)" withString:@""];
         NSRange bracketRange = [userAgent rangeOfString:@"("];
         [self.requestSerializer setValue:[userAgent stringByReplacingCharactersInRange:NSMakeRange(0, bracketRange.location - 1) withString:@"contentful.objc/0.2.0"]
                       forHTTPHeaderField:@"User-Agent"];
