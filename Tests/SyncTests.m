@@ -54,6 +54,9 @@
         XCTAssertEqual(1U, space.assets.count, @"");
         XCTAssertEqual(1U, space.entries.count, @"");
         
+        CDAEntry* entry = [space.entries firstObject];
+        XCTAssertEqualObjects(@"Test", entry.fields[@"title"], @"");
+        
         EndBlock();
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
@@ -79,6 +82,43 @@
             XCTAssertEqualObjects(@"some text", entry.fields[@"body"], @"");
             
             EndBlock();
+        } failure:^(CDAResponse *response, NSError *error) {
+            XCTFail(@"Error: %@", error);
+            
+            EndBlock();
+        }];
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTFail(@"Error: %@", error);
+        
+        EndBlock();
+    }];
+    XCTAssertNotNil(request, @"");
+    
+    WaitUntilBlockCompletes();
+}
+
+-(void)testSyncRemoveEntry {
+    StartBlock();
+    
+    CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response,
+                                                                           CDASyncedSpace *space) {
+        [space performSynchronizationWithSuccess:^{
+            XCTAssertEqual(1U, space.assets.count, @"");
+            XCTAssertEqual(2U, space.entries.count, @"");
+            
+            [space performSynchronizationWithSuccess:^{
+                XCTAssertEqual(1U, space.assets.count, @"");
+                XCTAssertEqual(1U, space.entries.count, @"");
+                
+                CDAEntry* entry = [space.entries firstObject];
+                XCTAssertEqualObjects(@"Test", entry.fields[@"title"], @"");
+                
+                EndBlock();
+            } failure:^(CDAResponse *response, NSError *error) {
+                XCTFail(@"Error: %@", error);
+                
+                EndBlock();
+            }];
         } failure:^(CDAResponse *response, NSError *error) {
             XCTFail(@"Error: %@", error);
             

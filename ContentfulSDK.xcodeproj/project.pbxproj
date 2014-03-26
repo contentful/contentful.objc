@@ -68,6 +68,8 @@
 		A173F59D18D9A2FD000E6F92 /* CDAResourceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A173F59B18D9A2FD000E6F92 /* CDAResourceCell.m */; };
 		A173F60318DB3E1E000E6F92 /* PreviewModeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A173F60218DB3E1E000E6F92 /* PreviewModeTests.m */; };
 		A173F60518DB412C000E6F92 /* PreviewModeTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A173F60418DB412C000E6F92 /* PreviewModeTests.json */; };
+		A18AA81318E2D98200D430D5 /* CDADeletedEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = A18AA81118E2D98200D430D5 /* CDADeletedEntry.h */; };
+		A18AA81418E2D98200D430D5 /* CDADeletedEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = A18AA81218E2D98200D430D5 /* CDADeletedEntry.m */; };
 		A193EB3B18D084C50017B777 /* ValueObjectsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A193EB3A18D084C50017B777 /* ValueObjectsTests.m */; };
 		A193EB3C18D096C50017B777 /* CDAResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A0313618C644B5006470B7 /* CDAResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A193EB3E18D09AC10017B777 /* CDAResponse+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A193EB3D18D09AC10017B777 /* CDAResponse+Private.h */; };
@@ -230,6 +232,8 @@
 		A173F60218DB3E1E000E6F92 /* PreviewModeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewModeTests.m; sourceTree = "<group>"; };
 		A173F60418DB412C000E6F92 /* PreviewModeTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PreviewModeTests.json; sourceTree = "<group>"; };
 		A18AA81018E1D14F00D430D5 /* CDASyncedSpace+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDASyncedSpace+Private.h"; sourceTree = "<group>"; };
+		A18AA81118E2D98200D430D5 /* CDADeletedEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDADeletedEntry.h; sourceTree = "<group>"; };
+		A18AA81218E2D98200D430D5 /* CDADeletedEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDADeletedEntry.m; sourceTree = "<group>"; };
 		A193EB3A18D084C50017B777 /* ValueObjectsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValueObjectsTests.m; sourceTree = "<group>"; };
 		A193EB3D18D09AC10017B777 /* CDAResponse+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDAResponse+Private.h"; sourceTree = "<group>"; };
 		A193EB3F18D09D180017B777 /* UIKitAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIKitAdditionsTests.m; sourceTree = "<group>"; };
@@ -655,6 +659,8 @@
 				A1A0315818C76D38006470B7 /* CDAAsset.m */,
 				A1A0314018C66E90006470B7 /* CDAContentType.h */,
 				A1A0314118C66E90006470B7 /* CDAContentType.m */,
+				A18AA81118E2D98200D430D5 /* CDADeletedEntry.h */,
+				A18AA81218E2D98200D430D5 /* CDADeletedEntry.m */,
 				A1A0312A18C64187006470B7 /* CDAEntry.h */,
 				A1A0312B18C64187006470B7 /* CDAEntry.m */,
 				A1A0315318C76839006470B7 /* CDAError.h */,
@@ -705,6 +711,7 @@
 				A1E9797B18CC683200E79632 /* CDAFieldValueTransformer.h in Headers */,
 				A1D2DC0218D076F50053DC83 /* CDAEntriesViewController.h in Headers */,
 				A173F54E18D6FD03000E6F92 /* CDATextViewController.h in Headers */,
+				A18AA81318E2D98200D430D5 /* CDADeletedEntry.h in Headers */,
 				A1E3D05A18C87D3B00E4F488 /* CDARequestOperationManager.h in Headers */,
 				A160862218CDF0E60047D44F /* CDARequest.h in Headers */,
 			);
@@ -1138,6 +1145,7 @@
 				A193EB4818D0ACFE0017B777 /* CDAFieldCell.m in Sources */,
 				A1D2DC0518D076F50053DC83 /* CDAEntryCell.m in Sources */,
 				A1E9797C18CC683200E79632 /* CDAFieldValueTransformer.m in Sources */,
+				A18AA81418E2D98200D430D5 /* CDADeletedEntry.m in Sources */,
 				A173F55318D700B8000E6F92 /* CDALocationViewController.m in Sources */,
 				A1A0314818C6708C006470B7 /* CDAField.m in Sources */,
 				A1D2DC0318D076F50053DC83 /* CDAEntriesViewController.m in Sources */,
