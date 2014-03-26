@@ -56,7 +56,9 @@
         
         EndBlock();
     } failure:^(CDAResponse *response, NSError *error) {
+        XCTFail(@"Error: %@", error);
         
+        EndBlock();
     }];
     
     WaitUntilBlockCompletes();
