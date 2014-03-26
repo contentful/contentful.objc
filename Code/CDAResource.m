@@ -34,21 +34,21 @@
         return nil;
     }
     
-    NSString* resultType = dictionary[@"sys"][@"type"];
+    NSString* resourceType = dictionary[@"sys"][@"type"];
     
-    BOOL isLink = [resultType isEqualToString:@"Link"];
+    BOOL isLink = [resourceType isEqualToString:@"Link"];
     if (isLink) {
-        resultType = dictionary[@"sys"][@"linkType"];
+        resourceType = dictionary[@"sys"][@"linkType"];
     }
     
     for (Class subclass in [self subclasses]) {
-        if ([[subclass CDAType] isEqualToString:resultType]) {
+        if ([[subclass CDAType] isEqualToString:resourceType]) {
             CDAResource* resource = [[subclass alloc] initWithDictionary:dictionary client:client];
             return resource;
         }
     }
     
-    NSAssert(false, @"Unsupported result type '%@'", resultType);
+    NSAssert(false, @"Unsupported resource type '%@'", resourceType);
     return nil;
 }
 
