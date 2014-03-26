@@ -125,7 +125,7 @@
         
         NSString* userAgent = self.requestSerializer.HTTPRequestHeaders[@"User-Agent"];
         NSRange bracketRange = [userAgent rangeOfString:@"("];
-        [self.requestSerializer setValue:[userAgent stringByReplacingCharactersInRange:NSMakeRange(0, bracketRange.location - 1) withString:@"contentful.objc/0.1"]
+        [self.requestSerializer setValue:[userAgent stringByReplacingCharactersInRange:NSMakeRange(0, bracketRange.location - 1) withString:@"contentful.objc/0.2.0"]
                       forHTTPHeaderField:@"User-Agent"];
         
 #if TARGET_OS_IPHONE

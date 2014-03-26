@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "ContentfulDeliveryAPI"
-  s.version          = "0.1.0"
+  s.version          = "0.2.0"
   s.summary          = "Objective-C SDK for Contentful's Content Delivery API."
   s.homepage         = "http://github.com/contentful/contentful.objc/"
   s.social_media_url = 'https://twitter.com/contentfulapp'
@@ -18,11 +18,11 @@ Pod::Spec.new do |s|
   s.ios.deployment_target     = '6.0'
   s.ios.source_files          = 'Code/**/*.{h,m}'
   s.ios.frameworks            = 'UIKit', 'MapKit'
-  s.ios.public_header_files  = 'Code/{CDAArray,CDAAsset,CDAClient,CDAConfiguration,CDAContentType,CDAEntry,CDAField,CDARequest,CDAResource,CDAResponse,CDASpace,ContentfulDeliveryAPI,UIKit/CDAEntriesViewController,UIKit/CDAFieldsViewController,UIKit/UIImageView+CDAAsset,UIKit/CDAResourcesCollectionViewController,UIKit/CDAResourceCell}.h'
+  s.ios.public_header_files  = 'Code/{CDAArray,CDAAsset,CDAClient,CDAConfiguration,CDAContentType,CDAEntry,CDAField,CDARequest,CDAResource,CDAResponse,CDASpace,CDASyncedSpace,ContentfulDeliveryAPI,UIKit/CDAEntriesViewController,UIKit/CDAFieldsViewController,UIKit/UIImageView+CDAAsset,UIKit/CDAResourcesCollectionViewController,UIKit/CDAResourceCell}.h'
 
   s.osx.deployment_target     = '10.8'
   s.osx.source_files          = 'Code/*.{h,m}'
-  s.osx.public_header_files  = 'Code/{CDAArray,CDAAsset,CDAClient,CDAConfiguration,CDAContentType,CDAEntry,CDAField,CDARequest,CDAResource,CDAResponse,CDASpace,ContentfulDeliveryAPI}.h'
+  s.osx.public_header_files  = 'Code/{CDAArray,CDAAsset,CDAClient,CDAConfiguration,CDAContentType,CDAEntry,CDAField,CDARequest,CDAResource,CDAResponse,CDASpace,CDASyncedSpace,ContentfulDeliveryAPI}.h'
 
   s.dependency 'AFNetworking'
   s.dependency 'ISO8601DateFormatter'
