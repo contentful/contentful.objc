@@ -62,6 +62,32 @@
 
 @implementation ValueObjectsTests
 
+- (void)testEqualityOfEntries {
+    StartBlock();
+    
+    [self.client registerClass:[Cat class] forContentTypeWithIdentifier:@"cat"];
+    
+    [self.client fetchEntryWithIdentifier:@"nyancat" success:^(CDAResponse *response, CDAEntry *cat) {
+        [self.client fetchEntryWithIdentifier:@"nyancat" success:^(CDAResponse *response,
+                                                                   CDAEntry *entry) {
+            XCTAssertNotNil(cat, @"");
+            XCTAssertEqualObjects(entry, cat, @"");
+            
+            EndBlock();
+        } failure:^(CDAResponse *response, NSError *error) {
+            XCTFail(@"Error: %@", error);
+            
+            EndBlock();
+        }];
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTFail(@"Error: %@", error);
+        
+        EndBlock();
+    }];
+    
+    WaitUntilBlockCompletes();
+}
+
 - (void)testCustomClasses {
     StartBlock();
     

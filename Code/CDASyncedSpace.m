@@ -77,11 +77,21 @@
             }
             
             if ([item isKindOfClass:[CDAAsset class]]) {
-                [self.syncedAssets addObject:item];
+                NSUInteger assetIndex = [self.syncedAssets indexOfObject:item];
+                if (assetIndex != NSNotFound) {
+                    [self.syncedAssets replaceObjectAtIndex:assetIndex withObject:item];
+                } else {
+                    [self.syncedAssets addObject:item];
+                }
             }
             
             if ([item isKindOfClass:[CDAEntry class]]) {
-                [self.syncedEntries addObject:item];
+                NSUInteger entryIndex = [self.syncedEntries indexOfObject:item];
+                if (entryIndex != NSNotFound) {
+                    [self.syncedEntries replaceObjectAtIndex:entryIndex withObject:item];
+                } else {
+                    [self.syncedEntries addObject:item];
+                }
             }
         }
         
