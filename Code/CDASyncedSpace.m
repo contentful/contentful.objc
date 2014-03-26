@@ -6,6 +6,7 @@
 //
 //
 
+#import <ContentfulDeliveryAPI/CDAAsset.h>
 #import <ContentfulDeliveryAPI/CDAEntry.h>
 
 #import "CDAArray+Private.h"
@@ -63,6 +64,10 @@
                         break;
                     }
                 }
+            }
+            
+            if ([item isKindOfClass:[CDAAsset class]]) {
+                [self.syncedAssets addObject:item];
             }
             
             if ([item isKindOfClass:[CDAEntry class]]) {
