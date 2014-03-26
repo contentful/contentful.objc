@@ -62,6 +62,7 @@
     NSMutableDictionary* entries = [@{} mutableCopy];
     for (NSDictionary* possibleEntry in JSONObject[@"includes"][@"Entry"]) {
         CDAEntry* entry = [[CDAEntry alloc] initWithDictionary:possibleEntry client:self.client];
+        [entry resolveLinksWithIncludedAssets:assets entries:nil];
         entries[entry.identifier] = entry;
     }
     
