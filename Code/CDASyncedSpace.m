@@ -10,6 +10,7 @@
 
 #import "CDAArray+Private.h"
 #import "CDAClient+Private.h"
+#import "CDADeletedEntry.h"
 #import "CDARequestOperationManager.h"
 #import "CDASyncedSpace+Private.h"
 
@@ -55,6 +56,15 @@
                                  failure:(CDARequestFailureBlock)failure {
     [self.client.requestOperationManager fetchArrayAtURLPath:@"sync" parameters:@{ @"sync_token": self.syncToken } success:^(CDAResponse *response, CDAArray *array) {
         for (CDAResource* item in array.items) {
+            if ([item isKindOfClass:[CDADeletedEntry class]]) {
+                for (CDAEntry* entry in self.syncedEntries) {
+                    if ([entry.identifier isEqualToString:item.identifier]) {
+                        [self.syncedEntries removeObject:entry];
+                        break;
+                    }
+                }
+            }
+            
             if ([item isKindOfClass:[CDAEntry class]]) {
                 [self.syncedEntries addObject:item];
             }
