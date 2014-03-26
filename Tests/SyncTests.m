@@ -50,7 +50,7 @@
 -(void)testInitialSync {
     StartBlock();
     
-    [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
+    CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
         XCTAssertEqual(1U, space.assets.count, @"");
         XCTAssertEqual(1U, space.entries.count, @"");
         
@@ -60,6 +60,7 @@
         
         EndBlock();
     }];
+    XCTAssertNotNil(request, @"");
     
     WaitUntilBlockCompletes();
 }
@@ -67,26 +68,28 @@
 -(void)testSyncAddEntry {
     StartBlock();
     
-    [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
-       [space performSynchronizationWithSuccess:^{
-           XCTAssertEqual(1U, space.assets.count, @"");
-           XCTAssertEqual(2U, space.entries.count, @"");
-           
-           CDAEntry* entry = space.entries[1];
-           XCTAssertEqualObjects(@"Second entry", entry.fields[@"title"], @"");
-           XCTAssertEqualObjects(@"some text", entry.fields[@"body"], @"");
-           
-           EndBlock();
-       } failure:^(CDAResponse *response, NSError *error) {
-           XCTFail(@"Error: %@", error);
-           
-           EndBlock();
-       }];
+    CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response,
+                                                                           CDASyncedSpace *space) {
+        [space performSynchronizationWithSuccess:^{
+            XCTAssertEqual(1U, space.assets.count, @"");
+            XCTAssertEqual(2U, space.entries.count, @"");
+            
+            CDAEntry* entry = space.entries[1];
+            XCTAssertEqualObjects(@"Second entry", entry.fields[@"title"], @"");
+            XCTAssertEqualObjects(@"some text", entry.fields[@"body"], @"");
+            
+            EndBlock();
+        } failure:^(CDAResponse *response, NSError *error) {
+            XCTFail(@"Error: %@", error);
+            
+            EndBlock();
+        }];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
         EndBlock();
     }];
+    XCTAssertNotNil(request, @"");
     
     WaitUntilBlockCompletes();
 }
