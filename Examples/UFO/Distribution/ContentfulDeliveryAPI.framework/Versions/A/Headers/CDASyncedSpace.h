@@ -26,7 +26,7 @@
 /**
  *  This method is called once a new Asset is created.
  *
- *  @param array The relevant Space.
+ *  @param space The relevant Space.
  *  @param asset The newly created Asset.
  */
 -(void)syncedArray:(CDASyncedSpace*)space didCreateAsset:(CDAAsset*)asset;
@@ -34,7 +34,7 @@
 /**
  *  This method is called once a new Entry is created.
  *
- *  @param array The relevant Space.
+ *  @param space The relevant Space.
  *  @param entry The newly created Entry.
  */
 -(void)syncedArray:(CDASyncedSpace*)space didCreateEntry:(CDAEntry*)entry;
@@ -44,7 +44,7 @@
 /**
  *  This method is called once an existing Asset is deleted.
  *
- *  @param array The relevant Space.
+ *  @param space The relevant Space.
  *  @param asset The deleted Asset.
  */
 -(void)syncedArray:(CDASyncedSpace*)space didDeleteAsset:(CDAAsset*)asset;
@@ -52,7 +52,7 @@
 /**
  *  This method is called once an existing Entry is deleted.
  *
- *  @param array The relevant Space.
+ *  @param space The relevant Space.
  *  @param entry The deleted Entry.
  */
 -(void)syncedArray:(CDASyncedSpace*)space didDeleteEntry:(CDAEntry*)entry;
@@ -62,7 +62,7 @@
 /**
  *  This method is called once an existing Asset is updated.
  *
- *  @param array The relevant Space.
+ *  @param space The relevant Space.
  *  @param asset The updated Asset.
  */
 -(void)syncedArray:(CDASyncedSpace*)space didUpdateAsset:(CDAAsset*)asset;
@@ -70,7 +70,7 @@
 /**
  *  This method is called once an existing Entry is updated.
  *
- *  @param array The relevant Space.
+ *  @param space The relevant Space.
  *  @param entry The updated Entry.
  */
 -(void)syncedArray:(CDASyncedSpace*)space didUpdateEntry:(CDAEntry*)entry;
