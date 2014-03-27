@@ -11,6 +11,18 @@
 #import "CDAResource+Private.h"
 #import "ContentfulBaseTestCase.h"
 
+@interface SyncedSpaceDelegate : NSObject <CDASyncedSpaceDelegate>
+
+@end
+
+#pragma mark -
+
+@implementation SyncedSpaceDelegate
+
+@end
+
+#pragma mark -
+
 @interface SyncTests : ContentfulBaseTestCase <CDASyncedSpaceDelegate>
 
 @property (nonatomic) NSUInteger numberOfDelegateMethodCalls;
@@ -53,6 +65,58 @@
 
 -(void)tearDown {
     [OHHTTPStubs removeAllStubs];
+}
+
+-(void)testDelegateIsActuallyOptional {
+    StartBlock();
+    
+    SyncedSpaceDelegate* delegate = [SyncedSpaceDelegate new];
+    
+    CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response,
+                                                                           CDASyncedSpace *space) {
+        space.delegate = delegate;
+        
+        [space performSynchronizationWithSuccess:^{
+            [space performSynchronizationWithSuccess:^{
+                [space performSynchronizationWithSuccess:^{
+                    [space performSynchronizationWithSuccess:^{
+                        [space performSynchronizationWithSuccess:^{
+                            EndBlock();
+                        } failure:^(CDAResponse *response, NSError *error) {
+                            XCTFail(@"Error: %@", error);
+                            
+                            EndBlock();
+                        }];
+                    } failure:^(CDAResponse *response, NSError *error) {
+                        XCTFail(@"Error: %@", error);
+                        
+                        EndBlock();
+                    }];
+                } failure:^(CDAResponse *response, NSError *error) {
+                    XCTFail(@"Error: %@", error);
+                    
+                    EndBlock();
+                }];
+            } failure:^(CDAResponse *response, NSError *error) {
+                XCTFail(@"Error: %@", error);
+                
+                EndBlock();
+            }];
+        } failure:^(CDAResponse *response, NSError *error) {
+            XCTFail(@"Error: %@", error);
+            
+            EndBlock();
+        }];
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTFail(@"Error: %@", error);
+        
+        EndBlock();
+    }];
+    XCTAssertNotNil(request, @"");
+    
+    WaitUntilBlockCompletes();
+    
+    XCTAssertNotNil(delegate, @"");
 }
 
 -(void)testInitialSync {
