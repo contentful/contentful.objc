@@ -61,7 +61,9 @@
             if ([item isKindOfClass:[CDADeletedAsset class]]) {
                 for (CDAAsset* asset in self.syncedAssets) {
                     if ([asset.identifier isEqualToString:item.identifier]) {
+                        [self willChangeValueForKey:@"assets"];
                         [self.syncedAssets removeObject:asset];
+                        [self didChangeValueForKey:@"assets"];
                         
                         if ([self.delegate respondsToSelector:@selector(syncedSpace:didDeleteAsset:)]) {
                             [self.delegate syncedSpace:self didDeleteAsset:asset];
@@ -74,7 +76,9 @@
             if ([item isKindOfClass:[CDADeletedEntry class]]) {
                 for (CDAEntry* entry in self.syncedEntries) {
                     if ([entry.identifier isEqualToString:item.identifier]) {
+                        [self willChangeValueForKey:@"entries"];
                         [self.syncedEntries removeObject:entry];
+                        [self didChangeValueForKey:@"entries"];
                         
                         if ([self.delegate respondsToSelector:@selector(syncedSpace:didDeleteEntry:)]) {
                             [self.delegate syncedSpace:self didDeleteEntry:entry];
@@ -85,6 +89,8 @@
             }
             
             if ([item isKindOfClass:[CDAAsset class]]) {
+                [self willChangeValueForKey:@"assets"];
+                
                 NSUInteger assetIndex = [self.syncedAssets indexOfObject:item];
                 if (assetIndex != NSNotFound) {
                     [self.syncedAssets replaceObjectAtIndex:assetIndex withObject:item];
@@ -99,9 +105,13 @@
                         [self.delegate syncedSpace:self didCreateAsset:(CDAAsset*)item];
                     }
                 }
+                
+                [self didChangeValueForKey:@"assets"];
             }
             
             if ([item isKindOfClass:[CDAEntry class]]) {
+                [self willChangeValueForKey:@"entries"];
+                
                 NSUInteger entryIndex = [self.syncedEntries indexOfObject:item];
                 if (entryIndex != NSNotFound) {
                     [self.syncedEntries replaceObjectAtIndex:entryIndex withObject:item];
@@ -116,6 +126,8 @@
                         [self.delegate syncedSpace:self didCreateEntry:(CDAEntry*)item];
                     }
                 }
+                
+                [self didChangeValueForKey:@"entries"];
             }
         }
         
