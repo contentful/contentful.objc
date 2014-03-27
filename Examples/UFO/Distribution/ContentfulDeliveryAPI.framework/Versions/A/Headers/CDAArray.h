@@ -27,4 +27,14 @@
 /** The total number of resources which are available on the server. */
 @property (nonatomic, readonly) NSUInteger total;
 
+/** @name Errors in Remote Data */
+
+/** 
+ *  An array of non-fatal errors encountered while fetching the receiver.
+ *
+ *  For example, if there is a link to an Entry which no longer exists, there will be a `notResolvable`
+ *  error in the `errors` array.
+ */
+@property (nonatomic, readonly) NSArray* errors;
+
 @end

@@ -29,7 +29,7 @@
  *  @param space The relevant Space.
  *  @param asset The newly created Asset.
  */
--(void)syncedArray:(CDASyncedSpace*)space didCreateAsset:(CDAAsset*)asset;
+-(void)syncedSpace:(CDASyncedSpace*)space didCreateAsset:(CDAAsset*)asset;
 
 /**
  *  This method is called once a new Entry is created.
@@ -37,7 +37,7 @@
  *  @param space The relevant Space.
  *  @param entry The newly created Entry.
  */
--(void)syncedArray:(CDASyncedSpace*)space didCreateEntry:(CDAEntry*)entry;
+-(void)syncedSpace:(CDASyncedSpace*)space didCreateEntry:(CDAEntry*)entry;
 
 /** @name Information on Deleted Resources */
 
@@ -47,7 +47,7 @@
  *  @param space The relevant Space.
  *  @param asset The deleted Asset.
  */
--(void)syncedArray:(CDASyncedSpace*)space didDeleteAsset:(CDAAsset*)asset;
+-(void)syncedSpace:(CDASyncedSpace*)space didDeleteAsset:(CDAAsset*)asset;
 
 /**
  *  This method is called once an existing Entry is deleted.
@@ -55,7 +55,7 @@
  *  @param space The relevant Space.
  *  @param entry The deleted Entry.
  */
--(void)syncedArray:(CDASyncedSpace*)space didDeleteEntry:(CDAEntry*)entry;
+-(void)syncedSpace:(CDASyncedSpace*)space didDeleteEntry:(CDAEntry*)entry;
 
 /** @name Information on Updated Resources */
 
@@ -65,7 +65,7 @@
  *  @param space The relevant Space.
  *  @param asset The updated Asset.
  */
--(void)syncedArray:(CDASyncedSpace*)space didUpdateAsset:(CDAAsset*)asset;
+-(void)syncedSpace:(CDASyncedSpace*)space didUpdateAsset:(CDAAsset*)asset;
 
 /**
  *  This method is called once an existing Entry is updated.
@@ -73,7 +73,7 @@
  *  @param space The relevant Space.
  *  @param entry The updated Entry.
  */
--(void)syncedArray:(CDASyncedSpace*)space didUpdateEntry:(CDAEntry*)entry;
+-(void)syncedSpace:(CDASyncedSpace*)space didUpdateEntry:(CDAEntry*)entry;
 
 @end
 
@@ -101,6 +101,10 @@
 
 /**
  *  Perform a synchronization of the receiving synchronized Space.
+ *
+ *  Using this method, a complete synchronization of all 
+ *  [pages](https://www.contentful.com/developers/documentation/content-delivery-api/#sync-example-next-page) 
+ *  will be performed, which means that all data from the Space will be in memory.
  *
  *  @param success A block which is called upon the successful synchronization of the Space.
  *  @param failure A block which is called if any errors occur during the synchronization process.
