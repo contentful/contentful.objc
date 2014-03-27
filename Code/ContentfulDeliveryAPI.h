@@ -26,3 +26,5 @@
 #import <ContentfulDeliveryAPI/CDAResourceCell.h>
 #import <ContentfulDeliveryAPI/CDAResourcesCollectionViewController.h>
 #endif
+
+extern NSString* const CDAErrorDomain;

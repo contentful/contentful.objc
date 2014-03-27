@@ -9,7 +9,7 @@
 #import "CDAError.h"
 #import "CDAResource+Private.h"
 
-static NSString* const CDAErrorDomain = @"CDAErrorDomain";
+NSString* const CDAErrorDomain = @"CDAErrorDomain";
 
 @interface CDAError ()
 
