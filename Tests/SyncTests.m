@@ -11,7 +11,9 @@
 #import "CDAResource+Private.h"
 #import "ContentfulBaseTestCase.h"
 
-@interface SyncTests : ContentfulBaseTestCase
+@interface SyncTests : ContentfulBaseTestCase <CDASyncedSpaceDelegate>
+
+@property (nonatomic) NSUInteger numberOfDelegateMethodCalls;
 
 @end
 
@@ -23,6 +25,7 @@
     [super setUp];
     
     self.client = [[CDAClient alloc] initWithSpaceKey:@"emh6o2ireilu" accessToken:@"1bf1261e0225089be464c79fff1a0773ca8214f1e82dd521f3ecf9690ba888ac"];
+    self.numberOfDelegateMethodCalls = 0;
 
     CDAContentType* ct = [[CDAContentType alloc] initWithDictionary:@{ @"sys": @{ @"id": @"6bAvxqodl6s4MoKuWYkmqe" }, @"name": @"Stub", @"fields": @[ @{ @"id": @"title", @"type": @"Symbol" }, @{ @"id": @"body", @"type": @"Text" } ] } client:self.client];
     ct = nil;
@@ -71,6 +74,8 @@
     XCTAssertNotNil(request, @"");
     
     WaitUntilBlockCompletes();
+    
+    XCTAssertEqual(0U, self.numberOfDelegateMethodCalls, @"");
 }
 
 -(void)testSyncAddAsset {
@@ -78,6 +83,8 @@
     
     CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response,
                                                                            CDASyncedSpace *space) {
+        space.delegate = self;
+        
         [space performSynchronizationWithSuccess:^{
             XCTAssertEqual(1U, space.assets.count, @"");
             XCTAssertEqual(2U, space.entries.count, @"");
@@ -117,6 +124,8 @@
     XCTAssertNotNil(request, @"");
     
     WaitUntilBlockCompletes();
+    
+    XCTAssertEqual(3U, self.numberOfDelegateMethodCalls, @"");
 }
 
 -(void)testSyncRemoveAsset {
@@ -124,6 +133,8 @@
     
     CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response,
                                                                            CDASyncedSpace *space) {
+        space.delegate = self;
+        
         [space performSynchronizationWithSuccess:^{
             XCTAssertEqual(1U, space.assets.count, @"");
             XCTAssertEqual(2U, space.entries.count, @"");
@@ -172,6 +183,8 @@
     XCTAssertNotNil(request, @"");
     
     WaitUntilBlockCompletes();
+    
+    XCTAssertEqual(4U, self.numberOfDelegateMethodCalls, @"");
 }
 
 -(void)testSyncAddEntry {
@@ -179,6 +192,8 @@
     
     CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response,
                                                                            CDASyncedSpace *space) {
+        space.delegate = self;
+        
         [space performSynchronizationWithSuccess:^{
             XCTAssertEqual(1U, space.assets.count, @"");
             XCTAssertEqual(2U, space.entries.count, @"");
@@ -201,6 +216,8 @@
     XCTAssertNotNil(request, @"");
     
     WaitUntilBlockCompletes();
+    
+    XCTAssertEqual(1U, self.numberOfDelegateMethodCalls, @"");
 }
 
 -(void)testSyncRemoveEntry {
@@ -208,6 +225,8 @@
     
     CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response,
                                                                            CDASyncedSpace *space) {
+        space.delegate = self;
+        
         [space performSynchronizationWithSuccess:^{
             XCTAssertEqual(1U, space.assets.count, @"");
             XCTAssertEqual(2U, space.entries.count, @"");
@@ -238,6 +257,8 @@
     XCTAssertNotNil(request, @"");
     
     WaitUntilBlockCompletes();
+    
+    XCTAssertEqual(2U, self.numberOfDelegateMethodCalls, @"");
 }
 
 -(void)testSyncUpdate {
@@ -245,6 +266,8 @@
     
     CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response,
                                                                            CDASyncedSpace *space) {
+        space.delegate = self;
+        
         [space performSynchronizationWithSuccess:^{
             XCTAssertEqual(1U, space.assets.count, @"");
             XCTAssertEqual(2U, space.entries.count, @"");
@@ -299,6 +322,46 @@
     XCTAssertNotNil(request, @"");
     
     WaitUntilBlockCompletes();
+    
+    XCTAssertEqual(6U, self.numberOfDelegateMethodCalls, @"");
+}
+
+#pragma mark - CDASyncedSpaceDelegate
+
+-(void)syncedSpace:(CDASyncedSpace *)space didCreateAsset:(CDAAsset *)asset {
+    XCTAssert([asset isKindOfClass:[CDAAsset class]], @"");
+    
+    self.numberOfDelegateMethodCalls++;
+}
+
+-(void)syncedSpace:(CDASyncedSpace *)space didCreateEntry:(CDAEntry *)entry {
+    XCTAssert([entry isKindOfClass:[CDAEntry class]], @"");
+    
+    self.numberOfDelegateMethodCalls++;
+}
+
+-(void)syncedSpace:(CDASyncedSpace *)space didDeleteAsset:(CDAAsset *)asset {
+    XCTAssert([asset isKindOfClass:[CDAAsset class]], @"");
+    
+    self.numberOfDelegateMethodCalls++;
+}
+
+-(void)syncedSpace:(CDASyncedSpace *)space didDeleteEntry:(CDAEntry *)entry {
+    XCTAssert([entry isKindOfClass:[CDAEntry class]], @"");
+    
+    self.numberOfDelegateMethodCalls++;
+}
+
+-(void)syncedSpace:(CDASyncedSpace *)space didUpdateAsset:(CDAAsset *)asset {
+    XCTAssert([asset isKindOfClass:[CDAAsset class]], @"");
+    
+    self.numberOfDelegateMethodCalls++;
+}
+
+-(void)syncedSpace:(CDASyncedSpace *)space didUpdateEntry:(CDAEntry *)entry {
+    XCTAssert([entry isKindOfClass:[CDAEntry class]], @"");
+    
+    self.numberOfDelegateMethodCalls++;
 }
 
 @end
