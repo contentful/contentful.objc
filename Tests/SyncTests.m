@@ -194,7 +194,7 @@
     StartBlock();
     
     self.client = [[CDAClient alloc] initWithSpaceKey:@"lzjz8hygvfgu" accessToken:@"0c6ef483524b5e46b3bafda1bf355f38f5f40b4830f7599f790a410860c7c271"];
-    [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
+    CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
         XCTAssertEqual(594U, space.entries.count, @"");
         
         [space performSynchronizationWithSuccess:^{
@@ -211,6 +211,7 @@
         
         EndBlock();
     }];
+    XCTAssertNotNil(request, @"");
     
     WaitUntilBlockCompletes();
 }
