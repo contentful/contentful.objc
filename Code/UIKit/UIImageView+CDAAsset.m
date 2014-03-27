@@ -18,14 +18,25 @@
     [self setImageWithURL:asset.URL];
 }
 
+-(void)cda_setImageWithAsset:(CDAAsset *)asset size:(CGSize)size {
+    [self cda_validateAsset:asset];
+    [self setImageWithURL:[asset imageURLWithSize:size]];
+}
+
 -(void)cda_setImageWithAsset:(CDAAsset *)asset placeholderImage:(UIImage *)placeholderImage {
     [self cda_validateAsset:asset];
     [self setImageWithURL:asset.URL placeholderImage:placeholderImage];
 }
 
+-(void)cda_setImageWithAsset:(CDAAsset *)asset
+                        size:(CGSize)size
+            placeholderImage:(UIImage *)placeholderImage {
+    [self cda_validateAsset:asset];
+    [self setImageWithURL:[asset imageURLWithSize:size] placeholderImage:placeholderImage];
+}
+
 -(void)cda_validateAsset:(CDAAsset *)asset {
-    // TODO: Improve validation of assets
-    if (![[asset MIMEType] hasPrefix:@"image/"]) {
+    if (!asset.isImage) {
         [NSException raise:NSInvalidArgumentException
                     format:@"Asset %@ is not an image.", asset.identifier];
     }

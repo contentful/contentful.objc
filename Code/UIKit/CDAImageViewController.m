@@ -24,7 +24,7 @@
 -(void)setAsset:(CDAAsset *)asset {
     _asset = asset;
     
-    if ([asset.MIMEType hasPrefix:@"image/"]) {
+    if (asset.isImage) {
         [self.imageView cda_setImageWithAsset:asset];
     } else {
         self.imageView.hidden = YES;
