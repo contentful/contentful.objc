@@ -205,6 +205,36 @@
     "uri" : "https:\/\/cdn.contentful.com\/spaces\/cfexampleapi\/assets?access_token=b4c0n73n7fu1&sys.id=nyancat"
   },
   {
+    "body" : "ewogICJzeXMiOiB7CiAgICAidHlwZSI6ICJBcnJheSIKICB9LAogICJ0b3RhbCI6\r\nIDIsCiAgInNraXAiOiAwLAogICJsaW1pdCI6IDEwMCwKICAiaXRlbXMiOiBbCiAg\r\nICB7CiAgICAgICJmaWVsZHMiOiBbCiAgICAgICAgewogICAgICAgICAgIm5hbWUi\r\nOiAiVGl0bGUiLAogICAgICAgICAgImlkIjogInRpdGxlIiwKICAgICAgICAgICJ0\r\neXBlIjogIlN5bWJvbCIKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJu\r\nYW1lIjogIkxpbmtlZFRoaW5nIiwKICAgICAgICAgICJpZCI6ICJsaW5rZWRUaGlu\r\nZyIsCiAgICAgICAgICAidHlwZSI6ICJMaW5rIiwKICAgICAgICAgICJsaW5rVHlw\r\nZSI6ICJFbnRyeSIKICAgICAgICB9CiAgICAgIF0sCiAgICAgICJuYW1lIjogIkNU\r\nMiIsCiAgICAgICJzeXMiOiB7CiAgICAgICAgInNwYWNlIjogewogICAgICAgICAg\r\nInN5cyI6IHsKICAgICAgICAgICAgInR5cGUiOiAiTGluayIsCiAgICAgICAgICAg\r\nICJsaW5rVHlwZSI6ICJTcGFjZSIsCiAgICAgICAgICAgICJpZCI6ICJsdDB3Z3Vp\r\nMnYzZXEiCiAgICAgICAgICB9CiAgICAgICAgfSwKICAgICAgICAidHlwZSI6ICJD\r\nb250ZW50VHlwZSIsCiAgICAgICAgImlkIjogIjFBZ1JnS0Vxd0FxOHFtc2NXT01h\r\nQVciLAogICAgICAgICJyZXZpc2lvbiI6IDEsCiAgICAgICAgImNyZWF0ZWRBdCI6\r\nICIyMDE0LTAzLTI3VDEzOjM5OjU3LjQwMloiLAogICAgICAgICJ1cGRhdGVkQXQi\r\nOiAiMjAxNC0wMy0yN1QxMzozOTo1Ny40MDJaIgogICAgICB9LAogICAgICAiZGlz\r\ncGxheUZpZWxkIjogInRpdGxlIgogICAgfSwKICAgIHsKICAgICAgImZpZWxkcyI6\r\nIFsKICAgICAgICB7CiAgICAgICAgICAibmFtZSI6ICJ0aXRsZSIsCiAgICAgICAg\r\nICAiaWQiOiAidGl0bGUiLAogICAgICAgICAgInR5cGUiOiAiU3ltYm9sIgogICAg\r\nICAgIH0KICAgICAgXSwKICAgICAgIm5hbWUiOiAiQ1QxIiwKICAgICAgInN5cyI6\r\nIHsKICAgICAgICAic3BhY2UiOiB7CiAgICAgICAgICAic3lzIjogewogICAgICAg\r\nICAgICAidHlwZSI6ICJMaW5rIiwKICAgICAgICAgICAgImxpbmtUeXBlIjogIlNw\r\nYWNlIiwKICAgICAgICAgICAgImlkIjogImx0MHdndWkydjNlcSIKICAgICAgICAg\r\nIH0KICAgICAgICB9LAogICAgICAgICJ0eXBlIjogIkNvbnRlbnRUeXBlIiwKICAg\r\nICAgICAiaWQiOiAiWW82elRLNVZBYWVXRUttZ1dvb0VtIiwKICAgICAgICAicmV2\r\naXNpb24iOiAxLAogICAgICAgICJjcmVhdGVkQXQiOiAiMjAxNC0wMy0yN1QxMzoz\r\nOTozMy45NzVaIiwKICAgICAgICAidXBkYXRlZEF0IjogIjIwMTQtMDMtMjdUMTM6\r\nMzk6MzMuOTc1WiIKICAgICAgfSwKICAgICAgImRpc3BsYXlGaWVsZCI6ICJ0aXRs\r\nZSIKICAgIH0KICBdCn0K",
+    "headers" : {
+      "Content-Encoding" : "gzip",
+      "X-Contentful-Request-Id" : "85f-1684244996",
+      "Connection" : "Keep-Alive",
+      "Access-Control-Max-Age" : "86400",
+      "Access-Control-Allow-Methods" : "GET,HEAD,OPTIONS",
+      "X-Cache-Hits" : "1",
+      "Access-Control-Allow-Headers" : "Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization",
+      "Date" : "Thu, 27 Mar 2014 17:17:16 GMT",
+      "Keep-Alive" : "timeout=10, max=48",
+      "X-Served-By" : "cache-fra1228-FRA",
+      "Vary" : "Accept-Encoding",
+      "Accept-Ranges" : "bytes",
+      "X-Cache" : "HIT",
+      "Via" : "1.1 varnish",
+      "Etag" : "\"0aaaaed872f70890f97352faab3e0a2e\"",
+      "Cache-Control" : "max-age=0",
+      "Access-Control-Allow-Origin" : "*",
+      "Server" : "Apache",
+      "Age" : "1551",
+      "Content-Type" : "application\/vnd.contentful.delivery.v1+json",
+      "Last-Modified" : "Thu, 27 Mar 2014 17:17:16 GMT",
+      "Content-Length" : "405"
+    },
+    "method" : "GET",
+    "status" : 200,
+    "uri" : "https:\/\/cdn.contentful.com\/spaces\/lt0wgui2v3eq\/content_types?access_token=b45994ce21e51210fdfde1b048a5528bb2d09ac16751134741121c17c7a65a05"
+  },
+  {
     "body" : "ewogICJzeXMiOiB7CiAgICAidHlwZSI6ICJBcnJheSIKICB9LAogICJ0b3RhbCI6\r\nIDQsCiAgInNraXAiOiAwLAogICJsaW1pdCI6IDEwMCwKICAiaXRlbXMiOiBbCiAg\r\nICB7CiAgICAgICJmaWVsZHMiOiBbCiAgICAgICAgewogICAgICAgICAgImlkIjog\r\nIm5hbWUiLAogICAgICAgICAgIm5hbWUiOiAiTmFtZSIsCiAgICAgICAgICAidHlw\r\nZSI6ICJUZXh0IiwKICAgICAgICAgICJyZXF1aXJlZCI6IHRydWUsCiAgICAgICAg\r\nICAibG9jYWxpemVkIjogdHJ1ZQogICAgICAgIH0sCiAgICAgICAgewogICAgICAg\r\nICAgImlkIjogImxpa2VzIiwKICAgICAgICAgICJuYW1lIjogIkxpa2VzIiwKICAg\r\nICAgICAgICJ0eXBlIjogIkFycmF5IiwKICAgICAgICAgICJyZXF1aXJlZCI6IGZh\r\nbHNlLAogICAgICAgICAgImxvY2FsaXplZCI6IGZhbHNlLAogICAgICAgICAgIml0\r\nZW1zIjogewogICAgICAgICAgICAidHlwZSI6ICJTeW1ib2wiCiAgICAgICAgICB9\r\nCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAiaWQiOiAiY29sb3IiLAog\r\nICAgICAgICAgIm5hbWUiOiAiQ29sb3IiLAogICAgICAgICAgInR5cGUiOiAiU3lt\r\nYm9sIiwKICAgICAgICAgICJyZXF1aXJlZCI6IGZhbHNlLAogICAgICAgICAgImxv\r\nY2FsaXplZCI6IGZhbHNlCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAi\r\naWQiOiAiYmVzdEZyaWVuZCIsCiAgICAgICAgICAibmFtZSI6ICJCZXN0IEZyaWVu\r\nZCIsCiAgICAgICAgICAidHlwZSI6ICJMaW5rIiwKICAgICAgICAgICJyZXF1aXJl\r\nZCI6IGZhbHNlLAogICAgICAgICAgImxvY2FsaXplZCI6IGZhbHNlLAogICAgICAg\r\nICAgImxpbmtUeXBlIjogIkVudHJ5IgogICAgICAgIH0sCiAgICAgICAgewogICAg\r\nICAgICAgImlkIjogImJpcnRoZGF5IiwKICAgICAgICAgICJuYW1lIjogIkJpcnRo\r\nZGF5IiwKICAgICAgICAgICJ0eXBlIjogIkRhdGUiLAogICAgICAgICAgInJlcXVp\r\ncmVkIjogZmFsc2UsCiAgICAgICAgICAibG9jYWxpemVkIjogZmFsc2UKICAgICAg\r\nICB9LAogICAgICAgIHsKICAgICAgICAgICJpZCI6ICJsaWZlcyIsCiAgICAgICAg\r\nICAibmFtZSI6ICJMaWZlcyBsZWZ0IiwKICAgICAgICAgICJ0eXBlIjogIkludGVn\r\nZXIiLAogICAgICAgICAgInJlcXVpcmVkIjogZmFsc2UsCiAgICAgICAgICAibG9j\r\nYWxpemVkIjogZmFsc2UsCiAgICAgICAgICAiZGlzYWJsZWQiOiB0cnVlCiAgICAg\r\nICAgfSwKICAgICAgICB7CiAgICAgICAgICAiaWQiOiAibGl2ZXMiLAogICAgICAg\r\nICAgIm5hbWUiOiAiTGl2ZXMgbGVmdCIsCiAgICAgICAgICAidHlwZSI6ICJJbnRl\r\nZ2VyIiwKICAgICAgICAgICJyZXF1aXJlZCI6IGZhbHNlLAogICAgICAgICAgImxv\r\nY2FsaXplZCI6IGZhbHNlCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAi\r\naWQiOiAiaW1hZ2UiLAogICAgICAgICAgIm5hbWUiOiAiSW1hZ2UiLAogICAgICAg\r\nICAgInJlcXVpcmVkIjogZmFsc2UsCiAgICAgICAgICAibG9jYWxpemVkIjogZmFs\r\nc2UsCiAgICAgICAgICAidHlwZSI6ICJMaW5rIiwKICAgICAgICAgICJsaW5rVHlw\r\nZSI6ICJBc3NldCIKICAgICAgICB9CiAgICAgIF0sCiAgICAgICJuYW1lIjogIkNh\r\ndCIsCiAgICAgICJkaXNwbGF5RmllbGQiOiAibmFtZSIsCiAgICAgICJkZXNjcmlw\r\ndGlvbiI6ICJNZW93LiIsCiAgICAgICJzeXMiOiB7CiAgICAgICAgInNwYWNlIjog\r\newogICAgICAgICAgInN5cyI6IHsKICAgICAgICAgICAgInR5cGUiOiAiTGluayIs\r\nCiAgICAgICAgICAgICJsaW5rVHlwZSI6ICJTcGFjZSIsCiAgICAgICAgICAgICJp\r\nZCI6ICJjZmV4YW1wbGVhcGkiCiAgICAgICAgICB9CiAgICAgICAgfSwKICAgICAg\r\nICAidHlwZSI6ICJDb250ZW50VHlwZSIsCiAgICAgICAgImlkIjogImNhdCIsCiAg\r\nICAgICAgInJldmlzaW9uIjogMiwKICAgICAgICAiY3JlYXRlZEF0IjogIjIwMTMt\r\nMDYtMjdUMjI6NDY6MTIuODUyWiIsCiAgICAgICAgInVwZGF0ZWRBdCI6ICIyMDEz\r\nLTA5LTAyVDEzOjE0OjQ3Ljg2M1oiCiAgICAgIH0KICAgIH0sCiAgICB7CiAgICAg\r\nICJmaWVsZHMiOiBbCiAgICAgICAgewogICAgICAgICAgImlkIjogIm5hbWUiLAog\r\nICAgICAgICAgIm5hbWUiOiAiTmFtZSIsCiAgICAgICAgICAidHlwZSI6ICJUZXh0\r\nIiwKICAgICAgICAgICJyZXF1aXJlZCI6IHRydWUsCiAgICAgICAgICAibG9jYWxp\r\nemVkIjogZmFsc2UKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJpZCI6\r\nICJkZXNjcmlwdGlvbiIsCiAgICAgICAgICAibmFtZSI6ICJEZXNjcmlwdGlvbiIs\r\nCiAgICAgICAgICAidHlwZSI6ICJUZXh0IiwKICAgICAgICAgICJyZXF1aXJlZCI6\r\nIGZhbHNlLAogICAgICAgICAgImxvY2FsaXplZCI6IGZhbHNlCiAgICAgICAgfSwK\r\nICAgICAgICB7CiAgICAgICAgICAiaWQiOiAiaW1hZ2UiLAogICAgICAgICAgIm5h\r\nbWUiOiAiSW1hZ2UiLAogICAgICAgICAgInJlcXVpcmVkIjogZmFsc2UsCiAgICAg\r\nICAgICAibG9jYWxpemVkIjogZmFsc2UsCiAgICAgICAgICAidHlwZSI6ICJMaW5r\r\nIiwKICAgICAgICAgICJsaW5rVHlwZSI6ICJBc3NldCIKICAgICAgICB9CiAgICAg\r\nIF0sCiAgICAgICJuYW1lIjogIkRvZyIsCiAgICAgICJkZXNjcmlwdGlvbiI6ICJC\r\nYXJrISIsCiAgICAgICJkaXNwbGF5RmllbGQiOiAibmFtZSIsCiAgICAgICJzeXMi\r\nOiB7CiAgICAgICAgInNwYWNlIjogewogICAgICAgICAgInN5cyI6IHsKICAgICAg\r\nICAgICAgInR5cGUiOiAiTGluayIsCiAgICAgICAgICAgICJsaW5rVHlwZSI6ICJT\r\ncGFjZSIsCiAgICAgICAgICAgICJpZCI6ICJjZmV4YW1wbGVhcGkiCiAgICAgICAg\r\nICB9CiAgICAgICAgfSwKICAgICAgICAidHlwZSI6ICJDb250ZW50VHlwZSIsCiAg\r\nICAgICAgImlkIjogImRvZyIsCiAgICAgICAgInJldmlzaW9uIjogMiwKICAgICAg\r\nICAiY3JlYXRlZEF0IjogIjIwMTMtMDYtMjdUMjI6NDY6MTMuNDk4WiIsCiAgICAg\r\nICAgInVwZGF0ZWRBdCI6ICIyMDEzLTA5LTAyVDE0OjMyOjExLjgzN1oiCiAgICAg\r\nIH0KICAgIH0sCiAgICB7CiAgICAgICJmaWVsZHMiOiBbCiAgICAgICAgewogICAg\r\nICAgICAgImlkIjogIm5hbWUiLAogICAgICAgICAgIm5hbWUiOiAiTmFtZSIsCiAg\r\nICAgICAgICAidHlwZSI6ICJUZXh0IiwKICAgICAgICAgICJyZXF1aXJlZCI6IHRy\r\ndWUsCiAgICAgICAgICAibG9jYWxpemVkIjogZmFsc2UKICAgICAgICB9LAogICAg\r\nICAgIHsKICAgICAgICAgICJpZCI6ICJkZXNjcmlwdGlvbiIsCiAgICAgICAgICAi\r\nbmFtZSI6ICJEZXNjcmlwdGlvbiIsCiAgICAgICAgICAidHlwZSI6ICJUZXh0IiwK\r\nICAgICAgICAgICJyZXF1aXJlZCI6IGZhbHNlLAogICAgICAgICAgImxvY2FsaXpl\r\nZCI6IGZhbHNlCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAiaWQiOiAi\r\nbGlrZXMiLAogICAgICAgICAgIm5hbWUiOiAiTGlrZXMiLAogICAgICAgICAgInR5\r\ncGUiOiAiQXJyYXkiLAogICAgICAgICAgInJlcXVpcmVkIjogZmFsc2UsCiAgICAg\r\nICAgICAibG9jYWxpemVkIjogZmFsc2UsCiAgICAgICAgICAiaXRlbXMiOiB7CiAg\r\nICAgICAgICAgICJ0eXBlIjogIlN5bWJvbCIKICAgICAgICAgIH0KICAgICAgICB9\r\nLAogICAgICAgIHsKICAgICAgICAgICJpZCI6ICJpbWFnZSIsCiAgICAgICAgICAi\r\nbmFtZSI6ICJJbWFnZSIsCiAgICAgICAgICAicmVxdWlyZWQiOiBmYWxzZSwKICAg\r\nICAgICAgICJsb2NhbGl6ZWQiOiBmYWxzZSwKICAgICAgICAgICJ0eXBlIjogIkFy\r\ncmF5IiwKICAgICAgICAgICJpdGVtcyI6IHsKICAgICAgICAgICAgInR5cGUiOiAi\r\nTGluayIsCiAgICAgICAgICAgICJsaW5rVHlwZSI6ICJBc3NldCIKICAgICAgICAg\r\nIH0sCiAgICAgICAgICAiZGlzYWJsZWQiOiB0cnVlCiAgICAgICAgfQogICAgICBd\r\nLAogICAgICAibmFtZSI6ICJIdW1hbiIsCiAgICAgICJkaXNwbGF5RmllbGQiOiAi\r\nbmFtZSIsCiAgICAgICJzeXMiOiB7CiAgICAgICAgInNwYWNlIjogewogICAgICAg\r\nICAgInN5cyI6IHsKICAgICAgICAgICAgInR5cGUiOiAiTGluayIsCiAgICAgICAg\r\nICAgICJsaW5rVHlwZSI6ICJTcGFjZSIsCiAgICAgICAgICAgICJpZCI6ICJjZmV4\r\nYW1wbGVhcGkiCiAgICAgICAgICB9CiAgICAgICAgfSwKICAgICAgICAidHlwZSI6\r\nICJDb250ZW50VHlwZSIsCiAgICAgICAgImlkIjogImh1bWFuIiwKICAgICAgICAi\r\ncmV2aXNpb24iOiAzLAogICAgICAgICJjcmVhdGVkQXQiOiAiMjAxMy0wNi0yN1Qy\r\nMjo0NjoxNC4xMzNaIiwKICAgICAgICAidXBkYXRlZEF0IjogIjIwMTMtMDktMDJU\r\nMTU6MTA6MjYuODE4WiIKICAgICAgfQogICAgfSwKICAgIHsKICAgICAgImZpZWxk\r\ncyI6IFsKICAgICAgICB7CiAgICAgICAgICAibmFtZSI6ICJOYW1lIiwKICAgICAg\r\nICAgICJpZCI6ICJuYW1lIiwKICAgICAgICAgICJ0eXBlIjogIlRleHQiLAogICAg\r\nICAgICAgInJlcXVpcmVkIjogdHJ1ZQogICAgICAgIH0sCiAgICAgICAgewogICAg\r\nICAgICAgIm5hbWUiOiAiQ2VudGVyIiwKICAgICAgICAgICJpZCI6ICJjZW50ZXIi\r\nLAogICAgICAgICAgInR5cGUiOiAiTG9jYXRpb24iLAogICAgICAgICAgInJlcXVp\r\ncmVkIjogdHJ1ZQogICAgICAgIH0KICAgICAgXSwKICAgICAgIm5hbWUiOiAiQ2l0\r\neSIsCiAgICAgICJzeXMiOiB7CiAgICAgICAgInNwYWNlIjogewogICAgICAgICAg\r\nInN5cyI6IHsKICAgICAgICAgICAgInR5cGUiOiAiTGluayIsCiAgICAgICAgICAg\r\nICJsaW5rVHlwZSI6ICJTcGFjZSIsCiAgICAgICAgICAgICJpZCI6ICJjZmV4YW1w\r\nbGVhcGkiCiAgICAgICAgICB9CiAgICAgICAgfSwKICAgICAgICAidHlwZSI6ICJD\r\nb250ZW50VHlwZSIsCiAgICAgICAgImlkIjogIjF0OUliY2ZkQ2s2bTA0dUlTU3Nh\r\nSUsiLAogICAgICAgICJyZXZpc2lvbiI6IDEsCiAgICAgICAgImNyZWF0ZWRBdCI6\r\nICIyMDE0LTAyLTIxVDEzOjQyOjMzLjAwOVoiLAogICAgICAgICJ1cGRhdGVkQXQi\r\nOiAiMjAxNC0wMi0yMVQxMzo0MjozMy4wMDlaIgogICAgICB9LAogICAgICAiZGlz\r\ncGxheUZpZWxkIjogIm5hbWUiCiAgICB9CiAgXQp9Cg==",
     "headers" : {
       "Access-Control-Allow-Headers" : "Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization",
@@ -261,5 +291,35 @@
     "method" : "GET",
     "status" : 200,
     "uri" : "https:\/\/cdn.contentful.com\/spaces\/cfexampleapi\/?access_token=b4c0n73n7fu1"
+  },
+  {
+    "body" : "ewogICJzeXMiOiB7CiAgICAidHlwZSI6ICJBcnJheSIKICB9LAogICJ0b3RhbCI6\r\nIDEsCiAgInNraXAiOiAwLAogICJsaW1pdCI6IDEwMCwKICAiaXRlbXMiOiBbCiAg\r\nICB7CiAgICAgICJzeXMiOiB7CiAgICAgICAgInNwYWNlIjogewogICAgICAgICAg\r\nInN5cyI6IHsKICAgICAgICAgICAgInR5cGUiOiAiTGluayIsCiAgICAgICAgICAg\r\nICJsaW5rVHlwZSI6ICJTcGFjZSIsCiAgICAgICAgICAgICJpZCI6ICJsdDB3Z3Vp\r\nMnYzZXEiCiAgICAgICAgICB9CiAgICAgICAgfSwKICAgICAgICAidHlwZSI6ICJF\r\nbnRyeSIsCiAgICAgICAgImNvbnRlbnRUeXBlIjogewogICAgICAgICAgInN5cyI6\r\nIHsKICAgICAgICAgICAgInR5cGUiOiAiTGluayIsCiAgICAgICAgICAgICJsaW5r\r\nVHlwZSI6ICJDb250ZW50VHlwZSIsCiAgICAgICAgICAgICJpZCI6ICIxQWdSZ0tF\r\ncXdBcThxbXNjV09NYUFXIgogICAgICAgICAgfQogICAgICAgIH0sCiAgICAgICAg\r\nImlkIjogIjJJeWRnY2RwSUlBODhJWWM0R200QU0iLAogICAgICAgICJyZXZpc2lv\r\nbiI6IDEsCiAgICAgICAgImNyZWF0ZWRBdCI6ICIyMDE0LTAzLTI3VDEzOjQwOjIy\r\nLjk5NFoiLAogICAgICAgICJ1cGRhdGVkQXQiOiAiMjAxNC0wMy0yN1QxMzo0MDoy\r\nMi45OTRaIiwKICAgICAgICAibG9jYWxlIjogImVuLVVTIgogICAgICB9LAogICAg\r\nICAiZmllbGRzIjogewogICAgICAgICJ0aXRsZSI6ICJiYXIiLAogICAgICAgICJs\r\naW5rZWRUaGluZyI6IHsKICAgICAgICAgICJzeXMiOiB7CiAgICAgICAgICAgICJ0\r\neXBlIjogIkxpbmsiLAogICAgICAgICAgICAibGlua1R5cGUiOiAiRW50cnkiLAog\r\nICAgICAgICAgICAiaWQiOiAiMzRuOHNNY1lJME8wNEdZOE9jQ2d1WSIKICAgICAg\r\nICAgIH0KICAgICAgICB9CiAgICAgIH0KICAgIH0KICBdLAogICJlcnJvcnMiOiBb\r\nCiAgICB7CiAgICAgICJzeXMiOiB7CiAgICAgICAgInR5cGUiOiAiZXJyb3IiLAog\r\nICAgICAgICJpZCI6ICJub3RSZXNvbHZhYmxlIgogICAgICB9LAogICAgICAiZGV0\r\nYWlscyI6IHsKICAgICAgICAidHlwZSI6ICJMaW5rIiwKICAgICAgICAibGlua1R5\r\ncGUiOiAiRW50cnkiLAogICAgICAgICJpZCI6ICIzNG44c01jWUkwTzA0R1k4T2ND\r\nZ3VZIgogICAgICB9CiAgICB9CiAgXSwKICAiaW5jbHVkZXMiOiB7fQp9Cg==",
+    "headers" : {
+      "Content-Encoding" : "gzip",
+      "X-Contentful-Request-Id" : "85f-1684245029",
+      "Connection" : "Keep-Alive",
+      "Access-Control-Max-Age" : "86400",
+      "Access-Control-Allow-Methods" : "GET,HEAD,OPTIONS",
+      "X-Cache-Hits" : "1",
+      "Access-Control-Allow-Headers" : "Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization",
+      "Date" : "Thu, 27 Mar 2014 17:17:16 GMT",
+      "Keep-Alive" : "timeout=10, max=47",
+      "X-Served-By" : "cache-fra1228-FRA",
+      "Vary" : "Accept-Encoding",
+      "Accept-Ranges" : "bytes",
+      "X-Cache" : "HIT",
+      "Via" : "1.1 varnish",
+      "Etag" : "\"dbe97869cf446a3f59467b89e9ba2272\"",
+      "Cache-Control" : "max-age=0",
+      "Access-Control-Allow-Origin" : "*",
+      "Server" : "Apache",
+      "Age" : "795",
+      "Content-Type" : "application\/vnd.contentful.delivery.v1+json",
+      "Last-Modified" : "Thu, 27 Mar 2014 17:17:16 GMT",
+      "Content-Length" : "425"
+    },
+    "method" : "GET",
+    "status" : 200,
+    "uri" : "https:\/\/cdn.contentful.com\/spaces\/lt0wgui2v3eq\/entries?access_token=b45994ce21e51210fdfde1b048a5528bb2d09ac16751134741121c17c7a65a05"
   }
 ]
