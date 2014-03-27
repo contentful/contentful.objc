@@ -53,8 +53,6 @@
     
     self.client.synchronizing = JSONObject[@"nextPageUrl"] || JSONObject[@"nextSyncUrl"];
     
-    // TODO: Response can also contain errors, like nonResolvable.
-    
     NSMutableDictionary* assets = [@{} mutableCopy];
     for (NSDictionary* possibleAsset in JSONObject[@"includes"][@"Asset"]) {
         CDAAsset* asset = [[CDAAsset alloc] initWithDictionary:possibleAsset client:self.client];

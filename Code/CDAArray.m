@@ -7,10 +7,12 @@
 //
 
 #import "CDAArray+Private.h"
+#import "CDAError.h"
 #import "CDAResource+Private.h"
 
 @interface CDAArray ()
 
+@property (nonatomic) NSArray* errors;
 @property (nonatomic) NSArray* items;
 @property (nonatomic) NSUInteger limit;
 @property (nonatomic) NSString* nextPageUrlString;
@@ -50,6 +52,16 @@
             [items addObject:resource];
         }
         self.items = [items copy];
+        
+        NSMutableArray* errors = [@[] mutableCopy];
+        for (NSDictionary* item in dictionary[@"errors"]) {
+            CDAError* error = (CDAError*)[CDAResource resourceObjectForDictionary:item
+                                                                           client:self.client];
+            NSAssert([error isKindOfClass:[CDAError class]],
+                     @"Invalid resource %@ in errors array.", error);
+            [errors addObject:[error errorRepresentationWithCode:0]];
+        }
+        self.errors = [errors copy];
     }
     return self;
 }
