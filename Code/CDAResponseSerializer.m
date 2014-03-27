@@ -51,6 +51,8 @@
         return nil;
     }
     
+    self.client.synchronizing = JSONObject[@"nextPageUrl"] || JSONObject[@"nextSyncUrl"];
+    
     // TODO: Response can also contain errors, like nonResolvable.
     
     NSMutableDictionary* assets = [@{} mutableCopy];

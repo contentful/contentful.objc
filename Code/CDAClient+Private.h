@@ -14,6 +14,7 @@
 @interface CDAClient ()
 
 @property (nonatomic, readonly) NSString* protocol;
+@property (nonatomic) BOOL synchronizing;
 
 -(CDAConfiguration*)configuration;
 -(CDAContentTypeRegistry*)contentTypeRegistry;

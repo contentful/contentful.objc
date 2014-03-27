@@ -82,11 +82,11 @@
         }
     }
     
-    // FIXME: Find a better way for dealing with locales in synchronization
-    if (self.type != CDAFieldTypeLink && self.type != CDAFieldTypeLocation && [value isKindOfClass:[NSDictionary class]]) {
+    if (self.client.synchronizing) {
         if ([value count] == 1) {
             value = [[value allValues] firstObject];
         } else {
+            // TODO: Multiple locales in synchronization are unsupported
             value = [NSNull null];
         }
     }
