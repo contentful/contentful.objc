@@ -6,8 +6,7 @@
 //
 //
 
-#import <ContentfulDeliveryAPI/CDAAsset.h>
-#import <ContentfulDeliveryAPI/CDAEntry.h>
+#import <ContentfulDeliveryAPI/ContentfulDeliveryAPI.h>
 
 #import "CDAArray+Private.h"
 #import "CDAClient+Private.h"
@@ -56,6 +55,14 @@
 
 -(void)performSynchronizationWithSuccess:(void (^)())success
                                  failure:(CDARequestFailureBlock)failure {
+    if (!self.syncToken) {
+        if (failure) {
+            failure(nil, [NSError errorWithDomain:CDAErrorDomain code:901 userInfo:@{ NSLocalizedDescriptionKey: NSLocalizedString(@"No sync token available.", nil) }]);
+        }
+        
+        return;
+    }
+    
     [self.client.requestOperationManager fetchArrayAtURLPath:@"sync" parameters:@{ @"sync_token": self.syncToken } success:^(CDAResponse *response, CDAArray *array) {
         for (CDAResource* item in array.items) {
             if ([item isKindOfClass:[CDADeletedAsset class]]) {
