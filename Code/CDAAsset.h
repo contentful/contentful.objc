@@ -8,6 +8,19 @@
 
 #import "CDAEntry.h"
 
+/** Pass this constant as image quality to not modify the quality. */
+extern const CGFloat CDAImageQualityOriginal;
+
+/** Enumeration for specifying image formats. */
+typedef NS_ENUM(NSInteger, CDAImageFormat) {
+    /** JPEG image format */
+    CDAImageFormatJPEG,
+    /** PNG image format */
+    CDAImageFormatPNG,
+    /** Keep the original image format */
+    CDAImageFormatOriginal,
+};
+
 /**
  Assets represent files in a Space. An asset can be any kind of file: an image, a video, an audio file,
  a PDF or any other filetype. Assets are usually attached to Entries through Links.
@@ -27,10 +40,36 @@
 /** The URL with which the asset was initialized. (read-only). */
 @property (nonatomic, readonly) NSURL* URL;
 
+/**
+ *  URL for retrieving an image asset which is being resized by the server.
+ *
+ *  If the asset is not refering an image, this method will return the same the `URL` property.
+ *
+ *  @param size The desired size of the output image.
+ *
+ *  @return An URL for retrieving the resized image.
+ */
+-(NSURL *)imageURLWithSize:(CGSize)size;
+
+/**
+ *  URL for retrieving an image asset which is being processed by the server.
+ *
+ *  If the asset is not refering an image, this method will return the same the `URL` property.
+ *
+ *  @param size     The desired size of the output image.
+ *  @param quality  The desired quality, with a range from 0.01 to 1.0. Only supported for JPEGs.
+ *  @param format   The desired output format or `CDAImageFormatOriginal` if it should not be changed.
+ *
+ *  @return An URL for retrieving the processed image.
+ */
+-(NSURL *)imageURLWithSize:(CGSize)size quality:(CGFloat)quality format:(CDAImageFormat)format;
+
 /** @name Accessing Meta-Data */
 
 /** All fields associated with this asset. */
 @property (nonatomic, readonly) NSDictionary* fields;
+/** Returns `YES` if this asset is referencing an image file, `NO` otherwise. */
+@property (nonatomic, readonly) BOOL isImage;
 /** File type of the asset. */
 @property (nonatomic, readonly) NSString* MIMEType;
 /** Size of the asset, if it is an image. */

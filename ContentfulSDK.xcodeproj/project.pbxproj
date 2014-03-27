@@ -73,6 +73,8 @@
 		A18AA81718E2E2CF00D430D5 /* CDADeletedAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = A18AA81518E2E2CF00D430D5 /* CDADeletedAsset.h */; };
 		A18AA81818E2E2CF00D430D5 /* CDADeletedAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = A18AA81618E2E2CF00D430D5 /* CDADeletedAsset.m */; };
 		A18AA85718E45C5E00D430D5 /* SyncTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A18AA85618E45C5E00D430D5 /* SyncTests.json */; };
+		A18AA85918E48B4200D430D5 /* AssetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A18AA85818E48B4200D430D5 /* AssetTests.m */; };
+		A18AA85C18E4952C00D430D5 /* AssetTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A18AA85A18E4952800D430D5 /* AssetTests.json */; };
 		A193EB3B18D084C50017B777 /* ValueObjectsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A193EB3A18D084C50017B777 /* ValueObjectsTests.m */; };
 		A193EB3C18D096C50017B777 /* CDAResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A0313618C644B5006470B7 /* CDAResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A193EB3E18D09AC10017B777 /* CDAResponse+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A193EB3D18D09AC10017B777 /* CDAResponse+Private.h */; };
@@ -240,6 +242,8 @@
 		A18AA81518E2E2CF00D430D5 /* CDADeletedAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDADeletedAsset.h; sourceTree = "<group>"; };
 		A18AA81618E2E2CF00D430D5 /* CDADeletedAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDADeletedAsset.m; sourceTree = "<group>"; };
 		A18AA85618E45C5E00D430D5 /* SyncTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SyncTests.json; sourceTree = "<group>"; };
+		A18AA85818E48B4200D430D5 /* AssetTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetTests.m; sourceTree = "<group>"; };
+		A18AA85A18E4952800D430D5 /* AssetTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AssetTests.json; sourceTree = "<group>"; };
 		A193EB3A18D084C50017B777 /* ValueObjectsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValueObjectsTests.m; sourceTree = "<group>"; };
 		A193EB3D18D09AC10017B777 /* CDAResponse+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDAResponse+Private.h"; sourceTree = "<group>"; };
 		A193EB3F18D09D180017B777 /* UIKitAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIKitAdditionsTests.m; sourceTree = "<group>"; };
@@ -511,6 +515,8 @@
 			children = (
 				A193EB5218D1C88A0017B777 /* ArrayTests.json */,
 				A1D2DC0618D0811F0053DC83 /* ArrayTests.m */,
+				A18AA85A18E4952800D430D5 /* AssetTests.json */,
+				A18AA85818E48B4200D430D5 /* AssetTests.m */,
 				A1A0315018C75B2A006470B7 /* AsyncTesting.h */,
 				A1D1D35D18C8A99A00261A1C /* ContentfulBaseTestCase.h */,
 				A1D1D35B18C8A94800261A1C /* ContentfulBaseTestCase.m */,
@@ -892,6 +898,7 @@
 				A173F54618D386CD000E6F92 /* ErrorTests.json in Resources */,
 				A144FAFC18C9F8C200110B35 /* StagingTests.json in Resources */,
 				A193EB6818D21B260017B777 /* UIKitAdditionsTests in Resources */,
+				A18AA85C18E4952C00D430D5 /* AssetTests.json in Resources */,
 				A1E832D818E0A1640092F926 /* LinkTests.json in Resources */,
 				A193EB5618D1C88A0017B777 /* UIKitAdditionsTests.json in Resources */,
 				A18AA85718E45C5E00D430D5 /* SyncTests.json in Resources */,
@@ -1191,6 +1198,7 @@
 				A173F60318DB3E1E000E6F92 /* PreviewModeTests.m in Sources */,
 				A1C8DCD318E098E80019A519 /* LinkTests.m in Sources */,
 				A1D1D35F18C8ABB800261A1C /* DocumentationTests.m in Sources */,
+				A18AA85918E48B4200D430D5 /* AssetTests.m in Sources */,
 				A1A0314F18C756B7006470B7 /* SearchAPITests.m in Sources */,
 				A1D1D35C18C8A94800261A1C /* ContentfulBaseTestCase.m in Sources */,
 				A144FAF618C90DD100110B35 /* StagingTests.m in Sources */,
