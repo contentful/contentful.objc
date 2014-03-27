@@ -82,7 +82,7 @@
         }
     }
     
-    if (self.client.synchronizing) {
+    if (self.client.synchronizing && [value isKindOfClass:[NSDictionary class]]) {
         if ([value count] == 1) {
             value = [[value allValues] firstObject];
         } else {
