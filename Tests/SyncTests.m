@@ -26,6 +26,7 @@
 @interface SyncTests : ContentfulBaseTestCase <CDASyncedSpaceDelegate>
 
 @property (nonatomic) NSUInteger numberOfDelegateMethodCalls;
+@property (nonatomic) BOOL waiting;
 
 @end
 
@@ -33,11 +34,20 @@
 
 @implementation SyncTests
 
+-(void)observeValueForKeyPath:(NSString *)keyPath
+                     ofObject:(id)object change:(NSDictionary *)change
+                      context:(void *)context {
+    XCTAssert([keyPath isEqualToString:@"assets"] || [keyPath isEqualToString:@"entries"], @"");
+    
+    self.waiting = NO;
+}
+
 -(void)setUp {
     [super setUp];
     
     self.client = [[CDAClient alloc] initWithSpaceKey:@"emh6o2ireilu" accessToken:@"1bf1261e0225089be464c79fff1a0773ca8214f1e82dd521f3ecf9690ba888ac"];
     self.numberOfDelegateMethodCalls = 0;
+    self.waiting = YES;
 
     CDAContentType* ct = [[CDAContentType alloc] initWithDictionary:@{ @"sys": @{ @"id": @"6bAvxqodl6s4MoKuWYkmqe" }, @"name": @"Stub", @"fields": @[ @{ @"id": @"title", @"type": @"Symbol" }, @{ @"id": @"body", @"type": @"Text" } ] } client:self.client];
     ct = nil;
@@ -140,6 +150,43 @@
     WaitUntilBlockCompletes();
     
     XCTAssertEqual(0U, self.numberOfDelegateMethodCalls, @"");
+}
+
+-(void)testSyncedSpaceSupportsKeyValueObservation {
+    __block CDASyncedSpace* aSpace = nil;
+    
+    StartBlock();
+    
+    CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response,
+                                                                           CDASyncedSpace *space) {
+        aSpace = space;
+        
+        [aSpace addObserver:self forKeyPath:@"assets" options:0 context:NULL];
+        [aSpace addObserver:self forKeyPath:@"entries" options:0 context:NULL];
+        
+        [space performSynchronizationWithSuccess:^{
+            XCTAssertEqual(1U, space.assets.count, @"");
+            XCTAssertEqual(2U, space.entries.count, @"");
+            
+            EndBlock();
+        } failure:^(CDAResponse *response, NSError *error) {
+            XCTFail(@"Error: %@", error);
+            
+            EndBlock();
+        }];
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTFail(@"Error: %@", error);
+        
+        EndBlock();
+    }];
+    XCTAssertNotNil(request, @"");
+    
+    WaitUntilBlockCompletes();
+    
+    [aSpace removeObserver:self forKeyPath:@"assets" context:NULL];
+    [aSpace removeObserver:self forKeyPath:@"entries" context:NULL];
+    
+    XCTAssertFalse(self.waiting, @"Observer hasn't fired.");
 }
 
 -(void)testSyncAddAsset {
