@@ -164,6 +164,30 @@
     WaitUntilBlockCompletes();
 }
 
+- (void)testNonResolvableError
+{
+    StartBlock();
+    
+    self.client = [[CDAClient alloc] initWithSpaceKey:@"lt0wgui2v3eq" accessToken:@"b45994ce21e51210fdfde1b048a5528bb2d09ac16751134741121c17c7a65a05"];
+    [self.client fetchEntriesWithSuccess:^(CDAResponse *response, CDAArray *array) {
+        XCTAssertEqual(1U, array.errors.count, @"");
+        
+        NSError* error = [array.errors firstObject];
+        XCTAssertEqual(0, error.code, @"");
+        XCTAssertEqualObjects(CDAErrorDomain, error.domain, @"");
+        XCTAssertEqualObjects(@"", error.localizedDescription, @"");
+        XCTAssertEqualObjects(@"notResolvable", error.userInfo[@"identifier"], @"");
+        
+        EndBlock();
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTFail(@"Error: %@", error);
+        
+        EndBlock();
+    }];
+    
+    WaitUntilBlockCompletes();
+}
+
 - (void)testNulledContent
 {
     CDAEntry* brokenEntry = [self customEntryHelperWithFields:@{

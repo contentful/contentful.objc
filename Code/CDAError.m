@@ -34,11 +34,15 @@ NSString* const CDAErrorDomain = @"CDAErrorDomain";
 
 #pragma mark -
 
+-(NSString *)description {
+    return [[self errorRepresentationWithCode:0] description];
+}
+
 -(NSError *)errorRepresentationWithCode:(NSInteger)code {
     return [[self class] buildErrorWithCode:code
                                    userInfo:@{ @"details": self.details ?: @{},
                                                @"identifier": self.identifier,
-                                               NSLocalizedDescriptionKey: self.message }];
+                                               NSLocalizedDescriptionKey: self.message ?: @"" }];
 }
 
 -(id)initWithDictionary:(NSDictionary *)dictionary client:(CDAClient*)client {
