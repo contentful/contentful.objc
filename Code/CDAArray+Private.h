@@ -10,7 +10,6 @@
 
 @interface CDAArray ()
 
-// TODO: Handle nextPageUrl in sync
 @property (nonatomic, readonly) NSURL* nextPageUrl;
 @property (nonatomic, readonly) NSURL* nextSyncUrl;
 @property (nonatomic) NSDictionary* query;

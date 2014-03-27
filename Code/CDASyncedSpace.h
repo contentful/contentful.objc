@@ -102,6 +102,10 @@
 /**
  *  Perform a synchronization of the receiving synchronized Space.
  *
+ *  Using this method, a complete synchronization of all 
+ *  [pages](https://www.contentful.com/developers/documentation/content-delivery-api/#sync-example-next-page) 
+ *  will be performed, which means that all data from the Space will be in memory.
+ *
  *  @param success A block which is called upon the successful synchronization of the Space.
  *  @param failure A block which is called if any errors occur during the synchronization process.
  */

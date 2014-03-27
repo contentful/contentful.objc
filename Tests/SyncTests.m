@@ -188,6 +188,33 @@
     WaitUntilBlockCompletes();
 }
 
+-(void)testPagingWhileSyncing {
+    [OHHTTPStubs removeAllStubs];
+    
+    StartBlock();
+    
+    self.client = [[CDAClient alloc] initWithSpaceKey:@"lzjz8hygvfgu" accessToken:@"0c6ef483524b5e46b3bafda1bf355f38f5f40b4830f7599f790a410860c7c271"];
+    [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
+        XCTAssertEqual(594U, space.entries.count, @"");
+        
+        [space performSynchronizationWithSuccess:^{
+            XCTAssertEqual(594U, space.entries.count, @"");
+            
+            EndBlock();
+        } failure:^(CDAResponse *response, NSError *error) {
+            XCTFail(@"Error: %@", error);
+            
+            EndBlock();
+        }];
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTFail(@"Error: %@", error);
+        
+        EndBlock();
+    }];
+    
+    WaitUntilBlockCompletes();
+}
+
 -(void)testSyncedSpaceSupportsKeyValueObservation {
     __block CDASyncedSpace* aSpace = nil;
     
