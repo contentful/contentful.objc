@@ -264,7 +264,13 @@
         space.nextSyncUrl = array.nextSyncUrl;
         
         if (success) {
-            success(response, space);
+            if (space.nextPageUrl) {
+                [space performSynchronizationWithSuccess:^{
+                    success(response, space);
+                } failure:failure];
+            } else {
+                success(response, space);
+            }
         }
     };
     

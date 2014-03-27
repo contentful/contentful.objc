@@ -210,6 +210,10 @@ typedef void(^CDASyncedSpaceFetchedBlock)(CDAResponse* response, CDASyncedSpace*
  *  A `CDASyncedSpace` instance will be available once the initial synchronization is done.
  *  Subsequent updates can be done using that object.
  *
+ *  Using this method, a complete synchronization of all
+ *  [pages](https://www.contentful.com/developers/documentation/content-delivery-api/#sync-example-next-page)
+ *  will be performed, which means that all data from the Space will be in memory.
+ *
  *  @param success A block which gets called upon successful retrieval of all content.
  *  @param failure A block which gets called if an error occured during the retrieval process.
  *

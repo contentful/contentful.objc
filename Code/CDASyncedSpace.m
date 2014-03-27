@@ -142,13 +142,21 @@
         self.nextSyncUrl = array.nextSyncUrl;
         
         if (success) {
-            success();
+            if (self.nextPageUrl) {
+                [self performSynchronizationWithSuccess:success failure:failure];
+            } else {
+                success();
+            }
         }
     } failure:failure];
 }
 
 -(NSString *)syncToken {
-    for (NSString* parameters in [self.nextSyncUrl.query componentsSeparatedByString:@"&"]) {
+    return [self syncTokenFromURL:self.nextPageUrl] ?: [self syncTokenFromURL:self.nextSyncUrl] ?: nil;
+}
+
+-(NSString*)syncTokenFromURL:(NSURL*)url {
+    for (NSString* parameters in [url.query componentsSeparatedByString:@"&"]) {
         NSArray* query = [parameters componentsSeparatedByString:@"="];
         
         if ([[query firstObject] isEqualToString:@"sync_token"]) {
