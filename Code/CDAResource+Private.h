@@ -19,6 +19,7 @@
 
 -(CDAClient*)client;
 -(id)initWithDictionary:(NSDictionary*)dictionary client:(CDAClient*)client;
+-(NSDictionary*)localizedDictionaryFromDictionary:(NSDictionary*)dictionary forLocale:(NSString*)locale;
 -(void)resolveLinksWithIncludedAssets:(NSDictionary*)assets entries:(NSDictionary*)entries;
 
 @end
