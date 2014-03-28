@@ -6,8 +6,6 @@
 //
 //
 
-#import <ContentfulDeliveryAPI/CDAConfiguration.h>
-#import <ContentfulDeliveryAPI/CDASpace.h>
 #import <ISO8601DateFormatter/ISO8601DateFormatter.h>
 #import <MapKit/MapKit.h>
 
@@ -71,23 +69,6 @@
 }
 
 -(id)transformedValue:(id)value {
-    if (self.client.configuration.previewMode) {
-        if ([value count] == 1) {
-            value = [[value allValues] firstObject];
-        } else {
-            value = [value valueForKey:self.client.space.defaultLocale];
-        }
-    }
-    
-    if (self.client.synchronizing && [value isKindOfClass:[NSDictionary class]]) {
-        if ([value count] == 1) {
-            value = [[value allValues] firstObject];
-        } else {
-            // TODO: Multiple locales in synchronization are unsupported
-            value = [NSNull null];
-        }
-    }
-    
     switch (self.type) {
         case CDAFieldTypeArray:
             if (value == [NSNull null] || ![value isKindOfClass:[NSArray class]]) {

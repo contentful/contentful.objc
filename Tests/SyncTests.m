@@ -156,6 +156,38 @@
     XCTAssertEqual(0U, self.numberOfDelegateMethodCalls, @"");
 }
 
+-(void)testMultipleLocalesWhileSyncing {
+    [OHHTTPStubs removeAllStubs];
+    
+    StartBlock();
+    
+    self.client = [[CDAClient alloc] initWithSpaceKey:@"cfexampleapi" accessToken:@"b4c0n73n7fu1"];
+    [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
+        BOOL foundNyanCat = NO;
+        
+        for (CDAEntry* entry in space.entries) {
+            if ([entry.identifier isEqualToString:@"nyancat"]) {
+                XCTAssertEqualObjects(@"Nyan Cat", entry.fields[@"name"], @"");
+                XCTAssertNotNil([entry.fields[@"image"] URL], @"");
+                
+                foundNyanCat = YES;
+                break;
+            }
+        }
+        
+        // TODO: Test access to entry.fields[@"name"] in other locales
+        
+        XCTAssert(foundNyanCat, @"Response did not contain expected entries.");
+        EndBlock();
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTFail(@"Error: %@", error);
+        
+        EndBlock();
+    }];
+    
+    WaitUntilBlockCompletes();
+}
+
 -(void)testNoSyncTokenAvailableError {
     StartBlock();
     
