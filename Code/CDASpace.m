@@ -7,7 +7,7 @@
 //
 
 #import "CDAResource+Private.h"
-#import "CDASpace.h"
+#import "CDASpace+Private.h"
 
 @interface CDASpace ()
 
@@ -41,6 +41,10 @@
         }
     }
     return self;
+}
+
+-(NSArray *)localeCodes {
+    return [self.locales valueForKey:@"code"] ?: @[ self.defaultLocale ];
 }
 
 @end

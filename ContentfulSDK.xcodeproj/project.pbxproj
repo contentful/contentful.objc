@@ -244,6 +244,7 @@
 		A18AA85618E45C5E00D430D5 /* SyncTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SyncTests.json; sourceTree = "<group>"; };
 		A18AA85818E48B4200D430D5 /* AssetTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetTests.m; sourceTree = "<group>"; };
 		A18AA85A18E4952800D430D5 /* AssetTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AssetTests.json; sourceTree = "<group>"; };
+		A18AA85D18E596A000D430D5 /* CDASpace+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDASpace+Private.h"; sourceTree = "<group>"; };
 		A193EB3A18D084C50017B777 /* ValueObjectsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValueObjectsTests.m; sourceTree = "<group>"; };
 		A193EB3D18D09AC10017B777 /* CDAResponse+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDAResponse+Private.h"; sourceTree = "<group>"; };
 		A193EB3F18D09D180017B777 /* UIKitAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIKitAdditionsTests.m; sourceTree = "<group>"; };
@@ -683,6 +684,7 @@
 				A1E9797518CBE93A00E79632 /* CDAResource+Private.h */,
 				A1A0312718C64165006470B7 /* CDAResource.h */,
 				A1A0312818C64165006470B7 /* CDAResource.m */,
+				A18AA85D18E596A000D430D5 /* CDASpace+Private.h */,
 				A1D1D36018C8B8D100261A1C /* CDASpace.h */,
 				A1D1D36118C8B8D100261A1C /* CDASpace.m */,
 				A1A0313D18C66667006470B7 /* CDAUtilities.h */,
