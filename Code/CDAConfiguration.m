@@ -12,7 +12,6 @@
 
 +(instancetype)defaultConfiguration {
     CDAConfiguration* configuration = [CDAConfiguration new];
-    configuration.previewLocale = nil;
     configuration.previewMode = NO;
     configuration.secure = YES;
     configuration.server = @"cdn.contentful.com";
