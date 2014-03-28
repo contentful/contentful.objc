@@ -18,6 +18,7 @@
 #import "CDAContentTypeRegistry.h"
 #import "CDAError.h"
 #import "CDARequestOperationManager.h"
+#import "CDAResource+Private.h"
 #import "CDASyncedSpace+Private.h"
 
 @interface CDAClient ()
@@ -273,21 +274,25 @@
 -(CDARequest*)initialSynchronizationWithSuccess:(CDASyncedSpaceFetchedBlock)success
                                         failure:(CDARequestFailureBlock)failure {
     CDAArrayFetchedBlock handler = ^(CDAResponse *response, CDAArray *array) {
-        NSMutableArray* assets = [@[] mutableCopy];
-        NSMutableArray* entries = [@[] mutableCopy];
+        NSMutableDictionary* assets = [@{} mutableCopy];
+        NSMutableDictionary* entries = [@{} mutableCopy];
         
-        for (id item in array.items) {
-            if ([item isKindOfClass:[CDAAsset class]]) {
-                [assets addObject:item];
+        for (CDAResource* resource in array.items) {
+            if ([resource isKindOfClass:[CDAAsset class]]) {
+                assets[resource.identifier] = resource;
             }
             
-            if ([item isKindOfClass:[CDAEntry class]]) {
-                [entries addObject:item];
+            if ([resource isKindOfClass:[CDAEntry class]]) {
+                entries[resource.identifier] = resource;
             }
         }
         
-        CDASyncedSpace* space = [[CDASyncedSpace alloc] initWithAssets:[assets copy]
-                                                               entries:[entries copy]];
+        for (CDAEntry* entry in entries.allValues) {
+            [entry resolveLinksWithIncludedAssets:assets entries:entries];
+        }
+        
+        CDASyncedSpace* space = [[CDASyncedSpace alloc] initWithAssets:assets.allValues
+                                                               entries:entries.allValues];
         
         space.client = self;
         space.nextPageUrl = array.nextPageUrl;
