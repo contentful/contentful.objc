@@ -22,12 +22,12 @@ The `CDAClient` manages all your interaction with the Contentful Delivery API.
 You can query for entries, assets, etc. with query options similar to what is described in the [Delivery API Documentation][6]:
 
     [client fetchEntriesMatching:@{ @"content_type": @"cat" }
-                             success:^(CDAResponse *response, CDAArray *entries) {
-                                 NSLog(@"%@", [[entries.items firstObject] fields]);
-                             }
-                             failure:^(CDAResponse *response, NSError *error) {
-                                 NSLog(@"%@", error);
-                             }];
+                         success:^(CDAResponse *response, CDAArray *entries) {
+                             NSLog(@"%@", [[entries.items firstObject] fields]);
+                         }
+                         failure:^(CDAResponse *response, NSError *error) {
+                             NSLog(@"%@", error);
+                         }];
 
 Results are returned as object of classes `CDAEntry`, `CDAAsset`, `CDAContentType` or `CDASpace`, depending on the fetch method being called. If there are multiple results, they will be returned as a `CDAArray` instance, which encapsulates the actual resources in the *items* property.
 
