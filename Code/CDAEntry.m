@@ -10,6 +10,7 @@
 #import "CDAContentType.h"
 #import "CDAContentTypeRegistry.h"
 #import "CDAEntry.h"
+#import "CDAFallbackDictionary.h"
 #import "CDAField+Private.h"
 #import "CDAResource+Private.h"
 #import "CDASpace+Private.h"
@@ -54,7 +55,7 @@
 }
 
 -(NSDictionary *)fields {
-    return self.localizedFields[self.client.space.defaultLocale];
+    return self.localizedFields[self.locale];
 }
 
 -(id)initWithDictionary:(NSDictionary *)dictionary client:(CDAClient*)client {
@@ -71,18 +72,34 @@
         NSMutableDictionary* localizedFields = [@{} mutableCopy];
         
         if (self.localizationAvailable) {
+            NSDictionary* defaultDictionary = [self localizedDictionaryFromDictionary:fields forLocale:self.client.space.defaultLocale];
+            localizedFields[self.client.space.defaultLocale] = defaultDictionary;
+            
             for (NSString* locale in self.client.space.localeCodes) {
+                if ([locale isEqualToString:self.client.space.defaultLocale]) {
+                    continue;
+                }
+                
                 NSDictionary* localizedDictionary = [self localizedDictionaryFromDictionary:fields
                                                                                   forLocale:locale];
-                localizedFields[locale] = [self parseDictionary:localizedDictionary];
+                
+                localizedFields[locale] = [[CDAFallbackDictionary alloc] initWithDictionary:localizedDictionary fallbackDictionary:defaultDictionary];
             }
         } else {
             localizedFields[self.client.space.defaultLocale] = [self parseDictionary:fields];
         }
         
         self.localizedFields = [localizedFields copy];
+        self.locale = self.client.space.defaultLocale;
     }
     return self;
+}
+
+-(NSDictionary *)localizedDictionaryFromDictionary:(NSDictionary *)dictionary
+                                         forLocale:(NSString *)locale {
+    NSDictionary* localizedDictionary = [super localizedDictionaryFromDictionary:dictionary
+                                                                       forLocale:locale];
+    return [self parseDictionary:localizedDictionary];
 }
 
 -(id)mapFieldsToObject:(NSObject*)object usingMapping:(NSDictionary*)dictionary {
@@ -194,6 +211,18 @@
                                           success(response, entry);
                                       }
                                   } failure:failure];
+}
+
+-(void)setLocale:(NSString *)locale {
+    if (_locale == locale) {
+        return;
+    }
+    
+    if ([self.localizedFields.allKeys containsObject:locale]) {
+        _locale = locale;
+    } else {
+        _locale = self.client.space.defaultLocale;
+    }
 }
 
 @end
