@@ -12,10 +12,11 @@
 #import "CDAEntry.h"
 #import "CDAField+Private.h"
 #import "CDAResource+Private.h"
+#import "CDASpace+Private.h"
 
 @interface CDAEntry ()
 
-@property (nonatomic) NSDictionary* fields;
+@property (nonatomic) NSDictionary* localizedFields;
 
 @end
 
@@ -52,6 +53,10 @@
     return [NSString stringWithFormat:@"CDAEntry %@ with fields:%@", self.identifier, self.fields];
 }
 
+-(NSDictionary *)fields {
+    return self.localizedFields[self.client.space.defaultLocale];
+}
+
 -(id)initWithDictionary:(NSDictionary *)dictionary client:(CDAClient*)client {
     self = [super initWithDictionary:dictionary client:client];
     if (self && self.fetched) {
@@ -62,21 +67,20 @@
             return [[customClass alloc] initWithDictionary:dictionary client:client];
         }
         
-        NSMutableDictionary* fields = [@{} mutableCopy];
+        NSDictionary* fields = dictionary[@"fields"];
+        NSMutableDictionary* localizedFields = [@{} mutableCopy];
         
-        NSAssert([dictionary[@"fields"] isKindOfClass:[NSDictionary class]],
-                 @"Entry Fields are expected to be a dictionary.");
-        [dictionary[@"fields"] enumerateKeysAndObjectsUsingBlock:^(NSString* key, id value, BOOL *stop) {
-            CDAField* field = [self.contentType fieldForIdentifier:key];
-            NSAssert(field, @"Entry contains unknown field '%@'.", key);
-            
-            id parsedValue = [field parseValue:value];
-            if (parsedValue) {
-                fields[key] = parsedValue;
+        if (self.localizationAvailable) {
+            for (NSString* locale in self.client.space.localeCodes) {
+                NSDictionary* localizedDictionary = [self localizedDictionaryFromDictionary:fields
+                                                                                  forLocale:locale];
+                localizedFields[locale] = [self parseDictionary:localizedDictionary];
             }
-        }];
+        } else {
+            localizedFields[self.client.space.defaultLocale] = [self parseDictionary:fields];
+        }
         
-        self.fields = fields;
+        self.localizedFields = [localizedFields copy];
     }
     return self;
 }
@@ -90,10 +94,30 @@
     return object;
 }
 
--(void)resolveLinksWithIncludedAssets:(NSDictionary*)assets entries:(NSDictionary*)entries {
-    NSMutableDictionary* fields = [self.fields mutableCopy];
+-(NSDictionary*)parseDictionary:(NSDictionary*)dictionary {
+    NSMutableDictionary* fields = [@{} mutableCopy];
     
-    [self.fields enumerateKeysAndObjectsUsingBlock:^(NSString* key, id value, BOOL *stop) {
+    NSAssert([dictionary isKindOfClass:[NSDictionary class]],
+             @"Entry Fields are expected to be a dictionary.");
+    [dictionary enumerateKeysAndObjectsUsingBlock:^(NSString* key, id value, BOOL *stop) {
+        CDAField* field = [self.contentType fieldForIdentifier:key];
+        NSAssert(field, @"Entry contains unknown field '%@'.", key);
+        
+        id parsedValue = [field parseValue:value];
+        if (parsedValue) {
+            fields[key] = parsedValue;
+        }
+    }];
+    
+    return [fields copy];
+}
+
+-(NSDictionary*)resolveLinksInDictionary:(NSDictionary*)dictionary
+                      withIncludedAssets:(NSDictionary*)assets
+                                 entries:(NSDictionary*)entries {
+    NSMutableDictionary* fields = [dictionary mutableCopy];
+    
+    [dictionary enumerateKeysAndObjectsUsingBlock:^(NSString* key, id value, BOOL *stop) {
         CDAField* field = [self.contentType fieldForIdentifier:key];
         
         if (field.type == CDAFieldTypeArray && [value isKindOfClass:[NSArray class]]) {
@@ -122,7 +146,21 @@
         }
     }];
     
-    self.fields = fields;
+    return [fields copy];
+}
+
+-(void)resolveLinksWithIncludedAssets:(NSDictionary*)assets entries:(NSDictionary*)entries {
+    NSMutableDictionary* localizedFields = [@{} mutableCopy];
+    
+    [self.localizedFields enumerateKeysAndObjectsUsingBlock:^(NSString* key,
+                                                              NSDictionary* fields,
+                                                              BOOL *stop) {
+        localizedFields[key] = [self resolveLinksInDictionary:fields
+                                           withIncludedAssets:assets
+                                                      entries:entries];
+    }];
+    
+    self.localizedFields = [localizedFields copy];
 }
 
 -(CDAResource*)resolveSingleResource:(CDAResource*)resource
