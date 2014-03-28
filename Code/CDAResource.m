@@ -150,6 +150,22 @@
     return self.client.configuration.previewMode || self.client.synchronizing;
 }
 
+-(NSDictionary*)localizedDictionaryFromDictionary:(NSDictionary*)dictionary forLocale:(NSString*)locale {
+    NSMutableDictionary* result = [@{} mutableCopy];
+    
+    [dictionary enumerateKeysAndObjectsUsingBlock:^(NSString* key, NSDictionary* value, BOOL *stop) {
+        id localizedValue = value[locale];
+        
+        if (!localizedValue) {
+            return;
+        }
+        
+        result[key] = localizedValue;
+    }];
+    
+    return [result copy];
+}
+
 -(void)resolveLinksWithIncludedAssets:(NSDictionary*)assets entries:(NSDictionary*)entries {
 }
 

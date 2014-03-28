@@ -15,7 +15,7 @@ const CGFloat CDAImageQualityOriginal = 0.0;
 
 @interface CDAAsset ()
 
-@property (nonatomic) NSMutableDictionary* localizedFields;
+@property (nonatomic) NSDictionary* localizedFields;
 
 @end
 
@@ -89,39 +89,27 @@ const CGFloat CDAImageQualityOriginal = 0.0;
 -(id)initWithDictionary:(NSDictionary *)dictionary client:(CDAClient*)client {
     self = [super initWithDictionary:dictionary client:client];
     if (self) {
-        self.localizedFields = [@{} mutableCopy];
+        NSDictionary* fields = dictionary[@"fields"];
+        NSMutableDictionary* localizedFields = [@{} mutableCopy];
         
-        if (dictionary[@"fields"]) {
+        if (fields) {
             if (self.localizationAvailable) {
                 for (NSString* locale in self.client.space.localeCodes) {
-                    self.localizedFields[locale] = [self localizedDictionaryFromDictionary:dictionary[@"fields"] forLocale:locale];
+                    localizedFields[locale] = [self localizedDictionaryFromDictionary:fields
+                                                                            forLocale:locale];
                 }
             } else {
-                self.localizedFields[self.client.space.defaultLocale] = dictionary[@"fields"];
+                localizedFields[self.client.space.defaultLocale] = fields;
             }
         }
+        
+        self.localizedFields = [localizedFields copy];
     }
     return self;
 }
 
 -(BOOL)isImage {
     return [self.MIMEType hasPrefix:@"image/"];
-}
-
--(NSDictionary*)localizedDictionaryFromDictionary:(NSDictionary*)dictionary forLocale:(NSString*)locale {
-    NSMutableDictionary* result = [@{} mutableCopy];
-    
-    [dictionary enumerateKeysAndObjectsUsingBlock:^(NSString* key, NSDictionary* value, BOOL *stop) {
-        id localizedValue = value[locale];
-        
-        if (!localizedValue) {
-            return;
-        }
-        
-        result[key] = localizedValue;
-    }];
-    
-    return [result copy];
 }
 
 -(NSString *)MIMEType {
