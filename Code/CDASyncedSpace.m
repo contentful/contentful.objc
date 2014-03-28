@@ -68,13 +68,13 @@
             if ([item isKindOfClass:[CDADeletedAsset class]]) {
                 for (CDAAsset* asset in self.syncedAssets) {
                     if ([asset.identifier isEqualToString:item.identifier]) {
-                        [self willChangeValueForKey:@"assets"];
-                        [self.syncedAssets removeObject:asset];
-                        [self didChangeValueForKey:@"assets"];
-                        
                         if ([self.delegate respondsToSelector:@selector(syncedSpace:didDeleteAsset:)]) {
                             [self.delegate syncedSpace:self didDeleteAsset:asset];
                         }
+                        
+                        [self willChangeValueForKey:@"assets"];
+                        [self.syncedAssets removeObject:asset];
+                        [self didChangeValueForKey:@"assets"];
                         break;
                     }
                 }
@@ -83,13 +83,13 @@
             if ([item isKindOfClass:[CDADeletedEntry class]]) {
                 for (CDAEntry* entry in self.syncedEntries) {
                     if ([entry.identifier isEqualToString:item.identifier]) {
-                        [self willChangeValueForKey:@"entries"];
-                        [self.syncedEntries removeObject:entry];
-                        [self didChangeValueForKey:@"entries"];
-                        
                         if ([self.delegate respondsToSelector:@selector(syncedSpace:didDeleteEntry:)]) {
                             [self.delegate syncedSpace:self didDeleteEntry:entry];
                         }
+                        
+                        [self willChangeValueForKey:@"entries"];
+                        [self.syncedEntries removeObject:entry];
+                        [self didChangeValueForKey:@"entries"];
                         break;
                     }
                 }
