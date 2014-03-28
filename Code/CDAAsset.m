@@ -93,7 +93,9 @@ const CGFloat CDAImageQualityOriginal = 0.0;
         
         if (dictionary[@"fields"]) {
             if (self.localizationAvailable) {
-                // TODO: Localization of assets
+                for (NSString* locale in self.client.space.localeCodes) {
+                    self.localizedFields[locale] = [self localizedDictionaryFromDictionary:dictionary[@"fields"] forLocale:locale];
+                }
             } else {
                 self.localizedFields[self.client.space.defaultLocale] = dictionary[@"fields"];
             }
@@ -104,6 +106,22 @@ const CGFloat CDAImageQualityOriginal = 0.0;
 
 -(BOOL)isImage {
     return [self.MIMEType hasPrefix:@"image/"];
+}
+
+-(NSDictionary*)localizedDictionaryFromDictionary:(NSDictionary*)dictionary forLocale:(NSString*)locale {
+    NSMutableDictionary* result = [@{} mutableCopy];
+    
+    [dictionary enumerateKeysAndObjectsUsingBlock:^(NSString* key, NSDictionary* value, BOOL *stop) {
+        id localizedValue = value[locale];
+        
+        if (!localizedValue) {
+            return;
+        }
+        
+        result[key] = localizedValue;
+    }];
+    
+    return [result copy];
 }
 
 -(NSString *)MIMEType {

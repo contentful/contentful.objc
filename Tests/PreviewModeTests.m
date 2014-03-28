@@ -25,6 +25,22 @@
     self.client = [[CDAClient alloc] initWithSpaceKey:@"cfexampleapi" accessToken:@"5b5367a9a0cc3ab6ac2d4835bd8893907c61d3bafc7cb8b1f51840686a89fae3" configuration:configuration];
 }
 
+- (void)testAssetsInPreviewMode {
+    StartBlock();
+    
+    [self.client fetchAssetWithIdentifier:@"nyancat" success:^(CDAResponse *response, CDAAsset *asset) {
+        XCTAssertNotNil(asset.URL, @"");
+        
+        EndBlock();
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTFail(@"Error: %@", error);
+        
+        EndBlock();
+    }];
+    
+    WaitUntilBlockCompletes();
+}
+
 - (void)testReturnsUnpublishedContent {
     StartBlock();
     
