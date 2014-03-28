@@ -8,6 +8,7 @@
 
 #import <ContentfulDeliveryAPI/CDAAsset.h>
 #import <ContentfulDeliveryAPI/CDAEntry.h>
+#import <ContentfulDeliveryAPI/CDASpace.h>
 #import <ISO8601DateFormatter/ISO8601DateFormatter.h>
 
 #import "CDAArray+Private.h"
@@ -25,6 +26,7 @@
 @property (nonatomic) CDAContentTypeRegistry* contentTypeRegistry;
 @property (nonatomic) ISO8601DateFormatter* dateFormatter;
 @property (nonatomic) CDARequestOperationManager* requestOperationManager;
+@property (nonatomic) CDASpace* space;
 
 @end
 
@@ -39,6 +41,10 @@
 }
 
 #pragma mark -
+
+-(NSString *)defaultLocale {
+    return self.space.defaultLocale;
+}
 
 -(void)fetchAllItemsFromArray:(CDAArray*)array
                       success:(void (^)(NSArray* items))success
@@ -72,10 +78,19 @@
                        parameters:(NSDictionary *)parameters
                           success:(CDAArrayFetchedBlock)success
                           failure:(CDARequestFailureBlock)failure {
-    return [self.requestOperationManager fetchArrayAtURLPath:URLPath
-                                                  parameters:parameters
-                                                     success:success
-                                                     failure:failure];
+    if (self.space) {
+        return [self.requestOperationManager fetchArrayAtURLPath:URLPath
+                                                      parameters:parameters
+                                                         success:success
+                                                         failure:failure];
+    } else {
+        return [self fetchSpaceWithSuccess:^(CDAResponse *response, CDASpace *space) {
+            [self.requestOperationManager fetchArrayAtURLPath:URLPath
+                                                   parameters:parameters
+                                                      success:success
+                                                      failure:failure];
+        } failure:failure];
+    }
 }
 
 -(CDARequest*)fetchArrayAtURLPath:(NSString *)URLPath
@@ -237,7 +252,22 @@
 
 -(CDARequest*)fetchSpaceWithSuccess:(CDASpaceFetchedBlock)success
                             failure:(CDARequestFailureBlock)failure {
-    return [self.requestOperationManager fetchSpaceWithSuccess:success failure:failure];
+    if (self.space) {
+        if (success) {
+            success(nil, self.space);
+        }
+        
+        return nil;
+    }
+    
+    return [self.requestOperationManager fetchSpaceWithSuccess:^(CDAResponse *response,
+                                                                 CDASpace *space) {
+        self.space = space;
+        
+        if (success) {
+            success(response, space);
+        }
+    } failure:failure];
 }
 
 -(CDARequest*)initialSynchronizationWithSuccess:(CDASyncedSpaceFetchedBlock)success

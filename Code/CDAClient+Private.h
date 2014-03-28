@@ -13,6 +13,7 @@
 
 @interface CDAClient ()
 
+@property (nonatomic, readonly) NSString* defaultLocale;
 @property (nonatomic, readonly) NSString* protocol;
 @property (nonatomic) BOOL synchronizing;
 

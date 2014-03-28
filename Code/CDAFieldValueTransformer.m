@@ -74,11 +74,7 @@
         if ([value count] == 1) {
             value = [[value allValues] firstObject];
         } else {
-            NSAssert([[value allKeys] containsObject:self.client.configuration.previewLocale],
-                     @"Selected locale %@ is not present in Entry.",
-                     self.client.configuration.previewLocale);
-            
-            value = [value valueForKey:self.client.configuration.previewLocale];
+            value = [value valueForKey:self.client.defaultLocale];
         }
     }
     
