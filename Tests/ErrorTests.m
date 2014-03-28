@@ -11,6 +11,14 @@
 #import "CDAResource+Private.h"
 #import "ContentfulBaseTestCase.h"
 
+@interface CDAClient ()
+
+-(void)setSpace:(CDASpace*)space;
+
+@end
+
+#pragma mark -
+
 @interface ErrorTests : ContentfulBaseTestCase
 
 @end
@@ -21,6 +29,11 @@
 
 - (CDAEntry*)customEntryHelperWithFields:(NSDictionary*)fields
 {
+    NSData* spaceData = [NSData dataWithContentsOfFile:[[NSBundle bundleForClass:[self class]] pathForResource:@"space" ofType:@"json" inDirectory:@"SyncTests"]];
+    NSDictionary* spaceJSON = [NSJSONSerialization JSONObjectWithData:spaceData options:0 error:nil];
+    CDASpace* space = [[CDASpace alloc] initWithDictionary:spaceJSON client:self.client];
+    [self.client setSpace:space];
+    
     NSDictionary* ct = @{
                          @"name": @"My trolls",
                          @"fields": @[
