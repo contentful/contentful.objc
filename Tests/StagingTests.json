@@ -47,5 +47,29 @@
     "method" : "GET",
     "status" : 200,
     "uri" : "https:\/\/cdn.flinkly.com\/spaces\/3vysoudsmwwo\/content_types?access_token=8efdb99a1b33b21edd6bd6f68aa702a0d688b4a4433ac3327d234a28ed825ca2"
+  },
+  {
+    "body" : "ewogICJzeXMiOiB7CiAgICAidHlwZSI6ICJTcGFjZSIsCiAgICAiaWQiOiAiM3Z5\r\nc291ZHNtd3dvIgogIH0sCiAgIm5hbWUiOiAiYnBnIDEyMyIsCiAgImxvY2FsZXMi\r\nOiBbCiAgICB7CiAgICAgICJjb2RlIjogImVuLVVTIiwKICAgICAgImRlZmF1bHQi\r\nOiB0cnVlLAogICAgICAibmFtZSI6ICJlbi1VUyIKICAgIH0sCiAgICB7CiAgICAg\r\nICJjb2RlIjogImRlLURFIiwKICAgICAgImRlZmF1bHQiOiBmYWxzZSwKICAgICAg\r\nIm5hbWUiOiAiR2VybWFuIgogICAgfQogIF0KfQo=",
+    "headers" : {
+      "Access-Control-Allow-Methods" : "GET,HEAD,OPTIONS",
+      "Cache-Control" : "max-age=0",
+      "Access-Control-Allow-Origin" : "*",
+      "Vary" : "Accept-Encoding",
+      "Etag" : "\"c5c3ee410b3908310149c7bfeb73ca80\"",
+      "Accept-Ranges" : "bytes",
+      "Content-Type" : "application\/vnd.contentful.delivery.v1+json",
+      "X-Contentful-Request-Id" : "830-2099609140",
+      "Surrogate-Control" : "max-age=21600",
+      "Access-Control-Allow-Headers" : "Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization",
+      "Connection" : "keep-alive",
+      "Access-Control-Max-Age" : "86400",
+      "Server" : "nginx\/1.1.19",
+      "Content-Length" : "269",
+      "Date" : "Fri, 28 Mar 2014 13:40:23 GMT",
+      "Surrogate-Key" : "space-3vysoudsmwwo organization-7Ar55sWSKhrqTaY0EhdmRk"
+    },
+    "method" : "GET",
+    "status" : 200,
+    "uri" : "https:\/\/cdn.flinkly.com\/spaces\/3vysoudsmwwo\/?access_token=8efdb99a1b33b21edd6bd6f68aa702a0d688b4a4433ac3327d234a28ed825ca2"
   }
 ]
