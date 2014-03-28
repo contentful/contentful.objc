@@ -6,6 +6,7 @@
 //
 //
 
+#import <ContentfulDeliveryAPI/CDAConfiguration.h>
 #import <ContentfulDeliveryAPI/CDAContentType.h>
 #import <ContentfulDeliveryAPI/CDAResource.h>
 #import <ContentfulDeliveryAPI/CDASpace.h>
@@ -143,6 +144,10 @@
 
 -(BOOL)isLink {
     return [self.sys[@"type"] isEqualToString:@"Link"];
+}
+
+-(BOOL)localizationAvailable {
+    return self.client.configuration.previewMode || self.client.synchronizing;
 }
 
 -(void)resolveLinksWithIncludedAssets:(NSDictionary*)assets entries:(NSDictionary*)entries {

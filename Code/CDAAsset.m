@@ -9,12 +9,13 @@
 #import "CDAAsset.h"
 #import "CDAClient+Private.h"
 #import "CDAResource+Private.h"
+#import "CDASpace+Private.h"
 
 const CGFloat CDAImageQualityOriginal = 0.0;
 
 @interface CDAAsset ()
 
-@property (nonatomic) NSDictionary* fields;
+@property (nonatomic) NSMutableDictionary* localizedFields;
 
 @end
 
@@ -30,6 +31,10 @@ const CGFloat CDAImageQualityOriginal = 0.0;
 
 -(NSString *)description {
     return [NSString stringWithFormat:@"CDAAsset of type %@ at URL %@", self.MIMEType, self.URL];
+}
+
+-(NSDictionary *)fields {
+    return self.localizedFields[self.client.space.defaultLocale];
 }
 
 -(NSURL *)imageURLWithSize:(CGSize)size {
@@ -84,17 +89,15 @@ const CGFloat CDAImageQualityOriginal = 0.0;
 -(id)initWithDictionary:(NSDictionary *)dictionary client:(CDAClient*)client {
     self = [super initWithDictionary:dictionary client:client];
     if (self) {
-        NSMutableDictionary* fields = [dictionary[@"fields"] mutableCopy];
+        self.localizedFields = [@{} mutableCopy];
         
-        NSMutableDictionary* fileProperties = [fields[@"file"] mutableCopy];
-        NSString* assetURLString = fileProperties[@"url"];
-        if (assetURLString) {
-            fileProperties[@"url"] = [NSURL URLWithString:[NSString stringWithFormat:@"%@:%@",
-                                                           self.client.protocol, assetURLString]];
-            fields[@"file"] = fileProperties;
+        if (dictionary[@"fields"]) {
+            if (self.localizationAvailable) {
+                // TODO: Localization of assets
+            } else {
+                self.localizedFields[self.client.space.defaultLocale] = dictionary[@"fields"];
+            }
         }
-        
-        self.fields = fields;
     }
     return self;
 }
@@ -128,7 +131,11 @@ const CGFloat CDAImageQualityOriginal = 0.0;
 }
 
 -(NSURL *)URL {
-    return self.fields[@"file"][@"url"];
+    NSString* url = self.fields[@"file"][@"url"];
+    if (!url) {
+        return nil;
+    }
+    return [NSURL URLWithString:[NSString stringWithFormat:@"%@:%@", self.client.protocol, url]];
 }
 
 @end

@@ -130,7 +130,7 @@
             XCTAssertEqualObjects(@[ @"cheezburger" ], entry.fields[@"likes"], @"");
             XCTAssertEqualObjects(@(1), entry.fields[@"lives"], @"");
             XCTAssertEqualObjects([NSURL URLWithString:@"https://images.contentful.com/cfexampleapi/3MZPnjZTIskAIIkuuosCss/382a48dfa2cb16c47aa2c72f7b23bf09/happycatw.jpg"],
-                                  [((CDAAsset*)entry.fields[@"image"]) fields][@"file"][@"url"], @"");
+                                  [((CDAAsset*)entry.fields[@"image"]) URL], @"");
             
             EndBlock();
         } failure:^(CDAResponse *response, NSError *error) {
