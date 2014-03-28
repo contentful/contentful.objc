@@ -34,6 +34,19 @@ Results are returned as object of classes `CDAEntry`, `CDAAsset`, `CDAContentTyp
 This repository contains multiple examples, demonstrating the use in common real world
 scenarios and also showing the different ways you can integrate the SDK into your own project.
 
+### Preview Mode
+
+The Content Delivery API only returns published Entries. However, you might want to preview content in your app before making it public for your users. For this, you can use the preview mode, which will return **all** Entries, regardless of their published status:
+
+    CDAConfiguration* configuration = [CDAConfiguration defaultConfiguration];
+    configuration.previewMode = YES;
+
+    CDAClient* client = [[CDAClient alloc] initWithSpaceKey:@"YourSpaceKey"
+                                                accessToken:@"YourAccessToken"
+                                              configuration:configuration];
+
+Apart from the configuration option, you can use the SDK without modifications with one exception: you need to obtain a different access token from [here][10].
+
 ## Documentation
 
 For further information, check out the [Developer Documentation][6] or browse the [API documentation][7]. The latter can also be loaded into Xcode as a Docset.
@@ -99,3 +112,4 @@ Copyright (c) 2014 Contentful GmbH. See LICENSE for further details.
 [7]: http://cocoadocs.org/docsets/ContentfulDeliveryAPI/0.1.0/
 [8]: http://static.contentful.com/downloads/iOS/ContentfulDeliveryAPI-0.1.0.zip
 [9]: http://static.contentful.com/downloads/iOS/UFO.zip
+[10]: https://www.contentful.com/developers/documentation/content-management-api/#getting-started
