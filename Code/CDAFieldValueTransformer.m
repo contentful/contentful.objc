@@ -7,6 +7,7 @@
 //
 
 #import <ContentfulDeliveryAPI/CDAConfiguration.h>
+#import <ContentfulDeliveryAPI/CDASpace.h>
 #import <ISO8601DateFormatter/ISO8601DateFormatter.h>
 #import <MapKit/MapKit.h>
 
@@ -74,7 +75,7 @@
         if ([value count] == 1) {
             value = [[value allValues] firstObject];
         } else {
-            value = [value valueForKey:self.client.defaultLocale];
+            value = [value valueForKey:self.client.space.defaultLocale];
         }
     }
     
