@@ -162,7 +162,7 @@
     StartBlock();
     
     self.client = [[CDAClient alloc] initWithSpaceKey:@"cfexampleapi" accessToken:@"b4c0n73n7fu1"];
-    [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
+    CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
         BOOL foundNyanCat = NO;
         
         for (CDAEntry* entry in space.entries) {
@@ -184,6 +184,7 @@
         
         EndBlock();
     }];
+    XCTAssertNotNil(request, @"");
     
     WaitUntilBlockCompletes();
 }
