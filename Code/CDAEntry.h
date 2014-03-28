@@ -36,6 +36,22 @@
 /** The Entry's Content Type. */
 @property (nonatomic, readonly) CDAContentType* contentType;
 
+/** @name Accessing Localized Content */
+
+/**
+ *  Locale to be used for accessing any values of `fields`.
+ *
+ *  By default, this will be set to the Space's default locale. If set to a non-existing locale, it
+ *  will automatically revert to the default value. 
+ *
+ *  Changing this property only has an effect if the receiver was obtained from a `CDASyncedSpace`
+ *  originally. Entries obtained any other way will only contain values for the locale specified in 
+ *  the query or for the default locale. In addition to that, this properties value will also only
+ *  be accurate for Entries obtained from a `CDASyncedSpace`originally.
+ *
+ */
+@property (nonatomic) NSString* locale;
+
 /** @name Handle custom objects */
 
 /**

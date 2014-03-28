@@ -163,21 +163,27 @@
     
     self.client = [[CDAClient alloc] initWithSpaceKey:@"cfexampleapi" accessToken:@"b4c0n73n7fu1"];
     CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
-        BOOL foundNyanCat = NO;
+        CDAEntry* nyanCat = nil;
         
         for (CDAEntry* entry in space.entries) {
             if ([entry.identifier isEqualToString:@"nyancat"]) {
-                XCTAssertEqualObjects(@"Nyan Cat", entry.fields[@"name"], @"");
-                XCTAssertNotNil([entry.fields[@"image"] URL], @"");
-                
-                foundNyanCat = YES;
+                nyanCat = entry;
                 break;
             }
         }
         
-        // TODO: Test access to entry.fields[@"name"] in other locales
+        XCTAssertNotNil(nyanCat, @"Response did not contain expected entries.");
+        XCTAssertEqualObjects(@"Nyan Cat", nyanCat.fields[@"name"], @"");
+        XCTAssertNotNil([nyanCat.fields[@"image"] URL], @"");
         
-        XCTAssert(foundNyanCat, @"Response did not contain expected entries.");
+        nyanCat.locale = @"tlh";
+        XCTAssertEqualObjects(@"Nyan vIghro'", nyanCat.fields[@"name"], @"");
+        XCTAssertNotNil([nyanCat.fields[@"image"] URL], @"");
+        
+        nyanCat.locale = @"de-DE";
+        XCTAssertEqualObjects(@"Nyan Cat", nyanCat.fields[@"name"], @"");
+        XCTAssertNotNil([nyanCat.fields[@"image"] URL], @"");
+
         EndBlock();
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
