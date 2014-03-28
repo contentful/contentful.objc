@@ -151,6 +151,9 @@
 }
 
 -(NSDictionary*)localizedDictionaryFromDictionary:(NSDictionary*)dictionary forLocale:(NSString*)locale {
+    NSParameterAssert(dictionary);
+    NSParameterAssert(locale);
+    
     NSMutableDictionary* result = [@{} mutableCopy];
     
     [dictionary enumerateKeysAndObjectsUsingBlock:^(NSString* key, NSDictionary* value, BOOL *stop) {
