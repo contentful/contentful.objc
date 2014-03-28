@@ -157,7 +157,7 @@
         XCTAssertEqualObjects(@"happycat", [entry.fields[@"bestFriend"] identifier], @"");
         XCTAssertEqualObjects(@"Happy Cat", [entry.fields[@"bestFriend"] fields][@"name"], @"");
         XCTAssertEqualObjects([NSURL URLWithString:@"https://images.contentful.com/cfexampleapi/4gp6taAwW4CmSgumq2ekUm/9da0cd1936871b8d72343e895a00d611/Nyan_cat_250px_frame.png"],
-                              [((CDAAsset*)entry.fields[@"image"]) fields][@"file"][@"url"], @"");
+                              [((CDAAsset*)entry.fields[@"image"]) URL], @"");
         
         EndBlock();
     } failure:^(CDAResponse *response, NSError *error) {

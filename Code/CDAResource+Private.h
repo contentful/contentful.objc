@@ -12,6 +12,8 @@
 
 @interface CDAResource ()
 
+@property (nonatomic, readonly) BOOL localizationAvailable;
+
 +(NSString*)CDAType;
 +(instancetype)resourceObjectForDictionary:(NSDictionary*)dictionary client:(CDAClient*)client;
 
