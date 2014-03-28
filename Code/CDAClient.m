@@ -305,16 +305,16 @@
     };
     
     if (self.contentTypeRegistry.fetched) {
-        return [self.requestOperationManager fetchArrayAtURLPath:@"sync"
-                                                      parameters:@{ @"initial": @"true" }
-                                                         success:handler
-                                                         failure:failure];
+        return [self fetchArrayAtURLPath:@"sync"
+                              parameters:@{ @"initial": @"true" }
+                                 success:handler
+                                 failure:failure];
     } else {
         return [self fetchContentTypesWithSuccess:^(CDAResponse *response, CDAArray *array) {
-            [self.requestOperationManager fetchArrayAtURLPath:@"sync"
-                                                   parameters:@{ @"initial": @"true" }
-                                                      success:handler
-                                                      failure:failure];
+            [self fetchArrayAtURLPath:@"sync"
+                           parameters:@{ @"initial": @"true" }
+                              success:handler
+                              failure:failure];
         } failure:failure];
     }
 }
