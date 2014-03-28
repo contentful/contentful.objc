@@ -75,6 +75,9 @@
 		A18AA85718E45C5E00D430D5 /* SyncTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A18AA85618E45C5E00D430D5 /* SyncTests.json */; };
 		A18AA85918E48B4200D430D5 /* AssetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A18AA85818E48B4200D430D5 /* AssetTests.m */; };
 		A18AA85C18E4952C00D430D5 /* AssetTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A18AA85A18E4952800D430D5 /* AssetTests.json */; };
+		A18AA86118E5D63B00D430D5 /* CDAFallbackDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = A18AA85F18E5D63B00D430D5 /* CDAFallbackDictionary.h */; };
+		A18AA86218E5D63B00D430D5 /* CDAFallbackDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = A18AA86018E5D63B00D430D5 /* CDAFallbackDictionary.m */; };
+		A18AA86418E5DB1A00D430D5 /* UtilityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A18AA86318E5DB1A00D430D5 /* UtilityTests.m */; };
 		A193EB3B18D084C50017B777 /* ValueObjectsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A193EB3A18D084C50017B777 /* ValueObjectsTests.m */; };
 		A193EB3C18D096C50017B777 /* CDAResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A0313618C644B5006470B7 /* CDAResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A193EB3E18D09AC10017B777 /* CDAResponse+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A193EB3D18D09AC10017B777 /* CDAResponse+Private.h */; };
@@ -245,6 +248,9 @@
 		A18AA85818E48B4200D430D5 /* AssetTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetTests.m; sourceTree = "<group>"; };
 		A18AA85A18E4952800D430D5 /* AssetTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AssetTests.json; sourceTree = "<group>"; };
 		A18AA85D18E596A000D430D5 /* CDASpace+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDASpace+Private.h"; sourceTree = "<group>"; };
+		A18AA85F18E5D63B00D430D5 /* CDAFallbackDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAFallbackDictionary.h; sourceTree = "<group>"; };
+		A18AA86018E5D63B00D430D5 /* CDAFallbackDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAFallbackDictionary.m; sourceTree = "<group>"; };
+		A18AA86318E5DB1A00D430D5 /* UtilityTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilityTests.m; sourceTree = "<group>"; };
 		A193EB3A18D084C50017B777 /* ValueObjectsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValueObjectsTests.m; sourceTree = "<group>"; };
 		A193EB3D18D09AC10017B777 /* CDAResponse+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDAResponse+Private.h"; sourceTree = "<group>"; };
 		A193EB3F18D09D180017B777 /* UIKitAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIKitAdditionsTests.m; sourceTree = "<group>"; };
@@ -453,6 +459,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A18AA85E18E5D5DB00D430D5 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A18AA85F18E5D63B00D430D5 /* CDAFallbackDictionary.h */,
+				A18AA86018E5D63B00D430D5 /* CDAFallbackDictionary.m */,
+				A1A0313D18C66667006470B7 /* CDAUtilities.h */,
+				A1A0313E18C66667006470B7 /* CDAUtilities.m */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		A19FD85C18C6315E0081677E = {
 			isa = PBXGroup;
 			children = (
@@ -505,6 +522,7 @@
 				A1D9D56518CF52B20089D4A2 /* Perform Requests */,
 				A1D9D56818CF533B0089D4A2 /* Resources */,
 				A1D2DBF418CF618A0053DC83 /* UIKit Extensions */,
+				A18AA85E18E5D5DB00D430D5 /* Utilities */,
 				A19FD8D918C63DF00081677E /* ContentfulDeliveryAPI.h */,
 				A19FD86E18C631E60081677E /* ContentfulDeliveryAPI-Prefix.pch */,
 			);
@@ -540,6 +558,7 @@
 				A193EB6718D21B260017B777 /* UIKitAdditionsTests */,
 				A193EB5318D1C88A0017B777 /* UIKitAdditionsTests.json */,
 				A193EB3F18D09D180017B777 /* UIKitAdditionsTests.m */,
+				A18AA86318E5DB1A00D430D5 /* UtilityTests.m */,
 				A193EB5418D1C88A0017B777 /* ValueObjectsTests.json */,
 				A193EB3A18D084C50017B777 /* ValueObjectsTests.m */,
 			);
@@ -687,8 +706,6 @@
 				A18AA85D18E596A000D430D5 /* CDASpace+Private.h */,
 				A1D1D36018C8B8D100261A1C /* CDASpace.h */,
 				A1D1D36118C8B8D100261A1C /* CDASpace.m */,
-				A1A0313D18C66667006470B7 /* CDAUtilities.h */,
-				A1A0313E18C66667006470B7 /* CDAUtilities.m */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -715,6 +732,7 @@
 				A12797AE18E1B10300043A44 /* CDASyncedSpace.h in Headers */,
 				A1E3D04C18C8797700E4F488 /* CDAResource.h in Headers */,
 				A1E8391618CE2A1800B697F6 /* CDAConfiguration.h in Headers */,
+				A18AA86118E5D63B00D430D5 /* CDAFallbackDictionary.h in Headers */,
 				A1C1AC4318CE032200DBF0D0 /* CDAClient+Private.h in Headers */,
 				A1E3D04818C8794000E4F488 /* CDAClient.h in Headers */,
 				A193EB4718D0ACFE0017B777 /* CDAFieldCell.h in Headers */,
@@ -1170,6 +1188,7 @@
 				A1A0314818C6708C006470B7 /* CDAField.m in Sources */,
 				A1D2DC0318D076F50053DC83 /* CDAEntriesViewController.m in Sources */,
 				A1A0312918C64165006470B7 /* CDAResource.m in Sources */,
+				A18AA86218E5D63B00D430D5 /* CDAFallbackDictionary.m in Sources */,
 				A1A0315618C7683E006470B7 /* CDAError.m in Sources */,
 				A19FD87218C631E60081677E /* CDAClient.m in Sources */,
 				A1E3D05B18C87D3B00E4F488 /* CDARequestOperationManager.m in Sources */,
@@ -1199,6 +1218,7 @@
 				A193EB3B18D084C50017B777 /* ValueObjectsTests.m in Sources */,
 				A173F60318DB3E1E000E6F92 /* PreviewModeTests.m in Sources */,
 				A1C8DCD318E098E80019A519 /* LinkTests.m in Sources */,
+				A18AA86418E5DB1A00D430D5 /* UtilityTests.m in Sources */,
 				A1D1D35F18C8ABB800261A1C /* DocumentationTests.m in Sources */,
 				A18AA85918E48B4200D430D5 /* AssetTests.m in Sources */,
 				A1A0314F18C756B7006470B7 /* SearchAPITests.m in Sources */,
