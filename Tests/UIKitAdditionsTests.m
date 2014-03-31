@@ -78,7 +78,7 @@
     if ([keyPath isEqualToString:@"resources"]) {
         CDAResourcesCollectionViewController* resourcesVC = object;
       
-        XCTAssertEqual(4, resourcesVC.items.count, @"");
+        XCTAssertEqual(4U, resourcesVC.items.count, @"");
         XCTAssertEqual(4, [resourcesVC.collectionView.dataSource collectionView:resourcesVC.collectionView numberOfItemsInSection:0], @"");
         
         // FIXME: Does not work because dataSource is never consulted somehow.
