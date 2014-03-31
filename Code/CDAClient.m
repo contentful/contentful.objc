@@ -43,10 +43,6 @@
 
 #pragma mark -
 
--(NSString *)defaultLocale {
-    return self.space.defaultLocale;
-}
-
 -(void)fetchAllItemsFromArray:(CDAArray*)array
                       success:(void (^)(NSArray* items))success
                       failure:(CDARequestFailureBlock)failure {
