@@ -81,7 +81,16 @@
         XCTAssertEqual(8U, contentType.fields.count, @"");
         XCTAssertEqualObjects(@"Cat", contentType.name, @"");
         
-        EndBlock();
+        [contentType resolveWithSuccess:^(CDAResponse *response, CDAResource *resource) {
+            XCTAssertEqual(8U, contentType.fields.count, @"");
+            XCTAssertEqualObjects(@"Cat", contentType.name, @"");
+            
+            EndBlock();
+        } failure:^(CDAResponse *response, NSError *error) {
+            XCTFail(@"Error: %@", error);
+            
+            EndBlock();
+        }];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
@@ -106,6 +115,34 @@
         XCTAssertEqualObjects(@"Nyan Cat", entry.fields[@"name"], @"");
         XCTAssertNotNil(entry.contentType, @"");
         
+        [entry resolveWithSuccess:^(CDAResponse *response, CDAResource *resource) {
+            XCTAssertEqual(7U, entry.fields.count, @"");
+            XCTAssertEqualObjects(@"Nyan Cat", entry.fields[@"name"], @"");
+            XCTAssertNotNil(entry.contentType, @"");
+            
+            EndBlock();
+        } failure:^(CDAResponse *response, NSError *error) {
+            XCTFail(@"Error: %@", error);
+            
+            EndBlock();
+        }];
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTFail(@"Error: %@", error);
+        
+        EndBlock();
+    }];
+    
+    WaitUntilBlockCompletes();
+}
+
+-(void)testResolveResource {
+    CDAResource* resource = [[CDAResource alloc] initWithDictionary:@{ @"sys": @{ @"id": @"nyancat",
+                                                                                  @"type": @"Entry" } }
+                                                             client:self.client];
+    
+    StartBlock();
+    
+    [resource resolveWithSuccess:^(CDAResponse *response, CDAResource *resource) {
         EndBlock();
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
@@ -114,6 +151,15 @@
     }];
     
     WaitUntilBlockCompletes();
+}
+
+-(void)testUnimplementedResolveThrows {
+    CDAResource* resource = [[CDAResource alloc] initWithDictionary:@{ @"sys": @{ @"id": @"nyancat",
+                                                                                  @"type": @"Link" } }
+                                                             client:self.client];
+    
+    XCTAssertThrowsSpecificNamed([resource resolveWithSuccess:nil failure:nil], NSException,
+                                 NSInternalInconsistencyException, @"");
 }
 
 @end
