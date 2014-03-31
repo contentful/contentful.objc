@@ -7,6 +7,7 @@
 //
 
 #import <ContentfulDeliveryAPI/ContentfulDeliveryAPI.h>
+#import <FBSnapshotTestCase/FBSnapshotTestController.h>
 #import <XCTest/XCTest.h>
 
 #import "AsyncTesting.h"
@@ -14,6 +15,7 @@
 @interface ContentfulBaseTestCase : XCTestCase
 
 @property (nonatomic) CDAClient* client;
+@property (nonatomic, readonly) FBSnapshotTestController* snapshotTestController;
 
 - (void)assertField:(CDAField*)field
       hasIdentifier:(NSString*)identifier

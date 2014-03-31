@@ -75,6 +75,24 @@
         [self compareImage:imageView.image forTestSelector:self.currentTestSelector];
     }
     
+    if ([keyPath isEqualToString:@"resources"]) {
+        CDAResourcesCollectionViewController* resourcesVC = object;
+      
+        XCTAssertEqual(4U, resourcesVC.items.count, @"");
+        XCTAssertEqual(4U, [resourcesVC.collectionView.dataSource collectionView:resourcesVC.collectionView numberOfItemsInSection:0], @"");
+        
+        // FIXME: Does not work because dataSource is never consulted somehow.
+#if 0
+        UICollectionViewCell* cell = [resourcesVC.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
+        
+        NSError* error;
+        XCTAssert([self.snapshotTestController compareSnapshotOfView:cell
+                                                            selector:self.currentTestSelector
+                                                          identifier:nil
+                                                               error:&error], @"Error: %@", error);
+#endif
+    }
+    
     self.waiting = NO;
 }
 
@@ -121,6 +139,28 @@
                                             } failure:^(CDAResponse *response, NSError *error) {
                                                 XCTFail(@"Error: %@", error);
                                             }];
+    
+    self.currentTestSelector = NULL;
+}
+
+- (void)testResourcesCollectionViewController {
+    self.currentTestSelector = _cmd;
+    
+    CDAResourcesCollectionViewController* resourcesVC = [[CDAResourcesCollectionViewController alloc] initWithCollectionViewLayout:[UICollectionViewFlowLayout new] cellMapping:@{@"imageURL": @"URL"}];
+    resourcesVC.client = self.client;
+    resourcesVC.resourceType = CDAResourceTypeAsset;
+    
+    self.waiting = YES;
+    
+    [resourcesVC addObserver:self forKeyPath:@"resources" options:0 context:NULL];
+    [resourcesVC viewWillAppear:NO];
+    
+    NSDate* now = [NSDate date];
+    WaitWhile(self.waiting && [[NSDate date] timeIntervalSinceDate:now] < 3.0);
+    
+    [resourcesVC removeObserver:self forKeyPath:@"resources" context:nil];
+    
+    XCTAssertFalse(self.waiting, @"Observer hasn't fired after 3 seconds.");
     
     self.currentTestSelector = NULL;
 }

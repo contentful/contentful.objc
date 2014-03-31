@@ -6,7 +6,7 @@
 //
 //
 
-#import <FBSnapshotTestCase/FBSnapshotTestController.h>
+
 #import <VCRURLConnection/VCR.h>
 
 #import "ContentfulBaseTestCase.h"
