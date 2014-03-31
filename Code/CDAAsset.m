@@ -34,7 +34,7 @@ const CGFloat CDAImageQualityOriginal = 0.0;
 }
 
 -(NSDictionary *)fields {
-    return self.localizedFields[self.client.space.defaultLocale];
+    return self.localizedFields[self.locale];
 }
 
 -(NSURL *)imageURLWithSize:(CGSize)size {
@@ -104,6 +104,7 @@ const CGFloat CDAImageQualityOriginal = 0.0;
         }
         
         self.localizedFields = [localizedFields copy];
+        self.locale = self.client.space.defaultLocale;
     }
     return self;
 }
@@ -129,6 +130,18 @@ const CGFloat CDAImageQualityOriginal = 0.0;
                                           success(response, asset);
                                       }
                                   } failure:failure];
+}
+
+-(void)setLocale:(NSString *)locale {
+    if (_locale == locale) {
+        return;
+    }
+    
+    if ([self.localizedFields.allKeys containsObject:locale]) {
+        _locale = locale;
+    } else {
+        _locale = self.client.space.defaultLocale;
+    }
 }
 
 -(CGSize)size {

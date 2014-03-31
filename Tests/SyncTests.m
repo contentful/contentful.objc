@@ -156,7 +156,40 @@
     XCTAssertEqual(0U, self.numberOfDelegateMethodCalls, @"");
 }
 
--(void)testMultipleLocalesWhileSyncing {
+-(void)testAssetWithMultipleLocalesWhileSyncing {
+    [OHHTTPStubs removeAllStubs];
+    
+    StartBlock();
+    
+    CDAConfiguration* configuration = [CDAConfiguration defaultConfiguration];
+    configuration.server = @"cdn.flinkly.com";
+    self.client = [[CDAClient alloc] initWithSpaceKey:@"0be4dalv8pk7" accessToken:@"062472725a8cbf6f11b0e0c63c616e321a9e245b1bf1a0f9b34cfd42162d5b0f" configuration:configuration];
+    CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
+        CDAAsset* asset = [space.assets firstObject];
+        
+        XCTAssertEqualObjects(@"foo", asset.fields[@"title"], @"");
+        XCTAssertEqualObjects(@"512_black.png", asset.URL.lastPathComponent, @"");
+        
+        asset.locale = @"de-DE";
+        XCTAssertEqualObjects(@"bar", asset.fields[@"title"], @"");
+        XCTAssertEqualObjects(@"SeaLionWallpaper.jpg", asset.URL.lastPathComponent, @"");
+        
+        asset.locale = @"tlh";
+        XCTAssertEqualObjects(@"foo", asset.fields[@"title"], @"");
+        XCTAssertEqualObjects(@"512_black.png", asset.URL.lastPathComponent, @"");
+        
+        EndBlock();
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTFail(@"Error: %@", error);
+        
+        EndBlock();
+    }];
+    XCTAssertNotNil(request, @"");
+    
+    WaitUntilBlockCompletes();
+}
+
+-(void)testEntryWithMultipleLocalesWhileSyncing {
     [OHHTTPStubs removeAllStubs];
     
     StartBlock();
