@@ -106,6 +106,8 @@
     self.waiting = YES;
     
     [entriesVC addObserver:self forKeyPath:@"entries" options:0 context:NULL];
+    
+    XCTAssertNotNil(entriesVC.view, @"");
     [entriesVC viewWillAppear:NO];
     
     NSDate* now = [NSDate date];
@@ -153,6 +155,8 @@
     self.waiting = YES;
     
     [resourcesVC addObserver:self forKeyPath:@"resources" options:0 context:NULL];
+    
+    XCTAssertNotNil(resourcesVC.view, @"");
     [resourcesVC viewWillAppear:NO];
     
     NSDate* now = [NSDate date];
