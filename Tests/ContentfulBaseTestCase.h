@@ -22,5 +22,6 @@
                name:(NSString*)name
                type:(CDAFieldType)type;
 - (void)compareImage:(UIImage*)image forTestSelector:(SEL)testSelector;
+- (CDAEntry*)customEntryHelperWithFields:(NSDictionary*)fields;
 
 @end
