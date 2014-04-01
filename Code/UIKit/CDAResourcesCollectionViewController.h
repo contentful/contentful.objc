@@ -62,4 +62,22 @@
 /** The type of Resources which ought to be fetched. */
 @property (nonatomic) CDAResourceType resourceType;
 
+/** @name Configuring behaviour in Subclasses */
+
+/**
+ The collection view's data source is configured to return cells of this class. If you wish to use your
+ own `UICollectionViewCell` subclass, override this method in your subclass of 
+ `CDAResourcesCollectionViewController`.
+ */
++(Class)cellClass;
+
+/**
+ *  By default, errors related to requests made to the Contentful API will be displayed in a
+ *  `UIAlertView`. You can override this method in your subclass if you want to implement different
+ *  behaviour.
+ *
+ *  @param error The error which occured.
+ */
+-(void)showError:(NSError*)error;
+
 @end
