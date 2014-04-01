@@ -1,6 +1,7 @@
 # contentful.objc
 
 [![Build Status](https://travis-ci.org/contentful/contentful.objc.png?branch=master)](https://travis-ci.org/contentful/contentful.objc)
+[![Coverage Status](https://coveralls.io/repos/contentful/contentful.objc/badge.png?branch=master)](https://coveralls.io/r/contentful/contentful.objc?branch=master)
 
 Objective-C SDK for [Contentful's][1] Content Delivery API.
 
