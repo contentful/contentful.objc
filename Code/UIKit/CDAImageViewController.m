@@ -37,12 +37,14 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     UILabel* unsupportedAssetTypeLabel = [[UILabel alloc] initWithFrame:self.view.bounds];
+    unsupportedAssetTypeLabel.backgroundColor = self.view.backgroundColor;
     unsupportedAssetTypeLabel.text = NSLocalizedString(@"Unsupported asset type.", nil);
     unsupportedAssetTypeLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:unsupportedAssetTypeLabel];
     
     self.imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
     self.imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.imageView.backgroundColor = self.view.backgroundColor;
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
     [self.view addSubview:self.imageView];
     
