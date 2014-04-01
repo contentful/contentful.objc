@@ -6,6 +6,7 @@
 //
 //
 
+#import "CDATextViewController.h"
 #import "ContentfulBaseTestCase.h"
 #import "UIImageView+CDAAsset.h"
 
@@ -54,6 +55,22 @@
 }
 
 #pragma mark -
+
+- (CDAFieldsViewController*)buildFieldsViewController {
+    CDAEntry* entry = [self customEntryHelperWithFields:@{
+                                                          @"someArray": [NSNull null],
+                                                          @"someBool": @YES,
+                                                          @"someDate": @"2014-01-01",
+                                                          @"someInteger": @1,
+                                                          @"someLink": [NSNull null],
+                                                          @"someLocation": [NSNull null],
+                                                          @"someNumber": @1.1,
+                                                          @"someSymbol": @"text",
+                                                          @"someText": @"text",
+                                                          }];
+    
+    return [[CDAFieldsViewController alloc] initWithEntry:entry];
+}
 
 - (void)observeValueForKeyPath:(NSString *)keyPath
                       ofObject:(id)object
@@ -118,6 +135,12 @@
     XCTAssertFalse(self.waiting, @"Observer hasn't fired after 3 seconds.");
 }
 
+- (void)testFieldsViewController {
+    CDAFieldsViewController* fieldsVC = [self buildFieldsViewController];
+    
+    XCTAssertEqual(9, [fieldsVC.tableView numberOfRowsInSection:0], @"");
+}
+
 - (void)testImageViewCategory {
     self.currentTestSelector = _cmd;
     
@@ -167,6 +190,20 @@
     XCTAssertFalse(self.waiting, @"Observer hasn't fired after 3 seconds.");
     
     self.currentTestSelector = NULL;
+}
+
+- (void)testTextViewController {
+    CDAFieldsViewController* fieldsVC = [self buildFieldsViewController];
+    UINavigationController* navigationController = [[UINavigationController alloc]
+                                                    initWithRootViewController:fieldsVC];
+    
+    CDAField* field = [self customEntryHelperWithFields:@{}].contentType.fields[8];
+    NSString* textValue = @"texttexttexttexttexttexttexttexttext";
+    [fieldsVC didSelectRowWithValue:textValue forField:field];
+    
+    CDATextViewController* topVC = (CDATextViewController*)navigationController.topViewController;
+    XCTAssert([topVC isKindOfClass:[CDATextViewController class]], @"");
+    XCTAssertEqualObjects(topVC.text, textValue, @"");
 }
 
 @end

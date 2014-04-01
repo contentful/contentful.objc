@@ -8,16 +8,7 @@
 
 #import <OHHTTPStubs/OHHTTPStubs.h>
 
-#import "CDAResource+Private.h"
 #import "ContentfulBaseTestCase.h"
-
-@interface CDAClient ()
-
--(void)setSpace:(CDASpace*)space;
-
-@end
-
-#pragma mark -
 
 @interface ErrorTests : ContentfulBaseTestCase
 
@@ -26,44 +17,6 @@
 #pragma mark -
 
 @implementation ErrorTests
-
-- (CDAEntry*)customEntryHelperWithFields:(NSDictionary*)fields
-{
-    NSData* spaceData = [NSData dataWithContentsOfFile:[[NSBundle bundleForClass:[self class]] pathForResource:@"space" ofType:@"json" inDirectory:@"SyncTests"]];
-    NSDictionary* spaceJSON = [NSJSONSerialization JSONObjectWithData:spaceData options:0 error:nil];
-    CDASpace* space = [[CDASpace alloc] initWithDictionary:spaceJSON client:self.client];
-    [self.client setSpace:space];
-    
-    NSDictionary* ct = @{
-                         @"name": @"My trolls",
-                         @"fields": @[
-                                 @{ @"id": @"someArray",    @"type": @"Array" },
-                                 @{ @"id": @"someBool",     @"type": @"Boolean" },
-                                 @{ @"id": @"someDate",     @"type": @"Date" },
-                                 @{ @"id": @"someInteger",  @"type": @"Integer" },
-                                 @{ @"id": @"someLink",     @"type": @"Link" },
-                                 @{ @"id": @"someLocation", @"type": @"Location" },
-                                 @{ @"id": @"someNumber",   @"type": @"Number" },
-                                 @{ @"id": @"someSymbol",   @"type": @"Symbol" },
-                                 @{ @"id": @"someText",     @"type": @"Text" },
-                                 ],
-                         @"sys": @{ @"id": @"trolololo" },
-                         };
-    
-    CDAContentType* contentType = [[CDAContentType alloc] initWithDictionary:ct client:self.client];
-    XCTAssertEqual(9U, contentType.fields.count, @"");
-    
-    NSDictionary* entry = @{
-                            @"fields": fields,
-                            @"sys": @{
-                                    @"id": @"brokenEntry",
-                                    @"contentType": @{ @"sys": @{ @"id": @"trolololo" } }
-                                    },
-                            };
-    CDAEntry* brokenEntry = [[CDAEntry alloc] initWithDictionary:entry client:self.client];
-    XCTAssertEqualObjects(@"brokenEntry", brokenEntry.identifier, @"");
-    return brokenEntry;
-}
 
 - (void)testBrokenContent
 {
