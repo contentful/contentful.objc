@@ -88,7 +88,7 @@
     WaitUntilBlockCompletes();
 }
 
-- (void)testCustomClasses {
+- (void)testCustomClassesWithContentTypeIdentifier {
     StartBlock();
     
     [self.client registerClass:[Cat class] forContentTypeWithIdentifier:@"cat"];
@@ -98,6 +98,39 @@
         XCTAssertEqualObjects(@"Nyan Cat", ((Cat*)cat).name, @"");
         
         EndBlock();
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTFail(@"Error: %@", error);
+        
+        EndBlock();
+    }];
+    
+    WaitUntilBlockCompletes();
+}
+
+- (void)testCustomClassesWithContentTypeInstance {
+    StartBlock();
+    
+    [self.client fetchContentTypesWithSuccess:^(CDAResponse *response, CDAArray *array) {
+        CDAContentType* catContentType = nil;
+        for (CDAContentType* contentType in array.items) {
+            if ([contentType.identifier isEqualToString:@"cat"]) {
+                catContentType = contentType;
+                break;
+            }
+        }
+        
+        [self.client registerClass:[Cat class] forContentType:catContentType];
+        
+        [self.client fetchEntryWithIdentifier:@"nyancat" success:^(CDAResponse *r, CDAEntry *cat) {
+            XCTAssert([cat isKindOfClass:[Cat class]], @"");
+            XCTAssertEqualObjects(@"Nyan Cat", ((Cat*)cat).name, @"");
+            
+            EndBlock();
+        } failure:^(CDAResponse *response, NSError *error) {
+            XCTFail(@"Error: %@", error);
+            
+            EndBlock();
+        }];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
