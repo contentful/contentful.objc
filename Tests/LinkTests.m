@@ -59,7 +59,16 @@
         CDAAsset* asset = (CDAAsset*)resource;
         XCTAssertEqualObjects(@"Nyan_cat_250px_frame.png", [asset.URL lastPathComponent], @"");
         
-        EndBlock();
+        [asset resolveWithSuccess:^(CDAResponse *response, CDAResource *resource) {
+            CDAAsset* asset = (CDAAsset*)resource;
+            XCTAssertEqualObjects(@"Nyan_cat_250px_frame.png", [asset.URL lastPathComponent], @"");
+            
+            EndBlock();
+        } failure:^(CDAResponse *response, NSError *error) {
+            XCTFail(@"Error: %@", error);
+            
+            EndBlock();
+        }];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
