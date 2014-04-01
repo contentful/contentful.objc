@@ -38,13 +38,33 @@
     }];
 }
 
--(void)testChangeImageFormat {
+-(void)testChangeImageFormatToJPEG {
     StartBlock();
     
     [self.client fetchAssetWithIdentifier:@"nyancat" success:^(CDAResponse *response, CDAAsset *asset) {
         __block NSURL* imageURL = [asset imageURLWithSize:CGSizeZero
                                                   quality:CDAImageQualityOriginal
                                                    format:CDAImageFormatJPEG];
+        
+        [self fetchImageAtURL:imageURL completionBlock:^(UIImage *image, NSDictionary* properties) {
+            EndBlock();
+        }];
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTFail(@"Error: %@", error);
+        
+        EndBlock();
+    }];
+    
+    WaitUntilBlockCompletes();
+}
+
+-(void)testChangeImageFormatToPNG {
+    StartBlock();
+    
+    [self.client fetchAssetWithIdentifier:@"nyancat" success:^(CDAResponse *response, CDAAsset *asset) {
+        __block NSURL* imageURL = [asset imageURLWithSize:CGSizeZero
+                                                  quality:CDAImageQualityOriginal
+                                                   format:CDAImageFormatPNG];
         
         [self fetchImageAtURL:imageURL completionBlock:^(UIImage *image, NSDictionary* properties) {
             EndBlock();
