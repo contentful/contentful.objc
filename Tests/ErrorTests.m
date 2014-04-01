@@ -18,6 +18,36 @@
 
 @implementation ErrorTests
 
+- (void)noNetworkTestHelperWithContentTypeFetchedEarier:(BOOL)contentTypeFetched
+{
+    [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
+        return YES;
+    } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
+        return [OHHTTPStubsResponse responseWithError:[NSError errorWithDomain:NSURLErrorDomain code:kCFURLErrorNotConnectedToInternet userInfo:nil]];
+    }];
+    
+    if (contentTypeFetched) {
+        [self customEntryHelperWithFields:@{}];
+    }
+    
+    StartBlock();
+    
+    [self.client fetchEntriesWithSuccess:^(CDAResponse *response, CDAArray *array) {
+        XCTFail(@"Request should not succeed.");
+        
+        EndBlock();
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTAssertEqual(error.code, kCFURLErrorNotConnectedToInternet, @"");
+        XCTAssertEqualObjects(error.domain, NSURLErrorDomain, @"");
+        
+        EndBlock();
+    }];
+    
+    WaitUntilBlockCompletes();
+    
+    [OHHTTPStubs removeLastStub];
+}
+
 - (void)testBrokenContent
 {
     CDAEntry* brokenEntry = [self customEntryHelperWithFields:@{
@@ -88,28 +118,12 @@
 
 - (void)testNoNetwork
 {
-    [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
-        return YES;
-    } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
-        return [OHHTTPStubsResponse responseWithError:[NSError errorWithDomain:NSURLErrorDomain code:kCFURLErrorNotConnectedToInternet userInfo:nil]];
-    }];
-    
-    StartBlock();
-    
-    [self.client fetchEntriesWithSuccess:^(CDAResponse *response, CDAArray *array) {
-        XCTFail(@"Request should not succeed.");
-        
-        EndBlock();
-    } failure:^(CDAResponse *response, NSError *error) {
-        XCTAssertEqual(error.code, kCFURLErrorNotConnectedToInternet, @"");
-        XCTAssertEqualObjects(error.domain, NSURLErrorDomain, @"");
-        
-        EndBlock();
-    }];
-    
-    WaitUntilBlockCompletes();
-    
-    [OHHTTPStubs removeLastStub];
+    [self noNetworkTestHelperWithContentTypeFetchedEarier:NO];
+}
+
+- (void)testNoNetworkLater
+{
+    [self noNetworkTestHelperWithContentTypeFetchedEarier:YES];
 }
 
 - (void)testNonLocationFieldsThrow
