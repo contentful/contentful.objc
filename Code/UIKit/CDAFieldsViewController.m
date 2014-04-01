@@ -175,7 +175,7 @@
         return nil;
     }
     
-    NSString* fieldIdentifier = self.fields[indexPath.row];
+    NSString* fieldIdentifier = [self.fields[indexPath.row] identifier];
     
     CDAFieldCell* cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([self class])
                                                          forIndexPath:indexPath];
