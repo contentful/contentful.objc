@@ -6,9 +6,18 @@
 //
 //
 
+#import "CDAFieldCell.h"
 #import "CDATextViewController.h"
 #import "ContentfulBaseTestCase.h"
 #import "UIImageView+CDAAsset.h"
+
+@interface CDAFieldsViewController ()
+
+@property (nonatomic, readonly) CDAEntry* entry;
+
+@end
+
+#pragma mark -
 
 @interface CDATextViewController ()
 
@@ -166,7 +175,20 @@
 - (void)testFieldsViewController {
     CDAFieldsViewController* fieldsVC = [self buildFieldsViewController];
     
+    XCTAssertNotNil(fieldsVC.view, @"");
+    [fieldsVC viewWillAppear:NO];
+    
     XCTAssertEqual(9, [fieldsVC.tableView numberOfRowsInSection:0], @"");
+    
+    [fieldsVC.entry.contentType.fields enumerateObjectsUsingBlock:^(CDAField* field,
+                                                                    NSUInteger idx, BOOL *stop) {
+        NSIndexPath* indexPath = [NSIndexPath indexPathForRow:idx inSection:0];
+        CDAFieldCell* cell = (CDAFieldCell*)[fieldsVC.tableView cellForRowAtIndexPath:indexPath];
+        
+        XCTAssertEqualObjects(field.name, cell.textLabel.text, @"");
+        XCTAssertEqualObjects(field, cell.field, @"");
+        XCTAssertEqualObjects(fieldsVC.entry.fields[field.identifier], cell.value, @"");
+    }];
 }
 
 - (void)testImageViewCategory {
