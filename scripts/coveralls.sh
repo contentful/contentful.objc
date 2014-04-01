@@ -48,7 +48,7 @@ main()
  	generateGcov
 	copyGcovToProjectDir
 # post
-    coveralls -t "${COVERALLS_TOKEN}" --exclude Examples --exclude Pods --exclude Tests ${@+"$@"}
+    coveralls -t "${COVERALLS_TOKEN}" -E '.+/.+-Private\.h' --exclude Examples --exclude Pods --exclude Tests ${@+"$@"}
 # clean up
     removeGcov
 }
