@@ -39,7 +39,9 @@
     self.textView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.textView.editable = NO;
     self.textView.font = [UIFont systemFontOfSize:18.0];
-    self.textView.textContainerInset = UIEdgeInsetsMake(20.0, 10.0, 10.0, 20.0);
+    if ([self.textView respondsToSelector:@selector(textContainerInset)]) {
+        self.textView.textContainerInset = UIEdgeInsetsMake(20.0, 10.0, 10.0, 20.0);
+    }
     [self.view addSubview:self.textView];
     
     [self setMarkdownText:self.markdownText];
