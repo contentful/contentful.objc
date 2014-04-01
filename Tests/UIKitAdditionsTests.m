@@ -10,6 +10,14 @@
 #import "ContentfulBaseTestCase.h"
 #import "UIImageView+CDAAsset.h"
 
+@interface CDATextViewController ()
+
+@property (nonatomic, readonly) UITextView* textView;
+
+@end
+
+#pragma mark -
+
 @interface UIKitAdditionsTests : ContentfulBaseTestCase
 
 @property (nonatomic) SEL currentTestSelector;
@@ -79,7 +87,7 @@
     if ([keyPath isEqualToString:@"entries"]) {
         CDAEntriesViewController* entriesVC = object;
         
-        XCTAssertEqual(100U, [[entriesVC valueForKeyPath:@"entries.items"] count], @"");
+        XCTAssertEqual(100U, entriesVC.items.count, @"");
         
         UITableViewCell* cell = [entriesVC.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
         XCTAssertEqualObjects(@"2013-06-27 14:36:52 +0000", cell.detailTextLabel.text, @"");
@@ -135,6 +143,26 @@
     XCTAssertFalse(self.waiting, @"Observer hasn't fired after 3 seconds.");
 }
 
+- (void)testEntriesViewControllerLocally {
+    CDAEntry* entry = [self customEntryHelperWithFields:@{ @"someText": @"title" }];
+    CDAEntriesViewController* entriesVC = [[CDAEntriesViewController alloc] initWithCellMapping:@{ @"textLabel.text": @"fields.someText" } items:@[ entry ]];
+    
+    XCTAssertNotNil(entriesVC.view, @"");
+    [entriesVC viewWillAppear:NO];
+    
+    XCTAssertEqual(1U, entriesVC.items.count, @"");
+    
+    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    
+    UITableViewCell* cell = [entriesVC.tableView cellForRowAtIndexPath:indexPath];
+    XCTAssertEqualObjects(@"title", cell.textLabel.text, @"");
+    
+    UINavigationController* navigationController = [[UINavigationController alloc] initWithRootViewController:entriesVC];
+    [entriesVC tableView:entriesVC.tableView didSelectRowAtIndexPath:indexPath];
+    XCTAssert([navigationController.topViewController isKindOfClass:[CDAFieldsViewController class]],
+              @"");
+}
+
 - (void)testFieldsViewController {
     CDAFieldsViewController* fieldsVC = [self buildFieldsViewController];
     
@@ -161,6 +189,35 @@
                                             success:^(UIImageView *imageView, CDAAsset *asset) {
                                                 [imageView cda_setImageWithAsset:asset
                                                                 placeholderImage:nil];
+                                            } failure:^(CDAResponse *response, NSError *error) {
+                                                XCTFail(@"Error: %@", error);
+                                            }];
+    
+    self.currentTestSelector = NULL;
+}
+
+- (void)testImageViewCategoryWithPlaceholderAndSize {
+    self.currentTestSelector = _cmd;
+    
+    [self imageViewTestHelperForAssetWithIdentifier:@"nyancat"
+                                            success:^(UIImageView *imageView, CDAAsset *asset) {
+                                                [imageView cda_setImageWithAsset:asset
+                                                                            size:CGSizeMake(50.0, 50.0)
+                                                                placeholderImage:nil];
+                                            } failure:^(CDAResponse *response, NSError *error) {
+                                                XCTFail(@"Error: %@", error);
+                                            }];
+    
+    self.currentTestSelector = NULL;
+}
+
+- (void)testImageViewCategoryWithSize {
+    self.currentTestSelector = _cmd;
+    
+    [self imageViewTestHelperForAssetWithIdentifier:@"nyancat"
+                                            success:^(UIImageView *imageView, CDAAsset *asset) {
+                                                [imageView cda_setImageWithAsset:asset
+                                                                            size:CGSizeMake(50.0, 50.0)];
                                             } failure:^(CDAResponse *response, NSError *error) {
                                                 XCTFail(@"Error: %@", error);
                                             }];
@@ -204,6 +261,8 @@
     CDATextViewController* topVC = (CDATextViewController*)navigationController.topViewController;
     XCTAssert([topVC isKindOfClass:[CDATextViewController class]], @"");
     XCTAssertEqualObjects(topVC.text, textValue, @"");
+    XCTAssertNotNil(topVC.view, @"");
+    XCTAssertEqualObjects(topVC.textView.text, textValue, @"");
 }
 
 @end
