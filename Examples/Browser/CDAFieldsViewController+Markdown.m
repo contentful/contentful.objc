@@ -26,7 +26,7 @@
 #pragma mark -
 
 -(void)md_didSelectRowWithValue:(id)value forField:(CDAField *)field {
-    if (field.type == CDAFieldTypeText) {
+    if (field.type == CDAFieldTypeText && [value length] > 25) {
         CDAMarkdownViewController* markdownViewController = [CDAMarkdownViewController new];
         markdownViewController.markdownText = value;
         [self.navigationController pushViewController:markdownViewController animated:YES];
