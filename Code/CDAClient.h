@@ -226,6 +226,19 @@ typedef void(^CDASyncedSpaceFetchedBlock)(CDAResponse* response, CDASyncedSpace*
 
 /**
  *  This method allows registering custom CDAEntry subclasses when Entries of a specific Content Type
+ *  are retrieved from the server.
+ *
+ *  This allows the integration of custom value objects with convenience accessors, additional
+ *  conversions or custom functionality so that you can easily build your data model upon Entries.
+ *
+ *  @param customClass The CDAEntry subclass which should be instantiated for Entries of the given
+ *                     Content Type.
+ *  @param identifier  The Content Type for which custom value objects should be created.
+ */
+-(void)registerClass:(Class)customClass forContentType:(CDAContentType *)contentType;
+
+/**
+ *  This method allows registering custom CDAEntry subclasses when Entries of a specific Content Type
  *  are retrieved from the server. 
  *
  *  This allows the integration of custom value objects with convenience accessors, additional

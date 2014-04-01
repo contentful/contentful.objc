@@ -347,6 +347,10 @@
     return self.configuration.secure ? @"https" : @"http";
 }
 
+-(void)registerClass:(Class)customClass forContentType:(CDAContentType *)contentType {
+    [self.contentTypeRegistry registerClass:customClass forContentType:contentType];
+}
+
 -(void)registerClass:(Class)customClass forContentTypeWithIdentifier:(NSString *)identifier {
     [self.contentTypeRegistry registerClass:customClass forContentTypeWithIdentifier:identifier];
 }
