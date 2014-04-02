@@ -28,6 +28,22 @@
 
 @end
 
+#pragma mark - 
+
+@interface MyCDAFieldsViewController : CDAFieldsViewController
+
+@end
+
+#pragma mark -
+
+@implementation MyCDAFieldsViewController
+
+-(NSArray *)visibleFields {
+    return @[ @"someText" ];
+}
+
+@end
+
 #pragma mark -
 
 @interface UIKitAdditionsTests : ContentfulBaseTestCase
@@ -76,20 +92,30 @@
 
 #pragma mark -
 
+- (CDAEntry*)buildEntry {
+    return [self buildEntryWithLinkedAssetOrEntry:NO];
+}
+
+- (CDAEntry*)buildEntryWithLinkedAssetOrEntry:(BOOL)assetOrEntry {
+    NSDictionary* linkedAsset = @{ @"sys": @{ @"identifier": @"foo", @"type": @"Asset" } };
+    NSDictionary* linkedEntry = @{ @"sys": @{ @"identifier": @"bar", @"type": @"Entry",
+                                              @"contentType": @{ @"sys": @{ @"id": @"trolololo" } } },
+                                   @"fields": @{ @"someText": @"text" }, };
+    return [self customEntryHelperWithFields:@{
+                                               @"someArray": @[ linkedEntry ],
+                                               @"someBool": @YES,
+                                               @"someDate": @"2014-01-01",
+                                               @"someInteger": @1,
+                                               @"someLink": assetOrEntry ? linkedAsset : linkedEntry,
+                                               @"someLocation": [NSNull null],
+                                               @"someNumber": @1.1,
+                                               @"someSymbol": @"text",
+                                               @"someText": @"text",
+                                               }];
+}
+
 - (CDAFieldsViewController*)buildFieldsViewController {
-    CDAEntry* entry = [self customEntryHelperWithFields:@{
-                                                          @"someArray": [NSNull null],
-                                                          @"someBool": @YES,
-                                                          @"someDate": @"2014-01-01",
-                                                          @"someInteger": @1,
-                                                          @"someLink": [NSNull null],
-                                                          @"someLocation": [NSNull null],
-                                                          @"someNumber": @1.1,
-                                                          @"someSymbol": @"text",
-                                                          @"someText": @"text",
-                                                          }];
-    
-    return [[CDAFieldsViewController alloc] initWithEntry:entry];
+    return [[CDAFieldsViewController alloc] initWithEntry:[self buildEntry]];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath
@@ -196,6 +222,16 @@
     }];
 }
 
+- (void)testFieldsViewControllerCanHideFields {
+    MyCDAFieldsViewController* fieldsVC = [[MyCDAFieldsViewController alloc]
+                                           initWithEntry:[self buildEntry]];
+    
+    XCTAssertNotNil(fieldsVC.view, @"");
+    [fieldsVC viewWillAppear:NO];
+    
+    XCTAssertEqual(1, [fieldsVC.tableView numberOfRowsInSection:0], @"");
+}
+
 - (void)testImageViewCategory {
     self.currentTestSelector = _cmd;
     
@@ -282,7 +318,8 @@
 }
 
 - (void)testResourcesViewControllerShowsImageViewControllerForAssets {
-    CDAAsset* asset = [[CDAAsset alloc] initWithDictionary:@{ @"sys": @{ @"identifier": @"foo" } }
+    CDAAsset* asset = [[CDAAsset alloc] initWithDictionary:@{ @"sys": @{ @"identifier": @"foo" },
+                                                              @"contentType": @"image/png" }
                                                               client:self.client];
     CDAResourcesViewController* resourcesVC = [[CDAResourcesViewController alloc] initWithCellMapping:nil items:@[ asset ]];
     
@@ -295,6 +332,7 @@
     
     CDAImageViewController* topVC = (CDAImageViewController*)navigationController.topViewController;
     XCTAssert([topVC isKindOfClass:[CDAImageViewController class]], @"");
+    XCTAssertNotNil(topVC.view, @"");
 }
 
 - (void)testResourceTableViewCell {

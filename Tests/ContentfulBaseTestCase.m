@@ -115,7 +115,8 @@ extern void __gcov_flush();
     NSDictionary* ct = @{
                          @"name": @"My trolls",
                          @"fields": @[
-                                 @{ @"id": @"someArray",    @"type": @"Array" },
+                                 @{ @"id": @"someArray",    @"type": @"Array",
+                                    @"items": @{ @"type": @"Link" } },
                                  @{ @"id": @"someBool",     @"type": @"Boolean" },
                                  @{ @"id": @"someDate",     @"type": @"Date" },
                                  @{ @"id": @"someInteger",  @"type": @"Integer" },
