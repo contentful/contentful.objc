@@ -93,7 +93,9 @@
                       ofObject:(id)object
                         change:(NSDictionary *)change
                        context:(void *)context {
-    if ([keyPath isEqualToString:@"entries"]) {
+    self.waiting = NO;
+    
+    if ([object isKindOfClass:[CDAEntriesViewController class]]) {
         CDAEntriesViewController* entriesVC = object;
         
         XCTAssertEqual(100U, entriesVC.items.count, @"");
@@ -101,6 +103,8 @@
         UITableViewCell* cell = [entriesVC.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
         XCTAssertEqualObjects(@"2013-06-27 14:36:52 +0000", cell.detailTextLabel.text, @"");
         XCTAssertEqualObjects(@"La Puente, CA", cell.textLabel.text, @"");
+        
+        return;
     }
     
     if ([keyPath isEqualToString:@"image"]) {
@@ -126,8 +130,6 @@
                                                                error:&error], @"Error: %@", error);
 #endif
     }
-    
-    self.waiting = NO;
 }
 
 - (void)testEntriesViewController {
@@ -139,7 +141,7 @@
     
     self.waiting = YES;
     
-    [entriesVC addObserver:self forKeyPath:@"entries" options:0 context:NULL];
+    [entriesVC addObserver:self forKeyPath:@"resources" options:0 context:NULL];
     
     XCTAssertNotNil(entriesVC.view, @"");
     [entriesVC viewWillAppear:NO];
@@ -147,7 +149,7 @@
     NSDate* now = [NSDate date];
     WaitWhile(self.waiting && [[NSDate date] timeIntervalSinceDate:now] < 3.0);
     
-    [entriesVC removeObserver:self forKeyPath:@"entries" context:nil];
+    [entriesVC removeObserver:self forKeyPath:@"resources" context:nil];
     
     XCTAssertFalse(self.waiting, @"Observer hasn't fired after 3 seconds.");
 }

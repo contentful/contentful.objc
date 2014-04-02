@@ -78,6 +78,8 @@
 		A18AA86118E5D63B00D430D5 /* CDAFallbackDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = A18AA85F18E5D63B00D430D5 /* CDAFallbackDictionary.h */; };
 		A18AA86218E5D63B00D430D5 /* CDAFallbackDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = A18AA86018E5D63B00D430D5 /* CDAFallbackDictionary.m */; };
 		A18AA86418E5DB1A00D430D5 /* UtilityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A18AA86318E5DB1A00D430D5 /* UtilityTests.m */; };
+		A1924C8D18EBFFB600C97F9D /* CDAResourcesViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A1924C8B18EBFFB600C97F9D /* CDAResourcesViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A1924C8E18EBFFB600C97F9D /* CDAResourcesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1924C8C18EBFFB600C97F9D /* CDAResourcesViewController.m */; };
 		A193EB3B18D084C50017B777 /* ValueObjectsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A193EB3A18D084C50017B777 /* ValueObjectsTests.m */; };
 		A193EB3C18D096C50017B777 /* CDAResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A0313618C644B5006470B7 /* CDAResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A193EB3E18D09AC10017B777 /* CDAResponse+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A193EB3D18D09AC10017B777 /* CDAResponse+Private.h */; };
@@ -251,6 +253,8 @@
 		A18AA85F18E5D63B00D430D5 /* CDAFallbackDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAFallbackDictionary.h; sourceTree = "<group>"; };
 		A18AA86018E5D63B00D430D5 /* CDAFallbackDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAFallbackDictionary.m; sourceTree = "<group>"; };
 		A18AA86318E5DB1A00D430D5 /* UtilityTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilityTests.m; sourceTree = "<group>"; };
+		A1924C8B18EBFFB600C97F9D /* CDAResourcesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAResourcesViewController.h; sourceTree = "<group>"; };
+		A1924C8C18EBFFB600C97F9D /* CDAResourcesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAResourcesViewController.m; sourceTree = "<group>"; };
 		A193EB3A18D084C50017B777 /* ValueObjectsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValueObjectsTests.m; sourceTree = "<group>"; };
 		A193EB3D18D09AC10017B777 /* CDAResponse+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDAResponse+Private.h"; sourceTree = "<group>"; };
 		A193EB3F18D09D180017B777 /* UIKitAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIKitAdditionsTests.m; sourceTree = "<group>"; };
@@ -627,6 +631,8 @@
 				A173F59B18D9A2FD000E6F92 /* CDAResourceCell.m */,
 				A173F59318D9A269000E6F92 /* CDAResourcesCollectionViewController.h */,
 				A173F59418D9A269000E6F92 /* CDAResourcesCollectionViewController.m */,
+				A1924C8B18EBFFB600C97F9D /* CDAResourcesViewController.h */,
+				A1924C8C18EBFFB600C97F9D /* CDAResourcesViewController.m */,
 				A173F54C18D6FD03000E6F92 /* CDATextViewController.h */,
 				A173F54D18D6FD03000E6F92 /* CDATextViewController.m */,
 				A193EB6318D20FA90017B777 /* UIImageView+CDAAsset.h */,
@@ -743,6 +749,7 @@
 				A193EB3C18D096C50017B777 /* CDAResponse.h in Headers */,
 				A173F55218D700B8000E6F92 /* CDALocationViewController.h in Headers */,
 				A1E8391718CE2A5400B697F6 /* CDAField.h in Headers */,
+				A1924C8D18EBFFB600C97F9D /* CDAResourcesViewController.h in Headers */,
 				A173F59518D9A269000E6F92 /* CDAResourcesCollectionViewController.h in Headers */,
 				A1E9797B18CC683200E79632 /* CDAFieldValueTransformer.h in Headers */,
 				A1D2DC0218D076F50053DC83 /* CDAEntriesViewController.h in Headers */,
@@ -1200,6 +1207,7 @@
 				A18AA81818E2E2CF00D430D5 /* CDADeletedAsset.m in Sources */,
 				A1E8391918CE2AB500B697F6 /* CDASpace.m in Sources */,
 				A1A0313C18C6627D006470B7 /* CDAResponseSerializer.m in Sources */,
+				A1924C8E18EBFFB600C97F9D /* CDAResourcesViewController.m in Sources */,
 				A1A0313518C6449F006470B7 /* CDAArray.m in Sources */,
 				A173F59618D9A269000E6F92 /* CDAResourcesCollectionViewController.m in Sources */,
 				A193EB6618D20FA90017B777 /* UIImageView+CDAAsset.m in Sources */,
