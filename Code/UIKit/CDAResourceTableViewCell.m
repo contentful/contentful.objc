@@ -1,14 +1,14 @@
 //
-//  CDAEntryCell.m
+//  CDAResourceTableViewCell.m
 //  ContentfulSDK
 //
 //  Created by Boris Bügling on 11/03/14.
 //
 //
 
-#import "CDAEntryCell.h"
+#import "CDAResourceTableViewCell.h"
 
-@implementation CDAEntryCell
+@implementation CDAResourceTableViewCell
 
 -(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseIdentifier];
