@@ -114,9 +114,11 @@
         if (self.visibleFields) {
             NSMutableArray* fields = [@[] mutableCopy];
             
-            for (NSString* field in self.visibleFields) {
-                if ([self.fields containsObject:field]) {
-                    [fields addObject:field];
+            for (NSString* visibleField in self.visibleFields) {
+                for (CDAField* field in self.fields) {
+                    if ([field.identifier isEqualToString:visibleField]) {
+                        [fields addObject:field];
+                    }
                 }
             }
             
