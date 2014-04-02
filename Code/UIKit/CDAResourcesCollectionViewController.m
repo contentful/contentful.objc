@@ -57,7 +57,8 @@
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    NSAssert(self.client, @"You need to supply a client instance to CDAEntriesViewController.");
+    NSAssert(self.client, @"You need to supply a client instance to %@.",
+             NSStringFromClass([self class]));
     
     [self.client fetchResourcesOfType:self.resourceType
                              matching:self.query
