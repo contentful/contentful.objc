@@ -23,8 +23,10 @@
 #if TARGET_OS_IPHONE
 #import <ContentfulDeliveryAPI/CDAEntriesViewController.h>
 #import <ContentfulDeliveryAPI/CDAFieldsViewController.h>
+#import <ContentfulDeliveryAPI/CDAMapViewController.h>
 #import <ContentfulDeliveryAPI/CDAResourceCell.h>
 #import <ContentfulDeliveryAPI/CDAResourcesCollectionViewController.h>
+#import <ContentfulDeliveryAPI/CDAResourcesViewController.h>
 #endif
 
 extern NSString* const CDAErrorDomain;

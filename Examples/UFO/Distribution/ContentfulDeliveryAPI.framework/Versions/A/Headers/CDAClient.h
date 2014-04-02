@@ -233,7 +233,7 @@ typedef void(^CDASyncedSpaceFetchedBlock)(CDAResponse* response, CDASyncedSpace*
  *
  *  @param customClass The CDAEntry subclass which should be instantiated for Entries of the given
  *                     Content Type.
- *  @param identifier  The Content Type for which custom value objects should be created.
+ *  @param contentType The Content Type for which custom value objects should be created.
  */
 -(void)registerClass:(Class)customClass forContentType:(CDAContentType *)contentType;
 
