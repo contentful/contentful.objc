@@ -7,7 +7,10 @@
 //
 
 #import "CDAFieldCell.h"
+#import "CDAImageViewController.h"
 #import "CDATextViewController.h"
+#import "CDAResourceTableViewCell.h"
+#import "CDAResource+Private.h"
 #import "ContentfulBaseTestCase.h"
 #import "UIImageView+CDAAsset.h"
 
@@ -271,6 +274,33 @@
     XCTAssertFalse(self.waiting, @"Observer hasn't fired after 3 seconds.");
     
     self.currentTestSelector = NULL;
+}
+
+- (void)testResourcesViewControllerDoesNotThrowWhenSelectingGarbage {
+    CDAResourcesViewController* resourcesVC = [[CDAResourcesViewController alloc] initWithCellMapping:nil items:@[ [self customEntryHelperWithFields:@{}] ]];
+    [resourcesVC didSelectRowWithResource:(CDAResource*)[NSDate date]];
+}
+
+- (void)testResourcesViewControllerShowsImageViewControllerForAssets {
+    CDAAsset* asset = [[CDAAsset alloc] initWithDictionary:@{ @"sys": @{ @"identifier": @"foo" } }
+                                                              client:self.client];
+    CDAResourcesViewController* resourcesVC = [[CDAResourcesViewController alloc] initWithCellMapping:nil items:@[ asset ]];
+    
+    XCTAssertNotNil(resourcesVC.view, @"");
+    [resourcesVC viewWillAppear:NO];
+    
+    UINavigationController* navigationController = [[UINavigationController alloc]
+                                                    initWithRootViewController:resourcesVC];
+    [resourcesVC tableView:resourcesVC.tableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    
+    CDAImageViewController* topVC = (CDAImageViewController*)navigationController.topViewController;
+    XCTAssert([topVC isKindOfClass:[CDAImageViewController class]], @"");
+}
+
+- (void)testResourceTableViewCell {
+    CDAResourceTableViewCell* cell = [[CDAResourceTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    XCTAssertNotNil(cell, @"");
+    XCTAssertNotNil(cell.detailTextLabel, @"");
 }
 
 - (void)testTextViewController {
