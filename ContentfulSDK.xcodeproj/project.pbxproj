@@ -80,6 +80,9 @@
 		A18AA86418E5DB1A00D430D5 /* UtilityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A18AA86318E5DB1A00D430D5 /* UtilityTests.m */; };
 		A1924C8D18EBFFB600C97F9D /* CDAResourcesViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A1924C8B18EBFFB600C97F9D /* CDAResourcesViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1924C8E18EBFFB600C97F9D /* CDAResourcesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1924C8C18EBFFB600C97F9D /* CDAResourcesViewController.m */; };
+		A1924C9118EC0DF000C97F9D /* CDAMapViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A1924C8F18EC0DF000C97F9D /* CDAMapViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A1924C9218EC0DF000C97F9D /* CDAMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1924C9018EC0DF000C97F9D /* CDAMapViewController.m */; };
+		A1924C9518EC15A100C97F9D /* CDASimpleMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1924C9418EC15A100C97F9D /* CDASimpleMapViewController.m */; };
 		A193EB3B18D084C50017B777 /* ValueObjectsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A193EB3A18D084C50017B777 /* ValueObjectsTests.m */; };
 		A193EB3C18D096C50017B777 /* CDAResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A0313618C644B5006470B7 /* CDAResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A193EB3E18D09AC10017B777 /* CDAResponse+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A193EB3D18D09AC10017B777 /* CDAResponse+Private.h */; };
@@ -255,6 +258,10 @@
 		A18AA86318E5DB1A00D430D5 /* UtilityTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilityTests.m; sourceTree = "<group>"; };
 		A1924C8B18EBFFB600C97F9D /* CDAResourcesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAResourcesViewController.h; sourceTree = "<group>"; };
 		A1924C8C18EBFFB600C97F9D /* CDAResourcesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAResourcesViewController.m; sourceTree = "<group>"; };
+		A1924C8F18EC0DF000C97F9D /* CDAMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAMapViewController.h; sourceTree = "<group>"; };
+		A1924C9018EC0DF000C97F9D /* CDAMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAMapViewController.m; sourceTree = "<group>"; };
+		A1924C9318EC15A100C97F9D /* CDASimpleMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDASimpleMapViewController.h; sourceTree = "<group>"; };
+		A1924C9418EC15A100C97F9D /* CDASimpleMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDASimpleMapViewController.m; sourceTree = "<group>"; };
 		A193EB3A18D084C50017B777 /* ValueObjectsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValueObjectsTests.m; sourceTree = "<group>"; };
 		A193EB3D18D09AC10017B777 /* CDAResponse+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDAResponse+Private.h"; sourceTree = "<group>"; };
 		A193EB3F18D09D180017B777 /* UIKitAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIKitAdditionsTests.m; sourceTree = "<group>"; };
@@ -448,6 +455,8 @@
 				A173F59818D9A2A9000E6F92 /* CDAImageGalleryViewController.m */,
 				A173F58518D7091B000E6F92 /* CDALoadAssetsViewController.h */,
 				A173F58618D7091B000E6F92 /* CDALoadAssetsViewController.m */,
+				A1924C9318EC15A100C97F9D /* CDASimpleMapViewController.h */,
+				A1924C9418EC15A100C97F9D /* CDASimpleMapViewController.m */,
 				A173F55D18D705B2000E6F92 /* Supporting Files */,
 			);
 			path = Catalog;
@@ -625,6 +634,8 @@
 				A173F58C18D752A9000E6F92 /* CDAImageViewController.m */,
 				A173F55018D700B8000E6F92 /* CDALocationViewController.h */,
 				A173F55118D700B8000E6F92 /* CDALocationViewController.m */,
+				A1924C8F18EC0DF000C97F9D /* CDAMapViewController.h */,
+				A1924C9018EC0DF000C97F9D /* CDAMapViewController.m */,
 				A173F59A18D9A2FD000E6F92 /* CDAResourceCell.h */,
 				A173F59B18D9A2FD000E6F92 /* CDAResourceCell.m */,
 				A173F59318D9A269000E6F92 /* CDAResourcesCollectionViewController.h */,
@@ -752,6 +763,7 @@
 				A1924C8D18EBFFB600C97F9D /* CDAResourcesViewController.h in Headers */,
 				A173F59518D9A269000E6F92 /* CDAResourcesCollectionViewController.h in Headers */,
 				A1E9797B18CC683200E79632 /* CDAFieldValueTransformer.h in Headers */,
+				A1924C9118EC0DF000C97F9D /* CDAMapViewController.h in Headers */,
 				A1D2DC0218D076F50053DC83 /* CDAEntriesViewController.h in Headers */,
 				A173F54E18D6FD03000E6F92 /* CDATextViewController.h in Headers */,
 				A18AA81318E2D98200D430D5 /* CDADeletedEntry.h in Headers */,
@@ -1175,6 +1187,7 @@
 				A173F56718D705B2000E6F92 /* CDAAppDelegate.m in Sources */,
 				A173F58718D7091B000E6F92 /* CDALoadAssetsViewController.m in Sources */,
 				A173F58418D7071C000E6F92 /* CDAExampleSelectionViewController.m in Sources */,
+				A1924C9518EC15A100C97F9D /* CDASimpleMapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1182,6 +1195,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1924C9218EC0DF000C97F9D /* CDAMapViewController.m in Sources */,
 				A12797AF18E1B10300043A44 /* CDASyncedSpace.m in Sources */,
 				A173F59D18D9A2FD000E6F92 /* CDAResourceCell.m in Sources */,
 				A173F54F18D6FD03000E6F92 /* CDATextViewController.m in Sources */,
