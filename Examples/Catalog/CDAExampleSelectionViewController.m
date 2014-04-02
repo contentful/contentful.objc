@@ -31,6 +31,7 @@
                           @"Image gallery": NSClassFromString(@"CDAImageGalleryViewController"),
                           @"Loading assets": NSClassFromString(@"CDALoadAssetsViewController"),
                           @"Showing a map": NSClassFromString(@"CDASimpleMapViewController"),
+                          @"Synchronization": NSClassFromString(@"CDASyncDemoViewController"),
                           };
         self.title = NSLocalizedString(@"Examples", nil);
         
