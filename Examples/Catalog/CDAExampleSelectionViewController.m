@@ -30,6 +30,7 @@
         self.examples = @{
                           @"Image gallery": NSClassFromString(@"CDAImageGalleryViewController"),
                           @"Loading assets": NSClassFromString(@"CDALoadAssetsViewController"),
+                          @"Showing a map": NSClassFromString(@"CDASimpleMapViewController"),
                           };
         self.title = NSLocalizedString(@"Examples", nil);
         
