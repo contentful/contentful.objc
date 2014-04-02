@@ -25,7 +25,7 @@
 @implementation CDAResourcesViewController
 
 +(Class)cellClass {
-    return NSClassFromString(@"CDAEntryCell");
+    return NSClassFromString(@"CDAResourceTableViewCell");
 }
 
 #pragma mark -

@@ -127,8 +127,8 @@
 		A1D1D35F18C8ABB800261A1C /* DocumentationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D1D35E18C8ABB800261A1C /* DocumentationTests.m */; };
 		A1D2DC0218D076F50053DC83 /* CDAEntriesViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A1D2DBFE18D076F50053DC83 /* CDAEntriesViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1D2DC0318D076F50053DC83 /* CDAEntriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D2DBFF18D076F50053DC83 /* CDAEntriesViewController.m */; };
-		A1D2DC0418D076F50053DC83 /* CDAEntryCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A1D2DC0018D076F50053DC83 /* CDAEntryCell.h */; };
-		A1D2DC0518D076F50053DC83 /* CDAEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D2DC0118D076F50053DC83 /* CDAEntryCell.m */; };
+		A1D2DC0418D076F50053DC83 /* CDAResourceTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A1D2DC0018D076F50053DC83 /* CDAResourceTableViewCell.h */; };
+		A1D2DC0518D076F50053DC83 /* CDAResourceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D2DC0118D076F50053DC83 /* CDAResourceTableViewCell.m */; };
 		A1D2DC0718D0811F0053DC83 /* ArrayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D2DC0618D0811F0053DC83 /* ArrayTests.m */; };
 		A1E3CFF218C864A400E4F488 /* ContentfulDeliveryAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = A19FD8D918C63DF00081677E /* ContentfulDeliveryAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1E3D04718C8791200E4F488 /* CDAArray.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A0313318C6449F006470B7 /* CDAArray.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -324,8 +324,8 @@
 		A1D1D36118C8B8D100261A1C /* CDASpace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDASpace.m; sourceTree = "<group>"; };
 		A1D2DBFE18D076F50053DC83 /* CDAEntriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAEntriesViewController.h; sourceTree = "<group>"; };
 		A1D2DBFF18D076F50053DC83 /* CDAEntriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAEntriesViewController.m; sourceTree = "<group>"; };
-		A1D2DC0018D076F50053DC83 /* CDAEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAEntryCell.h; sourceTree = "<group>"; };
-		A1D2DC0118D076F50053DC83 /* CDAEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAEntryCell.m; sourceTree = "<group>"; };
+		A1D2DC0018D076F50053DC83 /* CDAResourceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAResourceTableViewCell.h; sourceTree = "<group>"; };
+		A1D2DC0118D076F50053DC83 /* CDAResourceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAResourceTableViewCell.m; sourceTree = "<group>"; };
 		A1D2DC0618D0811F0053DC83 /* ArrayTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayTests.m; sourceTree = "<group>"; };
 		A1E3D05818C87D3B00E4F488 /* CDARequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDARequestOperationManager.h; sourceTree = "<group>"; };
 		A1E3D05918C87D3B00E4F488 /* CDARequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDARequestOperationManager.m; sourceTree = "<group>"; };
@@ -616,8 +616,6 @@
 			children = (
 				A1D2DBFE18D076F50053DC83 /* CDAEntriesViewController.h */,
 				A1D2DBFF18D076F50053DC83 /* CDAEntriesViewController.m */,
-				A1D2DC0018D076F50053DC83 /* CDAEntryCell.h */,
-				A1D2DC0118D076F50053DC83 /* CDAEntryCell.m */,
 				A193EB4518D0ACFE0017B777 /* CDAFieldCell.h */,
 				A193EB4618D0ACFE0017B777 /* CDAFieldCell.m */,
 				A173F59218D851D1000E6F92 /* CDAFieldsViewController+Private.h */,
@@ -633,6 +631,8 @@
 				A173F59418D9A269000E6F92 /* CDAResourcesCollectionViewController.m */,
 				A1924C8B18EBFFB600C97F9D /* CDAResourcesViewController.h */,
 				A1924C8C18EBFFB600C97F9D /* CDAResourcesViewController.m */,
+				A1D2DC0018D076F50053DC83 /* CDAResourceTableViewCell.h */,
+				A1D2DC0118D076F50053DC83 /* CDAResourceTableViewCell.m */,
 				A173F54C18D6FD03000E6F92 /* CDATextViewController.h */,
 				A173F54D18D6FD03000E6F92 /* CDATextViewController.m */,
 				A193EB6318D20FA90017B777 /* UIImageView+CDAAsset.h */,
@@ -731,7 +731,7 @@
 				A1E8391818CE2A7200B697F6 /* CDASpace.h in Headers */,
 				A18AA81718E2E2CF00D430D5 /* CDADeletedAsset.h in Headers */,
 				A160862518CDF2AC0047D44F /* CDARequest+Private.h in Headers */,
-				A1D2DC0418D076F50053DC83 /* CDAEntryCell.h in Headers */,
+				A1D2DC0418D076F50053DC83 /* CDAResourceTableViewCell.h in Headers */,
 				A1E3D04B18C8795500E4F488 /* CDAEntry.h in Headers */,
 				A173F58D18D752A9000E6F92 /* CDAImageViewController.h in Headers */,
 				A193EB3E18D09AC10017B777 /* CDAResponse+Private.h in Headers */,
@@ -1188,7 +1188,7 @@
 				A160862318CDF0E60047D44F /* CDARequest.m in Sources */,
 				A1A0314218C66E90006470B7 /* CDAContentType.m in Sources */,
 				A193EB4818D0ACFE0017B777 /* CDAFieldCell.m in Sources */,
-				A1D2DC0518D076F50053DC83 /* CDAEntryCell.m in Sources */,
+				A1D2DC0518D076F50053DC83 /* CDAResourceTableViewCell.m in Sources */,
 				A1E9797C18CC683200E79632 /* CDAFieldValueTransformer.m in Sources */,
 				A18AA81418E2D98200D430D5 /* CDADeletedEntry.m in Sources */,
 				A173F55318D700B8000E6F92 /* CDALocationViewController.m in Sources */,
