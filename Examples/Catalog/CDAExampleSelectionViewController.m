@@ -28,6 +28,7 @@
     self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
         self.examples = @{
+                          @"Date query best practise": NSClassFromString(@"CDADateQueryViewController"),
                           @"Image gallery": NSClassFromString(@"CDAImageGalleryViewController"),
                           @"Loading assets": NSClassFromString(@"CDALoadAssetsViewController"),
                           @"Showing a map": NSClassFromString(@"CDASimpleMapViewController"),
