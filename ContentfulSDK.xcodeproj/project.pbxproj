@@ -83,6 +83,7 @@
 		A1924C9118EC0DF000C97F9D /* CDAMapViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A1924C8F18EC0DF000C97F9D /* CDAMapViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1924C9218EC0DF000C97F9D /* CDAMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1924C9018EC0DF000C97F9D /* CDAMapViewController.m */; };
 		A1924C9518EC15A100C97F9D /* CDASimpleMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1924C9418EC15A100C97F9D /* CDASimpleMapViewController.m */; };
+		A1924C9818EC3A1B00C97F9D /* CDASyncDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1924C9718EC3A1B00C97F9D /* CDASyncDemoViewController.m */; };
 		A193EB3B18D084C50017B777 /* ValueObjectsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A193EB3A18D084C50017B777 /* ValueObjectsTests.m */; };
 		A193EB3C18D096C50017B777 /* CDAResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A0313618C644B5006470B7 /* CDAResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A193EB3E18D09AC10017B777 /* CDAResponse+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A193EB3D18D09AC10017B777 /* CDAResponse+Private.h */; };
@@ -262,6 +263,8 @@
 		A1924C9018EC0DF000C97F9D /* CDAMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAMapViewController.m; sourceTree = "<group>"; };
 		A1924C9318EC15A100C97F9D /* CDASimpleMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDASimpleMapViewController.h; sourceTree = "<group>"; };
 		A1924C9418EC15A100C97F9D /* CDASimpleMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDASimpleMapViewController.m; sourceTree = "<group>"; };
+		A1924C9618EC3A1B00C97F9D /* CDASyncDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDASyncDemoViewController.h; sourceTree = "<group>"; };
+		A1924C9718EC3A1B00C97F9D /* CDASyncDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDASyncDemoViewController.m; sourceTree = "<group>"; };
 		A193EB3A18D084C50017B777 /* ValueObjectsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValueObjectsTests.m; sourceTree = "<group>"; };
 		A193EB3D18D09AC10017B777 /* CDAResponse+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDAResponse+Private.h"; sourceTree = "<group>"; };
 		A193EB3F18D09D180017B777 /* UIKitAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIKitAdditionsTests.m; sourceTree = "<group>"; };
@@ -457,6 +460,8 @@
 				A173F58618D7091B000E6F92 /* CDALoadAssetsViewController.m */,
 				A1924C9318EC15A100C97F9D /* CDASimpleMapViewController.h */,
 				A1924C9418EC15A100C97F9D /* CDASimpleMapViewController.m */,
+				A1924C9618EC3A1B00C97F9D /* CDASyncDemoViewController.h */,
+				A1924C9718EC3A1B00C97F9D /* CDASyncDemoViewController.m */,
 				A173F55D18D705B2000E6F92 /* Supporting Files */,
 			);
 			path = Catalog;
@@ -1187,6 +1192,7 @@
 				A173F56718D705B2000E6F92 /* CDAAppDelegate.m in Sources */,
 				A173F58718D7091B000E6F92 /* CDALoadAssetsViewController.m in Sources */,
 				A173F58418D7071C000E6F92 /* CDAExampleSelectionViewController.m in Sources */,
+				A1924C9818EC3A1B00C97F9D /* CDASyncDemoViewController.m in Sources */,
 				A1924C9518EC15A100C97F9D /* CDASimpleMapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
