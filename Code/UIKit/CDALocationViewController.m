@@ -44,11 +44,24 @@
 
 @implementation CDALocationViewController
 
+-(void)adjustMapRectToAnnotations {
+    MKMapRect zoomRect = MKMapRectNull;
+    
+    for (id <MKAnnotation> annotation in self.mapView.annotations) {
+        MKMapPoint annotationPoint = MKMapPointForCoordinate(annotation.coordinate);
+        MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0.1, 0.1);
+        zoomRect = MKMapRectUnion(zoomRect, pointRect);
+    }
+    
+    [self.mapView setVisibleMapRect:zoomRect animated:YES];
+}
+
 -(void)setLocation:(CLLocationCoordinate2D)location {
     _location = location;
     
     [self.mapView setCenterCoordinate:location];
     [self.mapView addAnnotation:[CDALocationAnnotation annotationWithLocation:location]];
+    [self adjustMapRectToAnnotations];
 }
 
 -(void)viewDidLoad {
