@@ -1,0 +1,7 @@
+#!/bin/sh
+
+VERSION=`pod spec cat ContentfulDeliveryAPI|grep version|head -n 1|cut -d\" -f2`
+
+s3cmd --acl-public put UFO.zip s3://static.cdnorigin.contentful.com/downloads/iOS/UFO.zip
+
+s3cmd --acl-public put ContentfulDeliveryAPI.zip s3://static.cdnorigin.contentful.com/downloads/iOS/ContentfulDeliveryAPI-$VERSION.zip
