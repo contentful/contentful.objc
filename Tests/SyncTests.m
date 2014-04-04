@@ -88,7 +88,7 @@
 -(void)testContinueSyncWithoutSyncSpaceInstance {
     StartBlock();
     
-    [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
+    CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
         XCTAssertEqual(1U, space.assets.count, @"");
         XCTAssertEqual(1U, space.entries.count, @"");
         
@@ -151,6 +151,7 @@
         
         EndBlock();
     }];
+    XCTAssertNotNil(request, @"");
     
     WaitUntilBlockCompletes();
     
