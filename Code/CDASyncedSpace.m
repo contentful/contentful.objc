@@ -19,13 +19,23 @@
 
 @property (nonatomic) NSMutableArray* syncedAssets;
 @property (nonatomic) NSMutableArray* syncedEntries;
-@property (nonatomic, readonly) NSString* syncToken;
 
 @end
 
 #pragma mark -
 
 @implementation CDASyncedSpace
+
++(instancetype)shallowSyncSpaceWithToken:(NSString *)syncToken client:(CDAClient *)client {
+    CDASyncedSpace* space = [[self class] new];
+    space.client = client;
+    space.nextSyncUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://example.com/foo?sync_token=%@", syncToken]];
+    space.syncedAssets = nil;
+    space.syncedEntries = nil;
+    return space;
+}
+
+#pragma mark -
 
 -(NSArray *)assets {
     return [self.syncedAssets copy];
@@ -68,33 +78,41 @@
     [self.client.requestOperationManager fetchArrayAtURLPath:@"sync" parameters:@{ @"sync_token": self.syncToken } success:^(CDAResponse *response, CDAArray *array) {
         for (CDAResource* item in array.items) {
             if ([item isKindOfClass:[CDADeletedAsset class]]) {
+                CDAAsset* deletedAsset = (CDAAsset*)item;
+                
                 for (CDAAsset* asset in self.syncedAssets) {
                     if ([asset.identifier isEqualToString:item.identifier]) {
-                        if ([self.delegate respondsToSelector:@selector(syncedSpace:didDeleteAsset:)]) {
-                            [self.delegate syncedSpace:self didDeleteAsset:asset];
-                        }
-                        
-                        [self willChangeValueForKey:@"assets"];
-                        [self.syncedAssets removeObject:asset];
-                        [self didChangeValueForKey:@"assets"];
+                        deletedAsset = asset;
                         break;
                     }
                 }
+                
+                if ([self.delegate respondsToSelector:@selector(syncedSpace:didDeleteAsset:)]) {
+                    [self.delegate syncedSpace:self didDeleteAsset:deletedAsset];
+                }
+                
+                [self willChangeValueForKey:@"assets"];
+                [self.syncedAssets removeObject:deletedAsset];
+                [self didChangeValueForKey:@"assets"];
             }
             
             if ([item isKindOfClass:[CDADeletedEntry class]]) {
+                CDAEntry* deletedEntry = (CDAEntry*)item;
+                
                 for (CDAEntry* entry in self.syncedEntries) {
                     if ([entry.identifier isEqualToString:item.identifier]) {
-                        if ([self.delegate respondsToSelector:@selector(syncedSpace:didDeleteEntry:)]) {
-                            [self.delegate syncedSpace:self didDeleteEntry:entry];
-                        }
-                        
-                        [self willChangeValueForKey:@"entries"];
-                        [self.syncedEntries removeObject:entry];
-                        [self didChangeValueForKey:@"entries"];
+                        deletedEntry = entry;
                         break;
                     }
                 }
+                
+                if ([self.delegate respondsToSelector:@selector(syncedSpace:didDeleteEntry:)]) {
+                    [self.delegate syncedSpace:self didDeleteEntry:deletedEntry];
+                }
+                
+                [self willChangeValueForKey:@"entries"];
+                [self.syncedEntries removeObject:deletedEntry];
+                [self didChangeValueForKey:@"entries"];
             }
             
             if ([item isKindOfClass:[CDAAsset class]]) {

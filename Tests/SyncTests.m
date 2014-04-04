@@ -8,6 +8,8 @@
 
 #import <OHHTTPStubs/OHHTTPStubs.h>
 
+#import "CDADeletedAsset.h"
+#import "CDADeletedEntry.h"
 #import "CDAResource+Private.h"
 #import "ContentfulBaseTestCase.h"
 
@@ -25,6 +27,7 @@
 
 @interface SyncTests : ContentfulBaseTestCase <CDASyncedSpaceDelegate>
 
+@property (nonatomic) BOOL expectFieldsInDeletedResources;
 @property (nonatomic) NSUInteger numberOfDelegateMethodCalls;
 @property (nonatomic) BOOL waiting;
 
@@ -51,6 +54,7 @@
     [super setUp];
     
     self.client = [[CDAClient alloc] initWithSpaceKey:@"emh6o2ireilu" accessToken:@"1bf1261e0225089be464c79fff1a0773ca8214f1e82dd521f3ecf9690ba888ac"];
+    self.expectFieldsInDeletedResources = NO;
     self.numberOfDelegateMethodCalls = 0;
     self.waiting = YES;
 
@@ -79,6 +83,78 @@
 
 -(void)tearDown {
     [OHHTTPStubs removeAllStubs];
+}
+
+-(void)testContinueSyncWithoutSyncSpaceInstance {
+    StartBlock();
+    
+    [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
+        XCTAssertEqual(1U, space.assets.count, @"");
+        XCTAssertEqual(1U, space.entries.count, @"");
+        
+        NSString* syncToken = space.syncToken;
+        space = nil;
+        XCTAssertNil(space, @"");
+        
+        CDASyncedSpace* shallowSyncSpace = [CDASyncedSpace shallowSyncSpaceWithToken:syncToken
+                                                                              client:self.client];
+        shallowSyncSpace.delegate = self;
+        
+        [shallowSyncSpace performSynchronizationWithSuccess:^{
+            XCTAssertNil(shallowSyncSpace.assets, @"");
+            XCTAssertNil(shallowSyncSpace.entries, @"");
+            
+            [shallowSyncSpace performSynchronizationWithSuccess:^{
+                XCTAssertNil(shallowSyncSpace.assets, @"");
+                XCTAssertNil(shallowSyncSpace.entries, @"");
+                
+                [shallowSyncSpace performSynchronizationWithSuccess:^{
+                    XCTAssertNil(shallowSyncSpace.assets, @"");
+                    XCTAssertNil(shallowSyncSpace.entries, @"");
+                    
+                    [shallowSyncSpace performSynchronizationWithSuccess:^{
+                        XCTAssertNil(shallowSyncSpace.assets, @"");
+                        XCTAssertNil(shallowSyncSpace.entries, @"");
+                        
+                        [shallowSyncSpace performSynchronizationWithSuccess:^{
+                            XCTAssertNil(shallowSyncSpace.assets, @"");
+                            XCTAssertNil(shallowSyncSpace.entries, @"");
+                            
+                            EndBlock();
+                        } failure:^(CDAResponse *response, NSError *error) {
+                            XCTFail(@"Error: %@", error);
+                            
+                            EndBlock();
+                        }];
+                    } failure:^(CDAResponse *response, NSError *error) {
+                        XCTFail(@"Error: %@", error);
+                        
+                        EndBlock();
+                    }];
+                } failure:^(CDAResponse *response, NSError *error) {
+                    XCTFail(@"Error: %@", error);
+                    
+                    EndBlock();
+                }];
+            } failure:^(CDAResponse *response, NSError *error) {
+                XCTFail(@"Error: %@", error);
+                
+                EndBlock();
+            }];
+        } failure:^(CDAResponse *response, NSError *error) {
+            XCTFail(@"Error: %@", error);
+            
+            EndBlock();
+        }];
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTFail(@"Error: %@", error);
+        
+        EndBlock();
+    }];
+    
+    WaitUntilBlockCompletes();
+    
+    XCTAssertEqual(6U, self.numberOfDelegateMethodCalls, @"");
 }
 
 -(void)testDelegateIsActuallyOptional {
@@ -376,6 +452,8 @@
 }
 
 -(void)testSyncRemoveAsset {
+    self.expectFieldsInDeletedResources = YES;
+    
     StartBlock();
     
     CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response,
@@ -468,6 +546,8 @@
 }
 
 -(void)testSyncRemoveEntry {
+    self.expectFieldsInDeletedResources = YES;
+    
     StartBlock();
     
     CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response,
@@ -577,36 +657,56 @@
 
 -(void)syncedSpace:(CDASyncedSpace *)space didCreateAsset:(CDAAsset *)asset {
     XCTAssert([asset isKindOfClass:[CDAAsset class]], @"");
+    XCTAssertNotNil(asset.identifier, @"");
+    XCTAssertNotNil(asset.fields, @"");
     
     self.numberOfDelegateMethodCalls++;
 }
 
 -(void)syncedSpace:(CDASyncedSpace *)space didCreateEntry:(CDAEntry *)entry {
     XCTAssert([entry isKindOfClass:[CDAEntry class]], @"");
+    XCTAssertNotNil(entry.identifier, @"");
+    XCTAssertNotNil(entry.fields, @"");
     
     self.numberOfDelegateMethodCalls++;
 }
 
 -(void)syncedSpace:(CDASyncedSpace *)space didDeleteAsset:(CDAAsset *)asset {
-    XCTAssert([asset isKindOfClass:[CDAAsset class]], @"");
+    XCTAssert([asset isKindOfClass:[CDAAsset class]] ||
+              [asset isKindOfClass:[CDADeletedAsset class]], @"");
+    XCTAssertNotNil(asset.identifier, @"");
+    
+    if (self.expectFieldsInDeletedResources) {
+        XCTAssertNotNil(asset.fields, @"");
+    }
     
     self.numberOfDelegateMethodCalls++;
 }
 
 -(void)syncedSpace:(CDASyncedSpace *)space didDeleteEntry:(CDAEntry *)entry {
-    XCTAssert([entry isKindOfClass:[CDAEntry class]], @"");
+    XCTAssert([entry isKindOfClass:[CDAEntry class]] ||
+              [entry isKindOfClass:[CDADeletedEntry class]], @"");
+    XCTAssertNotNil(entry.identifier, @"");
+    
+    if (self.expectFieldsInDeletedResources) {
+        XCTAssertNotNil(entry.fields, @"");
+    }
     
     self.numberOfDelegateMethodCalls++;
 }
 
 -(void)syncedSpace:(CDASyncedSpace *)space didUpdateAsset:(CDAAsset *)asset {
     XCTAssert([asset isKindOfClass:[CDAAsset class]], @"");
+    XCTAssertNotNil(asset.identifier, @"");
+    XCTAssertNotNil(asset.fields, @"");
     
     self.numberOfDelegateMethodCalls++;
 }
 
 -(void)syncedSpace:(CDASyncedSpace *)space didUpdateEntry:(CDAEntry *)entry {
     XCTAssert([entry isKindOfClass:[CDAEntry class]], @"");
+    XCTAssertNotNil(entry.identifier, @"");
+    XCTAssertNotNil(entry.fields, @"");
     
     self.numberOfDelegateMethodCalls++;
 }

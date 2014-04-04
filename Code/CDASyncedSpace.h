@@ -111,4 +111,33 @@
  */
 -(void)performSynchronizationWithSuccess:(void (^)())success failure:(CDARequestFailureBlock)failure;
 
+/**
+ Retrieve the synchronization token for the next synchronization operation.
+ 
+ This token will change after each successful `performSynchronizationWithSuccess:failure:` call.
+ You can use this token to reinstantiate a synchronization session after an app relaunch, using
+ `shallowSyncSpaceWithToken:`. Be aware that using an older token to reinstate a session might yield
+ unexpected results, so make sure you keep any tokens you store yourself up-to-date.
+ */
+@property (nonatomic, readonly) NSString* syncToken;
+
+/** @name Reinstantiate Synchronization Sessions */
+
+/**
+ *  Initializes a shallow synchronization space using the given synchronization token.
+ *
+ *  A shallow `CDASyncSpace` will not return any Resources from the `assets` or `entries` properties,
+ *  so the main use case is receiving updates via the `delegate`. In contrast to regular synchronization
+ *  spaces, a shallow one will also only return shallow Assets from the `syncedSpace:didDeleteAsset:`
+ *  and shallow Entries from `syncedSpace:didDeleteEntry:`. Shallow resources will only have a value
+ *  for the `identifier` property and no Field values.
+ *
+ *  @param syncToken The synchronization token, retrieve earlier from the `syncToken` property.
+ *  @param client    The client instance used for fetching Resources. It needs to be associated to the
+ *                   same Space as your original synchronization session.
+ *
+ *  @return A synchronization space initialized for continuing the session.
+ */
++(instancetype)shallowSyncSpaceWithToken:(NSString*)syncToken client:(CDAClient*)client;
+
 @end
