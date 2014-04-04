@@ -19,7 +19,7 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - Bypass (1.0.1)
-  - ContentfulDeliveryAPI (0.7.0):
+  - ContentfulDeliveryAPI (0.8.0):
     - AFNetworking
     - ISO8601DateFormatter
   - FBSnapshotTestCase (1.1)
@@ -45,7 +45,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: 0121f4b69be3fa58d1ab317866e036e12ac9651d
   Bypass: 05609ba2727ae711aa82256e7600b7ac7a174927
-  ContentfulDeliveryAPI: d6ee051c880f63c1ab8f21be386098f6c91d416e
+  ContentfulDeliveryAPI: a4d858c048dc0ebad6996416b163c93f1ed653e5
   FBSnapshotTestCase: 188c80bfcb72e744eb0b99d45989d12687c40cf8
   ISO8601DateFormatter: 00944e437ea647f4244454ce8809d313861d08de
   OHHTTPStubs: d67c42c0212f0883ddb8592375aa0dc00dc50a36
