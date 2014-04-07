@@ -6,10 +6,13 @@
 //
 //
 
+#import <objc/runtime.h>
+
 #import <ContentfulDeliveryAPI/CDAResource.h>
 
 #import "CDAField.h"
 #import "CDAFieldValueTransformer.h"
+#import "CDAUtilities.h"
 
 @interface CDAField ()
 
@@ -35,6 +38,10 @@
     return [NSString stringWithFormat:@"CDAField %@ of type %@", self.identifier, type];
 }
 
+-(void)encodeWithCoder:(NSCoder *)aCoder {
+    CDAEncodeObjectWithCoder(self, aCoder);
+}
+
 -(NSDictionary*)fieldTypes {
     static dispatch_once_t once;
     static NSDictionary* fieldTypes;
@@ -50,6 +57,14 @@
                                             @"Text": @(CDAFieldTypeText),
                                             }; });
     return fieldTypes;
+}
+
+-(id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
+    if (self) {
+        CDADecodeObjectWithCoder(self, aDecoder);
+    }
+    return self;
 }
 
 -(id)initWithDictionary:(NSDictionary *)dictionary client:(CDAClient*)client {

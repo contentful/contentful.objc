@@ -6,6 +6,8 @@
 //
 //
 
+#import <objc/runtime.h>
+
 #import <ContentfulDeliveryAPI/CDAConfiguration.h>
 #import <ContentfulDeliveryAPI/CDAContentType.h>
 #import <ContentfulDeliveryAPI/CDAResource.h>
@@ -33,6 +35,20 @@
 #pragma mark -
 
 @implementation CDAResource
+
++(instancetype)readFromFile:(NSString*)filePath client:(CDAClient*)client {
+    CDAResource* item = nil;
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+        NSData *data = [NSData dataWithContentsOfFile:filePath];
+        NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+        item = [[[self class] alloc] initWithCoder:unarchiver];
+        [unarchiver finishDecoding];
+    }
+    
+    item.client = client;
+    return item;
+}
 
 +(instancetype)resourceObjectForDictionary:(NSDictionary *)dictionary client:(CDAClient*)client {
     if (![dictionary isKindOfClass:[NSDictionary class]]) {
@@ -70,6 +86,10 @@
 
 #pragma mark -
 
+-(void)encodeWithCoder:(NSCoder *)aCoder {
+    CDAEncodeObjectWithCoder(self, aCoder);
+}
+
 -(BOOL)fetched {
     return self.lastFetchedDate != nil;
 }
@@ -80,6 +100,14 @@
 
 -(NSString *)identifier {
     return self.sys[@"id"];
+}
+
+-(id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
+    if (self) {
+        CDADecodeObjectWithCoder(self, aDecoder);
+    }
+    return self;
 }
 
 -(id)initWithDictionary:(NSDictionary *)dictionary client:(CDAClient*)client {
@@ -183,6 +211,14 @@
     }
     
     NSAssert(false, @"No known way to resolve a Resource of type %@", NSStringFromClass([self class]));
+}
+
+-(void)writeToFile:(NSString*)filePath {
+    NSMutableData *data = [NSMutableData data];
+    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+    [self encodeWithCoder:archiver];
+    [archiver finishEncoding];
+    [data writeToFile:filePath atomically:YES];
 }
 
 @end
