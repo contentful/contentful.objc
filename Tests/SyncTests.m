@@ -6,6 +6,7 @@
 //
 //
 
+#import <OCMock/OCMock.h>
 #import <OHHTTPStubs/OHHTTPStubs.h>
 
 #import "CDADeletedAsset.h"
@@ -86,6 +87,8 @@
 }
 
 -(void)testContinueSyncWithoutSyncSpaceInstance {
+    __block BOOL contentTypesWereFetched = NO;
+    
     StartBlock();
     
     CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
@@ -95,6 +98,26 @@
         NSString* syncToken = space.syncToken;
         space = nil;
         XCTAssertNil(space, @"");
+        
+        self.client = [[CDAClient alloc] initWithSpaceKey:@"emh6o2ireilu" accessToken:@"1bf1261e0225089be464c79fff1a0773ca8214f1e82dd521f3ecf9690ba888ac"];
+        
+        // Mock the Content Type retrieval
+        self.client = [OCMockObject partialMockForObject:self.client];
+        [[[(OCMockObject*)self.client stub] andDo:^(NSInvocation *invocation) {
+            CDAArrayFetchedBlock successBlock;
+            [invocation getArgument:&successBlock atIndex:2];
+            
+            [self.client fetchSpaceWithSuccess:^(CDAResponse *response, CDASpace *space) {
+                [self addDummyContentType];
+                
+                contentTypesWereFetched = YES;
+                successBlock(nil, nil);
+            } failure:^(CDAResponse *response, NSError *error) {
+                XCTFail(@"Error: %@", error);
+                
+                EndBlock();
+            }];
+        }] fetchContentTypesWithSuccess:[OCMArg any] failure:[OCMArg any]];
         
         CDASyncedSpace* shallowSyncSpace = [CDASyncedSpace shallowSyncSpaceWithToken:syncToken
                                                                               client:self.client];
@@ -156,6 +179,7 @@
     WaitUntilBlockCompletes();
     
     XCTAssertEqual(6U, self.numberOfDelegateMethodCalls, @"");
+    XCTAssert(contentTypesWereFetched, @"Content Types were not fetched.");
 }
 
 -(void)testDelegateIsActuallyOptional {

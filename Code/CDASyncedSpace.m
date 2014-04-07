@@ -10,6 +10,7 @@
 
 #import "CDAArray+Private.h"
 #import "CDAClient+Private.h"
+#import "CDAContentTypeRegistry.h"
 #import "CDADeletedAsset.h"
 #import "CDADeletedEntry.h"
 #import "CDARequestOperationManager.h"
@@ -72,6 +73,13 @@
             failure(nil, [NSError errorWithDomain:CDAErrorDomain code:901 userInfo:@{ NSLocalizedDescriptionKey: NSLocalizedString(@"No sync token available.", nil) }]);
         }
         
+        return;
+    }
+    
+    if (!self.client.contentTypeRegistry.fetched) {
+        [self.client fetchContentTypesWithSuccess:^(CDAResponse *response, CDAArray *array) {
+            [self performSynchronizationWithSuccess:success failure:failure];
+        } failure:failure];
         return;
     }
     
