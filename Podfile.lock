@@ -24,6 +24,7 @@ PODS:
     - ISO8601DateFormatter
   - FBSnapshotTestCase (1.1)
   - ISO8601DateFormatter (0.7)
+  - OCMock (2.2.3)
   - OHHTTPStubs (3.1.0)
   - PDKTCollectionViewWaterfallLayout (0.1)
   - VCRURLConnection (0.2.0)
@@ -34,6 +35,7 @@ DEPENDENCIES:
   - ContentfulDeliveryAPI (from `.`)
   - FBSnapshotTestCase
   - ISO8601DateFormatter
+  - OCMock
   - OHHTTPStubs
   - PDKTCollectionViewWaterfallLayout
   - VCRURLConnection
@@ -48,6 +50,7 @@ SPEC CHECKSUMS:
   ContentfulDeliveryAPI: a4d858c048dc0ebad6996416b163c93f1ed653e5
   FBSnapshotTestCase: 188c80bfcb72e744eb0b99d45989d12687c40cf8
   ISO8601DateFormatter: 00944e437ea647f4244454ce8809d313861d08de
+  OCMock: 74e4ddbcef134170dcc844f91c691f13868075d7
   OHHTTPStubs: d67c42c0212f0883ddb8592375aa0dc00dc50a36
   PDKTCollectionViewWaterfallLayout: be8dd399763b9b925aa78dff0f788e0221e72c54
   VCRURLConnection: 7c5471d671641dbd0f1b46903ebeb4b88caae04c

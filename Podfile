@@ -10,6 +10,7 @@ end
 target "CDA Tests", :exclusive => true do
 
 pod 'FBSnapshotTestCase'
+pod 'OCMock'
 pod 'OHHTTPStubs'
 pod 'VCRURLConnection'
 
