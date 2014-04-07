@@ -46,7 +46,7 @@ The Content Delivery API only returns published Entries. However, you might want
                                                 accessToken:@"YourAccessToken"
                                               configuration:configuration];
 
-Apart from the configuration option, you can use the SDK without modifications with one exception: you need to obtain a different access token from [here][10].
+Apart from the configuration option, you can use the SDK without modifications with one exception: you need to obtain a different access token from [here][10].  In preview mode, data can be invalid, because no validation is performed on unpublished entries. Your app needs to deal with that. Be aware that the access token is read-write and should in no case be shipped with a production app.
 
 ## Documentation
 
