@@ -25,6 +25,10 @@
 
 @implementation CDAEntry
 
+@synthesize locale = _locale;
+
+#pragma mark -
+
 +(NSString *)CDAType {
     return @"Entry";
 }
@@ -90,9 +94,12 @@
         }
         
         self.localizedFields = [localizedFields copy];
-        self.locale = self.client.space.defaultLocale;
     }
     return self;
+}
+
+-(NSString *)locale {
+    return _locale ?: self.client.space.defaultLocale;
 }
 
 -(NSDictionary *)localizedDictionaryFromDictionary:(NSDictionary *)dictionary

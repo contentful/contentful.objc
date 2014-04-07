@@ -37,7 +37,7 @@ typedef NS_ENUM(NSInteger, CDAFieldType) {
 };
 
 /** A `CDAField` describes a single property of a `CDAEntry`. */
-@interface CDAField : NSObject
+@interface CDAField : NSObject <NSCoding>
 
 /** @name Accessing Field Information */
 
