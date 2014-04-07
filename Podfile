@@ -30,6 +30,12 @@ pod 'PDKTCollectionViewWaterfallLayout'
 
 end
 
+target "CoreDataExample", :exclusive => true do
+
+pod 'ContentfulDeliveryAPI', :path => '.'
+
+end
+
 target "UFO Example", :exclusive => true do
 
 pod 'ContentfulDeliveryAPI', :path => '.'
