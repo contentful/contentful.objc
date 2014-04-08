@@ -12,12 +12,12 @@
 
 @interface CDAResource ()
 
+@property (nonatomic, weak) CDAClient* client;
 @property (nonatomic, readonly) BOOL localizationAvailable;
 
 +(NSString*)CDAType;
 +(instancetype)resourceObjectForDictionary:(NSDictionary*)dictionary client:(CDAClient*)client;
 
--(CDAClient*)client;
 -(id)initWithDictionary:(NSDictionary*)dictionary client:(CDAClient*)client;
 -(NSDictionary*)localizedDictionaryFromDictionary:(NSDictionary*)dictionary forLocale:(NSString*)locale;
 -(void)resolveLinksWithIncludedAssets:(NSDictionary*)assets entries:(NSDictionary*)entries;

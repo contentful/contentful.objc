@@ -220,6 +220,18 @@
                                   } failure:failure];
 }
 
+-(void)setClient:(CDAClient *)client {
+    [super setClient:client];
+    
+    for (NSDictionary* fields in self.localizedFields.allValues) {
+        for (id field in fields.allValues) {
+            if ([field respondsToSelector:@selector(setClient:)]) {
+                [field setClient:self.client];
+            }
+        }
+    }
+}
+
 -(void)setLocale:(NSString *)locale {
     if (_locale == locale) {
         return;
