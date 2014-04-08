@@ -23,6 +23,10 @@ const CGFloat CDAImageQualityOriginal = 0.0;
 
 @implementation CDAAsset
 
+@synthesize locale = _locale;
+
+#pragma mark -
+
 +(NSString *)CDAType {
     return @"Asset";
 }
@@ -104,13 +108,16 @@ const CGFloat CDAImageQualityOriginal = 0.0;
         }
         
         self.localizedFields = [localizedFields copy];
-        self.locale = self.client.space.defaultLocale;
     }
     return self;
 }
 
 -(BOOL)isImage {
     return [self.MIMEType hasPrefix:@"image/"];
+}
+
+-(NSString *)locale {
+    return _locale ?: self.client.space.defaultLocale;
 }
 
 -(NSString *)MIMEType {
