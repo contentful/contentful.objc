@@ -34,10 +34,23 @@
 
 /** @name Persisting Resources */
 
-// TODO: todoc
+/**
+ *  Read a previously serialized Resource from file.
+ *
+ *  @param filePath The path to the file with a serialized Resource.
+ *  @param client   The client to use for upcoming requests.
+ *
+ *  @return A new Resource initialized with values from a previously serialized Resource.
+ */
 +(instancetype)readFromFile:(NSString*)filePath client:(CDAClient*)client;
 
-// TODO: todoc
+/**
+ *  Serialize a Resource to a file.
+ *
+ *  This can be used for offline caching of Resources.
+ *
+ *  @param filePath The path to the file to which the Resource should be written.
+ */
 -(void)writeToFile:(NSString*)filePath;
 
 /** @name Accessing Remote Data */
