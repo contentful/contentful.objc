@@ -44,7 +44,8 @@ NSArray* CDAClassGetSubclasses(Class parentClass) {
 void CDADecodeObjectWithCoder(id object, NSCoder* aDecoder) {
     CDAPropertyVisitor([object class], ^(objc_property_t property, NSString *propertyName) {
         if (!CDAIgnoreProperty(property)) {
-            [object setValue:[aDecoder decodeObjectForKey:propertyName] forKey:propertyName];
+            [object setValue:[aDecoder decodeObjectOfClass:[object class]
+                                                    forKey:propertyName] forKey:propertyName];
         }
     });
 }
