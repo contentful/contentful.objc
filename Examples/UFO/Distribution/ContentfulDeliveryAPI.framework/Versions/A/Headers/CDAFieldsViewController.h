@@ -19,6 +19,16 @@
  */
 @interface CDAFieldsViewController : UITableViewController
 
+/**
+ *  By default, values for all Fields of the Entry will be shown. If you want to limit which Fields
+ *  are shown and also influence the order in which they are shown, override this method in your
+ *  subclass.
+ *
+ *  If this method returns `nil`, all Fields will be shown in alphabetical order.
+ *
+ *  @return An array of Field identifiers as strings. Any identifiers which do not match actual
+ *      Fields on the Entry will be ignored.
+ */
 @property (nonatomic, readonly) NSArray* visibleFields;
 
 /** @name Initializing the CDAEntriesViewController Object */
@@ -60,17 +70,5 @@
  *  @param error The error which occured.
  */
 -(void)showError:(NSError*)error;
-
-/**
- *  By default, values for all Fields of the Entry will be shown. If you want to limit which Fields
- *  are shown and also influence the order in which they are shown, override this method in your
- *  subclass.
- *
- *  If this method returns `nil`, all Fields will be shown in alphabetical order.
- *
- *  @return An array of Field identifiers as strings. Any identifiers which do not match actual
- *      Fields on the Entry will be ignored.
- */
--(NSArray*)visibleFields;
 
 @end
