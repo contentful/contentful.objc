@@ -44,7 +44,8 @@ static-lib:
 test: example
 	set -o pipefail && xcodebuild -workspace $(WORKSPACE) \
 		-scheme ContentfulDeliveryAPI \
-		-sdk iphonesimulator test | xcpretty -c
+		-sdk iphonesimulator -destination 'name=iPhone Retina (4-inch)' \
+		test | xcpretty -c
 
 doc:
 	appledoc --project-name 'Contentful Delivery API' \
