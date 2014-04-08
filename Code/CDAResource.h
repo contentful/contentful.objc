@@ -12,7 +12,7 @@
 @class CDAResponse;
 
 /** Base class of all remotely available entities. */
-@interface CDAResource : NSObject <NSCoding>
+@interface CDAResource : NSObject <NSCoding, NSSecureCoding>
 
 /** @name Accessing System Properties */
 

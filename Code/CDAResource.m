@@ -79,6 +79,10 @@
     return subclasses;
 }
 
++(BOOL)supportsSecureCoding {
+    return YES;
+}
+
 +(NSString*)CDAType {
     return nil;
 }

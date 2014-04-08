@@ -33,6 +33,12 @@
 
 @implementation CDAField
 
++(BOOL)supportsSecureCoding {
+    return YES;
+}
+
+#pragma mark -
+
 -(NSString *)description {
     NSString* type = [[self.fieldTypes allKeysForObject:@(self.type)] firstObject];
     return [NSString stringWithFormat:@"CDAField %@ of type %@", self.identifier, type];
