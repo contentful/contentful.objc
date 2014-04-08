@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+@class CDAClient;
 @class CDAResponse;
 
 /** Base class of all remotely available entities. */
-@interface CDAResource : NSObject
+@interface CDAResource : NSObject <NSCoding>
 
 /** @name Accessing System Properties */
 
@@ -30,6 +31,14 @@
  *  @return `YES` if `resource` is equivalent to the receiver, otherwise `NO`.
  */
 -(BOOL)isEqualToResource:(CDAResource*)resource;
+
+/** @name Persisting Resources */
+
+// TODO: todoc
++(instancetype)readFromFile:(NSString*)filePath client:(CDAClient*)client;
+
+// TODO: todoc
+-(void)writeToFile:(NSString*)filePath;
 
 /** @name Accessing Remote Data */
 
