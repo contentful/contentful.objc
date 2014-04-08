@@ -80,4 +80,14 @@
     }
 }
 
+-(void)setClient:(CDAClient *)client {
+    [super setClient:client];
+    
+    for (id item in self.items) {
+        if ([item respondsToSelector:@selector(setClient:)]) {
+            [item setClient:self.client];
+        }
+    }
+}
+
 @end
