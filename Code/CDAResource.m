@@ -163,7 +163,8 @@
 }
 
 -(BOOL)isEqual:(id)object {
-    if ([object isKindOfClass:[CDAResource class]]) {
+    if ([object respondsToSelector:@selector(identifier)] &&
+        [object respondsToSelector:@selector(sys)]) {
         return [self isEqualToResource:object];
     }
     return [super isEqual:object];
