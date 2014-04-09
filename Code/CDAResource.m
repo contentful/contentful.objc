@@ -89,6 +89,10 @@
 
 #pragma mark -
 
+-(BOOL)createdAfterDate:(NSDate *)date {
+    return [(NSDate*)self.sys[@"createdAt"] compare:date] == NSOrderedDescending;
+}
+
 -(void)encodeWithCoder:(NSCoder *)aCoder {
     CDAEncodeObjectWithCoder(self, aCoder);
 }
@@ -227,6 +231,10 @@
     if (client.space.defaultLocale) {
         self.defaultLocaleOfSpace = client.space.defaultLocale;
     }
+}
+
+-(BOOL)updatedAfterDate:(NSDate *)date {
+    return [(NSDate*)self.sys[@"updatedAt"] compare:date] == NSOrderedDescending;
 }
 
 -(void)writeToFile:(NSString*)filePath {

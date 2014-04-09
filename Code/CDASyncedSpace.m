@@ -14,6 +14,7 @@
 #import "CDADeletedAsset.h"
 #import "CDADeletedEntry.h"
 #import "CDARequestOperationManager.h"
+#import "CDAResource+Private.h"
 #import "CDASyncedSpace+Private.h"
 #import "CDAUtilities.h"
 
@@ -72,6 +73,7 @@
 -(id)init {
     self = [super init];
     if (self) {
+        self.lastSyncTimestamp = [NSDate distantPast];
         self.syncedAssets = [@[] mutableCopy];
         self.syncedEntries = [@[] mutableCopy];
     }
@@ -115,7 +117,13 @@
     }
     
     [self.client.requestOperationManager fetchArrayAtURLPath:@"sync" parameters:@{ @"sync_token": self.syncToken } success:^(CDAResponse *response, CDAArray *array) {
+        NSDate* nextTimestamp = self.lastSyncTimestamp;
+        
         for (CDAResource* item in array.items) {
+            if ([item updatedAfterDate:nextTimestamp]) {
+                nextTimestamp = item.sys[@"updatedAt"];
+            }
+            
             if ([item isKindOfClass:[CDADeletedAsset class]]) {
                 CDAAsset* deletedAsset = (CDAAsset*)item;
                 
@@ -158,7 +166,11 @@
                 [self willChangeValueForKey:@"assets"];
                 
                 NSUInteger assetIndex = [self.syncedAssets indexOfObject:item];
-                if (self.syncedAssets && assetIndex != NSNotFound) {
+                if (!self.syncedAssets) {
+                    assetIndex = [item createdAfterDate:self.lastSyncTimestamp] ? NSNotFound : 0;
+                }
+                
+                if (assetIndex != NSNotFound) {
                     [self.syncedAssets replaceObjectAtIndex:assetIndex withObject:item];
                     
                     if ([self.delegate respondsToSelector:@selector(syncedSpace:didUpdateAsset:)]) {
@@ -179,7 +191,11 @@
                 [self willChangeValueForKey:@"entries"];
                 
                 NSUInteger entryIndex = [self.syncedEntries indexOfObject:item];
-                if (self.syncedEntries && entryIndex != NSNotFound) {
+                if (!self.syncedEntries) {
+                    entryIndex = [item createdAfterDate:self.lastSyncTimestamp] ? NSNotFound : 0;
+                }
+                
+                if (entryIndex != NSNotFound) {
                     [self.syncedEntries replaceObjectAtIndex:entryIndex withObject:item];
                     
                     if ([self.delegate respondsToSelector:@selector(syncedSpace:didUpdateEntry:)]) {
@@ -197,6 +213,7 @@
             }
         }
         
+        self.lastSyncTimestamp = nextTimestamp;
         self.nextPageUrl = array.nextPageUrl;
         self.nextSyncUrl = array.nextSyncUrl;
         
@@ -224,6 +241,20 @@
     }
     
     return nil;
+}
+
+-(void)updateLastSyncTimestamp {
+    for (CDAAsset* asset in self.assets) {
+        if ([asset updatedAfterDate:self.lastSyncTimestamp]) {
+            self.lastSyncTimestamp = asset.sys[@"updatedAt"];
+        }
+    }
+    
+    for (CDAEntry* entry in self.entries) {
+        if ([entry updatedAfterDate:self.lastSyncTimestamp]) {
+            self.lastSyncTimestamp = entry.sys[@"updatedAt"];
+        }
+    }
 }
 
 -(void)writeToFile:(NSString*)filePath {
