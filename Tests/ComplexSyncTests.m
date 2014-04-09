@@ -30,7 +30,7 @@
 -(void)testSyncWithLinks {
     StartBlock();
     
-    [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
+    CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
         space.delegate = self;
         
         [space performSynchronizationWithSuccess:^{
@@ -45,6 +45,7 @@
         
         EndBlock();
     }];
+    XCTAssertNotNil(request, @"");
     
     WaitUntilBlockCompletes();
     
@@ -55,7 +56,7 @@
 -(void)testSyncWithLinksWithoutSyncSpaceInstance {
     StartBlock();
     
-    [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
+    CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
         NSString* syncToken = space.syncToken;
         space = nil;
         XCTAssertNil(space, @"");
@@ -77,6 +78,7 @@
         
         EndBlock();
     }];
+    XCTAssertNotNil(request, @"");
     
     WaitUntilBlockCompletes();
     
