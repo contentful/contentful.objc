@@ -13,6 +13,7 @@
 @interface CDAResource ()
 
 @property (nonatomic, weak) CDAClient* client;
+@property (nonatomic) NSString* defaultLocaleOfSpace;
 @property (nonatomic, readonly) BOOL localizationAvailable;
 
 +(NSString*)CDAType;

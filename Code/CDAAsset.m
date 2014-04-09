@@ -103,7 +103,7 @@ const CGFloat CDAImageQualityOriginal = 0.0;
                                                                             forLocale:locale];
                 }
             } else {
-                localizedFields[self.client.space.defaultLocale] = fields;
+                localizedFields[self.defaultLocaleOfSpace] = fields;
             }
         }
         
@@ -117,7 +117,7 @@ const CGFloat CDAImageQualityOriginal = 0.0;
 }
 
 -(NSString *)locale {
-    return _locale ?: self.client.space.defaultLocale;
+    return _locale ?: self.defaultLocaleOfSpace;
 }
 
 -(NSString *)MIMEType {
@@ -147,7 +147,7 @@ const CGFloat CDAImageQualityOriginal = 0.0;
     if ([self.localizedFields.allKeys containsObject:locale]) {
         _locale = locale;
     } else {
-        _locale = self.client.space.defaultLocale;
+        _locale = self.defaultLocaleOfSpace;
     }
 }
 
