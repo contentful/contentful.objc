@@ -24,6 +24,20 @@
 
 @implementation UFOMapViewController
 
+-(void)addItemsToMapView {
+    if (self.items) {
+        [self.mapView removeAnnotations:self.mapView.annotations];
+        
+        for (UFOSighting* item in self.items) {
+            if (item.title) {
+                [self.mapView addAnnotation:item];
+            }
+        }
+        
+        [self.mapView selectAnnotation:[self.mapView.annotations firstObject] animated:YES];
+    }
+}
+
 -(id)init {
     self = [super init];
     if (self) {
@@ -100,13 +114,7 @@
     
     _items = items;
     
-    for (UFOSighting* item in items) {
-        if (item.title) {
-            [self.mapView addAnnotation:item];
-        }
-    }
-    
-    [self.mapView selectAnnotation:[self.mapView.annotations firstObject] animated:YES];
+    [self addItemsToMapView];
 }
 
 -(void)viewDidLoad {
@@ -116,6 +124,8 @@
     self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.mapView.delegate = self;
     [self.view addSubview:self.mapView];
+    
+    [self addItemsToMapView];
 }
 
 #pragma mark - MKMapView delegate methods
