@@ -76,11 +76,11 @@
         NSMutableDictionary* localizedFields = [@{} mutableCopy];
         
         if (self.localizationAvailable) {
-            NSDictionary* defaultDictionary = [self localizedDictionaryFromDictionary:fields forLocale:self.client.space.defaultLocale];
-            localizedFields[self.client.space.defaultLocale] = defaultDictionary;
+            NSDictionary* defaultDictionary = [self localizedDictionaryFromDictionary:fields forLocale:self.defaultLocaleOfSpace];
+            localizedFields[self.defaultLocaleOfSpace] = defaultDictionary;
             
             for (NSString* locale in self.client.space.localeCodes) {
-                if ([locale isEqualToString:self.client.space.defaultLocale]) {
+                if ([locale isEqualToString:self.defaultLocaleOfSpace]) {
                     continue;
                 }
                 
@@ -90,7 +90,7 @@
                 localizedFields[locale] = [[CDAFallbackDictionary alloc] initWithDictionary:localizedDictionary fallbackDictionary:defaultDictionary];
             }
         } else {
-            localizedFields[self.client.space.defaultLocale] = [self parseDictionary:fields];
+            localizedFields[self.defaultLocaleOfSpace] = [self parseDictionary:fields];
         }
         
         self.localizedFields = [localizedFields copy];
@@ -99,7 +99,7 @@
 }
 
 -(NSString *)locale {
-    return _locale ?: self.client.space.defaultLocale;
+    return _locale ?: self.defaultLocaleOfSpace;
 }
 
 -(NSDictionary *)localizedDictionaryFromDictionary:(NSDictionary *)dictionary
@@ -240,7 +240,7 @@
     if ([self.localizedFields.allKeys containsObject:locale]) {
         _locale = locale;
     } else {
-        _locale = self.client.space.defaultLocale;
+        _locale = self.defaultLocaleOfSpace;
     }
 }
 

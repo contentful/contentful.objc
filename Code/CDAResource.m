@@ -217,6 +217,18 @@
     NSAssert(false, @"No known way to resolve a Resource of type %@", NSStringFromClass([self class]));
 }
 
+-(void)setClient:(CDAClient *)client {
+    if (_client == client) {
+        return;
+    }
+    
+    _client = client;
+    
+    if (client.space.defaultLocale) {
+        self.defaultLocaleOfSpace = client.space.defaultLocale;
+    }
+}
+
 -(void)writeToFile:(NSString*)filePath {
     NSMutableData *data = [NSMutableData data];
     NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
