@@ -101,35 +101,46 @@
         XCTAssertEqual(1U, space.assets.count, @"");
         XCTAssertEqual(1U, space.entries.count, @"");
         
+        NSDate* lastSyncTimestamp = space.lastSyncTimestamp;
         NSString* syncToken = space.syncToken;
         space = nil;
         XCTAssertNil(space, @"");
+        XCTAssertNotNil(lastSyncTimestamp, @"");
+        XCTAssertNotEqualObjects([NSDate distantPast], lastSyncTimestamp, @"");
         
         self.client = [self mockContentTypeRetrievalForClient:[self buildClient]];
         
         CDASyncedSpace* shallowSyncSpace = [CDASyncedSpace shallowSyncSpaceWithToken:syncToken
                                                                               client:self.client];
         shallowSyncSpace.delegate = self;
+        shallowSyncSpace.lastSyncTimestamp = lastSyncTimestamp;
         
         [shallowSyncSpace performSynchronizationWithSuccess:^{
             XCTAssertNil(shallowSyncSpace.assets, @"");
             XCTAssertNil(shallowSyncSpace.entries, @"");
+            XCTAssertNotEqualObjects(shallowSyncSpace.lastSyncTimestamp, lastSyncTimestamp, @"");
             
             [shallowSyncSpace performSynchronizationWithSuccess:^{
                 XCTAssertNil(shallowSyncSpace.assets, @"");
                 XCTAssertNil(shallowSyncSpace.entries, @"");
+                XCTAssertNotEqualObjects(shallowSyncSpace.lastSyncTimestamp, lastSyncTimestamp, @"");
                 
                 [shallowSyncSpace performSynchronizationWithSuccess:^{
                     XCTAssertNil(shallowSyncSpace.assets, @"");
                     XCTAssertNil(shallowSyncSpace.entries, @"");
+                    XCTAssertNotEqualObjects(shallowSyncSpace.lastSyncTimestamp, lastSyncTimestamp, @"");
                     
                     [shallowSyncSpace performSynchronizationWithSuccess:^{
                         XCTAssertNil(shallowSyncSpace.assets, @"");
                         XCTAssertNil(shallowSyncSpace.entries, @"");
+                        XCTAssertNotEqualObjects(shallowSyncSpace.lastSyncTimestamp,
+                                                 lastSyncTimestamp, @"");
                         
                         [shallowSyncSpace performSynchronizationWithSuccess:^{
                             XCTAssertNil(shallowSyncSpace.assets, @"");
                             XCTAssertNil(shallowSyncSpace.entries, @"");
+                            XCTAssertNotEqualObjects(shallowSyncSpace.lastSyncTimestamp,
+                                                     lastSyncTimestamp, @"");
                             
                             EndBlock();
                         } failure:^(CDAResponse *response, NSError *error) {
@@ -166,12 +177,12 @@
     
     WaitUntilBlockCompletes();
     
-    XCTAssertEqual(2U, self.numberOfAssetsCreated, @"");
+    XCTAssertEqual(1U, self.numberOfAssetsCreated, @"");
     XCTAssertEqual(1U, self.numberOfAssetsDeleted, @"");
-    XCTAssertEqual(0U, self.numberOfAssetsUpdated, @"");
-    XCTAssertEqual(2U, self.numberOfEntriesCreated, @"");
+    XCTAssertEqual(1U, self.numberOfAssetsUpdated, @"");
+    XCTAssertEqual(1U, self.numberOfEntriesCreated, @"");
     XCTAssertEqual(1U, self.numberOfEntriesDeleted, @"");
-    XCTAssertEqual(0U, self.numberOfEntriesUpdated, @"");
+    XCTAssertEqual(1U, self.numberOfEntriesUpdated, @"");
     XCTAssert(self.contentTypesWereFetched, @"Content Types were not fetched.");
 }
 

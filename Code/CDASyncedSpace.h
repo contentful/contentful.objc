@@ -141,9 +141,7 @@
  *  so the main use case is receiving updates via the `delegate`. In contrast to regular synchronized
  *  Spaces, a shallow one will also only return shallow Assets from the `syncedSpace:didDeleteAsset:`
  *  and shallow Entries from `syncedSpace:didDeleteEntry:`. Shallow resources will only have a value
- *  for the `identifier` property and no Field values. Also keep in mind that there can be no updates
- *  for shallow synchronized Spaces, just creations and deletions, as it has no knowledge which 
- *  Resources already exist on the client.
+ *  for the `identifier` property and no Field values.
  *
  *  @param syncToken The synchronization token, retrieve earlier from the `syncToken` property.
  *  @param client    The client instance used for fetching Resources. It needs to be associated to the
@@ -152,6 +150,16 @@
  *  @return A synchronized Space initialized for continuing the session.
  */
 +(instancetype)shallowSyncSpaceWithToken:(NSString*)syncToken client:(CDAClient*)client;
+
+/**
+ *  Timestamp of the last synchronization operation. 
+ *
+ *  Store this alongside the `syncToken` and restore it on a newly created synchronized Space to
+ *  ensure that the `delegate` will be correctly informed about updates. If you fail to restore it,
+ *  only create and delete operations will be reported to the delegate of a shallow synchronized Space.
+ *
+ */
+@property (nonatomic) NSDate* lastSyncTimestamp;
 
 /**
  Retrieve the synchronization token for the next synchronization operation.

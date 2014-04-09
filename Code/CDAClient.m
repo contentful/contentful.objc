@@ -300,6 +300,8 @@
                     success(response, space);
                 } failure:failure];
             } else {
+                [space updateLastSyncTimestamp];
+                
                 success(response, space);
             }
         }

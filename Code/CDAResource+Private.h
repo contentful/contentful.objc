@@ -19,8 +19,10 @@
 +(NSString*)CDAType;
 +(instancetype)resourceObjectForDictionary:(NSDictionary*)dictionary client:(CDAClient*)client;
 
+-(BOOL)createdAfterDate:(NSDate*)date;
 -(id)initWithDictionary:(NSDictionary*)dictionary client:(CDAClient*)client;
 -(NSDictionary*)localizedDictionaryFromDictionary:(NSDictionary*)dictionary forLocale:(NSString*)locale;
 -(void)resolveLinksWithIncludedAssets:(NSDictionary*)assets entries:(NSDictionary*)entries;
+-(BOOL)updatedAfterDate:(NSDate*)date;
 
 @end
