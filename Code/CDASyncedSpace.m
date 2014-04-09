@@ -158,7 +158,7 @@
                 [self willChangeValueForKey:@"assets"];
                 
                 NSUInteger assetIndex = [self.syncedAssets indexOfObject:item];
-                if (assetIndex != NSNotFound) {
+                if (self.syncedAssets && assetIndex != NSNotFound) {
                     [self.syncedAssets replaceObjectAtIndex:assetIndex withObject:item];
                     
                     if ([self.delegate respondsToSelector:@selector(syncedSpace:didUpdateAsset:)]) {
@@ -179,7 +179,7 @@
                 [self willChangeValueForKey:@"entries"];
                 
                 NSUInteger entryIndex = [self.syncedEntries indexOfObject:item];
-                if (entryIndex != NSNotFound) {
+                if (self.syncedEntries && entryIndex != NSNotFound) {
                     [self.syncedEntries replaceObjectAtIndex:entryIndex withObject:item];
                     
                     if ([self.delegate respondsToSelector:@selector(syncedSpace:didUpdateEntry:)]) {

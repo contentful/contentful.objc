@@ -134,6 +134,9 @@
 		A1B8159418F2A8090027B26D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B8159318F2A8090027B26D /* AppDelegate.m */; };
 		A1B8159718F2A8090027B26D /* CoreDataExample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A1B8159518F2A8090027B26D /* CoreDataExample.xcdatamodeld */; };
 		A1B815B418F2ACCB0027B26D /* PersistenceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B815B318F2ACCB0027B26D /* PersistenceTests.m */; };
+		A1B815BB18F56BFD0027B26D /* ComplexSyncTests in Resources */ = {isa = PBXBuildFile; fileRef = A1B815BA18F56BFD0027B26D /* ComplexSyncTests */; };
+		A1B815BD18F56C150027B26D /* ComplexSyncTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B815BC18F56C150027B26D /* ComplexSyncTests.m */; };
+		A1B815BF18F56E620027B26D /* SyncBaseTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B815BE18F56E620027B26D /* SyncBaseTestCase.m */; };
 		A1C1AC4318CE032200DBF0D0 /* CDAClient+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A1C1AC4218CE032200DBF0D0 /* CDAClient+Private.h */; };
 		A1C8DCD318E098E80019A519 /* LinkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C8DCD218E098E80019A519 /* LinkTests.m */; };
 		A1D1D35C18C8A94800261A1C /* ContentfulBaseTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D1D35B18C8A94800261A1C /* ContentfulBaseTestCase.m */; };
@@ -346,6 +349,10 @@
 		A1B8159318F2A8090027B26D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A1B8159618F2A8090027B26D /* CoreDataExample.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataExample.xcdatamodel; sourceTree = "<group>"; };
 		A1B815B318F2ACCB0027B26D /* PersistenceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistenceTests.m; sourceTree = "<group>"; };
+		A1B815BA18F56BFD0027B26D /* ComplexSyncTests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ComplexSyncTests; sourceTree = "<group>"; };
+		A1B815BC18F56C150027B26D /* ComplexSyncTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComplexSyncTests.m; sourceTree = "<group>"; };
+		A1B815BE18F56E620027B26D /* SyncBaseTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncBaseTestCase.m; sourceTree = "<group>"; };
+		A1B815C018F56ED20027B26D /* SyncBaseTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncBaseTestCase.h; sourceTree = "<group>"; };
 		A1C1AC4218CE032200DBF0D0 /* CDAClient+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDAClient+Private.h"; sourceTree = "<group>"; };
 		A1C8DCD218E098E80019A519 /* LinkTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkTests.m; sourceTree = "<group>"; };
 		A1D1D35B18C8A94800261A1C /* ContentfulBaseTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentfulBaseTestCase.m; sourceTree = "<group>"; };
@@ -596,6 +603,8 @@
 				A18AA85A18E4952800D430D5 /* AssetTests.json */,
 				A18AA85818E48B4200D430D5 /* AssetTests.m */,
 				A1A0315018C75B2A006470B7 /* AsyncTesting.h */,
+				A1B815BA18F56BFD0027B26D /* ComplexSyncTests */,
+				A1B815BC18F56C150027B26D /* ComplexSyncTests.m */,
 				A1D1D35D18C8A99A00261A1C /* ContentfulBaseTestCase.h */,
 				A1D1D35B18C8A94800261A1C /* ContentfulBaseTestCase.m */,
 				A144FAFF18C9F8D200110B35 /* DocumentationTests.json */,
@@ -611,6 +620,8 @@
 				A1A0314E18C756B7006470B7 /* SearchAPITests.m */,
 				A144FAFB18C9F8C200110B35 /* StagingTests.json */,
 				A144FAF518C90DD100110B35 /* StagingTests.m */,
+				A1B815C018F56ED20027B26D /* SyncBaseTestCase.h */,
+				A1B815BE18F56E620027B26D /* SyncBaseTestCase.m */,
 				A12797A518E1A45700043A44 /* SyncTests */,
 				A18AA85618E45C5E00D430D5 /* SyncTests.json */,
 				A12797AA18E1B08F00043A44 /* SyncTests.m */,
@@ -1021,6 +1032,7 @@
 				A193EB5718D1C88A0017B777 /* ValueObjectsTests.json in Resources */,
 				A144FB0018C9F8D200110B35 /* DocumentationTests.json in Resources */,
 				A193EB5518D1C88A0017B777 /* ArrayTests.json in Resources */,
+				A1B815BB18F56BFD0027B26D /* ComplexSyncTests in Resources */,
 				A144FAFE18C9F8CA00110B35 /* SearchAPITests.json in Resources */,
 				A173F54618D386CD000E6F92 /* ErrorTests.json in Resources */,
 				A144FAFC18C9F8C200110B35 /* StagingTests.json in Resources */,
@@ -1348,6 +1360,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1B815BD18F56C150027B26D /* ComplexSyncTests.m in Sources */,
+				A1B815BF18F56E620027B26D /* SyncBaseTestCase.m in Sources */,
 				A12797AB18E1B08F00043A44 /* SyncTests.m in Sources */,
 				A1B815B418F2ACCB0027B26D /* PersistenceTests.m in Sources */,
 				A193EB4018D09D180017B777 /* UIKitAdditionsTests.m in Sources */,
