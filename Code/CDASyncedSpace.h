@@ -83,7 +83,7 @@
  *  A `CDASyncedSpace` represents the complete contents of a Space. It can be synchronized via 
  *  delta updates at any time.
  */
-@interface CDASyncedSpace : NSObject
+@interface CDASyncedSpace : NSObject <NSCoding, NSSecureCoding>
 
 /** @name Accessing Space Contents */
 
@@ -111,15 +111,26 @@
  */
 -(void)performSynchronizationWithSuccess:(void (^)())success failure:(CDARequestFailureBlock)failure;
 
+/** @name Persisting Synchronized Spaces */
+
 /**
- Retrieve the synchronization token for the next synchronization operation.
- 
- This token will change after each successful `performSynchronizationWithSuccess:failure:` call.
- You can use this token to reinstantiate a synchronization session after an app relaunch, using
- `shallowSyncSpaceWithToken:`. Be aware that using an older token to reinstate a session might yield
- unexpected results, so make sure you keep any tokens you store yourself up-to-date.
+ *  Read a previously serialized synchronized Space from file.
+ *
+ *  @param filePath The path to the file with a serialized synchronized Space.
+ *  @param client   The client to use for upcoming requests.
+ *
+ *  @return A new Resource initialized with values from a previously serialized synchronized Space.
  */
-@property (nonatomic, readonly) NSString* syncToken;
++(instancetype)readFromFile:(NSString*)filePath client:(CDAClient*)client;
+
+/**
+ *  Serialize a synchronized Space to a file.
+ *
+ *  This can be used for offline caching of synchronized Spaces.
+ *
+ *  @param filePath The path to the file to which the synchronized Space should be written.
+ */
+-(void)writeToFile:(NSString*)filePath;
 
 /** @name Reinstantiate Synchronization Sessions */
 
@@ -139,5 +150,15 @@
  *  @return A synchronization space initialized for continuing the session.
  */
 +(instancetype)shallowSyncSpaceWithToken:(NSString*)syncToken client:(CDAClient*)client;
+
+/**
+ Retrieve the synchronization token for the next synchronization operation.
+ 
+ This token will change after each successful `performSynchronizationWithSuccess:failure:` call.
+ You can use this token to reinstantiate a synchronization session after an app relaunch, using
+ `shallowSyncSpaceWithToken:`. Be aware that using an older token to reinstate a session might yield
+ unexpected results, so make sure you keep any tokens you store yourself up-to-date.
+ */
+@property (nonatomic, readonly) NSString* syncToken;
 
 @end
