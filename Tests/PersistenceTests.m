@@ -6,6 +6,7 @@
 //
 //
 
+#import "CDAResource+Private.h"
 #import "ContentfulBaseTestCase.h"
 
 @interface PersistenceTests : ContentfulBaseTestCase
@@ -32,12 +33,13 @@
     
     [self.client fetchEntriesWithSuccess:^(CDAResponse *response, CDAArray *array) {
         [array writeToFile:self.temporaryFileURL.path];
-        CDAArray* readArray = [CDAArray readFromFile:self.temporaryFileURL.path client:self.client];
+        CDAArray* readArray = [CDAArray readFromFile:self.temporaryFileURL.path client:[CDAClient new]];
         
         XCTAssertEqualObjects(array.sys[@"type"], readArray.sys[@"type"], @"");
         XCTAssertEqual(array.items.count, readArray.items.count, @"");
         
         for (int i = 0; i < array.items.count; i++) {
+            XCTAssertEqualObjects(@"en-US", [readArray.items[i] defaultLocaleOfSpace], @"");
             XCTAssertEqualObjects(array.items[i], readArray.items[i], @"");
             
             NSDictionary* originalEntryFields = [array.items[i] fields];
@@ -67,8 +69,9 @@
     
     [self.client fetchAssetWithIdentifier:@"nyancat" success:^(CDAResponse *response, CDAAsset *asset) {
         [asset writeToFile:self.temporaryFileURL.path];
-        CDAAsset* readAsset = [CDAAsset readFromFile:self.temporaryFileURL.path client:self.client];
+        CDAAsset* readAsset = [CDAAsset readFromFile:self.temporaryFileURL.path client:[CDAClient new]];
         
+        XCTAssertEqualObjects(@"en-US", readAsset.defaultLocaleOfSpace, @"");
         XCTAssertEqualObjects(asset, readAsset, @"");
         XCTAssertEqualObjects(@"Asset", readAsset.sys[@"type"], @"");
         XCTAssertEqualObjects(@"nyancat", readAsset.sys[@"id"], @"");
@@ -100,7 +103,7 @@
     [self.client fetchContentTypeWithIdentifier:@"cat" success:^(CDAResponse* r, CDAContentType* type) {
         [type writeToFile:self.temporaryFileURL.path];
         CDAContentType* ct = [CDAContentType readFromFile:self.temporaryFileURL.path
-                                                   client:self.client];
+                                                   client:[CDAClient new]];
         
         XCTAssertEqualObjects(@"ContentType", ct.sys[@"type"], @"");
         XCTAssertEqualObjects(@"cat", ct.identifier, @"");
@@ -163,8 +166,9 @@
     [self.client fetchEntryWithIdentifier:@"nyancat" success:^(CDAResponse *response, CDAEntry *entry) {
         [entry writeToFile:self.temporaryFileURL.path];
         CDAEntry* readEntry = [CDAEntry readFromFile:self.temporaryFileURL.path
-                                              client:self.client];
+                                              client:[CDAClient new]];
         
+        XCTAssertEqualObjects(@"en-US", readEntry.defaultLocaleOfSpace, @"");
         XCTAssertEqualObjects(entry, readEntry, @"");
         XCTAssertEqualObjects(@"Entry", readEntry.sys[@"type"], @"");
         XCTAssertEqualObjects(@"nyancat", readEntry.identifier, @"");
