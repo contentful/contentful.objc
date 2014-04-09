@@ -598,40 +598,19 @@
 		A19FD88018C631E60081677E /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				A193EB5218D1C88A0017B777 /* ArrayTests.json */,
-				A1D2DC0618D0811F0053DC83 /* ArrayTests.m */,
-				A18AA85A18E4952800D430D5 /* AssetTests.json */,
-				A18AA85818E48B4200D430D5 /* AssetTests.m */,
+				A1B815C218F5812F0027B26D /* Basic Functionality */,
+				A1B815C618F582090027B26D /* Features */,
+				A1B815C718F582650027B26D /* Performance */,
+				A1B815C418F581870027B26D /* Persistence */,
+				A1B815C318F581690027B26D /* Synchronization */,
+				A1B815C518F5819C0027B26D /* UIKit Additions */,
+				A1B815C818F582790027B26D /* Utilities */,
 				A1A0315018C75B2A006470B7 /* AsyncTesting.h */,
-				A1B815BA18F56BFD0027B26D /* ComplexSyncTests */,
-				A1B815BC18F56C150027B26D /* ComplexSyncTests.m */,
 				A1D1D35D18C8A99A00261A1C /* ContentfulBaseTestCase.h */,
 				A1D1D35B18C8A94800261A1C /* ContentfulBaseTestCase.m */,
-				A144FAFF18C9F8D200110B35 /* DocumentationTests.json */,
-				A1D1D35E18C8ABB800261A1C /* DocumentationTests.m */,
-				A173F54518D386CD000E6F92 /* ErrorTests.json */,
-				A1E9797718CBEDFC00E79632 /* ErrorTests.m */,
-				A1E832D718E0A1640092F926 /* LinkTests.json */,
-				A1C8DCD218E098E80019A519 /* LinkTests.m */,
-				A1B815B318F2ACCB0027B26D /* PersistenceTests.m */,
-				A173F60418DB412C000E6F92 /* PreviewModeTests.json */,
-				A173F60218DB3E1E000E6F92 /* PreviewModeTests.m */,
-				A144FAFD18C9F8CA00110B35 /* SearchAPITests.json */,
-				A1A0314E18C756B7006470B7 /* SearchAPITests.m */,
-				A144FAFB18C9F8C200110B35 /* StagingTests.json */,
-				A144FAF518C90DD100110B35 /* StagingTests.m */,
 				A1B815C018F56ED20027B26D /* SyncBaseTestCase.h */,
 				A1B815BE18F56E620027B26D /* SyncBaseTestCase.m */,
-				A12797A518E1A45700043A44 /* SyncTests */,
-				A18AA85618E45C5E00D430D5 /* SyncTests.json */,
-				A12797AA18E1B08F00043A44 /* SyncTests.m */,
 				A19FD88218C631E60081677E /* Tests-Info.plist */,
-				A193EB6718D21B260017B777 /* UIKitAdditionsTests */,
-				A193EB5318D1C88A0017B777 /* UIKitAdditionsTests.json */,
-				A193EB3F18D09D180017B777 /* UIKitAdditionsTests.m */,
-				A18AA86318E5DB1A00D430D5 /* UtilityTests.m */,
-				A193EB5418D1C88A0017B777 /* ValueObjectsTests.json */,
-				A193EB3A18D084C50017B777 /* ValueObjectsTests.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -698,6 +677,83 @@
 				A1B8158F18F2A8090027B26D /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A1B815C218F5812F0027B26D /* Basic Functionality */ = {
+			isa = PBXGroup;
+			children = (
+				A193EB5218D1C88A0017B777 /* ArrayTests.json */,
+				A1D2DC0618D0811F0053DC83 /* ArrayTests.m */,
+				A18AA85A18E4952800D430D5 /* AssetTests.json */,
+				A18AA85818E48B4200D430D5 /* AssetTests.m */,
+				A144FAFF18C9F8D200110B35 /* DocumentationTests.json */,
+				A1D1D35E18C8ABB800261A1C /* DocumentationTests.m */,
+				A173F54518D386CD000E6F92 /* ErrorTests.json */,
+				A1E9797718CBEDFC00E79632 /* ErrorTests.m */,
+				A1E832D718E0A1640092F926 /* LinkTests.json */,
+				A1C8DCD218E098E80019A519 /* LinkTests.m */,
+				A144FAFD18C9F8CA00110B35 /* SearchAPITests.json */,
+				A1A0314E18C756B7006470B7 /* SearchAPITests.m */,
+				A193EB5418D1C88A0017B777 /* ValueObjectsTests.json */,
+				A193EB3A18D084C50017B777 /* ValueObjectsTests.m */,
+			);
+			name = "Basic Functionality";
+			sourceTree = "<group>";
+		};
+		A1B815C318F581690027B26D /* Synchronization */ = {
+			isa = PBXGroup;
+			children = (
+				A1B815BA18F56BFD0027B26D /* ComplexSyncTests */,
+				A1B815BC18F56C150027B26D /* ComplexSyncTests.m */,
+				A12797A518E1A45700043A44 /* SyncTests */,
+				A18AA85618E45C5E00D430D5 /* SyncTests.json */,
+				A12797AA18E1B08F00043A44 /* SyncTests.m */,
+			);
+			name = Synchronization;
+			sourceTree = "<group>";
+		};
+		A1B815C418F581870027B26D /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				A1B815B318F2ACCB0027B26D /* PersistenceTests.m */,
+			);
+			name = Persistence;
+			sourceTree = "<group>";
+		};
+		A1B815C518F5819C0027B26D /* UIKit Additions */ = {
+			isa = PBXGroup;
+			children = (
+				A193EB6718D21B260017B777 /* UIKitAdditionsTests */,
+				A193EB5318D1C88A0017B777 /* UIKitAdditionsTests.json */,
+				A193EB3F18D09D180017B777 /* UIKitAdditionsTests.m */,
+			);
+			name = "UIKit Additions";
+			sourceTree = "<group>";
+		};
+		A1B815C618F582090027B26D /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				A173F60418DB412C000E6F92 /* PreviewModeTests.json */,
+				A173F60218DB3E1E000E6F92 /* PreviewModeTests.m */,
+			);
+			name = Features;
+			sourceTree = "<group>";
+		};
+		A1B815C718F582650027B26D /* Performance */ = {
+			isa = PBXGroup;
+			children = (
+				A144FAFB18C9F8C200110B35 /* StagingTests.json */,
+				A144FAF518C90DD100110B35 /* StagingTests.m */,
+			);
+			name = Performance;
+			sourceTree = "<group>";
+		};
+		A1B815C818F582790027B26D /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A18AA86318E5DB1A00D430D5 /* UtilityTests.m */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 		A1D2DBF418CF618A0053DC83 /* UIKit Extensions */ = {
