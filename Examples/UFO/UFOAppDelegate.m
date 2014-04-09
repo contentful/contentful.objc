@@ -27,17 +27,25 @@
     self.client = [[CDAClient alloc] initWithSpaceKey:@"lzjz8hygvfgu" accessToken:@"0c6ef483524b5e46b3bafda1bf355f38f5f40b4830f7599f790a410860c7c271"];
     [self.client registerClass:NSClassFromString(@"UFOSighting") forContentTypeWithIdentifier:@"7ocuA1dfoccWqWwWUY4UY"];
     
-    [self.client fetchEntriesMatching:@{ @"content_type": @"7ocuA1dfoccWqWwWUY4UY" }
-                              success:^(CDAResponse *response, CDAArray *array) {
-        [self.client fetchAllItemsFromArray:array
-                                    success:^(NSArray *items) {
-                                        mapViewController.items = items;
-                                    } failure:^(CDAResponse *response, NSError *error) {
-                                        [self showError:error];
-                                    }];
-    } failure:^(CDAResponse *response, NSError *error) {
-        [self showError:error];
-    }];
+    NSString* cacheFilePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"entries.data"];
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:cacheFilePath]) {
+        mapViewController.items = [NSKeyedUnarchiver unarchiveObjectWithFile:cacheFilePath];
+    } else {
+        [self.client fetchEntriesMatching:@{ @"content_type": @"7ocuA1dfoccWqWwWUY4UY" }
+                                  success:^(CDAResponse *response, CDAArray *array) {
+                                      [self.client fetchAllItemsFromArray:array
+                                                                  success:^(NSArray *items) {
+                                                                      mapViewController.items = items;
+                                                                      
+                                                                      [NSKeyedArchiver archiveRootObject:items toFile:cacheFilePath];
+                                                                  } failure:^(CDAResponse *response, NSError *error) {
+                                                                      [self showError:error];
+                                                                  }];
+                                  } failure:^(CDAResponse *response, NSError *error) {
+                                      [self showError:error];
+                                  }];
+    }
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
