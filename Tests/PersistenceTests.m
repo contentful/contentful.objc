@@ -185,4 +185,32 @@
     WaitUntilBlockCompletes();
 }
 
+-(void)testPersistSpace {
+    StartBlock();
+    
+    [self.client fetchSpaceWithSuccess:^(CDAResponse* response, CDASpace* originalSpace) {
+        [originalSpace writeToFile:self.temporaryFileURL.path];
+        CDASpace* space = [CDASpace readFromFile:self.temporaryFileURL.path client:[CDAClient new]];
+        
+        XCTAssertEqualObjects(@"Space", space.sys[@"type"], @"");
+        XCTAssertEqualObjects(@"cfexampleapi", space.identifier, @"");
+        XCTAssertEqualObjects(@"Contentful Example API", space.name, @"");
+        XCTAssertEqual(2U, space.locales.count, @"");
+        XCTAssertEqualObjects((@{ @"code": @"en-US",
+                                  @"default": @1,
+                                  @"name": @"English" }), space.locales[0], @"");
+        XCTAssertEqualObjects((@{ @"code": @"tlh",
+                                  @"default": @0,
+                                  @"name": @"Klingon" }), space.locales[1], @"");
+        
+        EndBlock();
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTFail(@"Error: %@", error);
+        
+        EndBlock();
+    }];
+    
+    WaitUntilBlockCompletes();
+}
+
 @end
