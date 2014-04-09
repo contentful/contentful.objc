@@ -23,5 +23,6 @@
                type:(CDAFieldType)type;
 - (void)compareImage:(UIImage*)image forTestSelector:(SEL)testSelector;
 - (CDAEntry*)customEntryHelperWithFields:(NSDictionary*)fields;
+- (void)stubHTTPRequestUsingFixtures:(NSDictionary*)fixtureMap inDirectory:(NSString*)directoryName;
 
 @end

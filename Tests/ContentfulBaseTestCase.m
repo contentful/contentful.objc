@@ -6,7 +6,7 @@
 //
 //
 
-
+#import <OHHTTPStubs/OHHTTPStubs.h>
 #import <VCRURLConnection/VCR.h>
 
 #import "CDAResource+Private.h"
@@ -154,6 +154,25 @@ extern void __gcov_flush();
     self.snapshotTestController = [[FBSnapshotTestController alloc] initWithTestClass:[self class]];
     self.snapshotTestController.referenceImagesDirectory = [[NSBundle bundleForClass:[self class]]
                                                             bundlePath];
+}
+
+- (void)stubHTTPRequestUsingFixtures:(NSDictionary*)fixtureMap inDirectory:(NSString*)directoryName
+{
+    [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
+        return YES;
+    } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
+        NSString* JSONName = fixtureMap[request.URL.absoluteString];
+        
+        if (JSONName) {
+            return [OHHTTPStubsResponse responseWithFileAtPath:[[NSBundle bundleForClass:[self class]] pathForResource:JSONName ofType:@"json" inDirectory:directoryName] statusCode:200 headers:@{ @"Content-Type": @"application/vnd.contentful.delivery.v1+json" }];
+        }
+        
+        return [OHHTTPStubsResponse responseWithData:nil statusCode:200 headers:nil];
+    }];
+}
+
+-(void)tearDown {
+    [OHHTTPStubs removeAllStubs];
 }
 
 @end
