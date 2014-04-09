@@ -15,6 +15,7 @@
 #import "CDADeletedEntry.h"
 #import "CDARequestOperationManager.h"
 #import "CDASyncedSpace+Private.h"
+#import "CDAUtilities.h"
 
 @interface CDASyncedSpace ()
 
@@ -27,6 +28,20 @@
 
 @implementation CDASyncedSpace
 
++(instancetype)readFromFile:(NSString*)filePath client:(CDAClient*)client {
+    CDASyncedSpace* item = nil;
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+        NSData *data = [NSData dataWithContentsOfFile:filePath];
+        NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+        item = [[[self class] alloc] initWithCoder:unarchiver];
+        [unarchiver finishDecoding];
+    }
+    
+    item.client = client;
+    return item;
+}
+
 +(instancetype)shallowSyncSpaceWithToken:(NSString *)syncToken client:(CDAClient *)client {
     CDASyncedSpace* space = [[self class] new];
     space.client = client;
@@ -36,10 +51,18 @@
     return space;
 }
 
++(BOOL)supportsSecureCoding {
+    return YES;
+}
+
 #pragma mark -
 
 -(NSArray *)assets {
     return [self.syncedAssets copy];
+}
+
+-(void)encodeWithCoder:(NSCoder *)aCoder {
+    CDAEncodeObjectWithCoder(self, aCoder);
 }
 
 -(NSArray *)entries {
@@ -60,6 +83,14 @@
     if (self) {
         [self.syncedAssets addObjectsFromArray:assets];
         [self.syncedEntries addObjectsFromArray:entries];
+    }
+    return self;
+}
+
+-(id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
+    if (self) {
+        CDADecodeObjectWithCoder(self, aDecoder);
     }
     return self;
 }
@@ -193,6 +224,14 @@
     }
     
     return nil;
+}
+
+-(void)writeToFile:(NSString*)filePath {
+    NSMutableData *data = [NSMutableData data];
+    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+    [self encodeWithCoder:archiver];
+    [archiver finishEncoding];
+    [data writeToFile:filePath atomically:YES];
 }
 
 @end
