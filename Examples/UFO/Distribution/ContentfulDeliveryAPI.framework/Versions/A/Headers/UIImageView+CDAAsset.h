@@ -66,4 +66,9 @@
                         size:(CGSize)size
             placeholderImage:(UIImage *)placeholderImage;
 
+/** @name Use Offline Caching */
+
+/** Enable automatic disk caching of any image loaded by one of the Asset category methods. */
+@property (nonatomic) BOOL offlineCaching_cda;
+
 @end
