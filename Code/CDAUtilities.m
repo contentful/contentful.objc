@@ -8,6 +8,7 @@
 
 #import <objc/runtime.h>
 
+#import "CDAResource.h"
 #import "CDAUtilities.h"
 
 BOOL CDAIgnoreProperty(objc_property_t property);
@@ -18,7 +19,7 @@ NSString* CDASquashWhitespacesInString(NSString* string);
 
 #pragma mark -
 
-NSString* CDACacheFileNameForQuery(CDAResourceType resourceType, NSDictionary* query) {
+NSString* CDACacheDirectory() {
     NSString *cachesPath = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"com.contentful.sdk"];
     
     BOOL isDirectory = NO;
@@ -32,11 +33,21 @@ NSString* CDACacheFileNameForQuery(CDAResourceType resourceType, NSDictionary* q
                                                                   error:&error], @"Error: %@", error);
     }
     
+    return cachesPath;
+}
+
+NSString* CDACacheFileNameForQuery(CDAResourceType resourceType, NSDictionary* query) {
     NSString* queryAsString = CDASquashWhitespacesInString([query description]);
     NSString* fileName = [NSString stringWithFormat:@"cache_%d_%@.data",
                           (int)resourceType, queryAsString ?: @"all"];
     
-    return [cachesPath stringByAppendingPathComponent:fileName];
+    return [CDACacheDirectory() stringByAppendingPathComponent:fileName];
+}
+
+NSString* CDACacheFileNameForResource(CDAResource* resource) {
+    NSString* fileName = [NSString stringWithFormat:@"cache_%@_%@.data",
+                          resource.sys[@"type"], resource.identifier];
+    return [CDACacheDirectory() stringByAppendingPathComponent:fileName];
 }
 
 // Thanks to http://www.cocoawithlove.com/2010/01/getting-subclasses-of-objective-c-class.html
