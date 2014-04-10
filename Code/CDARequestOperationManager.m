@@ -10,6 +10,8 @@
 #import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 #endif
 
+#import <ISO8601DateFormatter/ISO8601DateFormatter.h>
+
 #import <objc/runtime.h>
 
 #import "CDAArray+Private.h"
@@ -25,6 +27,7 @@
 @interface CDARequestOperationManager ()
 
 @property (nonatomic) NSString* accessToken;
+@property (nonatomic) ISO8601DateFormatter* dateFormatter;
 
 @end
 
@@ -108,6 +111,17 @@
                        failure:(void (^)(AFHTTPRequestOperation *, NSError *))failure {
     NSMutableDictionary* mutableParameters = [NSMutableDictionary dictionaryWithDictionary:parameters];
     mutableParameters[@"access_token"] = self.accessToken;
+    
+    [parameters enumerateKeysAndObjectsUsingBlock:^(NSString* key, id value, BOOL *stop) {
+        if ([value isKindOfClass:[NSArray class]]) {
+            mutableParameters[key] = [value componentsJoinedByString:@","];
+        }
+        
+        if ([value isKindOfClass:[NSDate class]]) {
+            mutableParameters[key] = [self.dateFormatter stringFromDate:value];
+        }
+    }];
+    
     return [super GET:URLString parameters:[mutableParameters copy] success:success failure:failure];
 }
 
@@ -121,6 +135,7 @@
     self = [super initWithBaseURL:baseURL];
     if (self) {
         self.accessToken = accessToken;
+        self.dateFormatter = [ISO8601DateFormatter new];
         self.responseSerializer = [[CDAResponseSerializer alloc] initWithClient:client];
         
         NSString* userAgent = self.requestSerializer.HTTPRequestHeaders[@"User-Agent"];

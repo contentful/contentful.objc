@@ -9,7 +9,6 @@
 #import <ContentfulDeliveryAPI/CDAAsset.h>
 #import <ContentfulDeliveryAPI/CDAEntry.h>
 #import <ContentfulDeliveryAPI/CDASpace.h>
-#import <ISO8601DateFormatter/ISO8601DateFormatter.h>
 
 #import "CDAArray+Private.h"
 #import "CDAClient+Private.h"
@@ -25,7 +24,6 @@
 
 @property (nonatomic) CDAConfiguration* configuration;
 @property (nonatomic) CDAContentTypeRegistry* contentTypeRegistry;
-@property (nonatomic) ISO8601DateFormatter* dateFormatter;
 @property (nonatomic) CDARequestOperationManager* requestOperationManager;
 @property (nonatomic) CDASpace* space;
 
@@ -160,18 +158,6 @@
 -(CDARequest*)fetchEntriesMatching:(NSDictionary *)query
                            success:(CDAArrayFetchedBlock)success
                            failure:(CDARequestFailureBlock)failure {
-    NSMutableDictionary* mutableQuery = [query mutableCopy];
-    [query enumerateKeysAndObjectsUsingBlock:^(NSString* key, id value, BOOL *stop) {
-        if ([value isKindOfClass:[NSArray class]]) {
-            mutableQuery[key] = [value componentsJoinedByString:@","];
-        }
-        
-        if ([value isKindOfClass:[NSDate class]]) {
-            mutableQuery[key] = [self.dateFormatter stringFromDate:value];
-        }
-    }];
-    query = [mutableQuery copy];
-    
     if (self.contentTypeRegistry.fetched) {
         return [self fetchArrayAtURLPath:@"entries" parameters:query success:success failure:failure];
     } else {
@@ -339,7 +325,6 @@
     if (self) {
         self.configuration = configuration;
         self.contentTypeRegistry = [CDAContentTypeRegistry new];
-        self.dateFormatter = [ISO8601DateFormatter new];
         self.requestOperationManager = [[CDARequestOperationManager alloc] initWithSpaceKey:spaceKey accessToken:accessToken client:self configuration:configuration];
     }
     return self;
