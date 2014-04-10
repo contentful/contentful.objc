@@ -8,12 +8,36 @@
 
 #import <objc/runtime.h>
 
+#import "CDAUtilities.h"
+
 BOOL CDAIgnoreProperty(objc_property_t property);
 NSString* CDAPropertyGetTypeString(objc_property_t property);
 BOOL CDAPropertyIsReadOnly(objc_property_t property);
 void CDAPropertyVisitor(Class class, void(^visitor)(objc_property_t property, NSString* propertyName));
+NSString* CDASquashWhitespacesInString(NSString* string);
 
 #pragma mark -
+
+NSString* CDACacheFileNameForQuery(CDAResourceType resourceType, NSDictionary* query) {
+    NSString *cachesPath = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"com.contentful.sdk"];
+    
+    BOOL isDirectory = NO;
+    if ([[NSFileManager defaultManager] fileExistsAtPath:cachesPath isDirectory:&isDirectory]) {
+        NSCAssert(isDirectory, @"Caches directory '%@' is a file.", cachesPath);
+    } else {
+        NSError* error;
+        NSCAssert([[NSFileManager defaultManager] createDirectoryAtPath:cachesPath
+                                            withIntermediateDirectories:NO
+                                                             attributes:nil
+                                                                  error:&error], @"Error: %@", error);
+    }
+    
+    NSString* queryAsString = CDASquashWhitespacesInString([query description]);
+    NSString* fileName = [NSString stringWithFormat:@"cache_%d_%@.data",
+                          (int)resourceType, queryAsString ?: @"all"];
+    
+    return [cachesPath stringByAppendingPathComponent:fileName];
+}
 
 // Thanks to http://www.cocoawithlove.com/2010/01/getting-subclasses-of-objective-c-class.html
 NSArray* CDAClassGetSubclasses(Class parentClass) {
@@ -113,4 +137,14 @@ void CDAPropertyVisitor(Class class, void(^visitor)(objc_property_t property, NS
     free(properties);
     
     CDAPropertyVisitor([class superclass], visitor);
+}
+
+// Thanks to http://nshipster.com/nscharacterset/
+NSString* CDASquashWhitespacesInString(NSString* string) {
+    string = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    
+    NSArray *components = [string componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    components = [components filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self <> ''"]];
+    
+    return [components componentsJoinedByString:@""];
 }
