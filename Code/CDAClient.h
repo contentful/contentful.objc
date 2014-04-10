@@ -71,6 +71,19 @@ typedef void(^CDASyncedSpaceFetchedBlock)(CDAResponse* response, CDASyncedSpace*
 /** @name Fetching Assets */
 
 /**
+ *  Fetch all Assets matching a query from the server.
+ *
+ *  @param query   The query which retrieved Assets shall match. Queries are expressed as dictionaries,
+ *                 see [Search Parameters](https://www.contentful.com/developers/documentation/content-delivery-api/#search) for more information.
+ *  @param success A block which gets called upon successful retrieval of all matching Assets.
+ *  @param failure A block which gets called if an error occured during the retrieval process.
+ *  @return The request used for fetching data.
+ */
+-(CDARequest*)fetchAssetsMatching:(NSDictionary*)query
+                          success:(CDAArrayFetchedBlock)success
+                          failure:(CDARequestFailureBlock)failure;
+
+/**
  *  Fetch all Assets from the server.
  *
  *  @param success A block which gets called upon successful retrieval of all Assets.
