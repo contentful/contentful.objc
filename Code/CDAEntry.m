@@ -6,10 +6,11 @@
 //
 //
 
+#import "CDAAsset.h"
 #import "CDAClient+Private.h"
 #import "CDAContentType.h"
 #import "CDAContentTypeRegistry.h"
-#import "CDAEntry.h"
+#import "CDAEntry+Private.h"
 #import "CDAFallbackDictionary.h"
 #import "CDAField+Private.h"
 #import "CDAResource+Private.h"
@@ -60,6 +61,28 @@
 
 -(NSDictionary *)fields {
     return self.localizedFields[self.locale];
+}
+
+-(NSArray*)findUnresolvedResourceOfClass:(Class)class {
+    __block NSMutableArray* unresolvedResources = [@[] mutableCopy];
+    
+    [self resolveLinksWithIncludedAssets:nil entries:nil usingBlock:^CDAResource *(CDAResource *resource, NSDictionary *assets, NSDictionary *entries) {
+        if ([resource isKindOfClass:class] && !resource.fetched) {
+            [unresolvedResources addObject:resource];
+        }
+        
+        return nil;
+    }];
+    
+    return [unresolvedResources copy];
+}
+
+-(NSArray *)findUnresolvedAssets {
+    return [self findUnresolvedResourceOfClass:[CDAAsset class]];
+}
+
+-(NSArray *)findUnresolvedEntries {
+    return [self findUnresolvedResourceOfClass:[CDAEntry class]];
 }
 
 -(id)initWithDictionary:(NSDictionary *)dictionary client:(CDAClient*)client {
@@ -138,7 +161,9 @@
 
 -(NSDictionary*)resolveLinksInDictionary:(NSDictionary*)dictionary
                       withIncludedAssets:(NSDictionary*)assets
-                                 entries:(NSDictionary*)entries {
+                                 entries:(NSDictionary*)entries
+                              usingBlock:(CDAResource* (^)(CDAResource* resource, NSDictionary* assets,
+                                                           NSDictionary* entries))resolver {
     NSMutableDictionary* fields = [dictionary mutableCopy];
     
     [dictionary enumerateKeysAndObjectsUsingBlock:^(NSString* key, id value, BOOL *stop) {
@@ -151,9 +176,7 @@
                 NSMutableArray* newArray = [@[] mutableCopy];
                 
                 for (CDAResource* resource in array) {
-                    CDAResource* possibleResource = [self resolveSingleResource:resource
-                                                             withIncludedAssets:assets
-                                                                        entries:entries];
+                    CDAResource* possibleResource = resolver(resource, assets, entries);
                     [newArray addObject:possibleResource ?: resource];
                 }
                 
@@ -162,9 +185,7 @@
         }
         
         if (field.type == CDAFieldTypeLink && [value isKindOfClass:[CDAResource class]]) {
-            CDAResource* possibleResource = [self resolveSingleResource:value
-                                                     withIncludedAssets:assets
-                                                                entries:entries];
+            CDAResource* possibleResource = resolver(value, assets, entries);
             
             fields[key] = possibleResource ?: value;
         }
@@ -174,6 +195,20 @@
 }
 
 -(void)resolveLinksWithIncludedAssets:(NSDictionary*)assets entries:(NSDictionary*)entries {
+    [self resolveLinksWithIncludedAssets:assets
+                                 entries:entries
+                              usingBlock:^CDAResource *(CDAResource *resource, NSDictionary *assets,
+                                                        NSDictionary *entries) {
+                                  return [self resolveSingleResource:resource
+                                                  withIncludedAssets:assets
+                                                             entries:entries];
+                              }];
+}
+
+-(void)resolveLinksWithIncludedAssets:(NSDictionary*)assets
+                              entries:(NSDictionary*)entries
+                           usingBlock:(CDAResource* (^)(CDAResource* resource, NSDictionary* assets,
+                                                        NSDictionary* entries))resolver {
     NSMutableDictionary* localizedFields = [@{} mutableCopy];
     
     [self.localizedFields enumerateKeysAndObjectsUsingBlock:^(NSString* key,
@@ -181,7 +216,8 @@
                                                               BOOL *stop) {
         localizedFields[key] = [self resolveLinksInDictionary:fields
                                            withIncludedAssets:assets
-                                                      entries:entries];
+                                                      entries:entries
+                                                   usingBlock:resolver];
     }];
     
     self.localizedFields = [localizedFields copy];
