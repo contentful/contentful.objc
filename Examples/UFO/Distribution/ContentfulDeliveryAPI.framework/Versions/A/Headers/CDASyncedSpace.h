@@ -83,7 +83,7 @@
  *  A `CDASyncedSpace` represents the complete contents of a Space. It can be synchronized via 
  *  delta updates at any time.
  */
-@interface CDASyncedSpace : NSObject
+@interface CDASyncedSpace : NSObject <NSCoding, NSSecureCoding>
 
 /** @name Accessing Space Contents */
 
@@ -111,6 +111,56 @@
  */
 -(void)performSynchronizationWithSuccess:(void (^)())success failure:(CDARequestFailureBlock)failure;
 
+/** @name Persisting Synchronized Spaces */
+
+/**
+ *  Read a previously serialized synchronized Space from file.
+ *
+ *  @param filePath The path to the file with a serialized synchronized Space.
+ *  @param client   The client to use for upcoming requests.
+ *
+ *  @return A new Resource initialized with values from a previously serialized synchronized Space.
+ */
++(instancetype)readFromFile:(NSString*)filePath client:(CDAClient*)client;
+
+/**
+ *  Serialize a synchronized Space to a file.
+ *
+ *  This can be used for offline caching of synchronized Spaces.
+ *
+ *  @param filePath The path to the file to which the synchronized Space should be written.
+ */
+-(void)writeToFile:(NSString*)filePath;
+
+/** @name Reinstantiate Synchronization Sessions */
+
+/**
+ *  Initializes a shallow synchronized Space using the given synchronization token.
+ *
+ *  A shallow `CDASyncSpace` will not return any Resources from the `assets` or `entries` properties,
+ *  so the main use case is receiving updates via the `delegate`. In contrast to regular synchronized
+ *  Spaces, a shallow one will also only return shallow Assets from the `syncedSpace:didDeleteAsset:`
+ *  and shallow Entries from `syncedSpace:didDeleteEntry:`. Shallow resources will only have a value
+ *  for the `identifier` property and no Field values.
+ *
+ *  @param syncToken The synchronization token, retrieve earlier from the `syncToken` property.
+ *  @param client    The client instance used for fetching Resources. It needs to be associated to the
+ *                   same Space as your original synchronization session.
+ *
+ *  @return A synchronized Space initialized for continuing the session.
+ */
++(instancetype)shallowSyncSpaceWithToken:(NSString*)syncToken client:(CDAClient*)client;
+
+/**
+ *  Timestamp of the last synchronization operation. 
+ *
+ *  Store this alongside the `syncToken` and restore it on a newly created synchronized Space to
+ *  ensure that the `delegate` will be correctly informed about updates. If you fail to restore it,
+ *  only create and delete operations will be reported to the delegate of a shallow synchronized Space.
+ *
+ */
+@property (nonatomic) NSDate* lastSyncTimestamp;
+
 /**
  Retrieve the synchronization token for the next synchronization operation.
  
@@ -120,24 +170,5 @@
  unexpected results, so make sure you keep any tokens you store yourself up-to-date.
  */
 @property (nonatomic, readonly) NSString* syncToken;
-
-/** @name Reinstantiate Synchronization Sessions */
-
-/**
- *  Initializes a shallow synchronization space using the given synchronization token.
- *
- *  A shallow `CDASyncSpace` will not return any Resources from the `assets` or `entries` properties,
- *  so the main use case is receiving updates via the `delegate`. In contrast to regular synchronization
- *  spaces, a shallow one will also only return shallow Assets from the `syncedSpace:didDeleteAsset:`
- *  and shallow Entries from `syncedSpace:didDeleteEntry:`. Shallow resources will only have a value
- *  for the `identifier` property and no Field values.
- *
- *  @param syncToken The synchronization token, retrieve earlier from the `syncToken` property.
- *  @param client    The client instance used for fetching Resources. It needs to be associated to the
- *                   same Space as your original synchronization session.
- *
- *  @return A synchronization space initialized for continuing the session.
- */
-+(instancetype)shallowSyncSpaceWithToken:(NSString*)syncToken client:(CDAClient*)client;
 
 @end
