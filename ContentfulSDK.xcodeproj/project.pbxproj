@@ -139,6 +139,7 @@
 		A1B815BF18F56E620027B26D /* SyncBaseTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B815BE18F56E620027B26D /* SyncBaseTestCase.m */; };
 		A1B815CA18F588D70027B26D /* LinkedAssetSyncTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B815C918F588D70027B26D /* LinkedAssetSyncTest.m */; };
 		A1B815CC18F5A8250027B26D /* CDAEntry+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A1B815CB18F5A8250027B26D /* CDAEntry+Private.h */; };
+		A1B815D018F69E0F0027B26D /* NewEntryAndDeletionSyncTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B815CF18F69E0F0027B26D /* NewEntryAndDeletionSyncTest.m */; };
 		A1C1AC4318CE032200DBF0D0 /* CDAClient+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A1C1AC4218CE032200DBF0D0 /* CDAClient+Private.h */; };
 		A1C8DCD318E098E80019A519 /* LinkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C8DCD218E098E80019A519 /* LinkTests.m */; };
 		A1D1D35C18C8A94800261A1C /* ContentfulBaseTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D1D35B18C8A94800261A1C /* ContentfulBaseTestCase.m */; };
@@ -357,6 +358,7 @@
 		A1B815C018F56ED20027B26D /* SyncBaseTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncBaseTestCase.h; sourceTree = "<group>"; };
 		A1B815C918F588D70027B26D /* LinkedAssetSyncTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkedAssetSyncTest.m; sourceTree = "<group>"; };
 		A1B815CB18F5A8250027B26D /* CDAEntry+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDAEntry+Private.h"; sourceTree = "<group>"; };
+		A1B815CF18F69E0F0027B26D /* NewEntryAndDeletionSyncTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewEntryAndDeletionSyncTest.m; sourceTree = "<group>"; };
 		A1C1AC4218CE032200DBF0D0 /* CDAClient+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDAClient+Private.h"; sourceTree = "<group>"; };
 		A1C8DCD218E098E80019A519 /* LinkTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkTests.m; sourceTree = "<group>"; };
 		A1D1D35B18C8A94800261A1C /* ContentfulBaseTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentfulBaseTestCase.m; sourceTree = "<group>"; };
@@ -710,6 +712,7 @@
 				A1B815BA18F56BFD0027B26D /* ComplexSyncTests */,
 				A1B815BC18F56C150027B26D /* ComplexSyncTests.m */,
 				A1B815C918F588D70027B26D /* LinkedAssetSyncTest.m */,
+				A1B815CF18F69E0F0027B26D /* NewEntryAndDeletionSyncTest.m */,
 				A12797A518E1A45700043A44 /* SyncTests */,
 				A18AA85618E45C5E00D430D5 /* SyncTests.json */,
 				A12797AA18E1B08F00043A44 /* SyncTests.m */,
@@ -1423,6 +1426,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1B815D018F69E0F0027B26D /* NewEntryAndDeletionSyncTest.m in Sources */,
 				A1B815BD18F56C150027B26D /* ComplexSyncTests.m in Sources */,
 				A1B815BF18F56E620027B26D /* SyncBaseTestCase.m in Sources */,
 				A12797AB18E1B08F00043A44 /* SyncTests.m in Sources */,
