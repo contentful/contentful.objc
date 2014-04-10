@@ -54,4 +54,11 @@
     XCTAssertEqualObjects(@"foo", result, @"");
 }
 
+-(void)testNoNetworkErrorCheck {
+    NSError* someError = [NSError errorWithDomain:NSURLErrorDomain
+                                             code:kCFURLErrorNotConnectedToInternet
+                                         userInfo:nil];
+    XCTAssert(CDAIsNoNetworkError(someError), @"");
+}
+
 @end
