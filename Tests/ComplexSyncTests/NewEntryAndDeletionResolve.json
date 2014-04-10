@@ -1,0 +1,42 @@
+{
+  "sys": {
+    "type": "Array"
+  },
+  "total": 1,
+  "skip": 0,
+  "limit": 100,
+  "items": [
+    {
+      "fields": {
+        "title": "contentful-logo",
+        "file": {
+          "fileName": "512_black.png",
+          "contentType": "image/png",
+          "details": {
+            "image": {
+              "width": 512,
+              "height": 512
+            },
+            "size": 4189
+          },
+          "url": "//images.contentful.com/emh6o2ireilu/2q1Ns7Oygo2mAgoweuMCAA/7a4eb574952f359b851b3f353573b708/512_black.png"
+        }
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "emh6o2ireilu"
+          }
+        },
+        "type": "Asset",
+        "id": "2q1Ns7Oygo2mAgoweuMCAA",
+        "revision": 2,
+        "createdAt": "2014-03-25T11:01:41.057Z",
+        "updatedAt": "2014-04-10T08:46:27.961Z",
+        "locale": "en-US"
+      }
+    }
+  ]
+}
