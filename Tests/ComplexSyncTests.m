@@ -22,7 +22,7 @@
     /*
      Map URLs to JSON response files
      */
-    NSDictionary* stubs = @{ @"https://cdn.contentful.com/spaces/emh6o2ireilu/sync?access_token=1bf1261e0225089be464c79fff1a0773ca8214f1e82dd521f3ecf9690ba888ac&initial=true": @"LinkTestInitial", @"https://cdn.contentful.com/spaces/emh6o2ireilu/sync?access_token=1bf1261e0225089be464c79fff1a0773ca8214f1e82dd521f3ecf9690ba888ac&sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdyYZw7DCkTbDliYIw4vDp0jCqMOQw7vDqAbCoiLDkAnCs8OWXcOEwpXClGoUWMK1w54KCmlqw48Ow6EaJzQjwrnCnS3DpsKOw57CpMK1wrEGwrV8wpzCmcKtwqbCisK4w5LDgMKYw6HDsQ": @"LinkTestUpdate", @"https://cdn.contentful.com/spaces/emh6o2ireilu/?access_token=1bf1261e0225089be464c79fff1a0773ca8214f1e82dd521f3ecf9690ba888ac": @"space" };
+    NSDictionary* stubs = @{ @"https://cdn.contentful.com/spaces/emh6o2ireilu/sync?access_token=1bf1261e0225089be464c79fff1a0773ca8214f1e82dd521f3ecf9690ba888ac&initial=true": @"LinkTestInitial", @"https://cdn.contentful.com/spaces/emh6o2ireilu/sync?access_token=1bf1261e0225089be464c79fff1a0773ca8214f1e82dd521f3ecf9690ba888ac&sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdyYZw7DCkTbDliYIw4vDp0jCqMOQw7vDqAbCoiLDkAnCs8OWXcOEwpXClGoUWMK1w54KCmlqw48Ow6EaJzQjwrnCnS3DpsKOw57CpMK1wrEGwrV8wpzCmcKtwqbCisK4w5LDgMKYw6HDsQ": @"LinkTestUpdate", @"https://cdn.contentful.com/spaces/emh6o2ireilu/?access_token=1bf1261e0225089be464c79fff1a0773ca8214f1e82dd521f3ecf9690ba888ac": @"space", @"https://cdn.contentful.com/spaces/emh6o2ireilu/entries?access_token=1bf1261e0225089be464c79fff1a0773ca8214f1e82dd521f3ecf9690ba888ac&sys.id%5Bin%5D=6nRlw4CofeeICEYgIqaIIg": @"LinkTestResolve", };
     
     [self stubHTTPRequestUsingFixtures:stubs inDirectory:@"ComplexSyncTests"];
 }
