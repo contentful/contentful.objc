@@ -10,6 +10,7 @@
 #import <Foundation/Foundation.h>
 
 NSString* CDACacheFileNameForQuery(CDAResourceType resourceType, NSDictionary* query);
+NSString* CDACacheFileNameForResource(CDAResource* resource);
 NSArray* CDAClassGetSubclasses(Class parentClass);
 void CDADecodeObjectWithCoder(id object, NSCoder* aDecoder);
 void CDAEncodeObjectWithCoder(id object, NSCoder* aCoder);
