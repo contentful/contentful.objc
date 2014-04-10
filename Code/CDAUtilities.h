@@ -13,3 +13,4 @@ NSString* CDACacheFileNameForQuery(CDAResourceType resourceType, NSDictionary* q
 NSArray* CDAClassGetSubclasses(Class parentClass);
 void CDADecodeObjectWithCoder(id object, NSCoder* aDecoder);
 void CDAEncodeObjectWithCoder(id object, NSCoder* aCoder);
+BOOL CDAIsNoNetworkError(NSError* error);

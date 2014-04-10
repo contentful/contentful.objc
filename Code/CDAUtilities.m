@@ -95,6 +95,14 @@ BOOL CDAIgnoreProperty(objc_property_t property) {
     return NO;
 }
 
+BOOL CDAIsNoNetworkError(NSError* error) {
+    if (![error.domain isEqualToString:NSURLErrorDomain]) {
+        return NO;
+    }
+    
+    return error.code == kCFURLErrorNotConnectedToInternet;
+}
+
 // Thanks to https://github.com/AlanQuatermain/aqtoolkit/
 NSString* CDAPropertyGetTypeString(objc_property_t property) {
     const char *attrs = property_getAttributes(property);
