@@ -47,4 +47,12 @@
  */
 @property (nonatomic) NSDictionary* query;
 
+/**
+ Activate the built-in support for caching Resources offline.
+ 
+ The cached data will only be used if the device is truly offline, use a `CDASyncedSpace` instead for
+ general purpose caching.
+ */
+@property (nonatomic) BOOL offlineCaching;
+
 @end

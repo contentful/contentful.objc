@@ -10,6 +10,7 @@
 #import <MapKit/MapKit.h>
 
 #import "CDAMapViewController.h"
+#import "CDAUtilities.h"
 
 @interface CDAMapAnnotation : NSObject <MKAnnotation>
 
@@ -33,6 +34,7 @@
 
 @interface CDAMapViewController ()
 
+@property (nonatomic, readonly) NSString* cacheFileName;
 @property (nonatomic) CDAArray* entries;
 @property (nonatomic) MKMapView* mapView;
 
@@ -41,6 +43,18 @@
 #pragma mark -
 
 @implementation CDAMapViewController
+
+-(NSString *)cacheFileName {
+    return CDACacheFileNameForQuery(CDAResourceTypeEntry, self.query);
+}
+
+-(void)handleCaching {
+    if (self.offlineCaching) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [self.entries writeToFile:self.cacheFileName];
+        });
+    }
+}
 
 -(void)refresh {
     for (CDAEntry* entry in self.entries.items) {
@@ -82,8 +96,17 @@
                                   self.entries = array;
                                   
                                   [self refresh];
+                                  [self handleCaching];
                               }
                               failure:^(CDAResponse *response, NSError *error) {
+                                  if (CDAIsNoNetworkError(error)) {
+                                      self.entries = [CDAArray readFromFile:self.cacheFileName
+                                                                     client:self.client];
+                                      
+                                      [self refresh];
+                                      return;
+                                  }
+                                  
                                   [self showError:error];
                               }];
 }

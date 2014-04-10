@@ -10,9 +10,12 @@
 #import <ContentfulDeliveryAPI/CDAResourceCell.h>
 
 #import "CDAResourcesCollectionViewController.h"
+#import "CDAUtilities.h"
+#import "UIImageView+CDAAsset.h"
 
 @interface CDAResourcesCollectionViewController ()
 
+@property (nonatomic, readonly) NSString* cacheFileName;
 @property (nonatomic) NSDictionary* cellMapping;
 @property (nonatomic) CDAArray* resources;
 
@@ -27,6 +30,18 @@
 }
 
 #pragma mark -
+
+-(NSString *)cacheFileName {
+    return CDACacheFileNameForQuery(self.resourceType, self.query);
+}
+
+-(void)handleCaching {
+    if (self.offlineCaching) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [self.resources writeToFile:self.cacheFileName];
+        });
+    }
+}
 
 -(id)initWithCollectionViewLayout:(UICollectionViewLayout *)layout
                       cellMapping:(NSDictionary*)cellMapping {
@@ -66,7 +81,17 @@
                                   self.resources = array;
                                   
                                   [self.collectionView reloadData];
+                                  
+                                  [self handleCaching];
                               } failure:^(CDAResponse *response, NSError *error) {
+                                  if (CDAIsNoNetworkError(error)) {
+                                      self.resources = [CDAArray readFromFile:self.cacheFileName
+                                                                       client:self.client];
+                                      
+                                      [self.collectionView reloadData];
+                                      return;
+                                  }
+                                  
                                   [self showError:error];
                               }];
 }
@@ -80,6 +105,7 @@
     }
     
     CDAResourceCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([self class]) forIndexPath:indexPath];
+    cell.imageView.offlineCaching_cda = self.offlineCaching;
     cell.imageView.image = nil;
     
     CDAResource* resource = self.items[indexPath.row];
