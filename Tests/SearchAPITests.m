@@ -299,6 +299,30 @@
     WaitUntilBlockCompletes();
 }
 
+- (void)testSearchLimitZero {
+    StartBlock();
+    
+    CDAConfiguration* configuration = [CDAConfiguration defaultConfiguration];
+    configuration.server = @"cdn.flinkly.com";
+    
+    CDAClient* client = [[CDAClient alloc] initWithSpaceKey:@"3vysoudsmwwo" accessToken:@"8efdb99a1b33b21edd6bd6f68aa702a0d688b4a4433ac3327d234a28ed825ca2" configuration:configuration];
+    
+    [client fetchEntriesMatching:@{ @"limit": @0 }
+                         success:^(CDAResponse *response, CDAArray *array) {
+                             XCTAssertEqual(0U, array.items.count, @"");
+                             XCTAssertEqual(0U, array.limit, @"");
+                             XCTAssertEqual(4U, array.total, @"");
+                             
+                             EndBlock();
+                         } failure:^(CDAResponse *response, NSError *error) {
+                             XCTFail(@"Error: %@", error);
+                             
+                             EndBlock();
+                         }];
+    
+    WaitUntilBlockCompletes();
+}
+
 - (void)testSearchSkip {
     StartBlock();
     
