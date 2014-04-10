@@ -33,6 +33,29 @@
     XCTAssertNotNil([entry.fields[@"picture"] URL], @"");
 }
 
+-(void)testSyncLinkedAsset {
+    StartBlock();
+    
+    CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
+        space.delegate = self;
+        
+        [space performSynchronizationWithSuccess:^{
+            EndBlock();
+        } failure:^(CDAResponse *response, NSError *error) {
+            XCTFail(@"Error: %@", error);
+            
+            EndBlock();
+        }];
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTFail(@"Error: %@", error);
+        
+        EndBlock();
+    }];
+    XCTAssertNotNil(request, @"");
+    
+    WaitUntilBlockCompletes();
+}
+
 -(void)testSyncLinkedAssetWithoutSyncSpaceInstance {
     StartBlock();
     
@@ -57,7 +80,5 @@
     
     WaitUntilBlockCompletes();
 }
-
-// TODO: Does this also occur in non-shallow mode?
 
 @end
