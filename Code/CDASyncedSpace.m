@@ -13,6 +13,7 @@
 #import "CDAContentTypeRegistry.h"
 #import "CDADeletedAsset.h"
 #import "CDADeletedEntry.h"
+#import "CDAEntry+Private.h"
 #import "CDARequestOperationManager.h"
 #import "CDAResource+Private.h"
 #import "CDASyncedSpace+Private.h"
@@ -70,6 +71,118 @@
     return [self.syncedEntries copy];
 }
 
+-(void)handleSynchronizationResponseWithArray:(CDAArray*)array
+                                      success:(void (^)())success
+                                      failure:(CDARequestFailureBlock)failure {
+    NSDate* nextTimestamp = self.lastSyncTimestamp;
+    
+    for (CDAResource* item in array.items) {
+        if ([item updatedAfterDate:nextTimestamp]) {
+            nextTimestamp = item.sys[@"updatedAt"];
+        }
+        
+        if ([item isKindOfClass:[CDADeletedAsset class]]) {
+            CDAAsset* deletedAsset = (CDAAsset*)item;
+            
+            for (CDAAsset* asset in self.syncedAssets) {
+                if ([asset.identifier isEqualToString:item.identifier]) {
+                    deletedAsset = asset;
+                    break;
+                }
+            }
+            
+            if ([self.delegate respondsToSelector:@selector(syncedSpace:didDeleteAsset:)]) {
+                [self.delegate syncedSpace:self didDeleteAsset:deletedAsset];
+            }
+            
+            [self willChangeValueForKey:@"assets"];
+            [self.syncedAssets removeObject:deletedAsset];
+            [self didChangeValueForKey:@"assets"];
+        }
+        
+        if ([item isKindOfClass:[CDADeletedEntry class]]) {
+            CDAEntry* deletedEntry = (CDAEntry*)item;
+            
+            for (CDAEntry* entry in self.syncedEntries) {
+                if ([entry.identifier isEqualToString:item.identifier]) {
+                    deletedEntry = entry;
+                    break;
+                }
+            }
+            
+            if ([self.delegate respondsToSelector:@selector(syncedSpace:didDeleteEntry:)]) {
+                [self.delegate syncedSpace:self didDeleteEntry:deletedEntry];
+            }
+            
+            [self willChangeValueForKey:@"entries"];
+            [self.syncedEntries removeObject:deletedEntry];
+            [self didChangeValueForKey:@"entries"];
+        }
+        
+        if ([item isKindOfClass:[CDAAsset class]]) {
+            [self willChangeValueForKey:@"assets"];
+            
+            NSUInteger assetIndex = [self.syncedAssets indexOfObject:item];
+            if (!self.syncedAssets) {
+                assetIndex = [item createdAfterDate:self.lastSyncTimestamp] ? NSNotFound : 0;
+            }
+            
+            if (assetIndex != NSNotFound) {
+                [self.syncedAssets replaceObjectAtIndex:assetIndex withObject:item];
+                
+                if ([self.delegate respondsToSelector:@selector(syncedSpace:didUpdateAsset:)]) {
+                    [self.delegate syncedSpace:self didUpdateAsset:(CDAAsset*)item];
+                }
+            } else {
+                [self.syncedAssets addObject:item];
+                
+                if ([self.delegate respondsToSelector:@selector(syncedSpace:didCreateAsset:)]) {
+                    [self.delegate syncedSpace:self didCreateAsset:(CDAAsset*)item];
+                }
+            }
+            
+            [self didChangeValueForKey:@"assets"];
+        }
+        
+        if ([item isKindOfClass:[CDAEntry class]]) {
+            [self willChangeValueForKey:@"entries"];
+            
+            NSUInteger entryIndex = [self.syncedEntries indexOfObject:item];
+            if (!self.syncedEntries) {
+                entryIndex = [item createdAfterDate:self.lastSyncTimestamp] ? NSNotFound : 0;
+            }
+            
+            if (entryIndex != NSNotFound) {
+                [self.syncedEntries replaceObjectAtIndex:entryIndex withObject:item];
+                
+                if ([self.delegate respondsToSelector:@selector(syncedSpace:didUpdateEntry:)]) {
+                    [self.delegate syncedSpace:self didUpdateEntry:(CDAEntry*)item];
+                }
+            } else {
+                [self.syncedEntries addObject:item];
+                
+                if ([self.delegate respondsToSelector:@selector(syncedSpace:didCreateEntry:)]) {
+                    [self.delegate syncedSpace:self didCreateEntry:(CDAEntry*)item];
+                }
+            }
+            
+            [self didChangeValueForKey:@"entries"];
+        }
+    }
+    
+    self.lastSyncTimestamp = nextTimestamp;
+    self.nextPageUrl = array.nextPageUrl;
+    self.nextSyncUrl = array.nextSyncUrl;
+    
+    if (success) {
+        if (self.nextPageUrl) {
+            [self performSynchronizationWithSuccess:success failure:failure];
+        } else {
+            success();
+        }
+    }
+}
+
 -(id)init {
     self = [super init];
     if (self) {
@@ -117,114 +230,103 @@
     }
     
     [self.client.requestOperationManager fetchArrayAtURLPath:@"sync" parameters:@{ @"sync_token": self.syncToken } success:^(CDAResponse *response, CDAArray *array) {
-        NSDate* nextTimestamp = self.lastSyncTimestamp;
-        
-        for (CDAResource* item in array.items) {
-            if ([item updatedAfterDate:nextTimestamp]) {
-                nextTimestamp = item.sys[@"updatedAt"];
-            }
-            
-            if ([item isKindOfClass:[CDADeletedAsset class]]) {
-                CDAAsset* deletedAsset = (CDAAsset*)item;
-                
-                for (CDAAsset* asset in self.syncedAssets) {
-                    if ([asset.identifier isEqualToString:item.identifier]) {
-                        deletedAsset = asset;
-                        break;
-                    }
-                }
-                
-                if ([self.delegate respondsToSelector:@selector(syncedSpace:didDeleteAsset:)]) {
-                    [self.delegate syncedSpace:self didDeleteAsset:deletedAsset];
-                }
-                
-                [self willChangeValueForKey:@"assets"];
-                [self.syncedAssets removeObject:deletedAsset];
-                [self didChangeValueForKey:@"assets"];
-            }
-            
-            if ([item isKindOfClass:[CDADeletedEntry class]]) {
-                CDAEntry* deletedEntry = (CDAEntry*)item;
-                
-                for (CDAEntry* entry in self.syncedEntries) {
-                    if ([entry.identifier isEqualToString:item.identifier]) {
-                        deletedEntry = entry;
-                        break;
-                    }
-                }
-                
-                if ([self.delegate respondsToSelector:@selector(syncedSpace:didDeleteEntry:)]) {
-                    [self.delegate syncedSpace:self didDeleteEntry:deletedEntry];
-                }
-                
-                [self willChangeValueForKey:@"entries"];
-                [self.syncedEntries removeObject:deletedEntry];
-                [self didChangeValueForKey:@"entries"];
-            }
-            
-            if ([item isKindOfClass:[CDAAsset class]]) {
-                [self willChangeValueForKey:@"assets"];
-                
-                NSUInteger assetIndex = [self.syncedAssets indexOfObject:item];
-                if (!self.syncedAssets) {
-                    assetIndex = [item createdAfterDate:self.lastSyncTimestamp] ? NSNotFound : 0;
-                }
-                
-                if (assetIndex != NSNotFound) {
-                    [self.syncedAssets replaceObjectAtIndex:assetIndex withObject:item];
-                    
-                    if ([self.delegate respondsToSelector:@selector(syncedSpace:didUpdateAsset:)]) {
-                        [self.delegate syncedSpace:self didUpdateAsset:(CDAAsset*)item];
-                    }
-                } else {
-                    [self.syncedAssets addObject:item];
-                    
-                    if ([self.delegate respondsToSelector:@selector(syncedSpace:didCreateAsset:)]) {
-                        [self.delegate syncedSpace:self didCreateAsset:(CDAAsset*)item];
-                    }
-                }
-                
-                [self didChangeValueForKey:@"assets"];
-            }
-            
-            if ([item isKindOfClass:[CDAEntry class]]) {
-                [self willChangeValueForKey:@"entries"];
-                
-                NSUInteger entryIndex = [self.syncedEntries indexOfObject:item];
-                if (!self.syncedEntries) {
-                    entryIndex = [item createdAfterDate:self.lastSyncTimestamp] ? NSNotFound : 0;
-                }
-                
-                if (entryIndex != NSNotFound) {
-                    [self.syncedEntries replaceObjectAtIndex:entryIndex withObject:item];
-                    
-                    if ([self.delegate respondsToSelector:@selector(syncedSpace:didUpdateEntry:)]) {
-                        [self.delegate syncedSpace:self didUpdateEntry:(CDAEntry*)item];
-                    }
-                } else {
-                    [self.syncedEntries addObject:item];
-                    
-                    if ([self.delegate respondsToSelector:@selector(syncedSpace:didCreateEntry:)]) {
-                        [self.delegate syncedSpace:self didCreateEntry:(CDAEntry*)item];
-                    }
-                }
-                
-                [self didChangeValueForKey:@"entries"];
-            }
-        }
-        
-        self.lastSyncTimestamp = nextTimestamp;
-        self.nextPageUrl = array.nextPageUrl;
-        self.nextSyncUrl = array.nextSyncUrl;
-        
-        if (success) {
-            if (self.nextPageUrl) {
-                [self performSynchronizationWithSuccess:success failure:failure];
-            } else {
-                success();
-            }
+        if (!self.syncedAssets && !self.syncedEntries) {
+            [self resolveLinksInArray:array
+                              success:^{
+                                  [self handleSynchronizationResponseWithArray:array
+                                                                       success:success
+                                                                       failure:failure];
+                              } failure:failure];
+        } else {
+            [self handleSynchronizationResponseWithArray:array success:success failure:failure];
         }
     } failure:failure];
+}
+
+-(void)resolveLinksInArray:(CDAArray*)array
+                   success:(void (^)())success
+                   failure:(CDARequestFailureBlock)failure {
+    NSMutableArray* entriesInQuery = [@[] mutableCopy];
+    NSMutableArray* unresolvedAssets = [@[] mutableCopy];
+    NSMutableArray* unresolvedEntries = [@[] mutableCopy];
+    
+    for (CDAResource* item in array.items) {
+        if ([item isKindOfClass:[CDAEntry class]]) {
+            CDAEntry* entry = (CDAEntry*)item;
+            [entriesInQuery addObject:item];
+            [unresolvedAssets addObjectsFromArray:[entry findUnresolvedAssets]];
+            [unresolvedEntries addObjectsFromArray:[entry findUnresolvedEntries]];
+        }
+    }
+    
+    if (entriesInQuery.count == 0) {
+        success();
+        return;
+    }
+    
+    NSArray* unresolvedAssetIds = [unresolvedAssets valueForKey:@"identifier"];
+    NSArray* unresolvedEntryIds = [unresolvedEntries valueForKey:@"identifier"];
+    
+    if (unresolvedAssetIds.count > 0) {
+        [self.client fetchAssetsMatching:@{ @"sys.id[in]": unresolvedAssetIds }
+                                 success:^(CDAResponse *response, CDAArray *array) {
+                                     [self resolveLinksInEntries:entriesInQuery
+                                                     usingAssets:array.items
+                                              unresolvedEntryIds:unresolvedEntryIds
+                                                         success:success
+                                                         failure:failure];
+                                 } failure:failure];
+    } else {
+        [self resolveLinksInEntries:entriesInQuery
+                        usingAssets:@[]
+                 unresolvedEntryIds:unresolvedEntryIds
+                            success:success
+                            failure:failure];
+    }
+}
+
+-(void)resolveLinksInEntries:(NSArray*)entries
+                 usingAssets:(NSArray*)assets
+            unresolvedEntryIds:(NSArray*)unresolvedEntryIds
+                       success:(void (^)())success
+                       failure:(CDARequestFailureBlock)failure  {
+    if (assets.count == 0 && unresolvedEntryIds.count == 0) {
+        success();
+        return;
+    }
+    
+    NSMutableDictionary* assetsMap = [@{} mutableCopy];
+    for (CDAAsset* asset in assets) {
+        assetsMap[asset.identifier] = asset;
+    }
+    
+    if (unresolvedEntryIds.count == 0) {
+        [self resolveLinksInEntries:entries withIncludedAssets:assetsMap entries:@{}];
+        
+        success();
+    } else {
+        [self.client fetchEntriesMatching:@{ @"sys.id[in]": unresolvedEntryIds }
+                                  success:^(CDAResponse *response, CDAArray *array) {
+                                      NSMutableDictionary* entriesMap = [@{} mutableCopy];
+                                      for (CDAEntry* entry in entries) {
+                                          entriesMap[entry.identifier] = entry;
+                                      }
+                                      
+                                      [self resolveLinksInEntries:entries
+                                               withIncludedAssets:assetsMap
+                                                          entries:entriesMap];
+                                      
+                                      success();
+                                  } failure:failure];
+    }
+}
+
+-(void)resolveLinksInEntries:(NSArray*)entriesWithLinks
+          withIncludedAssets:(NSDictionary*)assets
+                     entries:(NSDictionary*)entries {
+    for (CDAEntry* entry in entriesWithLinks) {
+        [entry resolveLinksWithIncludedAssets:assets entries:entries];
+    }
 }
 
 -(NSString *)syncToken {
