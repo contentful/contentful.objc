@@ -11,9 +11,11 @@
 #import "CDAFieldsViewController+Private.h"
 #import "CDAImageViewController.h"
 #import "CDAResourcesViewController.h"
+#import "CDAUtilities.h"
 
 @interface CDAResourcesViewController ()
 
+@property (nonatomic, readonly) NSString* cacheFileName;
 @property (nonatomic) NSDictionary* cellMapping;
 @property (nonatomic) CDAArray* resources;
 @property (nonatomic) NSArray* localItems;
@@ -29,6 +31,10 @@
 }
 
 #pragma mark -
+
+-(NSString *)cacheFileName {
+    return CDACacheFileNameForQuery(self.resourceType, self.query);
+}
 
 -(void)didSelectRowWithResource:(CDAResource*)resource {
     if ([resource isKindOfClass:[CDAAsset class]]) {
@@ -47,6 +53,14 @@
                                          initWithEntry:(CDAEntry*)resource];
     fieldsVC.client = self.client;
     [self.navigationController pushViewController:fieldsVC animated:YES];
+}
+
+-(void)handleCaching {
+    if (self.offlineCaching) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [self.resources writeToFile:self.cacheFileName];
+        });
+    }
 }
 
 -(id)initWithCellMapping:(NSDictionary *)cellMapping {
@@ -98,7 +112,16 @@
                                   self.resources = array;
                                   
                                   [self.tableView reloadData];
+                                  [self handleCaching];
                               } failure:^(CDAResponse *response, NSError *error) {
+                                  if (CDAIsNoNetworkError(error)) {
+                                      self.resources = [CDAArray readFromFile:self.cacheFileName
+                                                                       client:self.client];
+                                      
+                                      [self.tableView reloadData];
+                                      return;
+                                  }
+                                  
                                   [self showError:error];
                               }];
 }

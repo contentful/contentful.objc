@@ -86,6 +86,14 @@
 /** The type of Resources which ought to be fetched. */
 @property (nonatomic) CDAResourceType resourceType;
 
+/**
+ Activate the built-in support for caching Resources offline.
+ 
+ The cached data will only be used if the device is truly offline, use a `CDASyncedSpace` instead for
+ general purpose caching.
+ */
+@property (nonatomic) BOOL offlineCaching;
+
 /** @name Configuring behaviour in Subclasses */
 
 /**
