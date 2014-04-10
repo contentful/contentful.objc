@@ -97,8 +97,8 @@
 }
 
 - (CDAEntry*)buildEntryWithLinkedAssetOrEntry:(BOOL)assetOrEntry {
-    NSDictionary* linkedAsset = @{ @"sys": @{ @"identifier": @"foo", @"type": @"Asset" } };
-    NSDictionary* linkedEntry = @{ @"sys": @{ @"identifier": @"bar", @"type": @"Entry",
+    NSDictionary* linkedAsset = @{ @"sys": @{ @"id": @"foo", @"type": @"Asset" } };
+    NSDictionary* linkedEntry = @{ @"sys": @{ @"id": @"bar", @"type": @"Entry",
                                               @"contentType": @{ @"sys": @{ @"id": @"trolololo" } } },
                                    @"fields": @{ @"someText": @"text" }, };
     return [self customEntryHelperWithFields:@{
@@ -318,7 +318,7 @@
 }
 
 - (void)testResourcesViewControllerShowsImageViewControllerForAssets {
-    CDAAsset* asset = [[CDAAsset alloc] initWithDictionary:@{ @"sys": @{ @"identifier": @"foo" },
+    CDAAsset* asset = [[CDAAsset alloc] initWithDictionary:@{ @"sys": @{ @"id": @"foo" },
                                                               @"contentType": @"image/png" }
                                                               client:self.client];
     CDAResourcesViewController* resourcesVC = [[CDAResourcesViewController alloc] initWithCellMapping:nil items:@[ asset ]];
