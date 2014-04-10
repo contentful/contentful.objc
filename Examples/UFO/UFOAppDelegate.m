@@ -27,7 +27,7 @@
     self.client = [[CDAClient alloc] initWithSpaceKey:@"lzjz8hygvfgu" accessToken:@"0c6ef483524b5e46b3bafda1bf355f38f5f40b4830f7599f790a410860c7c271"];
     [self.client registerClass:NSClassFromString(@"UFOSighting") forContentTypeWithIdentifier:@"7ocuA1dfoccWqWwWUY4UY"];
     
-    NSString* cacheFilePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"entries.data"];
+    NSString* cacheFilePath = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"entries.data"];
     
     if ([[NSFileManager defaultManager] fileExistsAtPath:cacheFilePath]) {
         mapViewController.items = [NSKeyedUnarchiver unarchiveObjectWithFile:cacheFilePath];
