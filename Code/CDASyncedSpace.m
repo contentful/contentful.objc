@@ -21,8 +21,8 @@
 
 @interface CDASyncedSpace ()
 
-@property (nonatomic) NSMutableArray* syncedAssets;
-@property (nonatomic) NSMutableArray* syncedEntries;
+@property (nonatomic) NSMutableDictionary* syncedAssets;
+@property (nonatomic) NSMutableDictionary* syncedEntries;
 
 @end
 
@@ -60,7 +60,7 @@
 #pragma mark -
 
 -(NSArray *)assets {
-    return [self.syncedAssets copy];
+    return self.syncedAssets.allValues;
 }
 
 -(void)encodeWithCoder:(NSCoder *)aCoder {
@@ -68,13 +68,25 @@
 }
 
 -(NSArray *)entries {
-    return [self.syncedEntries copy];
+    return self.syncedEntries.allValues;
 }
 
 -(void)handleSynchronizationResponseWithArray:(CDAArray*)array
                                       success:(void (^)())success
                                       failure:(CDARequestFailureBlock)failure {
+    NSMutableDictionary* newAssets = [@{} mutableCopy];
+    NSMutableDictionary* newEntries = [@{} mutableCopy];
     NSDate* nextTimestamp = self.lastSyncTimestamp;
+    
+    for (CDAResource* item in array.items) {
+        if ([item isKindOfClass:[CDAAsset class]]) {
+            newAssets[item.identifier] = item;
+        }
+        
+        if ([item isKindOfClass:[CDAEntry class]]) {
+            newEntries[item.identifier] = item;
+        }
+    }
     
     for (CDAResource* item in array.items) {
         if ([item updatedAfterDate:nextTimestamp]) {
@@ -82,59 +94,45 @@
         }
         
         if ([item isKindOfClass:[CDADeletedAsset class]]) {
-            CDAAsset* deletedAsset = (CDAAsset*)item;
-            
-            for (CDAAsset* asset in self.syncedAssets) {
-                if ([asset.identifier isEqualToString:item.identifier]) {
-                    deletedAsset = asset;
-                    break;
-                }
-            }
+            CDAAsset* deletedAsset = self.syncedAssets[item.identifier] ?: (CDAAsset*)item;
             
             if ([self.delegate respondsToSelector:@selector(syncedSpace:didDeleteAsset:)]) {
                 [self.delegate syncedSpace:self didDeleteAsset:deletedAsset];
             }
             
             [self willChangeValueForKey:@"assets"];
-            [self.syncedAssets removeObject:deletedAsset];
+            [self.syncedAssets removeObjectForKey:deletedAsset.identifier];
             [self didChangeValueForKey:@"assets"];
         }
         
         if ([item isKindOfClass:[CDADeletedEntry class]]) {
-            CDAEntry* deletedEntry = (CDAEntry*)item;
-            
-            for (CDAEntry* entry in self.syncedEntries) {
-                if ([entry.identifier isEqualToString:item.identifier]) {
-                    deletedEntry = entry;
-                    break;
-                }
-            }
+            CDAEntry* deletedEntry = self.syncedEntries[item.identifier] ?: (CDAEntry*)item;
             
             if ([self.delegate respondsToSelector:@selector(syncedSpace:didDeleteEntry:)]) {
                 [self.delegate syncedSpace:self didDeleteEntry:deletedEntry];
             }
             
             [self willChangeValueForKey:@"entries"];
-            [self.syncedEntries removeObject:deletedEntry];
+            [self.syncedEntries removeObjectForKey:deletedEntry.identifier];
             [self didChangeValueForKey:@"entries"];
         }
         
         if ([item isKindOfClass:[CDAAsset class]]) {
             [self willChangeValueForKey:@"assets"];
             
-            NSUInteger assetIndex = [self.syncedAssets indexOfObject:item];
+            NSUInteger assetIndex = [self.syncedAssets.allKeys indexOfObject:item.identifier];
             if (!self.syncedAssets) {
                 assetIndex = [item createdAfterDate:self.lastSyncTimestamp] ? NSNotFound : 0;
             }
             
             if (assetIndex != NSNotFound) {
-                [self.syncedAssets replaceObjectAtIndex:assetIndex withObject:item];
+                self.syncedAssets[item.identifier] = item;
                 
                 if ([self.delegate respondsToSelector:@selector(syncedSpace:didUpdateAsset:)]) {
                     [self.delegate syncedSpace:self didUpdateAsset:(CDAAsset*)item];
                 }
             } else {
-                [self.syncedAssets addObject:item];
+                self.syncedAssets[item.identifier] = item;
                 
                 if ([self.delegate respondsToSelector:@selector(syncedSpace:didCreateAsset:)]) {
                     [self.delegate syncedSpace:self didCreateAsset:(CDAAsset*)item];
@@ -145,21 +143,24 @@
         }
         
         if ([item isKindOfClass:[CDAEntry class]]) {
+            [item resolveLinksWithIncludedAssets:self.syncedAssets entries:self.syncedEntries];
+            [item resolveLinksWithIncludedAssets:newAssets entries:newEntries];
+            
             [self willChangeValueForKey:@"entries"];
             
-            NSUInteger entryIndex = [self.syncedEntries indexOfObject:item];
+            NSUInteger entryIndex = [self.syncedEntries.allKeys indexOfObject:item.identifier];
             if (!self.syncedEntries) {
                 entryIndex = [item createdAfterDate:self.lastSyncTimestamp] ? NSNotFound : 0;
             }
             
             if (entryIndex != NSNotFound) {
-                [self.syncedEntries replaceObjectAtIndex:entryIndex withObject:item];
+                self.syncedEntries[item.identifier] = item;
                 
                 if ([self.delegate respondsToSelector:@selector(syncedSpace:didUpdateEntry:)]) {
                     [self.delegate syncedSpace:self didUpdateEntry:(CDAEntry*)item];
                 }
             } else {
-                [self.syncedEntries addObject:item];
+                self.syncedEntries[item.identifier] = item;
                 
                 if ([self.delegate respondsToSelector:@selector(syncedSpace:didCreateEntry:)]) {
                     [self.delegate syncedSpace:self didCreateEntry:(CDAEntry*)item];
@@ -187,8 +188,8 @@
     self = [super init];
     if (self) {
         self.lastSyncTimestamp = [NSDate distantPast];
-        self.syncedAssets = [@[] mutableCopy];
-        self.syncedEntries = [@[] mutableCopy];
+        self.syncedAssets = [@{} mutableCopy];
+        self.syncedEntries = [@{} mutableCopy];
     }
     return self;
 }
@@ -196,8 +197,13 @@
 -(id)initWithAssets:(NSArray *)assets entries:(NSArray *)entries {
     self = [self init];
     if (self) {
-        [self.syncedAssets addObjectsFromArray:assets];
-        [self.syncedEntries addObjectsFromArray:entries];
+        for (CDAAsset* asset in assets) {
+            self.syncedAssets[asset.identifier] = asset;
+        }
+        
+        for (CDAEntry* entry in entries) {
+            self.syncedEntries[entry.identifier] = entry;
+        }
     }
     return self;
 }
