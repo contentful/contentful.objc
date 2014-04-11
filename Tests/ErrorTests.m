@@ -18,7 +18,7 @@
 
 @implementation ErrorTests
 
-- (void)noNetworkTestHelperWithContentTypeFetchedEarier:(BOOL)contentTypeFetched
+- (void)noNetworkTestHelperWithContentTypeFetchedEarlier:(BOOL)contentTypeFetched
 {
     [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
         return YES;
@@ -145,12 +145,12 @@
 
 - (void)testNoNetwork
 {
-    [self noNetworkTestHelperWithContentTypeFetchedEarier:NO];
+    [self noNetworkTestHelperWithContentTypeFetchedEarlier:NO];
 }
 
 - (void)testNoNetworkLater
 {
-    [self noNetworkTestHelperWithContentTypeFetchedEarier:YES];
+    [self noNetworkTestHelperWithContentTypeFetchedEarlier:YES];
 }
 
 - (void)testNonLocationFieldsThrow
