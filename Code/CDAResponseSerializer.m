@@ -71,7 +71,7 @@
                           data:(NSData *)data
                          error:(NSError **)error {
     id JSONObject = [super responseObjectForResponse:response data:data error:error];
-    if (!JSONObject) {
+    if (!JSONObject || ![JSONObject isKindOfClass:[NSDictionary class]]) {
         return nil;
     }
     
