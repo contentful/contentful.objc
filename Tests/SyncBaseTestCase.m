@@ -8,6 +8,7 @@
 
 #import <OCMock/OCMock.h>
 
+#import "CDAClient+Private.h"
 #import "CDADeletedAsset.h"
 #import "CDADeletedEntry.h"
 #import "CDAResource+Private.h"
@@ -41,20 +42,25 @@
 -(CDAClient*)mockContentTypeRetrievalForClient:(CDAClient*)client {
     id partiallyMockedClient = [OCMockObject partialMockForObject:client];
     
+    NSError *__autoreleasing *err = (NSError *__autoreleasing *)[OCMArg anyPointer];
     [[[(OCMockObject*)partiallyMockedClient stub] andDo:^(NSInvocation *invocation) {
-        CDAArrayFetchedBlock successBlock;
-        [invocation getArgument:&successBlock atIndex:2];
+        CDASpace* space = [client fetchSpaceSynchronouslyWithError:nil];
+        XCTAssertNotNil(space, @"");
         
-        CDARequestFailureBlock failureBlock;
-        [invocation getArgument:&failureBlock atIndex:3];
+        [self addDummyContentType];
         
-        [client fetchSpaceWithSuccess:^(CDAResponse *response, CDASpace *space) {
-            [self addDummyContentType];
-            
-            self.contentTypesWereFetched = YES;
-            successBlock(nil, nil);
-        } failure:failureBlock];
-    }] fetchContentTypesWithSuccess:[OCMArg any] failure:[OCMArg any]];
+        self.contentTypesWereFetched = YES;
+        
+        __unsafe_unretained NSDictionary* query;
+        [invocation getArgument:&query atIndex:2];
+        
+        CDAArray* dummy = [CDAArray new];
+        [dummy performSelector:@selector(setItems:) withObject:[query.allValues firstObject]];
+        [invocation setReturnValue:&dummy];
+        
+        CFBridgingRetain(dummy);
+        NSAssert(dummy.items.count > 0, @"Dummy is not set up correctly.");
+    }] fetchContentTypesMatching:[OCMArg any] synchronouslyWithError:err];
     
     return partiallyMockedClient;
 }
