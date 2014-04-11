@@ -35,10 +35,6 @@
     return self.customClasses[contentType.identifier];
 }
 
--(BOOL)fetched {
-    return self.contentTypes.count > 0;
-}
-
 -(id)init {
     self = [super init];
     if (self) {
