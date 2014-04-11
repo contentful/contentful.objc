@@ -307,7 +307,7 @@
         [self.client fetchEntriesMatching:@{ @"sys.id[in]": unresolvedEntryIds }
                                   success:^(CDAResponse *response, CDAArray *array) {
                                       NSMutableDictionary* entriesMap = [@{} mutableCopy];
-                                      for (CDAEntry* entry in entries) {
+                                      for (CDAEntry* entry in array.items) {
                                           entriesMap[entry.identifier] = entry;
                                       }
                                       

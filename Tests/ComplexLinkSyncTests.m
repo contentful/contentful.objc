@@ -34,6 +34,13 @@
     XCTAssertNotNil([entry.fields[@"link3"] fields], @"");
 }
 
+-(void)syncedSpace:(CDASyncedSpace *)space didUpdateEntry:(CDAEntry *)entry {
+    [super syncedSpace:space didUpdateEntry:entry];
+    
+    XCTAssertNotNil([entry.fields[@"link1"] fields], @"");
+    XCTAssertNotNil([entry.fields[@"link3"] fields], @"");
+}
+
 -(void)testComplexLinkSync {
     StartBlock();
     
@@ -64,6 +71,47 @@
     
     XCTAssertEqual(1U, self.numberOfEntriesCreated, @"");
     XCTAssertEqual(0U, self.numberOfEntriesUpdated, @"");
+    XCTAssertEqual(1U, self.numberOfEntriesDeleted, @"");
+}
+
+/*
+ This test demonstrates that using a shallow synchronized space will differ in what it treats as a
+ create vs. update operation when unpublished Resources will get published again. This case will be
+ normally be a create, but a shallow synchronized space will treat it as an update.
+ */
+-(void)testComplexLinkSyncWithoutSyncSpaceInstance {
+    StartBlock();
+    
+    CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
+        CDASyncedSpace* shallowSyncSpace = [CDASyncedSpace shallowSyncSpaceWithToken:space.syncToken
+                                                                              client:self.client];
+        shallowSyncSpace.delegate = self;
+        shallowSyncSpace.lastSyncTimestamp = space.lastSyncTimestamp;
+        
+        [shallowSyncSpace performSynchronizationWithSuccess:^{
+            [shallowSyncSpace performSynchronizationWithSuccess:^{
+                EndBlock();
+            } failure:^(CDAResponse *response, NSError *error) {
+                XCTFail(@"Error: %@", error);
+                
+                EndBlock();
+            }];
+        } failure:^(CDAResponse *response, NSError *error) {
+            XCTFail(@"Error: %@", error);
+            
+            EndBlock();
+        }];
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTFail(@"Error: %@", error);
+        
+        EndBlock();
+    }];
+    XCTAssertNotNil(request, @"");
+    
+    WaitUntilBlockCompletes();
+    
+    XCTAssertEqual(0U, self.numberOfEntriesCreated, @"");
+    XCTAssertEqual(1U, self.numberOfEntriesUpdated, @"");
     XCTAssertEqual(1U, self.numberOfEntriesDeleted, @"");
 }
 
