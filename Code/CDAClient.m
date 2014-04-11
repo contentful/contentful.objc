@@ -129,6 +129,12 @@
                              } failure:failure];
 }
 
+-(CDAArray*)fetchContentTypesMatching:(NSDictionary*)query synchronouslyWithError:(NSError**)error {
+    return [self.requestOperationManager fetchArraySynchronouslyAtURLPath:@"content_types"
+                                                               parameters:query
+                                                                    error:error];
+}
+
 -(CDARequest*)fetchContentTypesWithSuccess:(CDAArrayFetchedBlock)success
                                    failure:(CDARequestFailureBlock)failure {
     return [self fetchArrayAtURLPath:@"content_types" success:success failure:failure];

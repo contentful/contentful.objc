@@ -35,6 +35,11 @@
 
 @implementation CDARequestOperationManager
 
+-(NSURLRequest*)buildRequestWithURLString:(NSString*)URLString parameters:(NSDictionary*)parameters {
+    parameters = [self fixParametersInDictionary:parameters];
+    return [[self.requestSerializer requestWithMethod:@"GET" URLString:[[NSURL URLWithString:URLString relativeToURL:self.baseURL] absoluteString] parameters:parameters error:nil] copy];
+}
+
 -(CDARequest*)fetchArrayAtURLPath:(NSString*)URLPath
                 parameters:(NSDictionary*)parameters
                    success:(CDAArrayFetchedBlock)success
@@ -72,6 +77,30 @@
     return [[CDARequest alloc] initWithRequestOperation:operation];
 }
 
+-(CDAArray*)fetchArraySynchronouslyAtURLPath:(NSString*)URLPath
+                                  parameters:(NSDictionary*)parameters
+                                       error:(NSError **)error {
+    NSURLRequest* request = [self buildRequestWithURLString:URLPath parameters:parameters];
+    
+    NSURLResponse* response;
+    NSData* responseData = [NSURLConnection sendSynchronousRequest:request
+                                                 returningResponse:&response
+                                                             error:error];
+    if (!responseData) {
+        return nil;
+    }
+    
+    id responseObject = [self.responseSerializer responseObjectForResponse:response
+                                                                      data:responseData
+                                                                     error:error];
+    if (!responseObject) {
+        return nil;
+    }
+    
+    NSAssert([responseObject isKindOfClass:[CDAArray class]], @"Response object needs to be an array.");
+    return (CDAArray*)responseObject;
+}
+
 -(CDARequest*)fetchSpaceWithSuccess:(CDASpaceFetchedBlock)success
                             failure:(CDARequestFailureBlock)failure {
     AFHTTPRequestOperation* operation = [self GET:@"" parameters:nil
@@ -105,10 +134,7 @@
     return [[CDARequest alloc] initWithRequestOperation:operation];
 }
 
--(AFHTTPRequestOperation *)GET:(NSString *)URLString
-                    parameters:(NSDictionary *)parameters
-                       success:(void (^)(AFHTTPRequestOperation *, id))success
-                       failure:(void (^)(AFHTTPRequestOperation *, NSError *))failure {
+-(NSDictionary*)fixParametersInDictionary:(NSDictionary*)parameters {
     NSMutableDictionary* mutableParameters = [NSMutableDictionary dictionaryWithDictionary:parameters];
     mutableParameters[@"access_token"] = self.accessToken;
     
@@ -122,7 +148,15 @@
         }
     }];
     
-    return [super GET:URLString parameters:[mutableParameters copy] success:success failure:failure];
+    return [mutableParameters copy];
+}
+
+-(AFHTTPRequestOperation *)GET:(NSString *)URLString
+                    parameters:(NSDictionary *)parameters
+                       success:(void (^)(AFHTTPRequestOperation *, id))success
+                       failure:(void (^)(AFHTTPRequestOperation *, NSError *))failure {
+    parameters = [self fixParametersInDictionary:parameters];
+    return [super GET:URLString parameters:parameters success:success failure:failure];
 }
 
 -(id)initWithSpaceKey:(NSString *)spaceKey

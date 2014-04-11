@@ -17,6 +17,9 @@
                        parameters:(NSDictionary*)parameters
                           success:(CDAArrayFetchedBlock)success
                           failure:(CDARequestFailureBlock)failure;
+-(CDAArray*)fetchArraySynchronouslyAtURLPath:(NSString*)URLPath
+                                  parameters:(NSDictionary*)parameters
+                                       error:(NSError **)error;
 -(CDARequest*)fetchSpaceWithSuccess:(CDASpaceFetchedBlock)success
                             failure:(CDARequestFailureBlock)failure;
 -(id)initWithSpaceKey:(NSString *)spaceKey
