@@ -140,6 +140,7 @@
     StartBlock();
     
     [self.client fetchEntryWithIdentifier:@"nyancat" success:^(CDAResponse *response, CDAEntry *entry) {
+        XCTAssertEqualObjects(@"CDAEntry", NSStringFromClass(entry.class), @"");
         XCTAssertEqualObjects(@"Entry", entry.sys[@"type"], @"");
         XCTAssertEqualObjects(@"nyancat", entry.identifier, @"");
         XCTAssertEqualObjects(@(5), entry.sys[@"revision"], @"");
