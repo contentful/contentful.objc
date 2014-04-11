@@ -562,9 +562,17 @@
             XCTAssertEqual(1U, space.assets.count, @"");
             XCTAssertEqual(2U, space.entries.count, @"");
             
-            CDAEntry* entry = space.entries[1];
-            XCTAssertEqualObjects(@"Second entry", entry.fields[@"title"], @"");
-            XCTAssertEqualObjects(@"some text", entry.fields[@"body"], @"");
+            BOOL entryFound = NO;
+            
+            for (CDAEntry* entry in space.entries) {
+                if ([entry.identifier isEqualToString:@"1gQ4P2tG7QaGkQwkC4a6Gg"]) {
+                    XCTAssertEqualObjects(@"Second entry", entry.fields[@"title"], @"");
+                    XCTAssertEqualObjects(@"some text", entry.fields[@"body"], @"");
+                    entryFound = YES;
+                }
+            }
+            
+            XCTAssert(entryFound, @"Second entry not found.");
             
             EndBlock();
         } failure:^(CDAResponse *response, NSError *error) {
