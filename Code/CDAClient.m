@@ -164,24 +164,12 @@
 -(CDARequest*)fetchEntriesMatching:(NSDictionary *)query
                            success:(CDAArrayFetchedBlock)success
                            failure:(CDARequestFailureBlock)failure {
-    if (self.contentTypeRegistry.fetched) {
-        return [self fetchArrayAtURLPath:@"entries" parameters:query success:success failure:failure];
-    } else {
-        return [self fetchContentTypesWithSuccess:^(CDAResponse *response, CDAArray *array) {
-            [self fetchArrayAtURLPath:@"entries" parameters:query success:success failure:failure];
-        } failure:failure];
-    }
+    return [self fetchArrayAtURLPath:@"entries" parameters:query success:success failure:failure];
 }
 
 -(CDARequest*)fetchEntriesWithSuccess:(CDAArrayFetchedBlock)success
                               failure:(CDARequestFailureBlock)failure {
-    if (self.contentTypeRegistry.fetched) {
-        return [self fetchArrayAtURLPath:@"entries" success:success failure:failure];
-    } else {
-        return [self fetchContentTypesWithSuccess:^(CDAResponse *response, CDAArray *array) {
-            [self fetchArrayAtURLPath:@"entries" success:success failure:failure];
-        } failure:failure];
-    }
+    return [self fetchArrayAtURLPath:@"entries" success:success failure:failure];
 }
 
 -(CDARequest*)fetchEntryWithIdentifier:(NSString *)identifier
@@ -299,19 +287,10 @@
         }
     };
     
-    if (self.contentTypeRegistry.fetched) {
-        return [self fetchArrayAtURLPath:@"sync"
-                              parameters:@{ @"initial": @"true" }
-                                 success:handler
-                                 failure:failure];
-    } else {
-        return [self fetchContentTypesWithSuccess:^(CDAResponse *response, CDAArray *array) {
-            [self fetchArrayAtURLPath:@"sync"
-                           parameters:@{ @"initial": @"true" }
-                              success:handler
-                              failure:failure];
-        } failure:failure];
-    }
+    return [self fetchArrayAtURLPath:@"sync"
+                          parameters:@{ @"initial": @"true" }
+                             success:handler
+                             failure:failure];
 }
 
 -(id)init {

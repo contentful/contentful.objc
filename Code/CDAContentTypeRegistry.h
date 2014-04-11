@@ -12,8 +12,6 @@
 
 @interface CDAContentTypeRegistry : NSObject
 
-@property (nonatomic, readonly) BOOL fetched;
-
 -(void)addContentType:(CDAContentType*)contentType;
 -(CDAContentType*)contentTypeForIdentifier:(NSString*)identifier;
 -(Class)customClassForContentType:(CDAContentType*)contentType;

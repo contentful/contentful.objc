@@ -222,13 +222,6 @@
         return;
     }
     
-    if (!self.client.contentTypeRegistry.fetched) {
-        [self.client fetchContentTypesWithSuccess:^(CDAResponse *response, CDAArray *array) {
-            [self performSynchronizationWithSuccess:success failure:failure];
-        } failure:failure];
-        return;
-    }
-    
     [self.client.requestOperationManager fetchArrayAtURLPath:@"sync" parameters:@{ @"sync_token": self.syncToken } success:^(CDAResponse *response, CDAArray *array) {
         if (!self.syncedAssets && !self.syncedEntries) {
             [self resolveLinksInArray:array
