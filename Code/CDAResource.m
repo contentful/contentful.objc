@@ -62,6 +62,11 @@
     }
     
     for (Class subclass in [self subclasses]) {
+        // Avoid clashes with custom subclasses the user created
+        if (![NSStringFromClass(subclass) hasPrefix:@"CDA"]) {
+            continue;
+        }
+        
         if ([[[subclass CDAType] lowercaseString] isEqualToString:[resourceType lowercaseString]]) {
             CDAResource* resource = [[subclass alloc] initWithDictionary:dictionary client:client];
             return resource;
