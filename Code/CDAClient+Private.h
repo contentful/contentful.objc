@@ -19,6 +19,7 @@
 -(CDAConfiguration*)configuration;
 -(CDAContentTypeRegistry*)contentTypeRegistry;
 -(CDAArray*)fetchContentTypesMatching:(NSDictionary*)query synchronouslyWithError:(NSError**)error;
+-(CDASpace*)fetchSpaceSynchronouslyWithError:(NSError**)error;
 -(CDARequestOperationManager*)requestOperationManager;
 -(CDASpace*)space;
 

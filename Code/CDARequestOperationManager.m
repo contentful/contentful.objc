@@ -80,19 +80,8 @@
 -(CDAArray*)fetchArraySynchronouslyAtURLPath:(NSString*)URLPath
                                   parameters:(NSDictionary*)parameters
                                        error:(NSError **)error {
-    NSURLRequest* request = [self buildRequestWithURLString:URLPath parameters:parameters];
+    id responseObject = [self fetchURLPathSynchronously:URLPath parameters:parameters error:error];
     
-    NSURLResponse* response;
-    NSData* responseData = [NSURLConnection sendSynchronousRequest:request
-                                                 returningResponse:&response
-                                                             error:error];
-    if (!responseData) {
-        return nil;
-    }
-    
-    id responseObject = [self.responseSerializer responseObjectForResponse:response
-                                                                      data:responseData
-                                                                     error:error];
     if (!responseObject) {
         return nil;
     }
@@ -132,6 +121,24 @@
     objc_setAssociatedObject(operation, "client", client, OBJC_ASSOCIATION_RETAIN);
     
     return [[CDARequest alloc] initWithRequestOperation:operation];
+}
+
+-(id)fetchURLPathSynchronously:(NSString*)URLPath
+                    parameters:(NSDictionary*)parameters
+                         error:(NSError **)error {
+    NSURLRequest* request = [self buildRequestWithURLString:URLPath parameters:parameters];
+    
+    NSURLResponse* response;
+    NSData* responseData = [NSURLConnection sendSynchronousRequest:request
+                                                 returningResponse:&response
+                                                             error:error];
+    if (!responseData) {
+        return nil;
+    }
+    
+    return [self.responseSerializer responseObjectForResponse:response
+                                                         data:responseData
+                                                        error:error];
 }
 
 -(NSDictionary*)fixParametersInDictionary:(NSDictionary*)parameters {
