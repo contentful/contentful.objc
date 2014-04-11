@@ -99,6 +99,33 @@
     [OHHTTPStubs removeLastStub];
 }
 
+- (void)testJSONArrayInResponse
+{
+    [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
+        return YES;
+    } withStubResponse:^OHHTTPStubsResponse *(NSURLRequest *request) {
+        NSData* data = [NSJSONSerialization dataWithJSONObject:@[] options:0 error:nil];
+        return [OHHTTPStubsResponse responseWithData:data statusCode:200 headers:@{ @"Content-Type": @"application/vnd.contentful.delivery.v1+json" }];
+    }];
+    
+    StartBlock();
+    
+    [self.client fetchEntriesWithSuccess:^(CDAResponse *response,
+                                           CDAArray *array) {
+        XCTFail(@"Should never be reached.");
+        
+        EndBlock();
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTAssertNotNil(error, @"");
+        
+        EndBlock();
+    }];
+    
+    WaitUntilBlockCompletes();
+    
+    [OHHTTPStubs removeLastStub];
+}
+
 - (void)testHoldStrongReferenceToClientUntilRequestIsDone
 {
     StartBlock();
