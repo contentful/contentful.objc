@@ -8,6 +8,8 @@
 
 #import <OHHTTPStubs/OHHTTPStubs.h>
 
+#import <objc/runtime.h>
+
 #import "ContentfulBaseTestCase.h"
 
 @interface ErrorTests : ContentfulBaseTestCase
@@ -18,8 +20,25 @@
 
 @implementation ErrorTests
 
++ (NSData *)sendSynchronousRequest:(NSURLRequest *)request
+                 returningResponse:(NSURLResponse **)response
+                             error:(NSError **)error
+{
+    *error = [NSError errorWithDomain:NSURLErrorDomain
+                                 code:kCFURLErrorNotConnectedToInternet
+                             userInfo:nil];
+    return nil;
+}
+
+#pragma mark -
+
 - (void)noNetworkTestHelperWithContentTypeFetchedEarlier:(BOOL)contentTypeFetched
 {
+    SEL sendSyncRequest = @selector(sendSynchronousRequest:returningResponse:error:);
+    Method urlOriginalMethod = class_getClassMethod(NSURLConnection.class, sendSyncRequest);
+    Method urlNewMethod = class_getClassMethod(self.class, sendSyncRequest);
+    method_exchangeImplementations(urlOriginalMethod, urlNewMethod);
+    
     [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
         return YES;
     } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
@@ -46,6 +65,8 @@
     WaitUntilBlockCompletes();
     
     [OHHTTPStubs removeLastStub];
+    
+    method_exchangeImplementations(urlNewMethod, urlOriginalMethod);
 }
 
 - (void)testBrokenContent
