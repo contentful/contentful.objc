@@ -219,6 +219,14 @@
                                  failure:(CDARequestFailureBlock)failure {
     NSParameterAssert(self.client);
     
+    if (self.client.configuration.previewMode) {
+        if (success) {
+            success();
+        }
+        
+        return;
+    }
+    
     if (!self.syncToken) {
         if (failure) {
             failure(nil, [NSError errorWithDomain:CDAErrorDomain code:901 userInfo:@{ NSLocalizedDescriptionKey: NSLocalizedString(@"No sync token available.", nil) }]);

@@ -57,7 +57,7 @@
           if (success) {
               NSAssert([responseObject isKindOfClass:[CDAArray class]],
                        @"Response object needs to be an array.");
-              [(CDAArray*)responseObject setQuery:parameters];
+              [(CDAArray*)responseObject setQuery:parameters ?: @{}];
               success([CDAResponse responseWithHTTPURLResponse:operation.response], responseObject);
           }
       }

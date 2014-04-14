@@ -249,6 +249,42 @@
 
 -(CDARequest*)initialSynchronizationWithSuccess:(CDASyncedSpaceFetchedBlock)success
                                         failure:(CDARequestFailureBlock)failure {
+    if (self.configuration.previewMode) {
+        void(^handler)(NSArray* fetchedAssets, NSArray* fetchedEntries) = ^(NSArray* fetchedAssets,
+                                                                            NSArray* fetchedEntries) {
+            NSMutableDictionary* assets = [@{} mutableCopy];
+            NSMutableDictionary* entries = [@{} mutableCopy];
+            
+            for (CDAAsset* asset in fetchedAssets) {
+                assets[asset.identifier] = asset;
+            }
+            
+            for (CDAEntry* entry in fetchedEntries) {
+                entries[entry.identifier] = entry;
+            }
+            
+            for (CDAEntry* entry in entries.allValues) {
+                [entry resolveLinksWithIncludedAssets:assets entries:entries];
+            }
+            
+            CDASyncedSpace* space = [[CDASyncedSpace alloc] initWithAssets:assets.allValues
+                                                                   entries:entries.allValues];
+            
+            space.client = self;
+            success(nil, space);
+        };
+        
+        return [self fetchAssetsWithSuccess:^(CDAResponse *response, CDAArray *array) {
+            [self fetchAllItemsFromArray:array success:^(NSArray *fetchedAssets) {
+                [self fetchEntriesWithSuccess:^(CDAResponse *response, CDAArray *array) {
+                    [self fetchAllItemsFromArray:array success:^(NSArray *fetchedEntries) {
+                        handler(fetchedAssets, fetchedEntries);
+                    } failure:failure];
+                } failure:failure];
+            } failure:failure];
+        } failure:failure];
+    }
+    
     CDAArrayFetchedBlock handler = ^(CDAResponse *response, CDAArray *array) {
         NSMutableDictionary* assets = [@{} mutableCopy];
         NSMutableDictionary* entries = [@{} mutableCopy];
