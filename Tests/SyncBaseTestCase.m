@@ -44,9 +44,6 @@
     
     NSError *__autoreleasing *err = (NSError *__autoreleasing *)[OCMArg anyPointer];
     [[[(OCMockObject*)partiallyMockedClient stub] andDo:^(NSInvocation *invocation) {
-        CDASpace* space = [client fetchSpaceSynchronouslyWithError:nil];
-        XCTAssertNotNil(space, @"");
-        
         [self addDummyContentType];
         
         self.contentTypesWereFetched = YES;
