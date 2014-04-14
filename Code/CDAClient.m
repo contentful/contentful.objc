@@ -227,13 +227,6 @@
     }
 }
 
--(CDASpace*)fetchSpaceSynchronouslyWithError:(NSError**)error {
-    self.space = [self.requestOperationManager fetchURLPathSynchronously:@""
-                                                              parameters:@{}
-                                                                   error:error];
-    return self.space;
-}
-
 -(CDARequest*)fetchSpaceWithSuccess:(CDASpaceFetchedBlock)success
                             failure:(CDARequestFailureBlock)failure {
     if (self.space) {

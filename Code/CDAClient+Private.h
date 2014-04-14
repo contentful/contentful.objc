@@ -18,9 +18,11 @@
 
 -(CDAConfiguration*)configuration;
 -(CDAContentTypeRegistry*)contentTypeRegistry;
+-(CDARequest*)fetchArrayAtURLPath:(NSString *)URLPath
+                       parameters:(NSDictionary *)parameters
+                          success:(CDAArrayFetchedBlock)success
+                          failure:(CDARequestFailureBlock)failure;
 -(CDAArray*)fetchContentTypesMatching:(NSDictionary*)query synchronouslyWithError:(NSError**)error;
--(CDASpace*)fetchSpaceSynchronouslyWithError:(NSError**)error;
--(CDARequestOperationManager*)requestOperationManager;
 -(CDASpace*)space;
 
 @end
