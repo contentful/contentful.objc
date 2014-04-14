@@ -37,6 +37,7 @@
 		A160862218CDF0E60047D44F /* CDARequest.h in Headers */ = {isa = PBXBuildFile; fileRef = A160862018CDF0E60047D44F /* CDARequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A160862318CDF0E60047D44F /* CDARequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A160862118CDF0E60047D44F /* CDARequest.m */; };
 		A160862518CDF2AC0047D44F /* CDARequest+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A160862418CDF2AC0047D44F /* CDARequest+Private.h */; };
+		A170130418FC25640086BE07 /* PreviewModeSyncTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A170130318FC25640086BE07 /* PreviewModeSyncTests.m */; };
 		A173F50C18D31151000E6F92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD86A18C631E60081677E /* Foundation.framework */; };
 		A173F50D18D31151000E6F92 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD89918C637400081677E /* CoreGraphics.framework */; };
 		A173F50E18D31151000E6F92 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD87B18C631E60081677E /* UIKit.framework */; };
@@ -222,6 +223,7 @@
 		A160862018CDF0E60047D44F /* CDARequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDARequest.h; sourceTree = "<group>"; };
 		A160862118CDF0E60047D44F /* CDARequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDARequest.m; sourceTree = "<group>"; };
 		A160862418CDF2AC0047D44F /* CDARequest+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDARequest+Private.h"; sourceTree = "<group>"; };
+		A170130318FC25640086BE07 /* PreviewModeSyncTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewModeSyncTests.m; sourceTree = "<group>"; };
 		A173F50B18D31151000E6F92 /* Browser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Browser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A173F51118D31151000E6F92 /* Browser-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Browser-Info.plist"; sourceTree = "<group>"; };
 		A173F51518D31151000E6F92 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -719,6 +721,7 @@
 				A1B815BC18F56C150027B26D /* ComplexSyncTests.m */,
 				A1B815C918F588D70027B26D /* LinkedAssetSyncTest.m */,
 				A1B815CF18F69E0F0027B26D /* NewEntryAndDeletionSyncTest.m */,
+				A170130318FC25640086BE07 /* PreviewModeSyncTests.m */,
 				A12797A518E1A45700043A44 /* SyncTests */,
 				A18AA85618E45C5E00D430D5 /* SyncTests.json */,
 				A12797AA18E1B08F00043A44 /* SyncTests.m */,
@@ -1446,6 +1449,7 @@
 				A18AA86418E5DB1A00D430D5 /* UtilityTests.m in Sources */,
 				A1D1D35F18C8ABB800261A1C /* DocumentationTests.m in Sources */,
 				A18AA85918E48B4200D430D5 /* AssetTests.m in Sources */,
+				A170130418FC25640086BE07 /* PreviewModeSyncTests.m in Sources */,
 				A1A0314F18C756B7006470B7 /* SearchAPITests.m in Sources */,
 				A1B815D818F830C00027B26D /* ComplexLinkSyncTests.m in Sources */,
 				A1D1D35C18C8A94800261A1C /* ContentfulBaseTestCase.m in Sources */,
