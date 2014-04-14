@@ -14,7 +14,6 @@
 #import "CDADeletedAsset.h"
 #import "CDADeletedEntry.h"
 #import "CDAEntry+Private.h"
-#import "CDARequestOperationManager.h"
 #import "CDAResource+Private.h"
 #import "CDASyncedSpace+Private.h"
 #import "CDAUtilities.h"
@@ -228,7 +227,7 @@
         return;
     }
     
-    [self.client.requestOperationManager fetchArrayAtURLPath:@"sync" parameters:@{ @"sync_token": self.syncToken } success:^(CDAResponse *response, CDAArray *array) {
+    [self.client fetchArrayAtURLPath:@"sync" parameters:@{ @"sync_token": self.syncToken } success:^(CDAResponse *response, CDAArray *array) {
         if (!self.syncedAssets && !self.syncedEntries) {
             [self resolveLinksInArray:array
                               success:^{
