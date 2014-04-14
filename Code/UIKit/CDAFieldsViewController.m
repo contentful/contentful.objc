@@ -141,7 +141,9 @@
     
     if ([resource isKindOfClass:[CDAEntry class]]) {
         CDAEntry* entry = (CDAEntry*)resource;
-        cellMapping = @{ @"textLabel.text": [@"fields." stringByAppendingString:entry.contentType.displayField] };
+        if (entry.contentType.displayField) {
+            cellMapping = @{ @"textLabel.text": [@"fields." stringByAppendingString:entry.contentType.displayField] };
+        }
     }
     
     CDAEntriesViewController* entriesVC = [[CDAEntriesViewController alloc]
