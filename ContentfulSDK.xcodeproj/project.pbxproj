@@ -37,7 +37,12 @@
 		A160862218CDF0E60047D44F /* CDARequest.h in Headers */ = {isa = PBXBuildFile; fileRef = A160862018CDF0E60047D44F /* CDARequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A160862318CDF0E60047D44F /* CDARequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A160862118CDF0E60047D44F /* CDARequest.m */; };
 		A160862518CDF2AC0047D44F /* CDARequest+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A160862418CDF2AC0047D44F /* CDARequest+Private.h */; };
+		A17012F418FC1FD90086BE07 /* CDAPersistedEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = A17012F318FC1FD90086BE07 /* CDAPersistedEntry.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A17012F618FC1FF80086BE07 /* CDAPersistedAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = A17012F518FC1FEE0086BE07 /* CDAPersistedAsset.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A17012F818FC20120086BE07 /* CDAPersistedSpace.h in Headers */ = {isa = PBXBuildFile; fileRef = A17012F718FC20120086BE07 /* CDAPersistedSpace.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A170130418FC25640086BE07 /* PreviewModeSyncTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A170130318FC25640086BE07 /* PreviewModeSyncTests.m */; };
+		A170130718FD291E0086BE07 /* CDAPersistenceManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A170130518FD291E0086BE07 /* CDAPersistenceManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A170130818FD291E0086BE07 /* CDAPersistenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A170130618FD291E0086BE07 /* CDAPersistenceManager.m */; };
 		A173F50C18D31151000E6F92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD86A18C631E60081677E /* Foundation.framework */; };
 		A173F50D18D31151000E6F92 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD89918C637400081677E /* CoreGraphics.framework */; };
 		A173F50E18D31151000E6F92 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD87B18C631E60081677E /* UIKit.framework */; };
@@ -223,7 +228,12 @@
 		A160862018CDF0E60047D44F /* CDARequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDARequest.h; sourceTree = "<group>"; };
 		A160862118CDF0E60047D44F /* CDARequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDARequest.m; sourceTree = "<group>"; };
 		A160862418CDF2AC0047D44F /* CDARequest+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDARequest+Private.h"; sourceTree = "<group>"; };
+		A17012F318FC1FD90086BE07 /* CDAPersistedEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAPersistedEntry.h; sourceTree = "<group>"; };
+		A17012F518FC1FEE0086BE07 /* CDAPersistedAsset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDAPersistedAsset.h; sourceTree = "<group>"; };
+		A17012F718FC20120086BE07 /* CDAPersistedSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAPersistedSpace.h; sourceTree = "<group>"; };
 		A170130318FC25640086BE07 /* PreviewModeSyncTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewModeSyncTests.m; sourceTree = "<group>"; };
+		A170130518FD291E0086BE07 /* CDAPersistenceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAPersistenceManager.h; sourceTree = "<group>"; };
+		A170130618FD291E0086BE07 /* CDAPersistenceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAPersistenceManager.m; sourceTree = "<group>"; };
 		A173F50B18D31151000E6F92 /* Browser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Browser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A173F51118D31151000E6F92 /* Browser-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Browser-Info.plist"; sourceTree = "<group>"; };
 		A173F51518D31151000E6F92 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -464,6 +474,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A17012F218FC1FB00086BE07 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				A17012F518FC1FEE0086BE07 /* CDAPersistedAsset.h */,
+				A17012F318FC1FD90086BE07 /* CDAPersistedEntry.h */,
+				A17012F718FC20120086BE07 /* CDAPersistedSpace.h */,
+				A170130518FD291E0086BE07 /* CDAPersistenceManager.h */,
+				A170130618FD291E0086BE07 /* CDAPersistenceManager.m */,
+			);
+			name = Persistence;
+			sourceTree = "<group>";
+		};
 		A173F50F18D31151000E6F92 /* Browser */ = {
 			isa = PBXGroup;
 			children = (
@@ -598,6 +620,7 @@
 				A1D9D56718CF53220089D4A2 /* API Client */,
 				A1D9D56618CF53010089D4A2 /* Fields */,
 				A1D9D56518CF52B20089D4A2 /* Perform Requests */,
+				A17012F218FC1FB00086BE07 /* Persistence */,
 				A1D9D56818CF533B0089D4A2 /* Resources */,
 				A1D2DBF418CF618A0053DC83 /* UIKit Extensions */,
 				A18AA85E18E5D5DB00D430D5 /* Utilities */,
@@ -898,6 +921,7 @@
 				A160862518CDF2AC0047D44F /* CDARequest+Private.h in Headers */,
 				A1D2DC0418D076F50053DC83 /* CDAResourceTableViewCell.h in Headers */,
 				A1E3D04B18C8795500E4F488 /* CDAEntry.h in Headers */,
+				A17012F818FC20120086BE07 /* CDAPersistedSpace.h in Headers */,
 				A173F58D18D752A9000E6F92 /* CDAImageViewController.h in Headers */,
 				A193EB3E18D09AC10017B777 /* CDAResponse+Private.h in Headers */,
 				A12797AE18E1B10300043A44 /* CDASyncedSpace.h in Headers */,
@@ -908,6 +932,7 @@
 				A1E3D04818C8794000E4F488 /* CDAClient.h in Headers */,
 				A193EB4718D0ACFE0017B777 /* CDAFieldCell.h in Headers */,
 				A1E43F0318CE1CF80060A89A /* CDAArray+Private.h in Headers */,
+				A170130718FD291E0086BE07 /* CDAPersistenceManager.h in Headers */,
 				A144FAF418C8C98400110B35 /* CDAContentType.h in Headers */,
 				A1E8391518CE29E700B697F6 /* CDAAsset.h in Headers */,
 				A173F59C18D9A2FD000E6F92 /* CDAResourceCell.h in Headers */,
@@ -918,11 +943,13 @@
 				A173F59518D9A269000E6F92 /* CDAResourcesCollectionViewController.h in Headers */,
 				A1B815CC18F5A8250027B26D /* CDAEntry+Private.h in Headers */,
 				A1E9797B18CC683200E79632 /* CDAFieldValueTransformer.h in Headers */,
+				A17012F618FC1FF80086BE07 /* CDAPersistedAsset.h in Headers */,
 				A1924C9118EC0DF000C97F9D /* CDAMapViewController.h in Headers */,
 				A1D2DC0218D076F50053DC83 /* CDAEntriesViewController.h in Headers */,
 				A173F54E18D6FD03000E6F92 /* CDATextViewController.h in Headers */,
 				A18AA81318E2D98200D430D5 /* CDADeletedEntry.h in Headers */,
 				A1E3D05A18C87D3B00E4F488 /* CDARequestOperationManager.h in Headers */,
+				A17012F418FC1FD90086BE07 /* CDAPersistedEntry.h in Headers */,
 				A160862218CDF0E60047D44F /* CDARequest.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1405,6 +1432,7 @@
 				A1D2DC0518D076F50053DC83 /* CDAResourceTableViewCell.m in Sources */,
 				A1E9797C18CC683200E79632 /* CDAFieldValueTransformer.m in Sources */,
 				A18AA81418E2D98200D430D5 /* CDADeletedEntry.m in Sources */,
+				A170130818FD291E0086BE07 /* CDAPersistenceManager.m in Sources */,
 				A173F55318D700B8000E6F92 /* CDALocationViewController.m in Sources */,
 				A1A0314818C6708C006470B7 /* CDAField.m in Sources */,
 				A1D2DC0318D076F50053DC83 /* CDAEntriesViewController.m in Sources */,
