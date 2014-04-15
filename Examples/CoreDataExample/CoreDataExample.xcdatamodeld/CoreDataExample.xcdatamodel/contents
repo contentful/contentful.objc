@@ -1,4 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13C64" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Asset" representedClassName="Asset" syncable="YES">
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mimeType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="cat" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ManagedCat" inverseName="picture" inverseEntity="ManagedCat" syncable="YES"/>
+    </entity>
+    <entity name="ManagedCat" representedClassName="ManagedCat" syncable="YES">
+        <attribute name="color" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="livesLeft" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="picture" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Asset" inverseName="cat" inverseEntity="Asset" syncable="YES"/>
+    </entity>
+    <entity name="SyncInfo" representedClassName="SyncInfo" syncable="YES">
+        <attribute name="lastSyncTimestamp" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="syncToken" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Asset" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="ManagedCat" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="SyncInfo" positionX="0" positionY="0" width="0" height="0"/>
+    </elements>
 </model>
