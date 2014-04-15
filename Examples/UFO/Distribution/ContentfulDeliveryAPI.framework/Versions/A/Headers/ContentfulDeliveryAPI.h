@@ -15,6 +15,7 @@
 #import <ContentfulDeliveryAPI/CDAContentType.h>
 #import <ContentfulDeliveryAPI/CDAEntry.h>
 #import <ContentfulDeliveryAPI/CDAField.h>
+#import <ContentfulDeliveryAPI/CDAPersistenceManager.h>
 #import <ContentfulDeliveryAPI/CDARequest.h>
 #import <ContentfulDeliveryAPI/CDAResponse.h>
 #import <ContentfulDeliveryAPI/CDASpace.h>
