@@ -11,7 +11,7 @@
 #import <ContentfulDeliveryAPI/CDAPersistedSpace.h>
 
 /**
- *  Subclasses of this class manage a persistant store.
+ *  Subclasses of this class manage a persistent store.
  */
 @interface CDAPersistenceManager : NSObject
 
@@ -29,7 +29,7 @@
 /** @name Performing Synchronizations */
 
 /**
- *  Perform an initial or subsequent synchronization of all Space content to the persistant store.
+ *  Perform an initial or subsequent synchronization of all Space content to the persistent store.
  *
  *  @param success Completion handler called when the synchronization finished successfully.
  *  @param failure Error handler called when any problem occured during the synchronization.
@@ -69,14 +69,14 @@
 -(id<CDAPersistedSpace>)createPersistedSpace;
 
 /**
- *  Fetch a Space from the persistant store.
+ *  Fetch a Space from the persistent store.
  *
  *  @return The fetched Space or `nil` if none could be retrieved.
  */
 -(id<CDAPersistedSpace>)fetchSpaceFromDataStore;
 
 /**
- *  Save all changes of the object model to the persistant store.
+ *  Save all changes of the object model to the persistent store.
  */
 -(void)saveDataStore;
 
