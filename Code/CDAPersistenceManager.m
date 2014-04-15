@@ -56,8 +56,8 @@
     NSParameterAssert(self.client);
     
     if (!self.syncedSpace) {
-        [self.client initialSynchronizationWithSuccess:^(CDAResponse *response,
-                                                         CDASyncedSpace *space) {
+        CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response,
+                                                                               CDASyncedSpace *space) {
             [self persistedSpaceForSpace:space];
             
             for (CDAEntry* entry in space.entries) {
@@ -71,6 +71,7 @@
             }
         } failure:failure];
         
+        request = nil;
         return;
     }
     
