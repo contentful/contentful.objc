@@ -6,6 +6,7 @@
 //
 //
 
+#import "Asset.h"
 #import "ManagedCat.h"
 #import "CoreDataManager.h"
 #import "SyncBaseTestCase.h"
@@ -26,6 +27,7 @@
     
     self.coreDataManager = [[CoreDataManager alloc] initWithClient:self.client
                                                      dataModelName:@"CoreDataExample"];
+    self.coreDataManager.classForAssets = [Asset class];
     self.coreDataManager.classForEntries = [ManagedCat class];
     self.coreDataManager.classForSpaces = [SyncInfo class];
 }
@@ -43,7 +45,7 @@
     StartBlock();
     
     [self.coreDataManager performSynchronizationWithSuccess:^{
-        //XCTAssertEqual(2U, space.assets.count, @"");
+        XCTAssertEqual(2U, [self.coreDataManager fetchAssetsFromDataStore].count, @"");
         XCTAssertEqual(7U, [self.coreDataManager fetchEntriesFromDataStore].count, @"");
         
         EndBlock();

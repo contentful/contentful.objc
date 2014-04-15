@@ -23,6 +23,13 @@
 
 @implementation CoreDataManager
 
+- (id<CDAPersistedAsset>)createPersistedAsset
+{
+    NSParameterAssert(self.classForAssets);
+    return [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass(self.classForAssets)
+                                         inManagedObjectContext:self.managedObjectContext];
+}
+
 - (id<CDAPersistedEntry>)createPersistedEntry
 {
     NSParameterAssert(self.classForEntries);
@@ -35,6 +42,18 @@
     NSParameterAssert(self.classForSpaces);
     return [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass(self.classForSpaces)
                                          inManagedObjectContext:self.managedObjectContext];
+}
+
+- (NSArray *)fetchAssetsFromDataStore
+{
+    NSError* error;
+    NSArray* assets = [self fetchEntititiesOfClass:self.classForAssets error:&error];
+    
+    if (!assets) {
+        NSLog(@"Could not fetch assets: %@", error);
+    }
+    
+    return assets;
 }
 
 - (NSArray *)fetchEntititiesOfClass:(Class)class error:(NSError**)error

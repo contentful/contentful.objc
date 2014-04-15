@@ -6,6 +6,7 @@
 //
 //
 
+#import <ContentfulDeliveryAPI/CDAAsset.h>
 #import <ContentfulDeliveryAPI/CDAEntry.h>
 #import <ContentfulDeliveryAPI/CDASyncedSpace.h>
 
@@ -21,6 +22,10 @@
 #pragma mark -
 
 @implementation CDAPersistenceManager
+
+-(id<CDAPersistedAsset>)createPersistedAsset {
+    return [self.classForAssets new];
+}
 
 -(id<CDAPersistedEntry>)createPersistedEntry {
     return [self.classForEntries new];
@@ -51,6 +56,7 @@
 
 -(void)performSynchronizationWithSuccess:(void (^)())success
                                  failure:(CDARequestFailureBlock)failure {
+    NSParameterAssert(self.classForAssets);
     NSParameterAssert(self.classForEntries);
     NSParameterAssert(self.classForSpaces);
     NSParameterAssert(self.client);
@@ -59,6 +65,10 @@
         CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response,
                                                                                CDASyncedSpace *space) {
             [self persistedSpaceForSpace:space];
+            
+            for (CDAAsset* asset in space.assets) {
+                [self persistedAssetForAsset:asset];
+            }
             
             for (CDAEntry* entry in space.entries) {
                 [self persistedEntryForEntry:entry];
@@ -88,6 +98,14 @@
     } failure:failure];
 }
 
+-(id<CDAPersistedAsset>)persistedAssetForAsset:(CDAAsset*)asset {
+    id<CDAPersistedAsset> persistedAsset = [self createPersistedAsset];
+    persistedAsset.identifier = asset.identifier;
+    persistedAsset.mimeType = asset.MIMEType;
+    persistedAsset.url = asset.URL.absoluteString;
+    return persistedAsset;
+}
+
 -(id<CDAPersistedEntry>)persistedEntryForEntry:(CDAEntry*)entry {
     id<CDAPersistedEntry> persistedEntry = [entry mapFieldsToObject:[self createPersistedEntry]
                                                        usingMapping:self.mappingForEntries];
@@ -115,6 +133,7 @@
         
         _syncedSpace = [CDASyncedSpace shallowSyncSpaceWithToken:persistedSpace.syncToken
                                                           client:self.client];
+        _syncedSpace.delegate = self;
         _syncedSpace.lastSyncTimestamp = persistedSpace.lastSyncTimestamp;
     }
     
