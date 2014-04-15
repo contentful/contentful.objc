@@ -30,6 +30,11 @@
     self.coreDataManager.classForAssets = [Asset class];
     self.coreDataManager.classForEntries = [ManagedCat class];
     self.coreDataManager.classForSpaces = [SyncInfo class];
+    
+    self.coreDataManager.mappingForEntries = @{ @"contentType.identifier": @"contentTypeIdentifier",
+                                                @"fields.color": @"color",
+                                                @"fields.livesLeft": @"livesLeft",
+                                                @"fields.name": @"name" };
 }
 
 -(void)tearDown {
@@ -47,6 +52,27 @@
     [self.coreDataManager performSynchronizationWithSuccess:^{
         XCTAssertEqual(2U, [self.coreDataManager fetchAssetsFromDataStore].count, @"");
         XCTAssertEqual(7U, [self.coreDataManager fetchEntriesFromDataStore].count, @"");
+        
+        EndBlock();
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTFail(@"Error: %@", error);
+        
+        EndBlock();
+    }];
+    
+    WaitUntilBlockCompletes();
+}
+
+-(void)testMappingOfFields {
+    StartBlock();
+    
+    [self.coreDataManager performSynchronizationWithSuccess:^{
+        NSString* predicate = @"contentTypeIdentifier == 'cat'";
+        for (ManagedCat* cat in [self.coreDataManager fetchEntriesMatchingPredicate:predicate]) {
+            XCTAssertNotNil(cat.color, @"");
+            XCTAssertNotNil(cat.name, @"");
+            XCTAssert(cat.livesLeft > 0, @"");
+        }
         
         EndBlock();
     } failure:^(CDAResponse *response, NSError *error) {
