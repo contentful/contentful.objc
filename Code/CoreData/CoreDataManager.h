@@ -14,6 +14,7 @@
 
 -(NSArray*)fetchAssetsFromDataStore;
 -(NSArray*)fetchEntriesFromDataStore;
+-(NSArray*)fetchEntriesMatchingPredicate:(NSString*)predicate;
 -(id)initWithClient:(CDAClient *)client dataModelName:(NSString*)dataModelName;
 
 @end

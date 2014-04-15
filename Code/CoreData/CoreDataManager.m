@@ -47,7 +47,9 @@
 - (NSArray *)fetchAssetsFromDataStore
 {
     NSError* error;
-    NSArray* assets = [self fetchEntititiesOfClass:self.classForAssets error:&error];
+    NSArray* assets = [self fetchEntititiesOfClass:self.classForAssets
+                                 matchingPredicate:nil
+                                             error:&error];
     
     if (!assets) {
         NSLog(@"Could not fetch assets: %@", error);
@@ -56,7 +58,9 @@
     return assets;
 }
 
-- (NSArray *)fetchEntititiesOfClass:(Class)class error:(NSError**)error
+- (NSArray *)fetchEntititiesOfClass:(Class)class
+                  matchingPredicate:(NSString*)predicateString
+                              error:(NSError**)error
 {
     NSFetchRequest *request = [NSFetchRequest new];
     
@@ -66,13 +70,25 @@
                                               inManagedObjectContext:moc];
     [request setEntity:entityDescription];
     
+    if (predicateString) {
+        NSPredicate* predicate = [NSPredicate predicateWithFormat:predicateString];
+        [request setPredicate:predicate];
+    }
+    
     return [moc executeFetchRequest:request error:error];
 }
 
 - (NSArray *)fetchEntriesFromDataStore
 {
+    return [self fetchEntriesMatchingPredicate:nil];
+}
+
+- (NSArray *)fetchEntriesMatchingPredicate:(NSString *)predicate
+{
     NSError* error;
-    NSArray* entries = [self fetchEntititiesOfClass:self.classForEntries error:&error];
+    NSArray* entries = [self fetchEntititiesOfClass:self.classForEntries
+                                  matchingPredicate:predicate
+                                              error:&error];
     
     if (!entries) {
         NSLog(@"Could not fetch entries: %@", error);
@@ -84,7 +100,9 @@
 - (id<CDAPersistedSpace>)fetchSpaceFromDataStore
 {
     NSError* error;
-    NSArray* spaces = [self fetchEntititiesOfClass:self.classForSpaces error:&error];
+    NSArray* spaces = [self fetchEntititiesOfClass:self.classForSpaces
+                                 matchingPredicate:nil
+                                             error:&error];
     
     if (!spaces) {
         NSLog(@"Could not fetch space: %@", error);
