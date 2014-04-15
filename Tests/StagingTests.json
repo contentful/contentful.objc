@@ -51,25 +51,50 @@
   {
     "body" : "ewogICJzeXMiOiB7CiAgICAidHlwZSI6ICJTcGFjZSIsCiAgICAiaWQiOiAiM3Z5\r\nc291ZHNtd3dvIgogIH0sCiAgIm5hbWUiOiAiYnBnIDEyMyIsCiAgImxvY2FsZXMi\r\nOiBbCiAgICB7CiAgICAgICJjb2RlIjogImVuLVVTIiwKICAgICAgImRlZmF1bHQi\r\nOiB0cnVlLAogICAgICAibmFtZSI6ICJlbi1VUyIKICAgIH0sCiAgICB7CiAgICAg\r\nICJjb2RlIjogImRlLURFIiwKICAgICAgImRlZmF1bHQiOiBmYWxzZSwKICAgICAg\r\nIm5hbWUiOiAiR2VybWFuIgogICAgfQogIF0KfQo=",
     "headers" : {
-      "Access-Control-Allow-Methods" : "GET,HEAD,OPTIONS",
+      "Server" : "nginx\/1.1.19",
+      "Vary" : "Accept-Encoding",
+      "Accept-Ranges" : "bytes",
       "Cache-Control" : "max-age=0",
+      "Connection" : "keep-alive",
+      "Access-Control-Max-Age" : "86400",
+      "Content-Length" : "269",
+      "Date" : "Fri, 28 Mar 2014 13:40:23 GMT",
+      "Surrogate-Key" : "space-3vysoudsmwwo organization-7Ar55sWSKhrqTaY0EhdmRk",
+      "Surrogate-Control" : "max-age=21600",
+      "Access-Control-Allow-Methods" : "GET,HEAD,OPTIONS",
+      "Etag" : "\"c5c3ee410b3908310149c7bfeb73ca80\"",
+      "X-Contentful-Request-Id" : "830-2099609140",
+      "Content-Type" : "application\/vnd.contentful.delivery.v1+json",
+      "Access-Control-Allow-Headers" : "Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization",
+      "Access-Control-Allow-Origin" : "*"
+    },
+    "method" : "GET",
+    "status" : 200,
+    "uri" : "https:\/\/cdn.flinkly.com\/spaces\/3vysoudsmwwo\/?access_token=8efdb99a1b33b21edd6bd6f68aa702a0d688b4a4433ac3327d234a28ed825ca2"
+  },
+  {
+    "body" : "ewogICJzeXMiOiB7CiAgICAidHlwZSI6ICJBcnJheSIKICB9LAogICJ0b3RhbCI6\r\nIDQsCiAgInNraXAiOiAwLAogICJsaW1pdCI6IDEwMCwKICAiaXRlbXMiOiBbCiAg\r\nICB7CiAgICAgICJmaWVsZHMiOiBbCiAgICAgICAgewogICAgICAgICAgIm5hbWUi\r\nOiAic3ltYm9sICsgaW4iLAogICAgICAgICAgImlkIjogInN5bWJvbEluIiwKICAg\r\nICAgICAgICJ0eXBlIjogIlN5bWJvbCIKICAgICAgICB9LAogICAgICAgIHsKICAg\r\nICAgICAgICJuYW1lIjogInN5bWJvbCArIHNpemUiLAogICAgICAgICAgImlkIjog\r\nInN5bWJvbFNpemUiLAogICAgICAgICAgInR5cGUiOiAiU3ltYm9sIgogICAgICAg\r\nIH0sCiAgICAgICAgewogICAgICAgICAgIm5hbWUiOiAibnVtYmVyICsgcmFuZ2Ui\r\nLAogICAgICAgICAgImlkIjogIm51bWJlclJhbmdlIiwKICAgICAgICAgICJ0eXBl\r\nIjogIkludGVnZXIiCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAibmFt\r\nZSI6ICJzeW1ib2wgKyByZWdleHAiLAogICAgICAgICAgImlkIjogInN5bWJvbFJl\r\nZ2V4cCIsCiAgICAgICAgICAidHlwZSI6ICJTeW1ib2wiCiAgICAgICAgfQogICAg\r\nICBdLAogICAgICAibmFtZSI6ICJGb3JnaXZpbmcgRmFsc3luZXNzIiwKICAgICAg\r\nInN5cyI6IHsKICAgICAgICAic3BhY2UiOiB7CiAgICAgICAgICAic3lzIjogewog\r\nICAgICAgICAgICAidHlwZSI6ICJMaW5rIiwKICAgICAgICAgICAgImxpbmtUeXBl\r\nIjogIlNwYWNlIiwKICAgICAgICAgICAgImlkIjogIjN2eXNvdWRzbXd3byIKICAg\r\nICAgICAgIH0KICAgICAgICB9LAogICAgICAgICJ0eXBlIjogIkNvbnRlbnRUeXBl\r\nIiwKICAgICAgICAiaWQiOiAiM3RHSDc2dkJFY0VFQXVvQ2kydU84ZSIsCiAgICAg\r\nICAgInJldmlzaW9uIjogMiwKICAgICAgICAiY3JlYXRlZEF0IjogIjIwMTMtMTAt\r\nMzBUMTY6NDU6MzMuNTYxWiIsCiAgICAgICAgInVwZGF0ZWRBdCI6ICIyMDEzLTEw\r\nLTMwVDE2OjQ1OjU5LjQ1OFoiCiAgICAgIH0sCiAgICAgICJkaXNwbGF5RmllbGQi\r\nOiAic3ltYm9sSW4iCiAgICB9LAogICAgewogICAgICAiZGlzcGxheUZpZWxkIjog\r\nIm5hbWUiLAogICAgICAibmFtZSI6ICJDYXRlZ29yaWVzIiwKICAgICAgImZpZWxk\r\ncyI6IFsKICAgICAgICB7CiAgICAgICAgICAiaWQiOiAibmFtZSIsCiAgICAgICAg\r\nICAibmFtZSI6ICJuYW1lIiwKICAgICAgICAgICJyZXF1aXJlZCI6IHRydWUsCiAg\r\nICAgICAgICAidHlwZSI6ICJUZXh0IgogICAgICAgIH0sCiAgICAgICAgewogICAg\r\nICAgICAgImlkIjogInBhcmVudCIsCiAgICAgICAgICAibmFtZSI6ICJwYXJlbnQi\r\nLAogICAgICAgICAgInJlcXVpcmVkIjogZmFsc2UsCiAgICAgICAgICAidHlwZSI6\r\nICJMaW5rIiwKICAgICAgICAgICJsaW5rVHlwZSI6ICJFbnRyeSIKICAgICAgICB9\r\nLAogICAgICAgIHsKICAgICAgICAgICJpZCI6ICJhYWEiLAogICAgICAgICAgIm5h\r\nbWUiOiAiYWFhIiwKICAgICAgICAgICJyZXF1aXJlZCI6IGZhbHNlLAogICAgICAg\r\nICAgImxvY2FsaXplZCI6IGZhbHNlLAogICAgICAgICAgInR5cGUiOiAiSW50ZWdl\r\nciIKICAgICAgICB9CiAgICAgIF0sCiAgICAgICJzeXMiOiB7CiAgICAgICAgInNw\r\nYWNlIjogewogICAgICAgICAgInN5cyI6IHsKICAgICAgICAgICAgInR5cGUiOiAi\r\nTGluayIsCiAgICAgICAgICAgICJsaW5rVHlwZSI6ICJTcGFjZSIsCiAgICAgICAg\r\nICAgICJpZCI6ICIzdnlzb3Vkc213d28iCiAgICAgICAgICB9CiAgICAgICAgfSwK\r\nICAgICAgICAidHlwZSI6ICJDb250ZW50VHlwZSIsCiAgICAgICAgImlkIjogImNh\r\ndGVnb3JpZXMiLAogICAgICAgICJyZXZpc2lvbiI6IDYsCiAgICAgICAgImNyZWF0\r\nZWRBdCI6ICIyMDEzLTA2LTIwVDEzOjMwOjAwLjk5NloiLAogICAgICAgICJ1cGRh\r\ndGVkQXQiOiAiMjAxMy0xMS0wNlQwOTo1NDo1OS40MTNaIgogICAgICB9LAogICAg\r\nICAiZGVzY3JpcHRpb24iOiAiVGhpcyBpcyBhIGNhdGVnb3J5IgogICAgfSwKICAg\r\nIHsKICAgICAgImRpc3BsYXlGaWVsZCI6ICJuYW1lIiwKICAgICAgIm5hbWUiOiAi\r\nUHJvamVjdHMiLAogICAgICAiZmllbGRzIjogWwogICAgICAgIHsKICAgICAgICAg\r\nICJpZCI6ICJuYW1lIiwKICAgICAgICAgICJuYW1lIjogIm5hbWUiLAogICAgICAg\r\nICAgInJlcXVpcmVkIjogZmFsc2UsCiAgICAgICAgICAidHlwZSI6ICJUZXh0Igog\r\nICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgImlkIjogImRlc2NyaXB0aW9u\r\nIiwKICAgICAgICAgICJuYW1lIjogImRlc2NyaXB0aW9uIiwKICAgICAgICAgICJy\r\nZXF1aXJlZCI6IGZhbHNlLAogICAgICAgICAgInR5cGUiOiAiVGV4dCIKICAgICAg\r\nICB9LAogICAgICAgIHsKICAgICAgICAgICJpZCI6ICJpbWFnZSIsCiAgICAgICAg\r\nICAibmFtZSI6ICJpbWFnZSIsCiAgICAgICAgICAicmVxdWlyZWQiOiBmYWxzZSwK\r\nICAgICAgICAgICJ0eXBlIjogIkxpbmsiLAogICAgICAgICAgImxpbmtUeXBlIjog\r\nIkVudHJ5IgogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgImlkIjogImhl\r\ncm8iLAogICAgICAgICAgIm5hbWUiOiAiaGVybyIsCiAgICAgICAgICAicmVxdWly\r\nZWQiOiBmYWxzZSwKICAgICAgICAgICJ0eXBlIjogIkxpbmsiLAogICAgICAgICAg\r\nImxpbmtUeXBlIjogIkVudHJ5IgogICAgICAgIH0sCiAgICAgICAgewogICAgICAg\r\nICAgImlkIjogImNhdGVnb3JpZXMiLAogICAgICAgICAgIm5hbWUiOiAiY2F0ZWdv\r\ncmllcyIsCiAgICAgICAgICAicmVxdWlyZWQiOiBmYWxzZSwKICAgICAgICAgICJ0\r\neXBlIjogIkFycmF5IiwKICAgICAgICAgICJpdGVtcyI6IHsKICAgICAgICAgICAg\r\nInR5cGUiOiAiTGluayIsCiAgICAgICAgICAgICJsaW5rVHlwZSI6ICJFbnRyeSIK\r\nICAgICAgICAgIH0KICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJpZCI6\r\nICJtZWRpYSIsCiAgICAgICAgICAibmFtZSI6ICJtZWRpYSIsCiAgICAgICAgICAi\r\ncmVxdWlyZWQiOiBmYWxzZSwKICAgICAgICAgICJ0eXBlIjogIkFycmF5IiwKICAg\r\nICAgICAgICJpdGVtcyI6IHsKICAgICAgICAgICAgInR5cGUiOiAiTGluayIsCiAg\r\nICAgICAgICAgICJsaW5rVHlwZSI6ICJFbnRyeSIKICAgICAgICAgIH0KICAgICAg\r\nICB9CiAgICAgIF0sCiAgICAgICJzeXMiOiB7CiAgICAgICAgInNwYWNlIjogewog\r\nICAgICAgICAgInN5cyI6IHsKICAgICAgICAgICAgInR5cGUiOiAiTGluayIsCiAg\r\nICAgICAgICAgICJsaW5rVHlwZSI6ICJTcGFjZSIsCiAgICAgICAgICAgICJpZCI6\r\nICIzdnlzb3Vkc213d28iCiAgICAgICAgICB9CiAgICAgICAgfSwKICAgICAgICAi\r\ndHlwZSI6ICJDb250ZW50VHlwZSIsCiAgICAgICAgImlkIjogInByb2plY3RzIiwK\r\nICAgICAgICAicmV2aXNpb24iOiAxLAogICAgICAgICJjcmVhdGVkQXQiOiAiMjAx\r\nMy0wNi0yMFQxMzozMDowMi42OThaIiwKICAgICAgICAidXBkYXRlZEF0IjogIjIw\r\nMTMtMDYtMjBUMTM6MzA6MDIuNjk4WiIKICAgICAgfQogICAgfSwKICAgIHsKICAg\r\nICAgImRpc3BsYXlGaWVsZCI6ICJ0aXRsZSIsCiAgICAgICJuYW1lIjogIkZlYXR1\r\ncmVzIiwKICAgICAgImZpZWxkcyI6IFsKICAgICAgICB7CiAgICAgICAgICAiaWQi\r\nOiAidGl0bGUiLAogICAgICAgICAgIm5hbWUiOiAidGl0bGUiLAogICAgICAgICAg\r\nInJlcXVpcmVkIjogZmFsc2UsCiAgICAgICAgICAidHlwZSI6ICJUZXh0IgogICAg\r\nICAgIH0sCiAgICAgICAgewogICAgICAgICAgImlkIjogImRlc2NyaXB0aW9uIiwK\r\nICAgICAgICAgICJuYW1lIjogImRlc2NyaXB0aW9uIiwKICAgICAgICAgICJyZXF1\r\naXJlZCI6IGZhbHNlLAogICAgICAgICAgInR5cGUiOiAiVGV4dCIKICAgICAgICB9\r\nLAogICAgICAgIHsKICAgICAgICAgICJpZCI6ICJjdGEiLAogICAgICAgICAgIm5h\r\nbWUiOiAiY3RhIiwKICAgICAgICAgICJyZXF1aXJlZCI6IGZhbHNlLAogICAgICAg\r\nICAgInR5cGUiOiAiVGV4dCIKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAg\r\nICJpZCI6ICJoZXJvIiwKICAgICAgICAgICJuYW1lIjogImhlcm8iLAogICAgICAg\r\nICAgInJlcXVpcmVkIjogZmFsc2UsCiAgICAgICAgICAidHlwZSI6ICJMaW5rIiwK\r\nICAgICAgICAgICJsaW5rVHlwZSI6ICJFbnRyeSIKICAgICAgICB9LAogICAgICAg\r\nIHsKICAgICAgICAgICJpZCI6ICJwcm9qZWN0IiwKICAgICAgICAgICJuYW1lIjog\r\nInByb2plY3QiLAogICAgICAgICAgInJlcXVpcmVkIjogZmFsc2UsCiAgICAgICAg\r\nICAidHlwZSI6ICJMaW5rIiwKICAgICAgICAgICJsaW5rVHlwZSI6ICJFbnRyeSIK\r\nICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJpZCI6ICJpbWFnZSIsCiAg\r\nICAgICAgICAibmFtZSI6ICJpbWFnZSIsCiAgICAgICAgICAicmVxdWlyZWQiOiBm\r\nYWxzZSwKICAgICAgICAgICJ0eXBlIjogIkxpbmsiLAogICAgICAgICAgImxpbmtU\r\neXBlIjogIkVudHJ5IgogICAgICAgIH0KICAgICAgXSwKICAgICAgInN5cyI6IHsK\r\nICAgICAgICAic3BhY2UiOiB7CiAgICAgICAgICAic3lzIjogewogICAgICAgICAg\r\nICAidHlwZSI6ICJMaW5rIiwKICAgICAgICAgICAgImxpbmtUeXBlIjogIlNwYWNl\r\nIiwKICAgICAgICAgICAgImlkIjogIjN2eXNvdWRzbXd3byIKICAgICAgICAgIH0K\r\nICAgICAgICB9LAogICAgICAgICJ0eXBlIjogIkNvbnRlbnRUeXBlIiwKICAgICAg\r\nICAiaWQiOiAiZmVhdHVyZXMiLAogICAgICAgICJyZXZpc2lvbiI6IDEsCiAgICAg\r\nICAgImNyZWF0ZWRBdCI6ICIyMDEzLTA2LTIwVDEzOjMwOjA1LjIwNFoiLAogICAg\r\nICAgICJ1cGRhdGVkQXQiOiAiMjAxMy0wNi0yMFQxMzozMDowNS4yMDRaIgogICAg\r\nICB9CiAgICB9CiAgXQp9Cg==",
+    "headers" : {
+      "Date" : "Tue, 15 Apr 2014 12:26:59 GMT",
       "Access-Control-Allow-Origin" : "*",
       "Vary" : "Accept-Encoding",
-      "Etag" : "\"c5c3ee410b3908310149c7bfeb73ca80\"",
+      "Etag" : "\"fbd5f263e687b384bd88b5071d07b4d8\"",
       "Accept-Ranges" : "bytes",
+      "Content-Encoding" : "gzip",
+      "X-Contentful-Request-Id" : "830-21163130",
       "Content-Type" : "application\/vnd.contentful.delivery.v1+json",
-      "X-Contentful-Request-Id" : "830-2099609140",
       "Surrogate-Control" : "max-age=21600",
       "Access-Control-Allow-Headers" : "Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization",
       "Connection" : "keep-alive",
       "Access-Control-Max-Age" : "86400",
       "Server" : "nginx\/1.1.19",
-      "Content-Length" : "269",
-      "Date" : "Fri, 28 Mar 2014 13:40:23 GMT",
-      "Surrogate-Key" : "space-3vysoudsmwwo organization-7Ar55sWSKhrqTaY0EhdmRk"
+      "Transfer-Encoding" : "Identity",
+      "Access-Control-Allow-Methods" : "GET,HEAD,OPTIONS",
+      "Surrogate-Key" : "space-3vysoudsmwwo organization-7Ar55sWSKhrqTaY0EhdmRk",
+      "Cache-Control" : "max-age=0"
     },
     "method" : "GET",
     "status" : 200,
-    "uri" : "https:\/\/cdn.flinkly.com\/spaces\/3vysoudsmwwo\/?access_token=8efdb99a1b33b21edd6bd6f68aa702a0d688b4a4433ac3327d234a28ed825ca2"
+    "uri" : "https:\/\/cdn.flinkly.com\/spaces\/3vysoudsmwwo\/content_types?access_token=8efdb99a1b33b21edd6bd6f68aa702a0d688b4a4433ac3327d234a28ed825ca2&sys.id%5Bin%5D=3tGH76vBEcEEAuoCi2uO8e%2Cfeatures%2Cprojects%2Ccategories"
   }
 ]
