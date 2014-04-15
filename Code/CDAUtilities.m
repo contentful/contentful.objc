@@ -27,10 +27,12 @@ NSString* CDACacheDirectory() {
         NSCAssert(isDirectory, @"Caches directory '%@' is a file.", cachesPath);
     } else {
         NSError* error;
-        NSCAssert([[NSFileManager defaultManager] createDirectoryAtPath:cachesPath
-                                            withIntermediateDirectories:NO
-                                                             attributes:nil
-                                                                  error:&error], @"Error: %@", error);
+        BOOL result = [[NSFileManager defaultManager] createDirectoryAtPath:cachesPath
+                                                withIntermediateDirectories:NO
+                                                                 attributes:nil
+                                                                      error:&error];
+        NSCAssert(result, @"Error: %@", error);
+        result = YES;
     }
     
     return cachesPath;

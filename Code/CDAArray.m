@@ -85,7 +85,7 @@
     
     for (id item in self.items) {
         if ([item respondsToSelector:@selector(setClient:)]) {
-            [item setClient:self.client];
+            [(CDAResource*)item setClient:self.client];
         }
     }
 }
