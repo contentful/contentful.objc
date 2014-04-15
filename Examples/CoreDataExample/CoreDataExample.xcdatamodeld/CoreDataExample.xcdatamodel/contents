@@ -8,6 +8,7 @@
     </entity>
     <entity name="ManagedCat" representedClassName="ManagedCat" syncable="YES">
         <attribute name="color" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="contentTypeIdentifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="livesLeft" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -18,8 +19,8 @@
         <attribute name="syncToken" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Asset" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="ManagedCat" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="SyncInfo" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Asset" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="ManagedCat" positionX="0" positionY="0" width="128" height="135"/>
+        <element name="SyncInfo" positionX="0" positionY="0" width="128" height="75"/>
     </elements>
 </model>
