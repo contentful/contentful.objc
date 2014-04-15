@@ -7,6 +7,7 @@
 //
 
 #import <ContentfulDeliveryAPI/CDAClient.h>
+#import <ContentfulDeliveryAPI/CDAPersistedAsset.h>
 #import <ContentfulDeliveryAPI/CDAPersistedEntry.h>
 #import <ContentfulDeliveryAPI/CDAPersistedSpace.h>
 
@@ -39,9 +40,11 @@
 
 /** @name Defining Classes for Persistent Resources */
 
-/** Class to be used for any persistent Spaces. */
+/** Class to be used for any persisted Assets. */
+@property (nonatomic) Class classForAssets;
+/** Class to be used for any persisted Spaces. */
 @property (nonatomic) Class classForSpaces;
-/** Class to be used for any persistent Entries. */
+/** Class to be used for any persisted Entries. */
 @property (nonatomic) Class classForEntries;
 
 /** @name Mapping Fields to Properties */
@@ -55,16 +58,23 @@
 /** @name Interact with the Data Store. */
 
 /**
+ *  Override this method in subclasses if Asset instances cannot be created with +new.
+ *
+ *  @return A new persisted Asset.
+ */
+-(id<CDAPersistedAsset>)createPersistedAsset;
+
+/**
  *  Override this method in subclasses if Entry instances cannot be created with +new.
  *
- *  @return A new persistent Entry.
+ *  @return A new persisted Entry.
  */
 -(id<CDAPersistedEntry>)createPersistedEntry;
 
 /**
  *  Override this method in subclasses if Space instances cannot be created with +new.
  *
- *  @return A new persistent Space.
+ *  @return A new persisted Space.
  */
 -(id<CDAPersistedSpace>)createPersistedSpace;
 

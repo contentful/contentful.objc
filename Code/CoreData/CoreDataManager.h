@@ -12,6 +12,7 @@
 
 @property (nonatomic, readonly) NSURL* storeURL;
 
+-(NSArray*)fetchAssetsFromDataStore;
 -(NSArray*)fetchEntriesFromDataStore;
 -(id)initWithClient:(CDAClient *)client dataModelName:(NSString*)dataModelName;
 
