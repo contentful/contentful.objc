@@ -39,6 +39,11 @@
  In preview mode, data can be invalid, because no validation is performed on unpublished entries. Your
  app needs to deal with that. Be aware that the access token is read-write and should in no case be
  shipped with a production app.
+ 
+ Another difference in preview mode is that there are never any updates when performing 
+ synchronizations. You will receive all Assets and Entries during the initial synchronization, just as
+ in normal mode, including the unpublished Resources. Any subsequent synchronization will return 
+ successful immediately, not reporting any changes.
  */
 @property (nonatomic) BOOL previewMode;
 
