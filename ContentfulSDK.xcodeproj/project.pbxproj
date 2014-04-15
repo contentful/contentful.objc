@@ -43,6 +43,8 @@
 		A170130418FC25640086BE07 /* PreviewModeSyncTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A170130318FC25640086BE07 /* PreviewModeSyncTests.m */; };
 		A170130718FD291E0086BE07 /* CDAPersistenceManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A170130518FD291E0086BE07 /* CDAPersistenceManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A170130818FD291E0086BE07 /* CDAPersistenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A170130618FD291E0086BE07 /* CDAPersistenceManager.m */; };
+		A170131518FD5DE20086BE07 /* PersistenceTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A170131318FD5DE20086BE07 /* PersistenceTests.json */; };
+		A170131618FD5DE20086BE07 /* PreviewModeSyncTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A170131418FD5DE20086BE07 /* PreviewModeSyncTests.json */; };
 		A173F50C18D31151000E6F92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD86A18C631E60081677E /* Foundation.framework */; };
 		A173F50D18D31151000E6F92 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD89918C637400081677E /* CoreGraphics.framework */; };
 		A173F50E18D31151000E6F92 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD87B18C631E60081677E /* UIKit.framework */; };
@@ -234,6 +236,8 @@
 		A170130318FC25640086BE07 /* PreviewModeSyncTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewModeSyncTests.m; sourceTree = "<group>"; };
 		A170130518FD291E0086BE07 /* CDAPersistenceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAPersistenceManager.h; sourceTree = "<group>"; };
 		A170130618FD291E0086BE07 /* CDAPersistenceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAPersistenceManager.m; sourceTree = "<group>"; };
+		A170131318FD5DE20086BE07 /* PersistenceTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PersistenceTests.json; sourceTree = "<group>"; };
+		A170131418FD5DE20086BE07 /* PreviewModeSyncTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PreviewModeSyncTests.json; sourceTree = "<group>"; };
 		A173F50B18D31151000E6F92 /* Browser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Browser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A173F51118D31151000E6F92 /* Browser-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Browser-Info.plist"; sourceTree = "<group>"; };
 		A173F51518D31151000E6F92 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -744,6 +748,7 @@
 				A1B815BC18F56C150027B26D /* ComplexSyncTests.m */,
 				A1B815C918F588D70027B26D /* LinkedAssetSyncTest.m */,
 				A1B815CF18F69E0F0027B26D /* NewEntryAndDeletionSyncTest.m */,
+				A170131418FD5DE20086BE07 /* PreviewModeSyncTests.json */,
 				A170130318FC25640086BE07 /* PreviewModeSyncTests.m */,
 				A12797A518E1A45700043A44 /* SyncTests */,
 				A18AA85618E45C5E00D430D5 /* SyncTests.json */,
@@ -755,6 +760,7 @@
 		A1B815C418F581870027B26D /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
+				A170131318FD5DE20086BE07 /* PersistenceTests.json */,
 				A1B815B318F2ACCB0027B26D /* PersistenceTests.m */,
 			);
 			name = Persistence;
@@ -1138,9 +1144,11 @@
 				A144FAFE18C9F8CA00110B35 /* SearchAPITests.json in Resources */,
 				A173F54618D386CD000E6F92 /* ErrorTests.json in Resources */,
 				A144FAFC18C9F8C200110B35 /* StagingTests.json in Resources */,
+				A170131618FD5DE20086BE07 /* PreviewModeSyncTests.json in Resources */,
 				A193EB6818D21B260017B777 /* UIKitAdditionsTests in Resources */,
 				A18AA85C18E4952C00D430D5 /* AssetTests.json in Resources */,
 				A1E832D818E0A1640092F926 /* LinkTests.json in Resources */,
+				A170131518FD5DE20086BE07 /* PersistenceTests.json in Resources */,
 				A193EB5618D1C88A0017B777 /* UIKitAdditionsTests.json in Resources */,
 				A18AA85718E45C5E00D430D5 /* SyncTests.json in Resources */,
 				A173F60518DB412C000E6F92 /* PreviewModeTests.json in Resources */,
