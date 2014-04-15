@@ -37,12 +37,14 @@
 		A160862218CDF0E60047D44F /* CDARequest.h in Headers */ = {isa = PBXBuildFile; fileRef = A160862018CDF0E60047D44F /* CDARequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A160862318CDF0E60047D44F /* CDARequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A160862118CDF0E60047D44F /* CDARequest.m */; };
 		A160862518CDF2AC0047D44F /* CDARequest+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A160862418CDF2AC0047D44F /* CDARequest+Private.h */; };
+		A17012EE18FBDFDA0086BE07 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A17012ED18FBDFDA0086BE07 /* CoreDataManager.m */; };
 		A17012F418FC1FD90086BE07 /* CDAPersistedEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = A17012F318FC1FD90086BE07 /* CDAPersistedEntry.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A17012F618FC1FF80086BE07 /* CDAPersistedAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = A17012F518FC1FEE0086BE07 /* CDAPersistedAsset.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A17012F818FC20120086BE07 /* CDAPersistedSpace.h in Headers */ = {isa = PBXBuildFile; fileRef = A17012F718FC20120086BE07 /* CDAPersistedSpace.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A170130418FC25640086BE07 /* PreviewModeSyncTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A170130318FC25640086BE07 /* PreviewModeSyncTests.m */; };
 		A170130718FD291E0086BE07 /* CDAPersistenceManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A170130518FD291E0086BE07 /* CDAPersistenceManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A170130818FD291E0086BE07 /* CDAPersistenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A170130618FD291E0086BE07 /* CDAPersistenceManager.m */; };
+		A170130C18FD31320086BE07 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A17012ED18FBDFDA0086BE07 /* CoreDataManager.m */; };
 		A170131518FD5DE20086BE07 /* PersistenceTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A170131318FD5DE20086BE07 /* PersistenceTests.json */; };
 		A170131618FD5DE20086BE07 /* PreviewModeSyncTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A170131418FD5DE20086BE07 /* PreviewModeSyncTests.json */; };
 		A173F50C18D31151000E6F92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD86A18C631E60081677E /* Foundation.framework */; };
@@ -230,6 +232,8 @@
 		A160862018CDF0E60047D44F /* CDARequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDARequest.h; sourceTree = "<group>"; };
 		A160862118CDF0E60047D44F /* CDARequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDARequest.m; sourceTree = "<group>"; };
 		A160862418CDF2AC0047D44F /* CDARequest+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDARequest+Private.h"; sourceTree = "<group>"; };
+		A17012EC18FBDFDA0086BE07 /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataManager.h; path = ../../Code/CoreData/CoreDataManager.h; sourceTree = "<group>"; };
+		A17012ED18FBDFDA0086BE07 /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataManager.m; path = ../../Code/CoreData/CoreDataManager.m; sourceTree = "<group>"; };
 		A17012F318FC1FD90086BE07 /* CDAPersistedEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAPersistedEntry.h; sourceTree = "<group>"; };
 		A17012F518FC1FEE0086BE07 /* CDAPersistedAsset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDAPersistedAsset.h; sourceTree = "<group>"; };
 		A17012F718FC20120086BE07 /* CDAPersistedSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAPersistedSpace.h; sourceTree = "<group>"; };
@@ -702,6 +706,8 @@
 			children = (
 				A1B8159218F2A8090027B26D /* AppDelegate.h */,
 				A1B8159318F2A8090027B26D /* AppDelegate.m */,
+				A17012EC18FBDFDA0086BE07 /* CoreDataManager.h */,
+				A17012ED18FBDFDA0086BE07 /* CoreDataManager.m */,
 				A1B8159518F2A8090027B26D /* CoreDataExample.xcdatamodeld */,
 				A1B8158A18F2A8090027B26D /* Supporting Files */,
 			);
@@ -1483,6 +1489,7 @@
 				A1B815CA18F588D70027B26D /* LinkedAssetSyncTest.m in Sources */,
 				A1C8DCD318E098E80019A519 /* LinkTests.m in Sources */,
 				A18AA86418E5DB1A00D430D5 /* UtilityTests.m in Sources */,
+				A170130C18FD31320086BE07 /* CoreDataManager.m in Sources */,
 				A1D1D35F18C8ABB800261A1C /* DocumentationTests.m in Sources */,
 				A18AA85918E48B4200D430D5 /* AssetTests.m in Sources */,
 				A170130418FC25640086BE07 /* PreviewModeSyncTests.m in Sources */,
@@ -1512,6 +1519,7 @@
 			files = (
 				A1B8159418F2A8090027B26D /* AppDelegate.m in Sources */,
 				A1B8159018F2A8090027B26D /* main.m in Sources */,
+				A17012EE18FBDFDA0086BE07 /* CoreDataManager.m in Sources */,
 				A1B8159718F2A8090027B26D /* CoreDataExample.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -75,7 +75,9 @@
     }
     
     [self.syncedSpace performSynchronizationWithSuccess:^{
-        // TODO: Update syncToken and timestamp
+        id<CDAPersistedSpace> space = [self fetchSpaceFromDataStore];
+        space.lastSyncTimestamp = self.syncedSpace.lastSyncTimestamp;
+        space.syncToken = self.syncedSpace.syncToken;
         
         [self saveDataStore];
         
