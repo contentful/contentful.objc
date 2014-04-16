@@ -35,6 +35,24 @@
     return [self.classForSpaces new];
 }
 
+-(void)deleteAssetWithIdentifier:(NSString*)identifier {
+    [self doesNotRecognizeSelector:_cmd];
+}
+
+-(void)deleteEntryWithIdentifier:(NSString*)identifier {
+    [self doesNotRecognizeSelector:_cmd];
+}
+
+-(id<CDAPersistedAsset>)fetchAssetWithIdentifier:(NSString*)identifier {
+    [self doesNotRecognizeSelector:_cmd];
+    return nil;
+}
+
+-(id<CDAPersistedEntry>)fetchEntryWithIdentifier:(NSString*)identifier {
+    [self doesNotRecognizeSelector:_cmd];
+    return nil;
+}
+
 -(id<CDAPersistedSpace>)fetchSpaceFromDataStore {
     [self doesNotRecognizeSelector:_cmd];
     return nil;
@@ -100,16 +118,13 @@
 
 -(id<CDAPersistedAsset>)persistedAssetForAsset:(CDAAsset*)asset {
     id<CDAPersistedAsset> persistedAsset = [self createPersistedAsset];
-    persistedAsset.identifier = asset.identifier;
-    persistedAsset.mimeType = asset.MIMEType;
-    persistedAsset.url = asset.URL.absoluteString;
+    [self updatePersistedAsset:persistedAsset withAsset:asset];
     return persistedAsset;
 }
 
 -(id<CDAPersistedEntry>)persistedEntryForEntry:(CDAEntry*)entry {
-    id<CDAPersistedEntry> persistedEntry = [entry mapFieldsToObject:[self createPersistedEntry]
-                                                       usingMapping:self.mappingForEntries];
-    persistedEntry.identifier = entry.identifier;
+    id<CDAPersistedEntry> persistedEntry = [self createPersistedEntry];
+    [self updatePersistedEntry:persistedEntry withEntry:entry];
     return persistedEntry;
 }
 
@@ -140,30 +155,43 @@
     return _syncedSpace;
 }
 
+-(void)updatePersistedAsset:(id<CDAPersistedAsset>)persistedAsset withAsset:(CDAAsset*)asset {
+    persistedAsset.identifier = asset.identifier;
+    persistedAsset.mimeType = asset.MIMEType;
+    persistedAsset.url = asset.URL.absoluteString;
+}
+
+-(void)updatePersistedEntry:(id<CDAPersistedEntry>)persistedEntry withEntry:(CDAEntry*)entry {
+    [entry mapFieldsToObject:persistedEntry usingMapping:self.mappingForEntries];
+    persistedEntry.identifier = entry.identifier;
+}
+
 #pragma mark - CDASyncedSpaceDelegate
 
 -(void)syncedSpace:(CDASyncedSpace *)space didCreateAsset:(CDAAsset *)asset {
-    // TODO: Implement.
+    [self persistedAssetForAsset:asset];
 }
 
 -(void)syncedSpace:(CDASyncedSpace *)space didCreateEntry:(CDAEntry *)entry {
-    // TODO: Implement.
+    [self persistedEntryForEntry:entry];
 }
 
 -(void)syncedSpace:(CDASyncedSpace *)space didDeleteAsset:(CDAAsset *)asset {
-    // TODO: Implement.
+    [self deleteAssetWithIdentifier:asset.identifier];
 }
 
 -(void)syncedSpace:(CDASyncedSpace *)space didDeleteEntry:(CDAEntry *)entry {
-    // TODO: Implement.
+    [self deleteEntryWithIdentifier:entry.identifier];
 }
 
 -(void)syncedSpace:(CDASyncedSpace *)space didUpdateAsset:(CDAAsset *)asset {
-    // TODO: Implement.
+    id<CDAPersistedAsset> persistedAsset = [self fetchAssetWithIdentifier:asset.identifier];
+    [self updatePersistedAsset:persistedAsset withAsset:asset];
 }
 
 -(void)syncedSpace:(CDASyncedSpace *)space didUpdateEntry:(CDAEntry *)entry {
-    // TODO: Implement.
+    id<CDAPersistedEntry> persistedEntry = [self fetchEntryWithIdentifier:entry.identifier];
+    [self updatePersistedEntry:persistedEntry withEntry:entry];
 }
 
 @end

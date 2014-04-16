@@ -44,6 +44,24 @@
                                          inManagedObjectContext:self.managedObjectContext];
 }
 
+- (void)deleteAssetWithIdentifier:(NSString *)identifier
+{
+    id<CDAPersistedAsset> asset = [self fetchAssetWithIdentifier:identifier];
+    
+    if (asset) {
+        [self.managedObjectContext deleteObject:asset];
+    }
+}
+
+- (void)deleteEntryWithIdentifier:(NSString *)identifier
+{
+    id<CDAPersistedEntry> entry = [self fetchEntryWithIdentifier:identifier];
+    
+    if (entry) {
+        [self.managedObjectContext deleteObject:entry];
+    }
+}
+
 - (NSArray *)fetchAssetsFromDataStore
 {
     NSError* error;
@@ -56,6 +74,26 @@
     }
     
     return assets;
+}
+
+- (NSArray *)fetchAssetsMatchingPredicate:(NSString *)predicate
+{
+    NSError* error;
+    NSArray* assets = [self fetchEntititiesOfClass:self.classForAssets
+                                 matchingPredicate:predicate
+                                             error:&error];
+    
+    if (!assets) {
+        NSLog(@"Could not fetch assets: %@", error);
+    }
+    
+    return assets;
+}
+
+- (id<CDAPersistedAsset>)fetchAssetWithIdentifier:(NSString *)identifier
+{
+    NSString* predicate = [NSString stringWithFormat:@"identifier == '%@'", identifier];
+    return [[self fetchAssetsMatchingPredicate:predicate] firstObject];
 }
 
 - (NSArray *)fetchEntititiesOfClass:(Class)class
@@ -95,6 +133,12 @@
     }
     
     return entries;
+}
+
+- (id<CDAPersistedEntry>)fetchEntryWithIdentifier:(NSString *)identifier
+{
+    NSString* predicate = [NSString stringWithFormat:@"identifier == '%@'", identifier];
+    return [[self fetchEntriesMatchingPredicate:predicate] firstObject];
 }
 
 - (id<CDAPersistedSpace>)fetchSpaceFromDataStore

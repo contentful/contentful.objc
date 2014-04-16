@@ -13,6 +13,10 @@
 
 /**
  *  Subclasses of this class manage a persistent store.
+ *
+ *  A minimal subclass needs to at least override `deleteAssetWithIdentifier:`,
+ *  `deleteEntryWithIdentifier:`, `fetchAssetWithIdentifier:`, `fetchEntryWithIdentifier:`,
+ *  `fetchSpaceFromDataStore` and `saveDataStore`.
  */
 @interface CDAPersistenceManager : NSObject
 
@@ -79,7 +83,49 @@
 -(id<CDAPersistedSpace>)createPersistedSpace;
 
 /**
+ *  Delete an Asset from the persisten store.
+ *
+ *  This method needs to be overridden by subclasses.
+ *
+ *  @param identifier The identifier of the Asset to delete.
+ */
+-(void)deleteAssetWithIdentifier:(NSString*)identifier;
+
+/**
+ *  Delete an Entry from the persisten store.
+ *
+ *  This method needs to be overridden by subclasses.
+ *
+ *  @param identifier The identifier of the Entry to delete.
+ */
+-(void)deleteEntryWithIdentifier:(NSString*)identifier;
+
+/**
+ *  Retrieve an Asset from the persistent store.
+ *
+ *  This method needs to be overridden by subclasses.
+ *
+ *  @param identifier The identifier of the Asset to fetch.
+ *
+ *  @return The Asset with the given identifier or `nil` if it could not be found.
+ */
+-(id<CDAPersistedAsset>)fetchAssetWithIdentifier:(NSString*)identifier;
+
+/**
+ *  Retrieve an Entry from the persistent store.
+ *
+ *  This method needs to be overridden by subclasses.
+ *
+ *  @param identifier The identifier of the Entry to fetch.
+ *
+ *  @return The Entry with the given identifier or `nil` if it could not be found.
+ */
+-(id<CDAPersistedEntry>)fetchEntryWithIdentifier:(NSString*)identifier;
+
+/**
  *  Fetch a Space from the persistent store.
+ *
+ *  This method needs to be overridden by subclasses.
  *
  *  @return The fetched Space or `nil` if none could be retrieved.
  */
@@ -87,6 +133,9 @@
 
 /**
  *  Save all changes of the object model to the persistent store.
+ *
+ *  This method needs to be overridden by subclasses.
+ *
  */
 -(void)saveDataStore;
 
