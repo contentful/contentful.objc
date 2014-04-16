@@ -148,6 +148,74 @@
     WaitUntilBlockCompletes();
 }
 
+-(void)testContinueSyncWithSameManager {
+    StartBlock();
+    
+    [self.coreDataManager performSynchronizationWithSuccess:^{
+        [self assertNumberOfAssets:1U numberOfEntries:1U];
+        
+        Asset* asset = [[self.coreDataManager fetchAssetsFromDataStore] firstObject];
+        XCTAssertEqualObjects(@"512_black.png", asset.url.lastPathComponent, @"");
+        ManagedCat* cat = [[self.coreDataManager fetchEntriesFromDataStore] firstObject];
+        XCTAssertEqualObjects(@"Test", cat.name, @"");
+        
+        [self.coreDataManager performSynchronizationWithSuccess:^{
+            [self assertNumberOfAssets:1U numberOfEntries:2U];
+            
+            [self.coreDataManager performSynchronizationWithSuccess:^{
+                [self assertNumberOfAssets:1U numberOfEntries:1U];
+                
+                [self.coreDataManager performSynchronizationWithSuccess:^{
+                    [self assertNumberOfAssets:2U numberOfEntries:1U];
+                    
+                    [self.coreDataManager performSynchronizationWithSuccess:^{
+                        [self assertNumberOfAssets:1U numberOfEntries:1U];
+                        
+                        [self.coreDataManager performSynchronizationWithSuccess:^{
+                            [self assertNumberOfAssets:1U numberOfEntries:1U];
+                            
+                            Asset* asset = [[self.coreDataManager fetchAssetsFromDataStore] firstObject];
+                            XCTAssertEqualObjects(@"vaa4by0.png", asset.url.lastPathComponent, @"");
+                            ManagedCat* cat = [[self.coreDataManager fetchEntriesFromDataStore] firstObject];
+                            XCTAssertEqualObjects(@"Test (changed)", cat.name, @"");
+                            
+                            EndBlock();
+                        } failure:^(CDAResponse *response, NSError *error) {
+                            XCTFail(@"Error: %@", error);
+                            
+                            EndBlock();
+                        }];
+                    } failure:^(CDAResponse *response, NSError *error) {
+                        XCTFail(@"Error: %@", error);
+                        
+                        EndBlock();
+                    }];
+                    
+                } failure:^(CDAResponse *response, NSError *error) {
+                    XCTFail(@"Error: %@", error);
+                    
+                    EndBlock();
+                }];
+                
+            } failure:^(CDAResponse *response, NSError *error) {
+                XCTFail(@"Error: %@", error);
+                
+                EndBlock();
+            }];
+        } failure:^(CDAResponse *response, NSError *error) {
+            XCTFail(@"Error: %@", error);
+            
+            EndBlock();
+        }];
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTFail(@"Error: %@", error);
+        
+        EndBlock();
+    }];
+    
+    WaitUntilBlockCompletes();
+}
+
 -(void)testInitialSync {
     StartBlock();
     
