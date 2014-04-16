@@ -56,7 +56,6 @@
 		A170131218FD4BA00086BE07 /* SyncInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A17012FD18FC21260086BE07 /* SyncInfo.m */; };
 		A170131518FD5DE20086BE07 /* PersistenceTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A170131318FD5DE20086BE07 /* PersistenceTests.json */; };
 		A170131618FD5DE20086BE07 /* PreviewModeSyncTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A170131418FD5DE20086BE07 /* PreviewModeSyncTests.json */; };
-		A170131818FD5E4A0086BE07 /* CoreDataBasicTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A170131718FD5E4A0086BE07 /* CoreDataBasicTests.json */; };
 		A173F50C18D31151000E6F92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD86A18C631E60081677E /* Foundation.framework */; };
 		A173F50D18D31151000E6F92 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD89918C637400081677E /* CoreGraphics.framework */; };
 		A173F50E18D31151000E6F92 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD87B18C631E60081677E /* UIKit.framework */; };
@@ -260,7 +259,6 @@
 		A170130D18FD31950086BE07 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
 		A170131318FD5DE20086BE07 /* PersistenceTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PersistenceTests.json; sourceTree = "<group>"; };
 		A170131418FD5DE20086BE07 /* PreviewModeSyncTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PreviewModeSyncTests.json; sourceTree = "<group>"; };
-		A170131718FD5E4A0086BE07 /* CoreDataBasicTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CoreDataBasicTests.json; sourceTree = "<group>"; };
 		A173F50B18D31151000E6F92 /* Browser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Browser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A173F51118D31151000E6F92 /* Browser-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Browser-Info.plist"; sourceTree = "<group>"; };
 		A173F51518D31151000E6F92 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -530,7 +528,6 @@
 		A170130918FD30880086BE07 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				A170131718FD5E4A0086BE07 /* CoreDataBasicTests.json */,
 				A170130A18FD30A50086BE07 /* CoreDataBasicTests.m */,
 			);
 			name = "Core Data";
@@ -1196,7 +1193,6 @@
 				A173F54618D386CD000E6F92 /* ErrorTests.json in Resources */,
 				A144FAFC18C9F8C200110B35 /* StagingTests.json in Resources */,
 				A170131618FD5DE20086BE07 /* PreviewModeSyncTests.json in Resources */,
-				A170131818FD5E4A0086BE07 /* CoreDataBasicTests.json in Resources */,
 				A193EB6818D21B260017B777 /* UIKitAdditionsTests in Resources */,
 				A18AA85C18E4952C00D430D5 /* AssetTests.json in Resources */,
 				A1E832D818E0A1640092F926 /* LinkTests.json in Resources */,
