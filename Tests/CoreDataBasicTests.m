@@ -186,4 +186,20 @@
     WaitUntilBlockCompletes();
 }
 
+-(void)testUseExistingDatabase {
+    NSURL* documentsDirectory = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    NSURL* toURL = [documentsDirectory URLByAppendingPathComponent:@"CoreDataExample.sqlite"];
+    
+    NSError* error;
+    BOOL result = [[NSFileManager defaultManager] copyItemAtURL:[[NSBundle bundleForClass:[self class]] URLForResource:@"CoreDataExample" withExtension:@"sqlite" subdirectory:@"Fixtures"]
+                                                          toURL:toURL
+                                                          error:&error];
+    XCTAssert(result, @"Error: %@", error);
+    
+    XCTAssertEqual(1U, [self.coreDataManager fetchAssetsFromDataStore].count, @"");
+    XCTAssertEqual(2U, [self.coreDataManager fetchEntriesFromDataStore].count, @"");
+    
+    [[NSFileManager defaultManager] removeItemAtURL:toURL error:nil];
+}
+
 @end
