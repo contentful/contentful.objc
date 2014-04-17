@@ -309,8 +309,9 @@
                                                           error:&error];
     XCTAssert(result, @"Error: %@", error);
     
-    XCTAssertEqual(1U, [self.coreDataManager fetchAssetsFromDataStore].count, @"");
-    XCTAssertEqual(2U, [self.coreDataManager fetchEntriesFromDataStore].count, @"");
+    [self buildCoreDataManagerWithDefaultClient:YES];
+    XCTAssertEqual(4U, [self.coreDataManager fetchAssetsFromDataStore].count, @"");
+    XCTAssertEqual(10U, [self.coreDataManager fetchEntriesFromDataStore].count, @"");
     
     [[NSFileManager defaultManager] removeItemAtURL:toURL error:nil];
 }
