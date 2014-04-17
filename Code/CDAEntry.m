@@ -135,7 +135,12 @@
 -(id)mapFieldsToObject:(NSObject*)object usingMapping:(NSDictionary*)dictionary {
     [dictionary enumerateKeysAndObjectsUsingBlock:^(NSString* selfKeyPath,
                                                     NSString* objectKeyPath, BOOL *stop) {
-        [object setValue:[self valueForKeyPath:selfKeyPath] forKeyPath:objectKeyPath];
+        id value = [self valueForKeyPath:selfKeyPath];
+        if ([value isKindOfClass:[CDAResource class]]) {
+            return;
+        }
+        
+        [object setValue:value forKeyPath:objectKeyPath];
     }];
     
     return object;
