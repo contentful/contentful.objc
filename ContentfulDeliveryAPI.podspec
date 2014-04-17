@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.ios.deployment_target     = '6.0'
-  s.ios.source_files          = 'Code/**/*.{h,m}'
+  s.ios.source_files          = 'Code/*.{h,m}', 'Code/UIKit/*.{h,m}'
   s.ios.frameworks            = 'UIKit', 'MapKit'
   s.ios.public_header_files  = 'Code/{CDAArray,CDAAsset,CDAClient,CDAConfiguration,CDAContentType,CDAEntry,CDAField,CDARequest,CDAResource,CDAResponse,CDASpace,CDASyncedSpace,ContentfulDeliveryAPI,CDAPersistenceManager,CDAPersistedAsset,CDAPersistedEntry,CDAPersistedSpace,UIKit/CDAEntriesViewController,UIKit/CDAFieldsViewController,UIKit/UIImageView+CDAAsset,UIKit/CDAMapViewController,UIKit/CDAResourcesCollectionViewController,UIKit/CDAResourcesViewController,UIKit/CDAResourceCell}.h'
 
