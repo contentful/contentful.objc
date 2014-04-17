@@ -10,6 +10,11 @@
 
 /**
  *  A specialization of `CDAPersistenceManager` which allows you to use Core Data.
+ *
+ *  This is a pretty basic implementation, mostly based on the Core Data example project by Apple.
+ *  Depending on your use case, you might want to modify this class to your liking - that's why it is
+ *  not a part of the Contentful SDK itself.
+ *
  */
 @interface CoreDataManager : CDAPersistenceManager
 
