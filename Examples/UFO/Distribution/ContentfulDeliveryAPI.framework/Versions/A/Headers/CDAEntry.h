@@ -59,10 +59,11 @@
  *  supposed to map a keypath on this Entry to a keypath on `object`.
  *
  *  This can be used as a quick way to fill your own value objects with data from Entries fetched 
- *  from the Contentful API, e.g. if you want to use CoreData in your app. 
+ *  from the Contentful API, e.g. if you want to use Core Data in your app.
  *
  *  Currently, this method does no conversion or error checking on top of what is already provided by
- *  Key-Value-Coding.
+ *  Key-Value-Coding. However, it will skip all relations to other Resources, because those will
+ *  likely need special behaviour.
  *
  *  Example:
  *

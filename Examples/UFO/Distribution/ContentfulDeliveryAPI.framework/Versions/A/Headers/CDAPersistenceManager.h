@@ -7,11 +7,16 @@
 //
 
 #import <ContentfulDeliveryAPI/CDAClient.h>
+#import <ContentfulDeliveryAPI/CDAPersistedAsset.h>
 #import <ContentfulDeliveryAPI/CDAPersistedEntry.h>
 #import <ContentfulDeliveryAPI/CDAPersistedSpace.h>
 
 /**
  *  Subclasses of this class manage a persistent store.
+ *
+ *  A minimal subclass needs to at least override `deleteAssetWithIdentifier:`,
+ *  `deleteEntryWithIdentifier:`, `fetchAssetWithIdentifier:`, `fetchEntryWithIdentifier:`,
+ *  `fetchSpaceFromDataStore` and `saveDataStore`.
  */
 @interface CDAPersistenceManager : NSObject
 
@@ -39,9 +44,11 @@
 
 /** @name Defining Classes for Persistent Resources */
 
-/** Class to be used for any persistent Spaces. */
+/** Class to be used for any persisted Assets. */
+@property (nonatomic) Class classForAssets;
+/** Class to be used for any persisted Spaces. */
 @property (nonatomic) Class classForSpaces;
-/** Class to be used for any persistent Entries. */
+/** Class to be used for any persisted Entries. */
 @property (nonatomic) Class classForEntries;
 
 /** @name Mapping Fields to Properties */
@@ -55,21 +62,70 @@
 /** @name Interact with the Data Store. */
 
 /**
+ *  Override this method in subclasses if Asset instances cannot be created with +new.
+ *
+ *  @return A new persisted Asset.
+ */
+-(id<CDAPersistedAsset>)createPersistedAsset;
+
+/**
  *  Override this method in subclasses if Entry instances cannot be created with +new.
  *
- *  @return A new persistent Entry.
+ *  @return A new persisted Entry.
  */
 -(id<CDAPersistedEntry>)createPersistedEntry;
 
 /**
  *  Override this method in subclasses if Space instances cannot be created with +new.
  *
- *  @return A new persistent Space.
+ *  @return A new persisted Space.
  */
 -(id<CDAPersistedSpace>)createPersistedSpace;
 
 /**
+ *  Delete an Asset from the persisten store.
+ *
+ *  This method needs to be overridden by subclasses.
+ *
+ *  @param identifier The identifier of the Asset to delete.
+ */
+-(void)deleteAssetWithIdentifier:(NSString*)identifier;
+
+/**
+ *  Delete an Entry from the persisten store.
+ *
+ *  This method needs to be overridden by subclasses.
+ *
+ *  @param identifier The identifier of the Entry to delete.
+ */
+-(void)deleteEntryWithIdentifier:(NSString*)identifier;
+
+/**
+ *  Retrieve an Asset from the persistent store.
+ *
+ *  This method needs to be overridden by subclasses.
+ *
+ *  @param identifier The identifier of the Asset to fetch.
+ *
+ *  @return The Asset with the given identifier or `nil` if it could not be found.
+ */
+-(id<CDAPersistedAsset>)fetchAssetWithIdentifier:(NSString*)identifier;
+
+/**
+ *  Retrieve an Entry from the persistent store.
+ *
+ *  This method needs to be overridden by subclasses.
+ *
+ *  @param identifier The identifier of the Entry to fetch.
+ *
+ *  @return The Entry with the given identifier or `nil` if it could not be found.
+ */
+-(id<CDAPersistedEntry>)fetchEntryWithIdentifier:(NSString*)identifier;
+
+/**
  *  Fetch a Space from the persistent store.
+ *
+ *  This method needs to be overridden by subclasses.
  *
  *  @return The fetched Space or `nil` if none could be retrieved.
  */
@@ -77,7 +133,21 @@
 
 /**
  *  Save all changes of the object model to the persistent store.
+ *
+ *  This method needs to be overridden by subclasses.
+ *
  */
 -(void)saveDataStore;
+
+/**
+ *  This method will be called internally each time new values for an Entry are available, including
+ *  during its initial creation. You can override it in your subclass to implement any custom behaviour,
+ *  for example resolving relationships between Resources. Usually, you want to call super in the
+ *  process to get updates for primitive values for free.
+ *
+ *  @param persistedEntry The persisted Entry to be updated by this method.
+ *  @param entry          The Entry which contains the values used for the update operation.
+ */
+-(void)updatePersistedEntry:(id<CDAPersistedEntry>)persistedEntry withEntry:(CDAEntry*)entry;
 
 @end
