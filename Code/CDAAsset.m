@@ -6,7 +6,7 @@
 //
 //
 
-#import "CDAAsset.h"
+#import "CDAAsset+Private.h"
 #import "CDAClient+Private.h"
 #import "CDAResource+Private.h"
 #import "CDASpace+Private.h"
@@ -26,6 +26,10 @@ const CGFloat CDAImageQualityOriginal = 0.0;
 @synthesize locale = _locale;
 
 #pragma mark -
+
++(instancetype)assetFromPersistedAsset:(id<CDAPersistedAsset>)persistedAsset client:(CDAClient*)client {
+    return [[self alloc] initWithDictionary:@{} client:client];
+}
 
 +(NSString *)CDAType {
     return @"Asset";

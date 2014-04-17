@@ -191,6 +191,7 @@
 		A1E9797B18CC683200E79632 /* CDAFieldValueTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = A1E9797918CC683200E79632 /* CDAFieldValueTransformer.h */; };
 		A1E9797C18CC683200E79632 /* CDAFieldValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E9797A18CC683200E79632 /* CDAFieldValueTransformer.m */; };
 		A1F70C9B18FFDE030080C72C /* CoreDataBasicTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A1F70C9A18FFDE030080C72C /* CoreDataBasicTests.json */; };
+		A1F70C9D1900140D0080C72C /* CDAAsset+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A1F70C9C19000FD90080C72C /* CDAAsset+Private.h */; };
 		E35C60E4B1FA40CFA996169C /* libPods-Browser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C931C0393B35446B949B5C8D /* libPods-Browser.a */; };
 		E3B94D5BA6FD4DB492704B8D /* libPods-Catalog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EFFE921E0BC44C43A834B48F /* libPods-Catalog.a */; };
 		FC3167DB92C647308B645190 /* libPods-CoreDataExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8280E31FEBF4BC1A8723DEB /* libPods-CoreDataExample.a */; };
@@ -426,6 +427,7 @@
 		A1E9797918CC683200E79632 /* CDAFieldValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAFieldValueTransformer.h; sourceTree = "<group>"; };
 		A1E9797A18CC683200E79632 /* CDAFieldValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAFieldValueTransformer.m; sourceTree = "<group>"; };
 		A1F70C9A18FFDE030080C72C /* CoreDataBasicTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CoreDataBasicTests.json; sourceTree = "<group>"; };
+		A1F70C9C19000FD90080C72C /* CDAAsset+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CDAAsset+Private.h"; sourceTree = "<group>"; };
 		A45B6755413841BF9C6157A1 /* libPods-CDA Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CDA Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5F05D7CCB0546F68881CD63 /* Pods-CoreDataExample.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDataExample.xcconfig"; path = "Pods/Pods-CoreDataExample.xcconfig"; sourceTree = "<group>"; };
 		B8280E31FEBF4BC1A8723DEB /* libPods-CoreDataExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CoreDataExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -942,6 +944,7 @@
 				A1E43F0218CE1CF80060A89A /* CDAArray+Private.h */,
 				A1A0313318C6449F006470B7 /* CDAArray.h */,
 				A1A0313418C6449F006470B7 /* CDAArray.m */,
+				A1F70C9C19000FD90080C72C /* CDAAsset+Private.h */,
 				A1A0315718C76D38006470B7 /* CDAAsset.h */,
 				A1A0315818C76D38006470B7 /* CDAAsset.m */,
 				A1A0314018C66E90006470B7 /* CDAContentType.h */,
@@ -977,6 +980,7 @@
 				A1E9797618CBE93A00E79632 /* CDAResource+Private.h in Headers */,
 				A193EB6518D20FA90017B777 /* UIImageView+CDAAsset.h in Headers */,
 				A1E3D04718C8791200E4F488 /* CDAArray.h in Headers */,
+				A1F70C9D1900140D0080C72C /* CDAAsset+Private.h in Headers */,
 				A1E8391818CE2A7200B697F6 /* CDASpace.h in Headers */,
 				A18AA81718E2E2CF00D430D5 /* CDADeletedAsset.h in Headers */,
 				A160862518CDF2AC0047D44F /* CDARequest+Private.h in Headers */,
