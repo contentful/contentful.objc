@@ -6,6 +6,8 @@
 //
 //
 
+#import <ContentfulDeliveryAPI/CDAAsset.h>
+#import <ContentfulDeliveryAPI/CDAEntry.h>
 #import <CoreData/CoreData.h>
 
 #import "CoreDataManager.h"
@@ -16,6 +18,7 @@
 @property (nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (nonatomic) NSMutableDictionary* relationshipsToResolve;
 
 @end
 
@@ -171,8 +174,37 @@
     return nil;
 }
 
+- (void)performSynchronizationWithSuccess:(void (^)())success failure:(CDARequestFailureBlock)failure {
+    self.relationshipsToResolve = [@{} mutableCopy];
+    
+    [super performSynchronizationWithSuccess:success failure:failure];
+}
+
+- (void)resolveRelationships {
+    for (id<CDAPersistedEntry> entry in [self fetchEntriesFromDataStore]) {
+        NSDictionary* relationships = self.relationshipsToResolve[entry.identifier];
+        [relationships enumerateKeysAndObjectsUsingBlock:^(NSString* keyPath, CDAResource* rsc, BOOL *s) {
+            if ([rsc isKindOfClass:[CDAAsset class]]) {
+                id<CDAPersistedAsset> linkedAsset = [self fetchAssetWithIdentifier:rsc.identifier];
+                [(NSObject*)entry setValue:linkedAsset forKeyPath:keyPath];
+                return;
+            }
+            
+            if ([rsc isKindOfClass:[CDAEntry class]]) {
+                id<CDAPersistedEntry> linkedEntry = [self fetchEntryWithIdentifier:rsc.identifier];
+                [(NSObject*)entry setValue:linkedEntry forKeyPath:keyPath];
+                return;
+            }
+            
+            NSAssert(false, @"Unexpectly, %@ is neither an Asset nor an Entry.", rsc);
+        }];
+    }
+}
+
 - (void)saveDataStore
 {
+    [self resolveRelationships];
+    
     NSError *error = nil;
     NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
     if (managedObjectContext != nil) {
@@ -183,6 +215,26 @@
             abort();
         }
     }
+}
+
+- (void)updatePersistedEntry:(id<CDAPersistedEntry>)persistedEntry withEntry:(CDAEntry *)entry {
+    [super updatePersistedEntry:persistedEntry withEntry:entry];
+    
+    NSEntityDescription* entityDescription = [NSEntityDescription entityForName:NSStringFromClass(persistedEntry.class) inManagedObjectContext:self.managedObjectContext];
+    NSMutableDictionary* relationships = [@{} mutableCopy];
+    
+    for (NSString* relationshipName in [entityDescription relationshipsByName].allKeys) {
+        NSString* entryKeyPath = [[self.mappingForEntries allKeysForObject:relationshipName] firstObject];
+        
+        CDAResource* resource = [entry valueForKeyPath:entryKeyPath];
+        if (resource) {
+            NSAssert([resource isKindOfClass:[CDAResource class]],
+                     @"Relationship target ought to be a Resource.");
+            relationships[relationshipName] = resource;
+        }
+    }
+    
+    self.relationshipsToResolve[entry.identifier] = [relationships copy];
 }
 
 #pragma mark - Core Data stack
