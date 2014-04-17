@@ -1,21 +1,21 @@
 PODS:
-  - AFNetworking (2.2.1):
+  - AFNetworking (2.2.2):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
     - AFNetworking/UIKit
-  - AFNetworking/NSURLConnection (2.2.1):
+  - AFNetworking/NSURLConnection (2.2.2):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.2.1):
+  - AFNetworking/NSURLSession (2.2.2):
     - AFNetworking/NSURLConnection
-  - AFNetworking/Reachability (2.2.1)
-  - AFNetworking/Security (2.2.1)
-  - AFNetworking/Serialization (2.2.1)
-  - AFNetworking/UIKit (2.2.1):
+  - AFNetworking/Reachability (2.2.2)
+  - AFNetworking/Security (2.2.2)
+  - AFNetworking/Serialization (2.2.2)
+  - AFNetworking/UIKit (2.2.2):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - Bypass (1.0.1)
@@ -24,7 +24,7 @@ PODS:
     - ISO8601DateFormatter
   - FBSnapshotTestCase (1.1)
   - ISO8601DateFormatter (0.7)
-  - OCMock (2.2.3)
+  - OCMock (2.2.4)
   - OHHTTPStubs (3.1.0)
   - PDKTCollectionViewWaterfallLayout (0.1)
   - VCRURLConnection (0.2.0)
@@ -45,14 +45,14 @@ EXTERNAL SOURCES:
     :path: .
 
 SPEC CHECKSUMS:
-  AFNetworking: 0121f4b69be3fa58d1ab317866e036e12ac9651d
+  AFNetworking: dd8c1868e57451e3d17ebd3516f2a8c16f9646fe
   Bypass: efb9619af979aab0b1a0f3bce650790ce189c5f4
-  ContentfulDeliveryAPI: 0e64a043d9e9e31a581e052c148f37d5c9b3e968
+  ContentfulDeliveryAPI: 10b16e120cb3232dfd16beb9fdcc2a7449c10044
   FBSnapshotTestCase: 188c80bfcb72e744eb0b99d45989d12687c40cf8
   ISO8601DateFormatter: 00944e437ea647f4244454ce8809d313861d08de
-  OCMock: ea7fe30ee99e4e3186ad47d032a301fa7e8793ec
+  OCMock: 5008fae4b4789b8fc3e48cd7660f2eb5ef8ce89e
   OHHTTPStubs: d67c42c0212f0883ddb8592375aa0dc00dc50a36
   PDKTCollectionViewWaterfallLayout: be8dd399763b9b925aa78dff0f788e0221e72c54
   VCRURLConnection: 7c5471d671641dbd0f1b46903ebeb4b88caae04c
 
-COCOAPODS: 0.31.1
+COCOAPODS: 0.32.1
