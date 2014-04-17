@@ -11,6 +11,7 @@
 
 #import <objc/runtime.h>
 
+#import "CDAAsset+Private.h"
 #import "CDAResource+Private.h"
 #import "CDAUtilities.h"
 #import "UIImageView+CDAAsset.h"
@@ -93,6 +94,14 @@ static const char* CDAOfflineCachingKey = "CDAOfflineCachingKey";
             placeholderImage:(UIImage *)placeholderImage {
     [self cda_setImageWithAsset:asset
                             URL:[asset imageURLWithSize:size]
+               placeholderImage:placeholderImage];
+}
+
+-(void)cda_setImageWithPersistedAsset:(id<CDAPersistedAsset>)asset
+                                 size:(CGSize)size
+                     placeholderImage:(UIImage *)placeholderImage {
+    [self cda_setImageWithAsset:[CDAAsset assetFromPersistedAsset:asset client:nil]
+                           size:size
                placeholderImage:placeholderImage];
 }
 
