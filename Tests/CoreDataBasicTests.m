@@ -6,6 +6,8 @@
 //
 //
 
+#import <OHHTTPStubs/OHHTTPStubs.h>
+
 #import "Asset.h"
 #import "ManagedCat.h"
 #import "CoreDataManager.h"
@@ -32,18 +34,27 @@
     self.lastSyncTimestamp = timestamp;
 }
 
--(void)buildCoreDataManager {
-    self.coreDataManager = [[CoreDataManager alloc] initWithClient:self.client
+-(void)buildCoreDataManagerWithDefaultClient:(BOOL)defaultClient {
+    CDAClient* client = defaultClient ? [CDAClient new] : self.client;
+    
+    self.coreDataManager = [[CoreDataManager alloc] initWithClient:client
                                                      dataModelName:@"CoreDataExample"];
     self.coreDataManager.classForAssets = [Asset class];
     self.coreDataManager.classForEntries = [ManagedCat class];
     self.coreDataManager.classForSpaces = [SyncInfo class];
     
-    self.coreDataManager.mappingForEntries = @{ @"contentType.identifier": @"contentTypeIdentifier",
-                                                @"fields.color": @"color",
-                                                @"fields.livesLeft": @"livesLeft",
-                                                @"fields.name": @"name",
-                                                @"fields.title": @"name" };
+    NSMutableDictionary* mapping = [@{ @"contentType.identifier": @"contentTypeIdentifier",
+                                       @"fields.color": @"color",
+                                       @"fields.lives": @"livesLeft",
+                                       @"fields.image": @"picture" } mutableCopy];
+    
+    if (defaultClient) {
+        mapping[@"fields.name"] = @"name";
+    } else {
+        mapping[@"fields.title"] = @"name";
+    }
+    
+    self.coreDataManager.mappingForEntries = mapping;
 }
 
 -(void)setUp {
@@ -61,7 +72,7 @@
     
     [self stubHTTPRequestUsingFixtures:stubs inDirectory:@"SyncTests"];
     
-    [self buildCoreDataManager];
+    [self buildCoreDataManagerWithDefaultClient:NO];
     [[NSFileManager defaultManager] removeItemAtURL:self.coreDataManager.storeURL
                                               error:nil];
 }
@@ -69,6 +80,7 @@
 -(void)tearDown {
     [super tearDown];
     
+    self.coreDataManager = nil;
     [[NSFileManager defaultManager] removeItemAtURL:self.coreDataManager.storeURL
                                               error:nil];
 }
@@ -80,7 +92,7 @@
     
     [self.coreDataManager performSynchronizationWithSuccess:^{
         [self assertNumberOfAssets:1U numberOfEntries:1U];
-        [self buildCoreDataManager];
+        [self buildCoreDataManagerWithDefaultClient:NO];
         
         Asset* asset = [[self.coreDataManager fetchAssetsFromDataStore] firstObject];
         XCTAssertEqualObjects(@"512_black.png", asset.url.lastPathComponent, @"");
@@ -89,19 +101,19 @@
         
         [self.coreDataManager performSynchronizationWithSuccess:^{
             [self assertNumberOfAssets:1U numberOfEntries:2U];
-            [self buildCoreDataManager];
+            [self buildCoreDataManagerWithDefaultClient:NO];
             
             [self.coreDataManager performSynchronizationWithSuccess:^{
                 [self assertNumberOfAssets:1U numberOfEntries:1U];
-                [self buildCoreDataManager];
+                [self buildCoreDataManagerWithDefaultClient:NO];
                 
                 [self.coreDataManager performSynchronizationWithSuccess:^{
                     [self assertNumberOfAssets:2U numberOfEntries:1U];
-                    [self buildCoreDataManager];
+                    [self buildCoreDataManagerWithDefaultClient:NO];
                     
                     [self.coreDataManager performSynchronizationWithSuccess:^{
                         [self assertNumberOfAssets:1U numberOfEntries:1U];
-                        [self buildCoreDataManager];
+                        [self buildCoreDataManagerWithDefaultClient:NO];
                         
                         [self.coreDataManager performSynchronizationWithSuccess:^{
                             [self assertNumberOfAssets:1U numberOfEntries:1U];
@@ -217,11 +229,14 @@
 }
 
 -(void)testInitialSync {
+    [OHHTTPStubs removeAllStubs];
+    [self buildCoreDataManagerWithDefaultClient:YES];
+    
     StartBlock();
     
     [self.coreDataManager performSynchronizationWithSuccess:^{
-        XCTAssertEqual(1U, [self.coreDataManager fetchAssetsFromDataStore].count, @"");
-        XCTAssertEqual(1U, [self.coreDataManager fetchEntriesFromDataStore].count, @"");
+        XCTAssertEqual(4U, [self.coreDataManager fetchAssetsFromDataStore].count, @"");
+        XCTAssertEqual(10U, [self.coreDataManager fetchEntriesFromDataStore].count, @"");
         
         EndBlock();
     } failure:^(CDAResponse *response, NSError *error) {
@@ -234,6 +249,9 @@
 }
 
 -(void)testMappingOfFields {
+    [OHHTTPStubs removeAllStubs];
+    [self buildCoreDataManagerWithDefaultClient:YES];
+    
     StartBlock();
     
     [self.coreDataManager performSynchronizationWithSuccess:^{
