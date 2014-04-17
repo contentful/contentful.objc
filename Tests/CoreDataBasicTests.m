@@ -272,6 +272,33 @@
     WaitUntilBlockCompletes();
 }
 
+-(void)testRelationships {
+    [OHHTTPStubs removeAllStubs];
+    [self buildCoreDataManagerWithDefaultClient:YES];
+    
+    StartBlock();
+    
+    [self.coreDataManager performSynchronizationWithSuccess:^{
+        [self buildCoreDataManagerWithDefaultClient:YES];
+        
+        XCTAssertEqual(4U, [self.coreDataManager fetchAssetsFromDataStore].count, @"");
+        XCTAssertEqual(10U, [self.coreDataManager fetchEntriesFromDataStore].count, @"");
+        
+        ManagedCat* nyanCat = [self.coreDataManager fetchEntryWithIdentifier:@"nyancat"];
+        XCTAssertNotNil(nyanCat, @"");
+        XCTAssertNotNil(nyanCat.picture, @"");
+        XCTAssertNotNil(nyanCat.picture.url, @"");
+        
+        EndBlock();
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTFail(@"Error: %@", error);
+        
+        EndBlock();
+    }];
+    
+    WaitUntilBlockCompletes();
+}
+
 -(void)testUseExistingDatabase {
     NSURL* documentsDirectory = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
     NSURL* toURL = [documentsDirectory URLByAppendingPathComponent:@"CoreDataExample.sqlite"];
