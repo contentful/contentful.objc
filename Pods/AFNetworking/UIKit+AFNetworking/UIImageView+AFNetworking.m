@@ -1,6 +1,6 @@
 // UIImageView+AFNetworking.m
 //
-// Copyright (c) 2013 AFNetworking (http://afnetworking.com)
+// Copyright (c) 2013-2014 AFNetworking (http://afnetworking.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -144,7 +144,7 @@
         self.af_imageRequestOperation.responseSerializer = self.imageResponseSerializer;
         [self.af_imageRequestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
             __strong __typeof(weakSelf)strongSelf = weakSelf;
-            if ([[urlRequest URL] isEqual:[operation.request URL]]) {
+            if ([[urlRequest URL] isEqual:[strongSelf.af_imageRequestOperation.request URL]]) {
                 if (success) {
                     success(urlRequest, operation.response, responseObject);
                 } else if (responseObject) {
@@ -152,13 +152,18 @@
                 }
             }
 
+            strongSelf.af_imageRequestOperation = nil;
+
             [[[strongSelf class] sharedImageCache] cacheImage:responseObject forRequest:urlRequest];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            __strong __typeof(weakSelf)strongSelf = weakSelf;
             if ([[urlRequest URL] isEqual:[operation.request URL]]) {
                 if (failure) {
                     failure(urlRequest, operation.response, error);
                 }
             }
+
+            strongSelf.af_imageRequestOperation = nil;
         }];
 
         [[[self class] af_sharedImageRequestOperationQueue] addOperation:self.af_imageRequestOperation];

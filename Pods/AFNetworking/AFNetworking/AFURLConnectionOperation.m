@@ -1,6 +1,6 @@
 // AFURLConnectionOperation.m
 //
-// Copyright (c) 2013 AFNetworking (http://afnetworking.com)
+// Copyright (c) 2013-2014 AFNetworking (http://afnetworking.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -73,7 +73,7 @@ NSString * const AFNetworkingOperationFailingURLResponseErrorKey = @"AFNetworkin
 NSString * const AFNetworkingOperationDidStartNotification = @"com.alamofire.networking.operation.start";
 NSString * const AFNetworkingOperationDidFinishNotification = @"com.alamofire.networking.operation.finish";
 
-typedef void (^AFURLConnectionOperationProgressBlock)(NSUInteger bytes, NSInteger totalBytes, NSInteger totalBytesExpected);
+typedef void (^AFURLConnectionOperationProgressBlock)(NSUInteger bytes, long long totalBytes, long long totalBytesExpected);
 typedef void (^AFURLConnectionOperationAuthenticationChallengeBlock)(NSURLConnection *connection, NSURLAuthenticationChallenge *challenge);
 typedef NSCachedURLResponse * (^AFURLConnectionOperationCacheResponseBlock)(NSURLConnection *connection, NSCachedURLResponse *cachedResponse);
 typedef NSURLRequest * (^AFURLConnectionOperationRedirectResponseBlock)(NSURLConnection *connection, NSURLRequest *request, NSURLResponse *redirectResponse);
@@ -121,8 +121,20 @@ static inline BOOL AFStateTransitionIsValid(AFOperationState fromState, AFOperat
             return NO;
         case AFOperationPausedState:
             return toState == AFOperationReadyState;
-        default:
-            return YES;
+        default: {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunreachable-code"
+            switch (toState) {
+                case AFOperationPausedState:
+                case AFOperationReadyState:
+                case AFOperationExecutingState:
+                case AFOperationFinishedState:
+                    return YES;
+                default:
+                    return NO;
+            }
+        }
+#pragma clang diagnostic pop
     }
 }
 
@@ -136,7 +148,7 @@ static inline BOOL AFStateTransitionIsValid(AFOperationState fromState, AFOperat
 @property (readwrite, nonatomic, strong) NSData *responseData;
 @property (readwrite, nonatomic, copy) NSString *responseString;
 @property (readwrite, nonatomic, assign) NSStringEncoding responseStringEncoding;
-@property (readwrite, nonatomic, assign) NSInteger totalBytesRead;
+@property (readwrite, nonatomic, assign) long long totalBytesRead;
 @property (readwrite, nonatomic, assign) AFBackgroundTaskIdentifier backgroundTaskIdentifier;
 @property (readwrite, nonatomic, copy) AFURLConnectionOperationProgressBlock uploadProgress;
 @property (readwrite, nonatomic, copy) AFURLConnectionOperationProgressBlock downloadProgress;
@@ -180,7 +192,9 @@ static inline BOOL AFStateTransitionIsValid(AFOperationState fromState, AFOperat
     if (!self) {
 		return nil;
     }
-    
+
+    _state = AFOperationReadyState;
+
     self.lock = [[NSRecursiveLock alloc] init];
     self.lock.name = kAFNetworkingLockName;
     
@@ -189,8 +203,6 @@ static inline BOOL AFStateTransitionIsValid(AFOperationState fromState, AFOperat
     self.request = urlRequest;
     
     self.shouldUseCredentialStorage = YES;
-
-    self.state = AFOperationReadyState;
 
     self.securityPolicy = [AFSecurityPolicy defaultPolicy];
 
@@ -296,11 +308,11 @@ static inline BOOL AFStateTransitionIsValid(AFOperationState fromState, AFOperat
 }
 #endif
 
-- (void)setUploadProgressBlock:(void (^)(NSUInteger bytesWritten, NSInteger totalBytesWritten, NSInteger totalBytesExpectedToWrite))block {
+- (void)setUploadProgressBlock:(void (^)(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite))block {
     self.uploadProgress = block;
 }
 
-- (void)setDownloadProgressBlock:(void (^)(NSUInteger bytesRead, NSInteger totalBytesRead, NSInteger totalBytesExpectedToRead))block {
+- (void)setDownloadProgressBlock:(void (^)(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead))block {
     self.downloadProgress = block;
 }
 
@@ -649,34 +661,36 @@ didReceiveResponse:(NSURLResponse *)response
     }
 
     dispatch_async(dispatch_get_main_queue(), ^{
-        self.totalBytesRead += (NSInteger)length;
+        self.totalBytesRead += (long long)length;
 
         if (self.downloadProgress) {
-            self.downloadProgress(length, self.totalBytesRead, (NSInteger)self.response.expectedContentLength);
+            self.downloadProgress(length, self.totalBytesRead, self.response.expectedContentLength);
         }
     });
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection __unused *)connection {
     self.responseData = [self.outputStream propertyForKey:NSStreamDataWrittenToMemoryStreamKey];
-    
+
     [self.outputStream close];
-    
-    [self finish];
-    
+    self.outputStream = nil;
+
     self.connection = nil;
+
+    [self finish];
 }
 
 - (void)connection:(NSURLConnection __unused *)connection
   didFailWithError:(NSError *)error
 {
     self.error = error;
-    
+
     [self.outputStream close];
-    
-    [self finish];
-    
+    self.outputStream = nil;
+
     self.connection = nil;
+
+    [self finish];
 }
 
 - (NSCachedURLResponse *)connection:(NSURLConnection *)connection
@@ -707,7 +721,7 @@ didReceiveResponse:(NSURLResponse *)response
     self.response = [decoder decodeObjectForKey:NSStringFromSelector(@selector(response))];
     self.error = [decoder decodeObjectForKey:NSStringFromSelector(@selector(error))];
     self.responseData = [decoder decodeObjectForKey:NSStringFromSelector(@selector(responseData))];
-    self.totalBytesRead = [decoder decodeIntegerForKey:NSStringFromSelector(@selector(totalBytesRead))];
+    self.totalBytesRead = [decoder decodeInt64ForKey:NSStringFromSelector(@selector(totalBytesRead))];
 
     return self;
 }
