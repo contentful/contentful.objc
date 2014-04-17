@@ -139,4 +139,15 @@
  */
 -(void)saveDataStore;
 
+/**
+ *  This method will be called internally each time new values for an Entry are available, including
+ *  during its initial creation. You can override it in your subclass to implement any custom behaviour,
+ *  for example resolving relationships between Resources. Usually, you want to call super in the
+ *  process to get updates for primitive values for free.
+ *
+ *  @param persistedEntry The persisted Entry to be updated by this method.
+ *  @param entry          The Entry which contains the values used for the update operation.
+ */
+-(void)updatePersistedEntry:(id<CDAPersistedEntry>)persistedEntry withEntry:(CDAEntry*)entry;
+
 @end
