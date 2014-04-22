@@ -49,6 +49,24 @@
 
 #pragma mark -
 
+-(BOOL)fetchContentTypesForJSONResponse:(id)JSONObject error:(NSError**)error {
+    NSArray* contentTypeIds = [self unknownContentTypesInResult:JSONObject];
+    
+    if (contentTypeIds.count > 0) {
+        CDAArray* contentTypes = [self.client fetchContentTypesMatching:@{@"sys.id[in]": contentTypeIds,
+                                                                          @"limit": @(contentTypeIds.count)}
+                                                 synchronouslyWithError:error];
+        
+        if (!contentTypes) {
+            return NO;
+        }
+        
+        NSAssert(contentTypeIds.count == contentTypes.items.count, @"Missing Content Types.");
+    }
+    
+    return YES;
+}
+
 -(id)initWithClient:(CDAClient*)client {
     self = [super init];
     if (self) {
@@ -75,15 +93,8 @@
         return nil;
     }
     
-    NSArray* contentTypeIds = [self unknownContentTypesInResult:JSONObject];
-    if (contentTypeIds.count > 0) {
-        CDAArray* contentTypes = [self.client fetchContentTypesMatching:@{@"sys.id[in]": contentTypeIds} synchronouslyWithError:error];
-        
-        if (!contentTypes) {
-            return nil;
-        }
-        
-        NSAssert(contentTypeIds.count == contentTypes.items.count, @"Missing Content Types.");
+    if (![self fetchContentTypesForJSONResponse:JSONObject error:error]) {
+        return nil;
     }
     
     self.client.synchronizing = JSONObject[@"nextPageUrl"] || JSONObject[@"nextSyncUrl"];
