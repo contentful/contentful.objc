@@ -274,7 +274,8 @@
     NSArray* unresolvedEntryIds = [unresolvedEntries valueForKey:@"identifier"];
     
     if (unresolvedAssetIds.count > 0) {
-        [self.client fetchAssetsMatching:@{ @"sys.id[in]": unresolvedAssetIds }
+        [self.client fetchAssetsMatching:@{ @"sys.id[in]": unresolvedAssetIds,
+                                            @"limit": @(unresolvedAssetIds.count) }
                                  success:^(CDAResponse *response, CDAArray *array) {
                                      [self resolveLinksInEntries:entriesInQuery
                                                      usingAssets:array.items
@@ -311,7 +312,8 @@
         
         success();
     } else {
-        [self.client fetchEntriesMatching:@{ @"sys.id[in]": unresolvedEntryIds }
+        [self.client fetchEntriesMatching:@{ @"sys.id[in]": unresolvedEntryIds,
+                                             @"limit": @(unresolvedEntryIds.count) }
                                   success:^(CDAResponse *response, CDAArray *array) {
                                       NSMutableDictionary* entriesMap = [@{} mutableCopy];
                                       for (CDAEntry* entry in array.items) {
