@@ -267,7 +267,10 @@
     for (NSDictionary* fields in self.localizedFields.allValues) {
         for (id field in fields.allValues) {
             if ([field respondsToSelector:@selector(setClient:)]) {
-                [(CDAResource*)field setClient:self.client];
+                CDAResource* resource = (CDAResource*)field;
+                if (!resource.client) {
+                    resource.client = self.client;
+                }
             }
         }
     }
