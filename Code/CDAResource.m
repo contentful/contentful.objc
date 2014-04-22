@@ -145,6 +145,11 @@
                 systemProperties[key] = value;
             }
             
+            if ([key isEqualToString:@"publishedCounter"]) {
+                NSAssert([value isKindOfClass:[NSNumber class]], @"publishedCounter needs to be a number");
+                systemProperties[@"revision"] = value;
+            }
+            
             if ([@[ @"createdAt", @"updatedAt" ] containsObject:key]) {
                 NSDate* date = [dateFormatter dateFromString:value];
                 NSAssert(date, @"createdAt, updatedAt needs to be a valid date");

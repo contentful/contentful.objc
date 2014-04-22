@@ -69,4 +69,31 @@
     WaitUntilBlockCompletes();
 }
 
+- (void)testRevisionFieldAccessible {
+    StartBlock();
+    
+    [[CDAClient new] fetchEntryWithIdentifier:@"nyancat" success:^(CDAResponse *response,
+                                                                   CDAEntry *entry) {
+        NSNumber* revision = entry.sys[@"revision"];
+        
+        [self.client fetchEntryWithIdentifier:@"nyancat"
+                                      success:^(CDAResponse *response, CDAEntry *entry) {
+                                          XCTAssertNotNil(entry.sys[@"revision"], @"");
+                                          XCTAssertEqualObjects(revision, entry.sys[@"revision"], @"");
+                                          
+                                          EndBlock();
+                                      } failure:^(CDAResponse *response, NSError *error) {
+                                          XCTFail(@"Error: %@", error);
+                                          
+                                          EndBlock();
+                                      }];
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTFail(@"Error: %@", error);
+        
+        EndBlock();
+    }];
+    
+    WaitUntilBlockCompletes();
+}
+
 @end
