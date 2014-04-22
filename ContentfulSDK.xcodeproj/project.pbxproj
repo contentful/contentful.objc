@@ -192,6 +192,7 @@
 		A1E9797C18CC683200E79632 /* CDAFieldValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E9797A18CC683200E79632 /* CDAFieldValueTransformer.m */; };
 		A1F70C9B18FFDE030080C72C /* CoreDataBasicTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A1F70C9A18FFDE030080C72C /* CoreDataBasicTests.json */; };
 		A1F70C9D1900140D0080C72C /* CDAAsset+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A1F70C9C19000FD90080C72C /* CDAAsset+Private.h */; };
+		A1FAC312190654E30093B308 /* DeepIncludes.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FAC311190654E30093B308 /* DeepIncludes.m */; };
 		E35C60E4B1FA40CFA996169C /* libPods-Browser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C931C0393B35446B949B5C8D /* libPods-Browser.a */; };
 		E3B94D5BA6FD4DB492704B8D /* libPods-Catalog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EFFE921E0BC44C43A834B48F /* libPods-Catalog.a */; };
 		FC3167DB92C647308B645190 /* libPods-CoreDataExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8280E31FEBF4BC1A8723DEB /* libPods-CoreDataExample.a */; };
@@ -428,6 +429,7 @@
 		A1E9797A18CC683200E79632 /* CDAFieldValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAFieldValueTransformer.m; sourceTree = "<group>"; };
 		A1F70C9A18FFDE030080C72C /* CoreDataBasicTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CoreDataBasicTests.json; sourceTree = "<group>"; };
 		A1F70C9C19000FD90080C72C /* CDAAsset+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CDAAsset+Private.h"; sourceTree = "<group>"; };
+		A1FAC311190654E30093B308 /* DeepIncludes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeepIncludes.m; sourceTree = "<group>"; };
 		A45B6755413841BF9C6157A1 /* libPods-CDA Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CDA Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5F05D7CCB0546F68881CD63 /* Pods-CoreDataExample.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDataExample.xcconfig"; path = "Pods/Pods-CoreDataExample.xcconfig"; sourceTree = "<group>"; };
 		B8280E31FEBF4BC1A8723DEB /* libPods-CoreDataExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CoreDataExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -836,6 +838,7 @@
 		A1B815C618F582090027B26D /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				A1FAC311190654E30093B308 /* DeepIncludes.m */,
 				A173F60418DB412C000E6F92 /* PreviewModeTests.json */,
 				A173F60218DB3E1E000E6F92 /* PreviewModeTests.m */,
 			);
@@ -1551,6 +1554,7 @@
 				A170130C18FD31320086BE07 /* CoreDataManager.m in Sources */,
 				A1D1D35F18C8ABB800261A1C /* DocumentationTests.m in Sources */,
 				A18AA85918E48B4200D430D5 /* AssetTests.m in Sources */,
+				A1FAC312190654E30093B308 /* DeepIncludes.m in Sources */,
 				A170130418FC25640086BE07 /* PreviewModeSyncTests.m in Sources */,
 				A1A0314F18C756B7006470B7 /* SearchAPITests.m in Sources */,
 				A1B815D818F830C00027B26D /* ComplexLinkSyncTests.m in Sources */,
