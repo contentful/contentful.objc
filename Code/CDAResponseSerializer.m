@@ -116,6 +116,10 @@
         }
     }
     
+    for (CDAEntry* entry in entries.allValues) {
+        [entry resolveLinksWithIncludedAssets:assets entries:entries];
+    }
+    
     [resource resolveLinksWithIncludedAssets:assets entries:entries];
     
     return resource;
