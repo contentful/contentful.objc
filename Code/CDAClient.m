@@ -103,6 +103,12 @@
                              failure:failure];
 }
 
+-(CDAArray *)fetchAssetsMatching:(NSDictionary *)query synchronouslyWithError:(NSError **)error {
+    return [self.requestOperationManager fetchArraySynchronouslyAtURLPath:@"assets"
+                                                               parameters:query
+                                                                    error:error];
+}
+
 -(CDARequest*)fetchAssetsWithSuccess:(CDAArrayFetchedBlock)success
                              failure:(CDARequestFailureBlock)failure {
     return [self fetchArrayAtURLPath:@"assets" success:success failure:failure];
@@ -165,6 +171,12 @@
                            success:(CDAArrayFetchedBlock)success
                            failure:(CDARequestFailureBlock)failure {
     return [self fetchArrayAtURLPath:@"entries" parameters:query success:success failure:failure];
+}
+
+-(CDAArray *)fetchEntriesMatching:(NSDictionary *)query synchronouslyWithError:(NSError **)error {
+    return [self.requestOperationManager fetchArraySynchronouslyAtURLPath:@"entries"
+                                                               parameters:query
+                                                                    error:error];
 }
 
 -(CDARequest*)fetchEntriesWithSuccess:(CDAArrayFetchedBlock)success

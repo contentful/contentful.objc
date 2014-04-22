@@ -22,7 +22,9 @@
                        parameters:(NSDictionary *)parameters
                           success:(CDAArrayFetchedBlock)success
                           failure:(CDARequestFailureBlock)failure;
+-(CDAArray*)fetchAssetsMatching:(NSDictionary*)query synchronouslyWithError:(NSError**)error;
 -(CDAArray*)fetchContentTypesMatching:(NSDictionary*)query synchronouslyWithError:(NSError**)error;
+-(CDAArray*)fetchEntriesMatching:(NSDictionary*)query synchronouslyWithError:(NSError**)error;
 -(CDASpace*)space;
 
 @end
