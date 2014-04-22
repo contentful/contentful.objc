@@ -358,6 +358,7 @@
     if (self) {
         self.configuration = configuration;
         self.contentTypeRegistry = [CDAContentTypeRegistry new];
+        self.deepResolving = YES;
         self.requestOperationManager = [[CDARequestOperationManager alloc] initWithSpaceKey:spaceKey accessToken:accessToken client:self configuration:configuration];
     }
     return self;
