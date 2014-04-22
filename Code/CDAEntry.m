@@ -98,6 +98,10 @@
         NSDictionary* fields = dictionary[@"fields"];
         NSMutableDictionary* localizedFields = [@{} mutableCopy];
         
+        if (!fields) {
+            return self;
+        }
+        
         if (self.localizationAvailable) {
             NSDictionary* defaultDictionary = [self localizedDictionaryFromDictionary:fields forLocale:self.defaultLocaleOfSpace];
             localizedFields[self.defaultLocaleOfSpace] = defaultDictionary;
