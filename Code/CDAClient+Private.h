@@ -13,6 +13,7 @@
 
 @interface CDAClient ()
 
+@property (nonatomic) BOOL deepResolving;
 @property (nonatomic, readonly) NSString* protocol;
 @property (nonatomic) BOOL synchronizing;
 

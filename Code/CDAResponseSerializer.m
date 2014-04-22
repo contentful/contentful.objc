@@ -13,7 +13,7 @@
 #import "CDAAsset.h"
 #import "CDAClient+Private.h"
 #import "CDAContentTypeRegistry.h"
-#import "CDAEntry.h"
+#import "CDAEntry+Private.h"
 #import "CDAResource+Private.h"
 #import "CDAResponseSerializer.h"
 
@@ -116,6 +116,9 @@
     CDAResource* resource = [CDAResource resourceObjectForDictionary:JSONObject client:self.client];
     
     if ([resource isKindOfClass:[CDAArray class]]) {
+        NSMutableArray* assetsToFetch = [@[] mutableCopy];
+        NSMutableArray* entriesToFetch = [@[] mutableCopy];
+        
         for (CDAResource* subResource in [(CDAArray*)resource items]) {
             if ([subResource isKindOfClass:[CDAAsset class]]) {
                 assets[subResource.identifier] = subResource;
@@ -123,7 +126,45 @@
             
             if ([subResource isKindOfClass:[CDAEntry class]]) {
                 entries[subResource.identifier] = subResource;
+                
+                if (self.client.configuration.previewMode) {
+                    CDAEntry* entry = (CDAEntry*)subResource;
+                    [assetsToFetch addObjectsFromArray:[entry findUnresolvedAssets]];
+                    [entriesToFetch addObjectsFromArray:[entry findUnresolvedEntries]];
+                }
             }
+        }
+        
+        if (self.client.configuration.previewMode && self.client.deepResolving) {
+            self.client.deepResolving = NO;
+            
+            for (int i = 0; i < 10; i++) {
+                NSArray* unresolvedAssetIds = [assetsToFetch valueForKey:@"identifier"];
+                CDAArray* items = [self.client fetchAssetsMatching:@{ @"sys.id[in]": unresolvedAssetIds,
+                                                                      @"limit": @(unresolvedAssetIds.count) }
+                                            synchronouslyWithError:nil];
+                
+                for (CDAAsset* asset in items.items) {
+                    assets[asset.identifier] = asset;
+                }
+                
+                NSArray* unresolvedEntryIds = [entriesToFetch valueForKey:@"identifier"];
+                items = [self.client fetchEntriesMatching:@{ @"sys.id[in]": unresolvedEntryIds,
+                                                             @"limit": @(unresolvedEntryIds.count) }
+                                   synchronouslyWithError:nil];
+                
+                [assetsToFetch removeAllObjects];
+                [entriesToFetch removeAllObjects];
+                
+                for (CDAEntry* entry in items.items) {
+                    entries[entry.identifier] = entry;
+                    
+                    [assetsToFetch addObjectsFromArray:[entry findUnresolvedAssets]];
+                    [entriesToFetch addObjectsFromArray:[entry findUnresolvedEntries]];
+                }
+            }
+            
+            self.client.deepResolving = YES;
         }
     }
     
