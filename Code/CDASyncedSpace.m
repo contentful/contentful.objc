@@ -7,6 +7,7 @@
 //
 
 #import <ContentfulDeliveryAPI/ContentfulDeliveryAPI.h>
+#import <HRCoder/HRCoder.h>
 
 #import "CDAArray+Private.h"
 #import "CDAClient+Private.h"
@@ -34,9 +35,7 @@
     
     if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
         NSData *data = [NSData dataWithContentsOfFile:filePath];
-        NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
-        item = [[[self class] alloc] initWithCoder:unarchiver];
-        [unarchiver finishDecoding];
+        item = [HRCoder unarchiveObjectWithData:data];
     }
     
     item.client = client;
@@ -368,10 +367,7 @@
 }
 
 -(void)writeToFile:(NSString*)filePath {
-    NSMutableData *data = [NSMutableData data];
-    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
-    [self encodeWithCoder:archiver];
-    [archiver finishEncoding];
+    NSData* data = [HRCoder archivedDataWithRootObject:self];
     [data writeToFile:filePath atomically:YES];
 }
 
