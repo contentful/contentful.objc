@@ -10,8 +10,6 @@
 #import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 #endif
 
-#import <ISO8601DateFormatter/ISO8601DateFormatter.h>
-
 #import <objc/runtime.h>
 
 #import "CDAArray+Private.h"
@@ -27,7 +25,7 @@
 @interface CDARequestOperationManager ()
 
 @property (nonatomic) NSString* accessToken;
-@property (nonatomic) ISO8601DateFormatter* dateFormatter;
+@property (nonatomic) NSDateFormatter* dateFormatter;
 
 @end
 
@@ -176,8 +174,12 @@
     self = [super initWithBaseURL:baseURL];
     if (self) {
         self.accessToken = accessToken;
-        self.dateFormatter = [ISO8601DateFormatter new];
         self.responseSerializer = [[CDAResponseSerializer alloc] initWithClient:client];
+        
+        self.dateFormatter = [NSDateFormatter new];
+        NSLocale *posixLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+        [self.dateFormatter setLocale:posixLocale];
+        [self.dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
         
         NSString* userAgent = self.requestSerializer.HTTPRequestHeaders[@"User-Agent"];
         userAgent = [userAgent stringByReplacingOccurrencesOfString:@"(null)" withString:@""];
