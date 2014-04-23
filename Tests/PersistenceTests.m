@@ -160,8 +160,6 @@
 
 }
 
-// FIXME: This test fails because of the nyancat -> happycat -> nyancat -> ... recursive relationship
-#if 0
 -(void)testPersistEntry {
     StartBlock();
     
@@ -177,6 +175,13 @@
         XCTAssertEqualObjects(@"nyancat", readEntry.sys[@"id"], @"");
         XCTAssertEqualObjects(@"Nyan Cat", readEntry.fields[@"name"], @"");
         
+        CDAEntry* shouldBeNyanCatAgain = [readEntry.fields[@"bestFriend"] fields][@"bestFriend"];
+        XCTAssertNotNil(shouldBeNyanCatAgain, @"");
+        XCTAssertEqualObjects(readEntry, shouldBeNyanCatAgain, @"");
+        XCTAssertEqual(readEntry.fetched, shouldBeNyanCatAgain.fetched, @"");
+        XCTAssertEqualObjects(readEntry.identifier, shouldBeNyanCatAgain.identifier, @"");
+        XCTAssertEqualObjects(readEntry.fields[@"name"], shouldBeNyanCatAgain.fields[@"name"], @"");
+        
         EndBlock();
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
@@ -186,7 +191,6 @@
     
     WaitUntilBlockCompletes();
 }
-#endif
 
 -(void)testPersistSpace {
     StartBlock();
