@@ -12,6 +12,7 @@
 #import <ContentfulDeliveryAPI/CDAContentType.h>
 #import <ContentfulDeliveryAPI/CDAResource.h>
 #import <ContentfulDeliveryAPI/CDASpace.h>
+#import <HRCoder/HRCoder.h>
 #import <ISO8601DateFormatter/ISO8601DateFormatter.h>
 
 #import "CDAClient+Private.h"
@@ -39,10 +40,7 @@
     CDAResource* item = nil;
     
     if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
-        NSData *data = [NSData dataWithContentsOfFile:filePath];
-        NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
-        item = [[[self class] alloc] initWithCoder:unarchiver];
-        [unarchiver finishDecoding];
+        item = [HRCoder unarchiveObjectWithData:[NSData dataWithContentsOfFile:filePath]];
     }
     
     item.client = client;
@@ -248,10 +246,7 @@
 }
 
 -(void)writeToFile:(NSString*)filePath {
-    NSMutableData *data = [NSMutableData data];
-    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
-    [self encodeWithCoder:archiver];
-    [archiver finishEncoding];
+    NSData* data = [HRCoder archivedDataWithRootObject:self];
     [data writeToFile:filePath atomically:YES];
 }
 
