@@ -73,6 +73,8 @@
         
         self.client = [self mockContentTypeRetrievalForClient:[self buildClient]];
         space = [CDASyncedSpace readFromFile:self.temporaryFileURL.path client:self.client];
+        XCTAssertEqual(1U, space.assets.count, @"");
+        XCTAssertEqual(1U, space.entries.count, @"");
         
         [space performSynchronizationWithSuccess:^{
             XCTAssertEqual(1U, space.assets.count, @"");
