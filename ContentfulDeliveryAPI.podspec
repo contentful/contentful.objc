@@ -25,5 +25,6 @@ Pod::Spec.new do |s|
   s.osx.public_header_files  = 'Code/{CDAArray,CDAAsset,CDAClient,CDAConfiguration,CDAContentType,CDAEntry,CDAField,CDARequest,CDAResource,CDAResponse,CDASpace,CDASyncedSpace,ContentfulDeliveryAPI,CDAPersistenceManager,CDAPersistedAsset,CDAPersistedEntry,CDAPersistedSpace}.h'
 
   s.dependency 'AFNetworking'
+  s.dependency 'HRCoder'
   s.dependency 'ISO8601DateFormatter'
 end

@@ -21,8 +21,10 @@ PODS:
   - Bypass (1.0.1)
   - ContentfulDeliveryAPI (0.8.0):
     - AFNetworking
+    - HRCoder
     - ISO8601DateFormatter
   - FBSnapshotTestCase (1.1)
+  - HRCoder (1.3.1)
   - ISO8601DateFormatter (0.7)
   - OCMock (2.2.4)
   - OHHTTPStubs (3.1.0)
@@ -34,6 +36,7 @@ DEPENDENCIES:
   - Bypass
   - ContentfulDeliveryAPI (from `.`)
   - FBSnapshotTestCase
+  - HRCoder
   - ISO8601DateFormatter
   - OCMock
   - OHHTTPStubs
@@ -47,8 +50,9 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: dd8c1868e57451e3d17ebd3516f2a8c16f9646fe
   Bypass: efb9619af979aab0b1a0f3bce650790ce189c5f4
-  ContentfulDeliveryAPI: 10b16e120cb3232dfd16beb9fdcc2a7449c10044
+  ContentfulDeliveryAPI: 799010ff203471991e858283271a34a19a86a08d
   FBSnapshotTestCase: 188c80bfcb72e744eb0b99d45989d12687c40cf8
+  HRCoder: 2d5508f15de324e93c974f4e33274499848e13f1
   ISO8601DateFormatter: 00944e437ea647f4244454ce8809d313861d08de
   OCMock: 5008fae4b4789b8fc3e48cd7660f2eb5ef8ce89e
   OHHTTPStubs: d67c42c0212f0883ddb8592375aa0dc00dc50a36
