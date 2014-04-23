@@ -44,6 +44,9 @@
  synchronizations. You will receive all Assets and Entries during the initial synchronization, just as
  in normal mode, including the unpublished Resources. Any subsequent synchronization will return 
  successful immediately, not reporting any changes.
+ 
+ In preview mode, the `include` parameter of a query is not used at all, instead includes will always
+ be resolved for full ten levels. Because of this, preview mode will be slower than normal.
  */
 @property (nonatomic) BOOL previewMode;
 
