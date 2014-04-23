@@ -87,6 +87,8 @@ Search for *SystemConfiguration* and add the framework to your project.
 
 ![](Screenshots/SearchForFramework.png)
 
+Repeat that with *MobileCoreServices*, as that framework is also required to be in your project.
+
 ## Unit Tests
 
 The Contentful Delivery API is fully unit tested.

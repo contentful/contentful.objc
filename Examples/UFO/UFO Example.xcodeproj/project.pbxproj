@@ -17,6 +17,7 @@
 		A1E3D04418C876FC00E4F488 /* UFOSighting.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E3D04118C876FC00E4F488 /* UFOSighting.m */; };
 		A1E3D05718C87B6200E4F488 /* ContentfulDeliveryAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E3D05618C87B6200E4F488 /* ContentfulDeliveryAPI.framework */; };
 		A1E3D05D18C8804E00E4F488 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E3D05C18C8804E00E4F488 /* SystemConfiguration.framework */; };
+		A1FAC353190803470093B308 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FAC352190803470093B308 /* MobileCoreServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		A1E3D04118C876FC00E4F488 /* UFOSighting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UFOSighting.m; sourceTree = SOURCE_ROOT; };
 		A1E3D05618C87B6200E4F488 /* ContentfulDeliveryAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ContentfulDeliveryAPI.framework; path = Distribution/ContentfulDeliveryAPI.framework; sourceTree = "<group>"; };
 		A1E3D05C18C8804E00E4F488 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A1FAC352190803470093B308 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1FAC353190803470093B308 /* MobileCoreServices.framework in Frameworks */,
 				A1E3D05D18C8804E00E4F488 /* SystemConfiguration.framework in Frameworks */,
 				A1E3D00A18C875C900E4F488 /* CoreGraphics.framework in Frameworks */,
 				A1E3D00C18C875C900E4F488 /* UIKit.framework in Frameworks */,
@@ -79,6 +82,7 @@
 				A1E3D05618C87B6200E4F488 /* ContentfulDeliveryAPI.framework */,
 				A1E3D00918C875C900E4F488 /* CoreGraphics.framework */,
 				A1E3D00718C875C900E4F488 /* Foundation.framework */,
+				A1FAC352190803470093B308 /* MobileCoreServices.framework */,
 				A1E3D05C18C8804E00E4F488 /* SystemConfiguration.framework */,
 				A1E3D00B18C875C900E4F488 /* UIKit.framework */,
 			);
