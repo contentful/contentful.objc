@@ -40,7 +40,7 @@ const CGFloat CDAImageQualityOriginal = 0.0;
         fileContent = @{ client.space.defaultLocale ?: @"en-US": fileContent };
     }
     
-    return [[self alloc] initWithDictionary:@{ @"sys": @{ @"identifier": persistedAsset.identifier },
+    return [[self alloc] initWithDictionary:@{ @"sys": @{ @"id": persistedAsset.identifier },
                                                @"fields": @{ @"file": fileContent } }
                                      client:client];
 }
