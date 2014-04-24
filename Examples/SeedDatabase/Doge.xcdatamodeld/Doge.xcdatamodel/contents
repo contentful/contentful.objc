@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13C1021" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Asset" representedClassName="Asset" syncable="YES">
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mimeType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="document" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Document" inverseName="document" inverseEntity="Document" syncable="YES"/>
+        <relationship name="thumbnailOf" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Document" inverseName="thumbnail" inverseEntity="Document" syncable="YES"/>
+    </entity>
+    <entity name="Document" representedClassName="Document" syncable="YES">
+        <attribute name="abstract" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="document" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Asset" inverseName="document" inverseEntity="Asset" syncable="YES"/>
+        <relationship name="thumbnail" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Asset" inverseName="thumbnailOf" inverseEntity="Asset" syncable="YES"/>
+    </entity>
+    <entity name="SyncInfo" representedClassName="SyncInfo" syncable="YES">
+        <attribute name="lastSyncTimestamp" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="syncToken" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Asset" positionX="-63" positionY="-18" width="128" height="118"/>
+        <element name="SyncInfo" positionX="-54" positionY="18" width="128" height="75"/>
+        <element name="Document" positionX="-36" positionY="36" width="128" height="118"/>
+    </elements>
+</model>
