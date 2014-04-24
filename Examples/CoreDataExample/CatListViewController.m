@@ -45,6 +45,15 @@
     return _fetchedResultsController;
 }
 
+- (id)init {
+    self = [super init];
+    if (self) {
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refresh)];
+        self.title = NSLocalizedString(@"Cats", nil);
+    }
+    return self;
+}
+
 - (CoreDataManager *)manager {
     if (_manager) {
         return _manager;
@@ -63,6 +72,16 @@
                                     @"fields.name": @"name",
                                     @"fields.image": @"picture" };
     return _manager;
+}
+
+- (void)refresh {
+    [self.manager performSynchronizationWithSuccess:^{
+        NSLog(@"Synchronization finished.");
+    } failure:^(CDAResponse *response, NSError *error) {
+        // Replace this implementation with code to handle the error appropriately.
+        NSLog(@"Error while loading content: %@, %@", error, [error userInfo]);
+        abort();
+    }];
 }
 
 - (void)viewDidLoad {
