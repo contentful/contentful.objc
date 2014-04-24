@@ -168,6 +168,7 @@
             }
         }];
         
+        self.defaultLocaleOfSpace = @"en-US";
         self.sys = systemProperties;
         self.lastFetchedDate = self.isLink ? nil : [NSDate date];
     }
