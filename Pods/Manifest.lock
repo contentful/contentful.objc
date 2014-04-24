@@ -1,21 +1,21 @@
 PODS:
-  - AFNetworking (2.2.2):
+  - AFNetworking (2.2.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
     - AFNetworking/UIKit
-  - AFNetworking/NSURLConnection (2.2.2):
+  - AFNetworking/NSURLConnection (2.2.3):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.2.2):
+  - AFNetworking/NSURLSession (2.2.3):
     - AFNetworking/NSURLConnection
-  - AFNetworking/Reachability (2.2.2)
-  - AFNetworking/Security (2.2.2)
-  - AFNetworking/Serialization (2.2.2)
-  - AFNetworking/UIKit (2.2.2):
+  - AFNetworking/Reachability (2.2.3)
+  - AFNetworking/Security (2.2.3)
+  - AFNetworking/Serialization (2.2.3)
+  - AFNetworking/UIKit (2.2.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - Bypass (1.0.1)
@@ -48,7 +48,7 @@ EXTERNAL SOURCES:
     :path: .
 
 SPEC CHECKSUMS:
-  AFNetworking: dd8c1868e57451e3d17ebd3516f2a8c16f9646fe
+  AFNetworking: ae513199cca79e9d7af2708ccabe2ed075550c42
   Bypass: efb9619af979aab0b1a0f3bce650790ce189c5f4
   ContentfulDeliveryAPI: 799010ff203471991e858283271a34a19a86a08d
   FBSnapshotTestCase: 188c80bfcb72e744eb0b99d45989d12687c40cf8
