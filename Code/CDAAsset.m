@@ -28,7 +28,21 @@ const CGFloat CDAImageQualityOriginal = 0.0;
 #pragma mark -
 
 +(instancetype)assetFromPersistedAsset:(id<CDAPersistedAsset>)persistedAsset client:(CDAClient*)client {
-    return [[self alloc] initWithDictionary:@{} client:client];
+    NSParameterAssert(persistedAsset);
+    NSParameterAssert(persistedAsset.identifier);
+    NSParameterAssert(persistedAsset.mimeType);
+    NSParameterAssert(persistedAsset.url);
+    
+    NSDictionary* fileContent = @{ @"contentType": persistedAsset.mimeType,
+                                   @"url": persistedAsset.url };
+    
+    if (client.localizationAvailable) {
+        fileContent = @{ client.space.defaultLocale ?: @"en-US": fileContent };
+    }
+    
+    return [[self alloc] initWithDictionary:@{ @"sys": @{ @"identifier": persistedAsset.identifier },
+                                               @"fields": @{ @"file": fileContent } }
+                                     client:client];
 }
 
 +(NSString *)CDAType {

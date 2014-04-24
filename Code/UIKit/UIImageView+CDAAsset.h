@@ -74,11 +74,13 @@
  *  the `placeholderImage` is displayed.
  *
  *  @param asset            An Asset pointing to an image.
+ *  @param client           The client object to use for requests to Contentful.
  *  @param size             The desired size of the image. It will be resized by the server.
  *  @param placeholderImage An alternative image which will be displayed until `asset` is loaded.
  *  @exception NSIllegalArgumentException If the Asset is pointing to an image.
  */
 -(void)cda_setImageWithPersistedAsset:(id<CDAPersistedAsset>)asset
+                               client:(CDAClient*)client
                                  size:(CGSize)size
                      placeholderImage:(UIImage *)placeholderImage;
 

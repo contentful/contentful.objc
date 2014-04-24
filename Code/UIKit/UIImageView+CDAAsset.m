@@ -98,9 +98,10 @@ static const char* CDAOfflineCachingKey = "CDAOfflineCachingKey";
 }
 
 -(void)cda_setImageWithPersistedAsset:(id<CDAPersistedAsset>)asset
+                               client:(CDAClient*)client
                                  size:(CGSize)size
                      placeholderImage:(UIImage *)placeholderImage {
-    [self cda_setImageWithAsset:[CDAAsset assetFromPersistedAsset:asset client:nil]
+    [self cda_setImageWithAsset:[CDAAsset assetFromPersistedAsset:asset client:client]
                            size:size
                placeholderImage:placeholderImage];
 }
