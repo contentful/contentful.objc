@@ -55,6 +55,20 @@
  */
 -(NSArray*)fetchEntriesMatchingPredicate:(NSString*)predicate;
 
+/**
+ *  Fetch request for all Entries matching a predicate.
+ *
+ *  @param predicate A string which will be converted to a `NSPredicate`.
+ *
+ *  @return A fetch request for all Entries matching the given predicate.
+ */
+-(NSFetchRequest*)fetchRequestForEntriesMatchingPredicate:(NSString*)predicate;
+
+/** @name Managed Object Context */
+
+/** The default managed object context of the receiver. */
+@property (nonatomic, readonly) NSManagedObjectContext *managedObjectContext;
+
 /** @name Testing Support */
 
 /** 

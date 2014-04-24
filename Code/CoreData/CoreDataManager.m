@@ -103,20 +103,9 @@
                   matchingPredicate:(NSString*)predicateString
                               error:(NSError**)error
 {
-    NSFetchRequest *request = [NSFetchRequest new];
-    
-    NSManagedObjectContext *moc = [self managedObjectContext];
-    NSEntityDescription *entityDescription = [NSEntityDescription
-                                              entityForName:NSStringFromClass(class)
-                                              inManagedObjectContext:moc];
-    [request setEntity:entityDescription];
-    
-    if (predicateString) {
-        NSPredicate* predicate = [NSPredicate predicateWithFormat:predicateString];
-        [request setPredicate:predicate];
-    }
-    
-    return [moc executeFetchRequest:request error:error];
+    NSFetchRequest *request = [self fetchRequestForEntititiesOfClass:class
+                                                   matchingPredicate:predicateString];
+    return [self.managedObjectContext executeFetchRequest:request error:error];
 }
 
 - (NSArray *)fetchEntriesFromDataStore
@@ -142,6 +131,32 @@
 {
     NSString* predicate = [NSString stringWithFormat:@"identifier == '%@'", identifier];
     return [[self fetchEntriesMatchingPredicate:predicate] firstObject];
+}
+
+- (NSFetchRequest *)fetchRequestForEntititiesOfClass:(Class)class
+                                   matchingPredicate:(NSString*)predicateString
+{
+    NSParameterAssert(class);
+    
+    NSFetchRequest *request = [NSFetchRequest new];
+    
+    NSManagedObjectContext *moc = [self managedObjectContext];
+    NSEntityDescription *entityDescription = [NSEntityDescription
+                                              entityForName:NSStringFromClass(class)
+                                              inManagedObjectContext:moc];
+    [request setEntity:entityDescription];
+    
+    if (predicateString) {
+        NSPredicate* predicate = [NSPredicate predicateWithFormat:predicateString];
+        [request setPredicate:predicate];
+    }
+    
+    return request;
+}
+
+- (NSFetchRequest *)fetchRequestForEntriesMatchingPredicate:(NSString *)predicate
+{
+    return [self fetchRequestForEntititiesOfClass:self.classForEntries matchingPredicate:predicate];
 }
 
 - (id<CDAPersistedSpace>)fetchSpaceFromDataStore
