@@ -35,6 +35,29 @@ Results are returned as object of classes `CDAEntry`, `CDAAsset`, `CDAContentTyp
 This repository contains multiple examples, demonstrating the use in common real world
 scenarios and also showing the different ways you can integrate the SDK into your own project.
 
+### Using Custom Entry Classes
+
+You might want to subclass `CDAEntry` to store additional data alongside Entries or to decouple the rest of your app from the Contentful SDK's API. For this purpose, it is possible to register your own custom classes for specific Content Types, like this:
+
+    [client registerClass:[MYSuperCoolClass class] forContentTypeWithIdentifier:@"MyContentType"];
+
+Each time, the receiver needs to create a new Entry object of the given Content Type, it will create instances of `MYSuperCoolClass`. Make sure that the class inherits from `CDAEntry` or this mechanism will break at runtime.
+
+### Offline Support
+
+Mobile devices will not always have a data connection, so it makes sense to cache data received from Contentful for offline use. The SDK brings two mechanisms which can help with that:
+
+- All Resource classes support `NSCoding` and bring convenience methods for storing and loading from flat files:
+
+    [someEntry writeToFile:@"/some/path"];
+    CDAEntry* readEntry = [CDAEntry readFromFile:@"/some/path" client:client];
+
+The helper methods use [HRCoder][11] internally, to account for the possibility of circular links between Entries. Most of the UIKit extensions have an `offlineCaching` property which transparently uses this mechanism for showing content when offline.
+
+- If you rather use another solution, there is the abstract `CDAPersistenceManager` class with a [sample implementation](https://github.com/contentful/contentful.objc/blob/master/Code/CoreData/CoreDataManager.m) for Core Data. It supports mapping Resources to another method for managing your object graph easily and ties this to the Contentful synchronization API. Check out the Core Data example app for integrating it yourself.
+
+In both cases, you can use the `offlineCaching_cda` property of the SDK's `UIImageView` category to make any image view transparently cache its contents in a flat file on disk. This will only cache images that the user has viewed once while the app was online.
+
 ### Preview Mode
 
 The Content Delivery API only returns published Entries. However, you might want to preview content in your app before making it public for your users. For this, you can use the preview mode, which will return **all** Entries, regardless of their published status:
@@ -47,6 +70,10 @@ The Content Delivery API only returns published Entries. However, you might want
                                               configuration:configuration];
 
 Apart from the configuration option, you can use the SDK without modifications with one exception: you need to obtain a different access token from [here][10].  In preview mode, data can be invalid, because no validation is performed on unpublished entries. Your app needs to deal with that. Be aware that the access token is read-write and should in no case be shipped with a production app.
+
+### UIKit Extensions
+
+The SDK contains some extensions of UIKit classes for common use cases. You can see a lot of them in action in the examples or read [this blog post][12] with details on some of them.
 
 ## Documentation
 
@@ -117,3 +144,4 @@ Copyright (c) 2014 Contentful GmbH. See LICENSE for further details.
 [9]: http://static.contentful.com/downloads/iOS/UFO.zip
 [10]: https://www.contentful.com/developers/documentation/content-management-api/#getting-started
 [11]: https://github.com/nicklockwood/HRCoder
+[12]: https://www.contentful.com/blog/2014/04/04/Contentful-iOS-SDK/
