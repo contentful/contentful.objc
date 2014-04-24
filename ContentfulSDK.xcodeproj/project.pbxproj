@@ -151,6 +151,11 @@
 		A1A0315918C76D38006470B7 /* CDAAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A0315818C76D38006470B7 /* CDAAsset.m */; };
 		A1A2CE48190963BA00B8D46D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD86A18C631E60081677E /* Foundation.framework */; };
 		A1A2CE4B190963BA00B8D46D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A2CE4A190963BA00B8D46D /* main.m */; };
+		A1A2CE53190967CA00B8D46D /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A17012ED18FBDFDA0086BE07 /* CoreDataManager.m */; };
+		A1A2CE591909687400B8D46D /* Doge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A1A2CE571909687400B8D46D /* Doge.xcdatamodeld */; };
+		A1A2CE5D190969D300B8D46D /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A2CE5C190969D300B8D46D /* Document.m */; };
+		A1A2CE6419096A1600B8D46D /* Asset.m in Sources */ = {isa = PBXBuildFile; fileRef = A17012FA18FC21260086BE07 /* Asset.m */; };
+		A1A2CE6519096A1B00B8D46D /* SyncInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A17012FD18FC21260086BE07 /* SyncInfo.m */; };
 		A1B8158418F2A8090027B26D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD86A18C631E60081677E /* Foundation.framework */; };
 		A1B8158518F2A8090027B26D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD89918C637400081677E /* CoreGraphics.framework */; };
 		A1B8158618F2A8090027B26D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD87B18C631E60081677E /* UIKit.framework */; };
@@ -408,6 +413,9 @@
 		A1A2CE47190963BA00B8D46D /* ContentfulSeedDatabase */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ContentfulSeedDatabase; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1A2CE4A190963BA00B8D46D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A1A2CE4D190963BA00B8D46D /* ContentfulSeedDatabase-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ContentfulSeedDatabase-Prefix.pch"; sourceTree = "<group>"; };
+		A1A2CE581909687400B8D46D /* Doge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Doge.xcdatamodel; sourceTree = "<group>"; };
+		A1A2CE5B190969D300B8D46D /* Document.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Document.h; sourceTree = "<group>"; };
+		A1A2CE5C190969D300B8D46D /* Document.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Document.m; sourceTree = "<group>"; };
 		A1B8158318F2A8090027B26D /* CoreDataExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B8158718F2A8090027B26D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		A1B8158B18F2A8090027B26D /* CoreDataExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CoreDataExample-Info.plist"; sourceTree = "<group>"; };
@@ -792,9 +800,12 @@
 		A1A2CE421909603D00B8D46D /* Seed Database */ = {
 			isa = PBXGroup;
 			children = (
+				A1A2CE5A190969AF00B8D46D /* Managed Objects */,
 				A1A2CE49190963BA00B8D46D /* OS X commandline tool */,
+				A1A2CE571909687400B8D46D /* Doge.xcdatamodeld */,
 			);
 			name = "Seed Database";
+			path = SeedDatabase;
 			sourceTree = "<group>";
 		};
 		A1A2CE49190963BA00B8D46D /* OS X commandline tool */ = {
@@ -804,7 +815,16 @@
 				A1A2CE4D190963BA00B8D46D /* ContentfulSeedDatabase-Prefix.pch */,
 			);
 			name = "OS X commandline tool";
-			path = SeedDatabase/CommandlineTool;
+			path = CommandlineTool;
+			sourceTree = "<group>";
+		};
+		A1A2CE5A190969AF00B8D46D /* Managed Objects */ = {
+			isa = PBXGroup;
+			children = (
+				A1A2CE5B190969D300B8D46D /* Document.h */,
+				A1A2CE5C190969D300B8D46D /* Document.m */,
+			);
+			name = "Managed Objects";
 			sourceTree = "<group>";
 		};
 		A1B8158918F2A8090027B26D /* CoreDataExample */ = {
@@ -1690,6 +1710,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1A2CE6519096A1B00B8D46D /* SyncInfo.m in Sources */,
+				A1A2CE5D190969D300B8D46D /* Document.m in Sources */,
+				A1A2CE591909687400B8D46D /* Doge.xcdatamodeld in Sources */,
+				A1A2CE6419096A1600B8D46D /* Asset.m in Sources */,
+				A1A2CE53190967CA00B8D46D /* CoreDataManager.m in Sources */,
 				A1A2CE4B190963BA00B8D46D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2491,6 +2516,16 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
+		A1A2CE571909687400B8D46D /* Doge.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A1A2CE581909687400B8D46D /* Doge.xcdatamodel */,
+			);
+			currentVersion = A1A2CE581909687400B8D46D /* Doge.xcdatamodel */;
+			path = Doge.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		A1B8159518F2A8090027B26D /* CoreDataExample.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
