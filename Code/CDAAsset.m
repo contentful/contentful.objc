@@ -165,7 +165,12 @@ const CGFloat CDAImageQualityOriginal = 0.0;
     if (!url) {
         return nil;
     }
-    return [NSURL URLWithString:[NSString stringWithFormat:@"%@:%@", self.client.protocol, url]];
+    
+    if ([url rangeOfString:@"://"].location == NSNotFound) {
+        url = [NSString stringWithFormat:@"%@:%@", self.client.protocol, url];
+    }
+    
+    return [NSURL URLWithString:url];
 }
 
 @end
