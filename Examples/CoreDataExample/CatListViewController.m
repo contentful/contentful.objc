@@ -74,6 +74,22 @@
     return _manager;
 }
 
+- (void)performFetch {
+    NSError *error;
+    if (![[self fetchedResultsController] performFetch:&error]) {
+        /*
+         Replace this implementation with code to handle the error appropriately.
+         
+         abort() causes the application to generate a crash log and terminate. You should not use
+         this function in a shipping application, although it may be useful during development.
+         */
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+    
+    [self.tableView reloadData];
+}
+
 - (void)refresh {
     [self.manager performSynchronizationWithSuccess:^{
         NSLog(@"Synchronization finished.");
@@ -91,23 +107,10 @@
            forCellReuseIdentifier:NSStringFromClass([self class])];
     
     [self.manager performSynchronizationWithSuccess:^{
-        NSError *error;
-        if (![[self fetchedResultsController] performFetch:&error]) {
-            /*
-             Replace this implementation with code to handle the error appropriately.
-             
-             abort() causes the application to generate a crash log and terminate. You should not use
-             this function in a shipping application, although it may be useful during development.
-             */
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-            abort();
-        }
-        
-        [self.tableView reloadData];
+        [self performFetch];
     } failure:^(CDAResponse *response, NSError *error) {
-        // Replace this implementation with code to handle the error appropriately.
-        NSLog(@"Error while loading content: %@, %@", error, [error userInfo]);
-        abort();
+        // For brevity's sake, we do not check the cause of the error, but a real app should.
+        [self performFetch];
     }];
 }
 
