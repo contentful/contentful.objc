@@ -150,4 +150,9 @@
  */
 -(void)updatePersistedEntry:(id<CDAPersistedEntry>)persistedEntry withEntry:(CDAEntry*)entry;
 
+/** @name Interact with Contentful */
+
+/** The client object used for all API requests to Contentful. */
+@property (nonatomic, readonly) CDAClient* client;
+
 @end
