@@ -364,6 +364,10 @@
     return self;
 }
 
+-(BOOL)localizationAvailable {
+    return self.configuration.previewMode || self.synchronizing;
+}
+
 -(NSString *)protocol {
     return self.configuration.secure ? @"https" : @"http";
 }

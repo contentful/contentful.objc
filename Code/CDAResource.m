@@ -191,7 +191,7 @@
 }
 
 -(BOOL)localizationAvailable {
-    return self.client.configuration.previewMode || self.client.synchronizing;
+    return self.client.localizationAvailable;
 }
 
 -(NSDictionary*)localizedDictionaryFromDictionary:(NSDictionary*)dictionary forLocale:(NSString*)locale {
