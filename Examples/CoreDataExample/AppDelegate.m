@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "CatListViewController.h"
 
 @implementation AppDelegate
 
@@ -14,7 +15,8 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = [UINavigationController new];
+    self.window.rootViewController = [[UINavigationController alloc]
+                                      initWithRootViewController:[CatListViewController new]];
     [self.window makeKeyAndVisible];
     return YES;
 }
