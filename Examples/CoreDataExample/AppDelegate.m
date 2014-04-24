@@ -21,11 +21,4 @@
     return YES;
 }
 
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-    // TODO: Save context here?
-}
-
-
-
 @end
