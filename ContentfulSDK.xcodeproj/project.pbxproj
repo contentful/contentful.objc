@@ -25,6 +25,7 @@
 		010E803A0FFC41DFBB71E26C /* libPods-ContentfulDeliveryAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 156E10B7438D48D69C9CBD05 /* libPods-ContentfulDeliveryAPI.a */; };
 		4ACF0FA226AA4230ABD3F939 /* libPods-CDA Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A45B6755413841BF9C6157A1 /* libPods-CDA Tests.a */; };
 		7831960E0E0E4914B8E3441C /* libPods-UFO Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C0CBBA8A43044059BA56429 /* libPods-UFO Example.a */; };
+		A10A11FE19090F5D00EFF083 /* CatDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A10A11FD19090F5D00EFF083 /* CatDetailViewController.m */; };
 		A12797A618E1A45700043A44 /* SyncTests in Resources */ = {isa = PBXBuildFile; fileRef = A12797A518E1A45700043A44 /* SyncTests */; };
 		A12797AB18E1B08F00043A44 /* SyncTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A12797AA18E1B08F00043A44 /* SyncTests.m */; };
 		A12797AE18E1B10300043A44 /* CDASyncedSpace.h in Headers */ = {isa = PBXBuildFile; fileRef = A12797AC18E1B10300043A44 /* CDASyncedSpace.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -236,6 +237,8 @@
 		4D80285CF848406AB5A046E3 /* Pods-CDA Tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CDA Tests.xcconfig"; path = "Pods/Pods-CDA Tests.xcconfig"; sourceTree = "<group>"; };
 		6C0CBBA8A43044059BA56429 /* libPods-UFO Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UFO Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		90200B3A436647AB8348744F /* Pods-Browser.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Browser.xcconfig"; path = "Pods/Pods-Browser.xcconfig"; sourceTree = "<group>"; };
+		A10A11FC19090F5D00EFF083 /* CatDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatDetailViewController.h; sourceTree = "<group>"; };
+		A10A11FD19090F5D00EFF083 /* CatDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatDetailViewController.m; sourceTree = "<group>"; };
 		A12797A518E1A45700043A44 /* SyncTests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SyncTests; sourceTree = "<group>"; };
 		A12797AA18E1B08F00043A44 /* SyncTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncTests.m; sourceTree = "<group>"; };
 		A12797AC18E1B10300043A44 /* CDASyncedSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDASyncedSpace.h; sourceTree = "<group>"; };
@@ -762,6 +765,8 @@
 				A170130218FC212E0086BE07 /* Managed Objects */,
 				A1B8159218F2A8090027B26D /* AppDelegate.h */,
 				A1B8159318F2A8090027B26D /* AppDelegate.m */,
+				A10A11FC19090F5D00EFF083 /* CatDetailViewController.h */,
+				A10A11FD19090F5D00EFF083 /* CatDetailViewController.m */,
 				A1FAC3561908FDB40093B308 /* CatListViewController.h */,
 				A1FAC3571908FDB40093B308 /* CatListViewController.m */,
 				A17012EC18FBDFDA0086BE07 /* CoreDataManager.h */,
@@ -1593,6 +1598,7 @@
 				A1B8159018F2A8090027B26D /* main.m in Sources */,
 				A17012EE18FBDFDA0086BE07 /* CoreDataManager.m in Sources */,
 				A1FAC3581908FDB40093B308 /* CatListViewController.m in Sources */,
+				A10A11FE19090F5D00EFF083 /* CatDetailViewController.m in Sources */,
 				A17012FE18FC21260086BE07 /* SyncInfo.m in Sources */,
 				A1B8159718F2A8090027B26D /* CoreDataExample.xcdatamodeld in Sources */,
 			);

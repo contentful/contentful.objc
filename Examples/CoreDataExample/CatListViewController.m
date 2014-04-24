@@ -7,6 +7,7 @@
 //
 
 #import "Asset.h"
+#import "CatDetailViewController.h"
 #import "CatListViewController.h"
 #import "CoreDataManager.h"
 #import "ManagedCat.h"
@@ -117,6 +118,15 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([self class])];
     [self configureCell:cell atIndexPath:indexPath];
     return cell;
+}
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    ManagedCat* cat = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    CatDetailViewController* details = [[CatDetailViewController alloc] initWithCat:cat];
+    details.client = self.manager.client;
+    [self.navigationController pushViewController:details animated:YES];
 }
 
 #pragma mark - NSFetchedResultsControllerDelegate
