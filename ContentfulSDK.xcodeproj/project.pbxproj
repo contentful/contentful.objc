@@ -24,6 +24,7 @@
 /* Begin PBXBuildFile section */
 		010E803A0FFC41DFBB71E26C /* libPods-ContentfulDeliveryAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 156E10B7438D48D69C9CBD05 /* libPods-ContentfulDeliveryAPI.a */; };
 		4ACF0FA226AA4230ABD3F939 /* libPods-CDA Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A45B6755413841BF9C6157A1 /* libPods-CDA Tests.a */; };
+		69542C72475B4BE9B13D2B9D /* libPods-ContentfulSeedDatabase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A95F13622EB14F0E953B6A82 /* libPods-ContentfulSeedDatabase.a */; };
 		7831960E0E0E4914B8E3441C /* libPods-UFO Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C0CBBA8A43044059BA56429 /* libPods-UFO Example.a */; };
 		A10A11FE19090F5D00EFF083 /* CatDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A10A11FD19090F5D00EFF083 /* CatDetailViewController.m */; };
 		A12797A618E1A45700043A44 /* SyncTests in Resources */ = {isa = PBXBuildFile; fileRef = A12797A518E1A45700043A44 /* SyncTests */; };
@@ -148,6 +149,8 @@
 		A1A0314F18C756B7006470B7 /* SearchAPITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A0314E18C756B7006470B7 /* SearchAPITests.m */; };
 		A1A0315618C7683E006470B7 /* CDAError.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A0315418C76839006470B7 /* CDAError.m */; };
 		A1A0315918C76D38006470B7 /* CDAAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A0315818C76D38006470B7 /* CDAAsset.m */; };
+		A1A2CE48190963BA00B8D46D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD86A18C631E60081677E /* Foundation.framework */; };
+		A1A2CE4B190963BA00B8D46D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A2CE4A190963BA00B8D46D /* main.m */; };
 		A1B8158418F2A8090027B26D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD86A18C631E60081677E /* Foundation.framework */; };
 		A1B8158518F2A8090027B26D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD89918C637400081677E /* CoreGraphics.framework */; };
 		A1B8158618F2A8090027B26D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD87B18C631E60081677E /* UIKit.framework */; };
@@ -228,6 +231,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A1A2CE45190963BA00B8D46D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -236,6 +248,7 @@
 		156E10B7438D48D69C9CBD05 /* libPods-ContentfulDeliveryAPI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ContentfulDeliveryAPI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D80285CF848406AB5A046E3 /* Pods-CDA Tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CDA Tests.xcconfig"; path = "Pods/Pods-CDA Tests.xcconfig"; sourceTree = "<group>"; };
 		6C0CBBA8A43044059BA56429 /* libPods-UFO Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UFO Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A92A053FD2D491C8F0F0C5F /* Pods-ContentfulSeedDatabase.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContentfulSeedDatabase.xcconfig"; path = "Pods/Pods-ContentfulSeedDatabase.xcconfig"; sourceTree = "<group>"; };
 		90200B3A436647AB8348744F /* Pods-Browser.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Browser.xcconfig"; path = "Pods/Pods-Browser.xcconfig"; sourceTree = "<group>"; };
 		A10A11FC19090F5D00EFF083 /* CatDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatDetailViewController.h; sourceTree = "<group>"; };
 		A10A11FD19090F5D00EFF083 /* CatDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatDetailViewController.m; sourceTree = "<group>"; };
@@ -392,6 +405,9 @@
 		A1A0315418C76839006470B7 /* CDAError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAError.m; sourceTree = "<group>"; };
 		A1A0315718C76D38006470B7 /* CDAAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAAsset.h; sourceTree = "<group>"; };
 		A1A0315818C76D38006470B7 /* CDAAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAAsset.m; sourceTree = "<group>"; };
+		A1A2CE47190963BA00B8D46D /* ContentfulSeedDatabase */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ContentfulSeedDatabase; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1A2CE4A190963BA00B8D46D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A1A2CE4D190963BA00B8D46D /* ContentfulSeedDatabase-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ContentfulSeedDatabase-Prefix.pch"; sourceTree = "<group>"; };
 		A1B8158318F2A8090027B26D /* CoreDataExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B8158718F2A8090027B26D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		A1B8158B18F2A8090027B26D /* CoreDataExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CoreDataExample-Info.plist"; sourceTree = "<group>"; };
@@ -437,6 +453,7 @@
 		A1FAC3561908FDB40093B308 /* CatListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatListViewController.h; sourceTree = "<group>"; };
 		A1FAC3571908FDB40093B308 /* CatListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatListViewController.m; sourceTree = "<group>"; };
 		A45B6755413841BF9C6157A1 /* libPods-CDA Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CDA Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A95F13622EB14F0E953B6A82 /* libPods-ContentfulSeedDatabase.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ContentfulSeedDatabase.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5F05D7CCB0546F68881CD63 /* Pods-CoreDataExample.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDataExample.xcconfig"; path = "Pods/Pods-CoreDataExample.xcconfig"; sourceTree = "<group>"; };
 		B8280E31FEBF4BC1A8723DEB /* libPods-CoreDataExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CoreDataExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C931C0393B35446B949B5C8D /* libPods-Browser.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Browser.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -497,6 +514,15 @@
 				A19FD89B18C637400081677E /* UIKit.framework in Frameworks */,
 				A19FD89818C637400081677E /* Foundation.framework in Frameworks */,
 				7831960E0E0E4914B8E3441C /* libPods-UFO Example.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1A2CE44190963BA00B8D46D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1A2CE48190963BA00B8D46D /* Foundation.framework in Frameworks */,
+				69542C72475B4BE9B13D2B9D /* libPods-ContentfulSeedDatabase.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -641,6 +667,7 @@
 				0B495CE794E74562AF135B03 /* Pods-Catalog.xcconfig */,
 				4D80285CF848406AB5A046E3 /* Pods-CDA Tests.xcconfig */,
 				F12433681A394D509E9437F6 /* Pods-ContentfulDeliveryAPI.xcconfig */,
+				8A92A053FD2D491C8F0F0C5F /* Pods-ContentfulSeedDatabase.xcconfig */,
 				B5F05D7CCB0546F68881CD63 /* Pods-CoreDataExample.xcconfig */,
 				0ED294D677CF44BC8A18AFAF /* Pods-UFO Example.xcconfig */,
 			);
@@ -655,6 +682,7 @@
 				A173F50B18D31151000E6F92 /* Browser.app */,
 				A173F55818D705B2000E6F92 /* Catalog.app */,
 				A1B8158318F2A8090027B26D /* CoreDataExample.app */,
+				A1A2CE47190963BA00B8D46D /* ContentfulSeedDatabase */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -671,9 +699,10 @@
 				EFFE921E0BC44C43A834B48F /* libPods-Catalog.a */,
 				A45B6755413841BF9C6157A1 /* libPods-CDA Tests.a */,
 				156E10B7438D48D69C9CBD05 /* libPods-ContentfulDeliveryAPI.a */,
+				A95F13622EB14F0E953B6A82 /* libPods-ContentfulSeedDatabase.a */,
+				B8280E31FEBF4BC1A8723DEB /* libPods-CoreDataExample.a */,
 				6C0CBBA8A43044059BA56429 /* libPods-UFO Example.a */,
 				A1B8158718F2A8090027B26D /* CoreData.framework */,
-				B8280E31FEBF4BC1A8723DEB /* libPods-CoreDataExample.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -741,6 +770,7 @@
 				A173F50F18D31151000E6F92 /* Browser */,
 				A173F55C18D705B2000E6F92 /* Catalog */,
 				A1B8158918F2A8090027B26D /* CoreDataExample */,
+				A1A2CE421909603D00B8D46D /* Seed Database */,
 				A19FD89C18C637400081677E /* UFO */,
 			);
 			path = Examples;
@@ -757,6 +787,24 @@
 				A1A0312E18C641B6006470B7 /* UFOSighting.m */,
 			);
 			name = Code;
+			sourceTree = "<group>";
+		};
+		A1A2CE421909603D00B8D46D /* Seed Database */ = {
+			isa = PBXGroup;
+			children = (
+				A1A2CE49190963BA00B8D46D /* OS X commandline tool */,
+			);
+			name = "Seed Database";
+			sourceTree = "<group>";
+		};
+		A1A2CE49190963BA00B8D46D /* OS X commandline tool */ = {
+			isa = PBXGroup;
+			children = (
+				A1A2CE4A190963BA00B8D46D /* main.m */,
+				A1A2CE4D190963BA00B8D46D /* ContentfulSeedDatabase-Prefix.pch */,
+			);
+			name = "OS X commandline tool";
+			path = SeedDatabase/CommandlineTool;
 			sourceTree = "<group>";
 		};
 		A1B8158918F2A8090027B26D /* CoreDataExample */ = {
@@ -1134,6 +1182,25 @@
 			productReference = A19FD89718C637400081677E /* UFO Example.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A1A2CE46190963BA00B8D46D /* ContentfulSeedDatabase */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1A2CE52190963BA00B8D46D /* Build configuration list for PBXNativeTarget "ContentfulSeedDatabase" */;
+			buildPhases = (
+				CA2E297EAEE74FED970D090B /* Check Pods Manifest.lock */,
+				A1A2CE43190963BA00B8D46D /* Sources */,
+				A1A2CE44190963BA00B8D46D /* Frameworks */,
+				A1A2CE45190963BA00B8D46D /* CopyFiles */,
+				126ED62465F34CD8902B4FF7 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ContentfulSeedDatabase;
+			productName = ContentfulSeedDatabase;
+			productReference = A1A2CE47190963BA00B8D46D /* ContentfulSeedDatabase */;
+			productType = "com.apple.product-type.tool";
+		};
 		A1B8158218F2A8090027B26D /* CoreDataExample */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A1B815B118F2A80A0027B26D /* Build configuration list for PBXNativeTarget "CoreDataExample" */;
@@ -1182,6 +1249,7 @@
 				A173F55718D705B2000E6F92 /* Catalog */,
 				A19FD87618C631E60081677E /* CDA Tests */,
 				A19FD86618C631E60081677E /* ContentfulDeliveryAPI */,
+				A1A2CE46190963BA00B8D46D /* ContentfulSeedDatabase */,
 				A1B8158218F2A8090027B26D /* CoreDataExample */,
 				A1E3CFF418C8663100E4F488 /* Static Framework */,
 				A19FD89618C637400081677E /* UFO Example */,
@@ -1260,6 +1328,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-CoreDataExample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		126ED62465F34CD8902B4FF7 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-ContentfulSeedDatabase-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		2A82248B80B943CD8F427E85 /* Copy Pods Resources */ = {
@@ -1439,6 +1522,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Pods-UFO Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		CA2E297EAEE74FED970D090B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		D6922A17AAA64F8EACCE6C68 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1585,6 +1683,14 @@
 				A19FD8A318C637400081677E /* main.m in Sources */,
 				A19FD8A718C637400081677E /* UFOAppDelegate.m in Sources */,
 				A1A0314C18C67D40006470B7 /* UFOSighting.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1A2CE43190963BA00B8D46D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1A2CE4B190963BA00B8D46D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1925,7 +2031,7 @@
 			baseConfigurationReference = 4D80285CF848406AB5A046E3 /* Pods-CDA Tests.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/UFO Example.app/UFO Example";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Browser.app/Browser";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -1975,7 +2081,7 @@
 			baseConfigurationReference = 4D80285CF848406AB5A046E3 /* Pods-CDA Tests.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/UFO Example.app/UFO Example";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Browser.app/Browser";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -2105,6 +2211,84 @@
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		A1A2CE50190963BA00B8D46D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A92A053FD2D491C8F0F0C5F /* Pods-ContentfulSeedDatabase.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Examples/SeedDatabase/CommandlineTool/ContentfulSeedDatabase-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		A1A2CE51190963BA00B8D46D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A92A053FD2D491C8F0F0C5F /* Pods-ContentfulSeedDatabase.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Examples/SeedDatabase/CommandlineTool/ContentfulSeedDatabase-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
@@ -2273,6 +2457,15 @@
 			buildConfigurations = (
 				A19FD8BD18C637400081677E /* Debug */,
 				A19FD8BE18C637400081677E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1A2CE52190963BA00B8D46D /* Build configuration list for PBXNativeTarget "ContentfulSeedDatabase" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1A2CE50190963BA00B8D46D /* Debug */,
+				A1A2CE51190963BA00B8D46D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

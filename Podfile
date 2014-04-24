@@ -31,6 +31,14 @@ pod 'PDKTCollectionViewWaterfallLayout'
 
 end
 
+target "ContentfulSeedDatabase", :exclusive => true do
+
+platform :osx, "10.8"
+
+pod 'ContentfulDeliveryAPI', :path => '.'
+
+end
+
 target "CoreDataExample", :exclusive => true do
 
 pod 'ContentfulDeliveryAPI', :path => '.'
