@@ -9,14 +9,15 @@
 #import "Asset.h"
 #import "CatDetailViewController.h"
 #import "CatListViewController.h"
+#import "CoreDataFetchDataSource.h"
 #import "CoreDataManager.h"
 #import "ManagedCat.h"
 #import "SyncInfo.h"
 
 @interface CatListViewController () <NSFetchedResultsControllerDelegate>
 
-@property (nonatomic) NSFetchedResultsController* fetchedResultsController;
-@property (nonatomic) CoreDataManager* manager;
+@property (nonatomic, readonly) CoreDataFetchDataSource* dataSource;
+@property (nonatomic, readonly) CoreDataManager* manager;
 
 @end
 
@@ -24,9 +25,14 @@
 
 @implementation CatListViewController
 
-- (NSFetchedResultsController *)fetchedResultsController {
-    if (_fetchedResultsController) {
-        return _fetchedResultsController;
+@synthesize dataSource = _dataSource;
+@synthesize manager = _manager;
+
+#pragma mark -
+
+- (CoreDataFetchDataSource *)dataSource {
+    if (_dataSource) {
+        return _dataSource;
     }
     
     NSFetchRequest* fetchRequest = [self.manager fetchRequestForEntriesMatchingPredicate:@"contentTypeIdentifier == 'cat'"];
@@ -36,13 +42,22 @@
     NSArray *sortDescriptors = @[nameDescriptor, colorDescriptor];
     [fetchRequest setSortDescriptors:sortDescriptors];
     
-    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
-                                                                    managedObjectContext:self.manager.managedObjectContext
-                                                                      sectionNameKeyPath:nil
-                                                                               cacheName:nil];
-    _fetchedResultsController.delegate = self;
+    NSFetchedResultsController* controller = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+                                                                                 managedObjectContext:self.manager.managedObjectContext
+                                                                                   sectionNameKeyPath:nil
+                                                                                            cacheName:nil];
     
-    return _fetchedResultsController;
+    _dataSource = [[CoreDataFetchDataSource alloc] initWithFetchedResultsController:controller
+                                                                          tableView:self.tableView
+                                                                     cellIdentifier:NSStringFromClass([self class])];
+    
+    __weak typeof(self) welf = self;
+    _dataSource.cellConfigurator = ^(UITableViewCell* cell, NSIndexPath* indexPath) {
+        ManagedCat* cat = [welf.dataSource objectAtIndexPath:indexPath];
+        cell.textLabel.text = cat.name;
+    };
+    
+    return _dataSource;
 }
 
 - (id)init {
@@ -74,22 +89,6 @@
     return _manager;
 }
 
-- (void)performFetch {
-    NSError *error;
-    if (![[self fetchedResultsController] performFetch:&error]) {
-        /*
-         Replace this implementation with code to handle the error appropriately.
-         
-         abort() causes the application to generate a crash log and terminate. You should not use
-         this function in a shipping application, although it may be useful during development.
-         */
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-    }
-    
-    [self.tableView reloadData];
-}
-
 - (void)refresh {
     [self.manager performSynchronizationWithSuccess:^{
         NSLog(@"Synchronization finished.");
@@ -103,107 +102,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.tableView.dataSource = self.dataSource;
+    
     [self.tableView registerClass:[UITableViewCell class]
            forCellReuseIdentifier:NSStringFromClass([self class])];
     
     [self.manager performSynchronizationWithSuccess:^{
-        [self performFetch];
+        [self.dataSource performFetch];
     } failure:^(CDAResponse *response, NSError *error) {
         // For brevity's sake, we do not check the cause of the error, but a real app should.
-        [self performFetch];
+        [self.dataSource performFetch];
     }];
-}
-
-- (void)viewDidUnload {
-    [super viewDidUnload];
-    
-    self.fetchedResultsController = nil;
-}
-
-#pragma mark - UITableViewDataSource
-
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    ManagedCat* cat = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = cat.name;
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [[self.fetchedResultsController sections] count];
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
-    return [sectionInfo numberOfObjects];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([self class])];
-    [self configureCell:cell atIndexPath:indexPath];
-    return cell;
 }
 
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    ManagedCat* cat = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    ManagedCat* cat = [self.dataSource objectAtIndexPath:indexPath];
     CatDetailViewController* details = [[CatDetailViewController alloc] initWithCat:cat];
     details.client = self.manager.client;
     [self.navigationController pushViewController:details animated:YES];
-}
-
-#pragma mark - NSFetchedResultsControllerDelegate
-
-- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
-    [self.tableView beginUpdates];
-}
-
-- (void)controller:(NSFetchedResultsController *)controller
-   didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath
-     forChangeType:(NSFetchedResultsChangeType)type
-      newIndexPath:(NSIndexPath *)newIndexPath {
-    switch(type) {
-            
-        case NSFetchedResultsChangeInsert:
-            [self.tableView insertRowsAtIndexPaths:@[newIndexPath]
-                                  withRowAnimation:UITableViewRowAnimationAutomatic];
-            break;
-            
-        case NSFetchedResultsChangeDelete:
-            [self.tableView deleteRowsAtIndexPaths:@[indexPath]
-                                  withRowAnimation:UITableViewRowAnimationAutomatic];
-            break;
-            
-        case NSFetchedResultsChangeUpdate:
-            [self configureCell:[self.tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
-            break;
-            
-        case NSFetchedResultsChangeMove:
-            [self.tableView deleteRowsAtIndexPaths:@[indexPath]
-                                  withRowAnimation:UITableViewRowAnimationAutomatic];
-            [self.tableView insertRowsAtIndexPaths:@[newIndexPath]
-                                  withRowAnimation:UITableViewRowAnimationAutomatic];
-            break;
-    }
-}
-
-- (void)controller:(NSFetchedResultsController *)controller
-  didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
-           atIndex:(NSUInteger)sectionIndex
-     forChangeType:(NSFetchedResultsChangeType)type {
-    switch(type) {
-            
-        case NSFetchedResultsChangeInsert:
-            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationAutomatic];
-            break;
-            
-        case NSFetchedResultsChangeDelete:
-            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationAutomatic];
-            break;
-    }
-}
-
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-    [self.tableView endUpdates];
 }
 
 @end
