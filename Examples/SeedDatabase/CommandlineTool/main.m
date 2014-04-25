@@ -9,40 +9,16 @@
 #import <Cocoa/Cocoa.h>
 #import <ContentfulDeliveryAPI/ContentfulDeliveryAPI.h>
 
-#import "Asset.h"
-#import "CoreDataManager.h"
-#import "Document.h"
-#import "SyncInfo.h"
+#import "CoreDataManager+SeedDB.h"
 
 extern NSString* CDACacheDirectory();
-
-/*
- Change this to match the Space you want to generate a seed database for. You also need to modify the
- code to use the correct data model, managed object classes and mapping for Entries.
- 
- When running the commandline tool, it will pre-populate an SQLite store with data and also fetch
- all available Assets to flat files. Those can be included in your bundle to make the app work offline
- from the start.
- */
-static NSString* const CDAAccessToken   = @"a196a5806ddd5f25700624bb11dfc94aeac9f0a5d4bd245e68cf42f78f8b2cc6";
-static NSString* const CDASpaceKey      = @"duzidfp33ikw";
+extern NSString* const CDASpaceKey;
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         NSApplicationLoad();
         
-        CDAClient* client = [[CDAClient alloc] initWithSpaceKey:CDASpaceKey accessToken:CDAAccessToken];
-        CoreDataManager* manager = [[CoreDataManager alloc] initWithClient:client dataModelName:@"Doge"];
-        
-        manager.classForAssets = [Asset class];
-        manager.classForEntries = [Document class];
-        manager.classForSpaces = [SyncInfo class];
-        
-        manager.mappingForEntries = @{ @"fields.abstract": @"abstract",
-                                       @"fields.title": @"title",
-                                       @"fields.document": @"document",
-                                       @"fields.thumbnail": @"thumbnail" };
-        
+        CoreDataManager* manager = [CoreDataManager sharedManager];
         [manager performSynchronizationWithSuccess:^{
             for (id<CDAPersistedAsset> asset in [manager fetchAssetsFromDataStore]) {
                 NSLog(@"Fetching asset from %@", asset.url);
