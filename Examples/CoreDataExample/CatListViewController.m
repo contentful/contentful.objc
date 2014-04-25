@@ -14,7 +14,7 @@
 #import "ManagedCat.h"
 #import "SyncInfo.h"
 
-@interface CatListViewController () <NSFetchedResultsControllerDelegate>
+@interface CatListViewController ()
 
 @property (nonatomic, readonly) CoreDataFetchDataSource* dataSource;
 @property (nonatomic, readonly) CoreDataManager* manager;
