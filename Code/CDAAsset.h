@@ -7,6 +7,7 @@
 //
 
 #import "CDAEntry.h"
+#import "CDAPersistedAsset.h"
 
 /** Pass this constant as image quality to not modify the quality. */
 extern const CGFloat CDAImageQualityOriginal;
@@ -90,5 +91,26 @@ typedef NS_ENUM(NSInteger, CDAImageFormat) {
 @property (nonatomic, readonly) NSString* MIMEType;
 /** Size of the asset, if it is an image. */
 @property (nonatomic, readonly) CGSize size;
+
+/** @name Accessing Cached Data */
+
+/**
+ *  Access previously cached data for an Asset.
+ *
+ *  @param asset The Asset whose cached data should be accessed.
+ *
+ *  @return Cached data or `nil` if none was found.
+ */
++(NSData*)cachedDataForAsset:(CDAAsset*)asset;
+
+/**
+ *  Access previously cached data for an Asset.
+ *
+ *  @param persistedAsset   The Asset whose cached data should be accessed.
+ *  @param client           The client to use for Contentful requests.
+ *
+ *  @return Cached data or `nil` if none was found.
+ */
++(NSData*)cachedDataForPersistedAsset:(id<CDAPersistedAsset>)persistedAsset client:(CDAClient*)client;
 
 @end
