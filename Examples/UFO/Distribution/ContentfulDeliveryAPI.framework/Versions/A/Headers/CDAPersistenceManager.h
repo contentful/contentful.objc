@@ -155,4 +155,13 @@
 /** The client object used for all API requests to Contentful. */
 @property (nonatomic, readonly) CDAClient* client;
 
+/** @name Use Initial Seed Data */
+
+/**
+ *  Copy seed data from main bundle to the appropriate places.
+ *
+ *  @param initialCacheDirectory Directory in the main bundle which contains cached Resources.
+ */
++(void)seedFromBundleWithInitialCacheDirectory:(NSString*)initialCacheDirectory;
+
 @end
