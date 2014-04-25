@@ -32,7 +32,7 @@
 #pragma mark -
 
 -(NSString *)cacheFileName {
-    return CDACacheFileNameForQuery(self.resourceType, self.query);
+    return CDACacheFileNameForQuery(self.client, self.resourceType, self.query);
 }
 
 -(void)handleCaching {
