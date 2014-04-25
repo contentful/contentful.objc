@@ -6,6 +6,7 @@
 //
 //
 
+#import <CoreData/CoreData.h>
 #import <UIKit/UIKit.h>
 
 typedef void(^CDAConfigureCellAtIndexPath)(UITableViewCell* cell, NSIndexPath* indexPath);
