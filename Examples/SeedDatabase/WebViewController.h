@@ -11,6 +11,5 @@
 @interface WebViewController : UIViewController
 
 -(void)loadData:(NSData*)data MIMEType:(NSString *)MIMEType;
--(void)loadURL:(NSURL*)URL;
 
 @end
