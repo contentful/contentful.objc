@@ -26,6 +26,32 @@
 
 @implementation CoreDataManager
 
++ (NSURL *)applicationDocumentsDirectory
+{
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory
+                                                   inDomains:NSUserDomainMask] lastObject];
+}
+
++ (void)seedFromBundleWithInitialCacheDirectory:(NSString *)initialCacheDirectory
+{
+    [super seedFromBundleWithInitialCacheDirectory:initialCacheDirectory];
+    
+    NSArray* resources = [[NSBundle mainBundle] pathsForResourcesOfType:@"sqlite" inDirectory:nil];
+    
+    for (NSString* resource in resources) {
+        NSString* target = [[self applicationDocumentsDirectory]
+                            URLByAppendingPathComponent:resource.lastPathComponent].path;
+        
+        if ([[NSFileManager defaultManager] fileExistsAtPath:target]) {
+            continue;
+        }
+        
+        [[NSFileManager defaultManager] copyItemAtPath:resource toPath:target error:nil];
+    }
+}
+
+#pragma mark -
+
 - (id<CDAPersistedAsset>)createPersistedAsset
 {
     NSParameterAssert(self.classForAssets);
@@ -304,15 +330,7 @@
 
 - (NSURL *)storeURL
 {
-    return [[self applicationDocumentsDirectory] URLByAppendingPathComponent:[self.dataModelName stringByAppendingString:@".sqlite"]];
-}
-
-#pragma mark - Application's Documents directory
-
-- (NSURL *)applicationDocumentsDirectory
-{
-    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory
-                                                   inDomains:NSUserDomainMask] lastObject];
+    return [[[self class] applicationDocumentsDirectory] URLByAppendingPathComponent:[self.dataModelName stringByAppendingString:@".sqlite"]];
 }
 
 @end
