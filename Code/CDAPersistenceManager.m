@@ -11,6 +11,7 @@
 #import <ContentfulDeliveryAPI/CDASyncedSpace.h>
 
 #import "CDAPersistenceManager.h"
+#import "CDAUtilities.h"
 
 @interface CDAPersistenceManager () <CDASyncedSpaceDelegate>
 
@@ -22,6 +23,24 @@
 #pragma mark -
 
 @implementation CDAPersistenceManager
+
++(void)seedFromBundleWithInitialCacheDirectory:(NSString*)initialCacheDirectory {
+    NSString* cacheDirectory = CDACacheDirectory();
+    
+    if ([[NSFileManager defaultManager] contentsOfDirectoryAtPath:cacheDirectory error:nil].count > 0) {
+        return;
+    }
+    
+    NSArray* resources = [[NSBundle mainBundle] pathsForResourcesOfType:@"data"
+                                                            inDirectory:initialCacheDirectory];
+    
+    for (NSString* resource in resources) {
+        NSString* target = [cacheDirectory stringByAppendingPathComponent:resource.lastPathComponent];
+        [[NSFileManager defaultManager] copyItemAtPath:resource toPath:target error:nil];
+    }
+}
+
+#pragma mark -
 
 -(id<CDAPersistedAsset>)createPersistedAsset {
     return [self.classForAssets new];
