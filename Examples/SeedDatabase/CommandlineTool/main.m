@@ -21,12 +21,16 @@ int main(int argc, const char * argv[]) {
         CoreDataManager* manager = [CoreDataManager sharedManager];
         [manager performSynchronizationWithSuccess:^{
             for (id<CDAPersistedAsset> asset in [manager fetchAssetsFromDataStore]) {
-                NSLog(@"Fetching asset from %@", asset.url);
-                NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:asset.url]];
-                
                 NSString* fileName = [NSString stringWithFormat:@"cache_%@_Asset_%@.data",
                                       CDASpaceKey, asset.identifier];
                 fileName = [CDACacheDirectory() stringByAppendingPathComponent:fileName];
+                
+                if ([[NSFileManager defaultManager] fileExistsAtPath:fileName]) {
+                    continue;
+                }
+                
+                NSLog(@"Fetching asset from %@", asset.url);
+                NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:asset.url]];
                 [data writeToFile:fileName atomically:YES];
             }
             
