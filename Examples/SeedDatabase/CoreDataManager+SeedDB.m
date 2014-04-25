@@ -30,6 +30,8 @@ NSString* const CDASpaceKey             = @"duzidfp33ikw";
     static CoreDataManager *_sharedManager = nil;
     static dispatch_once_t oncePredicate;
     dispatch_once(&oncePredicate, ^{
+        [self seedFromBundleWithInitialCacheDirectory:@"SeededAssets"];
+        
         CDAClient* client = [[CDAClient alloc] initWithSpaceKey:CDASpaceKey accessToken:CDAAccessToken];
         
         _sharedManager = [[self alloc] initWithClient:client dataModelName:@"Doge"];

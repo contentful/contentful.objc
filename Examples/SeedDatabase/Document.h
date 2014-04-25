@@ -6,16 +6,17 @@
 //
 //
 
-#import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 #import <ContentfulDeliveryAPI/CDAPersistedEntry.h>
+
+#import "Asset.h"
 
 @interface Document : NSManagedObject <CDAPersistedEntry>
 
 @property (nonatomic, retain) NSString * identifier;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSString * abstract;
-@property (nonatomic, retain) NSManagedObject *thumbnail;
-@property (nonatomic, retain) NSManagedObject *document;
+@property (nonatomic, retain) Asset *thumbnail;
+@property (nonatomic, retain) Asset *document;
 
 @end

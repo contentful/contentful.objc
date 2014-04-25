@@ -165,6 +165,14 @@
 		A1A2CE97190A597900B8D46D /* CoreDataManager+SeedDB.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A2CE95190A597900B8D46D /* CoreDataManager+SeedDB.m */; };
 		A1A2CE9A190A5D3600B8D46D /* CoreDataFetchDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A2CE99190A5D3600B8D46D /* CoreDataFetchDataSource.m */; };
 		A1A2CE9B190A5D3600B8D46D /* CoreDataFetchDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A2CE99190A5D3600B8D46D /* CoreDataFetchDataSource.m */; };
+		A1A2CE9E190A633E00B8D46D /* DocumentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A2CE9D190A633E00B8D46D /* DocumentListViewController.m */; };
+		A1A2CE9F190A64F000B8D46D /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A2CE5C190969D300B8D46D /* Document.m */; };
+		A1A2CEA0190A64F600B8D46D /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A17012ED18FBDFDA0086BE07 /* CoreDataManager.m */; };
+		A1A2CEA1190A64FD00B8D46D /* Asset.m in Sources */ = {isa = PBXBuildFile; fileRef = A17012FA18FC21260086BE07 /* Asset.m */; };
+		A1A2CEA2190A650100B8D46D /* SyncInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A17012FD18FC21260086BE07 /* SyncInfo.m */; };
+		A1A2CEA3190A656B00B8D46D /* Doge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A1A2CE571909687400B8D46D /* Doge.xcdatamodeld */; };
+		A1A2CEA6190A659600B8D46D /* DocumentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A2CEA5190A659600B8D46D /* DocumentTableViewCell.m */; };
+		A1A2CEA9190A67A100B8D46D /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A2CEA8190A67A100B8D46D /* WebViewController.m */; };
 		A1B8158418F2A8090027B26D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD86A18C631E60081677E /* Foundation.framework */; };
 		A1B8158518F2A8090027B26D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD89918C637400081677E /* CoreGraphics.framework */; };
 		A1B8158618F2A8090027B26D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD87B18C631E60081677E /* UIKit.framework */; };
@@ -225,6 +233,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = A19FD86618C631E60081677E;
 			remoteInfo = ContentfulDeliveryAPI;
+		};
+		A1A2CEAB190A844900B8D46D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A19FD85D18C6315E0081677E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A1A2CE46190963BA00B8D46D;
+			remoteInfo = ContentfulSeedDatabase;
 		};
 		A1E3CFF818C8663A00E4F488 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -437,6 +452,12 @@
 		A1A2CE95190A597900B8D46D /* CoreDataManager+SeedDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CoreDataManager+SeedDB.m"; sourceTree = "<group>"; };
 		A1A2CE98190A5D3600B8D46D /* CoreDataFetchDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataFetchDataSource.h; sourceTree = "<group>"; };
 		A1A2CE99190A5D3600B8D46D /* CoreDataFetchDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataFetchDataSource.m; sourceTree = "<group>"; };
+		A1A2CE9C190A633E00B8D46D /* DocumentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentListViewController.h; sourceTree = "<group>"; };
+		A1A2CE9D190A633E00B8D46D /* DocumentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentListViewController.m; sourceTree = "<group>"; };
+		A1A2CEA4190A659600B8D46D /* DocumentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentTableViewCell.h; sourceTree = "<group>"; };
+		A1A2CEA5190A659600B8D46D /* DocumentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentTableViewCell.m; sourceTree = "<group>"; };
+		A1A2CEA7190A67A100B8D46D /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		A1A2CEA8190A67A100B8D46D /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		A1B8158318F2A8090027B26D /* CoreDataExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B8158718F2A8090027B26D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		A1B8158B18F2A8090027B26D /* CoreDataExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CoreDataExample-Info.plist"; sourceTree = "<group>"; };
@@ -843,7 +864,13 @@
 				A1A2CE78190A547C00B8D46D /* CDAAppDelegate.m */,
 				A1A2CE94190A597900B8D46D /* CoreDataManager+SeedDB.h */,
 				A1A2CE95190A597900B8D46D /* CoreDataManager+SeedDB.m */,
+				A1A2CE9C190A633E00B8D46D /* DocumentListViewController.h */,
+				A1A2CE9D190A633E00B8D46D /* DocumentListViewController.m */,
+				A1A2CEA4190A659600B8D46D /* DocumentTableViewCell.h */,
+				A1A2CEA5190A659600B8D46D /* DocumentTableViewCell.m */,
 				A1A2CE571909687400B8D46D /* Doge.xcdatamodeld */,
+				A1A2CEA7190A67A100B8D46D /* WebViewController.h */,
+				A1A2CEA8190A67A100B8D46D /* WebViewController.m */,
 			);
 			name = "Seed Database";
 			path = SeedDatabase;
@@ -1284,10 +1311,12 @@
 				A1A2CE67190A547C00B8D46D /* Frameworks */,
 				A1A2CE68190A547C00B8D46D /* Resources */,
 				55D228C538CB4AF5B8E75882 /* Copy Pods Resources */,
+				A1A2CEAA190A831700B8D46D /* Copy Initial Seed Data */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A1A2CEAC190A844900B8D46D /* PBXTargetDependency */,
 			);
 			name = SeedDatabaseExample;
 			productName = SeedDatabaseExample;
@@ -1580,6 +1609,20 @@
 			shellPath = /bin/sh;
 			shellScript = "KEYWORDS=\"TODO:|FIXME:|\\?\\?\\?:|\\!\\!\\!:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($KEYWORDS).*\\$\" | grep -v '/Pods/' | perl -p -e \"s/($KEYWORDS)/ warning: \\$1/\"";
 		};
+		A1A2CEAA190A831700B8D46D /* Copy Initial Seed Data */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Initial Seed Data";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${BUILT_PRODUCTS_DIR}/../Debug/ContentfulSeedDatabase\n\nBUILD_APP_DIR=${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app\n\ncp $HOME/Documents/Doge.sqlite ${BUILD_APP_DIR}\n\nmkdir -p ${BUILD_APP_DIR}/SeededAssets\ncp $HOME/Library/Caches/com.contentful.sdk/cache_duzidfp33ikw_* ${BUILD_APP_DIR}/SeededAssets\n\n";
+		};
 		A1E3CFF318C8651D00E4F488 /* Prepare Framework */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1835,9 +1878,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1A2CEA2190A650100B8D46D /* SyncInfo.m in Sources */,
+				A1A2CE9F190A64F000B8D46D /* Document.m in Sources */,
+				A1A2CEA0190A64F600B8D46D /* CoreDataManager.m in Sources */,
+				A1A2CEA1190A64FD00B8D46D /* Asset.m in Sources */,
+				A1A2CEA6190A659600B8D46D /* DocumentTableViewCell.m in Sources */,
+				A1A2CEA3190A656B00B8D46D /* Doge.xcdatamodeld in Sources */,
 				A1A2CE9B190A5D3600B8D46D /* CoreDataFetchDataSource.m in Sources */,
+				A1A2CEA9190A67A100B8D46D /* WebViewController.m in Sources */,
 				A1A2CE75190A547C00B8D46D /* main.m in Sources */,
 				A1A2CE79190A547C00B8D46D /* CDAAppDelegate.m in Sources */,
+				A1A2CE9E190A633E00B8D46D /* DocumentListViewController.m in Sources */,
 				A1A2CE97190A597900B8D46D /* CoreDataManager+SeedDB.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1866,6 +1917,11 @@
 			isa = PBXTargetDependency;
 			target = A19FD86618C631E60081677E /* ContentfulDeliveryAPI */;
 			targetProxy = A19FD87D18C631E60081677E /* PBXContainerItemProxy */;
+		};
+		A1A2CEAC190A844900B8D46D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A1A2CE46190963BA00B8D46D /* ContentfulSeedDatabase */;
+			targetProxy = A1A2CEAB190A844900B8D46D /* PBXContainerItemProxy */;
 		};
 		A1E3CFF918C8663A00E4F488 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
