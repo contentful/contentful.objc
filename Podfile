@@ -45,6 +45,12 @@ pod 'ContentfulDeliveryAPI', :path => '.'
 
 end
 
+target "SeedDatabaseExample", :exclusive => true do
+
+pod 'ContentfulDeliveryAPI', :path => '.'
+
+end
+
 target "UFO Example", :exclusive => true do
 
 pod 'ContentfulDeliveryAPI', :path => '.'
