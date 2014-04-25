@@ -8,7 +8,10 @@
 
 #import <objc/runtime.h>
 
-#import "CDAResource.h"
+#import <ContentfulDeliveryAPI/CDASpace.h>
+
+#import "CDAClient+Private.h"
+#import "CDAResource+Private.h"
 #import "CDAUtilities.h"
 
 BOOL CDAIgnoreProperty(objc_property_t property);
@@ -38,17 +41,17 @@ NSString* CDACacheDirectory() {
     return cachesPath;
 }
 
-NSString* CDACacheFileNameForQuery(CDAResourceType resourceType, NSDictionary* query) {
+NSString* CDACacheFileNameForQuery(CDAClient* client, CDAResourceType resourceType, NSDictionary* query) {
     NSString* queryAsString = CDASquashWhitespacesInString([query description]);
-    NSString* fileName = [NSString stringWithFormat:@"cache_%d_%@.data",
-                          (int)resourceType, queryAsString ?: @"all"];
+    NSString* fileName = [NSString stringWithFormat:@"cache_%@_%d_%@.data",
+                          client.space.identifier, (int)resourceType, queryAsString ?: @"all"];
     
     return [CDACacheDirectory() stringByAppendingPathComponent:fileName];
 }
 
 NSString* CDACacheFileNameForResource(CDAResource* resource) {
-    NSString* fileName = [NSString stringWithFormat:@"cache_%@_%@.data",
-                          resource.sys[@"type"], resource.identifier];
+    NSString* fileName = [NSString stringWithFormat:@"cache_%@_%@_%@.data",
+                          resource.client.space.identifier, resource.sys[@"type"], resource.identifier];
     return [CDACacheDirectory() stringByAppendingPathComponent:fileName];
 }
 

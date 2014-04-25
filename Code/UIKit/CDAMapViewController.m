@@ -45,7 +45,7 @@
 @implementation CDAMapViewController
 
 -(NSString *)cacheFileName {
-    return CDACacheFileNameForQuery(CDAResourceTypeEntry, self.query);
+    return CDACacheFileNameForQuery(self.client, CDAResourceTypeEntry, self.query);
 }
 
 -(void)handleCaching {

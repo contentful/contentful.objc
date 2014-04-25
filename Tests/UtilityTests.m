@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 
+#import "AsyncTesting.h"
 #import "CDAFallbackDictionary.h"
 #import "CDAResource+Private.h"
 #import "CDAUtilities.h"
@@ -56,14 +57,42 @@
 }
 
 -(void)testCacheFileNameForQuery {
-    NSString* cacheFileName = CDACacheFileNameForQuery(CDAResourceTypeAsset, @{ @"foo": @"bar" });
-    [self assertCacheFile:cacheFileName againstSuffix:@"com.contentful.sdk/cache_0_{foo=bar;}.data"];
+    StartBlock();
+    
+    CDAClient* client = [CDAClient new];
+    [client fetchSpaceWithSuccess:^(CDAResponse *response, CDASpace *space) {
+        NSString* cacheFileName = CDACacheFileNameForQuery(client,
+                                                           CDAResourceTypeAsset, @{ @"foo": @"bar" });
+        [self assertCacheFile:cacheFileName againstSuffix:@"com.contentful.sdk/cache_cfexampleapi_0_{foo=bar;}.data"];
+        
+        EndBlock();
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTFail(@"Error: %@", error);
+        
+        EndBlock();
+    }];
+    
+    WaitUntilBlockCompletes();
 }
 
 -(void)testCacheFileNameForResource {
-    CDAResource* resource = [CDAResource resourceObjectForDictionary:@{ @"sys": @{ @"id": @"foo", @"type": @"Asset" } } client:[CDAClient new]];
-    NSString* cacheFileName = CDACacheFileNameForResource(resource);
-    [self assertCacheFile:cacheFileName againstSuffix:@"com.contentful.sdk/cache_Asset_foo.data"];
+    StartBlock();
+    
+    CDAClient* client = [CDAClient new];
+    [client fetchSpaceWithSuccess:^(CDAResponse *response, CDASpace *space) {
+        CDAResource* resource = [CDAResource resourceObjectForDictionary:@{ @"sys": @{ @"id": @"foo", @"type": @"Asset" } }
+                                                                  client:client];
+        NSString* cacheFileName = CDACacheFileNameForResource(resource);
+        [self assertCacheFile:cacheFileName againstSuffix:@"com.contentful.sdk/cache_cfexampleapi_Asset_foo.data"];
+        
+        EndBlock();
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTFail(@"Error: %@", error);
+        
+        EndBlock();
+    }];
+    
+    WaitUntilBlockCompletes();
 }
 
 -(void)testNoNetworkErrorCheck {
