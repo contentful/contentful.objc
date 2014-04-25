@@ -10,6 +10,7 @@
 #import "CDAClient+Private.h"
 #import "CDAResource+Private.h"
 #import "CDASpace+Private.h"
+#import "CDAUtilities.h"
 
 const CGFloat CDAImageQualityOriginal = 0.0;
 
@@ -40,9 +41,22 @@ const CGFloat CDAImageQualityOriginal = 0.0;
         fileContent = @{ client.space.defaultLocale ?: @"en-US": fileContent };
     }
     
-    return [[self alloc] initWithDictionary:@{ @"sys": @{ @"id": persistedAsset.identifier },
+    return [[self alloc] initWithDictionary:@{ @"sys": @{ @"id": persistedAsset.identifier,
+                                                          @"type": @"Asset" },
                                                @"fields": @{ @"file": fileContent } }
                                      client:client];
+}
+
++(NSData*)cachedDataForAsset:(CDAAsset*)asset {
+    NSString* fileName = CDACacheFileNameForResource(asset);
+    return [NSData dataWithContentsOfFile:fileName];
+}
+
++(NSData*)cachedDataForPersistedAsset:(id<CDAPersistedAsset>)persistedAsset client:(CDAClient*)client {
+    if (!persistedAsset) {
+        return nil;
+    }
+    return [self cachedDataForAsset:[self assetFromPersistedAsset:persistedAsset client:client]];
 }
 
 +(NSString *)CDAType {
