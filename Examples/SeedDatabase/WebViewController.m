@@ -10,7 +10,8 @@
 
 @interface WebViewController ()
 
-@property (nonatomic, readonly) UIWebView* webView;
+@property (nonatomic) NSData* data;
+@property (nonatomic) NSString* MIMEType;
 
 @end
 
@@ -18,37 +19,25 @@
 
 @implementation WebViewController
 
-@synthesize webView = _webView;
-
-#pragma mark -
-
 -(void)loadData:(NSData *)data MIMEType:(NSString *)MIMEType {
-    [self.webView loadData:data
-                  MIMEType:MIMEType
-          textEncodingName:nil
-                   baseURL:nil];
-}
-
--(void)loadURL:(NSURL*)URL {
-    [self.webView loadRequest:[NSURLRequest requestWithURL:URL]];
+    self.data = data;
+    self.MIMEType = MIMEType;
 }
 
 -(void)viewDidLoad {
     [super viewDidLoad];
     
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     self.view.backgroundColor = [UIColor whiteColor];
     
-    [self.view addSubview:self.webView];
-}
-
--(UIWebView *)webView {
-    if (_webView) {
-        return _webView;
-    }
+    UIWebView* webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
+    webView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [self.view addSubview:webView];
     
-    _webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
-    _webView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    return _webView;
+    [webView loadData:self.data MIMEType:self.MIMEType textEncodingName:nil baseURL:nil];
+    
+    self.data = nil;
+    self.MIMEType = nil;
 }
 
 @end
