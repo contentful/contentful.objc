@@ -5,7 +5,7 @@
         <attribute name="mimeType" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="document" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Document" inverseName="document" inverseEntity="Document" syncable="YES"/>
-        <relationship name="thumbnailOf" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Document" inverseName="thumbnail" inverseEntity="Document" syncable="YES"/>
+        <relationship name="thumbnailOf" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Document" inverseName="thumbnail" inverseEntity="Document" syncable="YES"/>
     </entity>
     <entity name="Document" representedClassName="Document" syncable="YES">
         <attribute name="abstract" optional="YES" attributeType="String" syncable="YES"/>
@@ -19,8 +19,8 @@
         <attribute name="syncToken" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Asset" positionX="-63" positionY="-18" width="128" height="118"/>
-        <element name="SyncInfo" positionX="-54" positionY="18" width="128" height="75"/>
+        <element name="Asset" positionX="-63" positionY="-18" width="128" height="120"/>
         <element name="Document" positionX="-36" positionY="36" width="128" height="118"/>
+        <element name="SyncInfo" positionX="-54" positionY="18" width="128" height="75"/>
     </elements>
 </model>
