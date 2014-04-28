@@ -6,14 +6,12 @@
 //
 //
 
-#import <XCTest/XCTest.h>
-
-#import "AsyncTesting.h"
 #import "CDAFallbackDictionary.h"
 #import "CDAResource+Private.h"
 #import "CDAUtilities.h"
+#import "ContentfulBaseTestCase.h"
 
-@interface UtilityTests : XCTestCase
+@interface UtilityTests : ContentfulBaseTestCase
 
 @end
 

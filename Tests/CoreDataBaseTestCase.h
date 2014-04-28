@@ -14,6 +14,7 @@
 @interface CoreDataBaseTestCase : SyncBaseTestCase
 
 @property (nonatomic, readonly) CoreDataManager* coreDataManager;
+@property (nonatomic) NSDictionary* query;
 
 -(void)assertNumberOfAssets:(NSUInteger)numberOfAssets numberOfEntries:(NSUInteger)numberOfEntries;
 -(void)buildCoreDataManagerWithDefaultClient:(BOOL)defaultClient;

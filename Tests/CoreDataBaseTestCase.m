@@ -32,8 +32,15 @@
 -(void)buildCoreDataManagerWithDefaultClient:(BOOL)defaultClient {
     CDAClient* client = defaultClient ? [CDAClient new] : self.client;
     
-    self.coreDataManager = [[CoreDataManager alloc] initWithClient:client
-                                                     dataModelName:@"CoreDataExample"];
+    if (self.query) {
+        self.coreDataManager = [[CoreDataManager alloc] initWithClient:client
+                                                         dataModelName:@"CoreDataExample"
+                                                                 query:self.query];
+    } else {
+        self.coreDataManager = [[CoreDataManager alloc] initWithClient:client
+                                                         dataModelName:@"CoreDataExample"];
+    }
+    
     self.coreDataManager.classForAssets = [Asset class];
     self.coreDataManager.classForEntries = [ManagedCat class];
     self.coreDataManager.classForSpaces = [SyncInfo class];
