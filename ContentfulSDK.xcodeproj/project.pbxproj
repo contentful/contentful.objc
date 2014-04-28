@@ -151,6 +151,9 @@
 		A1A0315918C76D38006470B7 /* CDAAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A0315818C76D38006470B7 /* CDAAsset.m */; };
 		A1A1CCB2190E382E00BE37EB /* CoreDataQuerySyncTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A1CCB1190E382E00BE37EB /* CoreDataQuerySyncTests.m */; };
 		A1A1CCB4190E387B00BE37EB /* CoreDataBaseTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A1CCB3190E387B00BE37EB /* CoreDataBaseTestCase.m */; };
+		A1A1CCBB190E962300BE37EB /* DeepIncludes.json in Resources */ = {isa = PBXBuildFile; fileRef = A1A1CCBA190E962300BE37EB /* DeepIncludes.json */; };
+		A1A1CCBC190E962F00BE37EB /* CoreDataQuerySyncTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A1A1CCB8190E960800BE37EB /* CoreDataQuerySyncTests.json */; };
+		A1A1CCBE190E96FC00BE37EB /* UtilityTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A1A1CCBD190E96FC00BE37EB /* UtilityTests.json */; };
 		A1A2CE48190963BA00B8D46D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD86A18C631E60081677E /* Foundation.framework */; };
 		A1A2CE4B190963BA00B8D46D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A2CE4A190963BA00B8D46D /* main.m */; };
 		A1A2CE53190967CA00B8D46D /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A17012ED18FBDFDA0086BE07 /* CoreDataManager.m */; };
@@ -441,6 +444,9 @@
 		A1A1CCB1190E382E00BE37EB /* CoreDataQuerySyncTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataQuerySyncTests.m; sourceTree = "<group>"; };
 		A1A1CCB3190E387B00BE37EB /* CoreDataBaseTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataBaseTestCase.m; sourceTree = "<group>"; };
 		A1A1CCB5190E38F200BE37EB /* CoreDataBaseTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataBaseTestCase.h; sourceTree = "<group>"; };
+		A1A1CCB8190E960800BE37EB /* CoreDataQuerySyncTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CoreDataQuerySyncTests.json; sourceTree = "<group>"; };
+		A1A1CCBA190E962300BE37EB /* DeepIncludes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DeepIncludes.json; sourceTree = "<group>"; };
+		A1A1CCBD190E96FC00BE37EB /* UtilityTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UtilityTests.json; sourceTree = "<group>"; };
 		A1A2CE47190963BA00B8D46D /* ContentfulSeedDatabase */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ContentfulSeedDatabase; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1A2CE4A190963BA00B8D46D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A1A2CE4D190963BA00B8D46D /* ContentfulSeedDatabase-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ContentfulSeedDatabase-Prefix.pch"; sourceTree = "<group>"; };
@@ -638,6 +644,7 @@
 			children = (
 				A1F70C9A18FFDE030080C72C /* CoreDataBasicTests.json */,
 				A170130A18FD30A50086BE07 /* CoreDataBasicTests.m */,
+				A1A1CCB8190E960800BE37EB /* CoreDataQuerySyncTests.json */,
 				A1A1CCB1190E382E00BE37EB /* CoreDataQuerySyncTests.m */,
 			);
 			name = "Core Data";
@@ -1021,6 +1028,7 @@
 		A1B815C618F582090027B26D /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				A1A1CCBA190E962300BE37EB /* DeepIncludes.json */,
 				A1FAC311190654E30093B308 /* DeepIncludes.m */,
 				A173F60418DB412C000E6F92 /* PreviewModeTests.json */,
 				A173F60218DB3E1E000E6F92 /* PreviewModeTests.m */,
@@ -1040,6 +1048,7 @@
 		A1B815C818F582790027B26D /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				A1A1CCBD190E96FC00BE37EB /* UtilityTests.json */,
 				A18AA86318E5DB1A00D430D5 /* UtilityTests.m */,
 			);
 			name = Utilities;
@@ -1433,12 +1442,15 @@
 				A173F54618D386CD000E6F92 /* ErrorTests.json in Resources */,
 				A170131B18FEA0AD0086BE07 /* Fixtures in Resources */,
 				A144FAFC18C9F8C200110B35 /* StagingTests.json in Resources */,
+				A1A1CCBB190E962300BE37EB /* DeepIncludes.json in Resources */,
+				A1A1CCBE190E96FC00BE37EB /* UtilityTests.json in Resources */,
 				A170131618FD5DE20086BE07 /* PreviewModeSyncTests.json in Resources */,
 				A193EB6818D21B260017B777 /* UIKitAdditionsTests in Resources */,
 				A18AA85C18E4952C00D430D5 /* AssetTests.json in Resources */,
 				A1E832D818E0A1640092F926 /* LinkTests.json in Resources */,
 				A170131518FD5DE20086BE07 /* PersistenceTests.json in Resources */,
 				A193EB5618D1C88A0017B777 /* UIKitAdditionsTests.json in Resources */,
+				A1A1CCBC190E962F00BE37EB /* CoreDataQuerySyncTests.json in Resources */,
 				A18AA85718E45C5E00D430D5 /* SyncTests.json in Resources */,
 				A173F60518DB412C000E6F92 /* PreviewModeTests.json in Resources */,
 				A1F70C9B18FFDE030080C72C /* CoreDataBasicTests.json in Resources */,
