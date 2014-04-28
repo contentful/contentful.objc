@@ -168,7 +168,7 @@
     
     [self.client fetchEntriesMatching:@{ @"sys.updatedAt[gte]": date }
         success:^(CDAResponse *response, CDAArray *array) {
-            XCTAssertEqual(10U, array.items.count, @"");
+            XCTAssertEqual(11U, array.items.count, @"");
             
             EndBlock();
         } failure:^(CDAResponse *response, NSError *error) {
