@@ -149,6 +149,8 @@
 		A1A0314F18C756B7006470B7 /* SearchAPITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A0314E18C756B7006470B7 /* SearchAPITests.m */; };
 		A1A0315618C7683E006470B7 /* CDAError.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A0315418C76839006470B7 /* CDAError.m */; };
 		A1A0315918C76D38006470B7 /* CDAAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A0315818C76D38006470B7 /* CDAAsset.m */; };
+		A1A1CCB2190E382E00BE37EB /* CoreDataQuerySyncTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A1CCB1190E382E00BE37EB /* CoreDataQuerySyncTests.m */; };
+		A1A1CCB4190E387B00BE37EB /* CoreDataBaseTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A1CCB3190E387B00BE37EB /* CoreDataBaseTestCase.m */; };
 		A1A2CE48190963BA00B8D46D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD86A18C631E60081677E /* Foundation.framework */; };
 		A1A2CE4B190963BA00B8D46D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A2CE4A190963BA00B8D46D /* main.m */; };
 		A1A2CE53190967CA00B8D46D /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A17012ED18FBDFDA0086BE07 /* CoreDataManager.m */; };
@@ -436,6 +438,9 @@
 		A1A0315418C76839006470B7 /* CDAError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAError.m; sourceTree = "<group>"; };
 		A1A0315718C76D38006470B7 /* CDAAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAAsset.h; sourceTree = "<group>"; };
 		A1A0315818C76D38006470B7 /* CDAAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAAsset.m; sourceTree = "<group>"; };
+		A1A1CCB1190E382E00BE37EB /* CoreDataQuerySyncTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataQuerySyncTests.m; sourceTree = "<group>"; };
+		A1A1CCB3190E387B00BE37EB /* CoreDataBaseTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataBaseTestCase.m; sourceTree = "<group>"; };
+		A1A1CCB5190E38F200BE37EB /* CoreDataBaseTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataBaseTestCase.h; sourceTree = "<group>"; };
 		A1A2CE47190963BA00B8D46D /* ContentfulSeedDatabase */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ContentfulSeedDatabase; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1A2CE4A190963BA00B8D46D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A1A2CE4D190963BA00B8D46D /* ContentfulSeedDatabase-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ContentfulSeedDatabase-Prefix.pch"; sourceTree = "<group>"; };
@@ -633,6 +638,7 @@
 			children = (
 				A1F70C9A18FFDE030080C72C /* CoreDataBasicTests.json */,
 				A170130A18FD30A50086BE07 /* CoreDataBasicTests.m */,
+				A1A1CCB1190E382E00BE37EB /* CoreDataQuerySyncTests.m */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -798,14 +804,9 @@
 				A1B815C718F582650027B26D /* Performance */,
 				A1B815C418F581870027B26D /* Persistence */,
 				A1B815C318F581690027B26D /* Synchronization */,
+				A1A1CCB6190E3AAF00BE37EB /* Testing Infrastructure */,
 				A1B815C518F5819C0027B26D /* UIKit Additions */,
 				A1B815C818F582790027B26D /* Utilities */,
-				A1A0315018C75B2A006470B7 /* AsyncTesting.h */,
-				A1D1D35D18C8A99A00261A1C /* ContentfulBaseTestCase.h */,
-				A1D1D35B18C8A94800261A1C /* ContentfulBaseTestCase.m */,
-				A1B815C018F56ED20027B26D /* SyncBaseTestCase.h */,
-				A1B815BE18F56E620027B26D /* SyncBaseTestCase.m */,
-				A19FD88218C631E60081677E /* Tests-Info.plist */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -852,6 +853,21 @@
 				A1A0312E18C641B6006470B7 /* UFOSighting.m */,
 			);
 			name = Code;
+			sourceTree = "<group>";
+		};
+		A1A1CCB6190E3AAF00BE37EB /* Testing Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				A1A0315018C75B2A006470B7 /* AsyncTesting.h */,
+				A1D1D35D18C8A99A00261A1C /* ContentfulBaseTestCase.h */,
+				A1D1D35B18C8A94800261A1C /* ContentfulBaseTestCase.m */,
+				A1A1CCB5190E38F200BE37EB /* CoreDataBaseTestCase.h */,
+				A1A1CCB3190E387B00BE37EB /* CoreDataBaseTestCase.m */,
+				A1B815C018F56ED20027B26D /* SyncBaseTestCase.h */,
+				A1B815BE18F56E620027B26D /* SyncBaseTestCase.m */,
+				A19FD88218C631E60081677E /* Tests-Info.plist */,
+			);
+			name = "Testing Infrastructure";
 			sourceTree = "<group>";
 		};
 		A1A2CE421909603D00B8D46D /* Seed Database */ = {
@@ -1819,6 +1835,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A170131218FD4BA00086BE07 /* SyncInfo.m in Sources */,
+				A1A1CCB2190E382E00BE37EB /* CoreDataQuerySyncTests.m in Sources */,
 				A170131118FD4B9D0086BE07 /* ManagedCat.m in Sources */,
 				A1B815D618F7E2F20027B26D /* AddContentTypesSyncTests.m in Sources */,
 				A1B815D018F69E0F0027B26D /* NewEntryAndDeletionSyncTest.m in Sources */,
@@ -1834,6 +1851,7 @@
 				A170130F18FD47B70086BE07 /* CoreDataExample.xcdatamodeld in Sources */,
 				A18AA86418E5DB1A00D430D5 /* UtilityTests.m in Sources */,
 				A170130C18FD31320086BE07 /* CoreDataManager.m in Sources */,
+				A1A1CCB4190E387B00BE37EB /* CoreDataBaseTestCase.m in Sources */,
 				A1D1D35F18C8ABB800261A1C /* DocumentationTests.m in Sources */,
 				A18AA85918E48B4200D430D5 /* AssetTests.m in Sources */,
 				A1FAC312190654E30093B308 /* DeepIncludes.m in Sources */,
