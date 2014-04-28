@@ -729,16 +729,9 @@
 				A19FD86C18C631E60081677E /* Code */,
 				A19FD8D118C6379A0081677E /* Examples */,
 				A19FD86918C631E60081677E /* Frameworks */,
+				A1A1CCB7190E3C2B00BE37EB /* Pods */,
 				A19FD86818C631E60081677E /* Products */,
 				A19FD88018C631E60081677E /* Tests */,
-				90200B3A436647AB8348744F /* Pods-Browser.xcconfig */,
-				0B495CE794E74562AF135B03 /* Pods-Catalog.xcconfig */,
-				4D80285CF848406AB5A046E3 /* Pods-CDA Tests.xcconfig */,
-				F12433681A394D509E9437F6 /* Pods-ContentfulDeliveryAPI.xcconfig */,
-				8A92A053FD2D491C8F0F0C5F /* Pods-ContentfulSeedDatabase.xcconfig */,
-				B5F05D7CCB0546F68881CD63 /* Pods-CoreDataExample.xcconfig */,
-				9DD997D1D28C467CBC7617FA /* Pods-SeedDatabaseExample.xcconfig */,
-				0ED294D677CF44BC8A18AFAF /* Pods-UFO Example.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -868,6 +861,21 @@
 				A19FD88218C631E60081677E /* Tests-Info.plist */,
 			);
 			name = "Testing Infrastructure";
+			sourceTree = "<group>";
+		};
+		A1A1CCB7190E3C2B00BE37EB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				90200B3A436647AB8348744F /* Pods-Browser.xcconfig */,
+				0B495CE794E74562AF135B03 /* Pods-Catalog.xcconfig */,
+				4D80285CF848406AB5A046E3 /* Pods-CDA Tests.xcconfig */,
+				F12433681A394D509E9437F6 /* Pods-ContentfulDeliveryAPI.xcconfig */,
+				8A92A053FD2D491C8F0F0C5F /* Pods-ContentfulSeedDatabase.xcconfig */,
+				B5F05D7CCB0546F68881CD63 /* Pods-CoreDataExample.xcconfig */,
+				9DD997D1D28C467CBC7617FA /* Pods-SeedDatabaseExample.xcconfig */,
+				0ED294D677CF44BC8A18AFAF /* Pods-UFO Example.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		A1A2CE421909603D00B8D46D /* Seed Database */ = {
