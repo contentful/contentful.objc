@@ -23,13 +23,25 @@
 /** @name Initializing a CDAPersistenceManager Object */
 
 /**
-*  Initializes a new `CDAPersistenceManager` object.
+*  Initializes a new `CDAPersistenceManager` object. Using this initializer will use synchronization
+*  for retrieving Resources.
 *
 *  @param client The client used for performing synchronizations.
 *
 *  @return An initialized `CDAPersistenceManager` or `nil` if the object couldn't be created.
 */
 -(id)initWithClient:(CDAClient*)client;
+
+/**
+ *  Initializes a new `CDAPersistenceManager` object. Using this initializer will use queries for
+ *  retrieving Resources.
+ *
+ *  @param client   The client used for performing queries.
+ *  @param query    The query to be performed.
+ *
+ *  @return An initialized `CDAPersistenceManager` or `nil` if the object couldn't be created.
+ */
+-(id)initWithClient:(CDAClient *)client query:(NSDictionary*)query;
 
 /** @name Performing Synchronizations */
 

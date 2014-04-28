@@ -6,6 +6,7 @@
 //
 //
 
+#import <ContentfulDeliveryAPI/CDAArray.h>
 #import <ContentfulDeliveryAPI/CDAAsset.h>
 #import <ContentfulDeliveryAPI/CDAEntry.h>
 #import <ContentfulDeliveryAPI/CDASyncedSpace.h>
@@ -16,6 +17,7 @@
 @interface CDAPersistenceManager () <CDASyncedSpaceDelegate>
 
 @property (nonatomic) CDAClient* client;
+@property (nonatomic, copy) NSDictionary* query;
 @property (nonatomic) CDASyncedSpace* syncedSpace;
 
 @end
@@ -91,12 +93,43 @@
     return self;
 }
 
+-(id)initWithClient:(CDAClient *)client query:(NSDictionary *)query {
+    self = [super init];
+    if (self) {
+        self.client = client;
+        self.mappingForEntries = @{};
+        self.query = query;
+    }
+    return self;
+}
+
 -(void)performSynchronizationWithSuccess:(void (^)())success
                                  failure:(CDARequestFailureBlock)failure {
     NSParameterAssert(self.classForAssets);
     NSParameterAssert(self.classForEntries);
     NSParameterAssert(self.classForSpaces);
     NSParameterAssert(self.client);
+    
+    if (self.query) {
+        NSDate* syncTimestamp = [NSDate date];
+        [self.client fetchEntriesMatching:self.query
+                                  success:^(CDAResponse *response, CDAArray *array) {
+                                      [self persistedSpaceForTimestamp:syncTimestamp];
+                                      
+                                      // TODO: Persist linked assets
+                                      
+                                      for (CDAEntry* entry in array.items) {
+                                         [self persistedEntryForEntry:entry];
+                                      }
+                                      
+                                      [self saveDataStore];
+                                      
+                                      if (success) {
+                                          success();
+                                      }
+                                  } failure:failure];
+        return;
+    }
     
     if (!self.syncedSpace) {
         CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response,
@@ -151,6 +184,12 @@
     id<CDAPersistedSpace> persistedSpace = [self createPersistedSpace];
     persistedSpace.lastSyncTimestamp = space.lastSyncTimestamp;
     persistedSpace.syncToken = space.syncToken;
+    return persistedSpace;
+}
+
+-(id<CDAPersistedSpace>)persistedSpaceForTimestamp:(NSDate*)timestamp {
+    id<CDAPersistedSpace> persistedSpace = [self createPersistedSpace];
+    persistedSpace.lastSyncTimestamp = timestamp;
     return persistedSpace;
 }
 

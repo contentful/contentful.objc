@@ -210,6 +210,24 @@
 }
 
 - (id)initWithClient:(CDAClient *)client
+       dataModelName:(NSString*)dataModelName
+               query:(NSDictionary *)query
+{
+    self = [super initWithClient:client query:query];
+    if (self) {
+        NSParameterAssert(dataModelName);
+        self.dataModelName = dataModelName;
+    }
+    return self;
+}
+
+- (id)initWithClient:(CDAClient *)client query:(NSDictionary *)query
+{
+    [self doesNotRecognizeSelector:_cmd];
+    return nil;
+}
+
+- (id)initWithClient:(CDAClient *)client
 {
     [self doesNotRecognizeSelector:_cmd];
     return nil;

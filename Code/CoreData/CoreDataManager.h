@@ -30,6 +30,19 @@
 */
 -(id)initWithClient:(CDAClient *)client dataModelName:(NSString*)dataModelName;
 
+/**
+ *  Initialise a new instance of `CoreDataManager`.
+ *
+ *  @param client        The client to be used for fetching Resources from Contentful.
+ *  @param dataModelName The name of your data model file (*.mom* or *.momd*).
+ *  @param query         Entries matching that query will be fetched.
+ *
+ *  @return An initialised instance of `CoreDataManager` or `nil` if an error occured.
+ */
+-(id)initWithClient:(CDAClient *)client
+      dataModelName:(NSString*)dataModelName
+              query:(NSDictionary *)query;
+
 /** @name Fetching Resources */
 
 /**
