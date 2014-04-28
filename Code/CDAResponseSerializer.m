@@ -88,7 +88,9 @@
 -(id)responseObjectForResponse:(NSURLResponse *)response
                           data:(NSData *)data
                          error:(NSError **)error {
-    id JSONObject = [super responseObjectForResponse:response data:data error:error];
+    id JSONObject = data.length > 0 ? [super responseObjectForResponse:response
+                                                                  data:data
+                                                                 error:error] : nil;
     if (!JSONObject || ![JSONObject isKindOfClass:[NSDictionary class]]) {
         return nil;
     }
