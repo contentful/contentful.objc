@@ -27,7 +27,12 @@
     StartBlock();
     
     [self.coreDataManager performSynchronizationWithSuccess:^{
-        [self assertNumberOfAssets:0 numberOfEntries:2];
+        [self assertNumberOfAssets:2 numberOfEntries:2];
+        
+        for (ManagedCat* entry in [self.coreDataManager fetchEntriesFromDataStore]) {
+            XCTAssertNotNil(entry.picture, @"");
+            XCTAssertNotNil(entry.picture.url, @"");
+        }
         
         EndBlock();
     } failure:^(CDAResponse *response, NSError *error) {

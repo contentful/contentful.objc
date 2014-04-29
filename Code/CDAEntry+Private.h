@@ -12,5 +12,9 @@
 
 -(NSArray*)findUnresolvedAssets;
 -(NSArray*)findUnresolvedEntries;
+-(void)resolveLinksWithIncludedAssets:(NSDictionary*)assets
+                              entries:(NSDictionary*)entries
+                           usingBlock:(CDAResource* (^)(CDAResource* resource, NSDictionary* assets,
+                                                        NSDictionary* entries))resolver;
 
 @end
