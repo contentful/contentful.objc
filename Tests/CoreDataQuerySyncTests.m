@@ -19,6 +19,8 @@
     self.query = @{ @"content_type": @"6PnRGY1dxSUmaQ2Yq2Ege2" };
     
     [super buildCoreDataManagerWithDefaultClient:NO];
+    
+    self.coreDataManager.trackDeletionsField = @"deleted";
 }
 
 -(void)stubInitialRequestWithJSONNamed:(NSString*)initial updateWithJSONNamed:(NSString*)update {
@@ -65,6 +67,32 @@
         
         [self.coreDataManager performSynchronizationWithSuccess:^{
             [self assertNumberOfAssets:2 numberOfEntries:3];
+            
+            EndBlock();
+        } failure:^(CDAResponse *response, NSError *error) {
+            XCTFail(@"Error: %@", error);
+            
+            EndBlock();
+        }];
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTFail(@"Error: %@", error);
+        
+        EndBlock();
+    }];
+    
+    WaitUntilBlockCompletes();
+}
+
+-(void)testDeleteEntry {
+    [self stubInitialRequestWithJSONNamed:@"initial" updateWithJSONNamed:@"delete-entry"];
+    
+    StartBlock();
+    
+    [self.coreDataManager performSynchronizationWithSuccess:^{
+        [self assertNumberOfAssets:1 numberOfEntries:2];
+        
+        [self.coreDataManager performSynchronizationWithSuccess:^{
+            [self assertNumberOfAssets:1 numberOfEntries:1];
             
             EndBlock();
         } failure:^(CDAResponse *response, NSError *error) {
