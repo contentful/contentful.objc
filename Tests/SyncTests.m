@@ -6,8 +6,6 @@
 //
 //
 
-#import <OHHTTPStubs/OHHTTPStubs.h>
-
 #import "CDAResource+Private.h"
 #import "SyncBaseTestCase.h"
 
