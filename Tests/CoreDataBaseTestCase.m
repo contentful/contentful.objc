@@ -48,6 +48,7 @@
     NSMutableDictionary* mapping = [@{ @"contentType.identifier": @"contentTypeIdentifier",
                                        @"fields.color": @"color",
                                        @"fields.lives": @"livesLeft",
+                                       @"fields.deleted": @"deleted",
                                        @"fields.image": @"picture" } mutableCopy];
     
     if (defaultClient) {

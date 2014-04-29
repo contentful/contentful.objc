@@ -16,5 +16,6 @@
 @dynamic livesLeft;
 @dynamic identifier;
 @dynamic picture;
+@dynamic deleted;
 
 @end

@@ -19,5 +19,6 @@
 @property (nonatomic, retain) NSNumber * livesLeft;
 @property (nonatomic, retain) NSString * identifier;
 @property (nonatomic, retain) Asset *picture;
+@property (nonatomic, retain) NSNumber * deleted;
 
 @end
