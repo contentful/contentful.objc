@@ -8,9 +8,9 @@
 
 #import <ContentfulDeliveryAPI/CDAArray.h>
 #import <ContentfulDeliveryAPI/CDAAsset.h>
-#import <ContentfulDeliveryAPI/CDAEntry.h>
 #import <ContentfulDeliveryAPI/CDASyncedSpace.h>
 
+#import "CDAEntry+Private.h"
 #import "CDAPersistenceManager.h"
 #import "CDAUtilities.h"
 
@@ -116,10 +116,15 @@
                                   success:^(CDAResponse *response, CDAArray *array) {
                                       [self persistedSpaceForTimestamp:syncTimestamp];
                                       
-                                      // TODO: Persist linked assets
-                                      
                                       for (CDAEntry* entry in array.items) {
-                                         [self persistedEntryForEntry:entry];
+                                          [self persistedEntryForEntry:entry];
+                                          
+                                          [entry resolveLinksWithIncludedAssets:nil entries:nil usingBlock:^CDAResource *(CDAResource *resource, NSDictionary *assets, NSDictionary *entries) {
+                                              if ([resource isKindOfClass:[CDAAsset class]]) {
+                                                  [self persistedAssetForAsset:(CDAAsset*)resource];
+                                              }
+                                              return resource;
+                                          }];
                                       }
                                       
                                       [self saveDataStore];
