@@ -24,6 +24,7 @@
                type:(CDAFieldType)type;
 - (void)compareImage:(UIImage*)image forTestSelector:(SEL)testSelector;
 - (CDAEntry*)customEntryHelperWithFields:(NSDictionary*)fields;
+- (OHHTTPStubsResponse*)responseWithBundledJSONNamed:(NSString*)JSONName inDirectory:(NSString*)directoryName;
 - (void)stubHTTPRequestUsingFixtures:(NSDictionary*)fixtureMap inDirectory:(NSString*)directoryName;
 
 @end
