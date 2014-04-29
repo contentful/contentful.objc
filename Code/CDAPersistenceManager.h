@@ -71,6 +71,12 @@
  */
 @property (nonatomic) NSDictionary* mappingForEntries;
 
+/** 
+ A boolean Field in your content model which tracks deletions if you are using
+ query-based synchronization. 
+ */
+@property (nonatomic) NSString* trackDeletionsField;
+
 /** @name Interact with the Data Store. */
 
 /**
