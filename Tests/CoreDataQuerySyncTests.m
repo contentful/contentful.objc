@@ -21,13 +21,24 @@
     [super buildCoreDataManagerWithDefaultClient:NO];
 }
 
+-(void)stubInitialRequestWithJSONNamed:(NSString*)initial updateWithJSONNamed:(NSString*)update {
+    [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
+        return [request.URL.absoluteString rangeOfString:@"entries"].location != NSNotFound;
+    } withStubResponse:^OHHTTPStubsResponse *(NSURLRequest *request) {
+        if ([request.URL.absoluteString rangeOfString:@"sys.updatedAt"].location == NSNotFound) {
+            return [self responseWithBundledJSONNamed:initial inDirectory:@"QuerySync"];
+        }
+        return [self responseWithBundledJSONNamed:update inDirectory:@"QuerySync"];
+    }];
+}
+
 #pragma mark -
 
 -(void)testInitialSync {
     StartBlock();
     
     [self.coreDataManager performSynchronizationWithSuccess:^{
-        [self assertNumberOfAssets:2 numberOfEntries:2];
+        [self assertNumberOfAssets:1 numberOfEntries:2];
         
         for (ManagedCat* entry in [self.coreDataManager fetchEntriesFromDataStore]) {
             XCTAssertNotNil(entry.picture, @"");
@@ -35,6 +46,32 @@
         }
         
         EndBlock();
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTFail(@"Error: %@", error);
+        
+        EndBlock();
+    }];
+    
+    WaitUntilBlockCompletes();
+}
+
+-(void)testAddEntry {
+    [self stubInitialRequestWithJSONNamed:@"initial" updateWithJSONNamed:@"add-entry"];
+    
+    StartBlock();
+    
+    [self.coreDataManager performSynchronizationWithSuccess:^{
+        [self assertNumberOfAssets:1 numberOfEntries:2];
+        
+        [self.coreDataManager performSynchronizationWithSuccess:^{
+            [self assertNumberOfAssets:2 numberOfEntries:3];
+            
+            EndBlock();
+        } failure:^(CDAResponse *response, NSError *error) {
+            XCTFail(@"Error: %@", error);
+            
+            EndBlock();
+        }];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
