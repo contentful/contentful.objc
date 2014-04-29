@@ -143,6 +143,11 @@ extern void __gcov_flush();
     return brokenEntry;
 }
 
+- (OHHTTPStubsResponse*)responseWithBundledJSONNamed:(NSString*)JSONName inDirectory:(NSString*)directoryName
+{
+    return [OHHTTPStubsResponse responseWithFileAtPath:[[NSBundle bundleForClass:[self class]] pathForResource:JSONName ofType:@"json" inDirectory:directoryName] statusCode:200 headers:@{ @"Content-Type": @"application/vnd.contentful.delivery.v1+json" }];
+}
+
 - (void)setUp
 {
     [super setUp];
@@ -163,7 +168,7 @@ extern void __gcov_flush();
         NSString* JSONName = fixtureMap[request.URL.absoluteString];
         
         if (JSONName) {
-            return [OHHTTPStubsResponse responseWithFileAtPath:[[NSBundle bundleForClass:[self class]] pathForResource:JSONName ofType:@"json" inDirectory:directoryName] statusCode:200 headers:@{ @"Content-Type": @"application/vnd.contentful.delivery.v1+json" }];
+            return [self responseWithBundledJSONNamed:JSONName inDirectory:directoryName];
         }
         
         return [OHHTTPStubsResponse responseWithData:nil statusCode:200 headers:nil];
