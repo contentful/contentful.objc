@@ -27,10 +27,16 @@
     [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
         return [request.URL.absoluteString rangeOfString:@"entries"].location != NSNotFound;
     } withStubResponse:^OHHTTPStubsResponse *(NSURLRequest *request) {
+        OHHTTPStubsResponse* response = nil;
+        
         if ([request.URL.absoluteString rangeOfString:@"sys.updatedAt"].location == NSNotFound) {
-            return [self responseWithBundledJSONNamed:initial inDirectory:@"QuerySync"];
+            response = [self responseWithBundledJSONNamed:initial inDirectory:@"QuerySync"];
+        } else {
+            response = [self responseWithBundledJSONNamed:update inDirectory:@"QuerySync"];
         }
-        return [self responseWithBundledJSONNamed:update inDirectory:@"QuerySync"];
+        
+        response.responseTime = 1.0;
+        return response;
     }];
 }
 
