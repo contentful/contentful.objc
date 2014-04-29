@@ -79,6 +79,54 @@
     return nil;
 }
 
+-(void)handleAsset:(CDAAsset*)asset {
+    id<CDAPersistedAsset> persistedAsset = [self fetchAssetWithIdentifier:asset.identifier];
+    
+    if (persistedAsset) {
+        [self updatePersistedAsset:persistedAsset withAsset:asset];
+    } else {
+        [self persistedAssetForAsset:asset];
+    }
+}
+
+-(void)handleEntry:(CDAEntry*)entry {
+    id<CDAPersistedEntry> persistedEntry = [self fetchEntryWithIdentifier:entry.identifier];
+    
+    if (persistedEntry) {
+        [self updatePersistedEntry:persistedEntry withEntry:entry];
+    } else {
+        [self persistedEntryForEntry:entry];
+    }
+}
+
+-(void)handleResponseArray:(CDAArray*)array withSuccess:(void (^)())success {
+    for (CDAEntry* entry in array.items) {
+        [self handleEntry:entry];
+        
+        [entry resolveLinksWithIncludedAssets:nil
+                                      entries:nil
+                                   usingBlock:^CDAResource *(CDAResource *resource,
+                                                             NSDictionary *assets,
+                                                             NSDictionary *entries) {
+                                       if ([resource isKindOfClass:[CDAAsset class]]) {
+                                           [self handleAsset:(CDAAsset*)resource];
+                                       }
+                                       
+                                       if ([resource isKindOfClass:[CDAEntry class]]) {
+                                           [self handleEntry:(CDAEntry*)resource];
+                                       }
+                                       
+                                       return resource;
+                                   }];
+    }
+    
+    [self saveDataStore];
+    
+    if (success) {
+        success();
+    }
+}
+
 -(id)init {
     [self doesNotRecognizeSelector:_cmd];
     return nil;
@@ -103,6 +151,30 @@
     return self;
 }
 
+-(void)performInitalSynchronizationForQueryWithSuccess:(void (^)())success
+                                               failure:(CDARequestFailureBlock)failure {
+    NSDate* syncTimestamp = [NSDate date];
+    
+    [self.client fetchEntriesMatching:self.query success:^(CDAResponse *response, CDAArray *array) {
+        [self persistedSpaceForTimestamp:syncTimestamp];
+        [self handleResponseArray:array withSuccess:success];
+    } failure:failure];
+}
+
+-(void)performSubsequentSynchronizationWithSuccess:(void (^)())success
+                                           failure:(CDARequestFailureBlock)failure {
+    NSDate* syncTimestamp = [NSDate date];
+    NSMutableDictionary* query = [self.query mutableCopy];
+    
+    id<CDAPersistedSpace> space = [self fetchSpaceFromDataStore];
+    query[@"sys.updatedAt[gt]"] = space.lastSyncTimestamp;
+    space.lastSyncTimestamp = syncTimestamp;
+    
+    [self.client fetchEntriesMatching:query success:^(CDAResponse *response, CDAArray *array) {
+        [self handleResponseArray:array withSuccess:success];
+    } failure:failure];
+}
+
 -(void)performSynchronizationWithSuccess:(void (^)())success
                                  failure:(CDARequestFailureBlock)failure {
     NSParameterAssert(self.classForAssets);
@@ -111,28 +183,12 @@
     NSParameterAssert(self.client);
     
     if (self.query) {
-        NSDate* syncTimestamp = [NSDate date];
-        [self.client fetchEntriesMatching:self.query
-                                  success:^(CDAResponse *response, CDAArray *array) {
-                                      [self persistedSpaceForTimestamp:syncTimestamp];
-                                      
-                                      for (CDAEntry* entry in array.items) {
-                                          [self persistedEntryForEntry:entry];
-                                          
-                                          [entry resolveLinksWithIncludedAssets:nil entries:nil usingBlock:^CDAResource *(CDAResource *resource, NSDictionary *assets, NSDictionary *entries) {
-                                              if ([resource isKindOfClass:[CDAAsset class]]) {
-                                                  [self persistedAssetForAsset:(CDAAsset*)resource];
-                                              }
-                                              return resource;
-                                          }];
-                                      }
-                                      
-                                      [self saveDataStore];
-                                      
-                                      if (success) {
-                                          success();
-                                      }
-                                  } failure:failure];
+        if ([self fetchSpaceFromDataStore]) {
+            [self performSubsequentSynchronizationWithSuccess:success failure:failure];
+        } else {
+            [self performInitalSynchronizationForQueryWithSuccess:success failure:failure];
+        }
+        
         return;
     }
     

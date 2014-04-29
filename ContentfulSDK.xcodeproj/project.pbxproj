@@ -154,6 +154,7 @@
 		A1A1CCBB190E962300BE37EB /* DeepIncludes.json in Resources */ = {isa = PBXBuildFile; fileRef = A1A1CCBA190E962300BE37EB /* DeepIncludes.json */; };
 		A1A1CCBC190E962F00BE37EB /* CoreDataQuerySyncTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A1A1CCB8190E960800BE37EB /* CoreDataQuerySyncTests.json */; };
 		A1A1CCBE190E96FC00BE37EB /* UtilityTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A1A1CCBD190E96FC00BE37EB /* UtilityTests.json */; };
+		A1A1CCC0190FAE5B00BE37EB /* QuerySync in Resources */ = {isa = PBXBuildFile; fileRef = A1A1CCBF190FAE5B00BE37EB /* QuerySync */; };
 		A1A2CE48190963BA00B8D46D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD86A18C631E60081677E /* Foundation.framework */; };
 		A1A2CE4B190963BA00B8D46D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A2CE4A190963BA00B8D46D /* main.m */; };
 		A1A2CE53190967CA00B8D46D /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A17012ED18FBDFDA0086BE07 /* CoreDataManager.m */; };
@@ -447,6 +448,7 @@
 		A1A1CCB8190E960800BE37EB /* CoreDataQuerySyncTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CoreDataQuerySyncTests.json; sourceTree = "<group>"; };
 		A1A1CCBA190E962300BE37EB /* DeepIncludes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DeepIncludes.json; sourceTree = "<group>"; };
 		A1A1CCBD190E96FC00BE37EB /* UtilityTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UtilityTests.json; sourceTree = "<group>"; };
+		A1A1CCBF190FAE5B00BE37EB /* QuerySync */ = {isa = PBXFileReference; lastKnownFileType = folder; path = QuerySync; sourceTree = "<group>"; };
 		A1A2CE47190963BA00B8D46D /* ContentfulSeedDatabase */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ContentfulSeedDatabase; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1A2CE4A190963BA00B8D46D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A1A2CE4D190963BA00B8D46D /* ContentfulSeedDatabase-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ContentfulSeedDatabase-Prefix.pch"; sourceTree = "<group>"; };
@@ -642,6 +644,7 @@
 		A170130918FD30880086BE07 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				A1A1CCBF190FAE5B00BE37EB /* QuerySync */,
 				A1F70C9A18FFDE030080C72C /* CoreDataBasicTests.json */,
 				A170130A18FD30A50086BE07 /* CoreDataBasicTests.m */,
 				A1A1CCB8190E960800BE37EB /* CoreDataQuerySyncTests.json */,
@@ -1451,6 +1454,7 @@
 				A170131518FD5DE20086BE07 /* PersistenceTests.json in Resources */,
 				A193EB5618D1C88A0017B777 /* UIKitAdditionsTests.json in Resources */,
 				A1A1CCBC190E962F00BE37EB /* CoreDataQuerySyncTests.json in Resources */,
+				A1A1CCC0190FAE5B00BE37EB /* QuerySync in Resources */,
 				A18AA85718E45C5E00D430D5 /* SyncTests.json in Resources */,
 				A173F60518DB412C000E6F92 /* PreviewModeTests.json in Resources */,
 				A1F70C9B18FFDE030080C72C /* CoreDataBasicTests.json in Resources */,
