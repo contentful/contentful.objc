@@ -6,8 +6,6 @@
 //
 //
 
-#import <OHHTTPStubs/OHHTTPStubs.h>
-
 #import "CoreDataBaseTestCase.h"
 
 @interface CoreDataBasicTests : CoreDataBaseTestCase

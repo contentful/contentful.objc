@@ -6,8 +6,6 @@
 //
 //
 
-#import <OHHTTPStubs/OHHTTPStubs.h>
-
 #import <objc/runtime.h>
 
 #import "ContentfulBaseTestCase.h"

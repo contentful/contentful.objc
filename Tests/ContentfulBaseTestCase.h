@@ -8,6 +8,7 @@
 
 #import <ContentfulDeliveryAPI/ContentfulDeliveryAPI.h>
 #import <FBSnapshotTestCase/FBSnapshotTestController.h>
+#import <OHHTTPStubs/OHHTTPStubs.h>
 #import <XCTest/XCTest.h>
 
 #import "AsyncTesting.h"

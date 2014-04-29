@@ -6,7 +6,6 @@
 //
 //
 
-#import <OHHTTPStubs/OHHTTPStubs.h>
 #import <VCRURLConnection/VCR.h>
 
 #import "CDAResource+Private.h"
