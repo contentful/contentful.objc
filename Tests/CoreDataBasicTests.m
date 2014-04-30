@@ -174,7 +174,7 @@
 }
 
 -(void)testInitialSync {
-    [OHHTTPStubs removeAllStubs];
+    [self removeAllStubs];
     [self buildCoreDataManagerWithDefaultClient:YES];
     
     StartBlock();
@@ -194,7 +194,7 @@
 }
 
 -(void)testMappingOfFields {
-    [OHHTTPStubs removeAllStubs];
+    [self removeAllStubs];
     [self buildCoreDataManagerWithDefaultClient:YES];
     
     StartBlock();
@@ -218,7 +218,7 @@
 }
 
 -(void)testRelationships {
-    [OHHTTPStubs removeAllStubs];
+    [self removeAllStubs];
     [self buildCoreDataManagerWithDefaultClient:YES];
     
     StartBlock();

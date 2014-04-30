@@ -24,20 +24,17 @@
 }
 
 -(void)stubInitialRequestWithJSONNamed:(NSString*)initial updateWithJSONNamed:(NSString*)update {
-    [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
-        return [request.URL.absoluteString rangeOfString:@"entries"].location != NSNotFound;
-    } withStubResponse:^OHHTTPStubsResponse *(NSURLRequest *request) {
-        OHHTTPStubsResponse* response = nil;
-        
-        if ([request.URL.absoluteString rangeOfString:@"sys.updatedAt"].location == NSNotFound) {
-            response = [self responseWithBundledJSONNamed:initial inDirectory:@"QuerySync"];
-        } else {
-            response = [self responseWithBundledJSONNamed:update inDirectory:@"QuerySync"];
-        }
-        
-        response.responseTime = 1.0;
-        return response;
-    }];
+    [self addRecordingWithJSONNamed:initial
+                        inDirectory:@"QuerySync"
+                            matcher:^BOOL(NSURLRequest *request) {
+                                return [request.URL.absoluteString rangeOfString:@"entries"].location != NSNotFound && [request.URL.absoluteString rangeOfString:@"sys.updatedAt"].location == NSNotFound;
+                            }];
+    
+    [self addRecordingWithJSONNamed:update
+                        inDirectory:@"QuerySync"
+                            matcher:^BOOL(NSURLRequest *request) {
+                                return [request.URL.absoluteString rangeOfString:@"entries"].location != NSNotFound && [request.URL.absoluteString rangeOfString:@"sys.updatedAt"].location != NSNotFound;
+                            }];
 }
 
 #pragma mark -

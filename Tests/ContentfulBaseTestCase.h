@@ -6,9 +6,9 @@
 //
 //
 
+#import <CCLRequestReplay/CCLRequestJSONRecording.h>
 #import <ContentfulDeliveryAPI/ContentfulDeliveryAPI.h>
 #import <FBSnapshotTestCase/FBSnapshotTestController.h>
-#import <OHHTTPStubs/OHHTTPStubs.h>
 #import <XCTest/XCTest.h>
 
 #import "AsyncTesting.h"
@@ -18,13 +18,21 @@
 @property (nonatomic) CDAClient* client;
 @property (nonatomic, readonly) FBSnapshotTestController* snapshotTestController;
 
+- (void)addRecordingWithJSONNamed:(NSString*)JSONName
+                      inDirectory:(NSString*)directory
+                          matcher:(CCLURLRequestMatcher)matcher;
+- (void)addResponseWithData:(NSData*)data
+                 statusCode:(NSInteger)statusCode
+                    headers:(NSDictionary*)headers
+                    matcher:(CCLURLRequestMatcher)matcher;
+- (void)addResponseWithError:(NSError*)error matcher:(CCLURLRequestMatcher)matcher;
 - (void)assertField:(CDAField*)field
       hasIdentifier:(NSString*)identifier
                name:(NSString*)name
                type:(CDAFieldType)type;
 - (void)compareImage:(UIImage*)image forTestSelector:(SEL)testSelector;
 - (CDAEntry*)customEntryHelperWithFields:(NSDictionary*)fields;
-- (OHHTTPStubsResponse*)responseWithBundledJSONNamed:(NSString*)JSONName inDirectory:(NSString*)directoryName;
+- (void)removeAllStubs;
 - (void)stubHTTPRequestUsingFixtures:(NSDictionary*)fixtureMap inDirectory:(NSString*)directoryName;
 
 @end

@@ -267,7 +267,7 @@
 }
 
 -(void)testAssetWithMultipleLocalesWhileSyncing {
-    [OHHTTPStubs removeAllStubs];
+    [self removeAllStubs];
     
     StartBlock();
     
@@ -300,7 +300,7 @@
 }
 
 -(void)testEntryWithMultipleLocalesWhileSyncing {
-    [OHHTTPStubs removeAllStubs];
+    [self removeAllStubs];
     
     StartBlock();
     
@@ -371,7 +371,7 @@
 }
 
 -(void)testPagingWhileSyncing {
-    [OHHTTPStubs removeAllStubs];
+    [self removeAllStubs];
     
     StartBlock();
     

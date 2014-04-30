@@ -37,11 +37,12 @@
     Method urlNewMethod = class_getClassMethod(self.class, sendSyncRequest);
     method_exchangeImplementations(urlOriginalMethod, urlNewMethod);
     
-    [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
-        return YES;
-    } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
-        return [OHHTTPStubsResponse responseWithError:[NSError errorWithDomain:NSURLErrorDomain code:kCFURLErrorNotConnectedToInternet userInfo:nil]];
-    }];
+    [self addResponseWithError:[NSError errorWithDomain:NSURLErrorDomain
+                                                   code:kCFURLErrorNotConnectedToInternet
+                                               userInfo:nil]
+                       matcher:^BOOL(NSURLRequest *request) {
+                           return YES;
+                       }];
     
     if (contentTypeFetched) {
         [self customEntryHelperWithFields:@{}];
@@ -62,7 +63,7 @@
     
     WaitUntilBlockCompletes();
     
-    [OHHTTPStubs removeLastStub];
+    [self removeAllStubs];
     
     method_exchangeImplementations(urlNewMethod, urlOriginalMethod);
 }
@@ -93,10 +94,8 @@
 
 - (void)testBrokenJSON
 {
-    [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
+    [self addResponseWithData:nil statusCode:200 headers:nil matcher:^BOOL(NSURLRequest *request) {
         return YES;
-    } withStubResponse:^OHHTTPStubsResponse *(NSURLRequest *request) {
-        return [OHHTTPStubsResponse responseWithData:nil statusCode:200 headers:nil];
     }];
     
     StartBlock();
@@ -115,17 +114,17 @@
     
     WaitUntilBlockCompletes();
  
-    [OHHTTPStubs removeLastStub];
+    [self removeAllStubs];
 }
 
 - (void)testJSONArrayInResponse
 {
-    [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
-        return YES;
-    } withStubResponse:^OHHTTPStubsResponse *(NSURLRequest *request) {
-        NSData* data = [NSJSONSerialization dataWithJSONObject:@[] options:0 error:nil];
-        return [OHHTTPStubsResponse responseWithData:data statusCode:200 headers:@{ @"Content-Type": @"application/vnd.contentful.delivery.v1+json" }];
-    }];
+    [self addResponseWithData:[NSJSONSerialization dataWithJSONObject:@[] options:0 error:nil]
+                   statusCode:200
+                      headers:@{ @"Content-Type": @"application/vnd.contentful.delivery.v1+json" }
+                      matcher:^BOOL(NSURLRequest *request) {
+                          return YES;
+                      }];
     
     StartBlock();
     
@@ -142,7 +141,7 @@
     
     WaitUntilBlockCompletes();
     
-    [OHHTTPStubs removeLastStub];
+    [self removeAllStubs];
 }
 
 - (void)testHoldStrongReferenceToClientUntilRequestIsDone

@@ -6,6 +6,8 @@
 //
 //
 
+#import <CCLRequestReplay/CCLRequestReplayManager.h>
+#import <CCLRequestReplay/CCLRequestReplayProtocol.h>
 #import <VCRURLConnection/VCR.h>
 
 #import "CDAResource+Private.h"
@@ -26,6 +28,7 @@ extern void __gcov_flush();
 @interface ContentfulBaseTestCase ()
 
 @property (nonatomic) NSString* cassetteBaseName;
+@property (nonatomic) CCLRequestReplayManager* requestReplayManager;
 @property (nonatomic) FBSnapshotTestController* snapshotTestController;
 
 @end
@@ -67,6 +70,13 @@ extern void __gcov_flush();
     __gcov_flush();
 }
 
+- (void)addRecordingWithJSONNamed:(NSString*)JSONName
+                      inDirectory:(NSString*)directory
+                          matcher:(CCLURLRequestMatcher)matcher {
+    CCLRequestJSONRecording* recording = [[CCLRequestJSONRecording alloc] initWithBundledJSONNamed:JSONName inDirectory:directory matcher:matcher statusCode:200 headerFields:@{ @"Content-Type": @"application/vnd.contentful.delivery.v1+json" }];
+    [self.requestReplayManager addRecording:recording];
+}
+
 - (void)assertField:(CDAField*)field
       hasIdentifier:(NSString*)identifier
                name:(NSString*)name
@@ -75,6 +85,21 @@ extern void __gcov_flush();
     XCTAssertEqualObjects(identifier, field.identifier, @"");
     XCTAssertEqualObjects(name, field.name, @"");
     XCTAssertEqual(type, field.type, @"");
+}
+
+- (void)addResponseWithData:(NSData*)data
+                 statusCode:(NSInteger)statusCode
+                    headers:(NSDictionary*)headers
+                    matcher:(CCLURLRequestMatcher)matcher {
+    CCLRequestRecording* recording = [[CCLRequestRecording alloc] initWithRequest:nil response:[[NSHTTPURLResponse alloc] initWithURL:nil statusCode:statusCode HTTPVersion:@"1.1" headerFields:headers] data:data];
+    recording.matcher = matcher;
+    [self.requestReplayManager addRecording:recording];
+}
+
+- (void)addResponseWithError:(NSError*)error matcher:(CCLURLRequestMatcher)matcher {
+    CCLRequestRecording* recording = [[CCLRequestRecording alloc] initWithRequest:nil error:error];
+    recording.matcher = matcher;
+    [self.requestReplayManager addRecording:recording];
 }
 
 - (void)beforeAll
@@ -143,9 +168,8 @@ extern void __gcov_flush();
     return brokenEntry;
 }
 
-- (OHHTTPStubsResponse*)responseWithBundledJSONNamed:(NSString*)JSONName inDirectory:(NSString*)directoryName
-{
-    return [OHHTTPStubsResponse responseWithFileAtPath:[[NSBundle bundleForClass:[self class]] pathForResource:JSONName ofType:@"json" inDirectory:directoryName] statusCode:200 headers:@{ @"Content-Type": @"application/vnd.contentful.delivery.v1+json" }];
+- (void)removeAllStubs {
+    [self.requestReplayManager removeAllRecordings];
 }
 
 - (void)setUp
@@ -155,6 +179,9 @@ extern void __gcov_flush();
     self.cassetteBaseName = NSStringFromClass([self class]);
     self.client = [CDAClient new];
     
+    self.requestReplayManager = [CCLRequestReplayManager new];
+    [self.requestReplayManager replay];
+    
     self.snapshotTestController = [[FBSnapshotTestController alloc] initWithTestClass:[self class]];
     self.snapshotTestController.referenceImagesDirectory = [[NSBundle bundleForClass:[self class]]
                                                             bundlePath];
@@ -162,21 +189,28 @@ extern void __gcov_flush();
 
 - (void)stubHTTPRequestUsingFixtures:(NSDictionary*)fixtureMap inDirectory:(NSString*)directoryName
 {
-    [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
-        return YES;
-    } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
-        NSString* JSONName = fixtureMap[request.URL.absoluteString];
-        
-        if (JSONName) {
-            return [self responseWithBundledJSONNamed:JSONName inDirectory:directoryName];
-        }
-        
-        return [OHHTTPStubsResponse responseWithData:nil statusCode:200 headers:nil];
+    [fixtureMap enumerateKeysAndObjectsUsingBlock:^(NSString* url, NSString* JSONName, BOOL *stop) {
+        [self addRecordingWithJSONNamed:JSONName
+                            inDirectory:directoryName
+                                matcher:^BOOL(NSURLRequest *request) {
+                                    return [request.URL.absoluteString isEqualToString:url];
+                                }];
     }];
+    
+    CCLRequestJSONRecording* recording = [[CCLRequestJSONRecording alloc]
+                                          initWithBundledJSONNamed:nil
+                                          inDirectory:directoryName
+                                          matcher:^BOOL(NSURLRequest *request) {
+                                              return YES;
+                                          }
+                                          statusCode:404
+                                          headerFields:nil];
+    [self.requestReplayManager addRecording:recording];
 }
 
 -(void)tearDown {
-    [OHHTTPStubs removeAllStubs];
+    [self.requestReplayManager stopReplay];
+    self.requestReplayManager = nil;
 }
 
 @end
