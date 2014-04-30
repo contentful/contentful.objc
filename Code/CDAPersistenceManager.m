@@ -64,6 +64,11 @@
     [self doesNotRecognizeSelector:_cmd];
 }
 
+-(NSArray *)fetchAssetsFromDataStore {
+    [self doesNotRecognizeSelector:_cmd];
+    return nil;
+}
+
 -(id<CDAPersistedAsset>)fetchAssetWithIdentifier:(NSString*)identifier {
     [self doesNotRecognizeSelector:_cmd];
     return nil;
@@ -176,10 +181,23 @@
     
     id<CDAPersistedSpace> space = [self fetchSpaceFromDataStore];
     query[@"sys.updatedAt[gt]"] = space.lastSyncTimestamp;
-    space.lastSyncTimestamp = syncTimestamp;
     
-    [self.client fetchEntriesMatching:query success:^(CDAResponse *response, CDAArray *array) {
-        [self handleResponseArray:array withSuccess:success];
+    NSArray* knownAssetIds = [[self fetchAssetsFromDataStore] valueForKey:@"identifier"];
+    NSDictionary* queryForAssets = @{ @"sys.id[in]": knownAssetIds,
+                                      @"sys.updatedAt[gt]": space.lastSyncTimestamp };
+    
+    [self.client fetchEntriesMatching:query success:^(CDAResponse *response, CDAArray *entries) {
+        space.lastSyncTimestamp = syncTimestamp;
+        
+        [self.client fetchAssetsMatching:queryForAssets
+                                 success:^(CDAResponse *response, CDAArray *assets) {
+                                     for (CDAAsset* asset in assets.items) {
+                                         [self handleAsset:asset];
+                                     }
+                                     
+                                     [self handleResponseArray:entries withSuccess:success];
+                                 }
+                                 failure:failure];
     } failure:failure];
 }
 

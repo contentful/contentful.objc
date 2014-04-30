@@ -112,4 +112,42 @@
     WaitUntilBlockCompletes();
 }
 
+-(void)testUpdateAsset {
+    [self stubInitialRequestWithJSONNamed:@"initial2" updateWithJSONNamed:@"update-asset"];
+    
+    [self addRecordingWithJSONNamed:@"update-asset-assets"
+                        inDirectory:@"QuerySync"
+                            matcher:^BOOL(NSURLRequest *request) {
+                                return [request.URL.absoluteString rangeOfString:@"assets"].location != NSNotFound;
+                            }];
+    
+    StartBlock();
+    
+    [self.coreDataManager performSynchronizationWithSuccess:^{
+        [self assertNumberOfAssets:1 numberOfEntries:2];
+        
+        id<CDAPersistedAsset> asset = [[self.coreDataManager fetchAssetsFromDataStore] firstObject];
+        XCTAssertEqualObjects(@"3f5a00acf72df93528b6bb7cd0a4fd0c.jpeg",
+                              asset.url.lastPathComponent, @"");
+        
+        [self.coreDataManager performSynchronizationWithSuccess:^{
+            [self assertNumberOfAssets:1 numberOfEntries:2];
+            XCTAssertNotEqualObjects(@"3f5a00acf72df93528b6bb7cd0a4fd0c.jpeg",
+                                     asset.url.lastPathComponent, @"");
+            
+            EndBlock();
+        } failure:^(CDAResponse *response, NSError *error) {
+            XCTFail(@"Error: %@", error);
+            
+            EndBlock();
+        }];
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTFail(@"Error: %@", error);
+        
+        EndBlock();
+    }];
+    
+    WaitUntilBlockCompletes();
+}
+
 @end
