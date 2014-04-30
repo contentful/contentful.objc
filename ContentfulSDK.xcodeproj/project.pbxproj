@@ -155,6 +155,7 @@
 		A1A1CCBC190E962F00BE37EB /* CoreDataQuerySyncTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A1A1CCB8190E960800BE37EB /* CoreDataQuerySyncTests.json */; };
 		A1A1CCBE190E96FC00BE37EB /* UtilityTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A1A1CCBD190E96FC00BE37EB /* UtilityTests.json */; };
 		A1A1CCC0190FAE5B00BE37EB /* QuerySync in Resources */ = {isa = PBXBuildFile; fileRef = A1A1CCBF190FAE5B00BE37EB /* QuerySync */; };
+		A1A1CCC21911248600BE37EB /* SyncSpecificContentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A1CCC11911248600BE37EB /* SyncSpecificContentTests.m */; };
 		A1A2CE48190963BA00B8D46D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD86A18C631E60081677E /* Foundation.framework */; };
 		A1A2CE4B190963BA00B8D46D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A2CE4A190963BA00B8D46D /* main.m */; };
 		A1A2CE53190967CA00B8D46D /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A17012ED18FBDFDA0086BE07 /* CoreDataManager.m */; };
@@ -449,6 +450,7 @@
 		A1A1CCBA190E962300BE37EB /* DeepIncludes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DeepIncludes.json; sourceTree = "<group>"; };
 		A1A1CCBD190E96FC00BE37EB /* UtilityTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UtilityTests.json; sourceTree = "<group>"; };
 		A1A1CCBF190FAE5B00BE37EB /* QuerySync */ = {isa = PBXFileReference; lastKnownFileType = folder; path = QuerySync; sourceTree = "<group>"; };
+		A1A1CCC11911248600BE37EB /* SyncSpecificContentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncSpecificContentTests.m; sourceTree = "<group>"; };
 		A1A2CE47190963BA00B8D46D /* ContentfulSeedDatabase */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ContentfulSeedDatabase; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1A2CE4A190963BA00B8D46D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A1A2CE4D190963BA00B8D46D /* ContentfulSeedDatabase-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ContentfulSeedDatabase-Prefix.pch"; sourceTree = "<group>"; };
@@ -1002,6 +1004,7 @@
 				A1B815CF18F69E0F0027B26D /* NewEntryAndDeletionSyncTest.m */,
 				A170131418FD5DE20086BE07 /* PreviewModeSyncTests.json */,
 				A170130318FC25640086BE07 /* PreviewModeSyncTests.m */,
+				A1A1CCC11911248600BE37EB /* SyncSpecificContentTests.m */,
 				A12797A518E1A45700043A44 /* SyncTests */,
 				A18AA85618E45C5E00D430D5 /* SyncTests.json */,
 				A12797AA18E1B08F00043A44 /* SyncTests.m */,
@@ -1858,6 +1861,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1A1CCC21911248600BE37EB /* SyncSpecificContentTests.m in Sources */,
 				A170131218FD4BA00086BE07 /* SyncInfo.m in Sources */,
 				A1A1CCB2190E382E00BE37EB /* CoreDataQuerySyncTests.m in Sources */,
 				A170131118FD4B9D0086BE07 /* ManagedCat.m in Sources */,
