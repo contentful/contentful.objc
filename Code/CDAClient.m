@@ -261,6 +261,12 @@
 
 -(CDARequest*)initialSynchronizationWithSuccess:(CDASyncedSpaceFetchedBlock)success
                                         failure:(CDARequestFailureBlock)failure {
+    return [self initialSynchronizationMatching:nil success:success failure:failure];
+}
+
+-(CDARequest *)initialSynchronizationMatching:(NSDictionary *)query
+                                      success:(CDASyncedSpaceFetchedBlock)success
+                                      failure:(CDARequestFailureBlock)failure {
     if (self.configuration.previewMode) {
         void(^handler)(NSArray* fetchedAssets, NSArray* fetchedEntries) = ^(NSArray* fetchedAssets,
                                                                             NSArray* fetchedEntries) {
@@ -335,8 +341,11 @@
         }
     };
     
+    NSMutableDictionary* parameters = [NSMutableDictionary dictionaryWithDictionary:query];
+    parameters[@"initial"] = @"true";
+    
     return [self fetchArrayAtURLPath:@"sync"
-                          parameters:@{ @"initial": @"true" }
+                          parameters:parameters
                              success:handler
                              failure:failure];
 }
