@@ -181,7 +181,12 @@ static NSString* const CDASpaceKey          = @"CDASpaceKey";
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    return self.done;
+    if (self.done) {
+        [self loadSpaceTapped];
+        return NO;
+    }
+    
+    return YES;
 }
 
 @end
