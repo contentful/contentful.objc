@@ -46,13 +46,6 @@
 /** @name Fetching Resources */
 
 /**
-*  Fetch all Assets from the store.
-*
-*  @return An array of all Assets.
-*/
--(NSArray*)fetchAssetsFromDataStore;
-
-/**
  *  Fetch all Entries from the store.
  *
  *  @return An array of all Entries.

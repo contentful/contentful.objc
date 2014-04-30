@@ -15,8 +15,8 @@
  *  Subclasses of this class manage a persistent store.
  *
  *  A minimal subclass needs to at least override `deleteAssetWithIdentifier:`,
- *  `deleteEntryWithIdentifier:`, `fetchAssetWithIdentifier:`, `fetchEntryWithIdentifier:`,
- *  `fetchSpaceFromDataStore` and `saveDataStore`.
+ *  `deleteEntryWithIdentifier:`, `fetchAssetsFromDataStore`, `fetchAssetWithIdentifier:`,
+ *  `fetchEntryWithIdentifier:`, `fetchSpaceFromDataStore` and `saveDataStore`.
  */
 @interface CDAPersistenceManager : NSObject
 
@@ -117,6 +117,13 @@
  *  @param identifier The identifier of the Entry to delete.
  */
 -(void)deleteEntryWithIdentifier:(NSString*)identifier;
+
+/**
+ *  Fetch all Assets from the store.
+ *
+ *  @return An array of all Assets.
+ */
+-(NSArray*)fetchAssetsFromDataStore;
 
 /**
  *  Retrieve an Asset from the persistent store.
