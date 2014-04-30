@@ -148,4 +148,36 @@
     WaitUntilBlockCompletes();
 }
 
+-(void)testUpdateEntry {
+    [self stubInitialRequestWithJSONNamed:@"initial3" updateWithJSONNamed:@"update-entry"];
+    
+    StartBlock();
+    
+    [self.coreDataManager performSynchronizationWithSuccess:^{
+        [self assertNumberOfAssets:1 numberOfEntries:2];
+        
+        __block ManagedCat* cat = [self.coreDataManager fetchEntryWithIdentifier:@"3f1WNyJWX6sS0CKgyuCEYK"];
+        XCTAssertEqualObjects(@"Post 1", cat.name, @"");
+        
+        [self.coreDataManager performSynchronizationWithSuccess:^{
+            [self assertNumberOfAssets:1 numberOfEntries:2];
+            
+            cat = [self.coreDataManager fetchEntryWithIdentifier:@"3f1WNyJWX6sS0CKgyuCEYK"];
+            XCTAssertEqualObjects(@"Post 1 changed!", cat.name, @"");
+            
+            EndBlock();
+        } failure:^(CDAResponse *response, NSError *error) {
+            XCTFail(@"Error: %@", error);
+            
+            EndBlock();
+        }];
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTFail(@"Error: %@", error);
+        
+        EndBlock();
+    }];
+    
+    WaitUntilBlockCompletes();
+}
+
 @end
