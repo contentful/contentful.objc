@@ -19,8 +19,6 @@
     self.query = @{ @"content_type": @"6PnRGY1dxSUmaQ2Yq2Ege2" };
     
     [super buildCoreDataManagerWithDefaultClient:NO];
-    
-    self.coreDataManager.trackDeletionsField = @"deleted";
 }
 
 -(void)stubInitialRequestWithJSONNamed:(NSString*)initial updateWithJSONNamed:(NSString*)update {

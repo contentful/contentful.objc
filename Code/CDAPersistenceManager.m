@@ -97,14 +97,6 @@
 -(void)handleEntry:(CDAEntry*)entry {
     id<CDAPersistedEntry> persistedEntry = [self fetchEntryWithIdentifier:entry.identifier];
     
-    if (self.trackDeletionsField && [entry.fields[self.trackDeletionsField] boolValue]) {
-        if (persistedEntry) {
-            [self deleteEntryWithIdentifier:entry.identifier];
-        }
-        
-        return;
-    }
-    
     if (persistedEntry) {
         [self updatePersistedEntry:persistedEntry withEntry:entry];
     } else {
