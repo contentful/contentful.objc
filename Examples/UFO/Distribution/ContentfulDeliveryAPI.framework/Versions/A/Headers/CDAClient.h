@@ -235,6 +235,27 @@ typedef void(^CDASyncedSpaceFetchedBlock)(CDAResponse* response, CDASyncedSpace*
 -(CDARequest*)initialSynchronizationWithSuccess:(CDASyncedSpaceFetchedBlock)success
                                         failure:(CDARequestFailureBlock)failure;
 
+/**
+ *  Perform the initial synchronization of a Space.
+ *
+ *  A `CDASyncedSpace` instance will be available once the initial synchronization is done.
+ *  Subsequent updates can be done using that object.
+ *
+ *  Using this method, a complete synchronization of all
+ *  [pages](https://www.contentful.com/developers/documentation/content-delivery-api/#sync-example-next-page)
+ *  will be performed, which means that all data from the Space will be in memory.
+ *
+ *  @param query   The query which retrieved Resources shall match. Queries are expressed as
+ *                 dictionaries, see [Syncing Specific Content](https://www.contentful.com/developers/documentation/content-delivery-api/javascript/#sync-types) for more information. If `nil`, any Resource matches.
+ *  @param success A block which gets called upon successful retrieval of all content.
+ *  @param failure A block which gets called if an error occured during the retrieval process.
+ *
+ *  @return The request used for fetching data.
+ */
+-(CDARequest*)initialSynchronizationMatching:(NSDictionary*)query
+                                     success:(CDASyncedSpaceFetchedBlock)success
+                                     failure:(CDARequestFailureBlock)failure;
+
 /** @name Register classes for custom value objects */
 
 /**
