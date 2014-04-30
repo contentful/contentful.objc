@@ -161,7 +161,9 @@
     NSDate* syncTimestamp = [NSDate date];
     
     [self.client fetchEntriesMatching:self.query success:^(CDAResponse *response, CDAArray *array) {
-        [self persistedSpaceForTimestamp:syncTimestamp];
+        id<CDAPersistedSpace> space = [self fetchSpaceFromDataStore];
+        space.lastSyncTimestamp = syncTimestamp;
+        
         [self handleResponseArray:array withSuccess:success];
     } failure:failure];
 }
@@ -201,10 +203,15 @@
     NSParameterAssert(self.client);
     
     if (self.query) {
-        if ([self fetchSpaceFromDataStore]) {
-            [self performSubsequentSynchronizationWithSuccess:success failure:failure];
+        if (self.syncedSpace) {
+            [self.syncedSpace performSynchronizationWithSuccess:^{
+                [self performSubsequentSynchronizationWithSuccess:success failure:failure];
+            } failure:failure];
         } else {
-            [self performInitalSynchronizationForQueryWithSuccess:success failure:failure];
+            [self.client initialSynchronizationMatching:@{ @"type": @"Deletion" } success:^(CDAResponse *response, CDASyncedSpace *space) {
+                [self persistedSpaceForSpace:space];
+                [self performInitalSynchronizationForQueryWithSuccess:success failure:failure];
+            } failure:failure];
         }
         
         return;
@@ -263,12 +270,6 @@
     id<CDAPersistedSpace> persistedSpace = [self createPersistedSpace];
     persistedSpace.lastSyncTimestamp = space.lastSyncTimestamp;
     persistedSpace.syncToken = space.syncToken;
-    return persistedSpace;
-}
-
--(id<CDAPersistedSpace>)persistedSpaceForTimestamp:(NSDate*)timestamp {
-    id<CDAPersistedSpace> persistedSpace = [self createPersistedSpace];
-    persistedSpace.lastSyncTimestamp = timestamp;
     return persistedSpace;
 }
 

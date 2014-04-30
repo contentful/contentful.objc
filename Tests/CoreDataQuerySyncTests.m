@@ -87,6 +87,12 @@
 -(void)testDeleteEntry {
     [self stubInitialRequestWithJSONNamed:@"initial" updateWithJSONNamed:@"delete-entry"];
     
+    [self addRecordingWithJSONNamed:@"deletions-sync"
+                        inDirectory:@"QuerySync"
+                            matcher:^BOOL(NSURLRequest *request) {
+                                return [request.URL.absoluteString rangeOfString:@"sync_token"].location != NSNotFound;
+                            }];
+    
     StartBlock();
     
     [self.coreDataManager performSynchronizationWithSuccess:^{
