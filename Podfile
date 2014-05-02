@@ -19,6 +19,9 @@ end
 
 target "Browser", :exclusive => true do
 
+platform :ios, '7.0'
+
+pod 'CSStickyHeaderFlowLayout'
 pod 'ContentfulDeliveryAPI', :path => '.'
 pod 'Bypass', :inhibit_warnings => true
 pod 'PDKTCollectionViewWaterfallLayout'

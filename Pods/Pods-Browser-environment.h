@@ -54,6 +54,12 @@
 #define COCOAPODS_VERSION_MINOR_Bypass 0
 #define COCOAPODS_VERSION_PATCH_Bypass 1
 
+// CSStickyHeaderFlowLayout
+#define COCOAPODS_POD_AVAILABLE_CSStickyHeaderFlowLayout
+#define COCOAPODS_VERSION_MAJOR_CSStickyHeaderFlowLayout 0
+#define COCOAPODS_VERSION_MINOR_CSStickyHeaderFlowLayout 2
+#define COCOAPODS_VERSION_PATCH_CSStickyHeaderFlowLayout 0
+
 // ContentfulDeliveryAPI
 #define COCOAPODS_POD_AVAILABLE_ContentfulDeliveryAPI
 #define COCOAPODS_VERSION_MAJOR_ContentfulDeliveryAPI 0
