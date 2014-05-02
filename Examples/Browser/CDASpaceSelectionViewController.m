@@ -53,6 +53,13 @@ static NSString* const CDALogoAnimationKey  = @"SpinLogo";
     return cell.textField;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self stopSpinningLogo];
+}
+
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
