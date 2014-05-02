@@ -15,6 +15,7 @@
 
 static NSString* const CDAAccessTokenKey    = @"CDAAccessTokenKey";
 static NSString* const CDASpaceKey          = @"CDASpaceKey";
+static NSString* const CDALogoAnimationKey  = @"SpinLogo";
 
 @interface CDASpaceSelectionViewController () <CDAEntriesViewControllerDelegate, UITextFieldDelegate>
 
@@ -52,9 +53,11 @@ static NSString* const CDASpaceKey          = @"CDASpaceKey";
     return cell.textField;
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewWillDisappear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
+    [super viewWillDisappear:animated];
+    
+    [self stopSpinningLogo];
 }
 
 #pragma mark - Actions
@@ -73,11 +76,32 @@ static NSString* const CDASpaceKey          = @"CDASpaceKey";
     
     CDASpaceViewController* spaceVC = [CDASpaceViewController new];
     [self presentViewController:spaceVC animated:YES completion:nil];
+    
+    [self startSpinningLogo];
 }
 
 - (void)textFieldChanged
 {
     self.loadButton.enabled = self.done;
+}
+
+#pragma mark - Animations
+
+- (void)startSpinningLogo
+{
+    CABasicAnimation *rotation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+    
+    rotation.fromValue = [NSNumber numberWithFloat:0];
+    rotation.toValue = [NSNumber numberWithFloat:(2 * M_PI)];
+    rotation.duration = 1.1;
+    rotation.repeatCount = INT_MAX;
+    
+    [self.logoView.layer addAnimation:rotation forKey:CDALogoAnimationKey];
+}
+
+- (void)stopSpinningLogo
+{
+    [self.logoView.layer removeAnimationForKey:CDALogoAnimationKey];
 }
 
 #pragma mark - UITableViewDataSource
