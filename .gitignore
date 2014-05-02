@@ -11,6 +11,7 @@ doc
 .pt
 Examples/ContentfulDeliveryAPI.zip
 Examples/UFO.zip
+compile_commands.json
 
 ## Xcode
 

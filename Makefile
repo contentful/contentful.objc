@@ -3,7 +3,7 @@ WORKSPACE=ContentfulSDK.xcworkspace
 .PHONY: all clean doc example example-static pod really-clean static-lib test
 
 clean:
-	rm -rf build Examples/UFO/build Examples/*.zip
+	rm -rf build Examples/UFO/build Examples/*.zip compile_commands.json
 
 really-clean: clean
 	rm -rf Pods $(HOME)/Library/Developer/Xcode/DerivedData/*
@@ -46,6 +46,13 @@ test: example
 		-scheme ContentfulDeliveryAPI \
 		-sdk iphonesimulator -destination 'name=iPhone Retina (4-inch)' \
 		test | xcpretty -c
+
+lint:
+	set -o pipefail && xcodebuild -workspace $(WORKSPACE) -dry-run \
+		-scheme ContentfulDeliveryAPI \
+		-sdk iphonesimulator clean build|xcpretty -r json-compilation-database \
+		-o compile_commands.json
+	oclint-json-compilation-database
 
 doc:
 	appledoc --project-name 'Contentful Delivery API' \
