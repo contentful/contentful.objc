@@ -45,8 +45,10 @@
             return;
             
         case CDAFieldTypeLink: {
-            self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            self.selectionStyle = UITableViewCellSelectionStyleDefault;
+            if (_value) {
+                self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                self.selectionStyle = UITableViewCellSelectionStyleDefault;
+            }
             return;
         }
         
