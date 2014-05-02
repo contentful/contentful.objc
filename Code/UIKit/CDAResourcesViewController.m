@@ -42,17 +42,25 @@
         imageVC.asset = (CDAAsset*)resource;
         imageVC.title = imageVC.asset.fields[@"title"];
         [self.navigationController pushViewController:imageVC animated:YES];
-        return;
     }
     
-    if (![resource isKindOfClass:[CDAEntry class]]) {
-        return;
+    if ([resource isKindOfClass:[CDAContentType class]]) {
+        CDAContentType* contentType = (CDAContentType*)resource;
+        NSDictionary* cellMapping = contentType.displayField ? @{ @"textLabel.text": [@"fields." stringByAppendingString:contentType.displayField] } : nil;
+        
+        CDAEntriesViewController* entriesVC = [[CDAEntriesViewController alloc] initWithCellMapping:cellMapping];
+        entriesVC.client = self.client;
+        entriesVC.query = @{ @"content_type": contentType.identifier };
+        entriesVC.title = contentType.name;
+        [self.navigationController pushViewController:entriesVC animated:YES];
     }
     
-    CDAFieldsViewController* fieldsVC = [[CDAFieldsViewController alloc]
-                                         initWithEntry:(CDAEntry*)resource];
-    fieldsVC.client = self.client;
-    [self.navigationController pushViewController:fieldsVC animated:YES];
+    if ([resource isKindOfClass:[CDAEntry class]]) {
+        CDAFieldsViewController* fieldsVC = [[CDAFieldsViewController alloc]
+                                             initWithEntry:(CDAEntry*)resource];
+        fieldsVC.client = self.client;
+        [self.navigationController pushViewController:fieldsVC animated:YES];
+    }
 }
 
 -(void)handleCaching {
