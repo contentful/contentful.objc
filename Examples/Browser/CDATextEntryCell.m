@@ -26,7 +26,6 @@
         self.textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         self.textField.clearsOnBeginEditing = YES;
         self.textField.enablesReturnKeyAutomatically = YES;
-        self.textField.returnKeyType = UIReturnKeyGo;
         
         self.accessoryView = self.textField;
     }
