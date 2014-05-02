@@ -53,9 +53,10 @@
     _contentTypes = [[CDAResourcesViewController alloc] initWithCellMapping:@{ @"textLabel.text": @"name" }];
     _contentTypes.client = [UIApplication sharedApplication].client;
     _contentTypes.resourceType = CDAResourceTypeContentType;
+    _contentTypes.title = NSLocalizedString(@"Entries", nil);
     
     [_contentTypes.client fetchSpaceWithSuccess:^(CDAResponse *response, CDASpace *space) {
-        _contentTypes.title = space.name;
+        _contentTypes.navigationItem.title = space.name;
     } failure:nil];
     
     return _contentTypes;
