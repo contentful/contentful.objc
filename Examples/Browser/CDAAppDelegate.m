@@ -15,8 +15,7 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = [[UINavigationController alloc]
-                                      initWithRootViewController:[CDASpaceSelectionViewController new]];
+    self.window.rootViewController = [CDASpaceSelectionViewController new];
     [self.window makeKeyAndVisible];
     return YES;
 }

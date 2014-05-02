@@ -8,6 +8,7 @@
 
 #import <ContentfulDeliveryAPI/ContentfulDeliveryAPI.h>
 
+#import "CDASpaceViewController.h"
 #import "CDATextEntryCell.h"
 #import "CDASpaceSelectionViewController.h"
 #import "UIApplication+Browser.h"
@@ -64,43 +65,13 @@ static NSString* const CDASpaceKey          = @"CDASpaceKey";
     CDAClient* client = [[CDAClient alloc] initWithSpaceKey:spaceKey accessToken:accessToken];
     [UIApplication sharedApplication].client = client;
     
-    [client fetchContentTypesWithSuccess:^(CDAResponse *response, CDAArray *array) {
-        CDAEntriesViewController* contentTypesVC = [[CDAEntriesViewController alloc] initWithCellMapping:@{ @"textLabel.text": @"name" } items:array.items];
-        contentTypesVC.client = client;
-        contentTypesVC.delegate = self;
-        contentTypesVC.title = NSLocalizedString(@"Content Types", nil);
-        [self.navigationController pushViewController:contentTypesVC animated:YES];
-    } failure:^(CDAResponse *response, NSError *error) {
-        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
-                                                            message:error.localizedDescription
-                                                           delegate:nil
-                                                  cancelButtonTitle:NSLocalizedString(@"OK", nil)
-                                                  otherButtonTitles:nil];
-        [alertView show];
-    }];
+    CDASpaceViewController* spaceVC = [CDASpaceViewController new];
+    [self presentViewController:spaceVC animated:YES completion:nil];
 }
 
 - (void)textFieldChanged
 {
     self.loadButton.enabled = self.done;
-}
-
-#pragma mark - CDAEntriesViewControllerDelegate
-
--(void)entriesViewController:(CDAEntriesViewController *)entriesViewController
-       didSelectRowWithEntry:(CDAEntry *)entry {
-    // Cast necessary because we essentially abuse a view controller made for Entries
-    CDAContentType* contentType = (CDAContentType*)entry;
-    
-    if (!contentType.displayField) {
-        return;
-    }
-    
-    CDAEntriesViewController* entriesVC = [[CDAEntriesViewController alloc] initWithCellMapping:@{ @"textLabel.text": [@"fields." stringByAppendingString:contentType.displayField] }];
-    entriesVC.client = [UIApplication sharedApplication].client;
-    entriesVC.query = @{ @"content_type": contentType.identifier };
-    entriesVC.title = contentType.name;
-    [self.navigationController pushViewController:entriesVC animated:YES];
 }
 
 #pragma mark - UITableViewDataSource
