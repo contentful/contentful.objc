@@ -36,6 +36,7 @@
 		A144FAFC18C9F8C200110B35 /* StagingTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A144FAFB18C9F8C200110B35 /* StagingTests.json */; };
 		A144FAFE18C9F8CA00110B35 /* SearchAPITests.json in Resources */ = {isa = PBXBuildFile; fileRef = A144FAFD18C9F8CA00110B35 /* SearchAPITests.json */; };
 		A144FB0018C9F8D200110B35 /* DocumentationTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A144FAFF18C9F8D200110B35 /* DocumentationTests.json */; };
+		A158986A1913924600F0E9BF /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A15898691913924600F0E9BF /* logo.png */; };
 		A160862218CDF0E60047D44F /* CDARequest.h in Headers */ = {isa = PBXBuildFile; fileRef = A160862018CDF0E60047D44F /* CDARequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A160862318CDF0E60047D44F /* CDARequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A160862118CDF0E60047D44F /* CDARequest.m */; };
 		A160862518CDF2AC0047D44F /* CDARequest+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A160862418CDF2AC0047D44F /* CDARequest+Private.h */; };
@@ -223,6 +224,7 @@
 		A1E9797818CBEDFC00E79632 /* ErrorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E9797718CBEDFC00E79632 /* ErrorTests.m */; };
 		A1E9797B18CC683200E79632 /* CDAFieldValueTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = A1E9797918CC683200E79632 /* CDAFieldValueTransformer.h */; };
 		A1E9797C18CC683200E79632 /* CDAFieldValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E9797A18CC683200E79632 /* CDAFieldValueTransformer.m */; };
+		A1EB39181911420F00EF61DB /* CDASpaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EB39171911420F00EF61DB /* CDASpaceViewController.m */; };
 		A1F70C9B18FFDE030080C72C /* CoreDataBasicTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A1F70C9A18FFDE030080C72C /* CoreDataBasicTests.json */; };
 		A1F70C9D1900140D0080C72C /* CDAAsset+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A1F70C9C19000FD90080C72C /* CDAAsset+Private.h */; };
 		A1FAC312190654E30093B308 /* DeepIncludes.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FAC311190654E30093B308 /* DeepIncludes.m */; };
@@ -298,6 +300,7 @@
 		A144FAFB18C9F8C200110B35 /* StagingTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = StagingTests.json; sourceTree = "<group>"; };
 		A144FAFD18C9F8CA00110B35 /* SearchAPITests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SearchAPITests.json; sourceTree = "<group>"; };
 		A144FAFF18C9F8D200110B35 /* DocumentationTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DocumentationTests.json; sourceTree = "<group>"; };
+		A15898691913924600F0E9BF /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		A160862018CDF0E60047D44F /* CDARequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDARequest.h; sourceTree = "<group>"; };
 		A160862118CDF0E60047D44F /* CDARequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDARequest.m; sourceTree = "<group>"; };
 		A160862418CDF2AC0047D44F /* CDARequest+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDARequest+Private.h"; sourceTree = "<group>"; };
@@ -512,6 +515,8 @@
 		A1E9797718CBEDFC00E79632 /* ErrorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorTests.m; sourceTree = "<group>"; };
 		A1E9797918CC683200E79632 /* CDAFieldValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAFieldValueTransformer.h; sourceTree = "<group>"; };
 		A1E9797A18CC683200E79632 /* CDAFieldValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAFieldValueTransformer.m; sourceTree = "<group>"; };
+		A1EB39161911420F00EF61DB /* CDASpaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDASpaceViewController.h; sourceTree = "<group>"; };
+		A1EB39171911420F00EF61DB /* CDASpaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDASpaceViewController.m; sourceTree = "<group>"; };
 		A1F70C9A18FFDE030080C72C /* CoreDataBasicTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CoreDataBasicTests.json; sourceTree = "<group>"; };
 		A1F70C9C19000FD90080C72C /* CDAAsset+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CDAAsset+Private.h"; sourceTree = "<group>"; };
 		A1FAC311190654E30093B308 /* DeepIncludes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeepIncludes.m; sourceTree = "<group>"; };
@@ -618,6 +623,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A15898681913923000F0E9BF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A15898691913924600F0E9BF /* logo.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		A17012F218FC1FB00086BE07 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
@@ -659,6 +672,7 @@
 			isa = PBXGroup;
 			children = (
 				A173F53518D31191000E6F92 /* Code */,
+				A15898681913923000F0E9BF /* Resources */,
 				A173F51018D31151000E6F92 /* Supporting Files */,
 			);
 			path = Browser;
@@ -686,6 +700,8 @@
 				A173F53A18D313E2000E6F92 /* CDATextEntryCell.m */,
 				A173F53618D31343000E6F92 /* CDASpaceSelectionViewController.h */,
 				A173F53718D31343000E6F92 /* CDASpaceSelectionViewController.m */,
+				A1EB39161911420F00EF61DB /* CDASpaceViewController.h */,
+				A1EB39171911420F00EF61DB /* CDASpaceViewController.m */,
 				A173F54718D38899000E6F92 /* UIApplication+Browser.h */,
 				A173F54818D38899000E6F92 /* UIApplication+Browser.m */,
 			);
@@ -1424,6 +1440,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A158986A1913924600F0E9BF /* logo.png in Resources */,
 				A170131A18FEA0AD0086BE07 /* Fixtures in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1797,6 +1814,7 @@
 				A173F53B18D313E2000E6F92 /* CDATextEntryCell.m in Sources */,
 				A173F59118D834B7000E6F92 /* CDAFieldsViewController+Markdown.m in Sources */,
 				A173F58A18D74F1B000E6F92 /* CDAMarkdownViewController.mm in Sources */,
+				A1EB39181911420F00EF61DB /* CDASpaceViewController.m in Sources */,
 				A173F54918D38899000E6F92 /* UIApplication+Browser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
