@@ -7,12 +7,12 @@
 //
 
 #import <ContentfulDeliveryAPI/ContentfulDeliveryAPI.h>
-#import <PDKTCollectionViewWaterfallLayout/PDKTCollectionViewWaterfallLayout.h>
 
+#import "CDAAssetListViewController.h"
 #import "CDASpaceViewController.h"
 #import "UIApplication+Browser.h"
 
-@interface CDASpaceViewController () <PDKTCollectionViewWaterfallLayoutDelegate>
+@interface CDASpaceViewController ()
 
 @property (nonatomic, readonly) CDAResourcesCollectionViewController* assets;
 @property (nonatomic, readonly) CDAResourcesViewController* contentTypes;
@@ -33,14 +33,7 @@
         return _assets;
     }
     
-    PDKTCollectionViewWaterfallLayout* layout = [PDKTCollectionViewWaterfallLayout new];
-    layout.delegate = self;
-    
-    _assets = [[CDAResourcesCollectionViewController alloc] initWithCollectionViewLayout:layout cellMapping:@{ @"imageURL": @"URL" }];
-    _assets.client = [UIApplication sharedApplication].client;
-    _assets.collectionView.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    _assets.resourceType = CDAResourceTypeAsset;
-    _assets.title = NSLocalizedString(@"Assets", nil);
+    _assets = [CDAAssetListViewController new];
     
     return _assets;
 }
@@ -67,36 +60,6 @@
     
     self.viewControllers = @[ [[UINavigationController alloc] initWithRootViewController:self.contentTypes],
                               [[UINavigationController alloc] initWithRootViewController:self.assets] ];
-}
-
-#pragma mark - PDKTCollectionViewWaterfallLayoutDelegate
-
--(CGFloat)collectionView:(UICollectionView *)collectionView
-                  layout:(PDKTCollectionViewWaterfallLayout *)collectionViewLayout
- aspectRatioForIndexPath:(NSIndexPath *)indexPath {
-    CDAAsset* asset = self.assets.items[indexPath.row];
-    CGFloat aspectRatio = asset.size.width / asset.size.height;
-    return isnan(aspectRatio) ? 1.0 : aspectRatio;
-}
-
--(CGFloat)collectionView:(UICollectionView *)collectionView
-                  layout:(PDKTCollectionViewWaterfallLayout *)collectionViewLayout
-   heightItemAtIndexPath:(NSIndexPath *)indexPath {
-    CDAAsset* asset = self.assets.items[indexPath.row];
-    CGFloat height = asset.size.height;
-    return isnan(height) ? 0.0 : height;
-}
-
--(CGFloat)collectionView:(UICollectionView *)collectionView
-                  layout:(PDKTCollectionViewWaterfallLayout *)collectionViewLayout
-    itemSpacingInSection:(NSUInteger)section {
-    return 10.0;
-}
-
--(NSUInteger)collectionView:(UICollectionView *)collectionView
-                     layout:(PDKTCollectionViewWaterfallLayout *)collectionViewLayout
-   numberOfColumnsInSection:(NSUInteger)section {
-    return 3;
 }
 
 @end
