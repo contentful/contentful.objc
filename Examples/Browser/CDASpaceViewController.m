@@ -16,6 +16,7 @@
 
 @property (nonatomic, readonly) CDAResourcesCollectionViewController* assets;
 @property (nonatomic, readonly) CDAResourcesViewController* contentTypes;
+@property (nonatomic, readonly) UIBarButtonItem* logoutButton;
 
 @end
 
@@ -34,6 +35,7 @@
     }
     
     _assets = [CDAAssetListViewController new];
+    _assets.navigationItem.rightBarButtonItem = self.logoutButton;
     
     return _assets;
 }
@@ -45,6 +47,7 @@
     
     _contentTypes = [[CDAResourcesViewController alloc] initWithCellMapping:@{ @"textLabel.text": @"name" }];
     _contentTypes.client = [UIApplication sharedApplication].client;
+    _contentTypes.navigationItem.rightBarButtonItem = self.logoutButton;
     _contentTypes.resourceType = CDAResourceTypeContentType;
     _contentTypes.title = NSLocalizedString(@"Entries", nil);
     
@@ -55,11 +58,24 @@
     return _contentTypes;
 }
 
+-(UIBarButtonItem *)logoutButton {
+    return [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Logout", nil)
+                                            style:UIBarButtonItemStyleBordered
+                                           target:self
+                                           action:@selector(logout)];
+}
+
 -(void)viewDidLoad {
     [super viewDidLoad];
     
     self.viewControllers = @[ [[UINavigationController alloc] initWithRootViewController:self.contentTypes],
                               [[UINavigationController alloc] initWithRootViewController:self.assets] ];
+}
+
+#pragma mark - Actions
+
+-(void)logout {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
