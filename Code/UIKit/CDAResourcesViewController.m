@@ -149,15 +149,21 @@
         return nil;
     }
     
-    CDAEntry* entry = self.items[indexPath.row];
+    id item = self.items[indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([self class])
                                                             forIndexPath:indexPath];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
+    if (![item isKindOfClass:[CDAResource class]]) {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.textLabel.text = [item respondsToSelector:@selector(stringValue)] ? [item stringValue] : item;
+    }
+    
     [self.cellMapping enumerateKeysAndObjectsUsingBlock:^(NSString* cellKeyPath,
                                                           NSString* entryKeyPath,
                                                           BOOL *stop) {
-        [cell setValue:[entry valueForKeyPath:entryKeyPath] forKeyPath:cellKeyPath];
+        [cell setValue:[item valueForKeyPath:entryKeyPath] forKeyPath:cellKeyPath];
     }];
     
     return cell;
