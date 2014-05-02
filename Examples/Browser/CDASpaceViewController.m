@@ -75,14 +75,16 @@
                   layout:(PDKTCollectionViewWaterfallLayout *)collectionViewLayout
  aspectRatioForIndexPath:(NSIndexPath *)indexPath {
     CDAAsset* asset = self.assets.items[indexPath.row];
-    return asset.size.width / asset.size.height;
+    CGFloat aspectRatio = asset.size.width / asset.size.height;
+    return isnan(aspectRatio) ? 1.0 : aspectRatio;
 }
 
 -(CGFloat)collectionView:(UICollectionView *)collectionView
                   layout:(PDKTCollectionViewWaterfallLayout *)collectionViewLayout
    heightItemAtIndexPath:(NSIndexPath *)indexPath {
     CDAAsset* asset = self.assets.items[indexPath.row];
-    return asset.size.height;
+    CGFloat height = asset.size.height;
+    return isnan(height) ? 0.0 : height;
 }
 
 -(CGFloat)collectionView:(UICollectionView *)collectionView
