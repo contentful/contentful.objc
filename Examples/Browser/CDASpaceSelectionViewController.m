@@ -20,6 +20,7 @@ static NSString* const CDASpaceKey          = @"CDASpaceKey";
 
 @property (nonatomic, readonly) BOOL done;
 @property (nonatomic) UIButton* loadButton;
+@property (nonatomic) UIImageView* logoView;
 
 @end
 
@@ -46,9 +47,14 @@ static NSString* const CDASpaceKey          = @"CDASpaceKey";
 
 - (UITextField*)textFieldAtRow:(NSInteger)row
 {
-    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:row inSection:0];
+    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:row inSection:1];
     CDATextEntryCell* cell = (CDATextEntryCell*)[self.tableView cellForRowAtIndexPath:indexPath];
     return cell.textField;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
 }
 
 #pragma mark - Actions
@@ -78,7 +84,7 @@ static NSString* const CDASpaceKey          = @"CDASpaceKey";
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 2;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -111,12 +117,16 @@ static NSString* const CDASpaceKey          = @"CDASpaceKey";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 64.0;
+    return section == 1 ? 64.0 : UITableViewAutomaticDimension;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return section == 0 ? 240.0 : UITableViewAutomaticDimension;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return section == 0 ? 0 : 2;
 }
 
 - (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -126,6 +136,10 @@ static NSString* const CDASpaceKey          = @"CDASpaceKey";
 
 - (UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
+    if (section == 0) {
+        return nil;
+    }
+    
     UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, tableView.frame.size.width, 64.0)];
     
     UIButton* button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -139,6 +153,21 @@ static NSString* const CDASpaceKey          = @"CDASpaceKey";
     
     [view addSubview:button];
     return view;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        UIView* containerView = [[UIView alloc] initWithFrame:CGRectZero];
+        
+        self.logoView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo"]];
+        self.logoView.contentMode = UIViewContentModeScaleAspectFit;
+        self.logoView.frame = CGRectMake(0.0, 40.0, tableView.frame.size.width, 200.0);
+        [containerView addSubview:self.logoView];
+        
+        return containerView;
+    }
+    
+    return nil;
 }
 
 #pragma mark - UITableViewDelegate
