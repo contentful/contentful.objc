@@ -37,6 +37,9 @@
 		A144FAFE18C9F8CA00110B35 /* SearchAPITests.json in Resources */ = {isa = PBXBuildFile; fileRef = A144FAFD18C9F8CA00110B35 /* SearchAPITests.json */; };
 		A144FB0018C9F8D200110B35 /* DocumentationTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A144FAFF18C9F8D200110B35 /* DocumentationTests.json */; };
 		A158986A1913924600F0E9BF /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A15898691913924600F0E9BF /* logo.png */; };
+		A158986D1913D2FD00F0E9BF /* CDAAssetDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A158986C1913D2FD00F0E9BF /* CDAAssetDetailsViewController.m */; };
+		A15898701913D53400F0E9BF /* CDABasicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A158986F1913D53400F0E9BF /* CDABasicCell.m */; };
+		A15898731913D55600F0E9BF /* CDAHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A15898721913D55600F0E9BF /* CDAHeaderView.m */; };
 		A160862218CDF0E60047D44F /* CDARequest.h in Headers */ = {isa = PBXBuildFile; fileRef = A160862018CDF0E60047D44F /* CDARequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A160862318CDF0E60047D44F /* CDARequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A160862118CDF0E60047D44F /* CDARequest.m */; };
 		A160862518CDF2AC0047D44F /* CDARequest+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A160862418CDF2AC0047D44F /* CDARequest+Private.h */; };
@@ -301,6 +304,12 @@
 		A144FAFD18C9F8CA00110B35 /* SearchAPITests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SearchAPITests.json; sourceTree = "<group>"; };
 		A144FAFF18C9F8D200110B35 /* DocumentationTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DocumentationTests.json; sourceTree = "<group>"; };
 		A15898691913924600F0E9BF /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		A158986B1913D2FD00F0E9BF /* CDAAssetDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAAssetDetailsViewController.h; sourceTree = "<group>"; };
+		A158986C1913D2FD00F0E9BF /* CDAAssetDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAAssetDetailsViewController.m; sourceTree = "<group>"; };
+		A158986E1913D53400F0E9BF /* CDABasicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDABasicCell.h; sourceTree = "<group>"; };
+		A158986F1913D53400F0E9BF /* CDABasicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDABasicCell.m; sourceTree = "<group>"; };
+		A15898711913D55600F0E9BF /* CDAHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAHeaderView.h; sourceTree = "<group>"; };
+		A15898721913D55600F0E9BF /* CDAHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAHeaderView.m; sourceTree = "<group>"; };
 		A160862018CDF0E60047D44F /* CDARequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDARequest.h; sourceTree = "<group>"; };
 		A160862118CDF0E60047D44F /* CDARequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDARequest.m; sourceTree = "<group>"; };
 		A160862418CDF2AC0047D44F /* CDARequest+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDARequest+Private.h"; sourceTree = "<group>"; };
@@ -693,7 +702,13 @@
 			children = (
 				A173F51818D31151000E6F92 /* CDAAppDelegate.h */,
 				A173F51918D31151000E6F92 /* CDAAppDelegate.m */,
+				A158986B1913D2FD00F0E9BF /* CDAAssetDetailsViewController.h */,
+				A158986C1913D2FD00F0E9BF /* CDAAssetDetailsViewController.m */,
+				A158986E1913D53400F0E9BF /* CDABasicCell.h */,
+				A158986F1913D53400F0E9BF /* CDABasicCell.m */,
 				A173F59018D834B7000E6F92 /* CDAFieldsViewController+Markdown.m */,
+				A15898711913D55600F0E9BF /* CDAHeaderView.h */,
+				A15898721913D55600F0E9BF /* CDAHeaderView.m */,
 				A173F58818D74F1B000E6F92 /* CDAMarkdownViewController.h */,
 				A173F58918D74F1B000E6F92 /* CDAMarkdownViewController.mm */,
 				A173F53918D313E2000E6F92 /* CDATextEntryCell.h */,
@@ -1813,7 +1828,10 @@
 				A173F51A18D31151000E6F92 /* CDAAppDelegate.m in Sources */,
 				A173F53B18D313E2000E6F92 /* CDATextEntryCell.m in Sources */,
 				A173F59118D834B7000E6F92 /* CDAFieldsViewController+Markdown.m in Sources */,
+				A158986D1913D2FD00F0E9BF /* CDAAssetDetailsViewController.m in Sources */,
 				A173F58A18D74F1B000E6F92 /* CDAMarkdownViewController.mm in Sources */,
+				A15898731913D55600F0E9BF /* CDAHeaderView.m in Sources */,
+				A15898701913D53400F0E9BF /* CDABasicCell.m in Sources */,
 				A1EB39181911420F00EF61DB /* CDASpaceViewController.m in Sources */,
 				A173F54918D38899000E6F92 /* UIApplication+Browser.m in Sources */,
 			);
