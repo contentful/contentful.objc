@@ -85,10 +85,8 @@
 		A173F56718D705B2000E6F92 /* CDAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A173F56618D705B2000E6F92 /* CDAAppDelegate.m */; };
 		A173F58418D7071C000E6F92 /* CDAExampleSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A173F58318D7071C000E6F92 /* CDAExampleSelectionViewController.m */; };
 		A173F58718D7091B000E6F92 /* CDALoadAssetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A173F58618D7091B000E6F92 /* CDALoadAssetsViewController.m */; };
-		A173F58A18D74F1B000E6F92 /* CDAMarkdownViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A173F58918D74F1B000E6F92 /* CDAMarkdownViewController.mm */; };
 		A173F58D18D752A9000E6F92 /* CDAImageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A173F58B18D752A9000E6F92 /* CDAImageViewController.h */; };
 		A173F58E18D752A9000E6F92 /* CDAImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A173F58C18D752A9000E6F92 /* CDAImageViewController.m */; };
-		A173F59118D834B7000E6F92 /* CDAFieldsViewController+Markdown.m in Sources */ = {isa = PBXBuildFile; fileRef = A173F59018D834B7000E6F92 /* CDAFieldsViewController+Markdown.m */; };
 		A173F59518D9A269000E6F92 /* CDAResourcesCollectionViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A173F59318D9A269000E6F92 /* CDAResourcesCollectionViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A173F59618D9A269000E6F92 /* CDAResourcesCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A173F59418D9A269000E6F92 /* CDAResourcesCollectionViewController.m */; };
 		A173F59918D9A2A9000E6F92 /* CDAImageGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A173F59818D9A2A9000E6F92 /* CDAImageGalleryViewController.m */; };
@@ -185,6 +183,10 @@
 		A1A2CEA3190A656B00B8D46D /* Doge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A1A2CE571909687400B8D46D /* Doge.xcdatamodeld */; };
 		A1A2CEA6190A659600B8D46D /* DocumentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A2CEA5190A659600B8D46D /* DocumentTableViewCell.m */; };
 		A1A2CEA9190A67A100B8D46D /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A2CEA8190A67A100B8D46D /* WebViewController.m */; };
+		A1A455A2191789C100802D50 /* CDAEntryPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A455A1191789C100802D50 /* CDAEntryPreviewController.m */; };
+		A1A455A91917BA4600802D50 /* CDAPrimitiveCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A455A81917BA4600802D50 /* CDAPrimitiveCell.m */; };
+		A1A455AC1917BA5800802D50 /* CDAMarkdownCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = A1A455AB1917BA5800802D50 /* CDAMarkdownCell.mm */; };
+		A1A455AF1917BA8800802D50 /* CDAAssetPreviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A455AE1917BA8800802D50 /* CDAAssetPreviewCell.m */; };
 		A1B8158418F2A8090027B26D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD86A18C631E60081677E /* Foundation.framework */; };
 		A1B8158518F2A8090027B26D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD89918C637400081677E /* CoreGraphics.framework */; };
 		A1B8158618F2A8090027B26D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD87B18C631E60081677E /* UIKit.framework */; };
@@ -362,11 +364,8 @@
 		A173F58318D7071C000E6F92 /* CDAExampleSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAExampleSelectionViewController.m; sourceTree = "<group>"; };
 		A173F58518D7091B000E6F92 /* CDALoadAssetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDALoadAssetsViewController.h; sourceTree = "<group>"; };
 		A173F58618D7091B000E6F92 /* CDALoadAssetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDALoadAssetsViewController.m; sourceTree = "<group>"; };
-		A173F58818D74F1B000E6F92 /* CDAMarkdownViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAMarkdownViewController.h; sourceTree = "<group>"; };
-		A173F58918D74F1B000E6F92 /* CDAMarkdownViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CDAMarkdownViewController.mm; sourceTree = "<group>"; };
 		A173F58B18D752A9000E6F92 /* CDAImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAImageViewController.h; sourceTree = "<group>"; };
 		A173F58C18D752A9000E6F92 /* CDAImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAImageViewController.m; sourceTree = "<group>"; };
-		A173F59018D834B7000E6F92 /* CDAFieldsViewController+Markdown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CDAFieldsViewController+Markdown.m"; sourceTree = "<group>"; };
 		A173F59218D851D1000E6F92 /* CDAFieldsViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDAFieldsViewController+Private.h"; sourceTree = "<group>"; };
 		A173F59318D9A269000E6F92 /* CDAResourcesCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAResourcesCollectionViewController.h; sourceTree = "<group>"; };
 		A173F59418D9A269000E6F92 /* CDAResourcesCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAResourcesCollectionViewController.m; sourceTree = "<group>"; };
@@ -488,6 +487,14 @@
 		A1A2CEA5190A659600B8D46D /* DocumentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentTableViewCell.m; sourceTree = "<group>"; };
 		A1A2CEA7190A67A100B8D46D /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		A1A2CEA8190A67A100B8D46D /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		A1A455A0191789C100802D50 /* CDAEntryPreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAEntryPreviewController.h; sourceTree = "<group>"; };
+		A1A455A1191789C100802D50 /* CDAEntryPreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAEntryPreviewController.m; sourceTree = "<group>"; };
+		A1A455A71917BA4600802D50 /* CDAPrimitiveCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAPrimitiveCell.h; sourceTree = "<group>"; };
+		A1A455A81917BA4600802D50 /* CDAPrimitiveCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAPrimitiveCell.m; sourceTree = "<group>"; };
+		A1A455AA1917BA5800802D50 /* CDAMarkdownCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAMarkdownCell.h; sourceTree = "<group>"; };
+		A1A455AB1917BA5800802D50 /* CDAMarkdownCell.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CDAMarkdownCell.mm; sourceTree = "<group>"; };
+		A1A455AD1917BA8800802D50 /* CDAAssetPreviewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAAssetPreviewCell.h; sourceTree = "<group>"; };
+		A1A455AE1917BA8800802D50 /* CDAAssetPreviewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAAssetPreviewCell.m; sourceTree = "<group>"; };
 		A1B8158318F2A8090027B26D /* CoreDataExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B8158718F2A8090027B26D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		A1B8158B18F2A8090027B26D /* CoreDataExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CoreDataExample-Info.plist"; sourceTree = "<group>"; };
@@ -995,11 +1002,25 @@
 		A1A4559F1917814F00802D50 /* Entries */ = {
 			isa = PBXGroup;
 			children = (
-				A173F59018D834B7000E6F92 /* CDAFieldsViewController+Markdown.m */,
-				A173F58818D74F1B000E6F92 /* CDAMarkdownViewController.h */,
-				A173F58918D74F1B000E6F92 /* CDAMarkdownViewController.mm */,
+				A1A455AD1917BA8800802D50 /* CDAAssetPreviewCell.h */,
+				A1A455AE1917BA8800802D50 /* CDAAssetPreviewCell.m */,
+				A1A455A0191789C100802D50 /* CDAEntryPreviewController.h */,
+				A1A455A1191789C100802D50 /* CDAEntryPreviewController.m */,
+				A1A455AA1917BA5800802D50 /* CDAMarkdownCell.h */,
+				A1A455AB1917BA5800802D50 /* CDAMarkdownCell.mm */,
+				A1A455A71917BA4600802D50 /* CDAPrimitiveCell.h */,
+				A1A455A81917BA4600802D50 /* CDAPrimitiveCell.m */,
 			);
 			name = Entries;
+			sourceTree = "<group>";
+		};
+		A1A455A319178A2500802D50 /* Content Types */ = {
+			isa = PBXGroup;
+			children = (
+				A1A455A419178A3D00802D50 /* CDAContentTypesViewController.h */,
+				A1A455A519178A3D00802D50 /* CDAContentTypesViewController.m */,
+			);
+			name = "Content Types";
 			sourceTree = "<group>";
 		};
 		A1B8158918F2A8090027B26D /* CoreDataExample */ = {
@@ -1854,12 +1875,14 @@
 			files = (
 				A173F53818D31343000E6F92 /* CDASpaceSelectionViewController.m in Sources */,
 				A173F51618D31151000E6F92 /* main.m in Sources */,
+				A1A455A91917BA4600802D50 /* CDAPrimitiveCell.m in Sources */,
+				A1A455A2191789C100802D50 /* CDAEntryPreviewController.m in Sources */,
 				A173F51A18D31151000E6F92 /* CDAAppDelegate.m in Sources */,
 				A173F53B18D313E2000E6F92 /* CDATextEntryCell.m in Sources */,
-				A173F59118D834B7000E6F92 /* CDAFieldsViewController+Markdown.m in Sources */,
+				A1A455AC1917BA5800802D50 /* CDAMarkdownCell.mm in Sources */,
 				A158986D1913D2FD00F0E9BF /* CDAAssetDetailsViewController.m in Sources */,
 				A15898761913D7FD00F0E9BF /* CDAAssetListViewController.m in Sources */,
-				A173F58A18D74F1B000E6F92 /* CDAMarkdownViewController.mm in Sources */,
+				A1A455AF1917BA8800802D50 /* CDAAssetPreviewCell.m in Sources */,
 				A15898731913D55600F0E9BF /* CDAHeaderView.m in Sources */,
 				A15898701913D53400F0E9BF /* CDABasicCell.m in Sources */,
 				A1EB39181911420F00EF61DB /* CDASpaceViewController.m in Sources */,
