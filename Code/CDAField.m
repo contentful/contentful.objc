@@ -59,6 +59,7 @@
                                             @"Link": @(CDAFieldTypeLink),
                                             @"Location": @(CDAFieldTypeLocation),
                                             @"Number": @(CDAFieldTypeNumber),
+                                            @"Object": @(CDAFieldTypeObject),
                                             @"Symbol": @(CDAFieldTypeSymbol),
                                             @"Text": @(CDAFieldTypeText),
                                             }; });
