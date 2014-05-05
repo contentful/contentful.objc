@@ -703,25 +703,11 @@
 		A173F53518D31191000E6F92 /* Code */ = {
 			isa = PBXGroup;
 			children = (
+				A1A4559E1917814800802D50 /* Assets */,
+				A1A4559F1917814F00802D50 /* Entries */,
+				A1A4559D1917814200802D50 /* Spaces */,
 				A173F51818D31151000E6F92 /* CDAAppDelegate.h */,
 				A173F51918D31151000E6F92 /* CDAAppDelegate.m */,
-				A158986B1913D2FD00F0E9BF /* CDAAssetDetailsViewController.h */,
-				A158986C1913D2FD00F0E9BF /* CDAAssetDetailsViewController.m */,
-				A15898741913D7FD00F0E9BF /* CDAAssetListViewController.h */,
-				A15898751913D7FD00F0E9BF /* CDAAssetListViewController.m */,
-				A158986E1913D53400F0E9BF /* CDABasicCell.h */,
-				A158986F1913D53400F0E9BF /* CDABasicCell.m */,
-				A173F59018D834B7000E6F92 /* CDAFieldsViewController+Markdown.m */,
-				A15898711913D55600F0E9BF /* CDAHeaderView.h */,
-				A15898721913D55600F0E9BF /* CDAHeaderView.m */,
-				A173F58818D74F1B000E6F92 /* CDAMarkdownViewController.h */,
-				A173F58918D74F1B000E6F92 /* CDAMarkdownViewController.mm */,
-				A173F53918D313E2000E6F92 /* CDATextEntryCell.h */,
-				A173F53A18D313E2000E6F92 /* CDATextEntryCell.m */,
-				A173F53618D31343000E6F92 /* CDASpaceSelectionViewController.h */,
-				A173F53718D31343000E6F92 /* CDASpaceSelectionViewController.m */,
-				A1EB39161911420F00EF61DB /* CDASpaceViewController.h */,
-				A1EB39171911420F00EF61DB /* CDASpaceViewController.m */,
 				A173F54718D38899000E6F92 /* UIApplication+Browser.h */,
 				A173F54818D38899000E6F92 /* UIApplication+Browser.m */,
 			);
@@ -976,6 +962,44 @@
 			);
 			name = "Supporting Files";
 			path = ../../SeedDatabaseExample;
+			sourceTree = "<group>";
+		};
+		A1A4559D1917814200802D50 /* Spaces */ = {
+			isa = PBXGroup;
+			children = (
+				A173F53918D313E2000E6F92 /* CDATextEntryCell.h */,
+				A173F53A18D313E2000E6F92 /* CDATextEntryCell.m */,
+				A173F53618D31343000E6F92 /* CDASpaceSelectionViewController.h */,
+				A173F53718D31343000E6F92 /* CDASpaceSelectionViewController.m */,
+				A1EB39161911420F00EF61DB /* CDASpaceViewController.h */,
+				A1EB39171911420F00EF61DB /* CDASpaceViewController.m */,
+			);
+			name = Spaces;
+			sourceTree = "<group>";
+		};
+		A1A4559E1917814800802D50 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				A158986B1913D2FD00F0E9BF /* CDAAssetDetailsViewController.h */,
+				A158986C1913D2FD00F0E9BF /* CDAAssetDetailsViewController.m */,
+				A15898741913D7FD00F0E9BF /* CDAAssetListViewController.h */,
+				A15898751913D7FD00F0E9BF /* CDAAssetListViewController.m */,
+				A158986E1913D53400F0E9BF /* CDABasicCell.h */,
+				A158986F1913D53400F0E9BF /* CDABasicCell.m */,
+				A15898711913D55600F0E9BF /* CDAHeaderView.h */,
+				A15898721913D55600F0E9BF /* CDAHeaderView.m */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		A1A4559F1917814F00802D50 /* Entries */ = {
+			isa = PBXGroup;
+			children = (
+				A173F59018D834B7000E6F92 /* CDAFieldsViewController+Markdown.m */,
+				A173F58818D74F1B000E6F92 /* CDAMarkdownViewController.h */,
+				A173F58918D74F1B000E6F92 /* CDAMarkdownViewController.mm */,
+			);
+			name = Entries;
 			sourceTree = "<group>";
 		};
 		A1B8158918F2A8090027B26D /* CoreDataExample */ = {
