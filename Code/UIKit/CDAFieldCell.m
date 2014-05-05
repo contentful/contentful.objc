@@ -44,13 +44,13 @@
             self.selectionStyle = UITableViewCellSelectionStyleDefault;
             return;
             
-        case CDAFieldTypeLink: {
+        case CDAFieldTypeLink:
+        case CDAFieldTypeObject:
             if (_value) {
                 self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                 self.selectionStyle = UITableViewCellSelectionStyleDefault;
             }
             return;
-        }
         
         case CDAFieldTypeBoolean:
             self.detailTextLabel.text = [value boolValue] ? NSLocalizedString(@"yes", nil) : NSLocalizedString(@"no", nil);

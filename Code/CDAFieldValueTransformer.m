@@ -93,6 +93,13 @@
             
             return value;
             
+        case CDAFieldTypeObject:
+            if (value == [NSNull null]) {
+                return nil;
+            }
+            
+            return value;
+            
         case CDAFieldTypeLink:
             if (value == [NSNull null]) {
                 return nil;
