@@ -41,6 +41,7 @@
 		A15898701913D53400F0E9BF /* CDABasicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A158986F1913D53400F0E9BF /* CDABasicCell.m */; };
 		A15898731913D55600F0E9BF /* CDAHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A15898721913D55600F0E9BF /* CDAHeaderView.m */; };
 		A15898761913D7FD00F0E9BF /* CDAAssetListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A15898751913D7FD00F0E9BF /* CDAAssetListViewController.m */; };
+		A15B1FD9191939FA00E019F8 /* 512_black.png in Resources */ = {isa = PBXBuildFile; fileRef = A15B1FD8191939FA00E019F8 /* 512_black.png */; };
 		A160862218CDF0E60047D44F /* CDARequest.h in Headers */ = {isa = PBXBuildFile; fileRef = A160862018CDF0E60047D44F /* CDARequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A160862318CDF0E60047D44F /* CDARequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A160862118CDF0E60047D44F /* CDARequest.m */; };
 		A160862518CDF2AC0047D44F /* CDARequest+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A160862418CDF2AC0047D44F /* CDARequest+Private.h */; };
@@ -320,6 +321,7 @@
 		A15898721913D55600F0E9BF /* CDAHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAHeaderView.m; sourceTree = "<group>"; };
 		A15898741913D7FD00F0E9BF /* CDAAssetListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAAssetListViewController.h; sourceTree = "<group>"; };
 		A15898751913D7FD00F0E9BF /* CDAAssetListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAAssetListViewController.m; sourceTree = "<group>"; };
+		A15B1FD8191939FA00E019F8 /* 512_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 512_black.png; path = ../../512_black.png; sourceTree = "<group>"; };
 		A160862018CDF0E60047D44F /* CDARequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDARequest.h; sourceTree = "<group>"; };
 		A160862118CDF0E60047D44F /* CDARequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDARequest.m; sourceTree = "<group>"; };
 		A160862418CDF2AC0047D44F /* CDARequest+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDARequest+Private.h"; sourceTree = "<group>"; };
@@ -660,6 +662,7 @@
 		A15898681913923000F0E9BF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A15B1FD8191939FA00E019F8 /* 512_black.png */,
 				A15898691913924600F0E9BF /* logo.png */,
 			);
 			name = Resources;
@@ -1529,6 +1532,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A15B1FD9191939FA00E019F8 /* 512_black.png in Resources */,
 				A158986A1913924600F0E9BF /* logo.png in Resources */,
 				A170131A18FEA0AD0086BE07 /* Fixtures in Resources */,
 			);
