@@ -103,8 +103,13 @@
     }
 }
 
--(id)initWithEntry:(CDAEntry*)entry {
-    self = [super initWithStyle:UITableViewStyleGrouped];
+-(id)initWithEntry:(CDAEntry *)entry {
+    self = [self initWithEntry:entry tableViewStyle:UITableViewStyleGrouped];
+    return self;
+}
+
+-(id)initWithEntry:(CDAEntry*)entry tableViewStyle:(UITableViewStyle)style {
+    self = [super initWithStyle:style];
     if (self) {
         self.entry = entry;
         self.title = entry.fields[entry.contentType.displayField];

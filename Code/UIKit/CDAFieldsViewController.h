@@ -42,6 +42,16 @@
  */
 -(id)initWithEntry:(CDAEntry*)entry;
 
+/**
+ *  Initializes a new instance with the given Entry.
+ *
+ *  @param entry   The Entry whose values should be shown in this view controller's view.
+ *  @param style   The style of table view to use for displaying the Fields.
+ *
+ *  @return An initialized `CDAFieldsViewController` or `nil` if the object couldn't be created.
+ */
+-(id)initWithEntry:(CDAEntry*)entry tableViewStyle:(UITableViewStyle)style;
+
 /** @name Reacting on Cell Selection */
 
 /**
