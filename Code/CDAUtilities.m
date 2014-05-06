@@ -50,8 +50,14 @@ NSString* CDACacheFileNameForQuery(CDAClient* client, CDAResourceType resourceTy
 }
 
 NSString* CDACacheFileNameForResource(CDAResource* resource) {
-    NSString* fileName = [NSString stringWithFormat:@"cache_%@_%@_%@.data",
-                          resource.client.space.identifier, resource.sys[@"type"], resource.identifier];
+    NSString* pathExtension = @"data";
+    if ([resource respondsToSelector:@selector(URL)]) {
+        pathExtension = [(id)resource URL].pathExtension ?: @"data";
+    }
+    
+    NSString* fileName = [NSString stringWithFormat:@"cache_%@_%@_%@.%@",
+                          resource.client.space.identifier, resource.sys[@"type"],
+                          resource.identifier, pathExtension];
     return [CDACacheDirectory() stringByAppendingPathComponent:fileName];
 }
 

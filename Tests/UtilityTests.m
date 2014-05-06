@@ -78,10 +78,10 @@
     
     CDAClient* client = [CDAClient new];
     [client fetchSpaceWithSuccess:^(CDAResponse *response, CDASpace *space) {
-        CDAResource* resource = [CDAResource resourceObjectForDictionary:@{ @"sys": @{ @"id": @"foo", @"type": @"Asset" } }
+        CDAResource* resource = [CDAResource resourceObjectForDictionary:@{ @"sys": @{ @"id": @"foo", @"type": @"Asset" }, @"fields": @{ @"file": @{ @"url": @"file:///test/test.foo" } } }
                                                                   client:client];
         NSString* cacheFileName = CDACacheFileNameForResource(resource);
-        [self assertCacheFile:cacheFileName againstSuffix:@"com.contentful.sdk/cache_cfexampleapi_Asset_foo.data"];
+        [self assertCacheFile:cacheFileName againstSuffix:@"com.contentful.sdk/cache_cfexampleapi_Asset_foo.foo"];
         
         EndBlock();
     } failure:^(CDAResponse *response, NSError *error) {
