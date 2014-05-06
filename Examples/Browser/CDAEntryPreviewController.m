@@ -10,7 +10,10 @@
 #import <ContentfulDeliveryAPI/UIImageView+CDAAsset.h>
 
 #import "CDAAssetPreviewCell.h"
+#import "CDAAssetPreviewController.h"
+#import "CDAAssetThumbnailOperation.h"
 #import "CDAEntryPreviewController.h"
+#import "CDAInlineMapCell.h"
 #import "CDAMarkdownCell.h"
 #import "CDAPrimitiveCell.h"
 
@@ -24,6 +27,7 @@ static NSString* const kTextCell        = @"TextCell";
 
 @property (nonatomic) NSMutableDictionary* customCellSizes;
 @property (nonatomic) CDAEntry* entry;
+@property (nonatomic) NSOperationQueue* thumbnailQueue;
 
 @end
 
@@ -35,7 +39,29 @@ static NSString* const kTextCell        = @"TextCell";
     if ([value isKindOfClass:[CDAAsset class]]) {
         UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:kAssetCell];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        [cell.imageView cda_setImageWithAsset:(CDAAsset*)value];
+        cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, cell.bounds.size.width);
+        
+        CDAAsset* asset = (CDAAsset*)value;
+        
+        if (asset.isImage) {
+            [cell.imageView cda_setImageWithAsset:asset];
+        } else {
+            CGSize thumbSize = CGSizeMake(cell.frame.size.width, cell.frame.size.width * 1.25);
+            CDAAssetThumbnailOperation* thumbOperation = [[CDAAssetThumbnailOperation alloc]
+                                                          initWithAsset:asset
+                                                          thumbnailSize:thumbSize];
+            
+            __weak typeof(thumbOperation) weakOperation = thumbOperation;
+            thumbOperation.completionBlock = ^{
+                dispatch_sync(dispatch_get_main_queue(), ^{
+                    cell.imageView.image = weakOperation.snapshot;
+                    NSCAssert(cell.imageView.image, @"Snapshot should not be nil.");
+                });
+            };
+            
+            [self.thumbnailQueue addOperation:thumbOperation];
+        }
+        
         [cell setNeedsLayout];
         return cell;
     }
@@ -52,7 +78,7 @@ static NSString* const kTextCell        = @"TextCell";
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.selectionStyle = UITableViewCellSelectionStyleDefault;
     } else {
-        NSAssert([value isKindOfClass:[NSString class]], @"Symbol array expected.");
+        NSAssert(!value || [value isKindOfClass:[NSString class]], @"Symbol array expected.");
         cell.accessoryType = UITableViewCellAccessoryNone;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.textLabel.text = value;
@@ -70,6 +96,7 @@ static NSString* const kTextCell        = @"TextCell";
     if (self) {
         self.customCellSizes = [@{} mutableCopy];
         self.entry = entry;
+        self.thumbnailQueue = [NSOperationQueue new];
         
         [self.tableView registerClass:[CDAAssetPreviewCell class] forCellReuseIdentifier:kAssetCell];
         [self.tableView registerClass:NSClassFromString(@"CDAResourceTableViewCell")
@@ -147,17 +174,25 @@ static NSString* const kTextCell        = @"TextCell";
     }
     
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    id value = [self valueForIndexPath:indexPath];
     
-    // TODO: Asset preview cell (test with PDF and .docx)
-    // TODO: Locations
-    // TODO: Date time -> localized formatting?
-    // TODO: JSON Objects
+    if ([value isKindOfClass:[CDAAsset class]]) {
+        CDAAsset* asset = (CDAAsset*)value;
+        if (!asset.isImage) {
+            CDAAssetPreviewController* assetPreview = [[CDAAssetPreviewController alloc]
+                                                       initWithAsset:asset];
+            [self.navigationController pushViewController:assetPreview animated:YES];
+        }
+    }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     CDAField* field = [self fieldForSection:section];
     if (field.type == CDAFieldTypeArray || field.type == CDAFieldTypeLink) {
-        return 44.0;
+        return 10.0;
     }
     return UITableViewAutomaticDimension;
 }
