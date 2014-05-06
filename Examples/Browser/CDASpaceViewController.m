@@ -9,6 +9,7 @@
 #import <ContentfulDeliveryAPI/ContentfulDeliveryAPI.h>
 
 #import "CDAAssetListViewController.h"
+#import "CDAContentTypesViewController.h"
 #import "CDASpaceViewController.h"
 #import "UIApplication+Browser.h"
 
@@ -45,11 +46,8 @@
         return _contentTypes;
     }
     
-    _contentTypes = [[CDAResourcesViewController alloc] initWithCellMapping:@{ @"textLabel.text": @"name" }];
+    _contentTypes = [CDAContentTypesViewController new];
     _contentTypes.client = [UIApplication sharedApplication].client;
-    _contentTypes.navigationItem.rightBarButtonItem = self.logoutButton;
-    _contentTypes.resourceType = CDAResourceTypeContentType;
-    _contentTypes.title = NSLocalizedString(@"Entries", nil);
     
     [_contentTypes.client fetchSpaceWithSuccess:^(CDAResponse *response, CDASpace *space) {
         _contentTypes.navigationItem.title = space.name;

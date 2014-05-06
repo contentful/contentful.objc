@@ -184,12 +184,14 @@
 		A1A2CEA6190A659600B8D46D /* DocumentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A2CEA5190A659600B8D46D /* DocumentTableViewCell.m */; };
 		A1A2CEA9190A67A100B8D46D /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A2CEA8190A67A100B8D46D /* WebViewController.m */; };
 		A1A455A2191789C100802D50 /* CDAEntryPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A455A1191789C100802D50 /* CDAEntryPreviewController.m */; };
+		A1A455A619178A3D00802D50 /* CDAContentTypesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A455A519178A3D00802D50 /* CDAContentTypesViewController.m */; };
 		A1A455A91917BA4600802D50 /* CDAPrimitiveCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A455A81917BA4600802D50 /* CDAPrimitiveCell.m */; };
 		A1A455AC1917BA5800802D50 /* CDAMarkdownCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = A1A455AB1917BA5800802D50 /* CDAMarkdownCell.mm */; };
 		A1A455AF1917BA8800802D50 /* CDAAssetPreviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A455AE1917BA8800802D50 /* CDAAssetPreviewCell.m */; };
 		A1A455B21917E08800802D50 /* CDAAssetPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A455B11917E08800802D50 /* CDAAssetPreviewController.m */; };
 		A1A455B71917EBE800802D50 /* CDAAssetThumbnailOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A455B61917EBE800802D50 /* CDAAssetThumbnailOperation.m */; };
 		A1A455BA1919108E00802D50 /* CDAInlineMapCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A455B91919108E00802D50 /* CDAInlineMapCell.m */; };
+		A1A455BD1919179300802D50 /* CDAEntryPreviewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A455BC1919179300802D50 /* CDAEntryPreviewDataSource.m */; };
 		A1B8158418F2A8090027B26D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD86A18C631E60081677E /* Foundation.framework */; };
 		A1B8158518F2A8090027B26D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD89918C637400081677E /* CoreGraphics.framework */; };
 		A1B8158618F2A8090027B26D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD87B18C631E60081677E /* UIKit.framework */; };
@@ -492,6 +494,8 @@
 		A1A2CEA8190A67A100B8D46D /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		A1A455A0191789C100802D50 /* CDAEntryPreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAEntryPreviewController.h; sourceTree = "<group>"; };
 		A1A455A1191789C100802D50 /* CDAEntryPreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAEntryPreviewController.m; sourceTree = "<group>"; };
+		A1A455A419178A3D00802D50 /* CDAContentTypesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAContentTypesViewController.h; sourceTree = "<group>"; };
+		A1A455A519178A3D00802D50 /* CDAContentTypesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAContentTypesViewController.m; sourceTree = "<group>"; };
 		A1A455A71917BA4600802D50 /* CDAPrimitiveCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAPrimitiveCell.h; sourceTree = "<group>"; };
 		A1A455A81917BA4600802D50 /* CDAPrimitiveCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAPrimitiveCell.m; sourceTree = "<group>"; };
 		A1A455AA1917BA5800802D50 /* CDAMarkdownCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAMarkdownCell.h; sourceTree = "<group>"; };
@@ -504,6 +508,8 @@
 		A1A455B61917EBE800802D50 /* CDAAssetThumbnailOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAAssetThumbnailOperation.m; sourceTree = "<group>"; };
 		A1A455B81919108E00802D50 /* CDAInlineMapCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAInlineMapCell.h; sourceTree = "<group>"; };
 		A1A455B91919108E00802D50 /* CDAInlineMapCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAInlineMapCell.m; sourceTree = "<group>"; };
+		A1A455BB1919179300802D50 /* CDAEntryPreviewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAEntryPreviewDataSource.h; sourceTree = "<group>"; };
+		A1A455BC1919179300802D50 /* CDAEntryPreviewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAEntryPreviewDataSource.m; sourceTree = "<group>"; };
 		A1B8158318F2A8090027B26D /* CoreDataExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B8158718F2A8090027B26D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		A1B8158B18F2A8090027B26D /* CoreDataExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CoreDataExample-Info.plist"; sourceTree = "<group>"; };
@@ -720,6 +726,7 @@
 			isa = PBXGroup;
 			children = (
 				A1A4559E1917814800802D50 /* Assets */,
+				A1A455A319178A2500802D50 /* Content Types */,
 				A1A4559F1917814F00802D50 /* Entries */,
 				A1A4559D1917814200802D50 /* Spaces */,
 				A173F51818D31151000E6F92 /* CDAAppDelegate.h */,
@@ -1019,6 +1026,8 @@
 				A1A455B61917EBE800802D50 /* CDAAssetThumbnailOperation.m */,
 				A1A455A0191789C100802D50 /* CDAEntryPreviewController.h */,
 				A1A455A1191789C100802D50 /* CDAEntryPreviewController.m */,
+				A1A455BB1919179300802D50 /* CDAEntryPreviewDataSource.h */,
+				A1A455BC1919179300802D50 /* CDAEntryPreviewDataSource.m */,
 				A1A455B81919108E00802D50 /* CDAInlineMapCell.h */,
 				A1A455B91919108E00802D50 /* CDAInlineMapCell.m */,
 				A1A455AA1917BA5800802D50 /* CDAMarkdownCell.h */,
@@ -1892,6 +1901,7 @@
 				A173F51618D31151000E6F92 /* main.m in Sources */,
 				A1A455BA1919108E00802D50 /* CDAInlineMapCell.m in Sources */,
 				A1A455A91917BA4600802D50 /* CDAPrimitiveCell.m in Sources */,
+				A1A455BD1919179300802D50 /* CDAEntryPreviewDataSource.m in Sources */,
 				A1A455B71917EBE800802D50 /* CDAAssetThumbnailOperation.m in Sources */,
 				A1A455A2191789C100802D50 /* CDAEntryPreviewController.m in Sources */,
 				A1A455B21917E08800802D50 /* CDAAssetPreviewController.m in Sources */,
@@ -1900,6 +1910,7 @@
 				A1A455AC1917BA5800802D50 /* CDAMarkdownCell.mm in Sources */,
 				A158986D1913D2FD00F0E9BF /* CDAAssetDetailsViewController.m in Sources */,
 				A15898761913D7FD00F0E9BF /* CDAAssetListViewController.m in Sources */,
+				A1A455A619178A3D00802D50 /* CDAContentTypesViewController.m in Sources */,
 				A1A455AF1917BA8800802D50 /* CDAAssetPreviewCell.m in Sources */,
 				A15898731913D55600F0E9BF /* CDAHeaderView.m in Sources */,
 				A15898701913D53400F0E9BF /* CDABasicCell.m in Sources */,
