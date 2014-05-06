@@ -6,10 +6,8 @@
 //
 //
 
-#import <UIKit/UIKit.h>
+#import <ContentfulDeliveryAPI/ContentfulDeliveryAPI.h>
 
-@interface CDAEntryPreviewController : UITableViewController
-
--(id)initWithEntry:(CDAEntry*)entry;
+@interface CDAEntryPreviewController : CDAFieldsViewController
 
 @end

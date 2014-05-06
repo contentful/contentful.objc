@@ -6,28 +6,16 @@
 //
 //
 
-#import <ContentfulDeliveryAPI/ContentfulDeliveryAPI.h>
-#import <ContentfulDeliveryAPI/UIImageView+CDAAsset.h>
-
 #import "CDAAssetPreviewCell.h"
-#import "CDAAssetPreviewController.h"
-#import "CDAAssetThumbnailOperation.h"
 #import "CDAEntryPreviewController.h"
+#import "CDAEntryPreviewDataSource.h"
 #import "CDAInlineMapCell.h"
 #import "CDAMarkdownCell.h"
 #import "CDAPrimitiveCell.h"
 
-static NSString* const kAssetCell       = @"AssetCell";
-static NSString* const kItemCell        = @"ItemCell";
-static NSString* const kMapCell         = @"MapCell";
-static NSString* const kPrimitiveCell   = @"PrimitiveCell";
-static NSString* const kTextCell        = @"TextCell";
-
 @interface CDAEntryPreviewController ()
 
-@property (nonatomic) NSMutableDictionary* customCellSizes;
-@property (nonatomic) CDAEntry* entry;
-@property (nonatomic) NSOperationQueue* thumbnailQueue;
+@property (nonatomic) CDAEntryPreviewDataSource* dataSource;
 
 @end
 
@@ -35,68 +23,10 @@ static NSString* const kTextCell        = @"TextCell";
 
 @implementation CDAEntryPreviewController
 
--(UITableViewCell*)buildItemCellForTableView:(UITableView*)tableView withValue:(id)value {
-    if ([value isKindOfClass:[CDAAsset class]]) {
-        UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:kAssetCell];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, cell.bounds.size.width);
-        
-        CDAAsset* asset = (CDAAsset*)value;
-        
-        if (asset.isImage) {
-            [cell.imageView cda_setImageWithAsset:asset];
-        } else {
-            CGSize thumbSize = CGSizeMake(cell.frame.size.width, cell.frame.size.width * 1.25);
-            CDAAssetThumbnailOperation* thumbOperation = [[CDAAssetThumbnailOperation alloc]
-                                                          initWithAsset:asset
-                                                          thumbnailSize:thumbSize];
-            
-            __weak typeof(thumbOperation) weakOperation = thumbOperation;
-            thumbOperation.completionBlock = ^{
-                dispatch_sync(dispatch_get_main_queue(), ^{
-                    cell.imageView.image = weakOperation.snapshot;
-                    NSCAssert(cell.imageView.image, @"Snapshot should not be nil.");
-                });
-            };
-            
-            [self.thumbnailQueue addOperation:thumbOperation];
-        }
-        
-        [cell setNeedsLayout];
-        return cell;
-    }
-    
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:kItemCell];
-    
-    if ([value isKindOfClass:[CDAEntry class]]) {
-        CDAEntry* entry = (CDAEntry*)value;
-        
-        if (entry.contentType.displayField) {
-            cell.textLabel.text = entry.fields[entry.contentType.displayField];
-        }
-        
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        cell.selectionStyle = UITableViewCellSelectionStyleDefault;
-    } else {
-        NSAssert(!value || [value isKindOfClass:[NSString class]], @"Symbol array expected.");
-        cell.accessoryType = UITableViewCellAccessoryNone;
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.textLabel.text = value;
-    }
-    
-    return cell;
-}
-
--(CDAField*)fieldForSection:(NSInteger)section {
-    return self.entry.contentType.fields[section];
-}
-
 -(id)initWithEntry:(CDAEntry*)entry {
-    self = [super initWithStyle:UITableViewStylePlain];
+    self = [super initWithEntry:entry tableViewStyle:UITableViewStylePlain];
     if (self) {
-        self.customCellSizes = [@{} mutableCopy];
-        self.entry = entry;
-        self.thumbnailQueue = [NSOperationQueue new];
+        self.dataSource = [[CDAEntryPreviewDataSource alloc] initWithEntry:entry];
         
         [self.tableView registerClass:[CDAAssetPreviewCell class] forCellReuseIdentifier:kAssetCell];
         [self.tableView registerClass:NSClassFromString(@"CDAResourceTableViewCell")
@@ -108,150 +38,60 @@ static NSString* const kTextCell        = @"TextCell";
     return self;
 }
 
--(id)valueForIndexPath:(NSIndexPath*)indexPath {
-    CDAField* field = [self fieldForSection:indexPath.section];
-    id value = [self valueForSection:indexPath.section];
-    return field.type == CDAFieldTypeArray ? [value objectAtIndex:indexPath.row] : value;
-}
+#pragma mark - Actions
 
--(id)valueForSection:(NSInteger)section {
-    CDAField* field = [self fieldForSection:section];
-    return self.entry.fields[field.identifier];
-}
-
-#pragma mark - UITableViewDataSource
-
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.entry.fields.count;
-}
-
--(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell* cell = nil;
+-(void)displayTypeChanged:(UISegmentedControl*)segmentedControl {
+    UIView* snapshotView = [self.view snapshotViewAfterScreenUpdates:NO];
+    [self.view addSubview:snapshotView];
     
-    CDAField* field = [self fieldForSection:indexPath.section];
-    id value = [self valueForIndexPath:indexPath];
-    
-    switch (field.type) {
-        case CDAFieldTypeArray:
-        case CDAFieldTypeLink:
-            cell = [self buildItemCellForTableView:tableView withValue:value];
-            break;
-            
-        case CDAFieldTypeLocation:
-            cell = [tableView dequeueReusableCellWithIdentifier:kMapCell forIndexPath:indexPath];
-            cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, cell.bounds.size.width);
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            [(CDAInlineMapCell*)cell addAnnotationWithTitle:field.name location:[self.entry CLLocationCoordinate2DFromFieldWithIdentifier:field.identifier]];
-            break;
-            
-        case CDAFieldTypeSymbol:
-        case CDAFieldTypeText: {
-            cell = [tableView dequeueReusableCellWithIdentifier:kTextCell];
-            cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, cell.bounds.size.width);
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            [(CDAMarkdownCell*)cell setMarkdownText:value];
-            
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC),
-                           dispatch_get_main_queue(),
-                           ^{
-                               CGFloat height = [(CDAMarkdownCell*)cell textView].contentSize.height;
-                               self.customCellSizes[indexPath] = @(height);
-                               
-                               [tableView beginUpdates];
-                               [tableView endUpdates];
-                           });
-            
-            break;
-        }
-            
-        default:
-            cell = [tableView dequeueReusableCellWithIdentifier:kPrimitiveCell];
-            cell.detailTextLabel.text = [value isKindOfClass:[NSString class]] ? value : [value description];
-            cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, cell.bounds.size.width);
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            cell.textLabel.text = field.name;
-            break;
+    if (segmentedControl.selectedSegmentIndex == 1) {
+        self.tableView.dataSource = self.dataSource;
+        self.tableView.delegate = self.dataSource;
+    } else {
+        self.tableView.dataSource = self;
+        self.tableView.delegate = self;
     }
     
-    return cell;
+    [self.tableView reloadData];
+    
+    [UIView animateWithDuration:1.0
+                     animations:^{
+                         snapshotView.alpha = 0.0;
+                     } completion:^(BOOL finished) {
+                         [snapshotView removeFromSuperview];
+                         
+                         [self.tableView setContentOffset:CGPointZero animated:YES];
+                     }];
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    id value = [self valueForIndexPath:indexPath];
-    
-    if ([value isKindOfClass:[CDAAsset class]]) {
-        CDAAsset* asset = (CDAAsset*)value;
-        if (!asset.isImage) {
-            CDAAssetPreviewController* assetPreview = [[CDAAssetPreviewController alloc]
-                                                       initWithAsset:asset];
-            [self.navigationController pushViewController:assetPreview animated:YES];
-        }
-    }
+#pragma mark - UITableViewDelegate
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return section == 0 ? 60.0 : UITableViewAutomaticDimension;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    CDAField* field = [self fieldForSection:section];
-    if (field.type == CDAFieldTypeArray || field.type == CDAFieldTypeLink) {
-        return 10.0;
-    }
-    return UITableViewAutomaticDimension;
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSNumber* customHeight = self.customCellSizes[indexPath];
-    if (customHeight) {
-        return [customHeight floatValue];
+-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (section != 0) {
+        return nil;
     }
     
-    CDAField* field = [self fieldForSection:indexPath.section];
-    id value = [self valueForIndexPath:indexPath];
+    UIView* headerView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0,
+                                                                  tableView.frame.size.width, 60.0)];
+    headerView.backgroundColor = [UIColor whiteColor];
     
-    if (field.type == CDAFieldTypeSymbol || field.type == CDAFieldTypeText) {
-        return [(NSString*)value boundingRectWithSize:CGSizeMake(tableView.frame.size.width, INT_MAX)
-                                       options:NSStringDrawingUsesLineFragmentOrigin
-                                    attributes:@{ NSFontAttributeName: [CDAMarkdownCell usedFont] }
-                                       context:nil].size.height;
-    }
+    UISegmentedControl* displayTypeSelection = [[UISegmentedControl alloc]
+                                                initWithItems:@[ @"List", @"Preview" ]];
     
-    if (field.type == CDAFieldTypeLocation) {
-        return tableView.frame.size.width;
-    }
+    displayTypeSelection.frame = CGRectMake((headerView.frame.size.width - displayTypeSelection.frame.size.width) / 2, 10.0, displayTypeSelection.frame.size.width, displayTypeSelection.frame.size.height);
+    displayTypeSelection.selectedSegmentIndex = 0;
     
-    if ([value isKindOfClass:[CDAAsset class]]) {
-        CDAAsset* asset = (CDAAsset*)value;
-        
-        if (asset.isImage) {
-            if (asset.size.width < tableView.frame.size.width) {
-                return asset.size.height;
-            }
-            
-            return (tableView.frame.size.width - 20.0) / asset.size.width * asset.size.height;
-        }
-        
-        return tableView.frame.size.width * 1.25;
-    }
+    [displayTypeSelection addTarget:self
+                             action:@selector(displayTypeChanged:)
+                   forControlEvents:UIControlEventValueChanged];
     
-    return UITableViewAutomaticDimension;
-}
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    id value = [self valueForSection:section];
-    return [self fieldForSection:section].type == CDAFieldTypeArray ? [value count] : 1;
-}
-
--(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    CDAField* field = [self fieldForSection:section];
+    [headerView addSubview:displayTypeSelection];
     
-    switch (field.type) {
-        case CDAFieldTypeArray:
-        case CDAFieldTypeLink:
-            return field.name;
-            
-        default:
-            break;
-    }
-    
-    return nil;
+    return headerView;
 }
 
 @end
