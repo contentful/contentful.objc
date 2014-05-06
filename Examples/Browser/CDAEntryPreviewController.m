@@ -16,6 +16,7 @@
 
 static NSString* const kAssetCell       = @"AssetCell";
 static NSString* const kItemCell        = @"ItemCell";
+static NSString* const kMapCell         = @"MapCell";
 static NSString* const kPrimitiveCell   = @"PrimitiveCell";
 static NSString* const kTextCell        = @"TextCell";
 
@@ -73,6 +74,7 @@ static NSString* const kTextCell        = @"TextCell";
         [self.tableView registerClass:[CDAAssetPreviewCell class] forCellReuseIdentifier:kAssetCell];
         [self.tableView registerClass:NSClassFromString(@"CDAResourceTableViewCell")
                forCellReuseIdentifier:kItemCell];
+        [self.tableView registerClass:[CDAInlineMapCell class] forCellReuseIdentifier:kMapCell];
         [self.tableView registerClass:[CDAPrimitiveCell class] forCellReuseIdentifier:kPrimitiveCell];
         [self.tableView registerClass:[CDAMarkdownCell class] forCellReuseIdentifier:kTextCell];
     }
@@ -106,6 +108,13 @@ static NSString* const kTextCell        = @"TextCell";
         case CDAFieldTypeArray:
         case CDAFieldTypeLink:
             cell = [self buildItemCellForTableView:tableView withValue:value];
+            break;
+            
+        case CDAFieldTypeLocation:
+            cell = [tableView dequeueReusableCellWithIdentifier:kMapCell forIndexPath:indexPath];
+            cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, cell.bounds.size.width);
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            [(CDAInlineMapCell*)cell addAnnotationWithTitle:field.name location:[self.entry CLLocationCoordinate2DFromFieldWithIdentifier:field.identifier]];
             break;
             
         case CDAFieldTypeSymbol:
@@ -169,7 +178,25 @@ static NSString* const kTextCell        = @"TextCell";
                                        context:nil].size.height;
     }
     
-    return [value isKindOfClass:[CDAAsset class]] ? 200.0 : UITableViewAutomaticDimension;
+    if (field.type == CDAFieldTypeLocation) {
+        return tableView.frame.size.width;
+    }
+    
+    if ([value isKindOfClass:[CDAAsset class]]) {
+        CDAAsset* asset = (CDAAsset*)value;
+        
+        if (asset.isImage) {
+            if (asset.size.width < tableView.frame.size.width) {
+                return asset.size.height;
+            }
+            
+            return (tableView.frame.size.width - 20.0) / asset.size.width * asset.size.height;
+        }
+        
+        return tableView.frame.size.width * 1.25;
+    }
+    
+    return UITableViewAutomaticDimension;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
