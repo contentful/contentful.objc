@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+extern NSString* const CDAAccessTokenKey;
+extern NSString* const CDASpaceKey;
+
 @interface CDASpaceSelectionViewController : UITableViewController
 
 @end

@@ -13,8 +13,9 @@
 #import "CDASpaceSelectionViewController.h"
 #import "UIApplication+Browser.h"
 
-static NSString* const CDAAccessTokenKey    = @"CDAAccessTokenKey";
-static NSString* const CDASpaceKey          = @"CDASpaceKey";
+NSString* const CDAAccessTokenKey    = @"CDAAccessTokenKey";
+NSString* const CDASpaceKey          = @"CDASpaceKey";
+
 static NSString* const CDALogoAnimationKey  = @"SpinLogo";
 
 @interface CDASpaceSelectionViewController () <CDAEntriesViewControllerDelegate, UITextFieldDelegate>
@@ -29,6 +30,13 @@ static NSString* const CDALogoAnimationKey  = @"SpinLogo";
 
 @implementation CDASpaceSelectionViewController
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIApplicationDidBecomeActiveNotification
+                                                  object:nil];
+}
+
 - (BOOL)done
 {
     return [self textFieldAtRow:0].text.length > 0 && [self textFieldAtRow:1].text.length > 0;
@@ -42,6 +50,11 @@ static NSString* const CDALogoAnimationKey  = @"SpinLogo";
         
         [self.tableView registerClass:[CDATextEntryCell class]
                forCellReuseIdentifier:NSStringFromClass([self class])];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(applicationDidBecomeActive:)
+                                                     name:UIApplicationDidBecomeActiveNotification
+                                                   object:nil];
     }
     return self;
 }
@@ -58,6 +71,8 @@ static NSString* const CDALogoAnimationKey  = @"SpinLogo";
     [super viewWillAppear:animated];
     
     [self stopSpinningLogo];
+    
+    [self.tableView reloadData];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -68,6 +83,11 @@ static NSString* const CDALogoAnimationKey  = @"SpinLogo";
 }
 
 #pragma mark - Actions
+
+- (void)applicationDidBecomeActive:(NSNotification*)notification
+{
+    [self.tableView reloadData];
+}
 
 - (void)loadSpaceTapped
 {
