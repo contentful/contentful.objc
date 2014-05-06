@@ -187,6 +187,7 @@
 		A1A455A91917BA4600802D50 /* CDAPrimitiveCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A455A81917BA4600802D50 /* CDAPrimitiveCell.m */; };
 		A1A455AC1917BA5800802D50 /* CDAMarkdownCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = A1A455AB1917BA5800802D50 /* CDAMarkdownCell.mm */; };
 		A1A455AF1917BA8800802D50 /* CDAAssetPreviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A455AE1917BA8800802D50 /* CDAAssetPreviewCell.m */; };
+		A1A455B21917E08800802D50 /* CDAAssetPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A455B11917E08800802D50 /* CDAAssetPreviewController.m */; };
 		A1B8158418F2A8090027B26D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD86A18C631E60081677E /* Foundation.framework */; };
 		A1B8158518F2A8090027B26D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD89918C637400081677E /* CoreGraphics.framework */; };
 		A1B8158618F2A8090027B26D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD87B18C631E60081677E /* UIKit.framework */; };
@@ -495,6 +496,8 @@
 		A1A455AB1917BA5800802D50 /* CDAMarkdownCell.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CDAMarkdownCell.mm; sourceTree = "<group>"; };
 		A1A455AD1917BA8800802D50 /* CDAAssetPreviewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAAssetPreviewCell.h; sourceTree = "<group>"; };
 		A1A455AE1917BA8800802D50 /* CDAAssetPreviewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAAssetPreviewCell.m; sourceTree = "<group>"; };
+		A1A455B01917E08800802D50 /* CDAAssetPreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAAssetPreviewController.h; sourceTree = "<group>"; };
+		A1A455B11917E08800802D50 /* CDAAssetPreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAAssetPreviewController.m; sourceTree = "<group>"; };
 		A1B8158318F2A8090027B26D /* CoreDataExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B8158718F2A8090027B26D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		A1B8158B18F2A8090027B26D /* CoreDataExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CoreDataExample-Info.plist"; sourceTree = "<group>"; };
@@ -1004,6 +1007,8 @@
 			children = (
 				A1A455AD1917BA8800802D50 /* CDAAssetPreviewCell.h */,
 				A1A455AE1917BA8800802D50 /* CDAAssetPreviewCell.m */,
+				A1A455B01917E08800802D50 /* CDAAssetPreviewController.h */,
+				A1A455B11917E08800802D50 /* CDAAssetPreviewController.m */,
 				A1A455A0191789C100802D50 /* CDAEntryPreviewController.h */,
 				A1A455A1191789C100802D50 /* CDAEntryPreviewController.m */,
 				A1A455AA1917BA5800802D50 /* CDAMarkdownCell.h */,
@@ -1877,6 +1882,7 @@
 				A173F51618D31151000E6F92 /* main.m in Sources */,
 				A1A455A91917BA4600802D50 /* CDAPrimitiveCell.m in Sources */,
 				A1A455A2191789C100802D50 /* CDAEntryPreviewController.m in Sources */,
+				A1A455B21917E08800802D50 /* CDAAssetPreviewController.m in Sources */,
 				A173F51A18D31151000E6F92 /* CDAAppDelegate.m in Sources */,
 				A173F53B18D313E2000E6F92 /* CDATextEntryCell.m in Sources */,
 				A1A455AC1917BA5800802D50 /* CDAMarkdownCell.mm in Sources */,
