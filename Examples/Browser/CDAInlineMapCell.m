@@ -48,7 +48,7 @@
     CDAInlineLocation* inlineLocation = [[CDAInlineLocation alloc] initWithTitle:title location:location];
     [self.mapView addAnnotation:inlineLocation];
     self.mapView.centerCoordinate = location;
-    [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(location, 250.0, 250.0) animated:YES];
+    [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(location, 250.0, 250.0) animated:NO];
 }
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
