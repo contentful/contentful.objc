@@ -42,6 +42,7 @@
 		A15898731913D55600F0E9BF /* CDAHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A15898721913D55600F0E9BF /* CDAHeaderView.m */; };
 		A15898761913D7FD00F0E9BF /* CDAAssetListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A15898751913D7FD00F0E9BF /* CDAAssetListViewController.m */; };
 		A15B1FD9191939FA00E019F8 /* 512_black.png in Resources */ = {isa = PBXBuildFile; fileRef = A15B1FD8191939FA00E019F8 /* 512_black.png */; };
+		A15B1FDF191A602F00E019F8 /* CDATutorialController.m in Sources */ = {isa = PBXBuildFile; fileRef = A15B1FDE191A602F00E019F8 /* CDATutorialController.m */; };
 		A160862218CDF0E60047D44F /* CDARequest.h in Headers */ = {isa = PBXBuildFile; fileRef = A160862018CDF0E60047D44F /* CDARequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A160862318CDF0E60047D44F /* CDARequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A160862118CDF0E60047D44F /* CDARequest.m */; };
 		A160862518CDF2AC0047D44F /* CDARequest+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A160862418CDF2AC0047D44F /* CDARequest+Private.h */; };
@@ -322,6 +323,8 @@
 		A15898741913D7FD00F0E9BF /* CDAAssetListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAAssetListViewController.h; sourceTree = "<group>"; };
 		A15898751913D7FD00F0E9BF /* CDAAssetListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAAssetListViewController.m; sourceTree = "<group>"; };
 		A15B1FD8191939FA00E019F8 /* 512_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 512_black.png; sourceTree = "<group>"; };
+		A15B1FDD191A602F00E019F8 /* CDATutorialController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDATutorialController.h; sourceTree = "<group>"; };
+		A15B1FDE191A602F00E019F8 /* CDATutorialController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDATutorialController.m; sourceTree = "<group>"; };
 		A160862018CDF0E60047D44F /* CDARequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDARequest.h; sourceTree = "<group>"; };
 		A160862118CDF0E60047D44F /* CDARequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDARequest.m; sourceTree = "<group>"; };
 		A160862418CDF2AC0047D44F /* CDARequest+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDARequest+Private.h"; sourceTree = "<group>"; };
@@ -734,6 +737,8 @@
 				A1A4559D1917814200802D50 /* Spaces */,
 				A173F51818D31151000E6F92 /* CDAAppDelegate.h */,
 				A173F51918D31151000E6F92 /* CDAAppDelegate.m */,
+				A15B1FDD191A602F00E019F8 /* CDATutorialController.h */,
+				A15B1FDE191A602F00E019F8 /* CDATutorialController.m */,
 				A173F54718D38899000E6F92 /* UIApplication+Browser.h */,
 				A173F54818D38899000E6F92 /* UIApplication+Browser.m */,
 			);
@@ -1903,6 +1908,7 @@
 			files = (
 				A173F53818D31343000E6F92 /* CDASpaceSelectionViewController.m in Sources */,
 				A173F51618D31151000E6F92 /* main.m in Sources */,
+				A15B1FDF191A602F00E019F8 /* CDATutorialController.m in Sources */,
 				A1A455BA1919108E00802D50 /* CDAInlineMapCell.m in Sources */,
 				A1A455A91917BA4600802D50 /* CDAPrimitiveCell.m in Sources */,
 				A1A455BD1919179300802D50 /* CDAEntryPreviewDataSource.m in Sources */,
