@@ -31,7 +31,7 @@
     layout.disableStickyHeaders = YES;
     layout.itemSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, 44.0);
     layout.minimumLineSpacing = 0.0;
-    layout.parallaxHeaderReferenceSize = CGSizeMake(layout.itemSize.width, 200.0);
+    layout.parallaxHeaderReferenceSize = CGSizeMake(layout.itemSize.width, 300.0);
     
     self = [super initWithCollectionViewLayout:layout];
     if (self) {
@@ -72,8 +72,25 @@
                                                                    forIndexPath:indexPath];
     
     NSString* key = self.keyPathsOrder[indexPath.row];
-    cell.detailTextLabel.text = [[self.asset valueForKeyPath:key] description];
     cell.textLabel.text = self.keyPathsToShow[key];
+    
+    if ([key isEqualToString:@"fields.file.details.size"]) {
+        long long byteCount = [[self.asset valueForKeyPath:key] longLongValue];
+        cell.detailTextLabel.text = [NSByteCountFormatter stringFromByteCount:byteCount countStyle:NSByteCountFormatterCountStyleFile];
+    } else if ([key isEqualToString:@"size"]) {
+        cell.detailTextLabel.text = NSStringFromCGSize([[self.asset valueForKeyPath:key] CGSizeValue]);
+    } else if ([key isEqualToString:@"sys.createdAt"]) {
+        cell.detailTextLabel.text = [NSDateFormatter localizedStringFromDate:[self.asset valueForKeyPath:key]
+                                                                   dateStyle:NSDateFormatterMediumStyle
+                                                                   timeStyle:NSDateFormatterShortStyle];
+    } else {
+        cell.detailTextLabel.text = [[self.asset valueForKeyPath:key] description];
+    }
+    
+    if ([key isEqualToString:@"fields.title"]) {
+        cell.detailTextLabel.font = [UIFont boldSystemFontOfSize:16.0];
+        cell.detailTextLabel.textColor = [UIColor blackColor];
+    }
     
     if (indexPath.row == 0) {
         cell.cellType = CDACellTypeFirst;
