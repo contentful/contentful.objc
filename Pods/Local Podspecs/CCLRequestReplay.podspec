@@ -6,7 +6,7 @@ Pod::Spec.new do |spec|
   spec.homepage = 'https://github.com/cocodelabs/CCLRequestReplay'
   spec.authors = { 'Kyle Fuller' => 'inbox@kylefuller.co.uk' }
   spec.social_media_url = 'https://twitter.com/kylefuller'
-  spec.source = { :git => 'https://github.com/cocodelabs/CCLRequestReplay.git', :tag => spec.version.to_s }
+  spec.source = { :git => 'https://github.com/neonichu/CCLRequestReplay.git', :tag => spec.version.to_s }
 
   spec.requires_arc = true
   spec.osx.deployment_target = '10.7'
