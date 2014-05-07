@@ -42,7 +42,7 @@
 
 -(void)displayTypeChanged:(UISegmentedControl*)segmentedControl {
     UIView* snapshotView = [self.view snapshotViewAfterScreenUpdates:NO];
-    [self.view addSubview:snapshotView];
+    snapshotView.frame = self.view.bounds;
     
     if (segmentedControl.selectedSegmentIndex == 1) {
         self.tableView.dataSource = self.dataSource;
@@ -53,14 +53,15 @@
     }
     
     [self.tableView reloadData];
+    [self.view addSubview:snapshotView];
     
-    [UIView animateWithDuration:1.0
+    [UIView animateWithDuration:0.4
                      animations:^{
                          snapshotView.alpha = 0.0;
                      } completion:^(BOOL finished) {
                          [snapshotView removeFromSuperview];
                          
-                         [self.tableView setContentOffset:CGPointZero animated:YES];
+                         [self.tableView setContentOffset:CGPointMake(0.0, -60.0) animated:NO];
                      }];
 }
 
@@ -83,7 +84,7 @@
                                                 initWithItems:@[ @"List", @"Preview" ]];
     
     displayTypeSelection.frame = CGRectMake((headerView.frame.size.width - displayTypeSelection.frame.size.width) / 2, 10.0, displayTypeSelection.frame.size.width, displayTypeSelection.frame.size.height);
-    displayTypeSelection.selectedSegmentIndex = 0;
+    displayTypeSelection.selectedSegmentIndex = tableView.numberOfSections == 1 ? 0 : 1;
     
     [displayTypeSelection addTarget:self
                              action:@selector(displayTypeChanged:)
