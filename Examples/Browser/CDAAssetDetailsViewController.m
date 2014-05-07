@@ -17,7 +17,8 @@
 @interface CDAAssetDetailsViewController ()
 
 @property (nonatomic) CDAAsset* asset;
-@property (nonatomic) NSArray* sortedKeys;
+@property (nonatomic) NSArray* keyPathsOrder;
+@property (nonatomic) NSDictionary* keyPathsToShow;
 
 @end
 
@@ -35,9 +36,20 @@
     self = [super initWithCollectionViewLayout:layout];
     if (self) {
         self.asset = asset;
-        self.sortedKeys = [self.asset.fields.allKeys
-                           sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
         self.title = self.asset.fields[@"title"];
+        
+        self.keyPathsOrder = @[ @"fields.title", @"fields.description", @"sys.createdAt",
+                                @"fields.file.contentType", @"fields.file.details.size", @"size" ];
+        self.keyPathsToShow = @{ @"fields.title": NSLocalizedString(@"Title", nil),
+                                 @"sys.createdAt": NSLocalizedString(@"Creation Date", nil),
+                                 @"fields.file.contentType": NSLocalizedString(@"MIME Type", nil),
+                                 @"fields.file.details.size": NSLocalizedString(@"Size", nil),
+                                 @"size": NSLocalizedString(@"Image dimensions", nil),
+                                 @"fields.description": NSLocalizedString(@"Description", nil) };
+        
+        NSAssert([[NSSet setWithArray:self.keyPathsOrder]
+                  isEqualToSet:[NSSet setWithArray:self.keyPathsToShow.allKeys]],
+                 @"Keypath sets are not equivalent.");
         
         self.collectionView.backgroundColor = [UIColor groupTableViewBackgroundColor];
         self.collectionView.bounces = YES;
@@ -59,9 +71,9 @@
     CDABasicCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([self class])
                                                                    forIndexPath:indexPath];
     
-    NSString* key = self.sortedKeys[indexPath.row];
-    cell.detailTextLabel.text = [self.asset.fields[key] description];
-    cell.textLabel.text = key;
+    NSString* key = self.keyPathsOrder[indexPath.row];
+    cell.detailTextLabel.text = [[self.asset valueForKeyPath:key] description];
+    cell.textLabel.text = self.keyPathsToShow[key];
     
     if (indexPath.row == 0) {
         cell.cellType = CDACellTypeFirst;
@@ -76,7 +88,7 @@
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.asset.fields.count;
+    return self.keyPathsOrder.count;
 }
 
 -(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
