@@ -1,4 +1,6 @@
 language: objective-c
+before_script:
+- export LANG=en_US.UTF-8
 before_install:
 - gem install --no-rdoc --no-ri --version 0.8.9 faraday
 - gem install --no-rdoc --no-ri travis-artifacts || true
