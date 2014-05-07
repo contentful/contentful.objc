@@ -51,7 +51,7 @@
 -(id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2
+        self.cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1
                                            reuseIdentifier:nil];
         self.cell.backgroundColor = [UIColor whiteColor];
         self.cell.frame = self.bounds;
