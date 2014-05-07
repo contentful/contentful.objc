@@ -12,6 +12,7 @@
 #import "CDAInlineMapCell.h"
 #import "CDAMarkdownCell.h"
 #import "CDAPrimitiveCell.h"
+#import "UIApplication+Browser.h"
 
 @interface CDAEntryPreviewController ()
 
@@ -22,6 +23,10 @@
 #pragma mark -
 
 @implementation CDAEntryPreviewController
+
+-(CDAClient*)client {
+    return [UIApplication sharedApplication].client;
+}
 
 -(id)initWithEntry:(CDAEntry*)entry {
     self = [super initWithEntry:entry tableViewStyle:UITableViewStylePlain];
