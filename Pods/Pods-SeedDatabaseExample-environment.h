@@ -50,8 +50,8 @@
 
 // ContentfulDeliveryAPI
 #define COCOAPODS_POD_AVAILABLE_ContentfulDeliveryAPI
-#define COCOAPODS_VERSION_MAJOR_ContentfulDeliveryAPI 0
-#define COCOAPODS_VERSION_MINOR_ContentfulDeliveryAPI 8
+#define COCOAPODS_VERSION_MAJOR_ContentfulDeliveryAPI 1
+#define COCOAPODS_VERSION_MINOR_ContentfulDeliveryAPI 0
 #define COCOAPODS_VERSION_PATCH_ContentfulDeliveryAPI 0
 
 // HRCoder

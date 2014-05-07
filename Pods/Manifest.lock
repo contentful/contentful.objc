@@ -30,7 +30,7 @@ PODS:
   - CCLRequestReplay/Manager (0.9.0)
   - CCLRequestReplay/Record (0.9.0)
   - CCLRequestReplay/Replay (0.9.0)
-  - ContentfulDeliveryAPI (0.8.0):
+  - ContentfulDeliveryAPI (1.0.0):
     - AFNetworking
     - HRCoder
     - ISO8601DateFormatter
@@ -65,7 +65,7 @@ SPEC CHECKSUMS:
   AFNetworking: ae513199cca79e9d7af2708ccabe2ed075550c42
   Bypass: efb9619af979aab0b1a0f3bce650790ce189c5f4
   CCLRequestReplay: da6ed24f113382cc5427c4f57616407a117d6c0c
-  ContentfulDeliveryAPI: 799010ff203471991e858283271a34a19a86a08d
+  ContentfulDeliveryAPI: 1df1dcf3b35f8e4bc7dbf95459e5e6dbb75796bf
   CSStickyHeaderFlowLayout: 5e0e35f042c14b24758430c3be234525526e631d
   FBSnapshotTestCase: 188c80bfcb72e744eb0b99d45989d12687c40cf8
   HRCoder: 2d5508f15de324e93c974f4e33274499848e13f1
