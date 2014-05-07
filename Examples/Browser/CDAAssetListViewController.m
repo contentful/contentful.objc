@@ -6,13 +6,20 @@
 //
 //
 
+#import <ContentfulDeliveryAPI/ContentfulDeliveryAPI.h>
 #import <PDKTCollectionViewWaterfallLayout/PDKTCollectionViewWaterfallLayout.h>
 
 #import "CDAAssetDetailsViewController.h"
 #import "CDAAssetListViewController.h"
+#import "CDAAssetPreviewController.h"
+#import "CDAAssetThumbnailOperation.h"
 #import "UIApplication+Browser.h"
 
+#define CDADocumentThumbnailSize        CGSizeMake(100.0, 200.0)
+
 @interface CDAAssetListViewController () <PDKTCollectionViewWaterfallLayoutDelegate>
+
+@property (nonatomic) NSOperationQueue* thumbnailQueue;
 
 @end
 
@@ -27,6 +34,7 @@
         self.client = [UIApplication sharedApplication].client;
         self.collectionView.backgroundColor = [UIColor groupTableViewBackgroundColor];
         self.resourceType = CDAResourceTypeAsset;
+        self.thumbnailQueue = [NSOperationQueue new];
         self.title = NSLocalizedString(@"Assets", nil);
     }
     return self;
@@ -62,12 +70,42 @@
     return 3;
 }
 
+#pragma mark - UICollectionViewDataSource
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
+                 cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    CDAAsset* asset = self.items[indexPath.row];
+    CDAResourceCell* cell = (CDAResourceCell*)[super collectionView:collectionView
+                                             cellForItemAtIndexPath:indexPath];
+    
+    if (!asset.isImage) {
+        CDAAssetThumbnailOperation* operation = [[CDAAssetThumbnailOperation alloc] initWithAsset:asset thumbnailSize:CDADocumentThumbnailSize];
+        
+        __weak typeof(CDAAssetThumbnailOperation*) weakOperation = operation;
+        operation.completionBlock = ^{
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                cell.imageView.image = weakOperation.snapshot;
+            });
+        };
+        
+        [self.thumbnailQueue addOperation:operation];
+    }
+    
+    return cell;
+}
+
 #pragma mark - UICollectionViewDelegate
 
 -(void)collectionView:(UICollectionView *)cv didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     CDAAsset* asset = self.items[indexPath.row];
-    CDAAssetDetailsViewController* details = [[CDAAssetDetailsViewController alloc] initWithAsset:asset];
-    [self.navigationController pushViewController:details animated:YES];
+    
+    if (asset.isImage) {
+        CDAAssetDetailsViewController* details = [[CDAAssetDetailsViewController alloc] initWithAsset:asset];
+        [self.navigationController pushViewController:details animated:YES];
+    } else {
+        CDAAssetPreviewController* preview = [[CDAAssetPreviewController alloc] initWithAsset:asset];
+        [self.navigationController pushViewController:preview animated:YES];
+    }
 }
 
 @end
