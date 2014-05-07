@@ -8,6 +8,7 @@
 
 #import "CDAAppDelegate.h"
 #import "CDASpaceSelectionViewController.h"
+#import "CDATutorialController.h"
 
 @implementation CDAAppDelegate
 
@@ -17,6 +18,12 @@
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = [CDASpaceSelectionViewController new];
     [self.window makeKeyAndVisible];
+    
+    if ([[NSUserDefaults standardUserDefaults] stringForKey:CDASpaceKey].length == 0) {
+        CDATutorialController* tutorial = [CDATutorialController new];
+        [self.window.rootViewController presentViewController:tutorial animated:NO completion:nil];
+    }
+    
     return YES;
 }
 
