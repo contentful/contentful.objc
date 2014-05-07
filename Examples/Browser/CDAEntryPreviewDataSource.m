@@ -213,6 +213,10 @@ NSString* const kTextCell        = @"TextCell";
     return UITableViewAutomaticDimension;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return [(id)[tableView nextResponder] tableView:tableView heightForHeaderInSection:section];
+}
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSNumber* customHeight = self.customCellSizes[indexPath];
     if (customHeight) {
@@ -248,6 +252,10 @@ NSString* const kTextCell        = @"TextCell";
     }
     
     return UITableViewAutomaticDimension;
+}
+
+-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    return [(id)[tableView nextResponder] tableView:tableView viewForHeaderInSection:section];
 }
 
 @end
