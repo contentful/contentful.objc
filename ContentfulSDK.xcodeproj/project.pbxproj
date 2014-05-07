@@ -321,7 +321,7 @@
 		A15898721913D55600F0E9BF /* CDAHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAHeaderView.m; sourceTree = "<group>"; };
 		A15898741913D7FD00F0E9BF /* CDAAssetListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAAssetListViewController.h; sourceTree = "<group>"; };
 		A15898751913D7FD00F0E9BF /* CDAAssetListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAAssetListViewController.m; sourceTree = "<group>"; };
-		A15B1FD8191939FA00E019F8 /* 512_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 512_black.png; path = ../../512_black.png; sourceTree = "<group>"; };
+		A15B1FD8191939FA00E019F8 /* 512_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 512_black.png; sourceTree = "<group>"; };
 		A160862018CDF0E60047D44F /* CDARequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDARequest.h; sourceTree = "<group>"; };
 		A160862118CDF0E60047D44F /* CDARequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDARequest.m; sourceTree = "<group>"; };
 		A160862418CDF2AC0047D44F /* CDARequest+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDARequest+Private.h"; sourceTree = "<group>"; };
