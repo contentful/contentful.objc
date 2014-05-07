@@ -47,14 +47,14 @@ Each time, the receiver needs to create a new Entry object of the given Content 
 
 Mobile devices will not always have a data connection, so it makes sense to cache data received from Contentful for offline use. The SDK brings two mechanisms which can help with that:
 
-- All Resource classes support `NSCoding` and bring convenience methods for storing and loading from flat files:
+All Resource classes support `NSCoding` and bring convenience methods for storing and loading from flat files:
 
     [someEntry writeToFile:@"/some/path"];
     CDAEntry* readEntry = [CDAEntry readFromFile:@"/some/path" client:client];
 
 The helper methods use [HRCoder][11] internally, to account for the possibility of circular links between Entries. Most of the UIKit extensions have an `offlineCaching` property which transparently uses this mechanism for showing content when offline.
 
-- If you rather use another solution, there is the abstract `CDAPersistenceManager` class with a [sample implementation](https://github.com/contentful/contentful.objc/blob/master/Code/CoreData/CoreDataManager.m) for Core Data. It supports mapping Resources to another method for managing your object graph easily and ties this to the Contentful synchronization API. Check out the Core Data example app for integrating it yourself.
+If you rather use another solution, there is the abstract `CDAPersistenceManager` class with a [sample implementation](https://github.com/contentful/contentful.objc/blob/master/Code/CoreData/CoreDataManager.m) for Core Data. It supports mapping Resources to another method for managing your object graph easily and ties this to the Contentful synchronization API. Check out the Core Data example app for integrating it yourself.
 
 In both cases, you can use the `offlineCaching_cda` property of the SDK's `UIImageView` category to make any image view transparently cache its contents in a flat file on disk. This will only cache images that the user has viewed once while the app was online.
 
