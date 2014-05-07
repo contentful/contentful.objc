@@ -15,14 +15,15 @@ Pod::Spec.new do |s|
                      :tag => s.version.to_s }
   s.requires_arc = true
 
+  s.source_files         = 'Code/*.{h,m}',
+  s.public_header_files  = 'Code/{CDAArray,CDAAsset,CDAClient,CDAConfiguration,CDAContentType,CDAEntry,CDAField,CDARequest,CDAResource,CDAResponse,CDASpace,CDASyncedSpace,ContentfulDeliveryAPI,CDAPersistenceManager,CDAPersistedAsset,CDAPersistedEntry,CDAPersistedSpace}.h'
+
   s.ios.deployment_target     = '6.0'
-  s.ios.source_files          = 'Code/*.{h,m}', 'Code/UIKit/*.{h,m}'
+  s.ios.source_files          = 'Code/UIKit/*.{h,m}'
   s.ios.frameworks            = 'UIKit', 'MapKit'
-  s.ios.public_header_files  = 'Code/{CDAArray,CDAAsset,CDAClient,CDAConfiguration,CDAContentType,CDAEntry,CDAField,CDARequest,CDAResource,CDAResponse,CDASpace,CDASyncedSpace,ContentfulDeliveryAPI,CDAPersistenceManager,CDAPersistedAsset,CDAPersistedEntry,CDAPersistedSpace,UIKit/CDAEntriesViewController,UIKit/CDAFieldsViewController,UIKit/UIImageView+CDAAsset,UIKit/CDAMapViewController,UIKit/CDAResourcesCollectionViewController,UIKit/CDAResourcesViewController,UIKit/CDAResourceCell}.h'
+  s.ios.public_header_files  = 'Code/UIKit/{CDAEntriesViewController,CDAFieldsViewController,UIImageView+CDAAsset,CDAMapViewController,CDAResourcesCollectionViewController,CDAResourcesViewController,CDAResourceCell}.h'
 
   s.osx.deployment_target     = '10.8'
-  s.osx.source_files          = 'Code/*.{h,m}'
-  s.osx.public_header_files  = 'Code/{CDAArray,CDAAsset,CDAClient,CDAConfiguration,CDAContentType,CDAEntry,CDAField,CDARequest,CDAResource,CDAResponse,CDASpace,CDASyncedSpace,ContentfulDeliveryAPI,CDAPersistenceManager,CDAPersistedAsset,CDAPersistedEntry,CDAPersistedSpace}.h'
 
   s.dependency 'AFNetworking'
   s.dependency 'HRCoder'
