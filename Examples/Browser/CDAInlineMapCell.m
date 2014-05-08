@@ -10,33 +10,7 @@
 
 #import "CDAInlineMapCell.h"
 
-@interface CDAInlineLocation : NSObject<MKAnnotation>
-
-@end
-
-#pragma mark -
-
-@implementation CDAInlineLocation
-
-@synthesize coordinate = _coordinate;
-@synthesize title = _title;
-
--(id)initWithTitle:(NSString*)title location:(CLLocationCoordinate2D)location {
-    self = [super init];
-    if (self) {
-        _coordinate = location;
-        _title = title;
-    }
-    return self;
-}
-
-@end
-
-#pragma mark -
-
 @interface CDAInlineMapCell ()
-
-@property (nonatomic) MKMapView* mapView;
 
 @end
 
@@ -45,24 +19,24 @@
 @implementation CDAInlineMapCell
 
 - (void)addAnnotationWithTitle:(NSString *)title location:(CLLocationCoordinate2D)location {
-    CDAInlineLocation* inlineLocation = [[CDAInlineLocation alloc] initWithTitle:title location:location];
-    [self.mapView addAnnotation:inlineLocation];
-    self.mapView.centerCoordinate = location;
-    [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(location, 250.0, 250.0) animated:NO];
-}
-
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-    self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
-    if (self) {
-        self.mapView = [[MKMapView alloc] initWithFrame:self.bounds];
-        [self.contentView addSubview:self.mapView];
-    }
-    return self;
-}
-
-- (void)layoutSubviews {
-    self.mapView.frame = self.bounds;
-    [self.contentView bringSubviewToFront:self.mapView];
+    MKMapSnapshotOptions* options = [MKMapSnapshotOptions new];
+    options.region = MKCoordinateRegionMakeWithDistance(location, 250.0, 250.0);
+    options.scale = [UIScreen mainScreen].scale;
+    options.size = CGSizeMake(self.bounds.size.width - 20.0, self.bounds.size.height);
+    
+    UIImageView* pin = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pin"]];
+    pin.frame = CGRectMake((options.size.width - pin.image.size.width)  / 2,
+                           options.size.height / 2 - pin.image.size.height,
+                           pin.image.size.width,
+                           pin.image.size.height);
+    pin.hidden = YES;
+    [self.imageView addSubview:pin];
+    
+    MKMapSnapshotter* snapshotter = [[MKMapSnapshotter alloc] initWithOptions:options];
+    [snapshotter startWithCompletionHandler:^(MKMapSnapshot *snapshot, NSError *error) {
+        self.imageView.image = snapshot.image;
+        pin.hidden = NO;
+    }];
 }
 
 @end
