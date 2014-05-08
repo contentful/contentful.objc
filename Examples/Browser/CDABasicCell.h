@@ -16,6 +16,7 @@ typedef NS_ENUM(NSInteger, CDACellType) {
 
 @interface CDABasicCell : UICollectionViewCell
 
+@property (nonatomic) UITableViewCellAccessoryType accessoryType;
 @property (nonatomic) CDACellType cellType;
 @property (nonatomic, readonly) UILabel* detailTextLabel;
 @property (nonatomic, readonly) UILabel* textLabel;

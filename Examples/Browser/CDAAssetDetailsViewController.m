@@ -72,6 +72,7 @@
                                                                    forIndexPath:indexPath];
     
     NSString* key = self.keyPathsOrder[indexPath.row];
+    cell.accessoryType = UITableViewCellAccessoryNone;
     cell.textLabel.text = self.keyPathsToShow[key];
     
     if ([key isEqualToString:@"fields.file.details.size"]) {
@@ -90,6 +91,10 @@
     if ([key isEqualToString:@"fields.title"]) {
         cell.detailTextLabel.font = [UIFont boldSystemFontOfSize:16.0];
         cell.detailTextLabel.textColor = [UIColor blackColor];
+    }
+    
+    if ([@[ @"fields.description", @"fields.title" ] containsObject:key]) {
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
     if (indexPath.row == 0) {
@@ -124,6 +129,20 @@
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
+}
+
+#pragma mark - UICollectionViewDelegate
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSString* key = self.keyPathsOrder[indexPath.row];
+    NSString* value = [self.asset valueForKeyPath:key];
+    
+    if ([@[ @"fields.description", @"fields.title" ] containsObject:key]) {
+        UIViewController* text = [NSClassFromString(@"CDATextViewController") new];
+        text.title = self.keyPathsToShow[key];
+        [(id)text setText:value];
+        [self.navigationController pushViewController:text animated:YES];
+    }
 }
 
 @end

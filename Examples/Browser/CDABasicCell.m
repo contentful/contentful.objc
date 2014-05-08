@@ -19,6 +19,10 @@
 
 @implementation CDABasicCell
 
+-(UITableViewCellAccessoryType)accessoryType {
+    return self.cell.accessoryType;
+}
+
 -(UILabel *)detailTextLabel {
     return self.cell.detailTextLabel;
 }
@@ -55,6 +59,7 @@
                                            reuseIdentifier:nil];
         self.cell.backgroundColor = [UIColor whiteColor];
         self.cell.frame = self.bounds;
+        self.cell.userInteractionEnabled = NO;
         [self addSubview:self.cell];
         
         self.separatorView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -64,6 +69,10 @@
         self.cellType = CDACellTypeAny;
     }
     return self;
+}
+
+-(void)setAccessoryType:(UITableViewCellAccessoryType)accessoryType {
+    self.cell.accessoryType = accessoryType;
 }
 
 -(void)setCellType:(CDACellType)cellType {
