@@ -14,11 +14,12 @@
 #import "CDASpaceViewController.h"
 #import "UIApplication+Browser.h"
 
-@interface CDASpaceViewController ()
+@interface CDASpaceViewController () <UIActionSheetDelegate>
 
 @property (nonatomic, readonly) CDAAboutUsViewController* aboutUs;
 @property (nonatomic, readonly) CDAResourcesCollectionViewController* assets;
 @property (nonatomic, readonly) CDAResourcesViewController* contentTypes;
+@property (nonatomic, readonly) UIBarButtonItem* localeButton;
 @property (nonatomic, readonly) UIBarButtonItem* logoutButton;
 
 @end
@@ -49,6 +50,7 @@
     }
     
     _assets = [CDAAssetListViewController new];
+    _assets.navigationItem.leftBarButtonItem = self.localeButton;
     _assets.navigationItem.rightBarButtonItem = self.logoutButton;
     
     return _assets;
@@ -61,6 +63,7 @@
     
     _contentTypes = [CDAContentTypesViewController new];
     _contentTypes.client = [UIApplication sharedApplication].client;
+    _contentTypes.navigationItem.leftBarButtonItem = self.localeButton;
     _contentTypes.navigationItem.rightBarButtonItem = self.logoutButton;
     
     [_contentTypes.client fetchSpaceWithSuccess:^(CDAResponse *response, CDASpace *space) {
@@ -68,6 +71,13 @@
     } failure:nil];
     
     return _contentTypes;
+}
+
+-(UIBarButtonItem*)localeButton {
+    return [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Change Locale", nil)
+                                            style:UIBarButtonItemStyleBordered
+                                           target:self
+                                           action:@selector(changeLocale)];
 }
 
 -(UIBarButtonItem *)logoutButton {
@@ -87,8 +97,33 @@
 
 #pragma mark - Actions
 
+-(void)changeLocale {
+    [[UIApplication sharedApplication].client fetchSpaceWithSuccess:^(CDAResponse *response,
+                                                                      CDASpace *space) {
+        NSArray* locales = [space.locales valueForKey:@"code"];
+        
+        UIActionSheet* actionSheet = [[UIActionSheet alloc]
+                                      initWithTitle:NSLocalizedString(@"Select locale", nil)
+                                      delegate:self
+                                      cancelButtonTitle:nil
+                                      destructiveButtonTitle:nil
+                                      otherButtonTitles:nil];
+        
+        for (NSString *locale in locales) {
+            [actionSheet addButtonWithTitle:locale];
+        }
+        
+        [actionSheet addButtonWithTitle:NSLocalizedString(@"Cancel", nil)];
+        actionSheet.cancelButtonIndex = locales.count;
+        
+        [actionSheet showInView:self.view];
+    } failure:nil];
+}
+
 -(void)logout {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+#pragma mark - UIActionSheetDelegate
 
 @end
