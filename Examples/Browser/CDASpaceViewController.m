@@ -48,6 +48,7 @@
     
     _contentTypes = [CDAContentTypesViewController new];
     _contentTypes.client = [UIApplication sharedApplication].client;
+    _contentTypes.navigationItem.rightBarButtonItem = self.logoutButton;
     
     [_contentTypes.client fetchSpaceWithSuccess:^(CDAResponse *response, CDASpace *space) {
         _contentTypes.navigationItem.title = space.name;
