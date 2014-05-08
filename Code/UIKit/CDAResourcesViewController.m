@@ -50,6 +50,7 @@
         
         CDAEntriesViewController* entriesVC = [[CDAEntriesViewController alloc] initWithCellMapping:cellMapping];
         entriesVC.client = self.client;
+        entriesVC.locale = self.locale;
         entriesVC.query = @{ @"content_type": contentType.identifier };
         entriesVC.title = contentType.name;
         [self.navigationController pushViewController:entriesVC animated:YES];
@@ -93,6 +94,16 @@
 
 -(NSArray *)items {
     return self.localItems ?: self.resources.items;
+}
+
+-(NSDictionary *)query {
+    if (!self.locale) {
+        return _query;
+    }
+    
+    NSMutableDictionary* query = [_query mutableCopy];
+    query[@"locale"] = self.locale;
+    return query;
 }
 
 -(void)showError:(NSError*)error {

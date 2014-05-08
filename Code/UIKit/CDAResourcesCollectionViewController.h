@@ -53,6 +53,9 @@
  */
 @property (nonatomic, weak) CDAClient* client;
 
+/** Locale to use when querying Resources. */
+@property (nonatomic, copy) NSString* locale;
+
 /**
  The query parameters used for fetching Resources. By default, all Resources from the Space associated
  with the client will be fetched.

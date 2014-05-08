@@ -60,6 +60,16 @@
     return self.resources.items;
 }
 
+-(NSDictionary *)query {
+    if (!self.locale) {
+        return _query;
+    }
+    
+    NSMutableDictionary* query = [_query mutableCopy];
+    query[@"locale"] = self.locale;
+    return query;
+}
+
 -(void)showError:(NSError*)error {
     UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
                                                         message:error.localizedDescription

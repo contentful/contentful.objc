@@ -74,6 +74,13 @@
  */
 @property (nonatomic, weak) CDAClient* client;
 
+/** 
+ Locale to use when querying Resources. 
+ 
+ This property has no effect when showing locally available Resources.
+ */
+@property (nonatomic, copy) NSString* locale;
+
 /** The items which are currently displayed in this view controller's table view. */
 @property (nonatomic, readonly) NSArray* items;
 
