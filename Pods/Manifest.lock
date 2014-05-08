@@ -18,6 +18,7 @@ PODS:
   - AFNetworking/UIKit (2.2.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - AnimatedGIFImageSerialization (0.0.1)
   - Bypass (1.0.1)
   - CCLRequestReplay (0.9.0):
     - CCLRequestReplay/Blueprint
@@ -44,6 +45,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - AnimatedGIFImageSerialization
   - Bypass
   - CCLRequestReplay (from `https://github.com/neonichu/CCLRequestReplay.git`)
   - ContentfulDeliveryAPI (from `.`)
@@ -63,6 +65,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: ae513199cca79e9d7af2708ccabe2ed075550c42
+  AnimatedGIFImageSerialization: 334f7b882713b7336ba15106c92e4843e598358f
   Bypass: efb9619af979aab0b1a0f3bce650790ce189c5f4
   CCLRequestReplay: 53ac44276845cd49bddc0050e7e8f76b8a028ea4
   ContentfulDeliveryAPI: e0504cab3894c60b51832ba77e84c4f1000f7b0d
