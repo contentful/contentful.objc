@@ -59,6 +59,17 @@ static NSString* const CDALogoAnimationKey  = @"SpinLogo";
     return self;
 }
 
+- (void)showSpaceWithKey:(NSString*)spaceKey accessToken:(NSString*)accessToken
+{
+    CDAClient* client = [[CDAClient alloc] initWithSpaceKey:spaceKey accessToken:accessToken];
+    [UIApplication sharedApplication].client = client;
+    
+    CDASpaceViewController* spaceVC = [CDASpaceViewController new];
+    [self presentViewController:spaceVC animated:YES completion:nil];
+    
+    [self startSpinningLogo];
+}
+
 - (UITextField*)textFieldAtRow:(NSInteger)row
 {
     NSIndexPath* indexPath = [NSIndexPath indexPathForRow:row inSection:1];
@@ -89,6 +100,11 @@ static NSString* const CDALogoAnimationKey  = @"SpinLogo";
     [self.tableView reloadData];
 }
 
+- (void)loadDefaultSpaceTapped
+{
+    [self showSpaceWithKey:@"cfexampleapi" accessToken:@"b4c0n73n7fu1"];
+}
+
 - (void)loadSpaceTapped
 {
     NSString* spaceKey = [self textFieldAtRow:0].text;
@@ -98,13 +114,7 @@ static NSString* const CDALogoAnimationKey  = @"SpinLogo";
     [[NSUserDefaults standardUserDefaults] setValue:accessToken forKey:CDAAccessTokenKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-    CDAClient* client = [[CDAClient alloc] initWithSpaceKey:spaceKey accessToken:accessToken];
-    [UIApplication sharedApplication].client = client;
-    
-    CDASpaceViewController* spaceVC = [CDASpaceViewController new];
-    [self presentViewController:spaceVC animated:YES completion:nil];
-    
-    [self startSpinningLogo];
+    [self showSpaceWithKey:spaceKey accessToken:accessToken];
 }
 
 - (void)textFieldChanged
@@ -170,11 +180,11 @@ static NSString* const CDALogoAnimationKey  = @"SpinLogo";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return section == 1 ? 64.0 : UITableViewAutomaticDimension;
+    return section == 1 ? 118.0 : UITableViewAutomaticDimension;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return section == 0 ? 240.0 : UITableViewAutomaticDimension;
+    return section == 0 ? 220.0 : UITableViewAutomaticDimension;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -193,16 +203,27 @@ static NSString* const CDALogoAnimationKey  = @"SpinLogo";
         return nil;
     }
     
-    UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, tableView.frame.size.width, 64.0)];
+    UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, tableView.frame.size.width, 118.0)];
     
     UIButton* button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    button.frame = CGRectMake(10.0, 10.0, view.frame.size.width - 20.0, view.frame.size.height - 20.0);
+    button.frame = CGRectMake(10.0, 10.0, view.frame.size.width - 20.0, 44.0);
     
     [button addTarget:self action:@selector(loadSpaceTapped) forControlEvents:UIControlEventTouchUpInside];
     [button setTitle:NSLocalizedString(@"Load Space", nil) forState:UIControlStateNormal];
     
     self.loadButton = button;
     self.loadButton.enabled = self.done;
+    
+    [view addSubview:button];
+    
+    button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    button.frame = CGRectMake(self.loadButton.frame.origin.x, CGRectGetMaxY(self.loadButton.frame) + 10.0,
+                              self.loadButton.frame.size.width, self.loadButton.frame.size.height);
+    
+    [button addTarget:self
+               action:@selector(loadDefaultSpaceTapped)
+     forControlEvents:UIControlEventTouchUpInside];
+    [button setTitle:NSLocalizedString(@"Demo Space", nil) forState:UIControlStateNormal];
     
     [view addSubview:button];
     return view;
