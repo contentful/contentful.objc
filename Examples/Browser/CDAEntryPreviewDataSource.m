@@ -138,12 +138,18 @@ NSString* const kTextCell        = @"TextCell";
             [(CDAInlineMapCell*)cell addAnnotationWithTitle:field.name location:[self.entry CLLocationCoordinate2DFromFieldWithIdentifier:field.identifier]];
             break;
             
+        case CDAFieldTypeObject:
         case CDAFieldTypeSymbol:
         case CDAFieldTypeText: {
             cell = [tableView dequeueReusableCellWithIdentifier:kTextCell];
             cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, cell.bounds.size.width);
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            [(CDAMarkdownCell*)cell setMarkdownText:value];
+            
+            if (field.type == CDAFieldTypeObject) {
+                [(CDAMarkdownCell*)cell textView].text = [value description];
+            } else {
+                [(CDAMarkdownCell*)cell setMarkdownText:value];
+            }
             
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC),
                            dispatch_get_main_queue(),
@@ -158,13 +164,30 @@ NSString* const kTextCell        = @"TextCell";
             break;
         }
             
-        default:
+        default: {
             cell = [tableView dequeueReusableCellWithIdentifier:kPrimitiveCell];
+            
+            switch ([self fieldForSection:indexPath.section].type) {
+                case CDAFieldTypeBoolean:
+                    value = [value boolValue] ? NSLocalizedString(@"yes", nil) : NSLocalizedString(@"no", nil);
+                    break;
+                    
+                case CDAFieldTypeDate:
+                    value = [NSDateFormatter localizedStringFromDate:value
+                                                           dateStyle:NSDateFormatterMediumStyle
+                                                           timeStyle:NSDateFormatterShortStyle];
+                    break;
+                    
+                default:
+                    break;
+            }
+            
             cell.detailTextLabel.text = [value isKindOfClass:[NSString class]] ? value : [value description];
             cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, cell.bounds.size.width);
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             cell.textLabel.text = field.name;
             break;
+        }
     }
     
     return cell;
@@ -227,7 +250,8 @@ NSString* const kTextCell        = @"TextCell";
     CDAField* field = [self fieldForSection:indexPath.section];
     id value = [self valueForIndexPath:indexPath];
     
-    if (field.type == CDAFieldTypeSymbol || field.type == CDAFieldTypeText) {
+    if ([@[ @(CDAFieldTypeObject), @(CDAFieldTypeText), @(CDAFieldTypeSymbol) ] containsObject:@(field.type)]) {
+        value = [value isKindOfClass:[NSString class]] ? value : [value description];
         return [(NSString*)value boundingRectWithSize:CGSizeMake(tableView.frame.size.width, INT_MAX)
                                               options:NSStringDrawingUsesLineFragmentOrigin
                                            attributes:@{ NSFontAttributeName: [CDAMarkdownCell usedFont] }
