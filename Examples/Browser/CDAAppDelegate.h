@@ -13,6 +13,7 @@
 @interface CDAAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) CDAClient *client;
+@property (strong, nonatomic) NSString* currentLocale;
 @property (strong, nonatomic) UIWindow *window;
 
 @end

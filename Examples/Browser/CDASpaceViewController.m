@@ -50,6 +50,7 @@
     }
     
     _assets = [CDAAssetListViewController new];
+    _assets.locale = [UIApplication sharedApplication].currentLocale;
     _assets.navigationItem.leftBarButtonItem = self.localeButton;
     _assets.navigationItem.rightBarButtonItem = self.logoutButton;
     
@@ -63,10 +64,12 @@
     
     _contentTypes = [CDAContentTypesViewController new];
     _contentTypes.client = [UIApplication sharedApplication].client;
+    _contentTypes.locale = [UIApplication sharedApplication].currentLocale;
     _contentTypes.navigationItem.leftBarButtonItem = self.localeButton;
     _contentTypes.navigationItem.rightBarButtonItem = self.logoutButton;
     
     [_contentTypes.client fetchSpaceWithSuccess:^(CDAResponse *response, CDASpace *space) {
+        [UIApplication sharedApplication].currentLocale = space.defaultLocale;
         _contentTypes.navigationItem.title = space.name;
     } failure:nil];
     
@@ -125,5 +128,15 @@
 }
 
 #pragma mark - UIActionSheetDelegate
+
+-(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == actionSheet.cancelButtonIndex) {
+        return;
+    }
+    
+    [UIApplication sharedApplication].currentLocale = [actionSheet buttonTitleAtIndex:buttonIndex];
+    self.assets.locale = [UIApplication sharedApplication].currentLocale;
+    self.contentTypes.locale = [UIApplication sharedApplication].currentLocale;
+}
 
 @end

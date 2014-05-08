@@ -13,5 +13,6 @@
 @interface UIApplication (Browser)
 
 @property (strong, nonatomic) CDAClient *client;
+@property (strong, nonatomic) NSString* currentLocale;
 
 @end
