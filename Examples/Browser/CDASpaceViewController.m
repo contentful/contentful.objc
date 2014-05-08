@@ -8,6 +8,7 @@
 
 #import <ContentfulDeliveryAPI/ContentfulDeliveryAPI.h>
 
+#import "CDAAboutUsViewController.h"
 #import "CDAAssetListViewController.h"
 #import "CDAContentTypesViewController.h"
 #import "CDASpaceViewController.h"
@@ -15,6 +16,7 @@
 
 @interface CDASpaceViewController ()
 
+@property (nonatomic, readonly) CDAAboutUsViewController* aboutUs;
 @property (nonatomic, readonly) CDAResourcesCollectionViewController* assets;
 @property (nonatomic, readonly) CDAResourcesViewController* contentTypes;
 @property (nonatomic, readonly) UIBarButtonItem* logoutButton;
@@ -25,10 +27,21 @@
 
 @implementation CDASpaceViewController
 
+@synthesize aboutUs = _aboutUs;
 @synthesize assets = _assets;
 @synthesize contentTypes = _contentTypes;
 
 #pragma mark -
+
+-(CDAAboutUsViewController *)aboutUs {
+    if (_aboutUs) {
+        return _aboutUs;
+    }
+    
+    _aboutUs = [CDAAboutUsViewController new];
+    
+    return _aboutUs;
+}
 
 -(CDAResourcesCollectionViewController *)assets {
     if (_assets) {
@@ -68,7 +81,8 @@
     [super viewDidLoad];
     
     self.viewControllers = @[ [[UINavigationController alloc] initWithRootViewController:self.contentTypes],
-                              [[UINavigationController alloc] initWithRootViewController:self.assets] ];
+                              [[UINavigationController alloc] initWithRootViewController:self.assets],
+                              [[UINavigationController alloc] initWithRootViewController:self.aboutUs]];
 }
 
 #pragma mark - Actions

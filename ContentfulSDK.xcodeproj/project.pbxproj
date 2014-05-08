@@ -199,6 +199,7 @@
 		A1ABC7B1191BA6540020A964 /* Default-4inch.png in Resources */ = {isa = PBXBuildFile; fileRef = A1ABC7B0191BA6540020A964 /* Default-4inch.png */; };
 		A1ABC7B4191BA96E0020A964 /* UIImage+AverageColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ABC7B3191BA96E0020A964 /* UIImage+AverageColor.m */; };
 		A1ABC7B6191BAB6D0020A964 /* document.png in Resources */ = {isa = PBXBuildFile; fileRef = A1ABC7B5191BAB6D0020A964 /* document.png */; };
+		A1ABC7B9191BBD490020A964 /* CDAAboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ABC7B8191BBD490020A964 /* CDAAboutUsViewController.m */; };
 		A1B8158418F2A8090027B26D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD86A18C631E60081677E /* Foundation.framework */; };
 		A1B8158518F2A8090027B26D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD89918C637400081677E /* CoreGraphics.framework */; };
 		A1B8158618F2A8090027B26D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD87B18C631E60081677E /* UIKit.framework */; };
@@ -526,6 +527,8 @@
 		A1ABC7B2191BA96E0020A964 /* UIImage+AverageColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+AverageColor.h"; sourceTree = "<group>"; };
 		A1ABC7B3191BA96E0020A964 /* UIImage+AverageColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+AverageColor.m"; sourceTree = "<group>"; };
 		A1ABC7B5191BAB6D0020A964 /* document.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = document.png; sourceTree = "<group>"; };
+		A1ABC7B7191BBD490020A964 /* CDAAboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAAboutUsViewController.h; sourceTree = "<group>"; };
+		A1ABC7B8191BBD490020A964 /* CDAAboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAAboutUsViewController.m; sourceTree = "<group>"; };
 		A1B8158318F2A8090027B26D /* CoreDataExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B8158718F2A8090027B26D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		A1B8158B18F2A8090027B26D /* CoreDataExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CoreDataExample-Info.plist"; sourceTree = "<group>"; };
@@ -750,6 +753,8 @@
 				A1A455A319178A2500802D50 /* Content Types */,
 				A1A4559F1917814F00802D50 /* Entries */,
 				A1A4559D1917814200802D50 /* Spaces */,
+				A1ABC7B7191BBD490020A964 /* CDAAboutUsViewController.h */,
+				A1ABC7B8191BBD490020A964 /* CDAAboutUsViewController.m */,
 				A173F51818D31151000E6F92 /* CDAAppDelegate.h */,
 				A173F51918D31151000E6F92 /* CDAAppDelegate.m */,
 				A15B1FDD191A602F00E019F8 /* CDATutorialController.h */,
@@ -1936,6 +1941,7 @@
 				A1ABC7B4191BA96E0020A964 /* UIImage+AverageColor.m in Sources */,
 				A1A455B71917EBE800802D50 /* CDAAssetThumbnailOperation.m in Sources */,
 				A1A455A2191789C100802D50 /* CDAEntryPreviewController.m in Sources */,
+				A1ABC7B9191BBD490020A964 /* CDAAboutUsViewController.m in Sources */,
 				A1A455B21917E08800802D50 /* CDAAssetPreviewController.m in Sources */,
 				A173F51A18D31151000E6F92 /* CDAAppDelegate.m in Sources */,
 				A173F53B18D313E2000E6F92 /* CDATextEntryCell.m in Sources */,
