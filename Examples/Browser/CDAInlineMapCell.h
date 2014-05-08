@@ -6,9 +6,9 @@
 //
 //
 
-#import <UIKit/UIKit.h>
+#import "CDAAssetPreviewCell.h"
 
-@interface CDAInlineMapCell : UITableViewCell
+@interface CDAInlineMapCell : CDAAssetPreviewCell
 
 -(void)addAnnotationWithTitle:(NSString*)title location:(CLLocationCoordinate2D)location;
 

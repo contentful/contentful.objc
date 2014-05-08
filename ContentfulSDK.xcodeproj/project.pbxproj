@@ -194,6 +194,8 @@
 		A1A455B71917EBE800802D50 /* CDAAssetThumbnailOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A455B61917EBE800802D50 /* CDAAssetThumbnailOperation.m */; };
 		A1A455BA1919108E00802D50 /* CDAInlineMapCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A455B91919108E00802D50 /* CDAInlineMapCell.m */; };
 		A1A455BD1919179300802D50 /* CDAEntryPreviewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A455BC1919179300802D50 /* CDAEntryPreviewDataSource.m */; };
+		A1ABC7AE191B7F0D0020A964 /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = A1ABC7AC191B7F0D0020A964 /* pin.png */; };
+		A1ABC7AF191B7F0D0020A964 /* pin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1ABC7AD191B7F0D0020A964 /* pin@2x.png */; };
 		A1B8158418F2A8090027B26D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD86A18C631E60081677E /* Foundation.framework */; };
 		A1B8158518F2A8090027B26D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD89918C637400081677E /* CoreGraphics.framework */; };
 		A1B8158618F2A8090027B26D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD87B18C631E60081677E /* UIKit.framework */; };
@@ -515,6 +517,8 @@
 		A1A455B91919108E00802D50 /* CDAInlineMapCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAInlineMapCell.m; sourceTree = "<group>"; };
 		A1A455BB1919179300802D50 /* CDAEntryPreviewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAEntryPreviewDataSource.h; sourceTree = "<group>"; };
 		A1A455BC1919179300802D50 /* CDAEntryPreviewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAEntryPreviewDataSource.m; sourceTree = "<group>"; };
+		A1ABC7AC191B7F0D0020A964 /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
+		A1ABC7AD191B7F0D0020A964 /* pin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin@2x.png"; sourceTree = "<group>"; };
 		A1B8158318F2A8090027B26D /* CoreDataExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B8158718F2A8090027B26D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		A1B8158B18F2A8090027B26D /* CoreDataExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CoreDataExample-Info.plist"; sourceTree = "<group>"; };
@@ -667,6 +671,8 @@
 			children = (
 				A15B1FD8191939FA00E019F8 /* 512_black.png */,
 				A15898691913924600F0E9BF /* logo.png */,
+				A1ABC7AC191B7F0D0020A964 /* pin.png */,
+				A1ABC7AD191B7F0D0020A964 /* pin@2x.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1538,8 +1544,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A15B1FD9191939FA00E019F8 /* 512_black.png in Resources */,
+				A1ABC7AE191B7F0D0020A964 /* pin.png in Resources */,
 				A158986A1913924600F0E9BF /* logo.png in Resources */,
 				A170131A18FEA0AD0086BE07 /* Fixtures in Resources */,
+				A1ABC7AF191B7F0D0020A964 /* pin@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
