@@ -23,6 +23,8 @@
 
 @property (nonatomic, weak) id<CDAAssetPreviewControllerDelegate> previewDelegate;
 
++(BOOL)shouldHandleAsset:(CDAAsset*)asset;
+
 -(id)initWithAsset:(CDAAsset*)asset;
 
 @end
