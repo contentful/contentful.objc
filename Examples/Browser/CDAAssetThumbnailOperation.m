@@ -8,6 +8,7 @@
 
 #import "CDAAssetPreviewController.h"
 #import "CDAAssetThumbnailOperation.h"
+#import "UIImage+AverageColor.h"
 
 @interface CDAAssetThumbnailOperation () <CDAAssetPreviewControllerDelegate> {
     BOOL _isExecuting;
@@ -62,6 +63,14 @@
     return _isFinished;
 }
 
+-(UIImage *)snapshot {
+    if (!_snapshot || [_snapshot isBlack]) {
+        return [UIImage imageNamed:@"document"];
+    }
+    
+    return _snapshot;
+}
+
 -(UIImage *)snapshot:(UIView *)view {
     UIGraphicsBeginImageContextWithOptions(view.bounds.size, YES, 0);
     [view drawViewHierarchyInRect:view.bounds afterScreenUpdates:YES];
@@ -75,6 +84,10 @@
     [self willChangeValueForKey:@"isExecuting"];
     _isExecuting = YES;
     [self didChangeValueForKey:@"isExecuting"];
+    
+    if (![CDAAssetPreviewController shouldHandleAsset:self.asset]) {
+        [self finish];
+    }
     
     dispatch_async(dispatch_get_main_queue(), ^{
         self.previewController = [[CDAAssetPreviewController alloc] initWithAsset:self.asset];
