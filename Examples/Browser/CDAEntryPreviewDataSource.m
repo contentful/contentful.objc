@@ -97,6 +97,7 @@ NSString* const kTextCell        = @"TextCell";
         self.customCellSizes = [@{} mutableCopy];
         self.entry = entry;
         self.thumbnailQueue = [NSOperationQueue new];
+        self.thumbnailQueue.maxConcurrentOperationCount = 1;
     }
     return self;
 }
