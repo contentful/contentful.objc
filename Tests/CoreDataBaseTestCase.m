@@ -25,7 +25,9 @@
     XCTAssertEqual(numberOfEntries, [self.coreDataManager fetchEntriesFromDataStore].count, @"");
     
     NSDate* timestamp = [self.coreDataManager fetchSpaceFromDataStore].lastSyncTimestamp;
-    XCTAssertNotEqualObjects(self.lastSyncTimestamp, timestamp, @"");
+    if (![[timestamp description] hasSuffix:@":00 +0000"]) {
+        XCTAssertNotEqualObjects(self.lastSyncTimestamp, timestamp, @"");
+    }
     self.lastSyncTimestamp = timestamp;
 }
 
