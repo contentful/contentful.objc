@@ -8,7 +8,48 @@
 
 #import <objc/runtime.h>
 
+#import "CDAResource+Private.h"
 #import "ContentfulBaseTestCase.h"
+
+@interface ErrorTestsMapTargetAsset : NSObject
+
+@property (nonatomic) NSString* identifier;
+@property (nonatomic) NSString* description;
+@property (nonatomic) NSInteger size;
+@property (nonatomic) NSString* title;
+@property (nonatomic) NSURL* url;
+
+@end
+
+#pragma mark -
+
+@implementation ErrorTestsMapTargetAsset
+
+@end
+
+#pragma mark -
+
+@interface ErrorTestsMapTargetObject : NSObject
+
+@property (nonatomic) NSArray* someArray;
+@property (nonatomic) BOOL someBool;
+@property (nonatomic) NSDate* someDate;
+@property (nonatomic) NSInteger someInteger;
+@property (nonatomic) CDAEntry* someLink;
+@property (nonatomic) NSData* someLocation;
+@property (nonatomic) CGFloat someNumber;
+@property (nonatomic) NSString* someSymbol;
+@property (nonatomic) NSString* someText;
+
+@end
+
+#pragma mark -
+
+@implementation ErrorTestsMapTargetObject
+
+@end
+
+#pragma mark -
 
 @interface ErrorTests : ContentfulBaseTestCase
 
@@ -213,7 +254,44 @@
     WaitUntilBlockCompletes();
 }
 
-- (void)testNulledContent
+- (void)testNulledContentForAssets
+{
+    NSDictionary* assetDictionary = @{ @"sys": @{ @"identifier": [NSNull null], @"type": @"Asset" },
+                                       @"fields": @{ @"file": @{ @"url": [NSNull null],
+                                                                 @"details": @{ @"size": [NSNull null] } },
+                                                     @"title": [NSNull null],
+                                                     @"description": [NSNull null],
+                                                     },
+                                       };
+    
+    CDAAsset* brokenAsset = [[CDAAsset alloc] initWithDictionary:assetDictionary
+                                                          client:[CDAClient new]];
+    
+    XCTAssertNil(brokenAsset.identifier, @"");
+    XCTAssertNil(brokenAsset.fields[@"description"], @"");
+    XCTAssertNil(brokenAsset.fields[@"title"], @"");
+    XCTAssertNil(brokenAsset.URL, @"");
+    XCTAssertEqualObjects(@0, brokenAsset.fields[@"file"][@"details"][@"size"], @"");
+    
+    CDAEntry* brokenEntry = [self customEntryHelperWithFields:@{ @"someLink": assetDictionary }];
+    ErrorTestsMapTargetAsset* target = [ErrorTestsMapTargetAsset new];
+    [brokenEntry mapFieldsToObject:target
+                      usingMapping:@{
+                                     @"fields.someLink.identifier": @"identifier",
+                                     @"fields.someLink.fields.title": @"title",
+                                     @"fields.someLink.fields.description": @"description",
+                                     @"fields.someLink.fields.file.details.size": @"size",
+                                     @"fields.someLink.URL": @"url",
+                                     }];
+    
+    XCTAssertNil(target.identifier, @"");
+    XCTAssertNil(target.description, @"");
+    XCTAssertNil(target.title, @"");
+    XCTAssertNil(target.url, @"");
+    XCTAssertEqual(0, target.size, @"");
+}
+
+- (void)testNulledContentForEntries
 {
     CDAEntry* brokenEntry = [self customEntryHelperWithFields:@{
                                                                 @"someArray": [NSNull null],
@@ -235,6 +313,28 @@
     XCTAssertEqualObjects(@0, brokenEntry.fields[@"someNumber"], @"");
     XCTAssertEqualObjects(@"", brokenEntry.fields[@"someSymbol"], @"");
     XCTAssertEqualObjects(@"", brokenEntry.fields[@"someText"], @"");
+    
+    ErrorTestsMapTargetObject* target = [ErrorTestsMapTargetObject new];
+    [brokenEntry mapFieldsToObject:target usingMapping:@{
+                                                         @"fields.someArray": @"someArray",
+                                                         @"fields.someBool": @"someBool",
+                                                         @"fields.someDate": @"someDate",
+                                                         @"fields.someInteger": @"someInteger",
+                                                         @"fields.someLink": @"someLink",
+                                                         @"fields.someLocation": @"someLocation",
+                                                         @"fields.someNumber": @"someNumber",
+                                                         @"fields.someSymbol": @"someSymbol",
+                                                         @"fields.someText": @"someText",
+                                                         }];
+    
+    XCTAssertEqualObjects(@[], target.someArray, @"");
+    XCTAssertEqual(NO, target.someBool, @"");
+    XCTAssertNil(target.someDate, @"");
+    XCTAssertEqual(0, target.someInteger, @"");
+    XCTAssertNil(target.someLink, @"");
+    XCTAssertEqual(0.0f, target.someNumber, @"");
+    XCTAssertEqualObjects(@"", target.someSymbol, @"");
+    XCTAssertEqualObjects(@"", target.someText, @"");
 }
 
 @end

@@ -200,6 +200,8 @@
 		A1ABC7B4191BA96E0020A964 /* UIImage+AverageColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ABC7B3191BA96E0020A964 /* UIImage+AverageColor.m */; };
 		A1ABC7B6191BAB6D0020A964 /* document.png in Resources */ = {isa = PBXBuildFile; fileRef = A1ABC7B5191BAB6D0020A964 /* document.png */; };
 		A1ABC7B9191BBD490020A964 /* CDAAboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ABC7B8191BBD490020A964 /* CDAAboutUsViewController.m */; };
+		A1ABC7BC191D12ED0020A964 /* CDAInputSanitizer.h in Headers */ = {isa = PBXBuildFile; fileRef = A1ABC7BA191D12ED0020A964 /* CDAInputSanitizer.h */; };
+		A1ABC7BD191D12ED0020A964 /* CDAInputSanitizer.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ABC7BB191D12ED0020A964 /* CDAInputSanitizer.m */; };
 		A1B8158418F2A8090027B26D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD86A18C631E60081677E /* Foundation.framework */; };
 		A1B8158518F2A8090027B26D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD89918C637400081677E /* CoreGraphics.framework */; };
 		A1B8158618F2A8090027B26D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD87B18C631E60081677E /* UIKit.framework */; };
@@ -529,6 +531,8 @@
 		A1ABC7B5191BAB6D0020A964 /* document.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = document.png; sourceTree = "<group>"; };
 		A1ABC7B7191BBD490020A964 /* CDAAboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAAboutUsViewController.h; sourceTree = "<group>"; };
 		A1ABC7B8191BBD490020A964 /* CDAAboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAAboutUsViewController.m; sourceTree = "<group>"; };
+		A1ABC7BA191D12ED0020A964 /* CDAInputSanitizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAInputSanitizer.h; sourceTree = "<group>"; };
+		A1ABC7BB191D12ED0020A964 /* CDAInputSanitizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAInputSanitizer.m; sourceTree = "<group>"; };
 		A1B8158318F2A8090027B26D /* CoreDataExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B8158718F2A8090027B26D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		A1B8158B18F2A8090027B26D /* CoreDataExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CoreDataExample-Info.plist"; sourceTree = "<group>"; };
@@ -1231,6 +1235,8 @@
 		A1D9D56518CF52B20089D4A2 /* Perform Requests */ = {
 			isa = PBXGroup;
 			children = (
+				A1ABC7BA191D12ED0020A964 /* CDAInputSanitizer.h */,
+				A1ABC7BB191D12ED0020A964 /* CDAInputSanitizer.m */,
 				A160862418CDF2AC0047D44F /* CDARequest+Private.h */,
 				A160862018CDF0E60047D44F /* CDARequest.h */,
 				A160862118CDF0E60047D44F /* CDARequest.m */,
@@ -1323,6 +1329,7 @@
 				A1D2DC0418D076F50053DC83 /* CDAResourceTableViewCell.h in Headers */,
 				A1E3D04B18C8795500E4F488 /* CDAEntry.h in Headers */,
 				A17012F818FC20120086BE07 /* CDAPersistedSpace.h in Headers */,
+				A1ABC7BC191D12ED0020A964 /* CDAInputSanitizer.h in Headers */,
 				A173F58D18D752A9000E6F92 /* CDAImageViewController.h in Headers */,
 				A193EB3E18D09AC10017B777 /* CDAResponse+Private.h in Headers */,
 				A12797AE18E1B10300043A44 /* CDASyncedSpace.h in Headers */,
@@ -2003,6 +2010,7 @@
 				A18AA81818E2E2CF00D430D5 /* CDADeletedAsset.m in Sources */,
 				A1E8391918CE2AB500B697F6 /* CDASpace.m in Sources */,
 				A1A0313C18C6627D006470B7 /* CDAResponseSerializer.m in Sources */,
+				A1ABC7BD191D12ED0020A964 /* CDAInputSanitizer.m in Sources */,
 				A1924C8E18EBFFB600C97F9D /* CDAResourcesViewController.m in Sources */,
 				A1A0313518C6449F006470B7 /* CDAArray.m in Sources */,
 				A173F59618D9A269000E6F92 /* CDAResourcesCollectionViewController.m in Sources */,
