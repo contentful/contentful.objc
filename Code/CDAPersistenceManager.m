@@ -158,7 +158,7 @@
 
 -(void)performInitalSynchronizationForQueryWithSuccess:(void (^)())success
                                                failure:(CDARequestFailureBlock)failure {
-    NSDate* syncTimestamp = [NSDate date];
+    NSDate* syncTimestamp = [self roundedCurrentDate];
     
     [self.client fetchEntriesMatching:self.query success:^(CDAResponse *response, CDAArray *array) {
         id<CDAPersistedSpace> space = [self fetchSpaceFromDataStore];
@@ -170,7 +170,7 @@
 
 -(void)performSubsequentSynchronizationWithSuccess:(void (^)())success
                                            failure:(CDARequestFailureBlock)failure {
-    NSDate* syncTimestamp = [NSDate date];
+    NSDate* syncTimestamp = [self roundedCurrentDate];
     NSMutableDictionary* query = [self.query mutableCopy];
     
     id<CDAPersistedSpace> space = [self fetchSpaceFromDataStore];
@@ -271,6 +271,11 @@
     persistedSpace.lastSyncTimestamp = space.lastSyncTimestamp;
     persistedSpace.syncToken = space.syncToken;
     return persistedSpace;
+}
+
+-(NSDate*)roundedCurrentDate {
+    NSTimeInterval time = round([[NSDate date] timeIntervalSinceReferenceDate] / 60.0) * 60.0;
+    return [NSDate dateWithTimeIntervalSinceReferenceDate:time];
 }
 
 -(void)saveDataStore {
