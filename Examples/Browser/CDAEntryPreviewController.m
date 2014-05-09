@@ -88,7 +88,8 @@
     UISegmentedControl* displayTypeSelection = [[UISegmentedControl alloc]
                                                 initWithItems:@[ @"List", @"Preview" ]];
     
-    displayTypeSelection.frame = CGRectMake((headerView.frame.size.width - displayTypeSelection.frame.size.width) / 2, 10.0, displayTypeSelection.frame.size.width, displayTypeSelection.frame.size.height);
+    displayTypeSelection.frame = CGRectMake((headerView.frame.size.width - 250.0) / 2, 10.0,
+                                            250.0, displayTypeSelection.frame.size.height);
     displayTypeSelection.selectedSegmentIndex = tableView.numberOfSections == 1 ? 0 : 1;
     
     [displayTypeSelection addTarget:self
