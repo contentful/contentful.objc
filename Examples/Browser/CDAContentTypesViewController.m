@@ -35,10 +35,11 @@
 }
 
 -(id)init {
-    self = [super initWithCellMapping:@{ @"textLabel.text": @"name" }];
+    self = [super initWithCellMapping:@{ @"textLabel.text": @"name",
+                                         @"detailTextLabel.text": @"userDescription" } ];
     if (self) {
         self.resourceType = CDAResourceTypeContentType;
-        self.title = NSLocalizedString(@"Preview", nil);
+        self.title = NSLocalizedString(@"Entries", nil);
     }
     return self;
 }
@@ -49,6 +50,50 @@
        didSelectRowWithEntry:(CDAEntry *)entry {
     CDAEntryPreviewController* previewController = [[CDAEntryPreviewController alloc] initWithEntry:entry];
     [self.navigationController pushViewController:previewController animated:YES];
+}
+
+#pragma mark - UITableViewDataSource
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    CDAContentType* contentType = self.items[indexPath.row];
+    UITableViewCell* cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
+    
+    UILabel* entryCountLabel = nil;
+    if (cell.contentView.subviews.count == 3) {
+        entryCountLabel = [cell.contentView.subviews lastObject];
+    } else {
+        entryCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(cell.frame.size.width - 0.0, 0.0,
+                                                                    50.0, cell.frame.size.height)];
+        
+        entryCountLabel.font = cell.detailTextLabel.font;
+        entryCountLabel.textAlignment = NSTextAlignmentRight;
+        entryCountLabel.textColor = cell.detailTextLabel.textColor;
+        
+        [cell.contentView addSubview:entryCountLabel];
+    }
+    
+    [self.client fetchEntriesMatching:@{ @"content_type": contentType.identifier, @"limit": @0 }
+                              success:^(CDAResponse *response, CDAArray *array) {
+                                  entryCountLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%d entries", nil), array.total];
+                                  
+                                  if (array.total == 0) {
+                                      cell.accessoryType = UITableViewCellAccessoryNone;
+                                  }
+                              } failure:nil];
+    
+    return cell;
+}
+
+#pragma mark - UITableViewDelegate
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    if (cell.accessoryType == UITableViewCellAccessoryNone) {
+        return;
+    }
+    
+    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
 }
 
 @end
