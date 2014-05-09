@@ -20,8 +20,8 @@ after_script:
 - travis-artifacts upload --target-path downloads/iOS --path Examples/ContentfulDeliveryAPI.zip
   --path Examples/UFO.zip
 notifications:
-  flowdock:
-  - secure: cgth/hOyO8KJtM5fVR9yhsI8nUiwsHijuktGTLu8SUGR2xkjoKPpBlm3m5NrBkhWOh+6IOXQZhmXv7ecR7Vy0f4KLMoqCjG0B3mPhyALmY00KBW1fHKsynIgTq2Lv83EeSYxynws7SOoc9OpcOKeqRTZ1h8BygFGGbzXEQNOxnI=
+  slack:
+  - secure: pbLVGeA+577zmld+ie/1KUWxin8PFB+uXogz1zrVhEqnparjbHNMvFfaAGG1gbaAJC0skGksCe+LeBrhLargbLSgAT3HrObwDCIu7H8IjaYOEhpNTHCObrwRIyOeBVHHAhjgjeElM7hvptJjRMuERErcnL65EOlaIdm4ZqOg3/0=
 env:
   global:
   - ARTIFACTS_S3_BUCKET=static.cdnorigin.contentful.com
