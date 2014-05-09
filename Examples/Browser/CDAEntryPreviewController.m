@@ -33,6 +33,9 @@
     if (self) {
         self.dataSource = [[CDAEntryPreviewDataSource alloc] initWithEntry:entry];
         
+        self.tableView.dataSource = self.dataSource;
+        self.tableView.delegate = self.dataSource;
+        
         [self.tableView registerClass:[CDAAssetPreviewCell class] forCellReuseIdentifier:kAssetCell];
         [self.tableView registerClass:NSClassFromString(@"CDAResourceTableViewCell")
                forCellReuseIdentifier:kItemCell];
