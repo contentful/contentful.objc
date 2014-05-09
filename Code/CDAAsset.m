@@ -8,6 +8,7 @@
 
 #import "CDAAsset+Private.h"
 #import "CDAClient+Private.h"
+#import "CDAInputSanitizer.h"
 #import "CDAResource+Private.h"
 #import "CDASpace+Private.h"
 #import "CDAUtilities.h"
@@ -125,10 +126,24 @@ const CGFloat CDAImageQualityOriginal = 0.0;
 -(id)initWithDictionary:(NSDictionary *)dictionary client:(CDAClient*)client {
     self = [super initWithDictionary:dictionary client:client];
     if (self) {
-        NSDictionary* fields = dictionary[@"fields"];
+        NSDictionary* fields = [CDAInputSanitizer sanitizeObject:dictionary[@"fields"]];
         NSMutableDictionary* localizedFields = [@{} mutableCopy];
         
         if (fields) {
+            // Ensure there is a zero size in any case
+            if (!fields[@"file"][@"details"][@"size"]) {
+                NSMutableDictionary* mutableFields = [fields mutableCopy];
+                NSMutableDictionary* mutableFile = [[NSMutableDictionary alloc]
+                                                    initWithDictionary:fields[@"file"]];
+                NSMutableDictionary* mutableDetails = [[NSMutableDictionary alloc]
+                                                       initWithDictionary:fields[@"file"][@"details"]];
+                
+                mutableDetails[@"size"] = @0;
+                mutableFile[@"details"] = [mutableDetails copy];
+                mutableFields[@"file"] = [mutableFile copy];
+                fields = [mutableFields copy];
+            }
+            
             if (self.localizationAvailable) {
                 for (NSString* locale in self.client.space.localeCodes) {
                     localizedFields[locale] = [self localizedDictionaryFromDictionary:fields
