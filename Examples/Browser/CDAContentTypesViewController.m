@@ -65,7 +65,7 @@
     if (cell.contentView.subviews.count == 3) {
         entryCountLabel = [cell.contentView.subviews lastObject];
     } else {
-        entryCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(cell.frame.size.width - 0.0, 0.0,
+        entryCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(cell.frame.size.width - 100.0, 0.0,
                                                                     50.0, cell.frame.size.height)];
         
         entryCountLabel.font = cell.detailTextLabel.font;
