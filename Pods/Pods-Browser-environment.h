@@ -84,9 +84,3 @@
 #define COCOAPODS_VERSION_MINOR_ISO8601DateFormatter 7
 #define COCOAPODS_VERSION_PATCH_ISO8601DateFormatter 0
 
-// PDKTCollectionViewWaterfallLayout
-#define COCOAPODS_POD_AVAILABLE_PDKTCollectionViewWaterfallLayout
-#define COCOAPODS_VERSION_MAJOR_PDKTCollectionViewWaterfallLayout 0
-#define COCOAPODS_VERSION_MINOR_PDKTCollectionViewWaterfallLayout 1
-#define COCOAPODS_VERSION_PATCH_PDKTCollectionViewWaterfallLayout 0
-
