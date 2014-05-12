@@ -30,6 +30,7 @@
     entriesVC.delegate = self;
     entriesVC.locale = self.locale;
     entriesVC.query = @{ @"content_type": contentType.identifier };
+    entriesVC.title = contentType.name;
     
     [self.navigationController pushViewController:entriesVC animated:YES];
 }
