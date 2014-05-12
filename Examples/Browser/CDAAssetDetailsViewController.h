@@ -12,6 +12,8 @@
 
 @interface CDAAssetDetailsViewController : UICollectionViewController
 
+@property (nonatomic) UIImage* fallbackImage;
+
 -(id)initWithAsset:(CDAAsset*)asset;
 
 @end

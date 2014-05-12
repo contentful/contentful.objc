@@ -11,6 +11,7 @@
 #import <CSStickyHeaderFlowLayout/CSStickyHeaderFlowLayout.h>
 
 #import "CDAAssetDetailsViewController.h"
+#import "CDAAssetPreviewController.h"
 #import "CDABasicCell.h"
 #import "CDAHeaderView.h"
 
@@ -64,6 +65,13 @@
     return self;
 }
 
+#pragma mark - Actions
+
+-(void)documentTapped {
+    CDAAssetPreviewController* preview = [[CDAAssetPreviewController alloc] initWithAsset:self.asset];
+    [self.navigationController pushViewController:preview animated:YES];
+}
+
 #pragma mark - UICollectionViewDataSource
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
@@ -110,7 +118,7 @@
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.keyPathsOrder.count;
+    return self.keyPathsOrder.count - (self.asset.isImage ? 0 : 1);
 }
 
 -(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
@@ -120,8 +128,19 @@
         CDAHeaderView* headerView = [collectionView dequeueReusableSupplementaryViewOfKind:kind
                                                                        withReuseIdentifier:NSStringFromClass([self class])
                                                                               forIndexPath:indexPath];
-        CGFloat size = 300.0 * [UIScreen mainScreen].scale;
-        [headerView.imageView cda_setImageWithAsset:self.asset size:CGSizeMake(size, size)];
+        
+        if (self.asset.isImage) {
+            CGFloat size = 300.0 * [UIScreen mainScreen].scale;
+            [headerView.imageView cda_setImageWithAsset:self.asset size:CGSizeMake(size, size)];
+        } else {
+            headerView.imageView.image = self.fallbackImage;
+            headerView.imageView.userInteractionEnabled = YES;
+            
+            [headerView.imageView addGestureRecognizer:[[UITapGestureRecognizer alloc]
+                                                        initWithTarget:self
+                                                        action:@selector(documentTapped)]];
+        }
+        
         return headerView;
     }
     
