@@ -25,7 +25,6 @@ pod 'AnimatedGIFImageSerialization'
 pod 'CSStickyHeaderFlowLayout'
 pod 'ContentfulDeliveryAPI', :path => '.'
 pod 'Bypass', :inhibit_warnings => true
-pod 'PDKTCollectionViewWaterfallLayout'
 
 end
 

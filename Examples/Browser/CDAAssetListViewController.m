@@ -7,7 +7,6 @@
 //
 
 #import <ContentfulDeliveryAPI/ContentfulDeliveryAPI.h>
-#import <PDKTCollectionViewWaterfallLayout/PDKTCollectionViewWaterfallLayout.h>
 
 #import "CDAAssetDetailsViewController.h"
 #import "CDAAssetListViewController.h"
@@ -15,9 +14,9 @@
 #import "CDAAssetThumbnailOperation.h"
 #import "UIApplication+Browser.h"
 
-#define CDADocumentThumbnailSize        CGSizeMake(100.0, 200.0)
+#define CDADocumentThumbnailSize        CGSizeMake(100.0, 100.0)
 
-@interface CDAAssetListViewController () <PDKTCollectionViewWaterfallLayoutDelegate>
+@interface CDAAssetListViewController ()
 
 @property (nonatomic) NSOperationQueue* thumbnailQueue;
 
@@ -25,11 +24,26 @@
 
 @implementation CDAAssetListViewController
 
--(id)init {
-    PDKTCollectionViewWaterfallLayout* layout = [PDKTCollectionViewWaterfallLayout new];
-    layout.delegate = self;
+- (UIImage *)imageByCroppingImage:(UIImage *)image toSize:(CGSize)size {
+    CGFloat x = (image.size.width - size.width) / 2.0;
+    CGFloat y = (image.size.height - size.height) / 2.0;
     
-    self = [super initWithCollectionViewLayout:layout cellMapping:@{ @"imageURL": @"URL" }];
+    CGRect cropRect = CGRectMake(x, y, size.height, size.width);
+    CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage], cropRect);
+    
+    UIImage *cropped = [UIImage imageWithCGImage:imageRef];
+    CGImageRelease(imageRef);
+    
+    return cropped;
+}
+
+-(id)init {
+    UICollectionViewFlowLayout* layout = [UICollectionViewFlowLayout new];
+    layout.itemSize = CGSizeMake(100.0, 100.0);
+    layout.minimumInteritemSpacing = 10.0;
+    layout.minimumLineSpacing = 10.0;
+    
+    self = [super initWithCollectionViewLayout:layout cellMapping:nil];
     if (self) {
         self.client = [UIApplication sharedApplication].client;
         self.collectionView.backgroundColor = [UIColor groupTableViewBackgroundColor];
@@ -41,36 +55,6 @@
     return self;
 }
 
-#pragma mark - PDKTCollectionViewWaterfallLayoutDelegate
-
--(CGFloat)collectionView:(UICollectionView *)collectionView
-                  layout:(PDKTCollectionViewWaterfallLayout *)collectionViewLayout
- aspectRatioForIndexPath:(NSIndexPath *)indexPath {
-    CDAAsset* asset = self.items[indexPath.row];
-    CGFloat aspectRatio = asset.size.width / asset.size.height;
-    return isnan(aspectRatio) ? 1.0 : aspectRatio;
-}
-
--(CGFloat)collectionView:(UICollectionView *)collectionView
-                  layout:(PDKTCollectionViewWaterfallLayout *)collectionViewLayout
-   heightItemAtIndexPath:(NSIndexPath *)indexPath {
-    CDAAsset* asset = self.items[indexPath.row];
-    CGFloat height = asset.size.height;
-    return isnan(height) ? 0.0 : height;
-}
-
--(CGFloat)collectionView:(UICollectionView *)collectionView
-                  layout:(PDKTCollectionViewWaterfallLayout *)collectionViewLayout
-    itemSpacingInSection:(NSUInteger)section {
-    return 10.0;
-}
-
--(NSUInteger)collectionView:(UICollectionView *)collectionView
-                     layout:(PDKTCollectionViewWaterfallLayout *)collectionViewLayout
-   numberOfColumnsInSection:(NSUInteger)section {
-    return 3;
-}
-
 #pragma mark - UICollectionViewDataSource
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
@@ -79,7 +63,29 @@
     CDAResourceCell* cell = (CDAResourceCell*)[super collectionView:collectionView
                                              cellForItemAtIndexPath:indexPath];
     
-    if (!asset.isImage) {
+    if (asset.isImage) {
+        CGFloat height = ceilf(100.0 / asset.size.width * asset.size.height);
+        NSURL* imageURL = [asset imageURLWithSize:CGSizeMake(100.0, height)
+                                          quality:0.7
+                                           format:CDAImageFormatJPEG];
+        
+        cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+        
+        [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:imageURL]
+                                           queue:[NSOperationQueue mainQueue]
+                               completionHandler:^(NSURLResponse *response,
+                                                   NSData *data,
+                                                   NSError *connectionError) {
+                                   if (data) {
+                                       UIImage* image = [UIImage imageWithData:data];
+                                       image = [self imageByCroppingImage:image
+                                                                   toSize:CGSizeMake(100.0, 100.0)];
+                                       
+                                       cell.imageView.image = image;
+                                   }
+                               }];
+        
+    } else {
         CDAAssetThumbnailOperation* operation = [[CDAAssetThumbnailOperation alloc] initWithAsset:asset thumbnailSize:CDADocumentThumbnailSize];
         
         __weak typeof(CDAAssetThumbnailOperation*) weakOperation = operation;
