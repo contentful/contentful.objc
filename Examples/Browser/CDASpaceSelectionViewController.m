@@ -65,10 +65,23 @@ static NSString* const CDALogoAnimationKey  = @"SpinLogo";
     CDAClient* client = [[CDAClient alloc] initWithSpaceKey:spaceKey accessToken:accessToken];
     [UIApplication sharedApplication].client = client;
     
-    CDASpaceViewController* spaceVC = [CDASpaceViewController new];
-    [self presentViewController:spaceVC animated:YES completion:nil];
-    
     [self startSpinningLogo];
+    
+    [client fetchSpaceWithSuccess:^(CDAResponse *response, CDASpace *space) {
+        [self stopSpinningLogo];
+        
+        CDASpaceViewController* spaceVC = [CDASpaceViewController new];
+        [self presentViewController:spaceVC animated:YES completion:nil];
+    } failure:^(CDAResponse *response, NSError *error) {
+        [self stopSpinningLogo];
+        
+        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
+                                                            message:error.localizedDescription
+                                                           delegate:nil
+                                                  cancelButtonTitle:NSLocalizedString(@"OK", nil)
+                                                  otherButtonTitles:nil];
+        [alertView show];
+    }];
 }
 
 - (UITextField*)textFieldAtRow:(NSInteger)row
@@ -142,6 +155,9 @@ static NSString* const CDALogoAnimationKey  = @"SpinLogo";
 
 - (void)startSpinningLogo
 {
+    [[self textFieldAtRow:0] resignFirstResponder];
+    [[self textFieldAtRow:1] resignFirstResponder];
+    
     CABasicAnimation *rotation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
     
     rotation.fromValue = [NSNumber numberWithFloat:0];
