@@ -120,7 +120,8 @@
         CDAHeaderView* headerView = [collectionView dequeueReusableSupplementaryViewOfKind:kind
                                                                        withReuseIdentifier:NSStringFromClass([self class])
                                                                               forIndexPath:indexPath];
-        [headerView.imageView cda_setImageWithAsset:self.asset];
+        CGFloat size = 300.0 * [UIScreen mainScreen].scale;
+        [headerView.imageView cda_setImageWithAsset:self.asset size:CGSizeMake(size, size)];
         return headerView;
     }
     
