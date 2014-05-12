@@ -23,16 +23,21 @@ static const char* CDAOfflineCachingKey = "CDAOfflineCachingKey";
 -(void)cda_fetchImageWithAsset:(CDAAsset*)asset
                            URL:(NSURL*)URL
               placeholderImage:(UIImage *)placeholderImage {
-    __weak typeof(self) weakSelf = self;
-    [self setImageWithURLRequest:[NSURLRequest requestWithURL:URL]
-                placeholderImage:placeholderImage
-                         success:^(NSURLRequest *request, NSHTTPURLResponse *resp, UIImage *image) {
-                             __strong typeof(weakSelf) strongSelf = weakSelf;
-                             strongSelf.image = image;
-                             [strongSelf cda_handleCachingForAsset:asset];
-                         } failure:^(NSURLRequest *request, NSHTTPURLResponse *resp, NSError *error) {
-                             NSLog(@"Error while request '%@': %@", request.URL, error);
-                         }];
+    if (placeholderImage) {
+        self.image = placeholderImage;
+    }
+    
+    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:URL]
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                               if (!data) {
+                                   NSLog(@"Error while request '%@': %@", response.URL, error);
+                                   return;
+                               }
+                               
+                               self.image = [UIImage imageWithData:data];
+                               [self cda_handleCachingForAsset:asset];
+                           }];
 }
 
 -(void)cda_handleCachingForAsset:(CDAAsset*)asset {
