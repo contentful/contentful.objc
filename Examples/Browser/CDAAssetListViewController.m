@@ -39,6 +39,7 @@
 
 -(id)init {
     UICollectionViewFlowLayout* layout = [UICollectionViewFlowLayout new];
+    layout.headerReferenceSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, 54.0);
     layout.itemSize = CGSizeMake(100.0, 100.0);
     layout.minimumInteritemSpacing = 10.0;
     layout.minimumLineSpacing = 10.0;
@@ -48,6 +49,7 @@
         self.client = [UIApplication sharedApplication].client;
         self.collectionView.backgroundColor = [UIColor groupTableViewBackgroundColor];
         self.resourceType = CDAResourceTypeAsset;
+        self.showSearchBar = YES;
         self.thumbnailQueue = [NSOperationQueue new];
         self.thumbnailQueue.maxConcurrentOperationCount = 1;
         self.title = NSLocalizedString(@"Assets", nil);
