@@ -114,7 +114,15 @@
         self.entry = entry;
         self.title = entry.fields[entry.contentType.displayField];
         
-        self.fields = self.entry.contentType.fields;
+        NSMutableArray* fields = [@[] mutableCopy];
+        
+        for (CDAField* field in self.entry.contentType.fields) {
+            if (!field.disabled) {
+                [fields addObject:field];
+            }
+        }
+        
+        self.fields = [fields copy];
         
         if (self.visibleFields) {
             NSMutableArray* fields = [@[] mutableCopy];
