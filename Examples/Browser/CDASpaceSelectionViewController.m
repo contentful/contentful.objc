@@ -8,6 +8,7 @@
 
 #import <ContentfulDeliveryAPI/ContentfulDeliveryAPI.h>
 
+#import "CDAAboutUsViewController.h"
 #import "CDASpaceViewController.h"
 #import "CDATextEntryCell.h"
 #import "CDASpaceSelectionViewController.h"
@@ -100,6 +101,11 @@ static NSString* const CDALogoAnimationKey  = @"SpinLogo";
     [self.tableView reloadData];
 }
 
+- (void)doneTapped
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (void)loadDefaultSpaceTapped
 {
     [self showSpaceWithKey:@"cfexampleapi" accessToken:@"b4c0n73n7fu1"];
@@ -115,6 +121,16 @@ static NSString* const CDALogoAnimationKey  = @"SpinLogo";
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     [self showSpaceWithKey:spaceKey accessToken:accessToken];
+}
+
+- (void)logoTapped
+{
+    CDAAboutUsViewController* aboutUs = [CDAAboutUsViewController new];
+    aboutUs.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneTapped)];
+    
+    UINavigationController* navController = [[UINavigationController alloc]
+                                             initWithRootViewController:aboutUs];
+    [self presentViewController:navController animated:YES completion:nil];
 }
 
 - (void)textFieldChanged
@@ -236,7 +252,11 @@ static NSString* const CDALogoAnimationKey  = @"SpinLogo";
         self.logoView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo"]];
         self.logoView.contentMode = UIViewContentModeScaleAspectFit;
         self.logoView.frame = CGRectMake(0.0, 40.0, tableView.frame.size.width, 200.0);
+        self.logoView.userInteractionEnabled = YES;
         [containerView addSubview:self.logoView];
+        
+        [self.logoView addGestureRecognizer:[[UITapGestureRecognizer alloc]
+                                             initWithTarget:self action:@selector(logoTapped)]];
         
         return containerView;
     }
