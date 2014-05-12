@@ -104,7 +104,7 @@
 /** @name Configure Appearance */
 
 /** 
- Configure whether or not to show a search bar. T
+ Configure whether or not to show a search bar.
  
  The query will be handled automatically, by utilizing the full-text search of Contentful.
  */
