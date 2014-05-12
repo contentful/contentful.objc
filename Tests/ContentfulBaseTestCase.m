@@ -109,7 +109,7 @@ extern void __gcov_flush();
     [VCR start];
 }
 
-- (void)compareImage:(UIImage*)image forTestSelector:(SEL)testSelector
+- (void)compareView:(UIView*)view forTestSelector:(SEL)testSelector
 {
     NSError* error;
     UIImage* referenceImage = [self.snapshotTestController referenceImageForSelector:testSelector
@@ -117,14 +117,13 @@ extern void __gcov_flush();
                                                                                error:&error];
     
     if (!referenceImage) {
-        XCTAssert([self.snapshotTestController saveReferenceImage:image
-                                                         selector:testSelector
-                                                       identifier:nil error:&error],
-                  @"Error ocurred: %@", error);
+        self.snapshotTestController.recordMode = YES;
+        XCTFail(@"No reference image found.");
     }
     
-    XCTAssert([self.snapshotTestController compareReferenceImage:referenceImage
-                                                         toImage:image
+    XCTAssert([self.snapshotTestController compareSnapshotOfView:view
+                                                        selector:testSelector
+                                                      identifier:nil
                                                            error:&error],
               @"Error ocurred: %@", error);
 }

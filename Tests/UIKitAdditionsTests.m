@@ -63,7 +63,8 @@
                                           failure:(CDARequestFailureBlock)failure {
     StartBlock();
     
-    UIImageView* imageView = imageView = [UIImageView new];
+    UIImageView* imageView = imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0,
+                                                                                       250.0, 250.0)];
     
     self.waiting = YES;
     
@@ -139,7 +140,7 @@
     if ([keyPath isEqualToString:@"image"]) {
         UIImageView* imageView = (UIImageView*)object;
         
-        [self compareImage:imageView.image forTestSelector:self.currentTestSelector];
+        [self compareView:imageView forTestSelector:self.currentTestSelector];
     }
     
     if ([keyPath isEqualToString:@"resources"]) {

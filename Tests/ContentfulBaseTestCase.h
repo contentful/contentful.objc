@@ -30,7 +30,7 @@
       hasIdentifier:(NSString*)identifier
                name:(NSString*)name
                type:(CDAFieldType)type;
-- (void)compareImage:(UIImage*)image forTestSelector:(SEL)testSelector;
+- (void)compareView:(UIView*)view forTestSelector:(SEL)testSelector;
 - (CDAEntry*)customEntryHelperWithFields:(NSDictionary*)fields;
 - (void)removeAllStubs;
 - (void)stubHTTPRequestUsingFixtures:(NSDictionary*)fixtureMap inDirectory:(NSString*)directoryName;

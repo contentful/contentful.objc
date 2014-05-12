@@ -14,6 +14,10 @@
 
 #pragma mark -
 
+-(void)dealloc {
+    [self.imageView removeObserver:self forKeyPath:@"image"];
+}
+
 -(UIImageView *)imageView {
     if (_imageView) {
         return _imageView;
@@ -24,7 +28,18 @@
     _imageView.contentMode = UIViewContentModeScaleAspectFit;
     [self addSubview:_imageView];
     
+    [_imageView addObserver:self forKeyPath:@"image" options:0 context:NULL];
+    
     return _imageView;
+}
+
+-(void)observeValueForKeyPath:(NSString *)keyPath
+                     ofObject:(UIImageView*)imageView
+                       change:(NSDictionary *)change
+                      context:(void *)context {
+    if (imageView.image.images) {
+        [imageView startAnimating];
+    }
 }
 
 @end
