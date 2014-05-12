@@ -66,11 +66,12 @@
     
     if (asset.isImage) {
         CGFloat height = ceilf(CDADocumentThumbnailSize.width / asset.size.width * asset.size.height);
-        NSURL* imageURL = [asset imageURLWithSize:CGSizeMake(100.0, height)
+        NSURL* imageURL = [asset imageURLWithSize:CGSizeMake(CDADocumentThumbnailSize.width, height)
                                           quality:0.7
                                            format:CDAImageFormatJPEG];
         
-        cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+        cell.clipsToBounds = YES;
+        cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
         
         [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:imageURL]
                                            queue:[NSOperationQueue mainQueue]
