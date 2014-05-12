@@ -23,6 +23,8 @@
     NSDictionary* mapping = nil;
     if (contentType.displayField) {
         mapping = @{ @"textLabel.text": [@"fields." stringByAppendingString:contentType.displayField] };
+    } else {
+        mapping = @{ @"textLabel.text": @"sys.id" };
     }
     
     CDAEntriesViewController* entriesVC = [[CDAEntriesViewController alloc] initWithCellMapping:mapping];
