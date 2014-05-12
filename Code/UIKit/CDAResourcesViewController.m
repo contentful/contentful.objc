@@ -192,7 +192,7 @@
     
     [self.view endEditing:YES];
     
-    NSMutableDictionary* query = [self.query mutableCopy];
+    NSMutableDictionary* query = [[NSMutableDictionary alloc] initWithDictionary:self.query];
     query[@"query"] = searchBar.text;
     [self performQuery:query];
 }
