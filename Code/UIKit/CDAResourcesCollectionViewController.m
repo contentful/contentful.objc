@@ -13,11 +13,12 @@
 #import "CDAUtilities.h"
 #import "UIImageView+CDAAsset.h"
 
-@interface CDAResourcesCollectionViewController ()
+@interface CDAResourcesCollectionViewController () <UISearchBarDelegate>
 
 @property (nonatomic, readonly) NSString* cacheFileName;
 @property (nonatomic) NSDictionary* cellMapping;
 @property (nonatomic) CDAArray* resources;
+@property (nonatomic) UISearchBar* searchBar;
 
 @end
 
@@ -50,8 +51,15 @@
         self.cellMapping = cellMapping;
         self.resourceType = CDAResourceTypeEntry;
         
+        self.collectionView.alwaysBounceVertical = YES;
+        self.collectionView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+        
         [self.collectionView registerClass:[[self class] cellClass]
                 forCellWithReuseIdentifier:NSStringFromClass([self class])];
+        
+        [self.collectionView registerClass:[UICollectionReusableView class]
+                forSupplementaryViewOfKind:UICollectionElementKindSectionHeader
+                       withReuseIdentifier:NSStringFromClass([self class])];
     }
     return self;
 }
@@ -60,33 +68,12 @@
     return self.resources.items;
 }
 
--(NSDictionary *)query {
-    if (!self.locale) {
-        return _query;
-    }
-    
-    NSMutableDictionary* query = [_query mutableCopy];
-    query[@"locale"] = self.locale;
-    return query;
-}
-
--(void)showError:(NSError*)error {
-    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
-                                                        message:error.localizedDescription
-                                                       delegate:nil
-                                              cancelButtonTitle:NSLocalizedString(@"OK", nil)
-                                              otherButtonTitles:nil];
-    [alertView show];
-}
-
--(void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
+-(void)performQuery:(NSDictionary*)query {
     NSAssert(self.client, @"You need to supply a client instance to %@.",
              NSStringFromClass([self class]));
     
     [self.client fetchResourcesOfType:self.resourceType
-                             matching:self.query
+                             matching:query
                               success:^(CDAResponse *response, CDAArray *array) {
                                   self.resources = array;
                                   
@@ -106,6 +93,51 @@
                               }];
 }
 
+-(NSDictionary *)query {
+    if (!self.locale) {
+        return _query;
+    }
+    
+    NSMutableDictionary* query = [_query mutableCopy];
+    query[@"locale"] = self.locale;
+    return query;
+}
+
+-(void)setShowSearchBar:(BOOL)showSearchBar {
+    if (_showSearchBar == showSearchBar) {
+        return;
+    }
+    
+    if (showSearchBar) {
+        self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0.0, 0.0,
+                                                                       self.view.frame.size.width,
+                                                                       44.0)];
+        self.searchBar.delegate = self;
+        self.searchBar.showsCancelButton = YES;
+    } else {
+        self.searchBar = nil;
+    }
+    
+    _showSearchBar = showSearchBar;
+    
+    [self.collectionView reloadData];
+}
+
+-(void)showError:(NSError*)error {
+    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
+                                                        message:error.localizedDescription
+                                                       delegate:nil
+                                              cancelButtonTitle:NSLocalizedString(@"OK", nil)
+                                              otherButtonTitles:nil];
+    [alertView show];
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self performQuery:self.query];
+}
+
 #pragma mark - UICollectionViewDataSource
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
@@ -114,7 +146,8 @@
         return nil;
     }
     
-    CDAResourceCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([self class]) forIndexPath:indexPath];
+    CDAResourceCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([self class])
+                                                                      forIndexPath:indexPath];
     cell.imageView.offlineCaching_cda = self.offlineCaching;
     cell.imageView.image = nil;
     
@@ -129,12 +162,51 @@
     return cell;
 }
 
+-(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
+          viewForSupplementaryElementOfKind:(NSString *)kind
+                                atIndexPath:(NSIndexPath *)indexPath {
+    if (kind == UICollectionElementKindSectionHeader && self.searchBar) {
+        UICollectionReusableView* container = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:NSStringFromClass([self class]) forIndexPath:indexPath];
+        [container addSubview:self.searchBar];
+        
+        if (self.searchBar.text.length == 0) {
+            [collectionView setContentOffset:CGPointMake(0.0, -10.0)];
+        }
+        
+        return container;
+    }
+    
+    return nil;
+}
+
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return section == 0 ? self.items.count : 0;
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
+}
+
+#pragma mark - UISearchBarDelegate
+
+-(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    searchBar.text = @"";
+    
+    [self.view endEditing:YES];
+}
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [self.view endEditing:YES];
+    
+    NSMutableDictionary* query = [[NSMutableDictionary alloc] initWithDictionary:self.query];
+    query[@"query"] = searchBar.text;
+    [self performQuery:query];
+}
+
+-(void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+    if (searchBar.text.length == 0) {
+        [self performQuery:self.query];
+    }
 }
 
 @end
