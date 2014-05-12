@@ -13,6 +13,7 @@
 #import "CDAAssetPreviewController.h"
 #import "CDAAssetThumbnailOperation.h"
 #import "CDAEntryPreviewDataSource.h"
+#import "CDAEntryPreviewController.h"
 #import "CDAInlineMapCell.h"
 #import "CDAMarkdownCell.h"
 #import "CDAPrimitiveCell.h"
@@ -226,6 +227,13 @@ NSString* const kTextCell        = @"TextCell";
             UINavigationController* navController = [(UIViewController*)[tableView nextResponder] navigationController];
             [navController pushViewController:assetPreview animated:YES];
         }
+    }
+    
+    if ([value isKindOfClass:[CDAEntry class]]) {
+        CDAEntry* entry = (CDAEntry*)value;
+        CDAEntryPreviewController* entryPreview = [[CDAEntryPreviewController alloc] initWithEntry:entry];
+        UINavigationController* navController = [(UIViewController*)[tableView nextResponder] navigationController];
+        [navController pushViewController:entryPreview animated:YES];
     }
 }
 
