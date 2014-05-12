@@ -1,5 +1,7 @@
 # contentful.objc
 
+[![Version](http://cocoapod-badges.herokuapp.com/v/ContentfulDeliveryAPI/badge.png)](http://cocoadocs.org/docsets/ContentfulDeliveryAPI)
+[![Platform](http://cocoapod-badges.herokuapp.com/p/ContentfulDeliveryAPI/badge.png)](http://cocoadocs.org/docsets/ContentfulDeliveryAPI)
 [![Build Status](https://travis-ci.org/contentful/contentful.objc.png?branch=master)](https://travis-ci.org/contentful/contentful.objc)
 [![Coverage Status](https://coveralls.io/repos/contentful/contentful.objc/badge.png?branch=master)](https://coveralls.io/r/contentful/contentful.objc?branch=master)
 
