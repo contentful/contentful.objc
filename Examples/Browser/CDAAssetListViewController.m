@@ -10,7 +10,6 @@
 
 #import "CDAAssetDetailsViewController.h"
 #import "CDAAssetListViewController.h"
-#import "CDAAssetPreviewController.h"
 #import "CDAAssetThumbnailOperation.h"
 #import "UIApplication+Browser.h"
 
@@ -107,13 +106,13 @@
 
 -(void)collectionView:(UICollectionView *)cv didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     CDAAsset* asset = self.items[indexPath.row];
+    CDAResourceCell* cell = (CDAResourceCell*)[cv cellForItemAtIndexPath:indexPath];
     
-    if (asset.isImage) {
-        CDAAssetDetailsViewController* details = [[CDAAssetDetailsViewController alloc] initWithAsset:asset];
-        [self.navigationController pushViewController:details animated:YES];
-    } else {
-        CDAAssetPreviewController* preview = [[CDAAssetPreviewController alloc] initWithAsset:asset];
-        [self.navigationController pushViewController:preview animated:YES];
+    CDAAssetDetailsViewController* details = [[CDAAssetDetailsViewController alloc] initWithAsset:asset];
+    [self.navigationController pushViewController:details animated:YES];
+    
+    if (!asset.isImage) {
+        details.fallbackImage = cell.imageView.image;
     }
 }
 
