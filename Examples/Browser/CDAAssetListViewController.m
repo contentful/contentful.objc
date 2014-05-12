@@ -14,7 +14,8 @@
 #import "CDAAssetThumbnailOperation.h"
 #import "UIApplication+Browser.h"
 
-#define CDADocumentThumbnailSize        CGSizeMake(100.0, 100.0)
+#define CDADocumentThumbnailSize        CGSizeMake(100.0 * [UIScreen mainScreen].scale, \
+                                                   100.0 * [UIScreen mainScreen].scale)
 
 @interface CDAAssetListViewController ()
 
@@ -64,7 +65,7 @@
                                              cellForItemAtIndexPath:indexPath];
     
     if (asset.isImage) {
-        CGFloat height = ceilf(100.0 / asset.size.width * asset.size.height);
+        CGFloat height = ceilf(CDADocumentThumbnailSize.width / asset.size.width * asset.size.height);
         NSURL* imageURL = [asset imageURLWithSize:CGSizeMake(100.0, height)
                                           quality:0.7
                                            format:CDAImageFormatJPEG];
@@ -79,7 +80,7 @@
                                    if (data) {
                                        UIImage* image = [UIImage imageWithData:data];
                                        image = [self imageByCroppingImage:image
-                                                                   toSize:CGSizeMake(100.0, 100.0)];
+                                                                   toSize:CDADocumentThumbnailSize];
                                        
                                        cell.imageView.image = image;
                                    }
