@@ -101,6 +101,15 @@
  */
 @property (nonatomic) BOOL offlineCaching;
 
+/** @name Configure Appearance */
+
+/** 
+ Configure whether or not to show a search bar. T
+ 
+ The query will be handled automatically, by utilizing the full-text search of Contentful.
+ */
+@property (nonatomic) BOOL showSearchBar;
+
 /** @name Configuring behaviour in Subclasses */
 
 /**

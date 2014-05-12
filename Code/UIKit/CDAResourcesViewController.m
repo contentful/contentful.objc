@@ -13,12 +13,13 @@
 #import "CDAResourcesViewController.h"
 #import "CDAUtilities.h"
 
-@interface CDAResourcesViewController ()
+@interface CDAResourcesViewController () <UISearchBarDelegate>
 
 @property (nonatomic, readonly) NSString* cacheFileName;
 @property (nonatomic) NSDictionary* cellMapping;
 @property (nonatomic) CDAArray* resources;
 @property (nonatomic) NSArray* localItems;
+@property (nonatomic) UISearchBar* searchBar;
 
 @end
 
@@ -78,6 +79,8 @@
         self.cellMapping = cellMapping;
         self.resourceType = CDAResourceTypeEntry;
         
+        self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
+        
         [self.tableView registerClass:[[self class] cellClass]
                forCellReuseIdentifier:NSStringFromClass([self class])];
     }
@@ -96,6 +99,30 @@
     return self.localItems ?: self.resources.items;
 }
 
+-(void)performQuery:(NSDictionary*)query {
+    NSAssert(self.client, @"You need to supply a client instance to %@.",
+             NSStringFromClass([self class]));
+    
+    [self.client fetchResourcesOfType:self.resourceType
+                             matching:query
+                              success:^(CDAResponse *response, CDAArray *array) {
+                                  self.resources = array;
+                                  
+                                  [self.tableView reloadData];
+                                  [self handleCaching];
+                              } failure:^(CDAResponse *response, NSError *error) {
+                                  if (CDAIsNoNetworkError(error)) {
+                                      self.resources = [CDAArray readFromFile:self.cacheFileName
+                                                                       client:self.client];
+                                      
+                                      [self.tableView reloadData];
+                                      return;
+                                  }
+                                  
+                                  [self showError:error];
+                              }];
+}
+
 -(NSDictionary *)query {
     if (!self.locale) {
         return _query;
@@ -104,6 +131,26 @@
     NSMutableDictionary* query = [_query mutableCopy];
     query[@"locale"] = self.locale;
     return query;
+}
+
+-(void)setShowSearchBar:(BOOL)showSearchBar {
+    if (_showSearchBar == showSearchBar) {
+        return;
+    }
+    
+    if (showSearchBar) {
+        self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0.0, 0.0,
+                                                                       self.tableView.frame.size.width,
+                                                                       44.0)];
+        self.searchBar.delegate = self;
+        self.searchBar.showsCancelButton = YES;
+        self.tableView.tableHeaderView = self.searchBar;
+    } else {
+        self.searchBar = nil;
+        self.tableView.tableHeaderView = nil;
+    }
+    
+    _showSearchBar = showSearchBar;
 }
 
 -(void)showError:(NSError*)error {
@@ -122,27 +169,38 @@
         return;
     }
     
-    NSAssert(self.client, @"You need to supply a client instance to %@.",
-             NSStringFromClass([self class]));
+    [self performQuery:self.query];
     
-    [self.client fetchResourcesOfType:self.resourceType
-                             matching:self.query
-                              success:^(CDAResponse *response, CDAArray *array) {
-                                  self.resources = array;
-                                  
-                                  [self.tableView reloadData];
-                                  [self handleCaching];
-                              } failure:^(CDAResponse *response, NSError *error) {
-                                  if (CDAIsNoNetworkError(error)) {
-                                      self.resources = [CDAArray readFromFile:self.cacheFileName
-                                                                       client:self.client];
-                                      
-                                      [self.tableView reloadData];
-                                      return;
-                                  }
-                                  
-                                  [self showError:error];
-                              }];
+    if (self.showSearchBar) {
+        self.tableView.contentOffset = CGPointMake(0.0, 44.0);
+    }
+}
+
+#pragma mark - UISearchBarDelegate
+
+-(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    searchBar.text = @"";
+    
+    [self.view endEditing:YES];
+}
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    if (self.localItems) {
+        NSAssert(@"Search is not supported for local content.", nil);
+        return;
+    }
+    
+    [self.view endEditing:YES];
+    
+    NSMutableDictionary* query = [self.query mutableCopy];
+    query[@"query"] = searchBar.text;
+    [self performQuery:query];
+}
+
+-(void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+    if (searchBar.text.length == 0) {
+        [self performQuery:self.query];
+    }
 }
 
 #pragma mark - UITableViewDataSource
