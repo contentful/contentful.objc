@@ -19,6 +19,7 @@
 -(id)init {
     self = [super init];
     if (self) {
+        self.tabBarItem.image = [UIImage imageNamed:@"about"];
         self.title = NSLocalizedString(@"About Us", nil);
     }
     return self;

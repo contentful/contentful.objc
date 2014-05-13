@@ -9,6 +9,7 @@
 #import <ContentfulDeliveryAPI/ContentfulDeliveryAPI.h>
 
 #import "CDAAboutUsViewController.h"
+#import "CDAHelpViewController.h"
 #import "CDASpaceViewController.h"
 #import "CDATextEntryCell.h"
 #import "CDASpaceSelectionViewController.h"
@@ -146,6 +147,13 @@ static NSString* const CDALogoAnimationKey  = @"SpinLogo";
     [self presentViewController:navController animated:YES completion:nil];
 }
 
+- (void)showHelp
+{
+    CDAHelpViewController* help = [CDAHelpViewController new];
+    UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:help];
+    [self presentViewController:navController animated:YES completion:nil];
+}
+
 - (void)textFieldChanged
 {
     self.loadButton.enabled = self.done;
@@ -256,6 +264,14 @@ static NSString* const CDALogoAnimationKey  = @"SpinLogo";
                action:@selector(loadDefaultSpaceTapped)
      forControlEvents:UIControlEventTouchUpInside];
     [button setTitle:NSLocalizedString(@"Demo Space", nil) forState:UIControlStateNormal];
+    
+    [view addSubview:button];
+    
+    button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = CGRectMake(view.frame.size.width - 64.0, view.frame.size.height - 64.0, 44.0, 44.0);
+    
+    [button addTarget:self action:@selector(showHelp) forControlEvents:UIControlEventTouchUpInside];
+    [button setImage:[UIImage imageNamed:@"help"] forState:UIControlStateNormal];
     
     [view addSubview:button];
     return view;

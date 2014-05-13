@@ -77,7 +77,7 @@
 }
 
 -(UIBarButtonItem*)localeButton {
-    return [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Change Locale", nil)
+    return [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"flag"]
                                             style:UIBarButtonItemStyleBordered
                                            target:self
                                            action:@selector(changeLocale)];
