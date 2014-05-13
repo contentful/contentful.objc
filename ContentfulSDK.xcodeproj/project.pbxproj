@@ -202,6 +202,14 @@
 		A1ABC7B9191BBD490020A964 /* CDAAboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ABC7B8191BBD490020A964 /* CDAAboutUsViewController.m */; };
 		A1ABC7BC191D12ED0020A964 /* CDAInputSanitizer.h in Headers */ = {isa = PBXBuildFile; fileRef = A1ABC7BA191D12ED0020A964 /* CDAInputSanitizer.h */; };
 		A1ABC7BD191D12ED0020A964 /* CDAInputSanitizer.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ABC7BB191D12ED0020A964 /* CDAInputSanitizer.m */; };
+		A1AFFB8C19220BF600D0B425 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1AFFB8B19220BF600D0B425 /* icon@2x.png */; };
+		A1AFFB8E19220C5000D0B425 /* icon-settings.png in Resources */ = {isa = PBXBuildFile; fileRef = A1AFFB8D19220C5000D0B425 /* icon-settings.png */; };
+		A1AFFB9019220C8800D0B425 /* icon-spotlight.png in Resources */ = {isa = PBXBuildFile; fileRef = A1AFFB8F19220C8800D0B425 /* icon-spotlight.png */; };
+		A1AFFB9219220CCE00D0B425 /* flag@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1AFFB9119220CCE00D0B425 /* flag@2x.png */; };
+		A1AFFB9419220CE200D0B425 /* about@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1AFFB9319220CE200D0B425 /* about@2x.png */; };
+		A1AFFB9619220CED00D0B425 /* entries@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1AFFB9519220CED00D0B425 /* entries@2x.png */; };
+		A1AFFB9819220CFB00D0B425 /* help@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1AFFB9719220CFB00D0B425 /* help@2x.png */; };
+		A1AFFB9B1922134400D0B425 /* CDAHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1AFFB9A1922134400D0B425 /* CDAHelpViewController.m */; };
 		A1B8158418F2A8090027B26D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD86A18C631E60081677E /* Foundation.framework */; };
 		A1B8158518F2A8090027B26D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD89918C637400081677E /* CoreGraphics.framework */; };
 		A1B8158618F2A8090027B26D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD87B18C631E60081677E /* UIKit.framework */; };
@@ -533,6 +541,15 @@
 		A1ABC7B8191BBD490020A964 /* CDAAboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAAboutUsViewController.m; sourceTree = "<group>"; };
 		A1ABC7BA191D12ED0020A964 /* CDAInputSanitizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAInputSanitizer.h; sourceTree = "<group>"; };
 		A1ABC7BB191D12ED0020A964 /* CDAInputSanitizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAInputSanitizer.m; sourceTree = "<group>"; };
+		A1AFFB8B19220BF600D0B425 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		A1AFFB8D19220C5000D0B425 /* icon-settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-settings.png"; sourceTree = "<group>"; };
+		A1AFFB8F19220C8800D0B425 /* icon-spotlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-spotlight.png"; sourceTree = "<group>"; };
+		A1AFFB9119220CCE00D0B425 /* flag@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flag@2x.png"; sourceTree = "<group>"; };
+		A1AFFB9319220CE200D0B425 /* about@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about@2x.png"; sourceTree = "<group>"; };
+		A1AFFB9519220CED00D0B425 /* entries@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "entries@2x.png"; sourceTree = "<group>"; };
+		A1AFFB9719220CFB00D0B425 /* help@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "help@2x.png"; sourceTree = "<group>"; };
+		A1AFFB991922134400D0B425 /* CDAHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAHelpViewController.h; sourceTree = "<group>"; };
+		A1AFFB9A1922134400D0B425 /* CDAHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAHelpViewController.m; sourceTree = "<group>"; };
 		A1B8158318F2A8090027B26D /* CoreDataExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B8158718F2A8090027B26D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		A1B8158B18F2A8090027B26D /* CoreDataExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CoreDataExample-Info.plist"; sourceTree = "<group>"; };
@@ -684,8 +701,15 @@
 			isa = PBXGroup;
 			children = (
 				A15B1FD8191939FA00E019F8 /* 512_black.png */,
+				A1AFFB9319220CE200D0B425 /* about@2x.png */,
 				A1ABC7B0191BA6540020A964 /* Default-4inch.png */,
 				A1ABC7B5191BAB6D0020A964 /* document.png */,
+				A1AFFB9519220CED00D0B425 /* entries@2x.png */,
+				A1AFFB9119220CCE00D0B425 /* flag@2x.png */,
+				A1AFFB9719220CFB00D0B425 /* help@2x.png */,
+				A1AFFB8B19220BF600D0B425 /* icon@2x.png */,
+				A1AFFB8D19220C5000D0B425 /* icon-settings.png */,
+				A1AFFB8F19220C8800D0B425 /* icon-spotlight.png */,
 				A15898691913924600F0E9BF /* logo.png */,
 				A1ABC7AC191B7F0D0020A964 /* pin.png */,
 				A1ABC7AD191B7F0D0020A964 /* pin@2x.png */,
@@ -761,6 +785,8 @@
 				A1ABC7B8191BBD490020A964 /* CDAAboutUsViewController.m */,
 				A173F51818D31151000E6F92 /* CDAAppDelegate.h */,
 				A173F51918D31151000E6F92 /* CDAAppDelegate.m */,
+				A1AFFB991922134400D0B425 /* CDAHelpViewController.h */,
+				A1AFFB9A1922134400D0B425 /* CDAHelpViewController.m */,
 				A15B1FDD191A602F00E019F8 /* CDATutorialController.h */,
 				A15B1FDE191A602F00E019F8 /* CDATutorialController.m */,
 				A173F54718D38899000E6F92 /* UIApplication+Browser.h */,
@@ -1566,13 +1592,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1AFFB9419220CE200D0B425 /* about@2x.png in Resources */,
 				A1ABC7B1191BA6540020A964 /* Default-4inch.png in Resources */,
+				A1AFFB8C19220BF600D0B425 /* icon@2x.png in Resources */,
 				A15B1FD9191939FA00E019F8 /* 512_black.png in Resources */,
 				A1ABC7AE191B7F0D0020A964 /* pin.png in Resources */,
+				A1AFFB9219220CCE00D0B425 /* flag@2x.png in Resources */,
 				A158986A1913924600F0E9BF /* logo.png in Resources */,
 				A1ABC7B6191BAB6D0020A964 /* document.png in Resources */,
+				A1AFFB9619220CED00D0B425 /* entries@2x.png in Resources */,
+				A1AFFB8E19220C5000D0B425 /* icon-settings.png in Resources */,
 				A170131A18FEA0AD0086BE07 /* Fixtures in Resources */,
+				A1AFFB9819220CFB00D0B425 /* help@2x.png in Resources */,
 				A1ABC7AF191B7F0D0020A964 /* pin@2x.png in Resources */,
+				A1AFFB9019220C8800D0B425 /* icon-spotlight.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1943,6 +1976,7 @@
 				A173F51618D31151000E6F92 /* main.m in Sources */,
 				A15B1FDF191A602F00E019F8 /* CDATutorialController.m in Sources */,
 				A1A455BA1919108E00802D50 /* CDAInlineMapCell.m in Sources */,
+				A1AFFB9B1922134400D0B425 /* CDAHelpViewController.m in Sources */,
 				A1A455A91917BA4600802D50 /* CDAPrimitiveCell.m in Sources */,
 				A1A455BD1919179300802D50 /* CDAEntryPreviewDataSource.m in Sources */,
 				A1ABC7B4191BA96E0020A964 /* UIImage+AverageColor.m in Sources */,
@@ -2146,7 +2180,6 @@
 			baseConfigurationReference = 90200B3A436647AB8348744F /* Pods-Browser.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -2195,7 +2228,6 @@
 			baseConfigurationReference = 90200B3A436647AB8348744F /* Pods-Browser.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;

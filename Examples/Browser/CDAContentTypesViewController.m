@@ -43,6 +43,7 @@
                                          @"detailTextLabel.text": @"userDescription" } ];
     if (self) {
         self.resourceType = CDAResourceTypeContentType;
+        self.tabBarItem.image = [UIImage imageNamed:@"entries"];
         self.title = NSLocalizedString(@"Entries", nil);
     }
     return self;
