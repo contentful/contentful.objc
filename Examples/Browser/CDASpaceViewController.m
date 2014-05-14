@@ -84,7 +84,7 @@
 }
 
 -(UIBarButtonItem *)logoutButton {
-    return [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Logout", nil)
+    return [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"logout"]
                                             style:UIBarButtonItemStyleBordered
                                            target:self
                                            action:@selector(logout)];

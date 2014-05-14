@@ -50,6 +50,7 @@
         self.collectionView.backgroundColor = [UIColor groupTableViewBackgroundColor];
         self.resourceType = CDAResourceTypeAsset;
         self.showSearchBar = YES;
+        self.tabBarItem.image = [UIImage imageNamed:@"assets"];
         self.thumbnailQueue = [NSOperationQueue new];
         self.thumbnailQueue.maxConcurrentOperationCount = 1;
         self.title = NSLocalizedString(@"Assets", nil);
