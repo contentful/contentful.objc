@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CDAAboutUsViewController : UIViewController
+@interface CDAAboutUsViewController : UITableViewController
 
 @end
