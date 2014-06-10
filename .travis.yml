@@ -4,7 +4,7 @@ before_script:
 before_install:
 - gem install --no-rdoc --no-ri --version 0.8.9 faraday
 - gem install --no-rdoc --no-ri travis-artifacts || true
-- gem install cocoapods xcpretty
+- gem install cocoapods xcpretty cocoapods-testing
 - brew update
 - brew install pyenv
 - eval "$(pyenv init -)"

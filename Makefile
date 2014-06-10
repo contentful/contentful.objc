@@ -42,10 +42,7 @@ static-lib:
 	@sed -i '' -e 's/GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = NO/GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES/g' ContentfulSDK.xcodeproj/project.pbxproj
 
 test: example
-	set -o pipefail && xcodebuild -workspace $(WORKSPACE) \
-		-scheme ContentfulDeliveryAPI \
-		-sdk iphonesimulator -destination 'name=iPhone Retina (4-inch)' \
-		test | xcpretty -c
+	pod lib testing
 
 lint:
 	set -o pipefail && xcodebuild -workspace $(WORKSPACE) -dry-run \
