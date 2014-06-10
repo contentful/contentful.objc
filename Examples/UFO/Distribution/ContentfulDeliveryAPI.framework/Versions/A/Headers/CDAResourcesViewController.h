@@ -74,6 +74,13 @@
  */
 @property (nonatomic, weak) CDAClient* client;
 
+/** 
+ Locale to use when querying Resources. 
+ 
+ This property has no effect when showing locally available Resources.
+ */
+@property (nonatomic, copy) NSString* locale;
+
 /** The items which are currently displayed in this view controller's table view. */
 @property (nonatomic, readonly) NSArray* items;
 
@@ -93,6 +100,15 @@
  general purpose caching.
  */
 @property (nonatomic) BOOL offlineCaching;
+
+/** @name Configure Appearance */
+
+/** 
+ Configure whether or not to show a search bar.
+ 
+ The query will be handled automatically, by utilizing the full-text search of Contentful.
+ */
+@property (nonatomic) BOOL showSearchBar;
 
 /** @name Configuring behaviour in Subclasses */
 

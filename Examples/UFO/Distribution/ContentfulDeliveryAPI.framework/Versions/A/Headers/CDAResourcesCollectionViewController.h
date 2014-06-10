@@ -53,6 +53,9 @@
  */
 @property (nonatomic, weak) CDAClient* client;
 
+/** Locale to use when querying Resources. */
+@property (nonatomic, copy) NSString* locale;
+
 /**
  The query parameters used for fetching Resources. By default, all Resources from the Space associated
  with the client will be fetched.
@@ -69,6 +72,15 @@
  general purpose caching.
  */
 @property (nonatomic) BOOL offlineCaching;
+
+/** @name Configure Appearance */
+
+/**
+ Configure whether or not to show a search bar.
+ 
+ The query will be handled automatically, by utilizing the full-text search of Contentful.
+ */
+@property (nonatomic) BOOL showSearchBar;
 
 /** @name Configuring behaviour in Subclasses */
 
