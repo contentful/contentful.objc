@@ -44,6 +44,18 @@
 
 @implementation CDAMapViewController
 
+-(void)adjustMapRectToAnnotations {
+    MKMapRect zoomRect = MKMapRectNull;
+    
+    for (id <MKAnnotation> annotation in self.mapView.annotations) {
+        MKMapPoint annotationPoint = MKMapPointForCoordinate(annotation.coordinate);
+        MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0.1, 0.1);
+        zoomRect = MKMapRectUnion(zoomRect, pointRect);
+    }
+    
+    [self.mapView setVisibleMapRect:zoomRect animated:YES];
+}
+
 -(NSString *)cacheFileName {
     return CDACacheFileNameForQuery(self.client, CDAResourceTypeEntry, self.query);
 }
@@ -74,6 +86,8 @@
         
         [self.mapView addAnnotation:annotation];
     }
+    
+    [self adjustMapRectToAnnotations];
 }
 
 -(void)showError:(NSError*)error {
