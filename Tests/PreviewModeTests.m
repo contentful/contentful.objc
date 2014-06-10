@@ -41,6 +41,27 @@
     WaitUntilBlockCompletes();
 }
 
+- (void)testFetchLotsOfResources {
+    StartBlock();
+    
+    CDAConfiguration* conf = [CDAConfiguration defaultConfiguration];
+    conf.previewMode = YES;
+    self.client = [[CDAClient alloc] initWithSpaceKey:@"o5rx7qhjuvi8" accessToken:@"fd1b0875969c7045a0e4356ed05fa30f1ac1ea7bedaa4b96a0acdbedae645695" configuration:conf];
+    [self.client fetchEntriesMatching:@{ @"content_type": @"5KRmcSqvE4OuYsWkMigI4A", @"include": @0 }
+                              success:^(CDAResponse *response, CDAArray *array) {
+                                  XCTAssertNotNil(array, @"");
+                                  XCTAssertTrue(array.items.count > 0, @"");
+                                  
+                                  EndBlock();
+                              } failure:^(CDAResponse *response, NSError *error) {
+                                  XCTFail(@"Error: %@", error);
+                                  
+                                  EndBlock();
+                              }];
+    
+    WaitUntilBlockCompletes();
+}
+
 - (void)testReturnsUnpublishedContent {
     StartBlock();
     

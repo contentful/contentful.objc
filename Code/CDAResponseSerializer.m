@@ -85,6 +85,36 @@
     return self;
 }
 
+-(NSArray*)fetchResources:(NSMutableArray*)unresolvedIds
+            withBatchSize:(NSInteger)batchSize
+               fetchBlock:(CDAArray* (^)(NSDictionary* query))fetchBlock {
+    NSMutableArray* batchedItems = [@[] mutableCopy];
+    
+    do {
+        NSInteger nextBatchLength = 0;
+        
+        if (unresolvedIds.count > batchSize) {
+            nextBatchLength = batchSize;
+        } else {
+            nextBatchLength = unresolvedIds.count;
+        }
+        
+        NSArray* batch = [unresolvedIds subarrayWithRange:NSMakeRange(0, nextBatchLength)];
+        
+        NSAssert(fetchBlock, @"You should pass a fetchBlock to this.");
+        CDAArray* batchArray = fetchBlock(@{ @"sys.id[in]": batch, @"limit": @(batch.count) });
+        [batchedItems addObjectsFromArray:batchArray.items];
+        
+        if (nextBatchLength < batchSize) {
+            break;
+        }
+        
+        [unresolvedIds removeObjectsInRange:NSMakeRange(0, nextBatchLength)];
+    } while (YES);
+    
+    return [batchedItems copy];
+}
+
 -(id)responseObjectForResponse:(NSURLResponse *)response
                           data:(NSData *)data
                          error:(NSError **)error {
@@ -141,24 +171,32 @@
             self.client.deepResolving = NO;
             
             for (int i = 0; i < 10; i++) {
-                NSArray* unresolvedAssetIds = [assetsToFetch valueForKey:@"identifier"];
-                CDAArray* items = [self.client fetchAssetsMatching:@{ @"sys.id[in]": unresolvedAssetIds,
-                                                                      @"limit": @(unresolvedAssetIds.count) }
-                                            synchronouslyWithError:nil];
+                NSMutableArray* unresolvedAssetIds = [[assetsToFetch valueForKey:@"identifier"]
+                                                      mutableCopy];
+                NSArray* actualItems = [self fetchResources:unresolvedAssetIds
+                                              withBatchSize:100
+                                                 fetchBlock:^CDAArray *(NSDictionary *query) {
+                                                     return [self.client fetchAssetsMatching:query
+                                                                      synchronouslyWithError:nil];
+                                                 }];
                 
-                for (CDAAsset* asset in items.items) {
+                for (CDAAsset* asset in actualItems) {
                     assets[asset.identifier] = asset;
                 }
                 
-                NSArray* unresolvedEntryIds = [entriesToFetch valueForKey:@"identifier"];
-                items = [self.client fetchEntriesMatching:@{ @"sys.id[in]": unresolvedEntryIds,
-                                                             @"limit": @(unresolvedEntryIds.count) }
-                                   synchronouslyWithError:nil];
+                NSMutableArray* unresolvedEntryIds = [[entriesToFetch valueForKey:@"identifier"]
+                                                      mutableCopy];
+                actualItems = [self fetchResources:unresolvedEntryIds
+                                              withBatchSize:100
+                                                 fetchBlock:^CDAArray *(NSDictionary *query) {
+                                                     return [self.client fetchEntriesMatching:query
+                                                                       synchronouslyWithError:nil];
+                                                 }];
                 
                 [assetsToFetch removeAllObjects];
                 [entriesToFetch removeAllObjects];
                 
-                for (CDAEntry* entry in items.items) {
+                for (CDAEntry* entry in actualItems) {
                     entries[entry.identifier] = entry;
                     
                     [assetsToFetch addObjectsFromArray:[entry findUnresolvedAssets]];
