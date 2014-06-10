@@ -124,7 +124,7 @@ The Contentful Delivery API is fully unit tested.
 
 To run the tests, do the following steps:
 
-    gem install xcpretty
+    gem install xcpretty cocoapods cocoapods-testing
     make test
 
 or run them directly from Xcode.
