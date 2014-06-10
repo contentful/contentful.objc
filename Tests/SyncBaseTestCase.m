@@ -52,7 +52,7 @@
         [invocation getArgument:&query atIndex:2];
         
         CDAArray* dummy = [CDAArray new];
-        [dummy performSelector:@selector(setItems:) withObject:[query.allValues firstObject]];
+        [dummy performSelector:@selector(setItems:) withObject:query[@"sys.id[in]"]];
         [invocation setReturnValue:&dummy];
         
         CFBridgingRetain(dummy);
