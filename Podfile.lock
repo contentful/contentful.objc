@@ -64,17 +64,17 @@ EXTERNAL SOURCES:
     :path: .
 
 SPEC CHECKSUMS:
-  AFNetworking: ae513199cca79e9d7af2708ccabe2ed075550c42
-  AnimatedGIFImageSerialization: 334f7b882713b7336ba15106c92e4843e598358f
-  Bypass: efb9619af979aab0b1a0f3bce650790ce189c5f4
+  AFNetworking: 47947303319594706f48a55185ea95a95159ab94
+  AnimatedGIFImageSerialization: 59d27f2411f5669d35c8d99f32b1b7ff6bd892d0
+  Bypass: 225bc63ebb09e5674c1fc460b1708e775f68f52f
   CCLRequestReplay: 53ac44276845cd49bddc0050e7e8f76b8a028ea4
-  ContentfulDeliveryAPI: e0504cab3894c60b51832ba77e84c4f1000f7b0d
-  CSStickyHeaderFlowLayout: 5e0e35f042c14b24758430c3be234525526e631d
-  FBSnapshotTestCase: 188c80bfcb72e744eb0b99d45989d12687c40cf8
-  HRCoder: 2d5508f15de324e93c974f4e33274499848e13f1
-  ISO8601DateFormatter: 00944e437ea647f4244454ce8809d313861d08de
-  OCMock: 5008fae4b4789b8fc3e48cd7660f2eb5ef8ce89e
-  PDKTCollectionViewWaterfallLayout: be8dd399763b9b925aa78dff0f788e0221e72c54
-  VCRURLConnection: 7c5471d671641dbd0f1b46903ebeb4b88caae04c
+  ContentfulDeliveryAPI: d42a3e21f408b7508a108d87c412ea3e1084aaa0
+  CSStickyHeaderFlowLayout: b6530bc5f95d656b6963ddb6dd692c0f61890a98
+  FBSnapshotTestCase: 9053afee1d66b4c7c313fcb0ae582a5e47bea9d0
+  HRCoder: 0952826ddf4213a11be775d01446f61a5df987a4
+  ISO8601DateFormatter: 59731cd880cf87e71b4fa95f0d6b713dcbc4cbce
+  OCMock: 6db79185520e24f9f299548f2b8b07e41d881bd5
+  PDKTCollectionViewWaterfallLayout: cdde9e714973c9de67f078ba495b9d9e6812082d
+  VCRURLConnection: ad8bfbd376ad44a7f5c48358f3ee96a40d4e683e
 
-COCOAPODS: 0.32.1
+COCOAPODS: 0.33.1
