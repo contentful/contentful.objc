@@ -168,7 +168,7 @@ NSString* const kTextCell        = @"TextCell";
         default: {
             cell = [tableView dequeueReusableCellWithIdentifier:kPrimitiveCell];
             
-            switch ([self fieldForSection:indexPath.section].type) {
+            switch (field.type) {
                 case CDAFieldTypeBoolean:
                     value = [value boolValue] ? NSLocalizedString(@"yes", nil) : NSLocalizedString(@"no", nil);
                     break;
