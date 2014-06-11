@@ -18,8 +18,6 @@ PODS:
   - AFNetworking/UIKit (2.2.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - AnimatedGIFImageSerialization (0.0.1)
-  - Bypass (1.0.1)
   - CCLRequestReplay (0.9.0):
     - CCLRequestReplay/Blueprint
     - CCLRequestReplay/JSON
@@ -35,7 +33,6 @@ PODS:
     - AFNetworking
     - HRCoder
     - ISO8601DateFormatter
-  - CSStickyHeaderFlowLayout (0.2)
   - FBSnapshotTestCase (1.1)
   - HRCoder (1.3.1)
   - ISO8601DateFormatter (0.7)
@@ -45,11 +42,8 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
-  - AnimatedGIFImageSerialization
-  - Bypass
   - CCLRequestReplay (from `https://github.com/neonichu/CCLRequestReplay.git`)
   - ContentfulDeliveryAPI (from `.`)
-  - CSStickyHeaderFlowLayout
   - FBSnapshotTestCase
   - HRCoder
   - ISO8601DateFormatter
@@ -65,11 +59,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 47947303319594706f48a55185ea95a95159ab94
-  AnimatedGIFImageSerialization: 59d27f2411f5669d35c8d99f32b1b7ff6bd892d0
-  Bypass: 225bc63ebb09e5674c1fc460b1708e775f68f52f
   CCLRequestReplay: 53ac44276845cd49bddc0050e7e8f76b8a028ea4
   ContentfulDeliveryAPI: d42a3e21f408b7508a108d87c412ea3e1084aaa0
-  CSStickyHeaderFlowLayout: b6530bc5f95d656b6963ddb6dd692c0f61890a98
   FBSnapshotTestCase: 9053afee1d66b4c7c313fcb0ae582a5e47bea9d0
   HRCoder: 0952826ddf4213a11be775d01446f61a5df987a4
   ISO8601DateFormatter: 59731cd880cf87e71b4fa95f0d6b713dcbc4cbce
