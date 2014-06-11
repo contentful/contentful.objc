@@ -375,7 +375,7 @@
 		A170131318FD5DE20086BE07 /* PersistenceTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PersistenceTests.json; sourceTree = "<group>"; };
 		A170131418FD5DE20086BE07 /* PreviewModeSyncTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PreviewModeSyncTests.json; sourceTree = "<group>"; };
 		A170131918FEA0AD0086BE07 /* Fixtures */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Fixtures; sourceTree = "<group>"; };
-		A173F50B18D31151000E6F92 /* Browser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Browser.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A173F50B18D31151000E6F92 /* Discovery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Discovery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A173F51118D31151000E6F92 /* Browser-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Browser-Info.plist"; sourceTree = "<group>"; };
 		A173F51518D31151000E6F92 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A173F51718D31151000E6F92 /* Browser-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Browser-Prefix.pch"; sourceTree = "<group>"; };
@@ -903,7 +903,7 @@
 				A19FD86718C631E60081677E /* libContentfulDeliveryAPI.a */,
 				A19FD87718C631E60081677E /* CDA Tests.xctest */,
 				A19FD89718C637400081677E /* UFO Example.app */,
-				A173F50B18D31151000E6F92 /* Browser.app */,
+				A173F50B18D31151000E6F92 /* Discovery.app */,
 				A173F55818D705B2000E6F92 /* Catalog.app */,
 				A1B8158318F2A8090027B26D /* CoreDataExample.app */,
 				A1A2CE47190963BA00B8D46D /* ContentfulSeedDatabase */,
@@ -1454,7 +1454,7 @@
 			);
 			name = Browser;
 			productName = Browser;
-			productReference = A173F50B18D31151000E6F92 /* Browser.app */;
+			productReference = A173F50B18D31151000E6F92 /* Discovery.app */;
 			productType = "com.apple.product-type.application";
 		};
 		A173F55718D705B2000E6F92 /* Catalog */ = {
@@ -2275,7 +2275,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Examples/Browser/Browser-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Discovery;
 				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
 			};
@@ -2316,7 +2316,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Examples/Browser/Browser-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Discovery;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
