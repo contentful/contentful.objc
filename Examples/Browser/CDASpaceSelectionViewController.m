@@ -198,14 +198,16 @@ static NSString* const CDALogoAnimationKey  = @"SpinLogo";
     
     switch (indexPath.row) {
         case 0:
+            cell.textField.placeholder = NSLocalizedString(@"Space", nil);
             cell.textField.returnKeyType = UIReturnKeyNext;
             cell.textField.text = [[NSUserDefaults standardUserDefaults] stringForKey:CDASpaceKey];
-            cell.textLabel.text = NSLocalizedString(@"Space", nil);
+            cell.textLabel.text = cell.textField.placeholder;
             break;
         case 1:
+            cell.textField.placeholder = NSLocalizedString(@"Access Token", nil);
             cell.textField.returnKeyType = UIReturnKeyGo;
             cell.textField.text = [[NSUserDefaults standardUserDefaults] stringForKey:CDAAccessTokenKey];
-            cell.textLabel.text = NSLocalizedString(@"Access Token", nil);
+            cell.textLabel.text = cell.textField.placeholder;
             break;
     }
     
