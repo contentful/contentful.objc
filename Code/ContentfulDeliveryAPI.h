@@ -28,6 +28,7 @@
 #import <ContentfulDeliveryAPI/CDAResourceCell.h>
 #import <ContentfulDeliveryAPI/CDAResourcesCollectionViewController.h>
 #import <ContentfulDeliveryAPI/CDAResourcesViewController.h>
+#import <ContentfulDeliveryAPI/UIImageView+CDAAsset.h>
 #endif
 
 extern NSString* const CDAErrorDomain;
