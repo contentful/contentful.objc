@@ -45,6 +45,7 @@
 		A160862218CDF0E60047D44F /* CDARequest.h in Headers */ = {isa = PBXBuildFile; fileRef = A160862018CDF0E60047D44F /* CDARequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A160862318CDF0E60047D44F /* CDARequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A160862118CDF0E60047D44F /* CDARequest.m */; };
 		A160862518CDF2AC0047D44F /* CDARequest+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A160862418CDF2AC0047D44F /* CDARequest+Private.h */; };
+		A16FBB111947ED5900D3666C /* UIView+Geometry.m in Sources */ = {isa = PBXBuildFile; fileRef = A16FBB101947ED5900D3666C /* UIView+Geometry.m */; };
 		A17012EE18FBDFDA0086BE07 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A17012ED18FBDFDA0086BE07 /* CoreDataManager.m */; };
 		A17012F418FC1FD90086BE07 /* CDAPersistedEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = A17012F318FC1FD90086BE07 /* CDAPersistedEntry.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A17012F618FC1FF80086BE07 /* CDAPersistedAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = A17012F518FC1FEE0086BE07 /* CDAPersistedAsset.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -201,6 +202,7 @@
 		A1ABC7BC191D12ED0020A964 /* CDAInputSanitizer.h in Headers */ = {isa = PBXBuildFile; fileRef = A1ABC7BA191D12ED0020A964 /* CDAInputSanitizer.h */; };
 		A1ABC7BD191D12ED0020A964 /* CDAInputSanitizer.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ABC7BB191D12ED0020A964 /* CDAInputSanitizer.m */; };
 		A1AEDC39192CA037002F2684 /* UILabel+Alignment.m in Sources */ = {isa = PBXBuildFile; fileRef = A1AEDC38192CA037002F2684 /* UILabel+Alignment.m */; };
+		A1AEDC3C192E0615002F2684 /* CDATutorialView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1AEDC3B192E0615002F2684 /* CDATutorialView.m */; };
 		A1AFFB8C19220BF600D0B425 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1AFFB8B19220BF600D0B425 /* icon@2x.png */; };
 		A1AFFB8E19220C5000D0B425 /* icon-settings.png in Resources */ = {isa = PBXBuildFile; fileRef = A1AFFB8D19220C5000D0B425 /* icon-settings.png */; };
 		A1AFFB9019220C8800D0B425 /* icon-spotlight.png in Resources */ = {isa = PBXBuildFile; fileRef = A1AFFB8F19220C8800D0B425 /* icon-spotlight.png */; };
@@ -352,6 +354,8 @@
 		A160862018CDF0E60047D44F /* CDARequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDARequest.h; sourceTree = "<group>"; };
 		A160862118CDF0E60047D44F /* CDARequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDARequest.m; sourceTree = "<group>"; };
 		A160862418CDF2AC0047D44F /* CDARequest+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDARequest+Private.h"; sourceTree = "<group>"; };
+		A16FBB0F1947ED5900D3666C /* UIView+Geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Geometry.h"; sourceTree = "<group>"; };
+		A16FBB101947ED5900D3666C /* UIView+Geometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Geometry.m"; sourceTree = "<group>"; };
 		A17012EC18FBDFDA0086BE07 /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataManager.h; path = ../../Code/CoreData/CoreDataManager.h; sourceTree = "<group>"; };
 		A17012ED18FBDFDA0086BE07 /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataManager.m; path = ../../Code/CoreData/CoreDataManager.m; sourceTree = "<group>"; };
 		A17012F318FC1FD90086BE07 /* CDAPersistedEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAPersistedEntry.h; sourceTree = "<group>"; };
@@ -550,6 +554,8 @@
 		A1ABC7BB191D12ED0020A964 /* CDAInputSanitizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAInputSanitizer.m; sourceTree = "<group>"; };
 		A1AEDC37192CA037002F2684 /* UILabel+Alignment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Alignment.h"; sourceTree = "<group>"; };
 		A1AEDC38192CA037002F2684 /* UILabel+Alignment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Alignment.m"; sourceTree = "<group>"; };
+		A1AEDC3A192E0615002F2684 /* CDATutorialView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDATutorialView.h; sourceTree = "<group>"; };
+		A1AEDC3B192E0615002F2684 /* CDATutorialView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDATutorialView.m; sourceTree = "<group>"; };
 		A1AFFB8B19220BF600D0B425 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		A1AFFB8D19220C5000D0B425 /* icon-settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-settings.png"; sourceTree = "<group>"; };
 		A1AFFB8F19220C8800D0B425 /* icon-spotlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-spotlight.png"; sourceTree = "<group>"; };
@@ -744,6 +750,19 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		A16FBB121947EE6B00D3666C /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				A173F54718D38899000E6F92 /* UIApplication+Browser.h */,
+				A173F54818D38899000E6F92 /* UIApplication+Browser.m */,
+				A1AEDC37192CA037002F2684 /* UILabel+Alignment.h */,
+				A1AEDC38192CA037002F2684 /* UILabel+Alignment.m */,
+				A16FBB0F1947ED5900D3666C /* UIView+Geometry.h */,
+				A16FBB101947ED5900D3666C /* UIView+Geometry.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		A17012F218FC1FB00086BE07 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
@@ -805,6 +824,7 @@
 			isa = PBXGroup;
 			children = (
 				A1A4559E1917814800802D50 /* Assets */,
+				A16FBB121947EE6B00D3666C /* Categories */,
 				A1A455A319178A2500802D50 /* Content Types */,
 				A1A4559F1917814F00802D50 /* Entries */,
 				A1A4559D1917814200802D50 /* Spaces */,
@@ -816,10 +836,8 @@
 				A1AFFB9A1922134400D0B425 /* CDAHelpViewController.m */,
 				A15B1FDD191A602F00E019F8 /* CDATutorialController.h */,
 				A15B1FDE191A602F00E019F8 /* CDATutorialController.m */,
-				A173F54718D38899000E6F92 /* UIApplication+Browser.h */,
-				A173F54818D38899000E6F92 /* UIApplication+Browser.m */,
-				A1AEDC37192CA037002F2684 /* UILabel+Alignment.h */,
-				A1AEDC38192CA037002F2684 /* UILabel+Alignment.m */,
+				A1AEDC3A192E0615002F2684 /* CDATutorialView.h */,
+				A1AEDC3B192E0615002F2684 /* CDATutorialView.m */,
 			);
 			name = Code;
 			sourceTree = "<group>";
@@ -2009,6 +2027,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A16FBB111947ED5900D3666C /* UIView+Geometry.m in Sources */,
 				A173F53818D31343000E6F92 /* CDASpaceSelectionViewController.m in Sources */,
 				A173F51618D31151000E6F92 /* main.m in Sources */,
 				A15B1FDF191A602F00E019F8 /* CDATutorialController.m in Sources */,
@@ -2020,6 +2039,7 @@
 				A1ABC7B4191BA96E0020A964 /* UIImage+AverageColor.m in Sources */,
 				A1A455B71917EBE800802D50 /* CDAAssetThumbnailOperation.m in Sources */,
 				A1A455A2191789C100802D50 /* CDAEntryPreviewController.m in Sources */,
+				A1AEDC3C192E0615002F2684 /* CDATutorialView.m in Sources */,
 				A1ABC7B9191BBD490020A964 /* CDAAboutUsViewController.m in Sources */,
 				A1A455B21917E08800802D50 /* CDAAssetPreviewController.m in Sources */,
 				A173F51A18D31151000E6F92 /* CDAAppDelegate.m in Sources */,
