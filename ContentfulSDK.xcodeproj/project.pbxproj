@@ -200,6 +200,7 @@
 		A1ABC7B9191BBD490020A964 /* CDAAboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ABC7B8191BBD490020A964 /* CDAAboutUsViewController.m */; };
 		A1ABC7BC191D12ED0020A964 /* CDAInputSanitizer.h in Headers */ = {isa = PBXBuildFile; fileRef = A1ABC7BA191D12ED0020A964 /* CDAInputSanitizer.h */; };
 		A1ABC7BD191D12ED0020A964 /* CDAInputSanitizer.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ABC7BB191D12ED0020A964 /* CDAInputSanitizer.m */; };
+		A1AEDC39192CA037002F2684 /* UILabel+Alignment.m in Sources */ = {isa = PBXBuildFile; fileRef = A1AEDC38192CA037002F2684 /* UILabel+Alignment.m */; };
 		A1AFFB8C19220BF600D0B425 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1AFFB8B19220BF600D0B425 /* icon@2x.png */; };
 		A1AFFB8E19220C5000D0B425 /* icon-settings.png in Resources */ = {isa = PBXBuildFile; fileRef = A1AFFB8D19220C5000D0B425 /* icon-settings.png */; };
 		A1AFFB9019220C8800D0B425 /* icon-spotlight.png in Resources */ = {isa = PBXBuildFile; fileRef = A1AFFB8F19220C8800D0B425 /* icon-spotlight.png */; };
@@ -547,6 +548,8 @@
 		A1ABC7B8191BBD490020A964 /* CDAAboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAAboutUsViewController.m; sourceTree = "<group>"; };
 		A1ABC7BA191D12ED0020A964 /* CDAInputSanitizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAInputSanitizer.h; sourceTree = "<group>"; };
 		A1ABC7BB191D12ED0020A964 /* CDAInputSanitizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAInputSanitizer.m; sourceTree = "<group>"; };
+		A1AEDC37192CA037002F2684 /* UILabel+Alignment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Alignment.h"; sourceTree = "<group>"; };
+		A1AEDC38192CA037002F2684 /* UILabel+Alignment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Alignment.m"; sourceTree = "<group>"; };
 		A1AFFB8B19220BF600D0B425 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		A1AFFB8D19220C5000D0B425 /* icon-settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-settings.png"; sourceTree = "<group>"; };
 		A1AFFB8F19220C8800D0B425 /* icon-spotlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-spotlight.png"; sourceTree = "<group>"; };
@@ -815,6 +818,8 @@
 				A15B1FDE191A602F00E019F8 /* CDATutorialController.m */,
 				A173F54718D38899000E6F92 /* UIApplication+Browser.h */,
 				A173F54818D38899000E6F92 /* UIApplication+Browser.m */,
+				A1AEDC37192CA037002F2684 /* UILabel+Alignment.h */,
+				A1AEDC38192CA037002F2684 /* UILabel+Alignment.m */,
 			);
 			name = Code;
 			sourceTree = "<group>";
@@ -2010,6 +2015,7 @@
 				A1A455BA1919108E00802D50 /* CDAInlineMapCell.m in Sources */,
 				A1AFFB9B1922134400D0B425 /* CDAHelpViewController.m in Sources */,
 				A1A455A91917BA4600802D50 /* CDAPrimitiveCell.m in Sources */,
+				A1AEDC39192CA037002F2684 /* UILabel+Alignment.m in Sources */,
 				A1A455BD1919179300802D50 /* CDAEntryPreviewDataSource.m in Sources */,
 				A1ABC7B4191BA96E0020A964 /* UIImage+AverageColor.m in Sources */,
 				A1A455B71917EBE800802D50 /* CDAAssetThumbnailOperation.m in Sources */,

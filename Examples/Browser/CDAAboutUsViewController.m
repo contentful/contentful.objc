@@ -7,14 +7,26 @@
 //
 
 #import "CDAAboutUsViewController.h"
+#import "UILabel+Alignment.h"
 
 @interface CDAAboutUsViewController ()
+
+@property (nonatomic) CGFloat emptySpaceHeight;
+@property (nonatomic) UILabel* versionLabel;
 
 @end
 
 #pragma mark -
 
 @implementation CDAAboutUsViewController
+
+-(CGFloat)emptySpaceHeight {
+    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:[self.tableView numberOfRowsInSection:0] - 1
+                                                inSection:0];
+    CGRect lastRowFrame = [self.tableView rectForRowAtIndexPath:indexPath];
+    return self.tableView.frame.size.height - (lastRowFrame.origin.y +
+                                               lastRowFrame.size.height);
+}
 
 -(id)init {
     self = [super init];
@@ -65,6 +77,10 @@
 
 #pragma mark - UITableViewDelegate
 
+-(CGFloat)tableView:(UITableView *)tableView estimatedHeightForFooterInSection:(NSInteger)section {
+    return 100.0;
+}
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString* urlString = nil;
     
@@ -84,7 +100,8 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 44.0;
+    [self.versionLabel performSelector:@selector(cda_alignBottom) withObject:nil afterDelay:0.1];
+    return self.emptySpaceHeight;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -92,12 +109,16 @@
 }
 
 -(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0,
-                                                               tableView.frame.size.width, 44.0)];
-    label.text = [NSString stringWithFormat:NSLocalizedString(@"App version %@", nil),
+    UILabel* versionLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0,
+                                                               tableView.frame.size.width,
+                                                               self.emptySpaceHeight)];
+    
+    versionLabel.backgroundColor = [UIColor clearColor];
+    versionLabel.text = [NSString stringWithFormat:NSLocalizedString(@"App version %@", nil),
                   [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"]];
-    label.textAlignment = NSTextAlignmentCenter;
-    return label;
+    versionLabel.textAlignment = NSTextAlignmentCenter;
+    
+    return versionLabel;
 }
 
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
