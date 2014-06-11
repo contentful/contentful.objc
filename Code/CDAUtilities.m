@@ -114,6 +114,11 @@ BOOL CDAIgnoreProperty(objc_property_t property) {
         return YES;
     }
     
+    static const char* observationInfo = "observationInfo";
+    if (strncmp(property_getName(property), observationInfo, strlen(observationInfo)) == 0) {
+        return YES;
+    }
+    
     return NO;
 }
 
