@@ -12,7 +12,7 @@
 
 @dynamic identifier;
 @dynamic url;
-@dynamic mimeType;
+@dynamic internetMediaType;
 @dynamic cat;
 
 @end

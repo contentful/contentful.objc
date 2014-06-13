@@ -14,7 +14,7 @@
 
 @property (nonatomic, retain) NSString * identifier;
 @property (nonatomic, retain) NSString * url;
-@property (nonatomic, retain) NSString * mimeType;
+@property (nonatomic, retain) NSString * internetMediaType;
 @property (nonatomic, retain) NSManagedObject *cat;
 
 @end

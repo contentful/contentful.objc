@@ -300,7 +300,7 @@
 
 -(void)updatePersistedAsset:(id<CDAPersistedAsset>)persistedAsset withAsset:(CDAAsset*)asset {
     persistedAsset.identifier = asset.identifier;
-    persistedAsset.mimeType = asset.MIMEType;
+    persistedAsset.internetMediaType = asset.MIMEType;
     persistedAsset.url = asset.URL.absoluteString;
 }
 

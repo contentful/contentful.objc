@@ -16,7 +16,7 @@
 /** The `sys.id` of the Asset. */
 @property (nonatomic) NSString* identifier;
 /** File type of the Asset. */
-@property (nonatomic) NSString* mimeType;
+@property (nonatomic) NSString* internetMediaType;
 /** URL for the underlying file represented by the Asset. */
 @property (nonatomic) NSString* url;
 
