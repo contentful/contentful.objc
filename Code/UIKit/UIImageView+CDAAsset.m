@@ -17,6 +17,15 @@
 #import "UIImageView+CDAAsset.h"
 
 static const char* CDAOfflineCachingKey = "CDAOfflineCachingKey";
+static const char* CDAProgressViewKey   = "CDAProgressViewKey";
+
+@interface UIImageView ()
+
+@property (nonatomic) UIActivityIndicatorView* progressView_cda;
+
+@end
+
+#pragma mark -
 
 @implementation UIImageView (CDAAsset)
 
@@ -27,9 +36,13 @@ static const char* CDAOfflineCachingKey = "CDAOfflineCachingKey";
         self.image = placeholderImage;
     }
     
+    [self showActivityIndicatorIfNeeded];
+    
     [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:URL]
                                        queue:[NSOperationQueue mainQueue]
                            completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                               [self hideActivityIndicator];
+                               
                                if (!data) {
                                    NSLog(@"Error while request '%@': %@", response.URL, error);
                                    return;
@@ -64,12 +77,16 @@ static const char* CDAOfflineCachingKey = "CDAOfflineCachingKey";
             NSDate *date = [attributes fileModificationDate];
             
             if (![asset updatedAfterDate:date]) {
+                [self showActivityIndicatorIfNeeded];
+                
                 [asset.client fetchAssetWithIdentifier:asset.identifier
                                                success:^(CDAResponse *response, CDAAsset *asset) {
                                                    if ([asset updatedAfterDate:date]) {
                                                        [self cda_fetchImageWithAsset:asset
                                                                                  URL:URL
                                                                     placeholderImage:placeholderImage];
+                                                   } else {
+                                                       [self hideActivityIndicator];
                                                    }
                                                } failure:nil];
                 
@@ -118,14 +135,45 @@ static const char* CDAOfflineCachingKey = "CDAOfflineCachingKey";
     }
 }
 
+#pragma mark - Activity indicator
+
+-(void)showActivityIndicatorIfNeeded {
+    if (self.progressView_cda) {
+        return;
+    }
+    
+    static const CGFloat size = 44.0;
+    UIActivityIndicatorView* activityView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake((self.frame.size.width - size) / 2, (self.frame.size.height - size) / 2, size, size)];
+    activityView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
+    activityView.color = [UIColor blackColor];
+    
+    [activityView startAnimating];
+    [self addSubview:activityView];
+    
+    self.progressView_cda = activityView;
+}
+
+-(void)hideActivityIndicator {
+    [self.progressView_cda removeFromSuperview];
+    self.progressView_cda = nil;
+}
+
 #pragma mark - Properties
 
 -(BOOL)offlineCaching_cda {
     return [objc_getAssociatedObject(self, CDAOfflineCachingKey) boolValue];
 }
 
--(void)setOfflineCaching_cda:(BOOL)cda_offlineCaching {
-    objc_setAssociatedObject(self, CDAOfflineCachingKey, @(cda_offlineCaching), OBJC_ASSOCIATION_RETAIN);
+-(UIActivityIndicatorView *)progressView_cda {
+    return objc_getAssociatedObject(self, CDAProgressViewKey);
+}
+
+-(void)setOfflineCaching_cda:(BOOL)offlineCaching {
+    objc_setAssociatedObject(self, CDAOfflineCachingKey, @(offlineCaching), OBJC_ASSOCIATION_RETAIN);
+}
+
+-(void)setProgressView_cda:(UIActivityIndicatorView *)progressView {
+    objc_setAssociatedObject(self, CDAProgressViewKey, progressView, OBJC_ASSOCIATION_RETAIN);
 }
 
 @end
