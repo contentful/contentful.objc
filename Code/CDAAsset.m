@@ -32,10 +32,10 @@ const CGFloat CDAImageQualityOriginal = 0.0;
 +(instancetype)assetFromPersistedAsset:(id<CDAPersistedAsset>)persistedAsset client:(CDAClient*)client {
     NSParameterAssert(persistedAsset);
     NSParameterAssert(persistedAsset.identifier);
-    NSParameterAssert(persistedAsset.mimeType);
+    NSParameterAssert(persistedAsset.internetMediaType);
     NSParameterAssert(persistedAsset.url);
     
-    NSDictionary* fileContent = @{ @"contentType": persistedAsset.mimeType,
+    NSDictionary* fileContent = @{ @"contentType": persistedAsset.internetMediaType,
                                    @"url": persistedAsset.url };
     
     if (client.localizationAvailable) {

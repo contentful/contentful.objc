@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13C1021" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="14A238x" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Asset" representedClassName="Asset" syncable="YES">
         <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="mimeType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="internetMediaType" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="cat" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ManagedCat" inverseName="picture" inverseEntity="ManagedCat" syncable="YES"/>
     </entity>
