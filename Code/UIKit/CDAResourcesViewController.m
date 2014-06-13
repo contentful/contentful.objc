@@ -235,6 +235,10 @@
         [cell setValue:[item valueForKeyPath:entryKeyPath] forKeyPath:cellKeyPath];
     }];
     
+    if (cell.textLabel.text.length == 0 && [item isKindOfClass:[CDAResource class]]) {
+        cell.textLabel.text = [(CDAResource*)item identifier];
+    }
+    
     return cell;
 }
 
