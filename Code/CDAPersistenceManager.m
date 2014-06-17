@@ -329,11 +329,21 @@
 
 -(void)syncedSpace:(CDASyncedSpace *)space didUpdateAsset:(CDAAsset *)asset {
     id<CDAPersistedAsset> persistedAsset = [self fetchAssetWithIdentifier:asset.identifier];
+    
+    if (!persistedAsset) {
+        persistedAsset = [self createPersistedAsset];
+    }
+    
     [self updatePersistedAsset:persistedAsset withAsset:asset];
 }
 
 -(void)syncedSpace:(CDASyncedSpace *)space didUpdateEntry:(CDAEntry *)entry {
     id<CDAPersistedEntry> persistedEntry = [self fetchEntryWithIdentifier:entry.identifier];
+    
+    if (!persistedEntry) {
+        persistedEntry = [self createPersistedEntry];
+    }
+    
     [self updatePersistedEntry:persistedEntry withEntry:entry];
 }
 
