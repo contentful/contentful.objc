@@ -1,0 +1,39 @@
+{
+  "sys": {
+    "type": "Array"
+  },
+  "items": [
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "giq5kda3eap4"
+          }
+        },
+        "type": "Entry",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "1nGOrvlRTaMcyyq4IEa8ea"
+          }
+        },
+        "id": "5ULbpqWPTOOOuk4KYQo0cY",
+        "revision": 1,
+        "createdAt": "2014-06-17T11:41:42.641Z",
+        "updatedAt": "2014-06-17T11:41:42.641Z"
+      },
+      "fields": {
+        "title": {
+          "en-US": "Some entry"
+        },
+        "body": {
+          "en-US": "Hello, world!"
+        }
+      }
+    }
+  ],
+  "nextSyncUrl": "http://cdn.contentful.com/spaces/giq5kda3eap4/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdybDqiDCvSIrAFoiw7XDkQrCu8K7N8OkwqlhwoHCscOLM8Knwr7Cp8Ogw7LCjE3DicO8w6cCwoFwO1AVw6B8DGTCtlbDgMKDw7zDicKawrXDqsKkSX7DnMO-ThjDtMORwqHDhk_Ct1o"
+}
