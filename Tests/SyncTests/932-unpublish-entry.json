@@ -1,0 +1,25 @@
+{
+  "sys": {
+    "type": "Array"
+  },
+  "items": [
+    {
+      "sys": {
+        "type": "DeletedEntry",
+        "id": "5ULbpqWPTOOOuk4KYQo0cY",
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "giq5kda3eap4"
+          }
+        },
+        "revision": 1,
+        "createdAt": "2014-06-17T11:46:12.176Z",
+        "updatedAt": "2014-06-17T11:46:12.176Z",
+        "deletedAt": "2014-06-17T11:46:12.176Z"
+      }
+    }
+  ],
+  "nextSyncUrl": "http://cdn.contentful.com/spaces/giq5kda3eap4/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdybCqx_CocOlwpNuw41raMKrw7nCv8OAwrnCihwDwqnCmUbCjhnDmTojwrZAw7vDuMKCH8Kcw6USTMOqw4NAwo7Cn8KUaVYXwrHCkVLCmsOgNxs-wptWw5LDl8KIw4vCvsOTwq7CsnJJ"
+}
