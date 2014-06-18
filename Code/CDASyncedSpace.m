@@ -91,7 +91,7 @@
             nextTimestamp = item.sys[@"updatedAt"];
         }
         
-        if ([NSStringFromClass(item.class) isEqualToString:@"CDADeletedAsset"]) {
+        if ([CDADeletedAsset classIsOfType:item.class]) {
             CDAAsset* deletedAsset = self.syncedAssets[item.identifier] ?: (CDAAsset*)item;
             
             if ([self.delegate respondsToSelector:@selector(syncedSpace:didDeleteAsset:)]) {
@@ -103,7 +103,7 @@
             [self didChangeValueForKey:@"assets"];
         }
         
-        if ([NSStringFromClass(item.class) isEqualToString:@"CDADeletedEntry"]) {
+        if ([CDADeletedEntry classIsOfType:item.class]) {
             CDAEntry* deletedEntry = self.syncedEntries[item.identifier] ?: (CDAEntry*)item;
             
             if ([self.delegate respondsToSelector:@selector(syncedSpace:didDeleteEntry:)]) {
@@ -115,7 +115,7 @@
             [self didChangeValueForKey:@"entries"];
         }
         
-        if ([NSStringFromClass(item.class) isEqualToString:@"CDAAsset"]) {
+        if ([CDAAsset classIsOfType:item.class]) {
             [self willChangeValueForKey:@"assets"];
             
             NSUInteger assetIndex = [self.syncedAssets.allKeys indexOfObject:item.identifier];
@@ -140,7 +140,7 @@
             [self didChangeValueForKey:@"assets"];
         }
         
-        if ([NSStringFromClass(item.class) isEqualToString:@"CDAEntry"]) {
+        if ([CDAEntry classIsOfType:item.class]) {
             [item resolveLinksWithIncludedAssets:self.syncedAssets entries:self.syncedEntries];
             [item resolveLinksWithIncludedAssets:newAssets entries:newEntries];
             
