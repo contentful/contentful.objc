@@ -36,6 +36,20 @@
 
 @implementation CDAResource
 
++(BOOL)class:(Class)someClass isEqualToClass:(Class)otherClass {
+    return [NSStringFromClass(someClass.class) isEqualToString:NSStringFromClass(otherClass.class)];
+}
+
++(BOOL)classIsOfType:(Class)otherClass {
+    do {
+        if ([self class:self isEqualToClass:otherClass]) {
+            return YES;
+        }
+    } while ((otherClass = class_getSuperclass(otherClass)));
+    
+    return NO;
+}
+
 +(instancetype)readFromFile:(NSString*)filePath client:(CDAClient*)client {
     CDAResource* item = nil;
     

@@ -15,6 +15,7 @@
 #import "CDAField+Private.h"
 #import "CDAResource+Private.h"
 #import "CDASpace+Private.h"
+#import "CDAUtilities.h"
 
 @interface CDAEntry ()
 
@@ -32,6 +33,15 @@
 
 +(NSString *)CDAType {
     return @"Entry";
+}
+
+
+
++(NSArray*)subclasses {
+    static dispatch_once_t once;
+    static NSArray* subclasses;
+    dispatch_once(&once, ^ { subclasses = CDAClassGetSubclasses([self class]); });
+    return subclasses;
 }
 
 #pragma mark -

@@ -17,6 +17,7 @@
 @property (nonatomic, readonly) BOOL localizationAvailable;
 
 +(NSString*)CDAType;
++(BOOL)classIsOfType:(Class)class;
 +(instancetype)resourceObjectForDictionary:(NSDictionary*)dictionary client:(CDAClient*)client;
 
 -(BOOL)createdAfterDate:(NSDate*)date;
