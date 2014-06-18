@@ -9,6 +9,18 @@
 #import "CDAResource+Private.h"
 #import "SyncBaseTestCase.h"
 
+@interface MYCustomClass : CDAEntry
+
+@end
+
+#pragma mark -
+
+@implementation MYCustomClass
+
+@end
+
+#pragma mark -
+
 @interface SyncedSpaceDelegate : NSObject <CDASyncedSpaceDelegate>
 
 @end
@@ -556,6 +568,48 @@
     
     CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response,
                                                                            CDASyncedSpace *space) {
+        space.delegate = self;
+        
+        [space performSynchronizationWithSuccess:^{
+            XCTAssertEqual(1U, space.assets.count, @"");
+            XCTAssertEqual(2U, space.entries.count, @"");
+            
+            BOOL entryFound = NO;
+            
+            for (CDAEntry* entry in space.entries) {
+                if ([entry.identifier isEqualToString:@"1gQ4P2tG7QaGkQwkC4a6Gg"]) {
+                    XCTAssertEqualObjects(@"Second entry", entry.fields[@"title"], @"");
+                    XCTAssertEqualObjects(@"some text", entry.fields[@"body"], @"");
+                    entryFound = YES;
+                }
+            }
+            
+            XCTAssert(entryFound, @"Second entry not found.");
+            
+            EndBlock();
+        } failure:^(CDAResponse *response, NSError *error) {
+            XCTFail(@"Error: %@", error);
+            
+            EndBlock();
+        }];
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTFail(@"Error: %@", error);
+        
+        EndBlock();
+    }];
+    XCTAssertNotNil(request, @"");
+    
+    WaitUntilBlockCompletes();
+    
+    XCTAssertEqual(1U, self.numberOfEntriesCreated, @"");
+}
+
+-(void)testSyncAddEntryUsingCustomClass {
+    [self.client registerClass:[MYCustomClass class] forContentTypeWithIdentifier:@"6bAvxqodl6s4MoKuWYkmqe"];
+    
+    StartBlock();
+    
+    CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
         space.delegate = self;
         
         [space performSynchronizationWithSuccess:^{
