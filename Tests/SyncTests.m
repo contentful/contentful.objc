@@ -278,6 +278,38 @@
     XCTAssertEqual(0U, self.numberOfEntriesUpdated, @"");
 }
 
+-(void)testSyncWithNonUSDefaultLocale {
+    [self removeAllStubs];
+    self.client = [[CDAClient alloc] initWithSpaceKey:@"icgl406qq59m" accessToken:@"77a3cc4cfaef46d2d93d7924f571d45392a4abb998c1d17d301bc7dc62f3dfd4"];
+    
+    StartBlock();
+    
+    CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
+        XCTAssertEqual(0, space.assets.count, @"");
+        XCTAssertEqual(1, space.entries.count, @"");
+        
+        CDAEntry* entry = space.entries.firstObject;
+        XCTAssertEqualObjects(@"My first entry", entry.fields[@"title"], @"");
+        XCTAssertEqualObjects(@"Hello, world!", entry.fields[@"body"], @"");
+        
+        EndBlock();
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTFail(@"Error: %@", error);
+        
+        EndBlock();
+    }];
+    XCTAssertNotNil(request, @"");
+    
+    WaitUntilBlockCompletes();
+    
+    XCTAssertEqual(0U, self.numberOfAssetsCreated, @"");
+    XCTAssertEqual(0U, self.numberOfAssetsDeleted, @"");
+    XCTAssertEqual(0U, self.numberOfAssetsUpdated, @"");
+    XCTAssertEqual(0U, self.numberOfEntriesCreated, @"");
+    XCTAssertEqual(0U, self.numberOfEntriesDeleted, @"");
+    XCTAssertEqual(0U, self.numberOfEntriesUpdated, @"");
+}
+
 -(void)testAssetWithMultipleLocalesWhileSyncing {
     [self removeAllStubs];
     
