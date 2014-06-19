@@ -162,6 +162,28 @@
     WaitUntilBlockCompletes();
 }
 
+- (void)testNonUSDefaultLocale {
+    self.client = [[CDAClient alloc] initWithSpaceKey:@"icgl406qq59m" accessToken:@"77a3cc4cfaef46d2d93d7924f571d45392a4abb998c1d17d301bc7dc62f3dfd4"];
+    
+    StartBlock();
+    
+    [self.client fetchEntriesWithSuccess:^(CDAResponse *response, CDAArray *array) {
+        XCTAssertEqual(1, array.items.count, @"");
+        
+        CDAEntry* entry = array.items.firstObject;
+        XCTAssertEqualObjects(@"My first entry", entry.fields[@"title"], @"");
+        XCTAssertEqualObjects(@"Hello, world!", entry.fields[@"body"], @"");
+        
+        EndBlock();
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTFail(@"Error: %@", error);
+        
+        EndBlock();
+    }];
+    
+    WaitUntilBlockCompletes();
+}
+
 - (void)testObjectMapping {
     StartBlock();
     

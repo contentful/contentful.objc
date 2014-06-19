@@ -137,6 +137,8 @@
 -(id)initWithDictionary:(NSDictionary *)dictionary client:(CDAClient*)client {
     self = [super init];
     if (self) {
+        self.defaultLocaleOfSpace = @"en-US";
+
         NSParameterAssert(client);
         self.client = client;
         
@@ -182,7 +184,6 @@
             }
         }];
         
-        self.defaultLocaleOfSpace = @"en-US";
         self.sys = systemProperties;
         self.lastFetchedDate = self.isLink ? nil : [NSDate date];
     }
