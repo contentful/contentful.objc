@@ -151,11 +151,34 @@ static const char* CDAProgressViewKey   = "CDAProgressViewKey";
     [self addSubview:activityView];
     
     self.progressView_cda = activityView;
+    
+    [self addObserver:self forKeyPath:@"frame" options:0 context:NULL];
 }
 
 -(void)hideActivityIndicator {
+    if (!self.progressView_cda) {
+        return;
+    }
+    
     [self.progressView_cda removeFromSuperview];
     self.progressView_cda = nil;
+    
+    [self removeObserver:self forKeyPath:@"frame"];
+}
+
+#pragma mark - KVO
+
+-(void)observeValueForKeyPath:(NSString *)keyPath
+                     ofObject:(id)object
+                       change:(NSDictionary *)change
+                      context:(void *)context {
+    if (![keyPath isEqualToString:@"frame"]) {
+        return;
+    }
+    
+    CGFloat size = self.progressView_cda.frame.size.width;
+    self.progressView_cda.frame = CGRectMake((self.frame.size.width - size) / 2,
+                                             (self.frame.size.height - size) / 2, size, size);
 }
 
 #pragma mark - Properties
