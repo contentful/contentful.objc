@@ -145,6 +145,11 @@
     
     if ([keyPath isEqualToString:@"resources"]) {
         CDAResourcesCollectionViewController* resourcesVC = object;
+        
+        if (resourcesVC.items == nil) {
+            self.waiting = YES;
+            return;
+        }
       
         XCTAssertEqual(4U, resourcesVC.items.count, @"");
         XCTAssertEqual(4, [resourcesVC.collectionView.dataSource collectionView:resourcesVC.collectionView numberOfItemsInSection:0], @"");
