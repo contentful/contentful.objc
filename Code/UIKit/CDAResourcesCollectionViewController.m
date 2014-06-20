@@ -135,6 +135,9 @@
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    self.resources = nil;
+	[self.collectionView reloadData];
+    
     [self performQuery:self.query];
 }
 
