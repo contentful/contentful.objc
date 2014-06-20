@@ -17,6 +17,7 @@
 
 @property (nonatomic, readonly) NSString* cacheFileName;
 @property (nonatomic) NSDictionary* cellMapping;
+@property (nonatomic) BOOL firstTime;
 @property (nonatomic) CDAArray* resources;
 @property (nonatomic) NSArray* localItems;
 @property (nonatomic) UISearchBar* searchBar;
@@ -77,6 +78,7 @@
     self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
         self.cellMapping = cellMapping;
+        self.firstTime = YES;
         self.resourceType = CDAResourceTypeEntry;
         
         self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
@@ -171,7 +173,8 @@
     
     [self performQuery:self.query];
     
-    if (self.showSearchBar) {
+    if (self.showSearchBar && self.firstTime) {
+        self.firstTime = NO;
         self.tableView.contentOffset = CGPointMake(0.0, 44.0);
     }
 }
