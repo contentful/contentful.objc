@@ -33,7 +33,7 @@ PODS:
     - AFNetworking
     - HRCoder
     - ISO8601DateFormatter
-  - FBSnapshotTestCase (1.1)
+  - FBSnapshotTestCase (HEAD based on 1.1)
   - HRCoder (1.3.1)
   - ISO8601DateFormatter (0.7)
   - OCMock (2.2.4)
@@ -44,7 +44,7 @@ DEPENDENCIES:
   - AFNetworking
   - CCLRequestReplay (from `https://github.com/neonichu/CCLRequestReplay.git`)
   - ContentfulDeliveryAPI (from `.`)
-  - FBSnapshotTestCase
+  - FBSnapshotTestCase (HEAD)
   - HRCoder
   - ISO8601DateFormatter
   - OCMock

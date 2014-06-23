@@ -11,7 +11,7 @@ end
 target "CDA Tests", :exclusive => true do
 
 pod 'CCLRequestReplay', :git => 'https://github.com/neonichu/CCLRequestReplay.git'
-pod 'FBSnapshotTestCase'
+pod 'FBSnapshotTestCase', :head
 pod 'OCMock'
 pod 'VCRURLConnection'
 
