@@ -83,6 +83,11 @@
     if (!responseObject) {
         return nil;
     }
+
+    if ([responseObject isKindOfClass:[CDAError class]]) {
+        NSAssert(false, [(CDAError*)responseObject message]);
+        return nil;
+    }
     
     NSAssert([responseObject isKindOfClass:[CDAArray class]], @"Response object needs to be an array.");
     return (CDAArray*)responseObject;
