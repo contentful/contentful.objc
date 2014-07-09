@@ -1304,7 +1304,7 @@
 						TestTargetID = A173F50A18D31151000E6F92;
 					};
 					A19FD89618C637400081677E = {
-						DevelopmentTeam = S69SHQL6RV;
+						DevelopmentTeam = RWJ5E97L7R;
 					};
 				};
 			};
