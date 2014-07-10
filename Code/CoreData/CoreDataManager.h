@@ -55,20 +55,24 @@
 /**
  *  Fetch Entries matching a predicate.
  *
- *  @param predicate A string which will be converted to a `NSPredicate`.
+ *  @param identifier   Identifier of the Content Type all Entries conform to.
+ *  @param predicate    A string which will be converted to a `NSPredicate`.
  *
  *  @return An array of all Entries matching the given predicate.
  */
--(NSArray*)fetchEntriesMatchingPredicate:(NSString*)predicate;
+-(NSArray*)fetchEntriesOfContentTypeWithIdentifier:(NSString*)identifier
+                                 matchingPredicate:(NSString*)predicate;
 
 /**
  *  Fetch request for all Entries matching a predicate.
  *
+ *  @param identifier   Identifier of the Content Type all Entries conform to.
  *  @param predicate A string which will be converted to a `NSPredicate`.
  *
  *  @return A fetch request for all Entries matching the given predicate.
  */
--(NSFetchRequest*)fetchRequestForEntriesMatchingPredicate:(NSString*)predicate;
+-(NSFetchRequest*)fetchRequestForEntriesOfContentTypeWithIdentifier:(NSString*)identifier
+                                                  matchingPredicate:(NSString*)predicate;
 
 /** @name Managed Object Context */
 

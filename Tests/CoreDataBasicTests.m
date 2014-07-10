@@ -181,7 +181,7 @@
     
     [self.coreDataManager performSynchronizationWithSuccess:^{
         XCTAssertEqual(4U, [self.coreDataManager fetchAssetsFromDataStore].count, @"");
-        XCTAssertEqual(10U, [self.coreDataManager fetchEntriesFromDataStore].count, @"");
+        XCTAssertEqual(3U, [self.coreDataManager fetchEntriesFromDataStore].count, @"");
         
         EndBlock();
     } failure:^(CDAResponse *response, NSError *error) {
@@ -200,8 +200,8 @@
     StartBlock();
     
     [self.coreDataManager performSynchronizationWithSuccess:^{
-        NSString* predicate = @"contentTypeIdentifier == 'cat'";
-        for (ManagedCat* cat in [self.coreDataManager fetchEntriesMatchingPredicate:predicate]) {
+        for (ManagedCat* cat in [self.coreDataManager fetchEntriesOfContentTypeWithIdentifier:@"cat"
+                                                                            matchingPredicate:nil]) {
             XCTAssertNotNil(cat.color, @"");
             XCTAssertNotNil(cat.name, @"");
             XCTAssert(cat.livesLeft > 0, @"");
@@ -227,7 +227,7 @@
         [self buildCoreDataManagerWithDefaultClient:YES];
         
         XCTAssertEqual(4U, [self.coreDataManager fetchAssetsFromDataStore].count, @"");
-        XCTAssertEqual(10U, [self.coreDataManager fetchEntriesFromDataStore].count, @"");
+        XCTAssertEqual(3U, [self.coreDataManager fetchEntriesFromDataStore].count, @"");
         
         ManagedCat* nyanCat = [self.coreDataManager fetchEntryWithIdentifier:@"nyancat"];
         XCTAssertNotNil(nyanCat, @"");

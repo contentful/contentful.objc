@@ -37,8 +37,9 @@ NSString* const CDASpaceKey             = @"duzidfp33ikw";
         _sharedManager = [[self alloc] initWithClient:client dataModelName:@"Doge"];
         
         _sharedManager.classForAssets = [Asset class];
-        _sharedManager.classForEntries = [Document class];
         _sharedManager.classForSpaces = [SyncInfo class];
+
+        [_sharedManager setClass:[Document class] forEntriesOfContentTypeWithIdentifier:@"1sBoLkeKjGmSeqOysqAICc"];
         
         _sharedManager.mappingForEntries = @{ @"fields.abstract": @"abstract",
                                               @"fields.title": @"title",

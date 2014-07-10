@@ -59,10 +59,13 @@
                                          inManagedObjectContext:self.managedObjectContext];
 }
 
-- (id<CDAPersistedEntry>)createPersistedEntry
+- (id<CDAPersistedEntry>)createPersistedEntryForContentTypeWithIdentifier:(NSString *)identifier
 {
-    NSParameterAssert(self.classForEntries);
-    return [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass(self.classForEntries)
+    Class entryClass = [self classForEntriesOfContentTypeWithIdentifier:identifier];
+    if (!entryClass) {
+        return nil;
+    }
+    return [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass(entryClass)
                                          inManagedObjectContext:self.managedObjectContext];
 }
 
@@ -141,10 +144,22 @@
 
 - (NSArray *)fetchEntriesMatchingPredicate:(NSString *)predicate
 {
+    NSMutableSet* allEntries = [NSMutableSet new];
+
+    for (NSString* identifier in self.identifiersOfHandledContentTypes) {
+        NSArray* entries = [self fetchEntriesOfContentTypeWithIdentifier:identifier
+                                                       matchingPredicate:predicate];
+        [allEntries addObjectsFromArray:entries];
+    }
+
+    return allEntries.allObjects;
+}
+
+- (NSArray *)fetchEntriesOfContentTypeWithIdentifier:(NSString*)identifier
+                                   matchingPredicate:(NSString *)predicate
+{
     NSError* error;
-    NSArray* entries = [self fetchEntititiesOfClass:self.classForEntries
-                                  matchingPredicate:predicate
-                                              error:&error];
+    NSArray* entries = [self fetchEntititiesOfClass:[self classForEntriesOfContentTypeWithIdentifier:identifier] matchingPredicate:predicate error:&error];
     
     if (!entries) {
         NSLog(@"Could not fetch entries: %@", error);
@@ -180,9 +195,11 @@
     return request;
 }
 
-- (NSFetchRequest *)fetchRequestForEntriesMatchingPredicate:(NSString *)predicate
+- (NSFetchRequest *)fetchRequestForEntriesOfContentTypeWithIdentifier:(NSString*)identifier
+                                                    matchingPredicate:(NSString *)predicate
 {
-    return [self fetchRequestForEntititiesOfClass:self.classForEntries matchingPredicate:predicate];
+    Class class = [self classForEntriesOfContentTypeWithIdentifier:identifier];
+    return [self fetchRequestForEntititiesOfClass:class matchingPredicate:predicate];
 }
 
 - (id<CDAPersistedSpace>)fetchSpaceFromDataStore
