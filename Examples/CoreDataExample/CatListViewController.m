@@ -35,7 +35,7 @@
         return _dataSource;
     }
     
-    NSFetchRequest* fetchRequest = [self.manager fetchRequestForEntriesMatchingPredicate:@"contentTypeIdentifier == 'cat'"];
+    NSFetchRequest* fetchRequest = [self.manager fetchRequestForEntriesOfContentTypeWithIdentifier:@"cat" matchingPredicate:nil];
     
     NSSortDescriptor *nameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
     NSSortDescriptor *colorDescriptor = [[NSSortDescriptor alloc] initWithKey:@"color" ascending:YES];
@@ -78,11 +78,11 @@
                                          dataModelName:@"CoreDataExample"];
     
     _manager.classForAssets = [Asset class];
-    _manager.classForEntries = [ManagedCat class];
     _manager.classForSpaces = [SyncInfo class];
     
-    _manager.mappingForEntries = @{ @"contentType.identifier": @"contentTypeIdentifier",
-                                    @"fields.color": @"color",
+    [_manager setClass:[ManagedCat class] forEntriesOfContentTypeWithIdentifier:@"cat"];
+    
+    _manager.mappingForEntries = @{ @"fields.color": @"color",
                                     @"fields.lives": @"livesLeft",
                                     @"fields.name": @"name",
                                     @"fields.image": @"picture" };

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="14A238x" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="14A283o" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Asset" representedClassName="Asset" syncable="YES">
         <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="internetMediaType" optional="YES" attributeType="String" syncable="YES"/>
@@ -8,7 +8,6 @@
     </entity>
     <entity name="ManagedCat" representedClassName="ManagedCat" syncable="YES">
         <attribute name="color" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="contentTypeIdentifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="livesLeft" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -20,7 +19,7 @@
     </entity>
     <elements>
         <element name="Asset" positionX="0" positionY="0" width="128" height="105"/>
-        <element name="ManagedCat" positionX="0" positionY="0" width="128" height="133"/>
+        <element name="ManagedCat" positionX="0" positionY="0" width="128" height="120"/>
         <element name="SyncInfo" positionX="0" positionY="0" width="128" height="75"/>
     </elements>
 </model>

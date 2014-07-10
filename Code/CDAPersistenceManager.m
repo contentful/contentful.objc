@@ -8,6 +8,7 @@
 
 #import <ContentfulDeliveryAPI/CDAArray.h>
 #import <ContentfulDeliveryAPI/CDAAsset.h>
+#import <ContentfulDeliveryAPI/CDAContentType.h>
 #import <ContentfulDeliveryAPI/CDASyncedSpace.h>
 
 #import "CDAEntry+Private.h"
@@ -16,6 +17,7 @@
 
 @interface CDAPersistenceManager () <CDASyncedSpaceDelegate>
 
+@property (nonatomic) NSMutableDictionary* classesForEntries;
 @property (nonatomic) CDAClient* client;
 @property (nonatomic, copy) NSDictionary* query;
 @property (nonatomic) CDASyncedSpace* syncedSpace;
@@ -33,7 +35,7 @@
         return;
     }
     
-    NSArray* resources = [[NSBundle mainBundle] pathsForResourcesOfType:@"data"
+    NSArray* resources = [[NSBundle mainBundle] pathsForResourcesOfType:nil
                                                             inDirectory:initialCacheDirectory];
     
     for (NSString* resource in resources) {
@@ -44,12 +46,16 @@
 
 #pragma mark -
 
+-(Class)classForEntriesOfContentTypeWithIdentifier:(NSString *)identifier {
+    return self.classesForEntries[identifier];
+}
+
 -(id<CDAPersistedAsset>)createPersistedAsset {
     return [self.classForAssets new];
 }
 
--(id<CDAPersistedEntry>)createPersistedEntry {
-    return [self.classForEntries new];
+-(id<CDAPersistedEntry>)createPersistedEntryForContentTypeWithIdentifier:(NSString *)identifier {
+    return [self.classesForEntries[identifier] new];
 }
 
 -(id<CDAPersistedSpace>)createPersistedSpace {
@@ -132,6 +138,10 @@
     }
 }
 
+-(NSArray *)identifiersOfHandledContentTypes {
+    return self.classesForEntries.allKeys;
+}
+
 -(id)init {
     [self doesNotRecognizeSelector:_cmd];
     return nil;
@@ -140,6 +150,7 @@
 -(id)initWithClient:(CDAClient*)client {
     self = [super init];
     if (self) {
+        self.classesForEntries = [@{} mutableCopy];
         self.client = client;
         self.mappingForEntries = @{};
     }
@@ -149,6 +160,7 @@
 -(id)initWithClient:(CDAClient *)client query:(NSDictionary *)query {
     self = [super init];
     if (self) {
+        self.classesForEntries = [@{} mutableCopy];
         self.client = client;
         self.mappingForEntries = @{};
         self.query = query;
@@ -197,8 +209,8 @@
 
 -(void)performSynchronizationWithSuccess:(void (^)())success
                                  failure:(CDARequestFailureBlock)failure {
+    NSAssert(self.classesForEntries.count > 0, @"At least one Entry class should be defined.");
     NSParameterAssert(self.classForAssets);
-    NSParameterAssert(self.classForEntries);
     NSParameterAssert(self.classForSpaces);
     NSParameterAssert(self.client);
     
@@ -261,7 +273,11 @@
 }
 
 -(id<CDAPersistedEntry>)persistedEntryForEntry:(CDAEntry*)entry {
-    id<CDAPersistedEntry> persistedEntry = [self createPersistedEntry];
+    id<CDAPersistedEntry> persistedEntry = [self createPersistedEntryForContentTypeWithIdentifier:entry.contentType.identifier];
+    if (!persistedEntry) {
+        return nil;
+    }
+
     [self updatePersistedEntry:persistedEntry withEntry:entry];
     return persistedEntry;
 }
@@ -280,6 +296,10 @@
 
 -(void)saveDataStore {
     [self doesNotRecognizeSelector:_cmd];
+}
+
+-(void)setClass:(Class)classForEntries forEntriesOfContentTypeWithIdentifier:(NSString *)identifier {
+    self.classesForEntries[identifier] = classForEntries;
 }
 
 -(CDASyncedSpace *)syncedSpace {
@@ -341,7 +361,7 @@
     id<CDAPersistedEntry> persistedEntry = [self fetchEntryWithIdentifier:entry.identifier];
     
     if (!persistedEntry) {
-        persistedEntry = [self createPersistedEntry];
+        persistedEntry = [self createPersistedEntryForContentTypeWithIdentifier:entry.contentType.identifier];
     }
     
     [self updatePersistedEntry:persistedEntry withEntry:entry];

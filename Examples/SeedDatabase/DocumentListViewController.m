@@ -35,7 +35,7 @@
         return _dataSource;
     }
     
-    NSFetchRequest* fetchRequest = [[CoreDataManager sharedManager] fetchRequestForEntriesMatchingPredicate:nil];
+    NSFetchRequest* fetchRequest = [[CoreDataManager sharedManager] fetchRequestForEntriesOfContentTypeWithIdentifier:@"1sBoLkeKjGmSeqOysqAICc" matchingPredicate:nil];
     [fetchRequest setSortDescriptors:@[ [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES] ]];
     
     NSFetchedResultsController* controller = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[CoreDataManager sharedManager].managedObjectContext sectionNameKeyPath:nil cacheName:nil];
