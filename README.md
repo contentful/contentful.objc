@@ -1,9 +1,10 @@
 # contentful.objc
 
-[![Version](http://cocoapod-badges.herokuapp.com/v/ContentfulDeliveryAPI/badge.png)](http://cocoadocs.org/docsets/ContentfulDeliveryAPI)
-[![Platform](http://cocoapod-badges.herokuapp.com/p/ContentfulDeliveryAPI/badge.png)](http://cocoadocs.org/docsets/ContentfulDeliveryAPI)
-[![Build Status](https://travis-ci.org/contentful/contentful.objc.png?branch=master)](https://travis-ci.org/contentful/contentful.objc)
-[![Coverage Status](https://coveralls.io/repos/contentful/contentful.objc/badge.png?branch=master)](https://coveralls.io/r/contentful/contentful.objc?branch=master)
+[![Version](https://img.shields.io/cocoapods/v/ContentfulDeliveryAPI.svg?style=flat)](http://cocoadocs.org/docsets/ContentfulDeliveryAPI)
+[![License](https://img.shields.io/cocoapods/l/ContentfulDeliveryAPI.svg?style=flat)](http://cocoadocs.org/docsets/ContentfulDeliveryAPI)
+[![Platform](https://img.shields.io/cocoapods/p/ContentfulDeliveryAPI.svg?style=flat)](http://cocoadocs.org/docsets/ContentfulDeliveryAPI)
+[![Build Status](http://img.shields.io/travis/contentful/contentful.objc.svg?style=flat)](https://travis-ci.org/contentful/contentful.objc)
+[![Coverage Status](https://img.shields.io/coveralls/contentful/contentful.objc.svg)](https://coveralls.io/r/contentful/contentful.objc?branch=master)
 
 Objective-C SDK for [Contentful's][1] Content Delivery API.
 
