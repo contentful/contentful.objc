@@ -371,6 +371,14 @@
         self.deepResolving = YES;
         self.requestOperationManager = [[CDARequestOperationManager alloc] initWithSpaceKey:spaceKey accessToken:accessToken client:self configuration:configuration];
         self.spaceKey = spaceKey;
+
+#ifndef DEBUG
+        if (self.configuration.previewMode) {
+            [[NSException exceptionWithName:NSInternalInconsistencyException
+                                     reason:@"You are using the preview-mode in a release-build"
+                                   userInfo:@{}] raise];
+        }
+#endif
     }
     return self;
 }
