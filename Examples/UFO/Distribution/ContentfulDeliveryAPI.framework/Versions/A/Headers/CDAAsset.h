@@ -92,7 +92,7 @@ typedef NS_ENUM(NSInteger, CDAImageFormat) {
 /** Size of the asset, if it is an image. */
 @property (nonatomic, readonly) CGSize size;
 
-/** @name Accessing Cached Data */
+/** @name Creating and Accessing Cached Data */
 
 /**
  *  Access previously cached data for an Asset.
@@ -112,5 +112,18 @@ typedef NS_ENUM(NSInteger, CDAImageFormat) {
  *  @return Cached data or `nil` if none was found.
  */
 +(NSData*)cachedDataForPersistedAsset:(id<CDAPersistedAsset>)persistedAsset client:(CDAClient*)client;
+
+/**
+ *  Cache the data of an Asset to disk.
+ *
+ *  @param persistedAsset The Asset whose cached data should be cached.
+ *  @param client         The client to use for Contentful requests.
+ *  @param forceOverwrite If `NO` and file already exists, nothing will be done.
+ *  @param handler        This block will be called after persisting the asset.
+ */
++(void)cachePersistedAsset:(id<CDAPersistedAsset>)persistedAsset
+                    client:(CDAClient*)client
+          forcingOverwrite:(BOOL)forceOverwrite
+         completionHandler:(void (^)(BOOL success))handler;
 
 @end
