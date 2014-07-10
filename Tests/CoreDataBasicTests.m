@@ -291,6 +291,51 @@
     WaitUntilBlockCompletes();
 }
 
+-(void)testImageCaching {
+    [self removeAllStubs];
+    [self buildCoreDataManagerWithDefaultClient:YES];
+
+    StartBlock();
+
+    [self.coreDataManager performSynchronizationWithSuccess:^{
+        id<CDAPersistedAsset> asset = [[[self.coreDataManager fetchAssetsFromDataStore] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"identifier == 'nyancat'"]] firstObject];
+        XCTAssertNotNil(asset, @"");
+
+        [CDAAsset cachePersistedAsset:asset
+                               client:self.coreDataManager.client
+                     forcingOverwrite:YES
+                    completionHandler:^(BOOL success) {
+                        NSURLRequest* assetRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:asset.url]];
+                        [NSURLConnection sendAsynchronousRequest:assetRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+                            XCTAssertNotNil(data, @"Error: %@", connectionError);
+
+                            [self buildCoreDataManagerWithDefaultClient:YES];
+                            CDAClient* client = [self.coreDataManager client];
+
+                            NSData* cachedData = [CDAAsset cachedDataForPersistedAsset:asset
+                                                                                client:client];
+                            UIImage* cachedImage = [UIImage imageWithData:cachedData];
+                            XCTAssertNotNil(cachedImage, @"");
+
+                            UIImage* refImage = [UIImage imageWithData:data];
+                            NSError* error;
+                            BOOL result = [self.snapshotTestController compareReferenceImage:refImage
+                                                                                     toImage:cachedImage
+                                                                                       error:&error];
+                            XCTAssertTrue(result, @"Error: %@", error);
+
+                            EndBlock();
+                        }];
+                    }];
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTFail(@"Error: %@", error);
+
+        EndBlock();
+    }];
+
+    WaitUntilBlockCompletes();
+}
+
 // FIXME: Deactivated right now as it fails on Travis
 #if 0
 -(void)testUseExistingDatabase {
