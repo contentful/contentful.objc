@@ -26,6 +26,7 @@
 @property (nonatomic) CDAContentTypeRegistry* contentTypeRegistry;
 @property (nonatomic) CDARequestOperationManager* requestOperationManager;
 @property (nonatomic) CDASpace* space;
+@property (nonatomic) NSString* spaceKey;
 
 @end
 
@@ -369,6 +370,7 @@
         self.contentTypeRegistry = [CDAContentTypeRegistry new];
         self.deepResolving = YES;
         self.requestOperationManager = [[CDARequestOperationManager alloc] initWithSpaceKey:spaceKey accessToken:accessToken client:self configuration:configuration];
+        self.spaceKey = spaceKey;
     }
     return self;
 }

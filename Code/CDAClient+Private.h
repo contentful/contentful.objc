@@ -28,5 +28,6 @@
 -(CDAArray*)fetchContentTypesMatching:(NSDictionary*)query synchronouslyWithError:(NSError**)error;
 -(CDAArray*)fetchEntriesMatching:(NSDictionary*)query synchronouslyWithError:(NSError**)error;
 -(CDASpace*)space;
+-(NSString*)spaceKey;
 
 @end
