@@ -44,7 +44,7 @@ NSString* CDACacheDirectory() {
 NSString* CDACacheFileNameForQuery(CDAClient* client, CDAResourceType resourceType, NSDictionary* query) {
     NSString* queryAsString = CDASquashWhitespacesInString([query description]);
     NSString* fileName = [NSString stringWithFormat:@"cache_%@_%d_%@.data",
-                          client.space.identifier, (int)resourceType, queryAsString ?: @"all"];
+                          client.spaceKey, (int)resourceType, queryAsString ?: @"all"];
     
     return [CDACacheDirectory() stringByAppendingPathComponent:fileName];
 }
@@ -56,7 +56,7 @@ NSString* CDACacheFileNameForResource(CDAResource* resource) {
     }
     
     NSString* fileName = [NSString stringWithFormat:@"cache_%@_%@_%@.%@",
-                          resource.client.space.identifier, resource.sys[@"type"],
+                          resource.client.spaceKey, resource.sys[@"type"],
                           resource.identifier, pathExtension];
     return [CDACacheDirectory() stringByAppendingPathComponent:fileName];
 }
