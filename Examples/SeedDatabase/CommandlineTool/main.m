@@ -12,7 +12,6 @@
 #import "CoreDataManager+SeedDB.h"
 
 extern NSString* CDACacheDirectory();
-extern NSString* const CDASpaceKey;
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -20,24 +19,26 @@ int main(int argc, const char * argv[]) {
         
         CoreDataManager* manager = [CoreDataManager sharedManager];
         [manager performSynchronizationWithSuccess:^{
-            for (id<CDAPersistedAsset> asset in [manager fetchAssetsFromDataStore]) {
-                NSString* fileName = [NSString stringWithFormat:@"cache_%@_Asset_%@.data",
-                                      CDASpaceKey, asset.identifier];
-                fileName = [CDACacheDirectory() stringByAppendingPathComponent:fileName];
-                
-                if ([[NSFileManager defaultManager] fileExistsAtPath:fileName]) {
-                    continue;
-                }
-                
-                NSLog(@"Fetching asset from %@", asset.url);
-                NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:asset.url]];
-                [data writeToFile:fileName atomically:YES];
-            }
-            
-            NSLog(@"Successfully generated your seed database at '%@'", manager.storeURL.path);
-            NSLog(@"Assets are stored at '%@'", CDACacheDirectory());
-            
-            [NSApp terminate:nil];
+            NSArray* assets = [manager fetchAssetsFromDataStore];
+
+            [assets enumerateObjectsUsingBlock:^(id<CDAPersistedAsset> asset,
+                                                 NSUInteger idx,
+                                                 BOOL *stop) {
+                [CDAAsset cachePersistedAsset:asset
+                                       client:manager.client
+                             forcingOverwrite:NO
+                            completionHandler:^(BOOL success) {
+                                NSLog(@"Fetched asset from %@", asset.url);
+
+                                if (idx == assets.count - 1) {
+                                    NSLog(@"Successfully generated your seed database at '%@'",
+                                          manager.storeURL.path);
+                                    NSLog(@"Assets are stored at '%@'", CDACacheDirectory());
+
+                                    [NSApp terminate:nil];
+                                }
+                            }];
+            }];
         } failure:^(CDAResponse *response, NSError *error) {
             NSLog(@"Error: %@", error);
             
