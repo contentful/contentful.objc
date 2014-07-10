@@ -60,6 +60,14 @@ const CGFloat CDAImageQualityOriginal = 0.0;
     return [self cachedDataForAsset:[self assetFromPersistedAsset:persistedAsset client:client]];
 }
 
++(void)cachePersistedAsset:(id<CDAPersistedAsset>)persistedAsset
+                    client:(CDAClient*)client
+          forcingOverwrite:(BOOL)forceOverwrite
+         completionHandler:(void (^)(BOOL success))handler {
+    CDAAsset* asset = [self assetFromPersistedAsset:persistedAsset client:client];
+    [asset cacheAssetForcingOverwrite:forceOverwrite completionHandler:handler];
+}
+
 +(NSString *)CDAType {
     return @"Asset";
 }
@@ -72,6 +80,36 @@ const CGFloat CDAImageQualityOriginal = 0.0;
 }
 
 #pragma mark -
+
+-(void)cacheAssetForcingOverwrite:(BOOL)forceOverwrite
+                completionHandler:(void (^)(BOOL success))handler {
+    NSString* fileName = CDACacheFileNameForResource(self);
+
+    if ([[NSFileManager defaultManager] fileExistsAtPath:fileName] && !forceOverwrite) {
+        if (handler) {
+            handler(NO);
+        }
+        return;
+    }
+
+    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:self.URL]
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                               if (!data) {
+                                   if (handler) {
+                                       handler(NO);
+                                   }
+
+                                   return;
+                               }
+
+                               [data writeToFile:fileName atomically:YES];
+
+                               if (handler) {
+                                   handler(YES);
+                               }
+                           }];
+}
 
 -(NSString *)description {
     return [NSString stringWithFormat:@"CDAAsset of type %@ at URL %@", self.MIMEType, self.URL];
