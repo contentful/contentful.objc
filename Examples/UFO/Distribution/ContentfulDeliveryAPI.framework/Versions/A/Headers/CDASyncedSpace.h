@@ -141,10 +141,7 @@
  *  so the main use case is receiving updates via the `delegate`. In contrast to regular synchronized
  *  Spaces, a shallow one will also only return shallow Assets from the `syncedSpace:didDeleteAsset:`
  *  and shallow Entries from `syncedSpace:didDeleteEntry:`. Shallow resources will only have a value
- *  for the `identifier` property and no Field values. Also be aware of the fact that a shallow
- *  synchronized Space will report resources which were unpublished and later published again as an
- *  update, not a create via the delegate, use your own local state to decide if an update you
- *  receive is actually a create.
+ *  for the `identifier` property and no Field values.
  *
  *  @param syncToken The synchronization token, retrieve earlier from the `syncToken` property.
  *  @param client    The client instance used for fetching Resources. It needs to be associated to the
