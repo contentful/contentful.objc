@@ -81,11 +81,11 @@
     _manager.classForSpaces = [SyncInfo class];
     
     [_manager setClass:[ManagedCat class] forEntriesOfContentTypeWithIdentifier:@"cat"];
-    
-    _manager.mappingForEntries = @{ @"fields.color": @"color",
-                                    @"fields.lives": @"livesLeft",
-                                    @"fields.name": @"name",
-                                    @"fields.image": @"picture" };
+    [_manager setMapping: @{ @"fields.color": @"color",
+                             @"fields.lives": @"livesLeft",
+                             @"fields.name": @"name",
+                             @"fields.image": @"picture" } forEntriesOfContentTypeWithIdentifier:@"cat"];
+
     return _manager;
 }
 

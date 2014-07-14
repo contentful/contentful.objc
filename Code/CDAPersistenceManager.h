@@ -84,11 +84,23 @@
 
 /** @name Mapping Fields to Properties */
 
-/** 
- A mapping between the properties of persistent Resources and the Fields of Resources retrieved
- from Contentful.
+/**
+ Get the mapping between the properties of persistent Resources and the Fields of Resources
+ retrieved from Contentful.
+ 
+ @param identifier Identifier of the Content Type in question.
+ @return The defined mapping for Fields of Entries of the given Content Type.
  */
-@property (nonatomic) NSDictionary* mappingForEntries;
+-(NSDictionary*)mappingForEntriesOfContentTypeWithIdentifier:(NSString*)identifier;
+
+/**
+ *  Set the mapping between the properties of persistent Resources and the Fields of Resources
+ *  retrieved from Contentful.
+ *
+ *  @param mapping    The mapping for Fields of Entries of the given Content Type.
+ *  @param identifier Identifier of the Content Type in question.
+ */
+-(void)setMapping:(NSDictionary*)mapping forEntriesOfContentTypeWithIdentifier:(NSString*)identifier;
 
 /** @name Interact with the Data Store. */
 
