@@ -41,10 +41,10 @@ NSString* const CDASpaceKey             = @"duzidfp33ikw";
 
         [_sharedManager setClass:[Document class] forEntriesOfContentTypeWithIdentifier:@"1sBoLkeKjGmSeqOysqAICc"];
         
-        _sharedManager.mappingForEntries = @{ @"fields.abstract": @"abstract",
-                                              @"fields.title": @"title",
-                                              @"fields.document": @"document",
-                                              @"fields.thumbnail": @"thumbnail" };
+        [_sharedManager setMapping:@{ @"fields.abstract": @"abstract",
+                                      @"fields.title": @"title",
+                                      @"fields.document": @"document",
+                                      @"fields.thumbnail": @"thumbnail" } forEntriesOfContentTypeWithIdentifier:@"1sBoLkeKjGmSeqOysqAICc"];
     });
     
     return _sharedManager;

@@ -7,6 +7,7 @@
 //
 
 #import <ContentfulDeliveryAPI/CDAAsset.h>
+#import <ContentfulDeliveryAPI/CDAContentType.h>
 #import <ContentfulDeliveryAPI/CDAEntry.h>
 #import <CoreData/CoreData.h>
 
@@ -300,7 +301,8 @@
     NSMutableDictionary* relationships = [@{} mutableCopy];
     
     for (NSString* relationshipName in [entityDescription relationshipsByName].allKeys) {
-        NSString* entryKeyPath = [[self.mappingForEntries allKeysForObject:relationshipName] firstObject];
+        NSDictionary* mappingForEntries = [self mappingForEntriesOfContentTypeWithIdentifier:entry.contentType.identifier];
+        NSString* entryKeyPath = [[mappingForEntries allKeysForObject:relationshipName] firstObject];
         
         CDAResource* resource = [entry valueForKeyPath:entryKeyPath];
         if (resource) {

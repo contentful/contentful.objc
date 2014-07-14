@@ -19,6 +19,7 @@
 
 @property (nonatomic) NSMutableDictionary* classesForEntries;
 @property (nonatomic) CDAClient* client;
+@property (nonatomic) NSMutableDictionary* mappingForEntries;
 @property (nonatomic, copy) NSDictionary* query;
 @property (nonatomic) CDASyncedSpace* syncedSpace;
 
@@ -152,7 +153,7 @@
     if (self) {
         self.classesForEntries = [@{} mutableCopy];
         self.client = client;
-        self.mappingForEntries = @{};
+        self.mappingForEntries = [@{} mutableCopy];
     }
     return self;
 }
@@ -162,10 +163,14 @@
     if (self) {
         self.classesForEntries = [@{} mutableCopy];
         self.client = client;
-        self.mappingForEntries = @{};
+        self.mappingForEntries = [@{} mutableCopy];
         self.query = query;
     }
     return self;
+}
+
+-(NSDictionary *)mappingForEntriesOfContentTypeWithIdentifier:(NSString *)identifier {
+    return self.mappingForEntries[identifier];
 }
 
 -(void)performInitalSynchronizationForQueryWithSuccess:(void (^)())success
@@ -302,6 +307,10 @@
     self.classesForEntries[identifier] = classForEntries;
 }
 
+-(void)setMapping:(NSDictionary *)mapping forEntriesOfContentTypeWithIdentifier:(NSString *)identifier {
+    self.mappingForEntries[identifier] = mapping;
+}
+
 -(CDASyncedSpace *)syncedSpace {
     if (!_syncedSpace) {
         id<CDAPersistedSpace> persistedSpace = [self fetchSpaceFromDataStore];
@@ -325,7 +334,8 @@
 }
 
 -(void)updatePersistedEntry:(id<CDAPersistedEntry>)persistedEntry withEntry:(CDAEntry*)entry {
-    [entry mapFieldsToObject:persistedEntry usingMapping:self.mappingForEntries];
+    NSDictionary* mappingForEntries = [self mappingForEntriesOfContentTypeWithIdentifier:entry.contentType.identifier];
+    [entry mapFieldsToObject:persistedEntry usingMapping:mappingForEntries];
     persistedEntry.identifier = entry.identifier;
 }
 

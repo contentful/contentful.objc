@@ -46,12 +46,10 @@
     self.coreDataManager.classForAssets = [Asset class];
     self.coreDataManager.classForSpaces = [SyncInfo class];
 
+    NSArray* contentTypeIds = @[ @"1nGOrvlRTaMcyyq4IEa8ea", @"6bAvxqodl6s4MoKuWYkmqe",
+                                 @"6PnRGY1dxSUmaQ2Yq2Ege2", @"cat" ];
+
     Class c = [ManagedCat class];
-    [self.coreDataManager setClass:c forEntriesOfContentTypeWithIdentifier:@"1nGOrvlRTaMcyyq4IEa8ea"];
-    [self.coreDataManager setClass:c forEntriesOfContentTypeWithIdentifier:@"6bAvxqodl6s4MoKuWYkmqe"];
-    [self.coreDataManager setClass:c forEntriesOfContentTypeWithIdentifier:@"6PnRGY1dxSUmaQ2Yq2Ege2"];
-    [self.coreDataManager setClass:c forEntriesOfContentTypeWithIdentifier:@"cat"];
-    
     NSMutableDictionary* mapping = [@{ @"fields.color": @"color",
                                        @"fields.lives": @"livesLeft",
                                        @"fields.image": @"picture" } mutableCopy];
@@ -61,8 +59,11 @@
     } else {
         mapping[@"fields.title"] = @"name";
     }
-    
-    self.coreDataManager.mappingForEntries = mapping;
+
+    for (NSString* contentTypeId in contentTypeIds) {
+        [self.coreDataManager setClass:c forEntriesOfContentTypeWithIdentifier:contentTypeId];
+        [self.coreDataManager setMapping:mapping forEntriesOfContentTypeWithIdentifier:contentTypeId];
+    }
 }
 
 -(void)setUp {
