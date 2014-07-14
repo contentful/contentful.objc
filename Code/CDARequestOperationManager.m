@@ -173,10 +173,12 @@
           accessToken:(NSString *)accessToken
                client:(CDAClient*)client
         configuration:(CDAConfiguration*)configuration {
-    NSURL* baseURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@/spaces/%@",
-                                           client.protocol, configuration.server, spaceKey]];
-    
-    self = [super initWithBaseURL:baseURL];
+    NSString* urlString = [NSString stringWithFormat:@"%@://%@", client.protocol, configuration.server];
+    if (spaceKey) {
+        urlString = [urlString stringByAppendingFormat:@"/spaces/%@", spaceKey];
+    }
+
+    self = [super initWithBaseURL:[NSURL URLWithString:urlString]];
     if (self) {
         self.accessToken = accessToken;
         self.responseSerializer = [[CDAResponseSerializer alloc] initWithClient:client];
