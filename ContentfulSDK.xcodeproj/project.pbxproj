@@ -169,6 +169,7 @@
 		A1A2CEA3190A656B00B8D46D /* Doge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A1A2CE571909687400B8D46D /* Doge.xcdatamodeld */; };
 		A1A2CEA6190A659600B8D46D /* DocumentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A2CEA5190A659600B8D46D /* DocumentTableViewCell.m */; };
 		A1A2CEA9190A67A100B8D46D /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A2CEA8190A67A100B8D46D /* WebViewController.m */; };
+		A1AB590A1974069E00098F87 /* CoreDataMultipleContentTypesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1AB59091974069E00098F87 /* CoreDataMultipleContentTypesTests.m */; };
 		A1ABC7BC191D12ED0020A964 /* CDAInputSanitizer.h in Headers */ = {isa = PBXBuildFile; fileRef = A1ABC7BA191D12ED0020A964 /* CDAInputSanitizer.h */; };
 		A1ABC7BD191D12ED0020A964 /* CDAInputSanitizer.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ABC7BB191D12ED0020A964 /* CDAInputSanitizer.m */; };
 		A1B8158418F2A8090027B26D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD86A18C631E60081677E /* Foundation.framework */; };
@@ -448,6 +449,7 @@
 		A1A2CEA5190A659600B8D46D /* DocumentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentTableViewCell.m; sourceTree = "<group>"; };
 		A1A2CEA7190A67A100B8D46D /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		A1A2CEA8190A67A100B8D46D /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		A1AB59091974069E00098F87 /* CoreDataMultipleContentTypesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataMultipleContentTypesTests.m; sourceTree = "<group>"; };
 		A1ABC7BA191D12ED0020A964 /* CDAInputSanitizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAInputSanitizer.h; sourceTree = "<group>"; };
 		A1ABC7BB191D12ED0020A964 /* CDAInputSanitizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAInputSanitizer.m; sourceTree = "<group>"; };
 		A1B8158318F2A8090027B26D /* CoreDataExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -615,6 +617,7 @@
 				A1A1CCBF190FAE5B00BE37EB /* QuerySync */,
 				A1F70C9A18FFDE030080C72C /* CoreDataBasicTests.json */,
 				A170130A18FD30A50086BE07 /* CoreDataBasicTests.m */,
+				A1AB59091974069E00098F87 /* CoreDataMultipleContentTypesTests.m */,
 				A1A1CCB8190E960800BE37EB /* CoreDataQuerySyncTests.json */,
 				A1A1CCB1190E382E00BE37EB /* CoreDataQuerySyncTests.m */,
 			);
@@ -1739,6 +1742,7 @@
 				A1B815CA18F588D70027B26D /* LinkedAssetSyncTest.m in Sources */,
 				A1C8DCD318E098E80019A519 /* LinkTests.m in Sources */,
 				A170130F18FD47B70086BE07 /* CoreDataExample.xcdatamodeld in Sources */,
+				A1AB590A1974069E00098F87 /* CoreDataMultipleContentTypesTests.m in Sources */,
 				A18AA86418E5DB1A00D430D5 /* UtilityTests.m in Sources */,
 				A170130C18FD31320086BE07 /* CoreDataManager.m in Sources */,
 				A1A1CCB4190E387B00BE37EB /* CoreDataBaseTestCase.m in Sources */,
