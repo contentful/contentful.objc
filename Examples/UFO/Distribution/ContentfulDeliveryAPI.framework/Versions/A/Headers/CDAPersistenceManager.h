@@ -60,16 +60,47 @@
 @property (nonatomic) Class classForAssets;
 /** Class to be used for any persisted Spaces. */
 @property (nonatomic) Class classForSpaces;
-/** Class to be used for any persisted Entries. */
-@property (nonatomic) Class classForEntries;
+
+/**
+ *  Class used for persisted Entries of a certain Content Type.
+ *
+ *  @param identifier Identifier of the Content Type.
+ *
+ *  @return Class to be used for Entries of that Content Type.
+ */
+-(Class)classForEntriesOfContentTypeWithIdentifier:(NSString*)identifier;
+
+/** List of identifiers of all Content Types for which a class was defined. */
+@property (nonatomic, readonly) NSArray* identifiersOfHandledContentTypes;
+
+/**
+ *  Class to be used for persisted Entries of a certain Content Type. Entries for which no class was
+ *  defined will not be persisted to the data store.
+ *
+ *  @param classForEntries Class to be used for Entries of the given Content Type.
+ *  @param identifier      Identifier of the Content Type.
+ */
+-(void)setClass:(Class)classForEntries forEntriesOfContentTypeWithIdentifier:(NSString*)identifier;
 
 /** @name Mapping Fields to Properties */
 
-/** 
- A mapping between the properties of persistent Resources and the Fields of Resources retrieved
- from Contentful.
+/**
+ Get the mapping between the properties of persistent Resources and the Fields of Resources
+ retrieved from Contentful.
+ 
+ @param identifier Identifier of the Content Type in question.
+ @return The defined mapping for Fields of Entries of the given Content Type.
  */
-@property (nonatomic) NSDictionary* mappingForEntries;
+-(NSDictionary*)mappingForEntriesOfContentTypeWithIdentifier:(NSString*)identifier;
+
+/**
+ *  Set the mapping between the properties of persistent Resources and the Fields of Resources
+ *  retrieved from Contentful.
+ *
+ *  @param mapping    The mapping for Fields of Entries of the given Content Type.
+ *  @param identifier Identifier of the Content Type in question.
+ */
+-(void)setMapping:(NSDictionary*)mapping forEntriesOfContentTypeWithIdentifier:(NSString*)identifier;
 
 /** @name Interact with the Data Store. */
 
@@ -83,9 +114,10 @@
 /**
  *  Override this method in subclasses if Entry instances cannot be created with +new.
  *
+ *  @param identifier Identifier of the Content Type of the new Entry.
  *  @return A new persisted Entry.
  */
--(id<CDAPersistedEntry>)createPersistedEntry;
+-(id<CDAPersistedEntry>)createPersistedEntryForContentTypeWithIdentifier:(NSString*)identifier;
 
 /**
  *  Override this method in subclasses if Space instances cannot be created with +new.
