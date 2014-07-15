@@ -334,6 +334,9 @@
 }
 
 -(void)updatePersistedEntry:(id<CDAPersistedEntry>)persistedEntry withEntry:(CDAEntry*)entry {
+    NSAssert([persistedEntry conformsToProtocol:@protocol(CDAPersistedEntry)],
+             @"%@ does not conform to CDAPersistedEntry protocol.", persistedEntry);
+    
     NSDictionary* mappingForEntries = [self mappingForEntriesOfContentTypeWithIdentifier:entry.contentType.identifier];
     [entry mapFieldsToObject:persistedEntry usingMapping:mappingForEntries];
     persistedEntry.identifier = entry.identifier;
