@@ -29,17 +29,16 @@ static-lib:
 	@sed -i '' -e 's/GCC_GENERATE_TEST_COVERAGE_FILES = YES/GCC_GENERATE_TEST_COVERAGE_FILES = NO/g' ContentfulSDK.xcodeproj/project.pbxproj
 	@sed -i '' -e 's/GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES/GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = NO/g' ContentfulSDK.xcodeproj/project.pbxproj
 
-	set -o pipefail && xcodebuild VALID_ARCHS='i386 x86_64 armv7 armv7s arm64' -workspace $(WORKSPACE) \
-		-scheme Pods-ContentfulDeliveryAPI \
-		-sdk iphonesimulator | xcpretty -c
-	set -o pipefail && xcodebuild VALID_ARCHS='i386 x86_64 armv7 armv7s arm64' -workspace $(WORKSPACE) \
-  	-scheme 'Static Framework' | xcpretty -c
+	pod package ContentfulDeliveryAPI.podspec
 
 	@cd Examples/UFO/Distribution; ./update.sh
 	cd Examples; ./ship_it.sh
 
 	@sed -i '' -e 's/GCC_GENERATE_TEST_COVERAGE_FILES = NO/GCC_GENERATE_TEST_COVERAGE_FILES = YES/g' ContentfulSDK.xcodeproj/project.pbxproj
 	@sed -i '' -e 's/GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = NO/GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES/g' ContentfulSDK.xcodeproj/project.pbxproj
+
+	rm -rf ContentfulDeliveryAPI-*.framework/
+	git checkout -- Pods/ Podfile.lock ContentfulDeliveryAPI.podspec
 
 test: example
 	pod lib testing
