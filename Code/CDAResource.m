@@ -75,7 +75,7 @@
     
     for (Class subclass in [self subclasses]) {
         // Avoid clashes with custom subclasses the user created
-        if (![NSStringFromClass(subclass) hasPrefix:@"CDA"]) {
+        if (![NSStringFromClass(subclass) hasPrefix:client.resourceClassPrefix]) {
             continue;
         }
         
