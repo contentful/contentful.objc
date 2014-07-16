@@ -379,9 +379,9 @@
         self.configuration = configuration;
         self.contentTypeRegistry = [CDAContentTypeRegistry new];
         self.deepResolving = YES;
+        self.spaceKey = spaceKey;
         self.requestOperationManager = [[CDARequestOperationManager alloc] initWithSpaceKey:spaceKey accessToken:accessToken client:self configuration:configuration];
         self.resourceClassPrefix = @"CDA";
-        self.spaceKey = spaceKey;
 
 #ifndef DEBUG
         if (self.configuration.previewMode) {
