@@ -39,40 +39,19 @@
 }
 
 -(CDARequest*)fetchArrayAtURLPath:(NSString*)URLPath
-                parameters:(NSDictionary*)parameters
-                   success:(CDAArrayFetchedBlock)success
-                   failure:(CDARequestFailureBlock)failure {
-    AFHTTPRequestOperation* operation = [self GET:URLPath parameters:parameters
-      success:^(AFHTTPRequestOperation *operation, id responseObject) {
-          if (!responseObject) {
-              if (failure) {
-                  failure([CDAResponse responseWithHTTPURLResponse:operation.response], [NSError errorWithDomain:NSURLErrorDomain code:kCFURLErrorZeroByteResource userInfo:nil]);
-              }
-              
-              return;
-          }
-          
-          if (success) {
-              NSAssert([responseObject isKindOfClass:[CDAArray class]],
-                       @"Response object needs to be an array.");
-              [(CDAArray*)responseObject setQuery:parameters ?: @{}];
-              success([CDAResponse responseWithHTTPURLResponse:operation.response], responseObject);
-          }
-      }
-      failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-          if (failure) {
-              if ([operation.responseObject isKindOfClass:[CDAError class]]) {
-                  error = [operation.responseObject errorRepresentationWithCode:operation.response.statusCode];
-              }
-              
-              failure([CDAResponse responseWithHTTPURLResponse:operation.response], error);
-          }
-      }];
-    
-    CDAClient* client = [(CDAResponseSerializer*)self.responseSerializer client];
-    objc_setAssociatedObject(operation, "client", client, OBJC_ASSOCIATION_RETAIN);
-    
-    return [[CDARequest alloc] initWithRequestOperation:operation];
+                       parameters:(NSDictionary*)parameters
+                          success:(CDAArrayFetchedBlock)success
+                          failure:(CDARequestFailureBlock)failure {
+    return [self fetchURLPath:URLPath
+                   parameters:parameters
+                      success:^(CDAResponse *response, id responseObject) {
+                          if (success) {
+                              NSAssert([responseObject isKindOfClass:[CDAArray class]],
+                                       @"Response object needs to be an array.");
+                              [(CDAArray*)responseObject setQuery:parameters ?: @{}];
+                              success(response, responseObject);
+                          }
+                      } failure:failure];
 }
 
 -(CDAArray*)fetchArraySynchronouslyAtURLPath:(NSString*)URLPath
@@ -95,7 +74,20 @@
 
 -(CDARequest*)fetchSpaceWithSuccess:(CDASpaceFetchedBlock)success
                             failure:(CDARequestFailureBlock)failure {
-    AFHTTPRequestOperation* operation = [self GET:@"" parameters:nil
+    return [self fetchURLPath:@""
+                   parameters:nil
+                      success:^(CDAResponse *response, id responseObject) {
+                          NSAssert([responseObject isKindOfClass:[CDASpace class]],
+                                   @"Response object needs to be a space.");
+                          success(response, responseObject);
+                      } failure:failure];
+}
+
+-(CDARequest*)fetchURLPath:(NSString*)URLPath
+                parameters:(NSDictionary*)parameters
+                   success:(CDAObjectFetchedBlock)success
+                   failure:(CDARequestFailureBlock)failure {
+    AFHTTPRequestOperation* operation = [self GET:URLPath parameters:parameters
       success:^(AFHTTPRequestOperation *operation, id responseObject) {
           if (!responseObject) {
               if (failure) {
@@ -106,8 +98,6 @@
           }
           
           if (success) {
-              NSAssert([responseObject isKindOfClass:[CDASpace class]],
-                       @"Response object needs to be a space.");
               success([CDAResponse responseWithHTTPURLResponse:operation.response], responseObject);
           }
       } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

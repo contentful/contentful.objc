@@ -22,6 +22,10 @@
                                        error:(NSError **)error;
 -(CDARequest*)fetchSpaceWithSuccess:(CDASpaceFetchedBlock)success
                             failure:(CDARequestFailureBlock)failure;
+-(CDARequest*)fetchURLPath:(NSString*)URLPath
+                parameters:(NSDictionary*)parameters
+                   success:(CDAObjectFetchedBlock)success
+                   failure:(CDARequestFailureBlock)failure;
 -(id)initWithSpaceKey:(NSString *)spaceKey
           accessToken:(NSString *)accessToken
                client:(CDAClient*)client

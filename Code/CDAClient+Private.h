@@ -28,6 +28,10 @@
 -(CDAArray*)fetchAssetsMatching:(NSDictionary*)query synchronouslyWithError:(NSError**)error;
 -(CDAArray*)fetchContentTypesMatching:(NSDictionary*)query synchronouslyWithError:(NSError**)error;
 -(CDAArray*)fetchEntriesMatching:(NSDictionary*)query synchronouslyWithError:(NSError**)error;
+-(CDARequest*)fetchURLPath:(NSString*)URLPath
+                parameters:(NSDictionary*)parameters
+                   success:(CDAObjectFetchedBlock)success
+                   failure:(CDARequestFailureBlock)failure;
 -(CDASpace*)space;
 -(NSString*)spaceKey;
 
