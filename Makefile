@@ -37,8 +37,7 @@ static-lib:
 	@sed -i '' -e 's/GCC_GENERATE_TEST_COVERAGE_FILES = NO/GCC_GENERATE_TEST_COVERAGE_FILES = YES/g' ContentfulSDK.xcodeproj/project.pbxproj
 	@sed -i '' -e 's/GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = NO/GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES/g' ContentfulSDK.xcodeproj/project.pbxproj
 
-	rm -rf ContentfulDeliveryAPI-*.framework/
-	git checkout -- Pods/ Podfile.lock ContentfulDeliveryAPI.podspec
+	rm -rf ContentfulDeliveryAPI-*/
 
 test: example
 	pod lib testing
