@@ -32,6 +32,7 @@ typedef void(^CDAArrayFetchedBlock)(CDAResponse* response, CDAArray* array);
 typedef void(^CDAAssetFetchedBlock)(CDAResponse* response, CDAAsset* asset);
 typedef void(^CDAContentTypeFetchedBlock)(CDAResponse* response, CDAContentType* contentType);
 typedef void(^CDAEntryFetchedBlock)(CDAResponse* response, CDAEntry* entry);
+typedef void(^CDAObjectFetchedBlock)(CDAResponse* response, id responseObject);
 typedef void(^CDARequestFailureBlock)(CDAResponse* response, NSError* error);
 typedef void(^CDASpaceFetchedBlock)(CDAResponse* response, CDASpace* space);
 typedef void(^CDASyncedSpaceFetchedBlock)(CDAResponse* response, CDASyncedSpace* space);

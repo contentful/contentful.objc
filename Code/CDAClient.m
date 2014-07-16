@@ -260,6 +260,16 @@
     } failure:failure];
 }
 
+-(CDARequest *)fetchURLPath:(NSString *)URLPath
+                 parameters:(NSDictionary *)parameters
+                    success:(CDAObjectFetchedBlock)success
+                    failure:(CDARequestFailureBlock)failure {
+    return [self.requestOperationManager fetchURLPath:URLPath
+                                           parameters:parameters
+                                              success:success
+                                              failure:failure];
+}
+
 -(CDARequest*)initialSynchronizationWithSuccess:(CDASyncedSpaceFetchedBlock)success
                                         failure:(CDARequestFailureBlock)failure {
     return [self initialSynchronizationMatching:nil success:success failure:failure];
