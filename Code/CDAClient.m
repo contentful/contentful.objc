@@ -74,7 +74,7 @@
                        parameters:(NSDictionary *)parameters
                           success:(CDAArrayFetchedBlock)success
                           failure:(CDARequestFailureBlock)failure {
-    if (self.space) {
+    if (self.space || !self.spaceKey) {
         return [self.requestOperationManager fetchArrayAtURLPath:URLPath
                                                       parameters:parameters
                                                          success:success
