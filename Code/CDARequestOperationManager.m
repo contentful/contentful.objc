@@ -18,6 +18,7 @@
 #import "CDAError.h"
 #import "CDARequest+Private.h"
 #import "CDARequestOperationManager.h"
+#import "CDARequestSerializer.h"
 #import "CDAResponse+Private.h"
 #import "CDAResponseSerializer.h"
 #import "CDASpace.h"
@@ -171,18 +172,13 @@
     self = [super initWithBaseURL:[NSURL URLWithString:urlString]];
     if (self) {
         self.accessToken = accessToken;
+        self.requestSerializer = [CDARequestSerializer new];
         self.responseSerializer = [[CDAResponseSerializer alloc] initWithClient:client];
         
         self.dateFormatter = [NSDateFormatter new];
         NSLocale *posixLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
         [self.dateFormatter setLocale:posixLocale];
         [self.dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
-        
-        NSString* userAgent = self.requestSerializer.HTTPRequestHeaders[@"User-Agent"];
-        userAgent = [userAgent stringByReplacingOccurrencesOfString:@"(null)" withString:@""];
-        NSRange bracketRange = [userAgent rangeOfString:@"("];
-        [self.requestSerializer setValue:[userAgent stringByReplacingCharactersInRange:NSMakeRange(0, bracketRange.location - 1) withString:@"contentful.objc/1.3.0"]
-                      forHTTPHeaderField:@"User-Agent"];
         
 #if TARGET_OS_IPHONE
         [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
