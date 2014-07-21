@@ -10,9 +10,11 @@
 
 @implementation CDARequestSerializer
 
--(id)init {
+-(id)initWithAccessToken:(NSString*)accessToken {
     self = [super init];
     if (self) {
+        [self setValue:[@"Bearer " stringByAppendingString:accessToken] forHTTPHeaderField:@"Authorization"];
+
         NSString* userAgent = self.HTTPRequestHeaders[@"User-Agent"];
         userAgent = [userAgent stringByReplacingOccurrencesOfString:@"(null)" withString:@""];
         NSRange bracketRange = [userAgent rangeOfString:@"("];

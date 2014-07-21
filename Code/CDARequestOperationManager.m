@@ -25,7 +25,6 @@
 
 @interface CDARequestOperationManager ()
 
-@property (nonatomic) NSString* accessToken;
 @property (nonatomic) NSDateFormatter* dateFormatter;
 
 @end
@@ -137,7 +136,6 @@
 
 -(NSDictionary*)fixParametersInDictionary:(NSDictionary*)parameters {
     NSMutableDictionary* mutableParameters = [NSMutableDictionary dictionaryWithDictionary:parameters];
-    mutableParameters[@"access_token"] = self.accessToken;
     
     [parameters enumerateKeysAndObjectsUsingBlock:^(NSString* key, id value, BOOL *stop) {
         if ([value isKindOfClass:[NSArray class]]) {
@@ -149,7 +147,7 @@
         }
     }];
     
-    return [mutableParameters copy];
+    return mutableParameters.count == 0 ? nil : [mutableParameters copy];
 }
 
 -(AFHTTPRequestOperation *)GET:(NSString *)URLString
@@ -171,8 +169,7 @@
 
     self = [super initWithBaseURL:[NSURL URLWithString:urlString]];
     if (self) {
-        self.accessToken = accessToken;
-        self.requestSerializer = [CDARequestSerializer new];
+        self.requestSerializer = [[CDARequestSerializer alloc] initWithAccessToken:accessToken];
         self.responseSerializer = [[CDAResponseSerializer alloc] initWithClient:client];
         
         self.dateFormatter = [NSDateFormatter new];
