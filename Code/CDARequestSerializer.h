@@ -10,4 +10,6 @@
 
 @interface CDARequestSerializer : AFJSONRequestSerializer
 
+-(id)initWithAccessToken:(NSString*)accessToken;
+
 @end

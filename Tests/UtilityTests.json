@@ -25,6 +25,6 @@
     },
     "method" : "GET",
     "status" : 200,
-    "uri" : "https:\/\/cdn.contentful.com\/spaces\/cfexampleapi\/?access_token=b4c0n73n7fu1"
+    "uri" : "https:\/\/cdn.contentful.com\/spaces\/cfexampleapi\/"
   }
 ]
