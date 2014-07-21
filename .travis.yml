@@ -6,7 +6,7 @@ before_install:
 - gem install --no-rdoc --no-ri travis-artifacts || true
 - gem install cocoapods xcpretty cocoapods-testing
 - brew update
-- brew install pyenv
+- brew install pyenv || true
 - eval "$(pyenv init -)"
 - pyenv install 2.7.6
 - pyenv global 2.7.6
