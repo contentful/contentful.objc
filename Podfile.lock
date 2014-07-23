@@ -60,7 +60,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: 47947303319594706f48a55185ea95a95159ab94
   CCLRequestReplay: 53ac44276845cd49bddc0050e7e8f76b8a028ea4
-  ContentfulDeliveryAPI: 09ee609af7cc08e0a158afd516a9e3e2885122aa
+  ContentfulDeliveryAPI: 45a6854af74a9bd7b06c0842be83e97f9b1ecd7f
   FBSnapshotTestCase: 9053afee1d66b4c7c313fcb0ae582a5e47bea9d0
   HRCoder: 0952826ddf4213a11be775d01446f61a5df987a4
   ISO8601DateFormatter: 59731cd880cf87e71b4fa95f0d6b713dcbc4cbce
