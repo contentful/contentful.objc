@@ -20,6 +20,9 @@
 #import "CDAResource+Private.h"
 #import "CDASyncedSpace+Private.h"
 
+NSString* const CDAContentTypeHeader = @"application/vnd.contentful.delivery.v1+json";
+NSString* const CMAContentTypeHeader = @"application/vnd.contentful.management.v1+json";
+
 @interface CDAClient ()
 
 @property (nonatomic) CDAConfiguration* configuration;

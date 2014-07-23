@@ -11,6 +11,9 @@
 @class CDAContentTypeRegistry;
 @class CDARequestOperationManager;
 
+extern NSString* const CDAContentTypeHeader;
+extern NSString* const CMAContentTypeHeader;
+
 @interface CDAClient ()
 
 @property (nonatomic) BOOL deepResolving;
