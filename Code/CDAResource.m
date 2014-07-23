@@ -150,18 +150,13 @@
                  @"Expected a dictionary of system properties");
         [dictionary[@"sys"] enumerateKeysAndObjectsUsingBlock:^(NSString* key, id value, BOOL *stop) {
             if ([@[ @"id", @"type", @"linkType" ] containsObject:key]) {
-                NSAssert([value isKindOfClass:[NSString class]], @"id, type needs to be a string");
+                NSAssert([value isKindOfClass:[NSString class]], @"%@ needs to be a string", key);
                 systemProperties[key] = value;
             }
-            
-            if ([@[ @"revision" ] containsObject:key]) {
-                NSAssert([value isKindOfClass:[NSNumber class]], @"revision needs to be a number");
+
+            if ([@[ @"revision", @"publishedCounter", @"version" ] containsObject:key]) {
+                NSAssert([value isKindOfClass:[NSNumber class]], @"%@ needs to be a number", key);
                 systemProperties[key] = value;
-            }
-            
-            if ([key isEqualToString:@"publishedCounter"]) {
-                NSAssert([value isKindOfClass:[NSNumber class]], @"publishedCounter needs to be a number");
-                systemProperties[@"revision"] = value;
             }
             
             if ([@[ @"createdAt", @"updatedAt" ] containsObject:key]) {
