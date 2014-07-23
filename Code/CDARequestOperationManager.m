@@ -191,7 +191,7 @@
 -(CDARequest*)putURLPath:(NSString*)URLPath
                  headers:(NSDictionary*)headers
               parameters:(NSDictionary*)parameters
-                 success:(void (^)())success
+                 success:(CDAObjectFetchedBlock)success
                  failure:(CDARequestFailureBlock)failure {
     NSMutableURLRequest *request = [self.requestSerializer requestWithMethod:@"PUT" URLString:[[NSURL URLWithString:URLPath relativeToURL:self.baseURL] absoluteString] parameters:parameters error:nil];
 

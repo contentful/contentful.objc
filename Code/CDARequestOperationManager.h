@@ -33,7 +33,7 @@
 -(CDARequest*)putURLPath:(NSString*)URLPath
                  headers:(NSDictionary*)headers
               parameters:(NSDictionary*)parameters
-                 success:(void (^)())success
+                 success:(CDAObjectFetchedBlock)success
                  failure:(CDARequestFailureBlock)failure;
 
 @end
