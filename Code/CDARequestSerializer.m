@@ -11,6 +11,8 @@
 @implementation CDARequestSerializer
 
 -(id)initWithAccessToken:(NSString*)accessToken {
+    NSParameterAssert(accessToken);
+
     self = [super init];
     if (self) {
         [self setValue:[@"Bearer " stringByAppendingString:accessToken] forHTTPHeaderField:@"Authorization"];
