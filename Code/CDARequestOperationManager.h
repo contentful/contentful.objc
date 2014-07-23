@@ -30,5 +30,10 @@
           accessToken:(NSString *)accessToken
                client:(CDAClient*)client
         configuration:(CDAConfiguration*)configuration;
+-(CDARequest*)putURLPath:(NSString*)URLPath
+                 headers:(NSDictionary*)headers
+              parameters:(NSDictionary*)parameters
+                 success:(void (^)())success
+                 failure:(CDARequestFailureBlock)failure;
 
 @end
