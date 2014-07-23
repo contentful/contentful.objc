@@ -199,6 +199,8 @@
         [request setValue:value forHTTPHeaderField:headerField];
     }];
 
+    [request setValue:CMAContentTypeHeader forHTTPHeaderField:@"Content-Type"];
+
     AFHTTPRequestOperation* operation = [self HTTPRequestOperationWithRequest:request
       success:^(AFHTTPRequestOperation *operation, id responseObject) {
           if (!responseObject) {

@@ -75,9 +75,9 @@
         NSMutableSet* acceptableContentTypes = [self.acceptableContentTypes mutableCopy];
         
         if (self.client.configuration.previewMode || !self.client.spaceKey) {
-            [acceptableContentTypes addObject:@"application/vnd.contentful.management.v1+json"];
+            [acceptableContentTypes addObject:CMAContentTypeHeader];
         } else {
-            [acceptableContentTypes addObject:@"application/vnd.contentful.delivery.v1+json"];
+            [acceptableContentTypes addObject:CDAContentTypeHeader];
         }
         
         self.acceptableContentTypes = acceptableContentTypes;
