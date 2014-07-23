@@ -32,6 +32,7 @@
                 parameters:(NSDictionary*)parameters
                    success:(CDAObjectFetchedBlock)success
                    failure:(CDARequestFailureBlock)failure;
+-(CDARequestOperationManager*)requestOperationManager;
 -(CDASpace*)space;
 -(NSString*)spaceKey;
 

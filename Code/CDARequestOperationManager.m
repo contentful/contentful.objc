@@ -33,6 +33,13 @@
 
 @implementation CDARequestOperationManager
 
+-(CDARequest*)buildRequestResultWithOperation:(AFHTTPRequestOperation*)operation {
+    CDAClient* client = [(CDAResponseSerializer*)self.responseSerializer client];
+    objc_setAssociatedObject(operation, "client", client, OBJC_ASSOCIATION_RETAIN);
+
+    return [[CDARequest alloc] initWithRequestOperation:operation];
+}
+
 -(NSURLRequest*)buildRequestWithURLString:(NSString*)URLString parameters:(NSDictionary*)parameters {
     parameters = [self fixParametersInDictionary:parameters];
     return [[self.requestSerializer requestWithMethod:@"GET" URLString:[[NSURL URLWithString:URLString relativeToURL:self.baseURL] absoluteString] parameters:parameters error:nil] copy];
@@ -109,11 +116,8 @@
               failure([CDAResponse responseWithHTTPURLResponse:operation.response], error);
           }
       }];
-    
-    CDAClient* client = [(CDAResponseSerializer*)self.responseSerializer client];
-    objc_setAssociatedObject(operation, "client", client, OBJC_ASSOCIATION_RETAIN);
-    
-    return [[CDARequest alloc] initWithRequestOperation:operation];
+
+    return [self buildRequestResultWithOperation:operation];
 }
 
 -(id)fetchURLPathSynchronously:(NSString*)URLPath
@@ -182,6 +186,44 @@
 #endif
     }
     return self;
+}
+
+-(CDARequest*)putURLPath:(NSString*)URLPath
+                 headers:(NSDictionary*)headers
+              parameters:(NSDictionary*)parameters
+                 success:(void (^)())success
+                 failure:(CDARequestFailureBlock)failure {
+    NSMutableURLRequest *request = [self.requestSerializer requestWithMethod:@"PUT" URLString:[[NSURL URLWithString:URLPath relativeToURL:self.baseURL] absoluteString] parameters:parameters error:nil];
+
+    [headers enumerateKeysAndObjectsUsingBlock:^(NSString* headerField, NSString* value, BOOL *stop) {
+        [request setValue:value forHTTPHeaderField:headerField];
+    }];
+
+    AFHTTPRequestOperation* operation = [self HTTPRequestOperationWithRequest:request
+      success:^(AFHTTPRequestOperation *operation, id responseObject) {
+          if (!responseObject) {
+              if (failure) {
+                  failure([CDAResponse responseWithHTTPURLResponse:operation.response], [NSError errorWithDomain:NSURLErrorDomain code:kCFURLErrorZeroByteResource userInfo:nil]);
+              }
+
+              return;
+          }
+
+          if (success) {
+              success([CDAResponse responseWithHTTPURLResponse:operation.response], responseObject);
+          }
+      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+          if (failure) {
+              if ([operation.responseObject isKindOfClass:[CDAError class]]) {
+                  error = [operation.responseObject errorRepresentationWithCode:operation.response.statusCode];
+              }
+              
+              failure([CDAResponse responseWithHTTPURLResponse:operation.response], error);
+          }
+      }];
+    [self.operationQueue addOperation:operation];
+
+    return [self buildRequestResultWithOperation:operation];
 }
 
 @end
