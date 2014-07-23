@@ -141,50 +141,8 @@
 
         NSParameterAssert(client);
         self.client = client;
-        
-        ISO8601DateFormatter* dateFormatter = [ISO8601DateFormatter new];
-        NSMutableDictionary* systemProperties = [@{} mutableCopy];
-        
-        NSAssert(dictionary[@"sys"], @"A resource needs system properties");
-        NSAssert([dictionary[@"sys"] isKindOfClass:[NSDictionary class]],
-                 @"Expected a dictionary of system properties");
-        [dictionary[@"sys"] enumerateKeysAndObjectsUsingBlock:^(NSString* key, id value, BOOL *stop) {
-            if ([@[ @"id", @"type", @"linkType" ] containsObject:key]) {
-                NSAssert([value isKindOfClass:[NSString class]], @"%@ needs to be a string", key);
-                systemProperties[key] = value;
-            }
 
-            if ([@[ @"revision", @"publishedCounter", @"version" ] containsObject:key]) {
-                NSAssert([value isKindOfClass:[NSNumber class]], @"%@ needs to be a number", key);
-                systemProperties[key] = value;
-            }
-            
-            if ([@[ @"createdAt", @"updatedAt" ] containsObject:key]) {
-                NSDate* date = [dateFormatter dateFromString:value];
-                NSAssert(date, @"createdAt, updatedAt needs to be a valid date");
-                systemProperties[key] = date;
-            }
-            
-            if ([key isEqualToString:@"contentType"]) {
-                NSString* contentTypeIdentifier = value[@"sys"][@"id"];
-                CDAContentType* contentType = [self.client.contentTypeRegistry
-                                               contentTypeForIdentifier:contentTypeIdentifier];
-                NSAssert(contentType.name, @"Content-Type needs to be valid.");
-                systemProperties[key] = contentType;
-            }
-            
-            if ([key isEqualToString:@"space"]) {
-                CDASpace* space = [[CDASpace alloc] initWithDictionary:value client:self.client];
-                systemProperties[key] = space;
-            }
-        }];
-
-        if (self.client.configuration.previewMode && systemProperties[@"publishedCounter"]) {
-            systemProperties[@"revision"] = systemProperties[@"publishedCounter"];
-        }
-        
-        self.sys = systemProperties;
-        self.lastFetchedDate = self.isLink ? nil : [NSDate date];
+        [self updateWithContentsOfDictionary:dictionary];
     }
     return self;
 }
@@ -258,6 +216,62 @@
 
 -(BOOL)updatedAfterDate:(NSDate *)date {
     return [(NSDate*)self.sys[@"updatedAt"] compare:date] == NSOrderedDescending;
+}
+
+-(void)updateWithContentsOfDictionary:(NSDictionary*)dictionary {
+    ISO8601DateFormatter* dateFormatter = [ISO8601DateFormatter new];
+    NSMutableDictionary* systemProperties = [@{} mutableCopy];
+
+    NSAssert(dictionary[@"sys"], @"A resource needs system properties");
+    NSAssert([dictionary[@"sys"] isKindOfClass:[NSDictionary class]],
+             @"Expected a dictionary of system properties");
+    [dictionary[@"sys"] enumerateKeysAndObjectsUsingBlock:^(NSString* key, id value, BOOL *stop) {
+        if ([@[ @"id", @"type", @"linkType" ] containsObject:key]) {
+            NSAssert([value isKindOfClass:[NSString class]], @"%@ needs to be a string", key);
+            systemProperties[key] = value;
+        }
+
+        if ([@[ @"revision", @"publishedCounter", @"version" ] containsObject:key]) {
+            NSAssert([value isKindOfClass:[NSNumber class]], @"%@ needs to be a number", key);
+            systemProperties[key] = value;
+        }
+
+        if ([@[ @"createdAt", @"updatedAt" ] containsObject:key]) {
+            NSDate* date = [dateFormatter dateFromString:value];
+            NSAssert(date, @"createdAt, updatedAt needs to be a valid date");
+            systemProperties[key] = date;
+        }
+
+        if ([key isEqualToString:@"contentType"]) {
+            NSString* contentTypeIdentifier = value[@"sys"][@"id"];
+            CDAContentType* contentType = [self.client.contentTypeRegistry
+                                           contentTypeForIdentifier:contentTypeIdentifier];
+            NSAssert(contentType.name, @"Content-Type needs to be valid.");
+            systemProperties[key] = contentType;
+        }
+
+        if ([key isEqualToString:@"space"]) {
+            CDASpace* space = [[CDASpace alloc] initWithDictionary:value client:self.client];
+            systemProperties[key] = space;
+        }
+    }];
+
+    if (self.client.configuration.previewMode && systemProperties[@"publishedCounter"]) {
+        systemProperties[@"revision"] = systemProperties[@"publishedCounter"];
+    }
+
+    self.sys = systemProperties;
+    self.lastFetchedDate = self.isLink ? nil : [NSDate date];
+}
+
+-(void)updateWithResource:(CDAResource *)resource {
+    NSMutableDictionary* systemProperties = [self.sys mutableCopy];
+
+    for (NSString* key in @[ @"version" ]) {
+        systemProperties[key] = resource.sys[key];
+    }
+
+    self.sys = systemProperties;
 }
 
 -(void)writeToFile:(NSString*)filePath {
