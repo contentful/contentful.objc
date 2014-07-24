@@ -35,7 +35,16 @@ extern NSString* const CMAContentTypeHeader;
                 parameters:(NSDictionary*)parameters
                    success:(CDAObjectFetchedBlock)success
                    failure:(CDARequestFailureBlock)failure;
--(CDARequestOperationManager*)requestOperationManager;
+-(CDARequest*)postURLPath:(NSString*)URLPath
+                  headers:(NSDictionary*)headers
+               parameters:(NSDictionary*)parameters
+                  success:(CDAObjectFetchedBlock)success
+                  failure:(CDARequestFailureBlock)failure;
+-(CDARequest*)putURLPath:(NSString*)URLPath
+                 headers:(NSDictionary*)headers
+              parameters:(NSDictionary*)parameters
+                 success:(CDAObjectFetchedBlock)success
+                 failure:(CDARequestFailureBlock)failure;
 -(CDASpace*)space;
 -(NSString*)spaceKey;
 

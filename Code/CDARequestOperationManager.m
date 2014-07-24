@@ -188,12 +188,39 @@
     return self;
 }
 
--(CDARequest*)putURLPath:(NSString*)URLPath
+-(CDARequest *)postURLPath:(NSString *)URLPath
+                   headers:(NSDictionary *)headers
+                parameters:(NSDictionary *)parameters
+                   success:(CDAObjectFetchedBlock)success
+                   failure:(CDARequestFailureBlock)failure {
+    return [self requestWithMethod:@"POST"
+                           URLPath:URLPath
+                           headers:headers
+                        parameters:parameters
+                           success:success
+                           failure:failure];
+}
+
+-(CDARequest *)putURLPath:(NSString *)URLPath
+                  headers:(NSDictionary *)headers
+               parameters:(NSDictionary *)parameters
+                  success:(CDAObjectFetchedBlock)success
+                  failure:(CDARequestFailureBlock)failure {
+    return [self requestWithMethod:@"PUT"
+                           URLPath:URLPath
+                           headers:headers
+                        parameters:parameters
+                           success:success
+                           failure:failure];
+}
+
+-(CDARequest*)requestWithMethod:(NSString*)method
+                        URLPath:(NSString*)URLPath
                  headers:(NSDictionary*)headers
               parameters:(NSDictionary*)parameters
                  success:(CDAObjectFetchedBlock)success
                  failure:(CDARequestFailureBlock)failure {
-    NSMutableURLRequest *request = [self.requestSerializer requestWithMethod:@"PUT" URLString:[[NSURL URLWithString:URLPath relativeToURL:self.baseURL] absoluteString] parameters:parameters error:nil];
+    NSMutableURLRequest *request = [self.requestSerializer requestWithMethod:method URLString:[[NSURL URLWithString:URLPath relativeToURL:self.baseURL] absoluteString] parameters:parameters error:nil];
 
     [headers enumerateKeysAndObjectsUsingBlock:^(NSString* headerField, NSString* value, BOOL *stop) {
         [request setValue:value forHTTPHeaderField:headerField];
