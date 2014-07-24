@@ -25,7 +25,7 @@
 -(NSDictionary*)localizedDictionaryFromDictionary:(NSDictionary*)dictionary forLocale:(NSString*)locale;
 -(void)resolveLinksWithIncludedAssets:(NSDictionary*)assets entries:(NSDictionary*)entries;
 -(BOOL)updatedAfterDate:(NSDate*)date;
--(void)updateWithContentsOfDictionary:(NSDictionary*)dictionary;
+-(void)updateWithContentsOfDictionary:(NSDictionary*)dictionary client:(CDAClient*)client;
 -(void)updateWithResource:(CDAResource*)resource;
 
 @end

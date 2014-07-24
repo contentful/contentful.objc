@@ -23,6 +23,7 @@ extern NSString* const CMAContentTypeHeader;
 @property (nonatomic) BOOL synchronizing;
 
 -(CDAConfiguration*)configuration;
+-(instancetype)copyWithSpace:(CDASpace*)space;
 -(CDAContentTypeRegistry*)contentTypeRegistry;
 -(CDARequest*)fetchArrayAtURLPath:(NSString *)URLPath
                        parameters:(NSDictionary *)parameters
