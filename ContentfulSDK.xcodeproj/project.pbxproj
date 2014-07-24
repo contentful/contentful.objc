@@ -313,6 +313,7 @@
 		A170131318FD5DE20086BE07 /* PersistenceTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PersistenceTests.json; sourceTree = "<group>"; };
 		A170131418FD5DE20086BE07 /* PreviewModeSyncTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PreviewModeSyncTests.json; sourceTree = "<group>"; };
 		A170131918FEA0AD0086BE07 /* Fixtures */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Fixtures; sourceTree = "<group>"; };
+		A17309691981642400F694DA /* CDAConfiguration+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDAConfiguration+Private.h"; sourceTree = "<group>"; };
 		A173F54518D386CD000E6F92 /* ErrorTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ErrorTests.json; sourceTree = "<group>"; };
 		A173F54C18D6FD03000E6F92 /* CDATextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDATextViewController.h; sourceTree = "<group>"; };
 		A173F54D18D6FD03000E6F92 /* CDATextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDATextViewController.m; sourceTree = "<group>"; };
@@ -1069,6 +1070,7 @@
 				A1C1AC4218CE032200DBF0D0 /* CDAClient+Private.h */,
 				A19FD86F18C631E60081677E /* CDAClient.h */,
 				A19FD87118C631E60081677E /* CDAClient.m */,
+				A17309691981642400F694DA /* CDAConfiguration+Private.h */,
 				A19FD8D618C63AE10081677E /* CDAConfiguration.h */,
 				A19FD8D718C63AE10081677E /* CDAConfiguration.m */,
 				A1A0314918C67527006470B7 /* CDAContentTypeRegistry.h */,

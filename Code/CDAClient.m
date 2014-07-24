@@ -12,7 +12,7 @@
 
 #import "CDAArray+Private.h"
 #import "CDAClient+Private.h"
-#import "CDAConfiguration.h"
+#import "CDAConfiguration+Private.h"
 #import "CDAContentType.h"
 #import "CDAContentTypeRegistry.h"
 #import "CDAError.h"
@@ -386,6 +386,10 @@ NSString* const CMAContentTypeHeader = @"application/vnd.contentful.management.v
 -(id)initWithSpaceKey:(NSString *)spaceKey
           accessToken:(NSString *)accessToken
         configuration:(CDAConfiguration*)configuration {
+    if (!configuration.usesManagementAPI && (configuration.previewMode || !spaceKey)) {
+        configuration.usesManagementAPI = YES;
+    }
+
     self = [super init];
     if (self) {
         self.accessToken = accessToken;
