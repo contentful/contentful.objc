@@ -6,7 +6,15 @@
 //
 //
 
-#import "CDAConfiguration.h"
+#import "CDAConfiguration+Private.h"
+
+@interface CDAConfiguration ()
+
+@property (nonatomic) BOOL usesManagementAPI;
+
+@end
+
+#pragma mark -
 
 @implementation CDAConfiguration
 

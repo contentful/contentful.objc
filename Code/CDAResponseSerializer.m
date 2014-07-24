@@ -7,11 +7,11 @@
 //
 
 #import <ContentfulDeliveryAPI/CDAArray.h>
-#import <ContentfulDeliveryAPI/CDAConfiguration.h>
 #import <ContentfulDeliveryAPI/CDAResource.h>
 
 #import "CDAAsset.h"
 #import "CDAClient+Private.h"
+#import "CDAConfiguration+Private.h"
 #import "CDAContentTypeRegistry.h"
 #import "CDAEntry+Private.h"
 #import "CDAResource+Private.h"
@@ -74,7 +74,7 @@
         
         NSMutableSet* acceptableContentTypes = [self.acceptableContentTypes mutableCopy];
         
-        if (self.client.configuration.previewMode || !self.client.spaceKey) {
+        if (self.client.configuration.usesManagementAPI) {
             [acceptableContentTypes addObject:CMAContentTypeHeader];
         } else {
             [acceptableContentTypes addObject:CDAContentTypeHeader];
