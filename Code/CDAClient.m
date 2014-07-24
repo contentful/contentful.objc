@@ -401,8 +401,32 @@ NSString* const CMAContentTypeHeader = @"application/vnd.contentful.management.v
     return self.configuration.previewMode || self.synchronizing;
 }
 
+-(CDARequest *)postURLPath:(NSString *)URLPath
+                   headers:(NSDictionary *)headers
+                parameters:(NSDictionary *)parameters
+                   success:(CDAObjectFetchedBlock)success
+                   failure:(CDARequestFailureBlock)failure {
+    return [self.requestOperationManager postURLPath:URLPath
+                                             headers:headers
+                                          parameters:parameters
+                                             success:success
+                                             failure:failure];
+}
+
 -(NSString *)protocol {
     return self.configuration.secure ? @"https" : @"http";
+}
+
+-(CDARequest*)putURLPath:(NSString*)URLPath
+                 headers:(NSDictionary*)headers
+              parameters:(NSDictionary*)parameters
+                 success:(CDAObjectFetchedBlock)success
+                 failure:(CDARequestFailureBlock)failure {
+    return [self.requestOperationManager putURLPath:URLPath
+                                            headers:headers
+                                         parameters:parameters
+                                            success:success
+                                            failure:failure];
 }
 
 -(void)registerClass:(Class)customClass forContentType:(CDAContentType *)contentType {
