@@ -139,10 +139,10 @@
     if (self) {
         self.defaultLocaleOfSpace = @"en-US";
 
+        [self updateWithContentsOfDictionary:dictionary client:client];
+
         NSParameterAssert(client);
         self.client = client;
-
-        [self updateWithContentsOfDictionary:dictionary];
     }
     return self;
 }
@@ -218,7 +218,7 @@
     return [(NSDate*)self.sys[@"updatedAt"] compare:date] == NSOrderedDescending;
 }
 
--(void)updateWithContentsOfDictionary:(NSDictionary*)dictionary {
+-(void)updateWithContentsOfDictionary:(NSDictionary*)dictionary client:(CDAClient*)client {
     ISO8601DateFormatter* dateFormatter = [ISO8601DateFormatter new];
     NSMutableDictionary* systemProperties = [@{} mutableCopy];
 
@@ -244,19 +244,19 @@
 
         if ([key isEqualToString:@"contentType"]) {
             NSString* contentTypeIdentifier = value[@"sys"][@"id"];
-            CDAContentType* contentType = [self.client.contentTypeRegistry
+            CDAContentType* contentType = [client.contentTypeRegistry
                                            contentTypeForIdentifier:contentTypeIdentifier];
             NSAssert(contentType.name, @"Content-Type needs to be valid.");
             systemProperties[key] = contentType;
         }
 
         if ([key isEqualToString:@"space"]) {
-            CDASpace* space = [[CDASpace alloc] initWithDictionary:value client:self.client];
+            CDASpace* space = [[CDASpace alloc] initWithDictionary:value client:client];
             systemProperties[key] = space;
         }
     }];
 
-    if (self.client.configuration.previewMode && systemProperties[@"publishedCounter"]) {
+    if (client.configuration.previewMode && systemProperties[@"publishedCounter"]) {
         systemProperties[@"revision"] = systemProperties[@"publishedCounter"];
     }
 

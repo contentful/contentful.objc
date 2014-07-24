@@ -25,6 +25,7 @@ NSString* const CMAContentTypeHeader = @"application/vnd.contentful.management.v
 
 @interface CDAClient ()
 
+@property (nonatomic) NSString* accessToken;
 @property (nonatomic) CDAConfiguration* configuration;
 @property (nonatomic) CDAContentTypeRegistry* contentTypeRegistry;
 @property (nonatomic) CDARequestOperationManager* requestOperationManager;
@@ -44,6 +45,14 @@ NSString* const CMAContentTypeHeader = @"application/vnd.contentful.management.v
 }
 
 #pragma mark -
+
+-(instancetype)copyWithSpace:(CDASpace *)space {
+    CDAClient* client = [[[self class] alloc] initWithSpaceKey:space.identifier
+                                                   accessToken:self.accessToken
+                                                 configuration:self.configuration];
+    client.space = space;
+    return client;
+}
 
 -(void)fetchAllItemsFromArray:(CDAArray*)array
                       success:(void (^)(NSArray* items))success
@@ -379,6 +388,7 @@ NSString* const CMAContentTypeHeader = @"application/vnd.contentful.management.v
         configuration:(CDAConfiguration*)configuration {
     self = [super init];
     if (self) {
+        self.accessToken = accessToken;
         self.configuration = configuration;
         self.contentTypeRegistry = [CDAContentTypeRegistry new];
         self.deepResolving = YES;
