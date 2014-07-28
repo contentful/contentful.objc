@@ -267,8 +267,11 @@
 -(void)updateWithResource:(CDAResource *)resource {
     NSMutableDictionary* systemProperties = [self.sys mutableCopy];
 
-    for (NSString* key in @[ @"version" ]) {
-        systemProperties[key] = resource.sys[key];
+    for (NSString* key in @[ @"publishedCounter", @"version" ]) {
+        id value = resource.sys[key];
+        if (value) {
+            systemProperties[key] = value;
+        }
     }
 
     self.sys = systemProperties;
