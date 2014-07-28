@@ -25,6 +25,11 @@ extern NSString* const CMAContentTypeHeader;
 -(CDAConfiguration*)configuration;
 -(instancetype)copyWithSpace:(CDASpace*)space;
 -(CDAContentTypeRegistry*)contentTypeRegistry;
+-(CDARequest*)deleteURLPath:(NSString*)URLPath
+                    headers:(NSDictionary*)headers
+                 parameters:(NSDictionary*)parameters
+                    success:(CDAObjectFetchedBlock)success
+                    failure:(CDARequestFailureBlock)failure;
 -(CDARequest*)fetchArrayAtURLPath:(NSString *)URLPath
                        parameters:(NSDictionary *)parameters
                           success:(CDAArrayFetchedBlock)success
