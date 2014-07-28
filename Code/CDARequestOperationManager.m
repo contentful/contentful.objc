@@ -96,7 +96,7 @@
                    failure:(CDARequestFailureBlock)failure {
     AFHTTPRequestOperation* operation = [self GET:URLPath parameters:parameters
       success:^(AFHTTPRequestOperation *operation, id responseObject) {
-          if (!responseObject) {
+          if (!responseObject && operation.response.statusCode != 204) {
               if (failure) {
                   failure([CDAResponse responseWithHTTPURLResponse:operation.response], [NSError errorWithDomain:NSURLErrorDomain code:kCFURLErrorZeroByteResource userInfo:nil]);
               }
@@ -230,7 +230,7 @@
 
     AFHTTPRequestOperation* operation = [self HTTPRequestOperationWithRequest:request
       success:^(AFHTTPRequestOperation *operation, id responseObject) {
-          if (!responseObject) {
+          if (!responseObject && operation.response.statusCode != 204) {
               if (failure) {
                   failure([CDAResponse responseWithHTTPURLResponse:operation.response], [NSError errorWithDomain:NSURLErrorDomain code:kCFURLErrorZeroByteResource userInfo:nil]);
               }
