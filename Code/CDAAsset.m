@@ -243,6 +243,16 @@ const CGFloat CDAImageQualityOriginal = 0.0;
     }
 }
 
+-(void)setValue:(id)value forFieldWithName:(NSString *)key {
+    NSMutableDictionary* allFields = [self.localizedFields mutableCopy];
+    NSMutableDictionary* currentFields = [self.localizedFields[self.locale] mutableCopy];
+
+    currentFields[key] = value;
+    allFields[self.locale] = currentFields;
+
+    self.localizedFields = allFields;
+}
+
 -(CGSize)size {
     NSDictionary* size = self.fields[@"file"][@"details"][@"image"];
     return size ? CGSizeMake([size[@"width"] floatValue], [size[@"height"] floatValue]) : CGSizeZero;

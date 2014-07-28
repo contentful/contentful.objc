@@ -13,4 +13,7 @@
 
 +(instancetype)assetFromPersistedAsset:(id<CDAPersistedAsset>)persistedAsset client:(CDAClient*)client;
 
+-(NSDictionary*)localizedFields;
+-(void)setValue:(id)value forFieldWithName:(NSString *)key;
+
 @end
