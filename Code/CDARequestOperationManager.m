@@ -45,6 +45,19 @@
     return [[self.requestSerializer requestWithMethod:@"GET" URLString:[[NSURL URLWithString:URLString relativeToURL:self.baseURL] absoluteString] parameters:parameters error:nil] copy];
 }
 
+-(CDARequest*)deleteURLPath:(NSString*)URLPath
+                    headers:(NSDictionary*)headers
+                 parameters:(NSDictionary*)parameters
+                    success:(CDAObjectFetchedBlock)success
+                    failure:(CDARequestFailureBlock)failure {
+    return [self requestWithMethod:@"DELETE"
+                           URLPath:URLPath
+                           headers:headers
+                        parameters:parameters
+                           success:success
+                           failure:failure];
+}
+
 -(CDARequest*)fetchArrayAtURLPath:(NSString*)URLPath
                        parameters:(NSDictionary*)parameters
                           success:(CDAArrayFetchedBlock)success

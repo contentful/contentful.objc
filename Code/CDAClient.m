@@ -55,6 +55,18 @@ NSString* const CMAContentTypeHeader = @"application/vnd.contentful.management.v
     return client;
 }
 
+-(CDARequest*)deleteURLPath:(NSString*)URLPath
+                    headers:(NSDictionary*)headers
+                 parameters:(NSDictionary*)parameters
+                    success:(CDAObjectFetchedBlock)success
+                    failure:(CDARequestFailureBlock)failure {
+    return [self.requestOperationManager deleteURLPath:URLPath
+                                               headers:headers
+                                            parameters:parameters
+                                               success:success
+                                               failure:failure];
+}
+
 -(void)fetchAllItemsFromArray:(CDAArray*)array
                       success:(void (^)(NSArray* items))success
                       failure:(CDARequestFailureBlock)failure {
