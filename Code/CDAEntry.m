@@ -302,4 +302,14 @@
     }
 }
 
+-(void)setValue:(id)value forFieldWithName:(NSString *)key {
+    NSMutableDictionary* allFields = [self.localizedFields mutableCopy];
+    NSMutableDictionary* currentFields = [self.localizedFields[self.locale] mutableCopy];
+
+    currentFields[key] = value;
+    allFields[self.locale] = currentFields;
+    
+    self.localizedFields = allFields;
+}
+
 @end
