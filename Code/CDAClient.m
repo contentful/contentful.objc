@@ -50,6 +50,7 @@ NSString* const CMAContentTypeHeader = @"application/vnd.contentful.management.v
     CDAClient* client = [[[self class] alloc] initWithSpaceKey:space.identifier
                                                    accessToken:self.accessToken
                                                  configuration:self.configuration];
+    client.resourceClassPrefix = self.resourceClassPrefix;
     client.space = space;
     return client;
 }
@@ -412,7 +413,7 @@ NSString* const CMAContentTypeHeader = @"application/vnd.contentful.management.v
 }
 
 -(BOOL)localizationAvailable {
-    return self.configuration.previewMode || self.synchronizing;
+    return self.configuration.usesManagementAPI || self.synchronizing;
 }
 
 -(CDARequest *)postURLPath:(NSString *)URLPath
