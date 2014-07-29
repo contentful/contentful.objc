@@ -173,6 +173,10 @@
                     [entriesToFetch addObjectsFromArray:[entry findUnresolvedEntries]];
                 }
             }
+
+            if ([subResource conformsToProtocol:@protocol(CDAOrganizationContainer)]) {
+                [(id<CDAOrganizationContainer>)subResource setOrganizations:organizations];
+            }
         }
         
         if (self.client.configuration.previewMode && self.client.deepResolving) {
