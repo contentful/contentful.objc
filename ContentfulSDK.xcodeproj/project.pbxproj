@@ -496,6 +496,7 @@
 		A1E9797718CBEDFC00E79632 /* ErrorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorTests.m; sourceTree = "<group>"; };
 		A1E9797918CC683200E79632 /* CDAFieldValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAFieldValueTransformer.h; sourceTree = "<group>"; };
 		A1E9797A18CC683200E79632 /* CDAFieldValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAFieldValueTransformer.m; sourceTree = "<group>"; };
+		A1F265931987990F00365AEF /* CDAOrganizationContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDAOrganizationContainer.h; sourceTree = "<group>"; };
 		A1F70C9A18FFDE030080C72C /* CoreDataBasicTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CoreDataBasicTests.json; sourceTree = "<group>"; };
 		A1F70C9C19000FD90080C72C /* CDAAsset+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CDAAsset+Private.h"; sourceTree = "<group>"; };
 		A1FAC311190654E30093B308 /* DeepIncludes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeepIncludes.m; sourceTree = "<group>"; };
@@ -1099,6 +1100,7 @@
 				A1A0312B18C64187006470B7 /* CDAEntry.m */,
 				A1A0315318C76839006470B7 /* CDAError.h */,
 				A1A0315418C76839006470B7 /* CDAError.m */,
+				A1F265931987990F00365AEF /* CDAOrganizationContainer.h */,
 				A1E9797518CBE93A00E79632 /* CDAResource+Private.h */,
 				A1A0312718C64165006470B7 /* CDAResource.h */,
 				A1A0312818C64165006470B7 /* CDAResource.m */,
