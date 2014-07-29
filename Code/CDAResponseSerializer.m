@@ -14,6 +14,7 @@
 #import "CDAConfiguration+Private.h"
 #import "CDAContentTypeRegistry.h"
 #import "CDAEntry+Private.h"
+#import "CDAOrganizationContainer.h"
 #import "CDAResource+Private.h"
 #import "CDAResponseSerializer.h"
 
@@ -143,6 +144,13 @@
         [entry resolveLinksWithIncludedAssets:assets entries:nil];
         entries[entry.identifier] = entry;
     }
+
+    NSMutableArray* organizations = [@[] mutableCopy];
+    for (NSDictionary* possibleOrganization in JSONObject[@"includes"][@"Organization"]) {
+        CDAResource* resource = [CDAResource resourceObjectForDictionary:possibleOrganization
+                                                                  client:self.client];
+        [organizations addObject:resource];
+    }
     
     NSAssert([JSONObject isKindOfClass:[NSDictionary class]], @"JSON result is not a dictionary");
     CDAResource* resource = [CDAResource resourceObjectForDictionary:JSONObject client:self.client];
@@ -206,6 +214,10 @@
             
             self.client.deepResolving = YES;
         }
+    }
+
+    if ([resource conformsToProtocol:@protocol(CDAOrganizationContainer)]) {
+        [(id<CDAOrganizationContainer>)resource setOrganizations:organizations];
     }
     
     for (CDAEntry* entry in entries.allValues) {
