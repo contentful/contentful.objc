@@ -66,6 +66,13 @@
     return fieldTypes;
 }
 
+-(NSString*)fieldTypeToString:(CDAFieldType)fieldType {
+    NSArray* possibleFieldTypes = [self.fieldTypes allKeysForObject:@(fieldType)];
+    NSAssert(possibleFieldTypes.count == 1,
+             @"Field-type %ld lacks proper string representation.", (long)fieldType);
+    return possibleFieldTypes[0];
+}
+
 -(id)initWithCoder:(NSCoder *)aDecoder {
     self = [super init];
     if (self) {
