@@ -66,6 +66,18 @@
     return self;
 }
 
+-(id)initWithItems:(NSArray *)items client:(CDAClient *)client {
+    self = [self initWithDictionary:@{ @"sys": @{} } client:client];
+    if (self) {
+        self.limit = items.count;
+        self.skip = 0;
+        self.total = items.count;
+
+        self.items = items;
+    }
+    return self;
+}
+
 -(NSURL *)nextPageUrl {
     return self.nextPageUrlString ? [NSURL URLWithString:self.nextPageUrlString] : nil;
 }
