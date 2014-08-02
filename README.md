@@ -14,24 +14,28 @@ Objective-C SDK for [Contentful's][1] Content Delivery API.
 
 The `CDAClient` manages all your interaction with the Contentful Delivery API.
 
-    CDAClient* client = [[CDAClient alloc] initWithSpaceKey:@"cfexampleapi" accessToken:@"b4c0n73n7fu1"];
-    [client fetchEntryWithIdentifier:@"nyancat"
-                             success:^(CDAResponse *response, CDAEntry *entry) {
-                                 NSLog(@"%@", entry.fields);
-                             }
-                             failure:^(CDAResponse *response, NSError *error) {
-                                 NSLog(@"%@", error);
-                             }];
-
-You can query for entries, assets, etc. with query options similar to what is described in the [Delivery API Documentation][6]:
-
-    [client fetchEntriesMatching:@{ @"content_type": @"cat" }
-                         success:^(CDAResponse *response, CDAArray *entries) {
-                             NSLog(@"%@", [[entries.items firstObject] fields]);
+```objective-c
+CDAClient* client = [[CDAClient alloc] initWithSpaceKey:@"cfexampleapi" accessToken:@"b4c0n73n7fu1"];
+[client fetchEntryWithIdentifier:@"nyancat"
+                         success:^(CDAResponse *response, CDAEntry *entry) {
+                             NSLog(@"%@", entry.fields);
                          }
                          failure:^(CDAResponse *response, NSError *error) {
                              NSLog(@"%@", error);
                          }];
+```
+
+You can query for entries, assets, etc. with query options similar to what is described in the [Delivery API Documentation][6]:
+
+```objective-c
+[client fetchEntriesMatching:@{ @"content_type": @"cat" }
+                     success:^(CDAResponse *response, CDAArray *entries) {
+                         NSLog(@"%@", [[entries.items firstObject] fields]);
+                     }
+                     failure:^(CDAResponse *response, NSError *error) {
+                         NSLog(@"%@", error);
+                     }];
+```
 
 Results are returned as object of classes `CDAEntry`, `CDAAsset`, `CDAContentType` or `CDASpace`, depending on the fetch method being called. If there are multiple results, they will be returned as a `CDAArray` instance, which encapsulates the actual resources in the *items* property.
 
@@ -42,7 +46,9 @@ scenarios and also showing the different ways you can integrate the SDK into you
 
 You might want to subclass `CDAEntry` to store additional data alongside Entries or to decouple the rest of your app from the Contentful SDK's API. For this purpose, it is possible to register your own custom classes for specific Content Types, like this:
 
-    [client registerClass:[MYSuperCoolClass class] forContentTypeWithIdentifier:@"MyContentType"];
+```objective-c
+[client registerClass:[MYSuperCoolClass class] forContentTypeWithIdentifier:@"MyContentType"];
+```
 
 Each time, the receiver needs to create a new Entry object of the given Content Type, it will create instances of `MYSuperCoolClass`. Make sure that the class inherits from `CDAEntry` or this mechanism will break at runtime.
 
@@ -52,8 +58,10 @@ Mobile devices will not always have a data connection, so it makes sense to cach
 
 All Resource classes support `NSCoding` and bring convenience methods for storing and loading from flat files:
 
-    [someEntry writeToFile:@"/some/path"];
-    CDAEntry* readEntry = [CDAEntry readFromFile:@"/some/path" client:client];
+```objective-c
+[someEntry writeToFile:@"/some/path"];
+CDAEntry* readEntry = [CDAEntry readFromFile:@"/some/path" client:client];
+```
 
 The helper methods use [HRCoder][11] internally, to account for the possibility of circular links between Entries. Most of the UIKit extensions have an `offlineCaching` property which transparently uses this mechanism for showing content when offline.
 
@@ -65,12 +73,14 @@ In both cases, you can use the `offlineCaching_cda` property of the SDK's `UIIma
 
 The Content Delivery API only returns published Entries. However, you might want to preview content in your app before making it public for your users. For this, you can use the preview mode, which will return **all** Entries, regardless of their published status:
 
-    CDAConfiguration* configuration = [CDAConfiguration defaultConfiguration];
-    configuration.previewMode = YES;
+```objective-c
+CDAConfiguration* configuration = [CDAConfiguration defaultConfiguration];
+configuration.previewMode = YES;
 
-    CDAClient* client = [[CDAClient alloc] initWithSpaceKey:@"YourSpaceKey"
-                                                accessToken:@"YourAccessToken"
-                                              configuration:configuration];
+CDAClient* client = [[CDAClient alloc] initWithSpaceKey:@"YourSpaceKey"
+                                            accessToken:@"YourAccessToken"
+                                          configuration:configuration];
+```
 
 Apart from the configuration option, you can use the SDK without modifications with one exception: you need to obtain a different access token from [here][10].  In preview mode, data can be invalid, because no validation is performed on unpublished entries. Your app needs to deal with that. Be aware that the access token is read-write and should in no case be shipped with a production app.
 
@@ -88,8 +98,10 @@ For further information, check out the [Developer Documentation][6] or browse th
 
 [CocoaPods][2] is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries like the Contentful Delivery API in your projects.
 
-    platform :ios, '7.0'
-    pod 'ContentfulDeliveryAPI'
+```ruby
+platform :ios, '7.0'
+pod 'ContentfulDeliveryAPI'
+```
 
 This is the easiest way to keep your copy of the Contentful Delivery API updated.
 
@@ -125,8 +137,8 @@ The Contentful Delivery API is fully unit tested.
 
 To run the tests, do the following steps:
 
-    gem install xcpretty cocoapods cocoapods-testing
-    make test
+    $ gem install xcpretty cocoapods cocoapods-testing
+    $ make test
 
 or run them directly from Xcode.
 
