@@ -231,7 +231,8 @@
             systemProperties[key] = value;
         }
 
-        if ([@[ @"revision", @"publishedCounter", @"version", @"archivedVersion" ] containsObject:key]) {
+        if ([@[ @"revision", @"publishedCounter", @"version", @"archivedVersion",
+                @"publishedVersion" ] containsObject:key]) {
             NSAssert([value isKindOfClass:[NSNumber class]], @"%@ needs to be a number", key);
             systemProperties[key] = value;
         }
@@ -267,7 +268,7 @@
 -(void)updateWithResource:(CDAResource *)resource {
     NSMutableDictionary* systemProperties = [self.sys mutableCopy];
 
-    for (NSString* key in @[ @"publishedCounter", @"version", @"archivedVersion" ]) {
+    for (NSString* key in @[ @"publishedCounter", @"version", @"archivedVersion", @"publishedVersion" ]) {
         id value = resource.sys[key];
         if (value) {
             systemProperties[key] = value;
