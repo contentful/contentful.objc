@@ -271,6 +271,8 @@
         id value = resource.sys[key];
         if (value) {
             systemProperties[key] = value;
+        } else {
+            [systemProperties removeObjectForKey:key];
         }
     }
 
