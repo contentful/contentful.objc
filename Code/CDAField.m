@@ -44,6 +44,14 @@
     return [NSString stringWithFormat:@"CDAField %@ of type %@", self.identifier, type];
 }
 
+-(NSDictionary*)dictionaryRepresentation {
+    return @{ @"id": self.identifier,
+              @"name": self.name,
+              @"type": [self fieldTypeToString:self.type] };
+}
+
+
+
 -(void)encodeWithCoder:(NSCoder *)aCoder {
     CDAEncodeObjectWithCoder(self, aCoder);
 }
