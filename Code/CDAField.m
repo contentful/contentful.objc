@@ -10,7 +10,7 @@
 
 #import <ContentfulDeliveryAPI/CDAResource.h>
 
-#import "CDAField.h"
+#import "CDAField+Private.h"
 #import "CDAFieldValueTransformer.h"
 #import "CDAUtilities.h"
 
@@ -22,10 +22,8 @@
 @property (nonatomic) NSString* identifier;
 @property (nonatomic) CDAFieldType itemType;
 @property (nonatomic) BOOL localized;
-@property (nonatomic) NSString* name;
 @property (nonatomic) BOOL required;
 @property (nonatomic) CDAFieldValueTransformer* transformer;
-@property (nonatomic) CDAFieldType type;
 
 @end
 

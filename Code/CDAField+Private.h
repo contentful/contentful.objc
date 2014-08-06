@@ -12,6 +12,9 @@
 
 @interface CDAField ()
 
+@property (nonatomic) NSString* name;
+@property (nonatomic) CDAFieldType type;
+
 -(id)initWithDictionary:(NSDictionary *)dictionary client:(CDAClient*)client;
 -(id)parseValue:(id)value;
 
