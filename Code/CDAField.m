@@ -43,12 +43,25 @@
 }
 
 -(NSDictionary*)dictionaryRepresentation {
-    return @{ @"id": self.identifier,
-              @"name": self.name,
-              @"type": [self fieldTypeToString:self.type] };
+    NSMutableDictionary* rep = [@{ @"id": self.identifier,
+                                   @"name": self.name,
+                                   @"type": [self fieldTypeToString:self.type] } mutableCopy];
+
+    switch (self.itemType) {
+        case CDAFieldTypeNone:
+            break;
+        case CDAFieldTypeAsset:
+        case CDAFieldTypeEntry:
+            rep[@"items"] = @{ @"type": [self fieldTypeToString:CDAFieldTypeLink],
+                               @"linkType": [self fieldTypeToString:self.itemType] };
+            break;
+        default:
+            rep[@"items"] = @{ @"type": [self fieldTypeToString:self.itemType] };
+            break;
+    }
+
+    return rep;
 }
-
-
 
 -(void)encodeWithCoder:(NSCoder *)aCoder {
     CDAEncodeObjectWithCoder(self, aCoder);
@@ -68,6 +81,8 @@
                                             @"Object": @(CDAFieldTypeObject),
                                             @"Symbol": @(CDAFieldTypeSymbol),
                                             @"Text": @(CDAFieldTypeText),
+                                            @"Entry": @(CDAFieldTypeEntry),
+                                            @"Asset": @(CDAFieldTypeAsset),
                                             }; });
     return fieldTypes;
 }
