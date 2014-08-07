@@ -6,7 +6,7 @@
 //
 //
 
-#import "CDAError.h"
+#import "CDAError+Private.h"
 #import "CDAResource+Private.h"
 
 NSString* const CDAErrorDomain = @"CDAErrorDomain";

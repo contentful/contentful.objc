@@ -8,13 +8,19 @@
 
 #import <ContentfulDeliveryAPI/CDAResource.h>
 
+/**
+ *  Details about errors which occured on the server.
+ */
 @interface CDAError : CDAResource
 
+/**
+ *  Detailed representation of the error.
+ */
 @property (nonatomic, readonly) NSDictionary* details;
+
+/**
+ *  Short message on the cause of the error.
+ */
 @property (nonatomic, readonly) NSString* message;
-
-+(NSError*)buildErrorWithCode:(NSInteger)code userInfo:(NSDictionary*)userInfo;
-
--(NSError*)errorRepresentationWithCode:(NSInteger)code;
 
 @end

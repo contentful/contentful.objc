@@ -15,7 +15,7 @@
 #import "CDAConfiguration+Private.h"
 #import "CDAContentType.h"
 #import "CDAContentTypeRegistry.h"
-#import "CDAError.h"
+#import "CDAError+Private.h"
 #import "CDARequestOperationManager.h"
 #import "CDAResource+Private.h"
 #import "CDASyncedSpace+Private.h"
