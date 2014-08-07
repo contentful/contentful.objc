@@ -36,6 +36,10 @@ typedef NS_ENUM(NSInteger, CDAFieldType) {
     CDAFieldTypeSymbol,
     /** Same as String, but can be filtered via [Full-Text Search](https://www.contentful.com/developers/documentation/content-delivery-api/#search-filter-full-text). */
     CDAFieldTypeText,
+    /** Used as `itemType` for arrays of entries. */
+    CDAFieldTypeEntry,
+    /** Used as `itemType` for arrays of assets. */
+    CDAFieldTypeAsset,
 };
 
 /** A `CDAField` describes a single property of a `CDAEntry`. */

@@ -87,7 +87,7 @@
             }
             return;
             
-        case CDAFieldTypeNone:
+        default:
             return;
     }
     
