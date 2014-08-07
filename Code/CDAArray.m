@@ -7,7 +7,7 @@
 //
 
 #import "CDAArray+Private.h"
-#import "CDAError.h"
+#import "CDAError+Private.h"
 #import "CDAResource+Private.h"
 
 @interface CDAArray ()

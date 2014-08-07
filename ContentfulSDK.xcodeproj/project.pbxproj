@@ -291,6 +291,7 @@
 		A144FAFB18C9F8C200110B35 /* StagingTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = StagingTests.json; sourceTree = "<group>"; };
 		A144FAFD18C9F8CA00110B35 /* SearchAPITests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SearchAPITests.json; sourceTree = "<group>"; };
 		A144FAFF18C9F8D200110B35 /* DocumentationTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DocumentationTests.json; sourceTree = "<group>"; };
+		A1462B911993B472004906D0 /* CDAError+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDAError+Private.h"; sourceTree = "<group>"; };
 		A160862018CDF0E60047D44F /* CDARequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDARequest.h; sourceTree = "<group>"; };
 		A160862118CDF0E60047D44F /* CDARequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDARequest.m; sourceTree = "<group>"; };
 		A160862418CDF2AC0047D44F /* CDARequest+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDARequest+Private.h"; sourceTree = "<group>"; };
@@ -1098,6 +1099,7 @@
 				A1B815CB18F5A8250027B26D /* CDAEntry+Private.h */,
 				A1A0312A18C64187006470B7 /* CDAEntry.h */,
 				A1A0312B18C64187006470B7 /* CDAEntry.m */,
+				A1462B911993B472004906D0 /* CDAError+Private.h */,
 				A1A0315318C76839006470B7 /* CDAError.h */,
 				A1A0315418C76839006470B7 /* CDAError.m */,
 				A1F265931987990F00365AEF /* CDAOrganizationContainer.h */,

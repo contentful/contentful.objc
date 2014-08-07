@@ -15,7 +15,7 @@
 #import "CDAArray+Private.h"
 #import "CDAClient+Private.h"
 #import "CDAConfiguration.h"
-#import "CDAError.h"
+#import "CDAError+Private.h"
 #import "CDARequest+Private.h"
 #import "CDARequestOperationManager.h"
 #import "CDARequestSerializer.h"
