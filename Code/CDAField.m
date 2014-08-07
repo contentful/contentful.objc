@@ -44,8 +44,19 @@
 
 -(NSDictionary*)dictionaryRepresentation {
     NSMutableDictionary* rep = [@{ @"id": self.identifier,
-                                   @"name": self.name,
-                                   @"type": [self fieldTypeToString:self.type] } mutableCopy];
+                                   @"name": self.name } mutableCopy];
+
+    switch (self.type) {
+        case CDAFieldTypeAsset:
+        case CDAFieldTypeEntry:
+            rep[@"type"] = [self fieldTypeToString:CDAFieldTypeLink];
+            rep[@"linkType"] = [self fieldTypeToString:self.type];
+            break;
+
+        default:
+            rep[@"type"] = [self fieldTypeToString:self.type];
+            break;
+    }
 
     switch (self.itemType) {
         case CDAFieldTypeNone:
