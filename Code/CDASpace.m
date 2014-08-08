@@ -12,7 +12,6 @@
 @interface CDASpace ()
 
 @property (nonatomic) NSString* defaultLocale;
-@property (nonatomic) NSArray* locales;
 @property (nonatomic) NSString* name;
 
 @end
