@@ -11,5 +11,6 @@
 @interface CDASpace ()
 
 @property (nonatomic, readonly) NSArray* localeCodes;
+@property (nonatomic) NSArray* locales;
 
 @end
