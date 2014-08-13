@@ -174,11 +174,15 @@ void CDAPropertyVisitor(Class class, void(^visitor)(objc_property_t property, NS
     CDAPropertyVisitor([class superclass], visitor);
 }
 
-// Thanks to http://nshipster.com/nscharacterset/
 NSString* CDASquashWhitespacesInString(NSString* string) {
-    string = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    return CDASquashCharactersFromSetInString([NSCharacterSet whitespaceAndNewlineCharacterSet], string);
+}
+
+// Thanks to http://nshipster.com/nscharacterset/
+NSString* CDASquashCharactersFromSetInString(NSCharacterSet* characterSet, NSString* string) {
+    string = [string stringByTrimmingCharactersInSet:characterSet];
     
-    NSArray *components = [string componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    NSArray *components = [string componentsSeparatedByCharactersInSet:characterSet];
     components = [components filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self <> ''"]];
     
     return [components componentsJoinedByString:@""];
