@@ -235,7 +235,17 @@
     [self.cellMapping enumerateKeysAndObjectsUsingBlock:^(NSString* cellKeyPath,
                                                           NSString* entryKeyPath,
                                                           BOOL *stop) {
-        [cell setValue:[item valueForKeyPath:entryKeyPath] forKeyPath:cellKeyPath];
+        id value = [item valueForKeyPath:entryKeyPath];
+
+        if (![value isKindOfClass:[NSString class]]) {
+            if ([value respondsToSelector:@selector(stringValue)]) {
+                value = [value stringValue];
+            } else {
+                return;
+            }
+        }
+
+        [cell setValue:value forKeyPath:cellKeyPath];
     }];
     
     if (cell.textLabel.text.length == 0 && [item isKindOfClass:[CDAResource class]]) {
