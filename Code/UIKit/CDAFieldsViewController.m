@@ -112,7 +112,22 @@
     self = [super initWithStyle:style];
     if (self) {
         self.entry = entry;
-        self.title = entry.fields[entry.contentType.displayField];
+
+        switch ([entry.contentType fieldForIdentifier:entry.contentType.displayField].type) {
+            case CDAFieldTypeText:
+            case CDAFieldTypeSymbol:
+                self.title = entry.fields[entry.contentType.displayField];
+                break;
+
+            case CDAFieldTypeInteger:
+            case CDAFieldTypeBoolean:
+            case CDAFieldTypeNumber:
+                self.title = [entry.fields[entry.contentType.displayField] stringValue];
+                break;
+
+            default:
+                break;
+        }
         
         NSMutableArray* fields = [@[] mutableCopy];
         
