@@ -26,7 +26,7 @@
 
 /** If `YES`, a secure HTTPS connection will be used instead of regular HTTP. Default value: `YES` */
 @property (nonatomic) BOOL secure;
-/** The server address to use for accessing any resources. Default value: "http://cdn.contentful.com" */
+/** The server address to use for accessing any resources. Default value: "cdn.contentful.com" */
 @property (nonatomic) NSString* server;
 
 /** @name Configure Preview Mode */
