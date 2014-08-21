@@ -179,7 +179,13 @@
           accessToken:(NSString *)accessToken
                client:(CDAClient*)client
         configuration:(CDAConfiguration*)configuration {
-    NSString* urlString = [NSString stringWithFormat:@"%@://%@", client.protocol, configuration.server];
+    NSString* urlString = nil;
+    if ([configuration.server rangeOfString:@"://"].location != NSNotFound) {
+        urlString = configuration.server;
+    } else {
+        urlString = [NSString stringWithFormat:@"%@://%@", client.protocol, configuration.server];
+    }
+
     if (spaceKey) {
         urlString = [urlString stringByAppendingFormat:@"/spaces/%@", spaceKey];
     }

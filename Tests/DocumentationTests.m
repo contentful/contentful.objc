@@ -257,4 +257,25 @@
     WaitUntilBlockCompletes();
 }
 
+-(void)testProtocolInServerConfiguration {
+    StartBlock();
+
+    CDAConfiguration* configuration = [CDAConfiguration defaultConfiguration];
+    configuration.server = @"http://cdn.contentful.com";
+    self.client = [[CDAClient alloc] initWithSpaceKey:@"cfexampleapi"
+                                          accessToken:@"b4c0n73n7ful"
+                                        configuration:configuration];
+
+    [self.client fetchEntriesMatching:@{ @"sys.id": @"nyancat" }
+                              success:^(CDAResponse *response, CDAArray *array) {
+                                  XCTAssertEqual(1U, array.items.count, @"");
+
+                                  EndBlock();
+                              } failure:^(CDAResponse *response, NSError *error) {
+                                  XCTFail(@"Error: %@", error);
+
+                                  EndBlock();
+                              }];
+}
+
 @end
