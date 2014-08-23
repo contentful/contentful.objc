@@ -20,7 +20,7 @@
         NSString* userAgent = self.HTTPRequestHeaders[@"User-Agent"];
         userAgent = [userAgent stringByReplacingOccurrencesOfString:@"(null)" withString:@""];
         NSRange bracketRange = [userAgent rangeOfString:@"("];
-        [self setValue:[userAgent stringByReplacingCharactersInRange:NSMakeRange(0, bracketRange.location - 1) withString:@"contentful.objc/1.4.0"] forHTTPHeaderField:@"User-Agent"];
+        [self setValue:[userAgent stringByReplacingCharactersInRange:NSMakeRange(0, bracketRange.location - 1) withString:@"contentful.objc/1.4.2"] forHTTPHeaderField:@"User-Agent"];
     }
     return self;
 }
