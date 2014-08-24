@@ -350,22 +350,61 @@
         return _persistentStoreCoordinator;
     }
     
+    NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
+                             @YES, NSInferMappingModelAutomaticallyOption,
+                             @YES, NSMigratePersistentStoresAutomaticallyOption, nil];
+    
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc]
                                    initWithManagedObjectModel:[self managedObjectModel]];
     if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
                                                    configuration:nil
                                                              URL:self.storeURL
-                                                         options:nil
+                                                         options:options
                                                            error:&error]) {
-        // Replace this implementation with code to handle the error appropriately.
-        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
+        
+        #ifdef DEBUG
+            DDLogError(@"Error opening the database: %@\nDeleting the file and trying again.", error.localizedDescription);
+            [self replaceStore];
+        #else
+            DDLogError(@"Error opening the database: %@\nDid you change your Core Data model?.", error.localizedDescription);
+            abort();
+        #endif
     }
     
     return _persistentStoreCoordinator;
 }
+
+- (void)replaceStore {
+    [self backupStore];
+    [self deleteStore];
+    [self addStore];
+}
+
+- (void)backupStore {
+    NSError *error = nil;
+    [[NSFileManager defaultManager] copyItemAtPath:self.storeURL.path toPath:[self.storeURL.path stringByAppendingString:@"~"] error:&error];
+    if (error) {
+        DDLogError(@"Error backing up existing store: %@, %@", error, error.userInfo);
+    }
+}
+
+- (void)deleteStore {
+    NSError *error = nil;
+    [[NSFileManager defaultManager] removeItemAtPath:self.storeURL.path error:&error];
+    if (error) {
+        DDLogError(@"Error deleting store: %@, %@", error, error.userInfo);
+    }
+}
+
+- (void)addStore {
+    NSError *error = nil;
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:self.storeURL options:nil error:&error]) {
+        DDLogError(@"Error adding store to persistent store coordinator %@, %@", error, error.userInfo);
+        abort();
+    }
+}
+
 
 - (NSURL *)storeURL
 {
