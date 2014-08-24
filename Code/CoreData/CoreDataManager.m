@@ -304,11 +304,13 @@
         NSDictionary* mappingForEntries = [self mappingForEntriesOfContentTypeWithIdentifier:entry.contentType.identifier];
         NSString* entryKeyPath = [[mappingForEntries allKeysForObject:relationshipName] firstObject];
         
-        CDAResource* resource = [entry valueForKeyPath:entryKeyPath];
-        if (resource) {
-            NSAssert([resource isKindOfClass:[CDAResource class]],
-                     @"Relationship target ought to be a Resource.");
-            relationships[relationshipName] = resource;
+        if (entryKeyPath) {
+            CDAResource* resource = [entry valueForKeyPath:entryKeyPath];
+            if (resource) {
+                NSAssert([resource isKindOfClass:[CDAResource class]],
+                         @"Relationship target ought to be a Resource.");
+                relationships[relationshipName] = resource;
+            }
         }
     }
     
