@@ -69,7 +69,8 @@
     
     [self.client fetchAssetWithIdentifier:@"nyancat" success:^(CDAResponse *response, CDAAsset *asset) {
         [asset writeToFile:self.temporaryFileURL.path];
-        CDAAsset* readAsset = [CDAAsset readFromFile:self.temporaryFileURL.path client:[CDAClient new]];
+        CDAClient* client = [CDAClient new];
+        CDAAsset* readAsset = [CDAAsset readFromFile:self.temporaryFileURL.path client:client];
         
         XCTAssertEqualObjects(@"en-US", readAsset.defaultLocaleOfSpace, @"");
         XCTAssertEqualObjects(asset, readAsset, @"");
@@ -86,6 +87,7 @@
                               readAsset.URL, @"");
         XCTAssertEqual(250.0f, readAsset.size.width, @"");
         XCTAssertEqual(250.0f, readAsset.size.height, @"");
+        XCTAssertNotNil(client, @"");
         
         EndBlock();
     } failure:^(CDAResponse *response, NSError *error) {

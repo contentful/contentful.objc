@@ -298,7 +298,7 @@
     StartBlock();
 
     [self.coreDataManager performSynchronizationWithSuccess:^{
-        id<CDAPersistedAsset> asset = [[[self.coreDataManager fetchAssetsFromDataStore] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"identifier == 'nyancat'"]] firstObject];
+        __block id<CDAPersistedAsset> asset = [[[self.coreDataManager fetchAssetsFromDataStore] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"identifier == 'nyancat'"]] firstObject];
         XCTAssertNotNil(asset, @"");
 
         [CDAAsset cachePersistedAsset:asset
@@ -311,6 +311,7 @@
 
                             [self buildCoreDataManagerWithDefaultClient:YES];
                             CDAClient* client = [self.coreDataManager client];
+                            asset = [[[self.coreDataManager fetchAssetsFromDataStore] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"identifier == 'nyancat'"]] firstObject];
 
                             NSData* cachedData = [CDAAsset cachedDataForPersistedAsset:asset
                                                                                 client:client];

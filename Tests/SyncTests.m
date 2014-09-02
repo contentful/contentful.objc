@@ -497,8 +497,9 @@
                 [space performSynchronizationWithSuccess:^{
                     XCTAssertEqual(2U, space.assets.count, @"");
                     XCTAssertEqual(1U, space.entries.count, @"");
-                    
-                    CDAAsset* asset = [space.assets lastObject];
+
+                    NSArray* assets = [space.assets sortedArrayUsingDescriptors:@[ [NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:YES] ]];
+                    CDAAsset* asset = [assets lastObject];
                     XCTAssertEqualObjects(@"6koKmTXVzUquae6ewQQ8Eu", asset.identifier, @"");
                     
                     EndBlock();
