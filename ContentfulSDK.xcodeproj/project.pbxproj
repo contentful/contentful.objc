@@ -172,6 +172,7 @@
 		A1AB590A1974069E00098F87 /* CoreDataMultipleContentTypesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1AB59091974069E00098F87 /* CoreDataMultipleContentTypesTests.m */; };
 		A1ABC7BC191D12ED0020A964 /* CDAInputSanitizer.h in Headers */ = {isa = PBXBuildFile; fileRef = A1ABC7BA191D12ED0020A964 /* CDAInputSanitizer.h */; };
 		A1ABC7BD191D12ED0020A964 /* CDAInputSanitizer.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ABC7BB191D12ED0020A964 /* CDAInputSanitizer.m */; };
+		A1AE68B519B74F1C00D2C35F /* CoreDataIssues.m in Sources */ = {isa = PBXBuildFile; fileRef = A1AE68B419B74F1C00D2C35F /* CoreDataIssues.m */; };
 		A1B8158418F2A8090027B26D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD86A18C631E60081677E /* Foundation.framework */; };
 		A1B8158518F2A8090027B26D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD89918C637400081677E /* CoreGraphics.framework */; };
 		A1B8158618F2A8090027B26D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD87B18C631E60081677E /* UIKit.framework */; };
@@ -456,6 +457,7 @@
 		A1AB59091974069E00098F87 /* CoreDataMultipleContentTypesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataMultipleContentTypesTests.m; sourceTree = "<group>"; };
 		A1ABC7BA191D12ED0020A964 /* CDAInputSanitizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAInputSanitizer.h; sourceTree = "<group>"; };
 		A1ABC7BB191D12ED0020A964 /* CDAInputSanitizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAInputSanitizer.m; sourceTree = "<group>"; };
+		A1AE68B419B74F1C00D2C35F /* CoreDataIssues.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataIssues.m; sourceTree = "<group>"; };
 		A1B8158318F2A8090027B26D /* CoreDataExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B8158718F2A8090027B26D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		A1B8158B18F2A8090027B26D /* CoreDataExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CoreDataExample-Info.plist"; sourceTree = "<group>"; };
@@ -624,6 +626,7 @@
 				A1A1CCBF190FAE5B00BE37EB /* QuerySync */,
 				A1F70C9A18FFDE030080C72C /* CoreDataBasicTests.json */,
 				A170130A18FD30A50086BE07 /* CoreDataBasicTests.m */,
+				A1AE68B419B74F1C00D2C35F /* CoreDataIssues.m */,
 				A1AB59091974069E00098F87 /* CoreDataMultipleContentTypesTests.m */,
 				A1A1CCB8190E960800BE37EB /* CoreDataQuerySyncTests.json */,
 				A1A1CCB1190E382E00BE37EB /* CoreDataQuerySyncTests.m */,
@@ -1768,6 +1771,7 @@
 				A1B815D818F830C00027B26D /* ComplexLinkSyncTests.m in Sources */,
 				A1D1D35C18C8A94800261A1C /* ContentfulBaseTestCase.m in Sources */,
 				A144FAF618C90DD100110B35 /* StagingTests.m in Sources */,
+				A1AE68B519B74F1C00D2C35F /* CoreDataIssues.m in Sources */,
 				A1E9797818CBEDFC00E79632 /* ErrorTests.m in Sources */,
 				A170131018FD4B9A0086BE07 /* Asset.m in Sources */,
 				A1D2DC0718D0811F0053DC83 /* ArrayTests.m in Sources */,
