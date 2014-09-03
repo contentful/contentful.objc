@@ -303,6 +303,10 @@
     for (NSString* relationshipName in [entityDescription relationshipsByName].allKeys) {
         NSDictionary* mappingForEntries = [self mappingForEntriesOfContentTypeWithIdentifier:entry.contentType.identifier];
         NSString* entryKeyPath = [[mappingForEntries allKeysForObject:relationshipName] firstObject];
+
+        if (!entryKeyPath) {
+            continue;
+        }
         
         CDAResource* resource = [entry valueForKeyPath:entryKeyPath];
         if (resource) {
