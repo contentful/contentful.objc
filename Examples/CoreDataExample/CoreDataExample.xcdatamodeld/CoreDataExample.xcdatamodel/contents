@@ -14,6 +14,7 @@
         <attribute name="livesLeft" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="picture" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Asset" inverseName="cat" inverseEntity="Asset" syncable="YES"/>
+        <relationship name="unknownrelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ManagedCat" inverseName="unknownrelationship" inverseEntity="ManagedCat" syncable="YES"/>
     </entity>
     <entity name="SyncInfo" representedClassName="SyncInfo" syncable="YES">
         <attribute name="lastSyncTimestamp" optional="YES" attributeType="Date" syncable="YES"/>
@@ -21,7 +22,7 @@
     </entity>
     <elements>
         <element name="Asset" positionX="0" positionY="0" width="128" height="135"/>
-        <element name="ManagedCat" positionX="0" positionY="0" width="128" height="120"/>
+        <element name="ManagedCat" positionX="0" positionY="0" width="128" height="135"/>
         <element name="SyncInfo" positionX="0" positionY="0" width="128" height="75"/>
     </elements>
 </model>
