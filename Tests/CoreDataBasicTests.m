@@ -317,6 +317,8 @@
                                                                                 client:client];
                             UIImage* cachedImage = [UIImage imageWithData:cachedData];
                             XCTAssertNotNil(cachedImage, @"");
+                            XCTAssertEqual(asset.width.floatValue, cachedImage.size.width, @"");
+                            XCTAssertEqual(asset.height.floatValue, cachedImage.size.height, @"");
 
                             UIImage* refImage = [UIImage imageWithData:data];
                             NSError* error;

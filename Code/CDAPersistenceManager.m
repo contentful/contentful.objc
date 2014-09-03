@@ -331,6 +331,14 @@
     persistedAsset.identifier = asset.identifier;
     persistedAsset.internetMediaType = asset.MIMEType;
     persistedAsset.url = asset.URL.absoluteString;
+
+    if ([persistedAsset respondsToSelector:@selector(setWidth:)]) {
+        persistedAsset.width = @(asset.size.width);
+    }
+
+    if ([persistedAsset respondsToSelector:@selector(setHeight:)]) {
+        persistedAsset.height = @(asset.size.height);
+    }
 }
 
 -(void)updatePersistedEntry:(id<CDAPersistedEntry>)persistedEntry withEntry:(CDAEntry*)entry {

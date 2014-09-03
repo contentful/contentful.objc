@@ -2,7 +2,7 @@
 //  Asset.m
 //  ContentfulSDK
 //
-//  Created by Boris Bügling on 14/04/14.
+//  Created by Boris Bügling on 03/09/14.
 //
 //
 
@@ -10,9 +10,11 @@
 
 @implementation Asset
 
+@dynamic height;
 @dynamic identifier;
 @dynamic url;
 @dynamic internetMediaType;
+@dynamic width;
 @dynamic cat;
 
 @end
