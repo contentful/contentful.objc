@@ -20,4 +20,11 @@
 /** URL for the underlying file represented by the Asset. */
 @property (nonatomic) NSString* url;
 
+@optional
+
+/** The width of the Asset, if it is an image. */
+@property (nonatomic) NSNumber* width;
+/** The height of the Asset, if it is an image. */
+@property (nonatomic) NSNumber* height;
+
 @end
