@@ -7,6 +7,8 @@
 //
 
 #import "CoreDataBaseTestCase.h"
+#import "Group.h"
+#import "Member.h"
 
 @interface CoreDataIssues : CoreDataBaseTestCase
 
@@ -24,6 +26,39 @@
 }
 
 #pragma mark -
+
+-(void)testToManyRelationship {
+    StartBlock();
+
+    self.client = [[CDAClient alloc] initWithSpaceKey:@"a3rsszoo7qqp" accessToken:@"57a1ef74e87e234bed4d3f932ec945a82dae641d6ea2b2435ea2837de94d6be5"];
+    [super buildCoreDataManagerWithDefaultClient:NO];
+
+    [self.coreDataManager setClass:Group.class forEntriesOfContentTypeWithIdentifier:@"20iFrEKPwgoq6KAyeSqww8"];
+    [self.coreDataManager setMapping:@{ @"fields.title": @"title", @"fields.members": @"members" }forEntriesOfContentTypeWithIdentifier:@"20iFrEKPwgoq6KAyeSqww8"];
+
+    [self.coreDataManager setClass:Member.class forEntriesOfContentTypeWithIdentifier:@"12pXFbTH9cWqWo06Oigeyu"];
+    [self.coreDataManager setMapping:@{ @"fields.name": @"title", @"fields.group": @"group" } forEntriesOfContentTypeWithIdentifier:@"12pXFbTH9cWqWo06Oigeyu"];
+
+    [self.coreDataManager performSynchronizationWithSuccess:^{
+        Group* group = [[self.coreDataManager fetchEntriesOfContentTypeWithIdentifier:@"20iFrEKPwgoq6KAyeSqww8" matchingPredicate:nil] firstObject];
+
+        XCTAssertNotNil(group, @"");
+        XCTAssertEqual(group.members.count, 2, @"");
+
+        for (Member* member in group.members) {
+            XCTAssertNotNil(member, @"");
+            XCTAssertTrue([member isKindOfClass:Member.class], @"");
+        }
+
+        EndBlock();
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTFail(@"Error: %@", error);
+
+        EndBlock();
+    }];
+
+    WaitUntilBlockCompletes();
+}
 
 -(void)testUnmappedContentType {
     StartBlock();

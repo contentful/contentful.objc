@@ -95,6 +95,17 @@
     }
 }
 
+- (void)enumerateRelationshipsForClass:(Class)class usingBlock:(void (^)(NSString* relationshipName))block {
+    NSParameterAssert(block);
+
+    NSEntityDescription* entityDescription = [NSEntityDescription entityForName:NSStringFromClass(class) inManagedObjectContext:self.managedObjectContext];
+
+    NSArray* relationships = [entityDescription relationshipsByName].allKeys;
+    [relationships enumerateObjectsUsingBlock:^(NSString* relationshipName, NSUInteger idx, BOOL *stop) {
+        block(relationshipName);
+    }];
+}
+
 - (NSArray *)fetchAssetsFromDataStore
 {
     NSError* error;
@@ -251,6 +262,19 @@
     return nil;
 }
 
+- (NSDictionary *)mappingForEntriesOfContentTypeWithIdentifier:(NSString *)identifier {
+    NSMutableDictionary* mapping = [[super mappingForEntriesOfContentTypeWithIdentifier:identifier] mutableCopy];
+
+    Class c = [self classForEntriesOfContentTypeWithIdentifier:identifier];
+    [self enumerateRelationshipsForClass:c usingBlock:^(NSString *relationshipName) {
+        for (NSString* key in [mapping allKeysForObject:relationshipName]) {
+            [mapping removeObjectForKey:key];
+        }
+    }];
+
+    return mapping;
+}
+
 - (void)performSynchronizationWithSuccess:(void (^)())success failure:(CDARequestFailureBlock)failure {
     self.relationshipsToResolve = [@{} mutableCopy];
     
@@ -260,22 +284,35 @@
 - (void)resolveRelationships {
     for (id<CDAPersistedEntry> entry in [self fetchEntriesFromDataStore]) {
         NSDictionary* relationships = self.relationshipsToResolve[entry.identifier];
-        [relationships enumerateKeysAndObjectsUsingBlock:^(NSString* keyPath, CDAResource* rsc, BOOL *s) {
-            if ([rsc isKindOfClass:[CDAAsset class]]) {
-                id<CDAPersistedAsset> linkedAsset = [self fetchAssetWithIdentifier:rsc.identifier];
-                [(NSObject*)entry setValue:linkedAsset forKeyPath:keyPath];
-                return;
+        [relationships enumerateKeysAndObjectsUsingBlock:^(NSString* keyPath, id value, BOOL *s) {
+            if ([value isKindOfClass:[NSSet class]]) {
+                NSMutableSet* resolvedSet = [NSMutableSet new];
+
+                for (CDAResource* resource in value) {
+                    [resolvedSet addObject:[self resolveResource:resource]];
+                }
+
+                value = resolvedSet;
+            } else {
+                value = [self resolveResource:value];
             }
-            
-            if ([rsc isKindOfClass:[CDAEntry class]]) {
-                id<CDAPersistedEntry> linkedEntry = [self fetchEntryWithIdentifier:rsc.identifier];
-                [(NSObject*)entry setValue:linkedEntry forKeyPath:keyPath];
-                return;
-            }
-            
-            NSAssert(false, @"Unexpectly, %@ is neither an Asset nor an Entry.", rsc);
+
+            [(NSObject*)entry setValue:value forKeyPath:keyPath];
         }];
     }
+}
+
+- (id)resolveResource:(CDAResource*)rsc {
+    if ([rsc isKindOfClass:[CDAAsset class]]) {
+        return [self fetchAssetWithIdentifier:rsc.identifier];
+    }
+
+    if ([rsc isKindOfClass:[CDAEntry class]]) {
+        return [self fetchEntryWithIdentifier:rsc.identifier];
+    }
+
+    NSAssert(false, @"Unexpectly, %@ is neither an Asset nor an Entry.", rsc);
+    return nil;
 }
 
 - (void)saveDataStore
@@ -296,25 +333,32 @@
 
 - (void)updatePersistedEntry:(id<CDAPersistedEntry>)persistedEntry withEntry:(CDAEntry *)entry {
     [super updatePersistedEntry:persistedEntry withEntry:entry];
-    
-    NSEntityDescription* entityDescription = [NSEntityDescription entityForName:NSStringFromClass(persistedEntry.class) inManagedObjectContext:self.managedObjectContext];
+
     NSMutableDictionary* relationships = [@{} mutableCopy];
-    
-    for (NSString* relationshipName in [entityDescription relationshipsByName].allKeys) {
-        NSDictionary* mappingForEntries = [self mappingForEntriesOfContentTypeWithIdentifier:entry.contentType.identifier];
+
+    [self enumerateRelationshipsForClass:persistedEntry.class usingBlock:^(NSString *relationshipName) {
+        NSDictionary* mappingForEntries = [super mappingForEntriesOfContentTypeWithIdentifier:entry.contentType.identifier];
         NSString* entryKeyPath = [[mappingForEntries allKeysForObject:relationshipName] firstObject];
 
         if (!entryKeyPath) {
-            continue;
+            return;
+        }
+
+        id relationshipTarget = [entry valueForKeyPath:entryKeyPath];
+
+        if (!relationshipTarget) {
+            return;
+        }
+
+        if ([relationshipTarget isKindOfClass:[NSArray class]]) {
+            relationshipTarget = [NSSet setWithArray:relationshipTarget];
+        } else {
+            NSAssert([relationshipTarget isKindOfClass:[CDAResource class]],
+                     @"Relationship target ought to be a Resource.");
         }
         
-        CDAResource* resource = [entry valueForKeyPath:entryKeyPath];
-        if (resource) {
-            NSAssert([resource isKindOfClass:[CDAResource class]],
-                     @"Relationship target ought to be a Resource.");
-            relationships[relationshipName] = resource;
-        }
-    }
+        relationships[relationshipName] = relationshipTarget;
+    }];
     
     self.relationshipsToResolve[entry.identifier] = [relationships copy];
 }
