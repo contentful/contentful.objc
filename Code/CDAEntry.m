@@ -35,8 +35,6 @@
     return @"Entry";
 }
 
-
-
 +(NSArray*)subclasses {
     static dispatch_once_t once;
     static NSArray* subclasses;
