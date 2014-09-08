@@ -16,6 +16,9 @@
  */
 @interface CDAMapViewController : UIViewController
 
+/** The underlying map view managed by this view controller. */
+@property (nonatomic, readonly) MKMapView* mapView;
+
 /** @name Configure Data to Display */
 
 /** Identifier for the Field which contains the coordinate for each `MKAnnotation`. */
