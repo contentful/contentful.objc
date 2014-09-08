@@ -15,6 +15,7 @@
 @interface CDAMapAnnotation : NSObject <MKAnnotation>
 
 @property (nonatomic) CLLocationCoordinate2D coordinate;
+@property (nonatomic) NSString* identifier;
 @property (nonatomic, copy) NSString* subtitle;
 @property (nonatomic, copy) NSString* title;
 
@@ -25,6 +26,7 @@
 @implementation CDAMapAnnotation
 
 @synthesize coordinate = _coordinate;
+@synthesize identifier = _identifier;
 @synthesize subtitle = _subtitle;
 @synthesize title = _title;
 
@@ -73,8 +75,11 @@
 }
 
 -(void)refresh {
+    [self.mapView removeAnnotations:self.mapView.annotations];
+
     for (CDAEntry* entry in self.entries.items) {
         CDAMapAnnotation* annotation = [CDAMapAnnotation new];
+        annotation.identifier = entry.identifier;
         
         if (self.coordinateFieldIdentifier) {
             annotation.coordinate = [entry CLLocationCoordinate2DFromFieldWithIdentifier:self.coordinateFieldIdentifier];
