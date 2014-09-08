@@ -68,6 +68,10 @@
     }
 }
 
+-(NSArray *)items {
+    return self.entries.items;
+}
+
 -(void)refresh {
     for (CDAEntry* entry in self.entries.items) {
         CDAMapAnnotation* annotation = [CDAMapAnnotation new];
