@@ -40,14 +40,19 @@
     [self.coreDataManager setMapping:@{ @"fields.name": @"title", @"fields.group": @"group" } forEntriesOfContentTypeWithIdentifier:@"12pXFbTH9cWqWo06Oigeyu"];
 
     [self.coreDataManager performSynchronizationWithSuccess:^{
-        Group* group = [[self.coreDataManager fetchEntriesOfContentTypeWithIdentifier:@"20iFrEKPwgoq6KAyeSqww8" matchingPredicate:nil] firstObject];
+        for (Group* group in [self.coreDataManager fetchEntriesOfContentTypeWithIdentifier:@"20iFrEKPwgoq6KAyeSqww8" matchingPredicate:nil]) {
+            XCTAssertNotNil(group, @"");
 
-        XCTAssertNotNil(group, @"");
-        XCTAssertEqual(group.members.count, 2, @"");
+            if ([group.identifier isEqualToString:@"8UEOnseV2gQY8GUOG8csc"]) {
+                XCTAssertEqual(group.members.count, 2, @"");
 
-        for (Member* member in group.members) {
-            XCTAssertNotNil(member, @"");
-            XCTAssertTrue([member isKindOfClass:Member.class], @"");
+                for (Member* member in group.members) {
+                    XCTAssertNotNil(member, @"");
+                    XCTAssertTrue([member isKindOfClass:Member.class], @"");
+                }
+            } else {
+                XCTAssertEqual(group.members.count, 0, @"");
+            }
         }
 
         EndBlock();
