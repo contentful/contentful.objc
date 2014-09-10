@@ -289,7 +289,10 @@
                 NSMutableSet* resolvedSet = [NSMutableSet new];
 
                 for (CDAResource* resource in value) {
-                    [resolvedSet addObject:[self resolveResource:resource]];
+                    id resolvedResource = [self resolveResource:resource];
+                    if (resolvedResource) {
+                        [resolvedSet addObject:resolvedResource];
+                    }
                 }
 
                 value = resolvedSet;
