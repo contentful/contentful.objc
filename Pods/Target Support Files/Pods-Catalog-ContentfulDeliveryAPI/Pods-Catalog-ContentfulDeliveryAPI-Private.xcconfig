@@ -1,0 +1,5 @@
+#include "Pods-Catalog-ContentfulDeliveryAPI.xcconfig"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Build" "${PODS_ROOT}/Headers/Build/ContentfulDeliveryAPI" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/CCLRequestReplay" "${PODS_ROOT}/Headers/Public/CCLRequestReplay/CCLRequestReplay" "${PODS_ROOT}/Headers/Public/ContentfulDeliveryAPI" "${PODS_ROOT}/Headers/Public/FBSnapshotTestCase" "${PODS_ROOT}/Headers/Public/HRCoder" "${PODS_ROOT}/Headers/Public/ISO8601DateFormatter" "${PODS_ROOT}/Headers/Public/OCMock" "${PODS_ROOT}/Headers/Public/PDKTCollectionViewWaterfallLayout" "${PODS_ROOT}/Headers/Public/VCRURLConnection"
+OTHER_LDFLAGS = ${PODS_CATALOG_CONTENTFULDELIVERYAPI_OTHER_LDFLAGS} -ObjC
+PODS_ROOT = ${SRCROOT}

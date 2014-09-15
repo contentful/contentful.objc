@@ -1,6 +1,0 @@
-#include "Pods-CDA Tests-FBSnapshotTestCase.xcconfig"
-FRAMEWORK_SEARCH_PATHS = ${PODS_CDA_TESTS_FBSNAPSHOTTESTCASE_FRAMEWORK_SEARCH_PATHS}
-GCC_PREPROCESSOR_DEFINITIONS = COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/FBSnapshotTestCase" "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/AFNetworking" "${PODS_ROOT}/Headers/CCLRequestReplay" "${PODS_ROOT}/Headers/CCLRequestReplay/CCLRequestReplay" "${PODS_ROOT}/Headers/ContentfulDeliveryAPI" "${PODS_ROOT}/Headers/FBSnapshotTestCase" "${PODS_ROOT}/Headers/HRCoder" "${PODS_ROOT}/Headers/ISO8601DateFormatter" "${PODS_ROOT}/Headers/OCMock" "${PODS_ROOT}/Headers/PDKTCollectionViewWaterfallLayout" "${PODS_ROOT}/Headers/VCRURLConnection"
-OTHER_LDFLAGS = -ObjC ${PODS_CDA_TESTS_FBSNAPSHOTTESTCASE_OTHER_LDFLAGS}
-PODS_ROOT = ${SRCROOT}
