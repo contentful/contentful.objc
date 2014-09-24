@@ -8,6 +8,8 @@
 
 #import <ContentfulDeliveryAPI/CDAResource.h>
 
+extern NSString* const CDAErrorDomain;
+
 /**
  *  Details about errors which occured on the server.
  */

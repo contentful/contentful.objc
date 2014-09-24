@@ -31,5 +31,3 @@
 #import <ContentfulDeliveryAPI/CDAResourcesViewController.h>
 #import <ContentfulDeliveryAPI/UIImageView+CDAAsset.h>
 #endif
-
-extern NSString* const CDAErrorDomain;
