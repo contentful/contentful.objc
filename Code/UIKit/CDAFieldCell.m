@@ -88,7 +88,9 @@
             }
             return;
             
-        default:
+        case CDAFieldTypeAsset:
+        case CDAFieldTypeEntry:
+        case CDAFieldTypeNone:
             return;
     }
     

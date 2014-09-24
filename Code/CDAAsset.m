@@ -146,7 +146,7 @@ const CGFloat CDAImageQualityOriginal = 0.0;
         case CDAImageFormatPNG:
             parameters[@"fm"] = @"png";
             break;
-        default:
+        case CDAImageFormatOriginal:
             break;
     }
     
