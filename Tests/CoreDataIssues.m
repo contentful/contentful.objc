@@ -44,14 +44,14 @@
             XCTAssertNotNil(group, @"");
 
             if ([group.identifier isEqualToString:@"8UEOnseV2gQY8GUOG8csc"]) {
-                XCTAssertEqual(group.members.count, 2, @"");
+                XCTAssertEqual(group.members.count, 2UL, @"");
 
                 for (Member* member in group.members) {
                     XCTAssertNotNil(member, @"");
                     XCTAssertTrue([member isKindOfClass:Member.class], @"");
                 }
             } else {
-                XCTAssertEqual(group.members.count, 0, @"");
+                XCTAssertEqual(group.members.count, 0UL, @"");
             }
         }
 

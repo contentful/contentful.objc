@@ -6,7 +6,7 @@
 //
 //
 
-#import <objc/runtime.h>
+@import ObjectiveC.runtime;
 
 #import "CDAResource+Private.h"
 #import "ContentfulBaseTestCase.h"

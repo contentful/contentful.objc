@@ -135,7 +135,7 @@ const CGFloat CDAImageQualityOriginal = 0.0;
         parameters[@"h"] = @(size.height);
     }
     
-    if (quality != CDAImageQualityOriginal) {
+    if (fabs((quality) - (CDAImageQualityOriginal)) > FLT_EPSILON) {
         parameters[@"q"] = @(quality * 100);
     }
     

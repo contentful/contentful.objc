@@ -204,7 +204,7 @@
                                                                             matchingPredicate:nil]) {
             XCTAssertNotNil(cat.color, @"");
             XCTAssertNotNil(cat.name, @"");
-            XCTAssert(cat.livesLeft > 0, @"");
+            XCTAssert([cat.livesLeft intValue] > 0, @"");
         }
         
         EndBlock();

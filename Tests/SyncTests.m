@@ -285,8 +285,8 @@
     StartBlock();
     
     CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
-        XCTAssertEqual(0, space.assets.count, @"");
-        XCTAssertEqual(1, space.entries.count, @"");
+        XCTAssertEqual(0UL, space.assets.count, @"");
+        XCTAssertEqual(1UL, space.entries.count, @"");
         
         CDAEntry* entry = space.entries.firstObject;
         XCTAssertEqualObjects(@"My first entry", entry.fields[@"title"], @"");
