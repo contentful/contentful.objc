@@ -50,7 +50,7 @@
 
 #pragma mark -
 
--(BOOL)fetchContentTypesForJSONResponse:(id)JSONObject error:(NSError**)error {
+-(BOOL)fetchContentTypesForJSONResponse:(id)JSONObject error:(NSError* __autoreleasing *)error {
     NSArray* contentTypeIds = [self unknownContentTypesInResult:JSONObject];
     
     if (contentTypeIds.count > 0) {
@@ -118,7 +118,7 @@
 
 -(id)responseObjectForResponse:(NSURLResponse *)response
                           data:(NSData *)data
-                         error:(NSError **)error {
+                         error:(NSError * __autoreleasing *)error {
     id JSONObject = data.length > 0 ? [super responseObjectForResponse:response
                                                                   data:data
                                                                  error:error] : nil;

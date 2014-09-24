@@ -33,8 +33,8 @@
     return self;
 }
 
--(instancetype)initWithObjects:(const id [])objects
-                       forKeys:(const id<NSCopying> [])keys
+-(instancetype)initWithObjects:(const __unsafe_unretained id [])objects
+                       forKeys:(const __unsafe_unretained id<NSCopying> [])keys
                          count:(NSUInteger)cnt {
     self = [super init];
     return self;

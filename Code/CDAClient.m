@@ -129,7 +129,7 @@ NSString* const CMAContentTypeHeader = @"application/vnd.contentful.management.v
                              failure:failure];
 }
 
--(CDAArray *)fetchAssetsMatching:(NSDictionary *)query synchronouslyWithError:(NSError **)error {
+-(CDAArray *)fetchAssetsMatching:(NSDictionary *)query synchronouslyWithError:(NSError * __autoreleasing *)error {
     return [self.requestOperationManager fetchArraySynchronouslyAtURLPath:@"assets"
                                                                parameters:query
                                                                     error:error];
@@ -161,7 +161,7 @@ NSString* const CMAContentTypeHeader = @"application/vnd.contentful.management.v
                              } failure:failure];
 }
 
--(CDAArray*)fetchContentTypesMatching:(NSDictionary*)query synchronouslyWithError:(NSError**)error {
+-(CDAArray*)fetchContentTypesMatching:(NSDictionary*)query synchronouslyWithError:(NSError* __autoreleasing *)error {
     return [self.requestOperationManager fetchArraySynchronouslyAtURLPath:@"content_types"
                                                                parameters:query
                                                                     error:error];
@@ -199,7 +199,7 @@ NSString* const CMAContentTypeHeader = @"application/vnd.contentful.management.v
     return [self fetchArrayAtURLPath:@"entries" parameters:query success:success failure:failure];
 }
 
--(CDAArray *)fetchEntriesMatching:(NSDictionary *)query synchronouslyWithError:(NSError **)error {
+-(CDAArray *)fetchEntriesMatching:(NSDictionary *)query synchronouslyWithError:(NSError * __autoreleasing *)error {
     return [self.requestOperationManager fetchArraySynchronouslyAtURLPath:@"entries"
                                                                parameters:query
                                                                     error:error];
