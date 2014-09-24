@@ -11,6 +11,8 @@
 #import "CCLRequestRecording.h"
 
 
+NSInteger CCLSequenceNumber = 0;
+
 @interface CCLRequestRecordProtocol () <NSURLConnectionDataDelegate>
 
 @property (nonatomic, strong) NSURLConnection *connection;
@@ -94,7 +96,11 @@ static NSMutableSet *_managers;
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    CCLRequestRecording *recording = [[CCLRequestRecording alloc] initWithRequest:self.request response:self.response data:[self.data copy]];
+    NSMutableURLRequest* mutableRequest = [self.request mutableCopy];
+    [mutableRequest setValue:[@(CCLSequenceNumber) stringValue] forHTTPHeaderField:@"CCLSequenceNumber"];
+    CCLSequenceNumber++;
+
+    CCLRequestRecording *recording = [[CCLRequestRecording alloc] initWithRequest:[mutableRequest copy] response:self.response data:[self.data copy]];
     [[self class] addRecording:recording];
 
     [[self client] URLProtocolDidFinishLoading:self];

@@ -109,6 +109,9 @@ typedef struct RGBAPixel {
         return NO;
       }
       didWrite = [pngData writeToFile:filePath options:NSDataWritingAtomic error:errorPtr];
+      if (didWrite) {
+        NSLog(@"Reference image save at: %@", filePath);
+      }
     } else {
       if (nil != errorPtr) {
         *errorPtr = [NSError errorWithDomain:FBSnapshotTestControllerErrorDomain
@@ -355,9 +358,13 @@ typedef NS_ENUM(NSUInteger, FBTestSnapshotFileNameType) {
 - (UIImage *)_renderLayer:(CALayer *)layer
 {
   CGRect bounds = layer.bounds;
-  
+
+  NSAssert1(CGRectGetWidth(bounds), @"Zero width for layer %@", layer);
+  NSAssert1(CGRectGetHeight(bounds), @"Zero height for layer %@", layer);
+
   UIGraphicsBeginImageContextWithOptions(bounds.size, NO, 0);
   CGContextRef context = UIGraphicsGetCurrentContext();
+  NSAssert1(context, @"Could not generate context for layer %@", layer);
   
   CGContextSaveGState(context);
   {
