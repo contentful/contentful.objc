@@ -76,7 +76,7 @@
 
 -(CDAArray*)fetchArraySynchronouslyAtURLPath:(NSString*)URLPath
                                   parameters:(NSDictionary*)parameters
-                                       error:(NSError **)error {
+                                       error:(NSError * __autoreleasing *)error {
     id responseObject = [self fetchURLPathSynchronously:URLPath parameters:parameters error:error];
     
     if (!responseObject) {
@@ -135,7 +135,7 @@
 
 -(id)fetchURLPathSynchronously:(NSString*)URLPath
                     parameters:(NSDictionary*)parameters
-                         error:(NSError **)error {
+                         error:(NSError * __autoreleasing *)error {
     NSURLRequest* request = [self buildRequestWithURLString:URLPath parameters:parameters];
     
     NSURLResponse* response;
@@ -168,7 +168,7 @@
 }
 
 -(AFHTTPRequestOperation *)GET:(NSString *)URLString
-                    parameters:(NSDictionary *)parameters
+                    parameters:(id)parameters
                        success:(void (^)(AFHTTPRequestOperation *, id))success
                        failure:(void (^)(AFHTTPRequestOperation *, NSError *))failure {
     parameters = [self fixParametersInDictionary:parameters];

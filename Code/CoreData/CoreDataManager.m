@@ -143,7 +143,7 @@
 
 - (NSArray *)fetchEntititiesOfClass:(Class)class
                   matchingPredicate:(NSString*)predicateString
-                              error:(NSError**)error
+                              error:(NSError* __autoreleasing *)error
 {
     NSFetchRequest *request = [self fetchRequestForEntititiesOfClass:class
                                                    matchingPredicate:predicateString];

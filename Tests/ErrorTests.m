@@ -60,8 +60,8 @@
 @implementation ErrorTests
 
 + (NSData *)sendSynchronousRequest:(NSURLRequest *)request
-                 returningResponse:(NSURLResponse **)response
-                             error:(NSError **)error
+                 returningResponse:(NSURLResponse * __autoreleasing *)response
+                             error:(NSError * __autoreleasing *)error
 {
     *error = [NSError errorWithDomain:NSURLErrorDomain
                                  code:kCFURLErrorNotConnectedToInternet
