@@ -37,7 +37,7 @@ extern void __gcov_flush();
 
 @implementation ContentfulBaseTestCase
 
-+ (NSArray *)testInvocations;
++ (NSArray *)testInvocations
 {
     if (self == [ContentfulBaseTestCase class]) {
         return nil;
