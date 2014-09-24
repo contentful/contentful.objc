@@ -6,10 +6,11 @@
 //
 //
 
+@import CoreData;
+
 #import <ContentfulDeliveryAPI/CDAAsset.h>
 #import <ContentfulDeliveryAPI/CDAContentType.h>
 #import <ContentfulDeliveryAPI/CDAEntry.h>
-#import <CoreData/CoreData.h>
 
 #import "CoreDataManager.h"
 

@@ -6,10 +6,11 @@
 //
 //
 
+@import XCTest;
+
 #import <CCLRequestReplay/CCLRequestJSONRecording.h>
 #import <ContentfulDeliveryAPI/ContentfulDeliveryAPI.h>
 #import <FBSnapshotTestCase/FBSnapshotTestController.h>
-#import <XCTest/XCTest.h>
 
 #import "AsyncTesting.h"
 

@@ -10,7 +10,7 @@
 #import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 #endif
 
-#import <objc/runtime.h>
+@import ObjectiveC.runtime;
 
 #import "CDAArray+Private.h"
 #import "CDAClient+Private.h"

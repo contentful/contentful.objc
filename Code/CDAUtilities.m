@@ -6,7 +6,7 @@
 //
 //
 
-#import <objc/runtime.h>
+@import ObjectiveC.runtime;
 
 #import <ContentfulDeliveryAPI/CDASpace.h>
 

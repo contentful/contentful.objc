@@ -6,8 +6,9 @@
 //
 //
 
+@import MapKit;
+
 #import <ContentfulDeliveryAPI/ContentfulDeliveryAPI.h>
-#import <MapKit/MapKit.h>
 
 @interface UFOSighting : CDAEntry <MKAnnotation>
 

@@ -6,9 +6,10 @@
 //
 //
 
+@import CoreData;
+@import Foundation;
+
 #import <ContentfulDeliveryAPI/CDAPersistedAsset.h>
-#import <CoreData/CoreData.h>
-#import <Foundation/Foundation.h>
 
 @interface Asset : NSManagedObject <CDAPersistedAsset>
 

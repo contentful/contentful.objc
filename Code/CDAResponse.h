@@ -6,7 +6,7 @@
 //
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 
 /**
  A `CDAResponse` encapsulates meta-information about a reponse received from the server, such as the 

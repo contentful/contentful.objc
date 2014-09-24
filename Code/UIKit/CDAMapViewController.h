@@ -6,8 +6,9 @@
 //
 //
 
+@import UIKit;
+
 #import <ContentfulDeliveryAPI/CDAClient.h>
-#import <UIKit/UIKit.h>
 
 /**
  *  `CDAMapViewController` fetches Entries and displays them on a `MKMapView`.

@@ -6,9 +6,10 @@
 //
 //
 
+@import CoreData;
+@import Foundation;
+
 #import <ContentfulDeliveryAPI/CDAPersistedSpace.h>
-#import <CoreData/CoreData.h>
-#import <Foundation/Foundation.h>
 
 @interface SyncInfo : NSManagedObject <CDAPersistedSpace>
 
