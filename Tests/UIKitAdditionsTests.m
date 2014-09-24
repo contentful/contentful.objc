@@ -205,8 +205,15 @@
     
     UINavigationController* navigationController = [[UINavigationController alloc] initWithRootViewController:entriesVC];
     [entriesVC tableView:entriesVC.tableView didSelectRowAtIndexPath:indexPath];
-    XCTAssert([navigationController.topViewController isKindOfClass:[CDAFieldsViewController class]],
-              @"");
+
+    StartBlock();
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        XCTAssert([navigationController.topViewController isKindOfClass:[CDAFieldsViewController class]], @"");
+        EndBlock();
+    });
+
+    WaitUntilBlockCompletes();
 }
 
 - (void)testFieldsViewController {
@@ -335,10 +342,19 @@
     UINavigationController* navigationController = [[UINavigationController alloc]
                                                     initWithRootViewController:resourcesVC];
     [resourcesVC tableView:resourcesVC.tableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    
-    CDAImageViewController* topVC = (CDAImageViewController*)navigationController.topViewController;
-    XCTAssert([topVC isKindOfClass:[CDAImageViewController class]], @"");
-    XCTAssertNotNil(topVC.view, @"");
+
+    StartBlock();
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)),
+                   dispatch_get_main_queue(), ^{
+                       CDAImageViewController* topVC = (CDAImageViewController*)navigationController.topViewController;
+                       XCTAssert([topVC isKindOfClass:[CDAImageViewController class]], @"");
+                       XCTAssertNotNil(topVC.view, @"");
+                       
+                       EndBlock();
+                   });
+
+    WaitUntilBlockCompletes();
 }
 
 - (void)testResourceTableViewCell {
@@ -355,12 +371,20 @@
     CDAField* field = [self customEntryHelperWithFields:@{}].contentType.fields[8];
     NSString* textValue = @"texttexttexttexttexttexttexttexttext";
     [fieldsVC didSelectRowWithValue:textValue forField:field];
-    
-    CDATextViewController* topVC = (CDATextViewController*)navigationController.topViewController;
-    XCTAssert([topVC isKindOfClass:[CDATextViewController class]], @"");
-    XCTAssertEqualObjects(topVC.text, textValue, @"");
-    XCTAssertNotNil(topVC.view, @"");
-    XCTAssertEqualObjects(topVC.textView.text, textValue, @"");
+
+    StartBlock();
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        CDATextViewController* topVC = (CDATextViewController*)navigationController.topViewController;
+        XCTAssert([topVC isKindOfClass:[CDATextViewController class]], @"");
+        XCTAssertEqualObjects(topVC.text, textValue, @"");
+        XCTAssertNotNil(topVC.view, @"");
+        XCTAssertEqualObjects(topVC.textView.text, textValue, @"");
+
+        EndBlock();
+    });
+
+    WaitUntilBlockCompletes();
 }
 
 @end
