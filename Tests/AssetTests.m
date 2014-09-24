@@ -6,7 +6,7 @@
 //
 //
 
-#import <ImageIO/ImageIO.h>
+@import ImageIO;
 
 #import "ContentfulBaseTestCase.h"
 

@@ -9,7 +9,7 @@
 #import <AFNetworking/UIImageView+AFNetworking.h>
 #import <ContentfulDeliveryAPI/CDAAsset.h>
 
-#import <objc/runtime.h>
+@import ObjectiveC.runtime;
 
 #import "CDAAsset+Private.h"
 #import "CDAResource+Private.h"

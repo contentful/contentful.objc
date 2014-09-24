@@ -6,9 +6,10 @@
 //
 //
 
+@import CoreData;
+@import Foundation;
+
 #import <ContentfulDeliveryAPI/CDAPersistedEntry.h>
-#import <CoreData/CoreData.h>
-#import <Foundation/Foundation.h>
 
 @class Asset;
 

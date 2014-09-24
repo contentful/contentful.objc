@@ -6,7 +6,7 @@
 //
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 
 /** UICollectionViewCell subclass for displaying Resources. */
 @interface CDAResourceCell : UICollectionViewCell

@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Boris Bügling. All rights reserved.
 //
 
-#import <MapKit/MapKit.h>
+@import MapKit;
 
 #import "UFOMapViewController.h"
 #import "UFOSighting.h"

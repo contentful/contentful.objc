@@ -6,8 +6,9 @@
 //
 //
 
+@import Foundation;
+
 #import <ContentfulDeliveryAPI/CDAClient.h>
-#import <Foundation/Foundation.h>
 
 NSString* CDACacheDirectory();
 NSString* CDACacheFileNameForQuery(CDAClient* client, CDAResourceType resourceType, NSDictionary* query);

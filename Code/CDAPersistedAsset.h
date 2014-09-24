@@ -6,7 +6,7 @@
 //
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 
 /**
  *  Any class representing Assets saved to a persistent store needs to conform to this protocol.

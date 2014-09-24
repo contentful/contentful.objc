@@ -6,8 +6,9 @@
 //
 //
 
+@import MapKit;
+
 #import <ContentfulDeliveryAPI/CDAResource.h>
-#import <MapKit/MapKit.h>
 
 @class CDAContentType;
 

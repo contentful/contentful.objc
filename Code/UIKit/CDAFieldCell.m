@@ -6,9 +6,10 @@
 //
 //
 
+@import MapKit;
+
 #import <ContentfulDeliveryAPI/CDAEntry.h>
 #import <ContentfulDeliveryAPI/CDAField.h>
-#import <MapKit/MapKit.h>
 
 #import "CDAFieldCell.h"
 

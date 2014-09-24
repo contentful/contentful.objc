@@ -6,7 +6,7 @@
 //
 //
 
-#import <MapKit/MapKit.h>
+@import MapKit;
 
 #import "CDALocationViewController.h"
 
