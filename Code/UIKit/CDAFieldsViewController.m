@@ -98,7 +98,14 @@
             }
             break;
             
-        default:
+        case CDAFieldTypeAsset:
+        case CDAFieldTypeBoolean:
+        case CDAFieldTypeDate:
+        case CDAFieldTypeEntry:
+        case CDAFieldTypeInteger:
+        case CDAFieldTypeNone:
+        case CDAFieldTypeNumber:
+        case CDAFieldTypeObject:
             break;
     }
 }
@@ -125,7 +132,14 @@
                 self.title = [entry.fields[entry.contentType.displayField] stringValue];
                 break;
 
-            default:
+            case CDAFieldTypeArray:
+            case CDAFieldTypeAsset:
+            case CDAFieldTypeDate:
+            case CDAFieldTypeEntry:
+            case CDAFieldTypeLink:
+            case CDAFieldTypeLocation:
+            case CDAFieldTypeNone:
+            case CDAFieldTypeObject:
                 break;
         }
         

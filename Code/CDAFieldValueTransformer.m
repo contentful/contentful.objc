@@ -129,8 +129,10 @@
                 }
                 return [value stringValue];
             }
-            
-        default:
+
+        case CDAFieldTypeAsset:
+        case CDAFieldTypeEntry:
+        case CDAFieldTypeNone:
             break;
     }
     

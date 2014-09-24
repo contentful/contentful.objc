@@ -53,7 +53,17 @@
             rep[@"linkType"] = [self fieldTypeToString:self.type];
             break;
 
-        default:
+        case CDAFieldTypeArray:
+        case CDAFieldTypeBoolean:
+        case CDAFieldTypeDate:
+        case CDAFieldTypeInteger:
+        case CDAFieldTypeLink:
+        case CDAFieldTypeLocation:
+        case CDAFieldTypeNone:
+        case CDAFieldTypeNumber:
+        case CDAFieldTypeObject:
+        case CDAFieldTypeSymbol:
+        case CDAFieldTypeText:
             rep[@"type"] = [self fieldTypeToString:self.type];
             break;
     }
@@ -66,7 +76,16 @@
             rep[@"items"] = @{ @"type": [self fieldTypeToString:CDAFieldTypeLink],
                                @"linkType": [self fieldTypeToString:self.itemType] };
             break;
-        default:
+        case CDAFieldTypeArray:
+        case CDAFieldTypeBoolean:
+        case CDAFieldTypeDate:
+        case CDAFieldTypeInteger:
+        case CDAFieldTypeLink:
+        case CDAFieldTypeLocation:
+        case CDAFieldTypeNumber:
+        case CDAFieldTypeObject:
+        case CDAFieldTypeSymbol:
+        case CDAFieldTypeText:
             rep[@"items"] = @{ @"type": [self fieldTypeToString:self.itemType] };
             break;
     }
