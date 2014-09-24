@@ -14,7 +14,7 @@
 @interface ErrorTestsMapTargetAsset : NSObject
 
 @property (nonatomic) NSString* identifier;
-@property (nonatomic) NSString* description;
+@property (nonatomic) NSString* myDescription;
 @property (nonatomic) NSInteger size;
 @property (nonatomic) NSString* title;
 @property (nonatomic) NSURL* url;
@@ -279,13 +279,13 @@
                       usingMapping:@{
                                      @"fields.someLink.identifier": @"identifier",
                                      @"fields.someLink.fields.title": @"title",
-                                     @"fields.someLink.fields.description": @"description",
+                                     @"fields.someLink.fields.description": @"myDescription",
                                      @"fields.someLink.fields.file.details.size": @"size",
                                      @"fields.someLink.URL": @"url",
                                      }];
     
     XCTAssertNil(target.identifier, @"");
-    XCTAssertNil(target.description, @"");
+    XCTAssertNil(target.myDescription, @"");
     XCTAssertNil(target.title, @"");
     XCTAssertNil(target.url, @"");
     XCTAssertEqual(0, target.size, @"");

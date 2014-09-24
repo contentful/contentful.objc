@@ -1944,6 +1944,15 @@
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				WARNING_CFLAGS = (
+					"-Weverything",
+					"-Wno-objc-missing-property-synthesis",
+					"-Wno-gnu-conditional-omitted-operand",
+					"-Wno-gnu-statement-expression",
+					"-Wno-gnu-zero-variadic-macro-arguments",
+					"-Wno-assign-enum",
+				);
 			};
 			name = Debug;
 		};
@@ -1952,6 +1961,14 @@
 			buildSettings = {
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				WARNING_CFLAGS = (
+					"-Weverything",
+					"-Wno-objc-missing-property-synthesis",
+					"-Wno-gnu-conditional-omitted-operand",
+					"-Wno-gnu-statement-expression",
+					"-Wno-gnu-zero-variadic-macro-arguments",
+					"-Wno-assign-enum",
+				);
 			};
 			name = Release;
 		};
@@ -2096,6 +2113,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				TEST_HOST = "$(BUNDLE_LOADER)";
+				WARNING_CFLAGS = "";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -2141,6 +2159,7 @@
 				SDKROOT = iphoneos;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				VALIDATE_PRODUCT = YES;
+				WARNING_CFLAGS = "";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;

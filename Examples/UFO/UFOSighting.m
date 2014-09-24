@@ -14,6 +14,9 @@
     return [self CLLocationCoordinate2DFromFieldWithIdentifier:@"location"];
 }
 
+-(void)setSightingDescription:(NSString *)sightingDescription {
+}
+
 -(NSString *)sightingDescription {
     return self.fields[@"description"];
 }
