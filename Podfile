@@ -13,7 +13,7 @@ target "CDA Tests", :exclusive => true do
 pod 'CCLRequestReplay', :git => 'https://github.com/neonichu/CCLRequestReplay.git'
 pod 'FBSnapshotTestCase', :head
 pod 'OCMock'
-pod 'VCRURLConnection'
+pod 'VCRURLConnection', :inhibit_warnings => true
 
 end
 
@@ -47,6 +47,7 @@ end
 target "UFO Example", :exclusive => true do
 
 pod 'ContentfulDeliveryAPI', :path => '.'
+pod 'AFNetworking', :inhibit_warnings => true
 
 end
 
