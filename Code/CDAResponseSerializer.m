@@ -87,12 +87,12 @@
 }
 
 -(NSArray*)fetchResources:(NSMutableArray*)unresolvedIds
-            withBatchSize:(NSInteger)batchSize
+            withBatchSize:(NSUInteger)batchSize
                fetchBlock:(CDAArray* (^)(NSDictionary* query))fetchBlock {
     NSMutableArray* batchedItems = [@[] mutableCopy];
     
     do {
-        NSInteger nextBatchLength = 0;
+        NSUInteger nextBatchLength = 0;
         
         if (unresolvedIds.count > batchSize) {
             nextBatchLength = batchSize;

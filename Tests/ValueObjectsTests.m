@@ -168,7 +168,7 @@
     StartBlock();
     
     [self.client fetchEntriesWithSuccess:^(CDAResponse *response, CDAArray *array) {
-        XCTAssertEqual(1, array.items.count, @"");
+        XCTAssertEqual(1UL, array.items.count, @"");
         
         CDAEntry* entry = array.items.firstObject;
         XCTAssertEqualObjects(@"My first entry", entry.fields[@"title"], @"");

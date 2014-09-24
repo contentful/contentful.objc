@@ -38,7 +38,7 @@
         XCTAssertEqualObjects(array.sys[@"type"], readArray.sys[@"type"], @"");
         XCTAssertEqual(array.items.count, readArray.items.count, @"");
         
-        for (int i = 0; i < array.items.count; i++) {
+        for (NSUInteger i = 0; i < array.items.count; i++) {
             XCTAssertEqualObjects(@"en-US", [readArray.items[i] defaultLocaleOfSpace], @"");
             XCTAssertEqualObjects(array.items[i], readArray.items[i], @"");
             
