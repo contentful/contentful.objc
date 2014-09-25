@@ -26,6 +26,7 @@ example-static: static-lib
 		-sdk iphonesimulator | xcpretty -c
 
 static-lib:
+	pod repo update
 	pod package ContentfulDeliveryAPI.podspec
 
 	@cd Examples/UFO/Distribution; ./update.sh
