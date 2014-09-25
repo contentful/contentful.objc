@@ -12,6 +12,7 @@ doc
 Examples/ContentfulDeliveryAPI.zip
 Examples/UFO.zip
 compile_commands.json
+.gutter.json
 
 ## Xcode
 

@@ -1,24 +1,7 @@
 language: objective-c
-before_script:
-- export LANG=en_US.UTF-8
 before_install:
-- gem install --no-rdoc --no-ri --version 0.8.9 faraday
-- gem install --no-rdoc --no-ri travis-artifacts || true
-- gem install cocoapods xcpretty cocoapods-testing
-- brew update
-- brew install pyenv || true
-- eval "$(pyenv init -)"
-- pyenv install 2.7.6
-- pyenv global 2.7.6
-- pyenv rehash
-- pip install cpp-coveralls
-- pyenv rehash
-script: make test && cd Examples/UFO && set -o pipefail && xcodebuild -sdk iphonesimulator | xcpretty -c && cd -
-after_script:
-- cd Examples && ./ship_it.sh && cd ..
-- ./scripts/coveralls.sh
-- travis-artifacts upload --target-path downloads/iOS --path Examples/ContentfulDeliveryAPI.zip
-  --path Examples/UFO.zip
+- gem install cocoapods xcpretty cocoapods-testing cocoapods-coverage
+script: make all
 notifications:
   slack:
   - secure: pbLVGeA+577zmld+ie/1KUWxin8PFB+uXogz1zrVhEqnparjbHNMvFfaAGG1gbaAJC0skGksCe+LeBrhLargbLSgAT3HrObwDCIu7H8IjaYOEhpNTHCObrwRIyOeBVHHAhjgjeElM7hvptJjRMuERErcnL65EOlaIdm4ZqOg3/0=
