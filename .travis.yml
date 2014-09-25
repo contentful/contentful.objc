@@ -1,6 +1,6 @@
 language: objective-c
 before_install:
-- gem install cocoapods xcpretty cocoapods-testing cocoapods-coverage
+- gem install cocoapods xcpretty cocoapods-testing cocoapods-coverage cocoapods-packager
 script: make all
 notifications:
   slack:
