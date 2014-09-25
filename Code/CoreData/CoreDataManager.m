@@ -294,7 +294,7 @@
         [relationships enumerateKeysAndObjectsUsingBlock:^(NSString* keyPath, id value, BOOL *s) {
             NSRelationshipDescription* description = [self relationshipDescriptionForName:keyPath entityClass:entry.class];
 
-            if ([value isKindOfClass:[NSSet class]]) {
+            if ([value isKindOfClass:[NSOrderedSet class]] || [value isKindOfClass:[NSSet class]]) {
                 id resolvedSet = description.isOrdered ? [NSMutableOrderedSet new] : [NSMutableSet new];
 
                 for (CDAResource* resource in value) {
@@ -349,6 +349,7 @@
     NSMutableDictionary* relationships = [@{} mutableCopy];
 
     [self enumerateRelationshipsForClass:persistedEntry.class usingBlock:^(NSString *relationshipName) {
+		NSRelationshipDescription* description = [self relationshipDescriptionForName:relationshipName entityClass:persistedEntry.class];
         NSDictionary* mappingForEntries = [super mappingForEntriesOfContentTypeWithIdentifier:entry.contentType.identifier];
         NSString* entryKeyPath = [[mappingForEntries allKeysForObject:relationshipName] firstObject];
 
@@ -363,7 +364,11 @@
         }
 
         if ([relationshipTarget isKindOfClass:[NSArray class]]) {
-            relationshipTarget = [NSSet setWithArray:relationshipTarget];
+			if (description.isOrdered) {
+				relationshipTarget = [NSOrderedSet orderedSetWithArray:relationshipTarget];
+			} else {
+				relationshipTarget = [NSSet setWithArray:relationshipTarget];
+			}
         } else {
             NSAssert([relationshipTarget isKindOfClass:[CDAResource class]],
                      @"Relationship target ought to be a Resource.");
