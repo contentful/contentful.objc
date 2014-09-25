@@ -282,12 +282,20 @@
     [super performSynchronizationWithSuccess:success failure:failure];
 }
 
+- (NSRelationshipDescription*)relationshipDescriptionForName:(NSString*)relationshipName
+                                                 entityClass:(Class)class {
+    NSEntityDescription* entityDescription = [NSEntityDescription entityForName:NSStringFromClass(class) inManagedObjectContext:self.managedObjectContext];
+    return entityDescription.relationshipsByName[relationshipName];
+}
+
 - (void)resolveRelationships {
     for (id<CDAPersistedEntry> entry in [self fetchEntriesFromDataStore]) {
         NSDictionary* relationships = self.relationshipsToResolve[entry.identifier];
         [relationships enumerateKeysAndObjectsUsingBlock:^(NSString* keyPath, id value, BOOL *s) {
+            NSRelationshipDescription* description = [self relationshipDescriptionForName:keyPath entityClass:entry.class];
+
             if ([value isKindOfClass:[NSSet class]]) {
-                NSMutableSet* resolvedSet = [NSMutableSet new];
+                id resolvedSet = description.isOrdered ? [NSMutableOrderedSet new] : [NSMutableSet new];
 
                 for (CDAResource* resource in value) {
                     id resolvedResource = [self resolveResource:resource];
