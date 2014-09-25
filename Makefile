@@ -3,7 +3,7 @@ WORKSPACE=ContentfulSDK.xcworkspace
 .PHONY: all clean doc example example-static pod really-clean static-lib test
 
 clean:
-	rm -rf build Examples/UFO/build Examples/*.zip compile_commands.json
+	rm -rf build Examples/UFO/build Examples/*.zip compile_commands.json .gutter.json
 
 really-clean: clean
 	rm -rf Pods $(HOME)/Library/Developer/Xcode/DerivedData/*
@@ -34,7 +34,7 @@ static-lib:
 	rm -rf ContentfulDeliveryAPI-*/
 
 test: example
-	pod lib testing
+	pod lib coverage
 
 lint:
 	set -o pipefail && xcodebuild -workspace $(WORKSPACE) -dry-run \
