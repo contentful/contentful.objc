@@ -282,15 +282,25 @@
 
 -(void)setClient:(CDAClient *)client {
     [super setClient:client];
-    
+
     for (NSDictionary* fields in self.localizedFields.allValues) {
         for (id field in fields.allValues) {
-            if ([field respondsToSelector:@selector(setClient:)]) {
-                CDAResource* resource = (CDAResource*)field;
-                if (!resource.client) {
-                    resource.client = self.client;
+            if ([field isKindOfClass:NSArray.class]) {
+                for (id subField in field) {
+                    [self setClient:client forField:subField];
                 }
             }
+
+            [self setClient:client forField:field];
+        }
+    }
+}
+
+-(void)setClient:(CDAClient*)client forField:(id)field {
+    if ([field respondsToSelector:@selector(setClient:)]) {
+        CDAResource* resource = (CDAResource*)field;
+        if (!resource.client) {
+            resource.client = self.client;
         }
     }
 }

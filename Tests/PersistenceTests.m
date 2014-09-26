@@ -28,6 +28,29 @@
                                                     stringByAppendingPathComponent:fileName]];
 }
 
+-(void)testPersistArrayOfAssets {
+    self.client = [[CDAClient alloc] initWithSpaceKey:@"lf9doex30qyh" accessToken:@"dc6f141c42ce5cbdc9aa6934b330dfd8889449d96b26c254e4d00d9534ee9e36"];
+
+    StartBlock();
+
+    [self.client fetchEntriesWithSuccess:^(CDAResponse *response, CDAArray *array) {
+        CDAEntry* entry = array.items.firstObject;
+        [entry writeToFile:self.temporaryFileURL.path];
+        XCTAssertEqualObjects(@"https", [[entry.fields[@"list"] firstObject] URL].scheme, @"");
+
+        entry = [CDAEntry readFromFile:self.temporaryFileURL.path client:self.client];
+        XCTAssertEqualObjects(@"https", [[entry.fields[@"list"] firstObject] URL].scheme, @"");
+
+        EndBlock();
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTFail(@"Error: %@", error);
+
+        EndBlock();
+    }];
+
+    WaitUntilBlockCompletes();
+}
+
 -(void)testPersistArraysOfEntries {
     StartBlock();
     
