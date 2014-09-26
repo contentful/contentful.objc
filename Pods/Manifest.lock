@@ -68,4 +68,4 @@ SPEC CHECKSUMS:
   PDKTCollectionViewWaterfallLayout: cdde9e714973c9de67f078ba495b9d9e6812082d
   VCRURLConnection: ad8bfbd376ad44a7f5c48358f3ee96a40d4e683e
 
-COCOAPODS: 0.34.0.rc2
+COCOAPODS: 0.34.0
