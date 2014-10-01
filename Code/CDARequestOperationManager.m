@@ -194,6 +194,10 @@
     if (self) {
         self.requestSerializer = [[CDARequestSerializer alloc] initWithAccessToken:accessToken];
         self.responseSerializer = [[CDAResponseSerializer alloc] initWithClient:client];
+
+        if (configuration.userAgent) {
+            [(CDARequestSerializer*)self.requestSerializer setUserAgent:configuration.userAgent];
+        }
         
         self.dateFormatter = [NSDateFormatter new];
         NSLocale *posixLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
