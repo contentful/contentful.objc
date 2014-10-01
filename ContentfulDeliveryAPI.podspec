@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "ContentfulDeliveryAPI"
-  s.version          = "1.4.3"
+  s.version          = "1.4.4"
   s.summary          = "Objective-C SDK for Contentful's Content Delivery API."
   s.homepage         = "https://github.com/contentful/contentful.objc/"
   s.social_media_url = 'https://twitter.com/contentfulapp'
