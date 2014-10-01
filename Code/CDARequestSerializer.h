@@ -10,6 +10,8 @@
 
 @interface CDARequestSerializer : AFJSONRequestSerializer
 
+@property (nonatomic) NSString* userAgent;
+
 -(id)initWithAccessToken:(NSString*)accessToken;
 
 @end

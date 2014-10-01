@@ -17,12 +17,22 @@
     if (self) {
         [self setValue:[@"Bearer " stringByAppendingString:accessToken] forHTTPHeaderField:@"Authorization"];
 
-        NSString* userAgent = self.HTTPRequestHeaders[@"User-Agent"];
-        userAgent = [userAgent stringByReplacingOccurrencesOfString:@"(null)" withString:@""];
-        NSRange bracketRange = [userAgent rangeOfString:@"("];
-        [self setValue:[userAgent stringByReplacingCharactersInRange:NSMakeRange(0, bracketRange.location - 1) withString:@"contentful.objc/1.4.3"] forHTTPHeaderField:@"User-Agent"];
+        self.userAgent = @"contentful.objc/1.4.3";
     }
     return self;
+}
+
+-(void)setUserAgent:(NSString *)userAgent {
+    if (_userAgent == userAgent) {
+        return;
+    }
+
+    _userAgent = userAgent;
+
+    NSString* userAgentHeader = self.HTTPRequestHeaders[@"User-Agent"];
+    userAgentHeader = [userAgentHeader stringByReplacingOccurrencesOfString:@"(null)" withString:@""];
+    NSRange bracketRange = [userAgentHeader rangeOfString:@"("];
+    [self setValue:[userAgentHeader stringByReplacingCharactersInRange:NSMakeRange(0, bracketRange.location - 1) withString:userAgent] forHTTPHeaderField:@"User-Agent"];
 }
 
 @end
