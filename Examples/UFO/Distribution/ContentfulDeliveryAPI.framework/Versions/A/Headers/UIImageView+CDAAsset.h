@@ -6,8 +6,9 @@
 //
 //
 
+@import UIKit;
+
 #import <ContentfulDeliveryAPI/CDAPersistedAsset.h>
-#import <UIKit/UIKit.h>
 
 @class CDAAsset;
 

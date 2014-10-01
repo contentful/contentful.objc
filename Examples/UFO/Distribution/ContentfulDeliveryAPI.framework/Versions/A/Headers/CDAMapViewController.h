@@ -6,8 +6,9 @@
 //
 //
 
+@import UIKit;
+
 #import <ContentfulDeliveryAPI/CDAClient.h>
-#import <UIKit/UIKit.h>
 
 /**
  *  `CDAMapViewController` fetches Entries and displays them on a `MKMapView`.
@@ -15,6 +16,9 @@
  *  You have to configure which Fields will be used to fill the `MKAnnotation` properties.
  */
 @interface CDAMapViewController : UIViewController
+
+/** The underlying map view managed by this view controller. */
+@property (nonatomic, readonly) MKMapView* mapView;
 
 /** @name Configure Data to Display */
 

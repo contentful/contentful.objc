@@ -6,7 +6,7 @@
 //
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 
 /**
  Class representing additional configuration options for a `CDAClient`.
@@ -26,8 +26,12 @@
 
 /** If `YES`, a secure HTTPS connection will be used instead of regular HTTP. Default value: `YES` */
 @property (nonatomic) BOOL secure;
+
 /** The server address to use for accessing any resources. Default value: "cdn.contentful.com" */
 @property (nonatomic) NSString* server;
+
+/** Configure a custom user-agent to be used in the HTTP request headers */
+@property (nonatomic) NSString* userAgent;
 
 /** @name Configure Preview Mode */
 

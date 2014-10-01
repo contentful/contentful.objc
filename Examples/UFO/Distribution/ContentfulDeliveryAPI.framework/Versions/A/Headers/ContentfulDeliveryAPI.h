@@ -6,7 +6,7 @@
 //
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 
 #import <ContentfulDeliveryAPI/CDAArray.h>
 #import <ContentfulDeliveryAPI/CDAAsset.h>
@@ -31,5 +31,3 @@
 #import <ContentfulDeliveryAPI/CDAResourcesViewController.h>
 #import <ContentfulDeliveryAPI/UIImageView+CDAAsset.h>
 #endif
-
-extern NSString* const CDAErrorDomain;
