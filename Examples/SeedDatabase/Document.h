@@ -6,7 +6,8 @@
 //
 //
 
-#import <CoreData/CoreData.h>
+@import CoreData;
+
 #import <ContentfulDeliveryAPI/CDAPersistedEntry.h>
 
 #import "Asset.h"

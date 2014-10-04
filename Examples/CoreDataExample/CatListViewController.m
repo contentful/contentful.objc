@@ -51,7 +51,7 @@
                                                                           tableView:self.tableView
                                                                      cellIdentifier:NSStringFromClass([self class])];
     
-    __weak typeof(self) welf = self;
+    __weak CatListViewController* welf = self;
     _dataSource.cellConfigurator = ^(UITableViewCell* cell, NSIndexPath* indexPath) {
         ManagedCat* cat = [welf.dataSource objectAtIndexPath:indexPath];
         cell.textLabel.text = cat.name;
