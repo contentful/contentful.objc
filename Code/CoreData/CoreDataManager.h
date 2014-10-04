@@ -6,8 +6,9 @@
 //
 //
 
+@import CoreData;
+
 #import <ContentfulDeliveryAPI/CDAPersistenceManager.h>
-#import <CoreData/CoreData.h>
 
 /**
  *  A specialization of `CDAPersistenceManager` which allows you to use Core Data.

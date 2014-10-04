@@ -44,7 +44,7 @@
                                                                           tableView:self.tableView
                                                                      cellIdentifier:NSStringFromClass([self class])];
     
-    __weak typeof(self) welf = self;
+    __weak DocumentListViewController* welf = self;
     _dataSource.cellConfigurator = ^(UITableViewCell* cell, NSIndexPath* indexPath) {
         Document* doc = [welf.dataSource objectAtIndexPath:indexPath];
         cell.detailTextLabel.text = doc.abstract;

@@ -22,7 +22,7 @@
  from the start.
  */
 static NSString* const CDAAccessToken   = @"a196a5806ddd5f25700624bb11dfc94aeac9f0a5d4bd245e68cf42f78f8b2cc6";
-NSString* const CDASpaceKey             = @"duzidfp33ikw";
+static NSString* const CDASpaceKey             = @"duzidfp33ikw";
 
 @implementation CoreDataManager (SeedDB)
 
