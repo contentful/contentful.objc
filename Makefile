@@ -14,15 +14,15 @@ pod:
 	pod install
 
 example:
-	set -o pipefail && xcodebuild -workspace $(WORKSPACE) \
+	set -o pipefail && xcodebuild clean build -workspace $(WORKSPACE) \
 		-scheme ContentfulDeliveryAPI \
 		-sdk iphonesimulator | xcpretty -c
-	set -o pipefail && xcodebuild -workspace $(WORKSPACE) \
+	set -o pipefail && xcodebuild clean build -workspace $(WORKSPACE) \
 		-scheme 'UFO Example' \
 		-sdk iphonesimulator | xcpretty -c
 
 example-static: static-lib
-	cd Examples/UFO; set -o pipefail && xcodebuild \
+	cd Examples/UFO; set -o pipefail && xcodebuild clean build \
 		-sdk iphonesimulator | xcpretty -c
 
 static-lib:
@@ -38,7 +38,7 @@ test: example
 	pod lib coverage
 
 lint:
-	set -o pipefail && xcodebuild -workspace $(WORKSPACE) -dry-run \
+	set -o pipefail && xcodebuild clean build -workspace $(WORKSPACE) -dry-run \
 		-scheme ContentfulDeliveryAPI \
 		-sdk iphonesimulator clean build|xcpretty -r json-compilation-database \
 		-o compile_commands.json
