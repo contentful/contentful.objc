@@ -156,9 +156,6 @@
     CDAResource* resource = [CDAResource resourceObjectForDictionary:JSONObject client:self.client];
     
     if ([resource isKindOfClass:[CDAArray class]]) {
-        NSMutableArray* assetsToFetch = [@[] mutableCopy];
-        NSMutableArray* entriesToFetch = [@[] mutableCopy];
-        
         for (CDAResource* subResource in [(CDAArray*)resource items]) {
             if ([subResource isKindOfClass:[CDAAsset class]]) {
                 assets[subResource.identifier] = subResource;
@@ -166,57 +163,11 @@
             
             if ([subResource isKindOfClass:[CDAEntry class]]) {
                 entries[subResource.identifier] = subResource;
-                
-                if (self.client.configuration.previewMode) {
-                    CDAEntry* entry = (CDAEntry*)subResource;
-                    [assetsToFetch addObjectsFromArray:[entry findUnresolvedAssets]];
-                    [entriesToFetch addObjectsFromArray:[entry findUnresolvedEntries]];
-                }
             }
 
             if ([subResource conformsToProtocol:@protocol(CDAOrganizationContainer)]) {
                 [(id<CDAOrganizationContainer>)subResource setOrganizations:organizations];
             }
-        }
-        
-        if (self.client.configuration.previewMode && self.client.deepResolving) {
-            self.client.deepResolving = NO;
-            
-            for (int i = 0; i < 10; i++) {
-                NSMutableArray* unresolvedAssetIds = [[assetsToFetch valueForKey:@"identifier"]
-                                                      mutableCopy];
-                NSArray* actualItems = [self fetchResources:unresolvedAssetIds
-                                              withBatchSize:100
-                                                 fetchBlock:^CDAArray *(NSDictionary *query) {
-                                                     return [self.client fetchAssetsMatching:query
-                                                                      synchronouslyWithError:nil];
-                                                 }];
-                
-                for (CDAAsset* asset in actualItems) {
-                    assets[asset.identifier] = asset;
-                }
-                
-                NSMutableArray* unresolvedEntryIds = [[entriesToFetch valueForKey:@"identifier"]
-                                                      mutableCopy];
-                actualItems = [self fetchResources:unresolvedEntryIds
-                                              withBatchSize:100
-                                                 fetchBlock:^CDAArray *(NSDictionary *query) {
-                                                     return [self.client fetchEntriesMatching:query
-                                                                       synchronouslyWithError:nil];
-                                                 }];
-                
-                [assetsToFetch removeAllObjects];
-                [entriesToFetch removeAllObjects];
-                
-                for (CDAEntry* entry in actualItems) {
-                    entries[entry.identifier] = entry;
-                    
-                    [assetsToFetch addObjectsFromArray:[entry findUnresolvedAssets]];
-                    [entriesToFetch addObjectsFromArray:[entry findUnresolvedEntries]];
-                }
-            }
-            
-            self.client.deepResolving = YES;
         }
     }
 

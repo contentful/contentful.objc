@@ -303,42 +303,6 @@ NSString* const CMAContentTypeHeader = @"application/vnd.contentful.management.v
 -(CDARequest *)initialSynchronizationMatching:(NSDictionary *)query
                                       success:(CDASyncedSpaceFetchedBlock)success
                                       failure:(CDARequestFailureBlock)failure {
-    if (self.configuration.previewMode) {
-        void(^handler)(NSArray* fetchedAssets, NSArray* fetchedEntries) = ^(NSArray* fetchedAssets,
-                                                                            NSArray* fetchedEntries) {
-            NSMutableDictionary* assets = [@{} mutableCopy];
-            NSMutableDictionary* entries = [@{} mutableCopy];
-            
-            for (CDAAsset* asset in fetchedAssets) {
-                assets[asset.identifier] = asset;
-            }
-            
-            for (CDAEntry* entry in fetchedEntries) {
-                entries[entry.identifier] = entry;
-            }
-            
-            for (CDAEntry* entry in entries.allValues) {
-                [entry resolveLinksWithIncludedAssets:assets entries:entries];
-            }
-            
-            CDASyncedSpace* space = [[CDASyncedSpace alloc] initWithAssets:assets.allValues
-                                                                   entries:entries.allValues];
-            
-            space.client = self;
-            success(nil, space);
-        };
-        
-        return [self fetchAssetsWithSuccess:^(CDAResponse *response, CDAArray *array) {
-            [self fetchAllItemsFromArray:array success:^(NSArray *fetchedAssets) {
-                [self fetchEntriesWithSuccess:^(CDAResponse *response, CDAArray *array) {
-                    [self fetchAllItemsFromArray:array success:^(NSArray *fetchedEntries) {
-                        handler(fetchedAssets, fetchedEntries);
-                    } failure:failure];
-                } failure:failure];
-            } failure:failure];
-        } failure:failure];
-    }
-    
     CDAArrayFetchedBlock handler = ^(CDAResponse *response, CDAArray *array) {
         NSMutableDictionary* assets = [@{} mutableCopy];
         NSMutableDictionary* entries = [@{} mutableCopy];
@@ -399,16 +363,11 @@ NSString* const CMAContentTypeHeader = @"application/vnd.contentful.management.v
 -(id)initWithSpaceKey:(NSString *)spaceKey
           accessToken:(NSString *)accessToken
         configuration:(CDAConfiguration*)configuration {
-    if (!configuration.usesManagementAPI && (configuration.previewMode || !spaceKey)) {
-        configuration.usesManagementAPI = YES;
-    }
-
     self = [super init];
     if (self) {
         self.accessToken = accessToken;
         self.configuration = configuration;
         self.contentTypeRegistry = [CDAContentTypeRegistry new];
-        self.deepResolving = YES;
         self.spaceKey = spaceKey;
         self.requestOperationManager = [[CDARequestOperationManager alloc] initWithSpaceKey:spaceKey accessToken:accessToken client:self configuration:configuration];
         self.resourceClassPrefix = @"CDA";

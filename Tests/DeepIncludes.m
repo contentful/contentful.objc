@@ -30,9 +30,9 @@
     
     CDAConfiguration* configuration = [CDAConfiguration defaultConfiguration];
     configuration.previewMode = YES;
-    configuration.server = @"api.flinkly.com";
+    configuration.server = @"preview.flinkly.com";
     
-    self.client = [[CDAClient alloc] initWithSpaceKey:@"narx5fof1s82" accessToken:@"9e52c92213e27739490fe6edfde5a78bf6312d795be9d2c7d2ec948386d2a9a8" configuration:configuration];
+    self.client = [[CDAClient alloc] initWithSpaceKey:@"narx5fof1s82" accessToken:@"372773af57da09c718d8868788a1d312e0586b60214d6b3467278657701ca2af" configuration:configuration];
     
     [self.client fetchEntriesMatching:@{ @"content_type": @"1JomZcABA4soOysGeE2QIE", @"include": @2 }
                               success:^(CDAResponse *response, CDAArray *array) {

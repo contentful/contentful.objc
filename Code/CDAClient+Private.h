@@ -16,7 +16,6 @@ extern NSString* const CMAContentTypeHeader;
 
 @interface CDAClient ()
 
-@property (nonatomic) BOOL deepResolving;
 @property (nonatomic, readonly) BOOL localizationAvailable;
 @property (nonatomic, readonly) NSString* protocol;
 @property (nonatomic) NSString* resourceClassPrefix;
