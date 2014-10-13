@@ -36,7 +36,7 @@
     _previewMode = previewMode;
     
     if (previewMode) {
-        self.server = @"api.contentful.com";
+        self.server = @"preview.contentful.com";
     }
 }
 

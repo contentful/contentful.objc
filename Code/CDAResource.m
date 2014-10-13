@@ -257,10 +257,6 @@
         }
     }];
 
-    if (client.configuration.previewMode && systemProperties[@"publishedCounter"]) {
-        systemProperties[@"revision"] = systemProperties[@"publishedCounter"];
-    }
-
     self.sys = systemProperties;
     self.lastFetchedDate = self.isLink ? nil : [NSDate date];
 }

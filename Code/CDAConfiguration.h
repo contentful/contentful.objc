@@ -38,7 +38,7 @@
 /** Preview mode allows retrieving unpublished Resources. 
  
  To use it, you have to obtain a special access
- token from [here](https://www.contentful.com/developers/documentation/content-management-api/#getting-started). 
+ token which you can get in the "API" tab of the Contentful app. 
  
  In preview mode, data can be invalid, because no validation is performed on unpublished entries. Your
  app needs to deal with that. Be aware that the access token is read-write and should in no case be

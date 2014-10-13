@@ -19,7 +19,7 @@
 -(CDAClient*)buildClient {
     CDAConfiguration* configuration = [CDAConfiguration defaultConfiguration];
     configuration.previewMode = YES;
-    return [[CDAClient alloc] initWithSpaceKey:@"emh6o2ireilu" accessToken:@"e8d98907acea3deafe5de5ae2dae3b85b2991e414edb4d534fe0f8d90085a2fa" configuration:configuration];
+    return [[CDAClient alloc] initWithSpaceKey:@"emh6o2ireilu" accessToken:@"3396581609dda9ddb19140eb8acb2216a9f33895b178e83a7dee7c75793c8243" configuration:configuration];
 }
 
 -(void)testInitialSync {

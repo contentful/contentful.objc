@@ -22,7 +22,7 @@
     CDAConfiguration* configuration = [CDAConfiguration defaultConfiguration];
     configuration.previewMode = YES;
     
-    self.client = [[CDAClient alloc] initWithSpaceKey:@"cfexampleapi" accessToken:@"5b5367a9a0cc3ab6ac2d4835bd8893907c61d3bafc7cb8b1f51840686a89fae3" configuration:configuration];
+    self.client = [[CDAClient alloc] initWithSpaceKey:@"cfexampleapi" accessToken:@"e5e8d4c5c122cf28fc1af3ff77d28bef78a3952957f15067bbc29f2f0dde0b50" configuration:configuration];
 }
 
 - (void)testAssetsInPreviewMode {
@@ -46,9 +46,8 @@
     
     CDAConfiguration* conf = [CDAConfiguration defaultConfiguration];
     conf.previewMode = YES;
-    self.client = [[CDAClient alloc] initWithSpaceKey:@"o5rx7qhjuvi8" accessToken:@"fd1b0875969c7045a0e4356ed05fa30f1ac1ea7bedaa4b96a0acdbedae645695" configuration:conf];
-    [self.client fetchEntriesMatching:@{ @"content_type": @"5KRmcSqvE4OuYsWkMigI4A", @"include": @0 }
-                              success:^(CDAResponse *response, CDAArray *array) {
+    self.client = [[CDAClient alloc] initWithSpaceKey:@"fsnczri66h17" accessToken:@"30d6d8bfdbad6d49153573a97966a05287677abbb2ddc08118aab455e05bae11" configuration:conf];
+    [self.client fetchAssetsWithSuccess:^(CDAResponse *response, CDAArray *array) {
                                   XCTAssertNotNil(array, @"");
                                   XCTAssertTrue(array.items.count > 0, @"");
                                   
@@ -67,13 +66,13 @@
     
     [self.client fetchEntriesMatching:@{ @"content_type": @"1t9IbcfdCk6m04uISSsaIK" }
                               success:^(CDAResponse *response, CDAArray* array) {
-                                  XCTAssertEqual(6U, array.items.count, @"");
+                                  XCTAssertEqual(5U, array.items.count, @"");
                                   
                                   BOOL foundEntries = NO;
                                   
                                   for (CDAEntry* entry in array.items) {
-                                      if ([entry.identifier isEqualToString:@"6hIqDVkumASkySQg4gQsys"] || [entry.identifier isEqualToString:@"ebFIXyjSfuO42EMIWYGKK"]) {
-                                          XCTAssertEqualObjects(@"Föö", entry.fields[@"name"], @"");
+                                      if ([entry.identifier isEqualToString:@"4rPdazIwWkuuKEAQgemSmO"] || [entry.identifier isEqualToString:@"ebFIXyjSfuO42EMIWYGKK"]) {
+                                          XCTAssertEqualObjects(@"Test", entry.fields[@"name"], @"");
                                           
                                           foundEntries = YES;
                                       }
