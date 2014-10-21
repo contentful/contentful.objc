@@ -11,6 +11,7 @@
 #import "CDATextViewController.h"
 #import "CDAResourceTableViewCell.h"
 #import "CDAResource+Private.h"
+#import "CDAUtilities.h"
 #import "ContentfulBaseTestCase.h"
 #import "UIImageView+CDAAsset.h"
 
@@ -61,8 +62,20 @@
                                           success:(void (^)(UIImageView* imageView,
                                                             CDAAsset* asset))success
                                           failure:(CDARequestFailureBlock)failure {
+    return [self imageViewTestHelperForAssetWithIdentifier:identifier
+                                                   success:success
+                                                   failure:failure
+                                                afterBlock:nil];
+}
+
+- (void)imageViewTestHelperForAssetWithIdentifier:(NSString*)identifier
+                                          success:(void (^)(UIImageView* imageView,
+                                                            CDAAsset* asset))success
+                                          failure:(CDARequestFailureBlock)failure
+                                       afterBlock:(void (^)(CDAAsset* asset))after {
     StartBlock();
     
+    __block CDAAsset* asset = nil;
     UIImageView* imageView = imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0,
                                                                                        250.0, 250.0)];
     
@@ -71,8 +84,9 @@
     [imageView addObserver:self forKeyPath:@"image" options:0 context:NULL];
     
     [self.client fetchAssetWithIdentifier:identifier
-                                  success:^(CDAResponse *response, CDAAsset *asset) {
-                                      success(imageView, asset);
+                                  success:^(CDAResponse *response, CDAAsset *local_asset) {
+                                      success(imageView, local_asset);
+                                      asset = local_asset;
                                       
                                       EndBlock();
                                   } failure:^(CDAResponse *response, NSError *error) {
@@ -89,6 +103,10 @@
     [imageView removeObserver:self forKeyPath:@"image" context:NULL];
     
     XCTAssertFalse(self.waiting, @"Observer hasn't fired after 3 seconds.");
+
+    if (after) {
+        after(asset);
+    }
 }
 
 #pragma mark -
@@ -137,7 +155,7 @@
         return;
     }
     
-    if ([keyPath isEqualToString:@"image"]) {
+    if ([keyPath isEqualToString:@"image"] && self.currentTestSelector) {
         UIImageView* imageView = (UIImageView*)object;
         
         [self compareView:imageView forTestSelector:self.currentTestSelector];
@@ -256,6 +274,47 @@
                                             }];
     
     self.currentTestSelector = NULL;
+}
+
+- (void)testImageViewCaching {
+    StartBlock();
+    __block CDAAsset* asset = nil;
+
+    [self imageViewTestHelperForAssetWithIdentifier:@"nyancat"
+                                            success:^(UIImageView *imageView, CDAAsset *asset) {
+                                                NSString* path = CDACacheFileNameForResource(asset);
+                                                [[NSFileManager defaultManager] removeItemAtPath:path
+                                                                                           error:nil];
+
+                                                imageView.offlineCaching_cda = YES;
+                                                [imageView cda_setImageWithAsset:asset
+                                                                            size:CGSizeMake(20.0, 20.0)];
+                                            } failure:^(CDAResponse *response, NSError *error) {
+                                                XCTFail(@"Error: %@", error);
+                                            } afterBlock:^(CDAAsset *local_asset) {
+                                                asset = local_asset;
+                                                EndBlock();
+                                            }];
+
+    WaitUntilBlockCompletes();
+
+    // Wait for async write of cache
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.5]];
+    XCTAssertNotNil(asset);
+
+    UIImageView* imageView = [UIImageView new];
+    imageView.offlineCaching_cda = YES;
+
+    [imageView cda_setImageWithAsset:asset size:CGSizeMake(20.0, 20.0)];
+    XCTAssertNotNil(imageView.image);
+    imageView.image = nil;
+
+    [imageView cda_setImageWithAsset:asset size:CGSizeMake(200.0, 200.0)];
+    XCTAssertNil(imageView.image);
+    imageView.image = nil;
+
+    [imageView cda_setImageWithAsset:asset];
+    XCTAssertNil(imageView.image);
 }
 
 - (void)testImageViewCategoryWithPlaceholder {
