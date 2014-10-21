@@ -64,33 +64,33 @@ static const char* CDAProgressViewKey   = "CDAProgressViewKey";
 
 -(void)cda_setImageWithAsset:(CDAAsset*)asset
                          URL:(NSURL*)URL
+                        size:(CGSize)size
             placeholderImage:(UIImage *)placeholderImage {
     [self cda_validateAsset:asset];
     
-    if (!placeholderImage && self.offlineCaching_cda) {
+    if (self.offlineCaching_cda) {
         NSString* cacheFilePath = CDACacheFileNameForResource(asset);
         
         if ([[NSFileManager defaultManager] fileExistsAtPath:cacheFilePath]) {
-            placeholderImage = [UIImage imageWithContentsOfFile:cacheFilePath];
+            UIImage* cachedImage = [UIImage imageWithContentsOfFile:cacheFilePath];
             
             NSDictionary *attributes = [[NSFileManager defaultManager] attributesOfItemAtPath:cacheFilePath error:nil];
             NSDate *date = [attributes fileModificationDate];
-            
-            if (![asset updatedAfterDate:date]) {
-                [self showActivityIndicatorIfNeeded];
-                
+
+            if (![asset updatedAfterDate:date]
+                && size.width <= cachedImage.size.width
+                && size.height <= cachedImage.size.height) {
+
                 [asset.client fetchAssetWithIdentifier:asset.identifier
                                                success:^(CDAResponse *response, CDAAsset *asset) {
                                                    if ([asset updatedAfterDate:date]) {
                                                        [self cda_fetchImageWithAsset:asset
                                                                                  URL:URL
-                                                                    placeholderImage:placeholderImage];
-                                                   } else {
-                                                       [self hideActivityIndicator];
+                                                                    placeholderImage:cachedImage];
                                                    }
                                                } failure:nil];
                 
-                self.image = placeholderImage;
+                self.image = cachedImage;
                 return;
             }
         }
@@ -100,15 +100,15 @@ static const char* CDAProgressViewKey   = "CDAProgressViewKey";
 }
 
 -(void)cda_setImageWithAsset:(CDAAsset *)asset {
-    [self cda_setImageWithAsset:asset URL:asset.URL placeholderImage:nil];
+    [self cda_setImageWithAsset:asset URL:asset.URL size:asset.size placeholderImage:nil];
 }
 
 -(void)cda_setImageWithAsset:(CDAAsset *)asset size:(CGSize)size {
-    [self cda_setImageWithAsset:asset URL:[asset imageURLWithSize:size] placeholderImage:nil];
+    [self cda_setImageWithAsset:asset URL:[asset imageURLWithSize:size] size:size placeholderImage:nil];
 }
 
 -(void)cda_setImageWithAsset:(CDAAsset *)asset placeholderImage:(UIImage *)placeholderImage {
-    [self cda_setImageWithAsset:asset URL:asset.URL placeholderImage:placeholderImage];
+    [self cda_setImageWithAsset:asset URL:asset.URL size:asset.size placeholderImage:placeholderImage];
 }
 
 -(void)cda_setImageWithAsset:(CDAAsset *)asset
@@ -116,6 +116,7 @@ static const char* CDAProgressViewKey   = "CDAProgressViewKey";
             placeholderImage:(UIImage *)placeholderImage {
     [self cda_setImageWithAsset:asset
                             URL:[asset imageURLWithSize:size]
+                           size:size
                placeholderImage:placeholderImage];
 }
 
