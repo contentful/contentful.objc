@@ -363,6 +363,10 @@ NSString* const CMAContentTypeHeader = @"application/vnd.contentful.management.v
 -(id)initWithSpaceKey:(NSString *)spaceKey
           accessToken:(NSString *)accessToken
         configuration:(CDAConfiguration*)configuration {
+    if (!configuration.usesManagementAPI && !spaceKey) {
+        configuration.usesManagementAPI = YES;
+    }
+
     self = [super init];
     if (self) {
         self.accessToken = accessToken;
