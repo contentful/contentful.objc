@@ -1,6 +1,6 @@
 language: objective-c
 before_install: gem install cocoapods xcpretty cocoapods-packager cocoapods-coverage
-script: make all
+script: make test # Until cp-packager works properly on Travis again
 notifications:
   slack:
   - secure: pbLVGeA+577zmld+ie/1KUWxin8PFB+uXogz1zrVhEqnparjbHNMvFfaAGG1gbaAJC0skGksCe+LeBrhLargbLSgAT3HrObwDCIu7H8IjaYOEhpNTHCObrwRIyOeBVHHAhjgjeElM7hvptJjRMuERErcnL65EOlaIdm4ZqOg3/0=
