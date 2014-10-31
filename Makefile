@@ -35,7 +35,7 @@ static-lib:
 	rm -rf ContentfulDeliveryAPI-*/
 
 test: example
-	pod lib coverage
+	pod lib testing # Slather currently breaks on Travis :(
 
 lint:
 	set -o pipefail && xcodebuild clean build -workspace $(WORKSPACE) -dry-run \
