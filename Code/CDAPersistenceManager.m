@@ -6,11 +6,16 @@
 //
 //
 
+@import ObjectiveC.runtime;
+
 #import <ContentfulDeliveryAPI/CDAArray.h>
 #import <ContentfulDeliveryAPI/CDAAsset.h>
 #import <ContentfulDeliveryAPI/CDAContentType.h>
+#import <ContentfulDeliveryAPI/CDAField.h>
 #import <ContentfulDeliveryAPI/CDASyncedSpace.h>
 
+#import "CDAClient+Private.h"
+#import "CDAContentTypeRegistry.h"
 #import "CDAEntry+Private.h"
 #import "CDAPersistenceManager.h"
 #import "CDAUtilities.h"
@@ -170,7 +175,34 @@
 }
 
 -(NSDictionary *)mappingForEntriesOfContentTypeWithIdentifier:(NSString *)identifier {
-    return self.mappingForEntries[identifier];
+    NSDictionary* userDefinedMapping = self.mappingForEntries[identifier];
+
+    if (!userDefinedMapping) {
+        NSMutableArray* props = [[self propertiesForEntriesOfContentTypeWithIdentifier:identifier] mutableCopy];
+
+        Protocol* proto = objc_getProtocol("CDAPersistedEntry");
+        unsigned int definedPropsCount = 0;
+        objc_property_t* definedProps = protocol_copyPropertyList(proto, &definedPropsCount);
+
+        for (unsigned int i = 0; i < definedPropsCount; i++) {
+            NSString* propName = [[NSString alloc] initWithCString:property_getName(definedProps[0]) encoding:NSUTF8StringEncoding];
+            [props removeObject:propName];
+        }
+
+        NSMutableDictionary* automaticMapping = [@{} mutableCopy];
+
+        CDAContentType* type = [self.client.contentTypeRegistry contentTypeForIdentifier:identifier];
+        for (CDAField* field in type.fields) {
+            if ([props containsObject:field.identifier]) {
+                automaticMapping[[@"fields." stringByAppendingString:field.identifier]] = field.identifier;
+            }
+        }
+
+        userDefinedMapping = [automaticMapping copy];
+        [self setMapping:userDefinedMapping forEntriesOfContentTypeWithIdentifier:identifier];
+    }
+    
+    return userDefinedMapping;
 }
 
 -(void)performInitalSynchronizationForQueryWithSuccess:(void (^)())success
@@ -292,6 +324,11 @@
     persistedSpace.lastSyncTimestamp = space.lastSyncTimestamp;
     persistedSpace.syncToken = space.syncToken;
     return persistedSpace;
+}
+
+-(NSArray *)propertiesForEntriesOfContentTypeWithIdentifier:(NSString *)identifier {
+    [self doesNotRecognizeSelector:_cmd];
+    return nil;
 }
 
 -(NSDate*)roundedCurrentDate {
