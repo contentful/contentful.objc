@@ -181,6 +181,7 @@
 		A1B815D618F7E2F20027B26D /* AddContentTypesSyncTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B815D518F7E2F20027B26D /* AddContentTypesSyncTests.m */; };
 		A1B815D818F830C00027B26D /* ComplexLinkSyncTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B815D718F830C00027B26D /* ComplexLinkSyncTests.m */; };
 		A1BA6F9119DBECC600AC3471 /* ClientConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = A1BA6F9019DBECC600AC3471 /* ClientConfiguration.m */; };
+		A1C180691A038B3300117DB3 /* RobustnessTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C180671A0388F800117DB3 /* RobustnessTests.m */; };
 		A1C1AC4318CE032200DBF0D0 /* CDAClient+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A1C1AC4218CE032200DBF0D0 /* CDAClient+Private.h */; };
 		A1C8DCD318E098E80019A519 /* LinkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C8DCD218E098E80019A519 /* LinkTests.m */; };
 		A1D1D35C18C8A94800261A1C /* ContentfulBaseTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D1D35B18C8A94800261A1C /* ContentfulBaseTestCase.m */; };
@@ -471,6 +472,7 @@
 		A1B815D518F7E2F20027B26D /* AddContentTypesSyncTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddContentTypesSyncTests.m; sourceTree = "<group>"; };
 		A1B815D718F830C00027B26D /* ComplexLinkSyncTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComplexLinkSyncTests.m; sourceTree = "<group>"; };
 		A1BA6F9019DBECC600AC3471 /* ClientConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientConfiguration.m; sourceTree = "<group>"; };
+		A1C180671A0388F800117DB3 /* RobustnessTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RobustnessTests.m; sourceTree = "<group>"; };
 		A1C1AC4218CE032200DBF0D0 /* CDAClient+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDAClient+Private.h"; sourceTree = "<group>"; };
 		A1C8DCD218E098E80019A519 /* LinkTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkTests.m; sourceTree = "<group>"; };
 		A1D1D35B18C8A94800261A1C /* ContentfulBaseTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentfulBaseTestCase.m; sourceTree = "<group>"; };
@@ -993,6 +995,7 @@
 				A1FAC311190654E30093B308 /* DeepIncludes.m */,
 				A173F60418DB412C000E6F92 /* PreviewModeTests.json */,
 				A173F60218DB3E1E000E6F92 /* PreviewModeTests.m */,
+				A1C180671A0388F800117DB3 /* RobustnessTests.m */,
 			);
 			name = Features;
 			sourceTree = "<group>";
@@ -1765,6 +1768,7 @@
 				A1B815CA18F588D70027B26D /* LinkedAssetSyncTest.m in Sources */,
 				A1C8DCD318E098E80019A519 /* LinkTests.m in Sources */,
 				A170130F18FD47B70086BE07 /* CoreDataExample.xcdatamodeld in Sources */,
+				A1C180691A038B3300117DB3 /* RobustnessTests.m in Sources */,
 				A1AB590A1974069E00098F87 /* CoreDataMultipleContentTypesTests.m in Sources */,
 				A1AE68B819B761B100D2C35F /* Group.m in Sources */,
 				A18AA86418E5DB1A00D430D5 /* UtilityTests.m in Sources */,
