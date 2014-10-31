@@ -88,10 +88,21 @@
  Get the mapping between the properties of persistent Resources and the Fields of Resources
  retrieved from Contentful.
  
+ Note: If the property names on persisted Entries match the field identifiers on Contentful, the 
+ mapping can be provided automatically and you do not need to call this method.
+ 
  @param identifier Identifier of the Content Type in question.
  @return The defined mapping for Fields of Entries of the given Content Type.
  */
 -(NSDictionary*)mappingForEntriesOfContentTypeWithIdentifier:(NSString*)identifier;
+
+/**
+ Get all defined properties of the persited Entry class of a certain Content Type.
+
+ @param identifier      Identifier of the Content Type.
+ @return List of properties which are defined on the relevant persisted Entry class.
+ */
+-(NSArray*)propertiesForEntriesOfContentTypeWithIdentifier:(NSString*)identifier;
 
 /**
  *  Set the mapping between the properties of persistent Resources and the Fields of Resources

@@ -138,10 +138,7 @@
     manager.classForSpaces = [MySpace class];
 
     [manager setClass:[SuchEntityClass class] forEntriesOfContentTypeWithIdentifier:suchEntryId];
-    [manager setMapping:@{ @"fields.name": @"name", @"fields.colour": @"colour" } forEntriesOfContentTypeWithIdentifier:suchEntryId];
-
     [manager setClass:[WowClass class] forEntriesOfContentTypeWithIdentifier:wowId];
-    [manager setMapping:@{ @"fields.name": @"name", @"fields.colour": @"colour" } forEntriesOfContentTypeWithIdentifier:wowId];
 
     StartBlock();
 

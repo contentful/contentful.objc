@@ -288,6 +288,12 @@
     return entityDescription.relationshipsByName[relationshipName];
 }
 
+- (NSArray *)propertiesForEntriesOfContentTypeWithIdentifier:(NSString *)identifier {
+    Class class = [self classForEntriesOfContentTypeWithIdentifier:identifier];
+    NSEntityDescription* entityDescription = [NSEntityDescription entityForName:NSStringFromClass(class) inManagedObjectContext:self.managedObjectContext];
+    return [entityDescription.properties valueForKey:@"name"];
+}
+
 - (void)resolveRelationships {
     for (id<CDAPersistedEntry> entry in [self fetchEntriesFromDataStore]) {
         NSDictionary* relationships = self.relationshipsToResolve[entry.identifier];
