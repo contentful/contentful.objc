@@ -8,6 +8,8 @@
 
 #import <AFNetworking/AFURLResponseSerialization.h>
 
+@class CDAClient;
+
 @interface CDAResponseSerializer : AFJSONResponseSerializer
 
 @property (nonatomic, weak, readonly) CDAClient* client;
