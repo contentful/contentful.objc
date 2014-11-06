@@ -26,6 +26,7 @@
 @interface CDARequestOperationManager ()
 
 @property (nonatomic) NSDateFormatter* dateFormatter;
+@property (nonatomic) BOOL rateLimiting;
 
 @end
 
@@ -194,6 +195,7 @@
     if (self) {
         self.requestSerializer = [[CDARequestSerializer alloc] initWithAccessToken:accessToken];
         self.responseSerializer = [[CDAResponseSerializer alloc] initWithClient:client];
+        self.rateLimiting = configuration.rateLimiting;
 
         if (configuration.userAgent) {
             [(CDARequestSerializer*)self.requestSerializer setUserAgent:configuration.userAgent];
@@ -251,6 +253,18 @@
 
     [request setValue:CMAContentTypeHeader forHTTPHeaderField:@"Content-Type"];
 
+    AFHTTPRequestOperation* operation = [self requestOperationWithRequest:request
+                                                               retryCount:0
+                                                                  success:success
+                                                                  failure:failure];
+
+    return [self buildRequestResultWithOperation:operation];
+}
+
+-(AFHTTPRequestOperation*)requestOperationWithRequest:(NSURLRequest*)request
+                                           retryCount:(NSUInteger)retryCount
+                                              success:(CDAObjectFetchedBlock)success
+                                              failure:(CDARequestFailureBlock)failure {
     AFHTTPRequestOperation* operation = [self HTTPRequestOperationWithRequest:request
       success:^(AFHTTPRequestOperation *operation, id responseObject) {
           if (!responseObject && operation.response.statusCode != 204) {
@@ -265,6 +279,20 @@
               success([CDAResponse responseWithHTTPURLResponse:operation.response], responseObject);
           }
       } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+          // Rate-Limiting
+          if (operation.response.statusCode == 429 && retryCount < 10 && self.rateLimiting) {
+              NSUInteger delayInSeconds = 2^retryCount * 100 * 1000;
+
+              dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC)),
+                             dispatch_get_main_queue(), ^{
+                                 [self requestOperationWithRequest:request
+                                                        retryCount:retryCount + 1
+                                                           success:success
+                                                           failure:failure];
+              });
+              return;
+          }
+
           if (failure) {
               if ([operation.responseObject isKindOfClass:[CDAError class]]) {
                   error = [operation.responseObject errorRepresentationWithCode:operation.response.statusCode];
@@ -275,7 +303,7 @@
       }];
     [self.operationQueue addOperation:operation];
 
-    return [self buildRequestResultWithOperation:operation];
+    return operation;
 }
 
 @end

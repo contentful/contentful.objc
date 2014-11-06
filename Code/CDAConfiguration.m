@@ -21,6 +21,7 @@
 +(instancetype)defaultConfiguration {
     CDAConfiguration* configuration = [CDAConfiguration new];
     configuration.previewMode = NO;
+    configuration.rateLimiting = NO;
     configuration.secure = YES;
     configuration.server = @"cdn.contentful.com";
     return configuration;

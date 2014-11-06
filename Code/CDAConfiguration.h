@@ -24,6 +24,9 @@
 
 /** @name Configuring parameters */
 
+/** Automatically retry requests if rate-limits are exceeded. */
+@property (nonatomic) BOOL rateLimiting;
+
 /** If `YES`, a secure HTTPS connection will be used instead of regular HTTP. Default value: `YES` */
 @property (nonatomic) BOOL secure;
 
