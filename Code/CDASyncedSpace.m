@@ -225,8 +225,8 @@
         
         return;
     }
-    
-    [self.client fetchArrayAtURLPath:@"sync" parameters:@{ @"sync_token": self.syncToken } success:^(CDAResponse *response, CDAArray *array) {
+
+    [self.client fetchArrayAtURLPath:@"sync" parameters:@{ @"sync_token": self.syncToken ?: @"" } success:^(CDAResponse *response, CDAArray *array) {
         if (!self.syncedAssets && !self.syncedEntries) {
             [self resolveLinksInArray:array
                               success:^{

@@ -223,7 +223,9 @@
     NSMutableDictionary* query = [self.query mutableCopy];
     
     id<CDAPersistedSpace> space = [self fetchSpaceFromDataStore];
-    query[@"sys.updatedAt[gt]"] = space.lastSyncTimestamp;
+    if (space.lastSyncTimestamp) {
+        query[@"sys.updatedAt[gt]"] = space.lastSyncTimestamp;
+    }
     
     NSArray* knownAssetIds = [[self fetchAssetsFromDataStore] valueForKey:@"identifier"];
     NSDictionary* queryForAssets = @{ @"sys.id[in]": knownAssetIds,
@@ -285,8 +287,10 @@
                 success();
             }
         } failure:failure];
-        
-        request = nil;
+
+        if (request) {
+            request = nil;
+        }
         return;
     }
     
