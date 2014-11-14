@@ -171,17 +171,6 @@
       
         XCTAssertEqual(4U, resourcesVC.items.count, @"");
         XCTAssertEqual(4, [resourcesVC.collectionView.dataSource collectionView:resourcesVC.collectionView numberOfItemsInSection:0], @"");
-        
-        // FIXME: Does not work because dataSource is never consulted somehow.
-#if 0
-        UICollectionViewCell* cell = [resourcesVC.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
-        
-        NSError* error;
-        XCTAssert([self.snapshotTestController compareSnapshotOfView:cell
-                                                            selector:self.currentTestSelector
-                                                          identifier:nil
-                                                               error:&error], @"Error: %@", error);
-#endif
     }
 }
 

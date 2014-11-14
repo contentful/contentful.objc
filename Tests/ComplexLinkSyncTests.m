@@ -41,9 +41,6 @@
     XCTAssertNotNil([entry.fields[@"link3"] fields], @"");
 }
 
-// FIXME: These two tests 404 now for some reason, need to investigate.
-#if 0
-
 -(void)testComplexLinkSync {
     StartBlock();
     
@@ -117,7 +114,5 @@
     XCTAssertEqual(1U, self.numberOfEntriesUpdated, @"");
     XCTAssertEqual(1U, self.numberOfEntriesDeleted, @"");
 }
-
-#endif
 
 @end
