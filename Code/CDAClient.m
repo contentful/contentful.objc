@@ -40,8 +40,10 @@ NSString* const CMAContentTypeHeader = @"application/vnd.contentful.management.v
 
 // Terrible workaround to keep static builds from stripping these classes out.
 +(void)load {
+#ifndef __clang_analyzer__
     NSArray* classes = @[ [CDAContentType class] ];
     classes = nil;
+#endif
 }
 
 #pragma mark -

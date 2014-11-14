@@ -35,7 +35,9 @@ NSString* CDACacheDirectory() {
                                                                  attributes:nil
                                                                       error:&error];
         NSCAssert(result, @"Error: %@", error);
+#ifndef __clang_analyzer__
         result = YES;
+#endif
     }
     
     return cachesPath;
