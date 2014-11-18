@@ -30,6 +30,10 @@
     return @"ContentType";
 }
 
++(Class)fieldClass {
+    return CDAField.class;
+}
+
 #pragma mark -
 
 -(NSString *)description {
@@ -52,7 +56,8 @@
         NSMutableArray* fields = [@[] mutableCopy];
         
         for (NSDictionary* field in dictionary[@"fields"]) {
-            CDAField* fieldObject = [[CDAField alloc] initWithDictionary:field client:self.client];
+            CDAField* fieldObject = [[[self.class fieldClass] alloc] initWithDictionary:field
+                                                                                 client:self.client];
             
             allFields[fieldObject.identifier] = fieldObject;
             [fields addObject:fieldObject];
