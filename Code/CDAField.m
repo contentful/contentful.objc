@@ -73,8 +73,12 @@
             break;
         case CDAFieldTypeAsset:
         case CDAFieldTypeEntry:
-            rep[@"items"] = @{ @"type": [self fieldTypeToString:CDAFieldTypeLink],
-                               @"linkType": [self fieldTypeToString:self.itemType] };
+            if (self.type == CDAFieldTypeLink) {
+                rep[@"linkType"] = [self fieldTypeToString:self.itemType];
+            } else {
+                rep[@"items"] = @{ @"type": [self fieldTypeToString:CDAFieldTypeLink],
+                                   @"linkType": [self fieldTypeToString:self.itemType] };
+            }
             break;
         case CDAFieldTypeArray:
         case CDAFieldTypeBoolean:
