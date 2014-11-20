@@ -154,8 +154,8 @@ Copyright (c) 2014 Contentful GmbH. See LICENSE for further details.
 [4]: http://boredzo.org/iso8601dateformatter/
 [5]: http://git-scm.com/docs/git-submodule
 [6]: https://www.contentful.com/developers/documentation/content-delivery-api/
-[7]: http://cocoadocs.org/docsets/ContentfulDeliveryAPI/1.4.6/
-[8]: http://static.contentful.com/downloads/iOS/ContentfulDeliveryAPI-1.4.6.zip
+[7]: http://cocoadocs.org/docsets/ContentfulDeliveryAPI/1.4.7/
+[8]: http://static.contentful.com/downloads/iOS/ContentfulDeliveryAPI-1.4.7.zip
 [9]: http://static.contentful.com/downloads/iOS/UFO.zip
 [10]: https://github.com/nicklockwood/HRCoder
 [11]: https://www.contentful.com/blog/2014/04/04/Contentful-iOS-SDK/
