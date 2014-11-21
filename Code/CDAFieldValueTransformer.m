@@ -100,7 +100,9 @@
             }
             
             return value;
-            
+
+        case CDAFieldTypeAsset:
+        case CDAFieldTypeEntry:
         case CDAFieldTypeLink:
             if (value == [NSNull null]) {
                 return nil;
@@ -130,8 +132,6 @@
                 return [value stringValue];
             }
 
-        case CDAFieldTypeAsset:
-        case CDAFieldTypeEntry:
         case CDAFieldTypeNone:
             break;
     }
