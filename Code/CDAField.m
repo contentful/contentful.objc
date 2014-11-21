@@ -145,11 +145,12 @@
         self.identifier = dictionary[@"id"];
         self.name = dictionary[@"name"];
         
-        NSString* itemType = dictionary[@"items"][@"type"];
+        NSString* itemType = dictionary[@"items"][@"linkType"] ?: dictionary[@"linkType"];
         if (itemType) {
             self.itemType = [self stringToFieldType:itemType];
         } else {
-            self.itemType = CDAFieldTypeNone;
+            itemType = dictionary[@"items"][@"type"];
+            self.itemType = itemType ? [self stringToFieldType:itemType] : CDAFieldTypeNone;
         }
         
         self.type = [self stringToFieldType:dictionary[@"type"]];
