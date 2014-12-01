@@ -31,10 +31,8 @@ PODS:
   - CCLRequestReplay/Replay (0.9.0)
   - ContentfulDeliveryAPI (1.4.7):
     - AFNetworking
-    - HRCoder
     - ISO8601DateFormatter
   - FBSnapshotTestCase (HEAD based on 1.4)
-  - HRCoder (1.3.1)
   - ISO8601DateFormatter (0.7)
   - OCMock (2.2.4)
   - PDKTCollectionViewWaterfallLayout (0.1)
@@ -45,7 +43,6 @@ DEPENDENCIES:
   - CCLRequestReplay (from `https://github.com/neonichu/CCLRequestReplay.git`)
   - ContentfulDeliveryAPI (from `.`)
   - FBSnapshotTestCase (HEAD)
-  - HRCoder
   - ISO8601DateFormatter
   - OCMock
   - PDKTCollectionViewWaterfallLayout
@@ -60,9 +57,8 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: 47947303319594706f48a55185ea95a95159ab94
   CCLRequestReplay: 53ac44276845cd49bddc0050e7e8f76b8a028ea4
-  ContentfulDeliveryAPI: bb59cefad254050a479ee208e024c1131c5f484e
+  ContentfulDeliveryAPI: 8bebec4edd0a5047657c570660ca45bc5a11533b
   FBSnapshotTestCase: f9f225b5ba11c8d8c09075590490df16314e4d62
-  HRCoder: 0952826ddf4213a11be775d01446f61a5df987a4
   ISO8601DateFormatter: 59731cd880cf87e71b4fa95f0d6b713dcbc4cbce
   OCMock: 6db79185520e24f9f299548f2b8b07e41d881bd5
   PDKTCollectionViewWaterfallLayout: cdde9e714973c9de67f078ba495b9d9e6812082d
