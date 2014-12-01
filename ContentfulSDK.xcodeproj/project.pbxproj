@@ -106,7 +106,6 @@
 		A19FD87918C631E60081677E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD87818C631E60081677E /* XCTest.framework */; };
 		A19FD87A18C631E60081677E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD86A18C631E60081677E /* Foundation.framework */; };
 		A19FD87C18C631E60081677E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD87B18C631E60081677E /* UIKit.framework */; };
-		A19FD87F18C631E60081677E /* libContentfulDeliveryAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD86718C631E60081677E /* libContentfulDeliveryAPI.a */; };
 		A19FD89818C637400081677E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD86A18C631E60081677E /* Foundation.framework */; };
 		A19FD89A18C637400081677E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD89918C637400081677E /* CoreGraphics.framework */; };
 		A19FD89B18C637400081677E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD87B18C631E60081677E /* UIKit.framework */; };
@@ -543,7 +542,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A170130E18FD31950086BE07 /* CoreData.framework in Frameworks */,
-				A19FD87F18C631E60081677E /* libContentfulDeliveryAPI.a in Frameworks */,
 				A19FD87918C631E60081677E /* XCTest.framework in Frameworks */,
 				A19FD87C18C631E60081677E /* UIKit.framework in Frameworks */,
 				A19FD87A18C631E60081677E /* Foundation.framework in Frameworks */,
