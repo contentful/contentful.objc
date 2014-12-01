@@ -229,7 +229,7 @@
         success:^(CDAResponse *response, CDAArray *array) {
             XCTFail(@"Query should fail.");
         } failure:^(CDAResponse *response, NSError *error) {
-            XCTAssertEqual(@"CDAErrorDomain", error.domain, @"");
+            XCTAssertEqualObjects(@"CDAErrorDomain", error.domain, @"");
             XCTAssertEqual(400, error.code, @"");
             XCTAssertEqualObjects(@"The query you sent was invalid. Probably a filter or ordering specification is not applicable to the type of a field.", error.localizedDescription, @"");
             XCTAssertEqualObjects((@{ @"errors": @[ @{ @"name": @"unknownContentType",
