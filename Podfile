@@ -6,7 +6,6 @@ target "ContentfulDeliveryAPI", :exclusive => true do
 
 pod 'AFNetworking', :inhibit_warnings => true
 pod 'ISO8601DateFormatter'
-pod 'HRCoder'
 
 end
 
