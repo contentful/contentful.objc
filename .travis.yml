@@ -1,6 +1,6 @@
 language: objective-c
 before_install: 
-- gem install cocoapods xcpretty cocoapods-packager cocoapods-coverage
+- gem install cocoapods xcpretty cocoapods-packager cocoapods-coverage slather
 - rm -rf $(HOME)/Library/Developer/Xcode/DerivedData/*
 script: make test # Until cp-packager works properly on Travis again
 notifications:
