@@ -7,6 +7,7 @@
 //
 
 #import "CoreDataBaseTestCase.h"
+#import "CoreDataManager.h"
 
 @interface TestCoreDataManager : CoreDataManager
 

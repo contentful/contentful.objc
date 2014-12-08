@@ -6,17 +6,8 @@
 //
 //
 
-#import "Asset.h"
-#import "CoreDataManager.h"
-#import "ManagedCat.h"
-#import "SyncBaseTestCase.h"
+#import "PersistenceBaseTest.h"
 
-@interface CoreDataBaseTestCase : SyncBaseTestCase
-
-@property (nonatomic, readonly) CoreDataManager* coreDataManager;
-@property (nonatomic) NSDictionary* query;
-
--(void)assertNumberOfAssets:(NSUInteger)numberOfAssets numberOfEntries:(NSUInteger)numberOfEntries;
--(void)buildCoreDataManagerWithDefaultClient:(BOOL)defaultClient;
+@interface CoreDataBaseTestCase : PersistenceBaseTest
 
 @end

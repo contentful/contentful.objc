@@ -7,6 +7,7 @@
 //
 
 #import "CoreDataBaseTestCase.h"
+#import "CoreDataManager.h"
 
 @interface CoreDataBasicTests : CoreDataBaseTestCase
 
@@ -35,37 +36,37 @@
 -(void)testContinueSyncFromDataStore {
     StartBlock();
     
-    [self.coreDataManager performSynchronizationWithSuccess:^{
+    [self.persistenceManager performSynchronizationWithSuccess:^{
         [self assertNumberOfAssets:1U numberOfEntries:1U];
-        [self buildCoreDataManagerWithDefaultClient:NO];
+        [self buildPersistenceManagerWithDefaultClient:NO];
         
-        Asset* asset = [[self.coreDataManager fetchAssetsFromDataStore] firstObject];
+        Asset* asset = [[self.persistenceManager fetchAssetsFromDataStore] firstObject];
         XCTAssertEqualObjects(@"512_black.png", asset.url.lastPathComponent, @"");
-        ManagedCat* cat = [[self.coreDataManager fetchEntriesFromDataStore] firstObject];
+        ManagedCat* cat = [[self.persistenceManager fetchEntriesFromDataStore] firstObject];
         XCTAssertEqualObjects(@"Test", cat.name, @"");
         
-        [self.coreDataManager performSynchronizationWithSuccess:^{
+        [self.persistenceManager performSynchronizationWithSuccess:^{
             [self assertNumberOfAssets:1U numberOfEntries:2U];
-            [self buildCoreDataManagerWithDefaultClient:NO];
+            [self buildPersistenceManagerWithDefaultClient:NO];
             
-            [self.coreDataManager performSynchronizationWithSuccess:^{
+            [self.persistenceManager performSynchronizationWithSuccess:^{
                 [self assertNumberOfAssets:1U numberOfEntries:1U];
-                [self buildCoreDataManagerWithDefaultClient:NO];
+                [self buildPersistenceManagerWithDefaultClient:NO];
                 
-                [self.coreDataManager performSynchronizationWithSuccess:^{
+                [self.persistenceManager performSynchronizationWithSuccess:^{
                     [self assertNumberOfAssets:2U numberOfEntries:1U];
-                    [self buildCoreDataManagerWithDefaultClient:NO];
+                    [self buildPersistenceManagerWithDefaultClient:NO];
                     
-                    [self.coreDataManager performSynchronizationWithSuccess:^{
+                    [self.persistenceManager performSynchronizationWithSuccess:^{
                         [self assertNumberOfAssets:1U numberOfEntries:1U];
-                        [self buildCoreDataManagerWithDefaultClient:NO];
+                        [self buildPersistenceManagerWithDefaultClient:NO];
                         
-                        [self.coreDataManager performSynchronizationWithSuccess:^{
+                        [self.persistenceManager performSynchronizationWithSuccess:^{
                             [self assertNumberOfAssets:1U numberOfEntries:1U];
                             
-                            Asset* asset = [[self.coreDataManager fetchAssetsFromDataStore] firstObject];
+                            Asset* asset = [[self.persistenceManager fetchAssetsFromDataStore] firstObject];
                             XCTAssertEqualObjects(@"vaa4by0.png", asset.url.lastPathComponent, @"");
-                            ManagedCat* cat = [[self.coreDataManager fetchEntriesFromDataStore] firstObject];
+                            ManagedCat* cat = [[self.persistenceManager fetchEntriesFromDataStore] firstObject];
                             XCTAssertEqualObjects(@"Test (changed)", cat.name, @"");
                             
                             EndBlock();
@@ -108,32 +109,32 @@
 -(void)testContinueSyncWithSameManager {
     StartBlock();
     
-    [self.coreDataManager performSynchronizationWithSuccess:^{
+    [self.persistenceManager performSynchronizationWithSuccess:^{
         [self assertNumberOfAssets:1U numberOfEntries:1U];
         
-        Asset* asset = [[self.coreDataManager fetchAssetsFromDataStore] firstObject];
+        Asset* asset = [[self.persistenceManager fetchAssetsFromDataStore] firstObject];
         XCTAssertEqualObjects(@"512_black.png", asset.url.lastPathComponent, @"");
-        ManagedCat* cat = [[self.coreDataManager fetchEntriesFromDataStore] firstObject];
+        ManagedCat* cat = [[self.persistenceManager fetchEntriesFromDataStore] firstObject];
         XCTAssertEqualObjects(@"Test", cat.name, @"");
         
-        [self.coreDataManager performSynchronizationWithSuccess:^{
+        [self.persistenceManager performSynchronizationWithSuccess:^{
             [self assertNumberOfAssets:1U numberOfEntries:2U];
             
-            [self.coreDataManager performSynchronizationWithSuccess:^{
+            [self.persistenceManager performSynchronizationWithSuccess:^{
                 [self assertNumberOfAssets:1U numberOfEntries:1U];
                 
-                [self.coreDataManager performSynchronizationWithSuccess:^{
+                [self.persistenceManager performSynchronizationWithSuccess:^{
                     [self assertNumberOfAssets:2U numberOfEntries:1U];
                     
-                    [self.coreDataManager performSynchronizationWithSuccess:^{
+                    [self.persistenceManager performSynchronizationWithSuccess:^{
                         [self assertNumberOfAssets:1U numberOfEntries:1U];
                         
-                        [self.coreDataManager performSynchronizationWithSuccess:^{
+                        [self.persistenceManager performSynchronizationWithSuccess:^{
                             [self assertNumberOfAssets:1U numberOfEntries:1U];
                             
-                            Asset* asset = [[self.coreDataManager fetchAssetsFromDataStore] firstObject];
+                            Asset* asset = [[self.persistenceManager fetchAssetsFromDataStore] firstObject];
                             XCTAssertEqualObjects(@"vaa4by0.png", asset.url.lastPathComponent, @"");
-                            ManagedCat* cat = [[self.coreDataManager fetchEntriesFromDataStore] firstObject];
+                            ManagedCat* cat = [[self.persistenceManager fetchEntriesFromDataStore] firstObject];
                             XCTAssertEqualObjects(@"Test (changed)", cat.name, @"");
                             
                             EndBlock();
@@ -175,13 +176,13 @@
 
 -(void)testInitialSync {
     [self removeAllStubs];
-    [self buildCoreDataManagerWithDefaultClient:YES];
+    [self buildPersistenceManagerWithDefaultClient:YES];
     
     StartBlock();
     
-    [self.coreDataManager performSynchronizationWithSuccess:^{
-        XCTAssertEqual(4U, [self.coreDataManager fetchAssetsFromDataStore].count, @"");
-        XCTAssertEqual(3U, [self.coreDataManager fetchEntriesFromDataStore].count, @"");
+    [self.persistenceManager performSynchronizationWithSuccess:^{
+        XCTAssertEqual(4U, [self.persistenceManager fetchAssetsFromDataStore].count, @"");
+        XCTAssertEqual(3U, [self.persistenceManager fetchEntriesFromDataStore].count, @"");
         
         EndBlock();
     } failure:^(CDAResponse *response, NSError *error) {
@@ -195,13 +196,12 @@
 
 -(void)testMappingOfFields {
     [self removeAllStubs];
-    [self buildCoreDataManagerWithDefaultClient:YES];
+    [self buildPersistenceManagerWithDefaultClient:YES];
     
     StartBlock();
     
-    [self.coreDataManager performSynchronizationWithSuccess:^{
-        for (ManagedCat* cat in [self.coreDataManager fetchEntriesOfContentTypeWithIdentifier:@"cat"
-                                                                            matchingPredicate:nil]) {
+    [self.persistenceManager performSynchronizationWithSuccess:^{
+        for (ManagedCat* cat in [(CoreDataManager*)self.persistenceManager fetchEntriesOfContentTypeWithIdentifier:@"cat" matchingPredicate:nil]) {
             XCTAssertNotNil(cat.color, @"");
             XCTAssertNotNil(cat.name, @"");
             XCTAssert([cat.livesLeft intValue] > 0, @"");
@@ -219,17 +219,17 @@
 
 -(void)testRelationships {
     [self removeAllStubs];
-    [self buildCoreDataManagerWithDefaultClient:YES];
+    [self buildPersistenceManagerWithDefaultClient:YES];
     
     StartBlock();
     
-    [self.coreDataManager performSynchronizationWithSuccess:^{
-        [self buildCoreDataManagerWithDefaultClient:YES];
+    [self.persistenceManager performSynchronizationWithSuccess:^{
+        [self buildPersistenceManagerWithDefaultClient:YES];
         
-        XCTAssertEqual(4U, [self.coreDataManager fetchAssetsFromDataStore].count, @"");
-        XCTAssertEqual(3U, [self.coreDataManager fetchEntriesFromDataStore].count, @"");
+        XCTAssertEqual(4U, [self.persistenceManager fetchAssetsFromDataStore].count, @"");
+        XCTAssertEqual(3U, [self.persistenceManager fetchEntriesFromDataStore].count, @"");
         
-        ManagedCat* nyanCat = [self.coreDataManager fetchEntryWithIdentifier:@"nyancat"];
+        ManagedCat* nyanCat = [self.persistenceManager fetchEntryWithIdentifier:@"nyancat"];
         XCTAssertNotNil(nyanCat, @"");
         XCTAssertNotNil(nyanCat.picture, @"");
         XCTAssertNotNil(nyanCat.picture.url, @"");
@@ -246,26 +246,26 @@
 
 -(void)testSyncWithRepublishedEntry {
     self.client = [[CDAClient alloc] initWithSpaceKey:@"giq5kda3eap4" accessToken:@"9823965a99805cf9bd6f091b2faf6eef652eff12ae0c79acacd370f873bc6fe0"];
-    [self buildCoreDataManagerWithDefaultClient:NO];
+    [self buildPersistenceManagerWithDefaultClient:NO];
     
     StartBlock();
     
-    [self.coreDataManager performSynchronizationWithSuccess:^{
-        XCTAssertEqual(1U, [self.coreDataManager fetchEntriesFromDataStore].count, @"");
+    [self.persistenceManager performSynchronizationWithSuccess:^{
+        XCTAssertEqual(1U, [self.persistenceManager fetchEntriesFromDataStore].count, @"");
         
-        [self buildCoreDataManagerWithDefaultClient:NO];
-        [self.coreDataManager performSynchronizationWithSuccess:^{
-            XCTAssertEqual(2U, [self.coreDataManager fetchEntriesFromDataStore].count, @"");
+        [self buildPersistenceManagerWithDefaultClient:NO];
+        [self.persistenceManager performSynchronizationWithSuccess:^{
+            XCTAssertEqual(2U, [self.persistenceManager fetchEntriesFromDataStore].count, @"");
             
-            [self buildCoreDataManagerWithDefaultClient:NO];
-            [self.coreDataManager performSynchronizationWithSuccess:^{
-                XCTAssertEqual(1U, [self.coreDataManager fetchEntriesFromDataStore].count, @"");
+            [self buildPersistenceManagerWithDefaultClient:NO];
+            [self.persistenceManager performSynchronizationWithSuccess:^{
+                XCTAssertEqual(1U, [self.persistenceManager fetchEntriesFromDataStore].count, @"");
                 
-                [self buildCoreDataManagerWithDefaultClient:NO];
-                [self.coreDataManager performSynchronizationWithSuccess:^{
-                    XCTAssertEqual(2U, [self.coreDataManager fetchEntriesFromDataStore].count, @"");
+                [self buildPersistenceManagerWithDefaultClient:NO];
+                [self.persistenceManager performSynchronizationWithSuccess:^{
+                    XCTAssertEqual(2U, [self.persistenceManager fetchEntriesFromDataStore].count, @"");
                     
-                    [self buildCoreDataManagerWithDefaultClient:NO];
+                    [self buildPersistenceManagerWithDefaultClient:NO];
                     EndBlock();
                 } failure:^(CDAResponse *response, NSError *error) {
                     XCTFail(@"Error: %@", error);
@@ -293,25 +293,25 @@
 
 -(void)testImageCaching {
     [self removeAllStubs];
-    [self buildCoreDataManagerWithDefaultClient:YES];
+    [self buildPersistenceManagerWithDefaultClient:YES];
 
     StartBlock();
 
-    [self.coreDataManager performSynchronizationWithSuccess:^{
-        __block id<CDAPersistedAsset> asset = [[[self.coreDataManager fetchAssetsFromDataStore] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"identifier == 'nyancat'"]] firstObject];
+    [self.persistenceManager performSynchronizationWithSuccess:^{
+        __block id<CDAPersistedAsset> asset = [[[self.persistenceManager fetchAssetsFromDataStore] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"identifier == 'nyancat'"]] firstObject];
         XCTAssertNotNil(asset, @"");
 
         [CDAAsset cachePersistedAsset:asset
-                               client:self.coreDataManager.client
+                               client:self.persistenceManager.client
                      forcingOverwrite:YES
                     completionHandler:^(BOOL success) {
                         NSURLRequest* assetRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:asset.url]];
                         [NSURLConnection sendAsynchronousRequest:assetRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
                             XCTAssertNotNil(data, @"Error: %@", connectionError);
 
-                            [self buildCoreDataManagerWithDefaultClient:YES];
-                            CDAClient* client = [self.coreDataManager client];
-                            asset = [[[self.coreDataManager fetchAssetsFromDataStore] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"identifier == 'nyancat'"]] firstObject];
+                            [self buildPersistenceManagerWithDefaultClient:YES];
+                            CDAClient* client = [self.persistenceManager client];
+                            asset = [[[self.persistenceManager fetchAssetsFromDataStore] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"identifier == 'nyancat'"]] firstObject];
 
                             NSData* cachedData = [CDAAsset cachedDataForPersistedAsset:asset
                                                                                 client:client];

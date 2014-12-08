@@ -7,6 +7,7 @@
 //
 
 #import "CoreDataBaseTestCase.h"
+#import "CoreDataManager.h"
 #import "Group.h"
 #import "Member.h"
 
@@ -18,11 +19,11 @@
 
 @implementation CoreDataIssues
 
--(void)buildCoreDataManagerWithDefaultClient:(BOOL)defaultClient {
+-(void)buildPersistenceManagerWithDefaultClient:(BOOL)defaultClient {
     self.client = [CDAClient new];
     self.query = @{ @"order": @"sys.createdAt" };
 
-    [super buildCoreDataManagerWithDefaultClient:NO];
+    [super buildPersistenceManagerWithDefaultClient:NO];
 }
 
 #pragma mark -
@@ -31,16 +32,16 @@
     StartBlock();
 
     self.client = [[CDAClient alloc] initWithSpaceKey:@"a3rsszoo7qqp" accessToken:@"57a1ef74e87e234bed4d3f932ec945a82dae641d6ea2b2435ea2837de94d6be5"];
-    [super buildCoreDataManagerWithDefaultClient:NO];
+    [super buildPersistenceManagerWithDefaultClient:NO];
 
-    [self.coreDataManager setClass:Group.class forEntriesOfContentTypeWithIdentifier:@"20iFrEKPwgoq6KAyeSqww8"];
-    [self.coreDataManager setMapping:@{ @"fields.title": @"title", @"fields.members": @"members" }forEntriesOfContentTypeWithIdentifier:@"20iFrEKPwgoq6KAyeSqww8"];
+    [self.persistenceManager setClass:Group.class forEntriesOfContentTypeWithIdentifier:@"20iFrEKPwgoq6KAyeSqww8"];
+    [self.persistenceManager setMapping:@{ @"fields.title": @"title", @"fields.members": @"members" }forEntriesOfContentTypeWithIdentifier:@"20iFrEKPwgoq6KAyeSqww8"];
 
-    [self.coreDataManager setClass:Member.class forEntriesOfContentTypeWithIdentifier:@"12pXFbTH9cWqWo06Oigeyu"];
-    [self.coreDataManager setMapping:@{ @"fields.name": @"title", @"fields.group": @"group" } forEntriesOfContentTypeWithIdentifier:@"12pXFbTH9cWqWo06Oigeyu"];
+    [self.persistenceManager setClass:Member.class forEntriesOfContentTypeWithIdentifier:@"12pXFbTH9cWqWo06Oigeyu"];
+    [self.persistenceManager setMapping:@{ @"fields.name": @"title", @"fields.group": @"group" } forEntriesOfContentTypeWithIdentifier:@"12pXFbTH9cWqWo06Oigeyu"];
 
-    [self.coreDataManager performSynchronizationWithSuccess:^{
-        for (Group* group in [self.coreDataManager fetchEntriesOfContentTypeWithIdentifier:@"20iFrEKPwgoq6KAyeSqww8" matchingPredicate:nil]) {
+    [self.persistenceManager performSynchronizationWithSuccess:^{
+        for (Group* group in [(CoreDataManager*)self.persistenceManager fetchEntriesOfContentTypeWithIdentifier:@"20iFrEKPwgoq6KAyeSqww8" matchingPredicate:nil]) {
             XCTAssertNotNil(group, @"");
 
             if ([group.identifier isEqualToString:@"8UEOnseV2gQY8GUOG8csc"]) {
@@ -68,7 +69,7 @@
 -(void)testUnmappedContentType {
     StartBlock();
 
-    [self.coreDataManager performSynchronizationWithSuccess:^{
+    [self.persistenceManager performSynchronizationWithSuccess:^{
         XCTAssertTrue(true, @"");
 
         EndBlock();

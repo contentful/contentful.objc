@@ -1,0 +1,80 @@
+//
+//  PersistenceBaseTest.m
+//  ContentfulSDK
+//
+//  Created by Boris Bügling on 08/12/14.
+//
+//
+
+#import "PersistenceBaseTest.h"
+#import "SyncInfo.h"
+
+@interface PersistenceBaseTest ()
+
+@property (nonatomic) CDAPersistenceManager* persistenceManager;
+@property (nonatomic) NSDate* lastSyncTimestamp;
+
+@end
+
+#pragma mark -
+
+@implementation PersistenceBaseTest
+
+-(void)assertNumberOfAssets:(NSUInteger)numberOfAssets numberOfEntries:(NSUInteger)numberOfEntries {
+    XCTAssertEqual(numberOfAssets, [self.persistenceManager fetchAssetsFromDataStore].count, @"");
+    XCTAssertEqual(numberOfEntries, [self.persistenceManager fetchEntriesFromDataStore].count, @"");
+
+    NSDate* timestamp = [self.persistenceManager fetchSpaceFromDataStore].lastSyncTimestamp;
+    if (![[timestamp description] hasSuffix:@":00 +0000"]) {
+        XCTAssertNotEqualObjects(self.lastSyncTimestamp, timestamp, @"");
+    }
+    self.lastSyncTimestamp = timestamp;
+}
+
+-(void)buildPersistenceManagerWithDefaultClient:(BOOL)defaultClient {
+    CDAClient* client = defaultClient ? [CDAClient new] : self.client;
+
+    self.persistenceManager = [self createPersistenceManagerWithClient:client];
+
+    self.persistenceManager.classForAssets = [Asset class];
+    self.persistenceManager.classForSpaces = [SyncInfo class];
+
+    NSArray* contentTypeIds = @[ @"1nGOrvlRTaMcyyq4IEa8ea", @"6bAvxqodl6s4MoKuWYkmqe",
+                                 @"6PnRGY1dxSUmaQ2Yq2Ege2", @"cat" ];
+
+    Class c = [ManagedCat class];
+    NSMutableDictionary* mapping = [@{ @"fields.color": @"color",
+                                       @"fields.lives": @"livesLeft",
+                                       @"fields.image": @"picture" } mutableCopy];
+
+    if (defaultClient) {
+        mapping[@"fields.name"] = @"name";
+    } else {
+        mapping[@"fields.title"] = @"name";
+    }
+
+    for (NSString* contentTypeId in contentTypeIds) {
+        [self.persistenceManager setClass:c forEntriesOfContentTypeWithIdentifier:contentTypeId];
+        [self.persistenceManager setMapping:mapping forEntriesOfContentTypeWithIdentifier:contentTypeId];
+    }
+}
+
+-(CDAPersistenceManager*)createPersistenceManagerWithClient:(CDAClient*)client {
+    return nil;
+}
+
+-(void)setUp {
+    [super setUp];
+
+    self.lastSyncTimestamp = nil;
+
+    [self buildPersistenceManagerWithDefaultClient:NO];
+}
+
+-(void)tearDown {
+    [super tearDown];
+
+    self.persistenceManager = nil;
+}
+
+@end

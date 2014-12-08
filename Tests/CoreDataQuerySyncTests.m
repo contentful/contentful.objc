@@ -14,11 +14,11 @@
 
 @implementation CoreDataQuerySyncTests
 
--(void)buildCoreDataManagerWithDefaultClient:(BOOL)defaultClient {
+-(void)buildPersistenceManagerWithDefaultClient:(BOOL)defaultClient {
     self.client = [[CDAClient alloc] initWithSpaceKey:@"6mhvnnmyn9e1" accessToken:@"c054f8439246817a657ba7c5fa99989fa50db48c4893572d9537335b0c9b153e"];
     self.query = @{ @"content_type": @"6PnRGY1dxSUmaQ2Yq2Ege2" };
     
-    [super buildCoreDataManagerWithDefaultClient:NO];
+    [super buildPersistenceManagerWithDefaultClient:NO];
 }
 
 -(void)stubInitialRequestWithJSONNamed:(NSString*)initial updateWithJSONNamed:(NSString*)update {
@@ -40,10 +40,10 @@
 -(void)testInitialSync {
     StartBlock();
     
-    [self.coreDataManager performSynchronizationWithSuccess:^{
+    [self.persistenceManager performSynchronizationWithSuccess:^{
         [self assertNumberOfAssets:1 numberOfEntries:2];
         
-        for (ManagedCat* entry in [self.coreDataManager fetchEntriesFromDataStore]) {
+        for (ManagedCat* entry in [self.persistenceManager fetchEntriesFromDataStore]) {
             XCTAssertNotNil(entry.picture, @"");
             XCTAssertNotNil(entry.picture.url, @"");
         }
@@ -63,10 +63,10 @@
     
     StartBlock();
     
-    [self.coreDataManager performSynchronizationWithSuccess:^{
+    [self.persistenceManager performSynchronizationWithSuccess:^{
         [self assertNumberOfAssets:1 numberOfEntries:2];
         
-        [self.coreDataManager performSynchronizationWithSuccess:^{
+        [self.persistenceManager performSynchronizationWithSuccess:^{
             [self assertNumberOfAssets:2 numberOfEntries:3];
             
             EndBlock();
@@ -95,10 +95,10 @@
     
     StartBlock();
     
-    [self.coreDataManager performSynchronizationWithSuccess:^{
+    [self.persistenceManager performSynchronizationWithSuccess:^{
         [self assertNumberOfAssets:1 numberOfEntries:2];
         
-        [self.coreDataManager performSynchronizationWithSuccess:^{
+        [self.persistenceManager performSynchronizationWithSuccess:^{
             [self assertNumberOfAssets:1 numberOfEntries:1];
             
             EndBlock();
@@ -127,14 +127,14 @@
     
     StartBlock();
     
-    [self.coreDataManager performSynchronizationWithSuccess:^{
+    [self.persistenceManager performSynchronizationWithSuccess:^{
         [self assertNumberOfAssets:1 numberOfEntries:2];
         
-        id<CDAPersistedAsset> asset = [[self.coreDataManager fetchAssetsFromDataStore] firstObject];
+        id<CDAPersistedAsset> asset = [[self.persistenceManager fetchAssetsFromDataStore] firstObject];
         XCTAssertEqualObjects(@"3f5a00acf72df93528b6bb7cd0a4fd0c.jpeg",
                               asset.url.lastPathComponent, @"");
         
-        [self.coreDataManager performSynchronizationWithSuccess:^{
+        [self.persistenceManager performSynchronizationWithSuccess:^{
             [self assertNumberOfAssets:1 numberOfEntries:2];
             XCTAssertNotEqualObjects(@"3f5a00acf72df93528b6bb7cd0a4fd0c.jpeg",
                                      asset.url.lastPathComponent, @"");
@@ -159,16 +159,16 @@
     
     StartBlock();
     
-    [self.coreDataManager performSynchronizationWithSuccess:^{
+    [self.persistenceManager performSynchronizationWithSuccess:^{
         [self assertNumberOfAssets:1 numberOfEntries:2];
         
-        __block ManagedCat* cat = [self.coreDataManager fetchEntryWithIdentifier:@"3f1WNyJWX6sS0CKgyuCEYK"];
+        __block ManagedCat* cat = [self.persistenceManager fetchEntryWithIdentifier:@"3f1WNyJWX6sS0CKgyuCEYK"];
         XCTAssertEqualObjects(@"Post 1", cat.name, @"");
         
-        [self.coreDataManager performSynchronizationWithSuccess:^{
+        [self.persistenceManager performSynchronizationWithSuccess:^{
             [self assertNumberOfAssets:1 numberOfEntries:2];
             
-            cat = [self.coreDataManager fetchEntryWithIdentifier:@"3f1WNyJWX6sS0CKgyuCEYK"];
+            cat = [self.persistenceManager fetchEntryWithIdentifier:@"3f1WNyJWX6sS0CKgyuCEYK"];
             XCTAssertEqualObjects(@"Post 1 changed!", cat.name, @"");
             
             EndBlock();

@@ -183,6 +183,7 @@
 		A1C180691A038B3300117DB3 /* RobustnessTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C180671A0388F800117DB3 /* RobustnessTests.m */; };
 		A1C1AC4318CE032200DBF0D0 /* CDAClient+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A1C1AC4218CE032200DBF0D0 /* CDAClient+Private.h */; };
 		A1C8DCD318E098E80019A519 /* LinkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C8DCD218E098E80019A519 /* LinkTests.m */; };
+		A1CEC1651A35B142007B4565 /* PersistenceBaseTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CEC1641A35B142007B4565 /* PersistenceBaseTest.m */; };
 		A1D1D35C18C8A94800261A1C /* ContentfulBaseTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D1D35B18C8A94800261A1C /* ContentfulBaseTestCase.m */; };
 		A1D1D35F18C8ABB800261A1C /* DocumentationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D1D35E18C8ABB800261A1C /* DocumentationTests.m */; };
 		A1D2DC0218D076F50053DC83 /* CDAEntriesViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A1D2DBFE18D076F50053DC83 /* CDAEntriesViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -474,6 +475,8 @@
 		A1C180671A0388F800117DB3 /* RobustnessTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RobustnessTests.m; sourceTree = "<group>"; };
 		A1C1AC4218CE032200DBF0D0 /* CDAClient+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDAClient+Private.h"; sourceTree = "<group>"; };
 		A1C8DCD218E098E80019A519 /* LinkTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkTests.m; sourceTree = "<group>"; };
+		A1CEC1631A35B142007B4565 /* PersistenceBaseTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistenceBaseTest.h; sourceTree = "<group>"; };
+		A1CEC1641A35B142007B4565 /* PersistenceBaseTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistenceBaseTest.m; sourceTree = "<group>"; };
 		A1D1D35B18C8A94800261A1C /* ContentfulBaseTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentfulBaseTestCase.m; sourceTree = "<group>"; };
 		A1D1D35D18C8A99A00261A1C /* ContentfulBaseTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentfulBaseTestCase.h; sourceTree = "<group>"; };
 		A1D1D35E18C8ABB800261A1C /* DocumentationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentationTests.m; sourceTree = "<group>"; };
@@ -814,6 +817,8 @@
 				A1D1D35B18C8A94800261A1C /* ContentfulBaseTestCase.m */,
 				A1A1CCB5190E38F200BE37EB /* CoreDataBaseTestCase.h */,
 				A1A1CCB3190E387B00BE37EB /* CoreDataBaseTestCase.m */,
+				A1CEC1631A35B142007B4565 /* PersistenceBaseTest.h */,
+				A1CEC1641A35B142007B4565 /* PersistenceBaseTest.m */,
 				A1B815C018F56ED20027B26D /* SyncBaseTestCase.h */,
 				A1B815BE18F56E620027B26D /* SyncBaseTestCase.m */,
 				A19FD88218C631E60081677E /* Tests-Info.plist */,
@@ -1754,6 +1759,7 @@
 				A170131118FD4B9D0086BE07 /* ManagedCat.m in Sources */,
 				A1AE68BB19B761B200D2C35F /* Member.m in Sources */,
 				A1B815D618F7E2F20027B26D /* AddContentTypesSyncTests.m in Sources */,
+				A1CEC1651A35B142007B4565 /* PersistenceBaseTest.m in Sources */,
 				A1B815D018F69E0F0027B26D /* NewEntryAndDeletionSyncTest.m in Sources */,
 				A1B815BD18F56C150027B26D /* ComplexSyncTests.m in Sources */,
 				A1B815BF18F56E620027B26D /* SyncBaseTestCase.m in Sources */,
