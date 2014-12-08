@@ -18,7 +18,12 @@
 // Macro - Wait for condition to be NO/false in blocks and asynchronous calls
 #define WaitWhile(condition) \
 do { \
+NSDate* __startTime = [NSDate date]; \
 while(condition) { \
 [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:0.1]]; \
+if ([[NSDate date] timeIntervalSinceDate:__startTime] > 10.0) { \
+XCTAssertFalse(true, @"Asynchronous test timed out."); \
+break; \
+} \
 } \
 } while(0)
