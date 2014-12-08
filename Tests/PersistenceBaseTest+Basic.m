@@ -29,10 +29,10 @@
         [self assertNumberOfAssets:1U numberOfEntries:1U];
         [self buildPersistenceManagerWithDefaultClient:NO];
 
-        Asset* asset = [[self.persistenceManager fetchAssetsFromDataStore] firstObject];
+        id<CDAPersistedAsset> asset = [[self.persistenceManager fetchAssetsFromDataStore] firstObject];
         XCTAssertEqualObjects(@"512_black.png", asset.url.lastPathComponent, @"");
-        ManagedCat* cat = [[self.persistenceManager fetchEntriesFromDataStore] firstObject];
-        XCTAssertEqualObjects(@"Test", cat.name, @"");
+        id cat = [[self.persistenceManager fetchEntriesFromDataStore] firstObject];
+        XCTAssertEqualObjects(@"Test", [cat name], @"");
 
         [self.persistenceManager performSynchronizationWithSuccess:^{
             [self assertNumberOfAssets:1U numberOfEntries:2U];
@@ -53,10 +53,10 @@
                         [self.persistenceManager performSynchronizationWithSuccess:^{
                             [self assertNumberOfAssets:1U numberOfEntries:1U];
 
-                            Asset* asset = [[self.persistenceManager fetchAssetsFromDataStore] firstObject];
+                            id<CDAPersistedAsset> asset = [[self.persistenceManager fetchAssetsFromDataStore] firstObject];
                             XCTAssertEqualObjects(@"vaa4by0.png", asset.url.lastPathComponent, @"");
-                            ManagedCat* cat = [[self.persistenceManager fetchEntriesFromDataStore] firstObject];
-                            XCTAssertEqualObjects(@"Test (changed)", cat.name, @"");
+                            id cat = [[self.persistenceManager fetchEntriesFromDataStore] firstObject];
+                            XCTAssertEqualObjects(@"Test (changed)", [cat name], @"");
 
                             EndBlock();
                         } failure:^(CDAResponse *response, NSError *error) {
@@ -101,10 +101,10 @@
     [self.persistenceManager performSynchronizationWithSuccess:^{
         [self assertNumberOfAssets:1U numberOfEntries:1U];
 
-        Asset* asset = [[self.persistenceManager fetchAssetsFromDataStore] firstObject];
+        id<CDAPersistedAsset> asset = [[self.persistenceManager fetchAssetsFromDataStore] firstObject];
         XCTAssertEqualObjects(@"512_black.png", asset.url.lastPathComponent, @"");
-        ManagedCat* cat = [[self.persistenceManager fetchEntriesFromDataStore] firstObject];
-        XCTAssertEqualObjects(@"Test", cat.name, @"");
+        id cat = [[self.persistenceManager fetchEntriesFromDataStore] firstObject];
+        XCTAssertEqualObjects(@"Test", [cat name], @"");
 
         [self.persistenceManager performSynchronizationWithSuccess:^{
             [self assertNumberOfAssets:1U numberOfEntries:2U];
@@ -121,10 +121,10 @@
                         [self.persistenceManager performSynchronizationWithSuccess:^{
                             [self assertNumberOfAssets:1U numberOfEntries:1U];
 
-                            Asset* asset = [[self.persistenceManager fetchAssetsFromDataStore] firstObject];
+                            id<CDAPersistedAsset> asset = [[self.persistenceManager fetchAssetsFromDataStore] firstObject];
                             XCTAssertEqualObjects(@"vaa4by0.png", asset.url.lastPathComponent, @"");
-                            ManagedCat* cat = [[self.persistenceManager fetchEntriesFromDataStore] firstObject];
-                            XCTAssertEqualObjects(@"Test (changed)", cat.name, @"");
+                            id cat = [[self.persistenceManager fetchEntriesFromDataStore] firstObject];
+                            XCTAssertEqualObjects(@"Test (changed)", [cat name], @"");
 
                             EndBlock();
                         } failure:^(CDAResponse *response, NSError *error) {
@@ -195,10 +195,10 @@
         XCTAssertEqual(4U, [self.persistenceManager fetchAssetsFromDataStore].count, @"");
         XCTAssertEqual(3U, [self.persistenceManager fetchEntriesFromDataStore].count, @"");
 
-        ManagedCat* nyanCat = [self.persistenceManager fetchEntryWithIdentifier:@"nyancat"];
+        id nyanCat = [self.persistenceManager fetchEntryWithIdentifier:@"nyancat"];
         XCTAssertNotNil(nyanCat, @"");
-        XCTAssertNotNil(nyanCat.picture, @"");
-        XCTAssertNotNil(nyanCat.picture.url, @"");
+        XCTAssertNotNil([nyanCat picture], @"");
+        XCTAssertNotNil([nyanCat picture].url, @"");
 
         EndBlock();
     } failure:^(CDAResponse *response, NSError *error) {

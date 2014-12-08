@@ -7,7 +7,6 @@
 //
 
 #import "PersistenceBaseTest.h"
-#import "SyncInfo.h"
 
 @interface PersistenceBaseTest ()
 
@@ -36,13 +35,9 @@
 
     self.persistenceManager = [self createPersistenceManagerWithClient:client];
 
-    self.persistenceManager.classForAssets = [Asset class];
-    self.persistenceManager.classForSpaces = [SyncInfo class];
-
     NSArray* contentTypeIds = @[ @"1nGOrvlRTaMcyyq4IEa8ea", @"6bAvxqodl6s4MoKuWYkmqe",
                                  @"6PnRGY1dxSUmaQ2Yq2Ege2", @"cat" ];
 
-    Class c = [ManagedCat class];
     NSMutableDictionary* mapping = [@{ @"fields.color": @"color",
                                        @"fields.lives": @"livesLeft",
                                        @"fields.image": @"picture" } mutableCopy];
@@ -54,7 +49,6 @@
     }
 
     for (NSString* contentTypeId in contentTypeIds) {
-        [self.persistenceManager setClass:c forEntriesOfContentTypeWithIdentifier:contentTypeId];
         [self.persistenceManager setMapping:mapping forEntriesOfContentTypeWithIdentifier:contentTypeId];
     }
 }

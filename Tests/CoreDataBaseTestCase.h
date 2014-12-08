@@ -6,6 +6,8 @@
 //
 //
 
+#import "Asset.h"
+#import "ManagedCat.h"
 #import "PersistenceBaseTest.h"
 
 @interface CoreDataBaseTestCase : PersistenceBaseTest

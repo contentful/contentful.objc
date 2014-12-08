@@ -6,9 +6,15 @@
 //
 //
 
-#import "Asset.h"
-#import "ManagedCat.h"
 #import "SyncBaseTestCase.h"
+
+@interface PersistedObject
+
+-(id<CDAPersistedAsset>)picture;
+
+@end
+
+#pragma mark -
 
 @interface PersistenceBaseTest : SyncBaseTestCase
 
