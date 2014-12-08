@@ -174,6 +174,13 @@
 -(id<CDAPersistedAsset>)fetchAssetWithIdentifier:(NSString*)identifier;
 
 /**
+ *  Fetch all Entries from the store.
+ *
+ *  @return An array of all Entries.
+ */
+-(NSArray*)fetchEntriesFromDataStore;
+
+/**
  *  Retrieve an Entry from the persistent store.
  *
  *  This method needs to be overridden by subclasses.

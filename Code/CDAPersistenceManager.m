@@ -86,6 +86,11 @@
     return nil;
 }
 
+-(NSArray *)fetchEntriesFromDataStore {
+    [self doesNotRecognizeSelector:_cmd];
+    return nil;
+}
+
 -(id<CDAPersistedEntry>)fetchEntryWithIdentifier:(NSString*)identifier {
     [self doesNotRecognizeSelector:_cmd];
     return nil;

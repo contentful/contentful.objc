@@ -48,13 +48,6 @@
 /** @name Fetching Resources */
 
 /**
- *  Fetch all Entries from the store.
- *
- *  @return An array of all Entries.
- */
--(NSArray*)fetchEntriesFromDataStore;
-
-/**
  *  Fetch Entries matching a predicate.
  *
  *  @param identifier   Identifier of the Content Type all Entries conform to.
