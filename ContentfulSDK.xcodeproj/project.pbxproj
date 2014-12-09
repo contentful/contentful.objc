@@ -186,6 +186,13 @@
 		A1CEC1651A35B142007B4565 /* PersistenceBaseTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CEC1641A35B142007B4565 /* PersistenceBaseTest.m */; };
 		A1CEC16B1A35DCA1007B4565 /* PersistenceBaseTest+Basic.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CEC16A1A35DCA1007B4565 /* PersistenceBaseTest+Basic.m */; };
 		A1CEC16E1A35DCCA007B4565 /* PersistenceBaseTest+QuerySync.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CEC16D1A35DCCA007B4565 /* PersistenceBaseTest+QuerySync.m */; };
+		A1CEC1A71A35ED58007B4565 /* RealmManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CEC1A61A35ED58007B4565 /* RealmManager.m */; };
+		A1CEC1AA1A35EE9D007B4565 /* RealmBasicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CEC1A81A35EE9D007B4565 /* RealmBasicTests.m */; };
+		A1CEC1AB1A35EE9D007B4565 /* RealmQuerySyncTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CEC1A91A35EE9D007B4565 /* RealmQuerySyncTests.m */; };
+		A1CEC1AD1A35EEB7007B4565 /* RealmBaseTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CEC1AC1A35EEB7007B4565 /* RealmBaseTestCase.m */; };
+		A1CEC1B11A360A0A007B4565 /* RealmSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CEC1B01A360A0A007B4565 /* RealmSpace.m */; };
+		A1CEC1B41A360A20007B4565 /* RealmAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CEC1B31A360A20007B4565 /* RealmAsset.m */; };
+		A1CEC1B71A360D2C007B4565 /* ManagedRealmCat.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CEC1B61A360D2C007B4565 /* ManagedRealmCat.m */; };
 		A1D1D35C18C8A94800261A1C /* ContentfulBaseTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D1D35B18C8A94800261A1C /* ContentfulBaseTestCase.m */; };
 		A1D1D35F18C8ABB800261A1C /* DocumentationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D1D35E18C8ABB800261A1C /* DocumentationTests.m */; };
 		A1D2DC0218D076F50053DC83 /* CDAEntriesViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A1D2DBFE18D076F50053DC83 /* CDAEntriesViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -483,6 +490,18 @@
 		A1CEC16A1A35DCA1007B4565 /* PersistenceBaseTest+Basic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PersistenceBaseTest+Basic.m"; sourceTree = "<group>"; };
 		A1CEC16C1A35DCCA007B4565 /* PersistenceBaseTest+QuerySync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PersistenceBaseTest+QuerySync.h"; sourceTree = "<group>"; };
 		A1CEC16D1A35DCCA007B4565 /* PersistenceBaseTest+QuerySync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PersistenceBaseTest+QuerySync.m"; sourceTree = "<group>"; };
+		A1CEC1A51A35ED58007B4565 /* RealmManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RealmManager.h; path = Code/Realm/RealmManager.h; sourceTree = SOURCE_ROOT; };
+		A1CEC1A61A35ED58007B4565 /* RealmManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RealmManager.m; path = Code/Realm/RealmManager.m; sourceTree = SOURCE_ROOT; };
+		A1CEC1A81A35EE9D007B4565 /* RealmBasicTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealmBasicTests.m; sourceTree = "<group>"; };
+		A1CEC1A91A35EE9D007B4565 /* RealmQuerySyncTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealmQuerySyncTests.m; sourceTree = "<group>"; };
+		A1CEC1AC1A35EEB7007B4565 /* RealmBaseTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealmBaseTestCase.m; sourceTree = "<group>"; };
+		A1CEC1AE1A35EEE2007B4565 /* RealmBaseTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealmBaseTestCase.h; sourceTree = "<group>"; };
+		A1CEC1AF1A360A0A007B4565 /* RealmSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RealmSpace.h; path = Code/Realm/RealmSpace.h; sourceTree = SOURCE_ROOT; };
+		A1CEC1B01A360A0A007B4565 /* RealmSpace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RealmSpace.m; path = Code/Realm/RealmSpace.m; sourceTree = SOURCE_ROOT; };
+		A1CEC1B21A360A20007B4565 /* RealmAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RealmAsset.h; path = Code/Realm/RealmAsset.h; sourceTree = SOURCE_ROOT; };
+		A1CEC1B31A360A20007B4565 /* RealmAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RealmAsset.m; path = Code/Realm/RealmAsset.m; sourceTree = SOURCE_ROOT; };
+		A1CEC1B51A360D2C007B4565 /* ManagedRealmCat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagedRealmCat.h; sourceTree = "<group>"; };
+		A1CEC1B61A360D2C007B4565 /* ManagedRealmCat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagedRealmCat.m; sourceTree = "<group>"; };
 		A1D1D35B18C8A94800261A1C /* ContentfulBaseTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentfulBaseTestCase.m; sourceTree = "<group>"; };
 		A1D1D35D18C8A99A00261A1C /* ContentfulBaseTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentfulBaseTestCase.h; sourceTree = "<group>"; };
 		A1D1D35E18C8ABB800261A1C /* DocumentationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentationTests.m; sourceTree = "<group>"; };
@@ -764,6 +783,7 @@
 				A170131918FEA0AD0086BE07 /* Fixtures */,
 				A1B815C718F582650027B26D /* Performance */,
 				A1B815C418F581870027B26D /* Persistence */,
+				A1CEC1A41A35ED0F007B4565 /* Realm */,
 				A1B815C318F581690027B26D /* Synchronization */,
 				A1A1CCB6190E3AAF00BE37EB /* Testing Infrastructure */,
 				A1B815C518F5819C0027B26D /* UIKit Additions */,
@@ -825,6 +845,8 @@
 				A1A1CCB3190E387B00BE37EB /* CoreDataBaseTestCase.m */,
 				A1CEC1631A35B142007B4565 /* PersistenceBaseTest.h */,
 				A1CEC1641A35B142007B4565 /* PersistenceBaseTest.m */,
+				A1CEC1AE1A35EEE2007B4565 /* RealmBaseTestCase.h */,
+				A1CEC1AC1A35EEB7007B4565 /* RealmBaseTestCase.m */,
 				A1B815C018F56ED20027B26D /* SyncBaseTestCase.h */,
 				A1B815BE18F56E620027B26D /* SyncBaseTestCase.m */,
 				A19FD88218C631E60081677E /* Tests-Info.plist */,
@@ -1029,6 +1051,23 @@
 				A18AA86318E5DB1A00D430D5 /* UtilityTests.m */,
 			);
 			name = Utilities;
+			sourceTree = "<group>";
+		};
+		A1CEC1A41A35ED0F007B4565 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				A1CEC1B51A360D2C007B4565 /* ManagedRealmCat.h */,
+				A1CEC1B61A360D2C007B4565 /* ManagedRealmCat.m */,
+				A1CEC1B21A360A20007B4565 /* RealmAsset.h */,
+				A1CEC1B31A360A20007B4565 /* RealmAsset.m */,
+				A1CEC1A81A35EE9D007B4565 /* RealmBasicTests.m */,
+				A1CEC1A91A35EE9D007B4565 /* RealmQuerySyncTests.m */,
+				A1CEC1A51A35ED58007B4565 /* RealmManager.h */,
+				A1CEC1A61A35ED58007B4565 /* RealmManager.m */,
+				A1CEC1AF1A360A0A007B4565 /* RealmSpace.h */,
+				A1CEC1B01A360A0A007B4565 /* RealmSpace.m */,
+			);
+			name = Realm;
 			sourceTree = "<group>";
 		};
 		A1D2DBF418CF618A0053DC83 /* UIKit Extensions */ = {
@@ -1769,12 +1808,15 @@
 				A1A1CCB2190E382E00BE37EB /* CoreDataQuerySyncTests.m in Sources */,
 				A170131118FD4B9D0086BE07 /* ManagedCat.m in Sources */,
 				A1AE68BB19B761B200D2C35F /* Member.m in Sources */,
+				A1CEC1AA1A35EE9D007B4565 /* RealmBasicTests.m in Sources */,
 				A1B815D618F7E2F20027B26D /* AddContentTypesSyncTests.m in Sources */,
 				A1CEC1651A35B142007B4565 /* PersistenceBaseTest.m in Sources */,
 				A1B815D018F69E0F0027B26D /* NewEntryAndDeletionSyncTest.m in Sources */,
 				A1B815BD18F56C150027B26D /* ComplexSyncTests.m in Sources */,
+				A1CEC1B11A360A0A007B4565 /* RealmSpace.m in Sources */,
 				A1B815BF18F56E620027B26D /* SyncBaseTestCase.m in Sources */,
 				A12797AB18E1B08F00043A44 /* SyncTests.m in Sources */,
+				A1CEC1B41A360A20007B4565 /* RealmAsset.m in Sources */,
 				A1B815B418F2ACCB0027B26D /* PersistenceTests.m in Sources */,
 				A1BA6F9119DBECC600AC3471 /* ClientConfiguration.m in Sources */,
 				A193EB4018D09D180017B777 /* UIKitAdditionsTests.m in Sources */,
@@ -1796,11 +1838,15 @@
 				A1A0314F18C756B7006470B7 /* SearchAPITests.m in Sources */,
 				A1B815D818F830C00027B26D /* ComplexLinkSyncTests.m in Sources */,
 				A1CEC16E1A35DCCA007B4565 /* PersistenceBaseTest+QuerySync.m in Sources */,
+				A1CEC1AD1A35EEB7007B4565 /* RealmBaseTestCase.m in Sources */,
 				A1D1D35C18C8A94800261A1C /* ContentfulBaseTestCase.m in Sources */,
 				A144FAF618C90DD100110B35 /* StagingTests.m in Sources */,
 				A1AE68B519B74F1C00D2C35F /* CoreDataIssues.m in Sources */,
+				A1CEC1A71A35ED58007B4565 /* RealmManager.m in Sources */,
+				A1CEC1AB1A35EE9D007B4565 /* RealmQuerySyncTests.m in Sources */,
 				A1E9797818CBEDFC00E79632 /* ErrorTests.m in Sources */,
 				A170131018FD4B9A0086BE07 /* Asset.m in Sources */,
+				A1CEC1B71A360D2C007B4565 /* ManagedRealmCat.m in Sources */,
 				A1D2DC0718D0811F0053DC83 /* ArrayTests.m in Sources */,
 				A170130B18FD30A50086BE07 /* CoreDataBasicTests.m in Sources */,
 			);

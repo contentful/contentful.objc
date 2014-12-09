@@ -67,6 +67,13 @@
             ReferencedContainer = "container:ContentfulSDK.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "REALM_DISABLE_UPDATE_CHECKER"
+            value = "yes"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
