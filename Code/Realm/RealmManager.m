@@ -16,6 +16,7 @@
 @interface RealmManager ()
 
 @property (nonatomic, readonly) RLMRealm* currentRealm;
+@property (nonatomic) NSMutableDictionary* relationshipsToResolve;
 
 @end
 
@@ -126,6 +127,8 @@
 }
 
 -(void)performSynchronizationWithSuccess:(void (^)())success failure:(CDARequestFailureBlock)failure {
+    self.relationshipsToResolve = [@{} mutableCopy];
+
     [self.currentRealm beginWriteTransaction];
     [super performSynchronizationWithSuccess:success failure:failure];
 }
@@ -134,7 +137,57 @@
     return [NSPredicate predicateWithFormat:@"identifier = %@", identifier];
 }
 
+-(NSArray*)relationshipsForClass:(Class)clazz {
+    unsigned int propCount = 0;
+    objc_property_t* props = class_copyPropertyList(clazz, &propCount);
+
+    NSMutableArray* relationships = [@[] mutableCopy];
+
+    for (unsigned int i = 0; i < propCount; i++) {
+        NSString* attributes = [[NSString alloc] initWithUTF8String:property_getAttributes(props[i])];
+        if ([attributes hasPrefix:@"T@"]) {
+            NSArray* attrs = [attributes componentsSeparatedByString:@"\""];
+            if (attrs.count != 3) {
+                continue;
+            }
+
+            Class propClass = NSClassFromString(attrs[1]);
+
+            if (class_getSuperclass(propClass) != RLMObject.class) {
+                continue;
+            }
+
+            [relationships addObject:[[NSString alloc] initWithUTF8String:property_getName(props[i])]];
+        }
+    }
+
+    return relationships;
+}
+
+- (id)resolveResource:(CDAResource*)rsc {
+    if ([rsc isKindOfClass:[CDAAsset class]]) {
+        return [self fetchAssetWithIdentifier:rsc.identifier];
+    }
+
+    if ([rsc isKindOfClass:[CDAEntry class]]) {
+        return [self fetchEntryWithIdentifier:rsc.identifier];
+    }
+
+    NSAssert(false, @"Unexpectly, %@ is neither an Asset nor an Entry.", rsc);
+    return nil;
+}
+
 -(void)saveDataStore {
+    for (id<CDAPersistedEntry> entry in [self fetchEntriesFromDataStore]) {
+        NSDictionary* relationships = self.relationshipsToResolve[entry.identifier];
+
+        [relationships enumerateKeysAndObjectsUsingBlock:^(NSString* keyPath, id value, BOOL *s) {
+            value = [self resolveResource:value];
+
+            [(NSObject*)entry setValue:value forKeyPath:keyPath];
+        }];
+    }
+
     [self.currentRealm commitWriteTransaction];
 }
 
@@ -144,6 +197,32 @@
 
 -(void)setClassForSpaces:(Class)classForSpaces {
     NSLog(@"%@ does not need a user-provided class for Spaces.", NSStringFromClass(self.class));
+}
+
+-(void)updatePersistedEntry:(id<CDAPersistedEntry>)persistedEntry withEntry:(CDAEntry *)entry {
+    [super updatePersistedEntry:persistedEntry withEntry:entry];
+
+    Class clazz = [self classForEntriesOfContentTypeWithIdentifier:entry.contentType.identifier];
+    NSMutableDictionary* relationships = [@{} mutableCopy];
+
+    for (NSString* relationshipName in [self relationshipsForClass:clazz]) {
+        NSDictionary* mappingForEntries = [super mappingForEntriesOfContentTypeWithIdentifier:entry.contentType.identifier];
+        NSString* entryKeyPath = [[mappingForEntries allKeysForObject:relationshipName] firstObject];
+
+        if (!entryKeyPath) {
+            return;
+        }
+
+        id relationshipTarget = [entry valueForKeyPath:entryKeyPath];
+
+        if (!relationshipTarget) {
+            return;
+        }
+
+        relationships[relationshipName] = relationshipTarget;
+    }
+
+    self.relationshipsToResolve[entry.identifier] = [relationships copy];
 }
 
 @end
