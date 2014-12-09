@@ -155,7 +155,7 @@
     [dictionary enumerateKeysAndObjectsUsingBlock:^(NSString* selfKeyPath,
                                                     NSString* objectKeyPath, BOOL *stop) {
         id value = [self valueForKeyPath:selfKeyPath];
-        if ([value isKindOfClass:[CDAResource class]]) {
+        if ([value isKindOfClass:[CDAResource class]] || !value) {
             return;
         }
         
