@@ -161,6 +161,7 @@
         }
     }
 
+    free(props);
     return relationships;
 }
 
