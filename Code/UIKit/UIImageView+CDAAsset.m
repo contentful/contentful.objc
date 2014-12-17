@@ -35,6 +35,10 @@ static const char* CDAProgressViewKey   = "CDAProgressViewKey";
     if (placeholderImage) {
         self.image = placeholderImage;
     }
+
+    if (!URL) {
+        return;
+    }
     
     [self showActivityIndicatorIfNeeded];
     
@@ -124,13 +128,13 @@ static const char* CDAProgressViewKey   = "CDAProgressViewKey";
                                client:(CDAClient*)client
                                  size:(CGSize)size
                      placeholderImage:(UIImage *)placeholderImage {
-    [self cda_setImageWithAsset:[CDAAsset assetFromPersistedAsset:asset client:client]
+    [self cda_setImageWithAsset:asset ? [CDAAsset assetFromPersistedAsset:asset client:client] : nil
                            size:size
                placeholderImage:placeholderImage];
 }
 
 -(void)cda_validateAsset:(CDAAsset *)asset {
-    if (!asset.isImage) {
+    if (asset && !asset.isImage) {
         [NSException raise:NSInvalidArgumentException
                     format:@"Asset %@ is not an image.", asset.identifier];
     }
