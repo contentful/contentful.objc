@@ -142,6 +142,20 @@ static const char* CDAProgressViewKey   = "CDAProgressViewKey";
 
 #pragma mark - Activity indicator
 
+-(NSLayoutConstraint*)layoutConstraintsWithItem:(id)firstItem
+                                         toItem:(id)secondItem
+                                      attribute:(NSLayoutAttribute)attribute
+                                       constant:(CGFloat)constant {
+    NSLayoutAttribute secondAttribute = (attribute == NSLayoutAttributeWidth || attribute == NSLayoutAttributeHeight) ? NSLayoutAttributeNotAnAttribute : attribute;
+    return [NSLayoutConstraint constraintWithItem:firstItem
+                                        attribute:attribute
+                                        relatedBy:NSLayoutRelationEqual
+                                           toItem:secondItem
+                                        attribute:secondAttribute
+                                       multiplier:1.0
+                                         constant:constant];
+}
+
 -(void)showActivityIndicatorIfNeeded {
     if (self.progressView_cda) {
         return;
@@ -154,6 +168,30 @@ static const char* CDAProgressViewKey   = "CDAProgressViewKey";
     
     [activityView startAnimating];
     [self addSubview:activityView];
+
+    if (CGSizeEqualToSize(self.frame.size, CGSizeZero)) {
+        activityView.translatesAutoresizingMaskIntoConstraints = NO;
+
+        [self addConstraint:[self layoutConstraintsWithItem:activityView
+                                                     toItem:self
+                                                  attribute:NSLayoutAttributeCenterX
+                                                   constant:0.0]];
+
+        [self addConstraint:[self layoutConstraintsWithItem:activityView
+                                                     toItem:self
+                                                  attribute:NSLayoutAttributeCenterY
+                                                   constant:0.0]];
+
+        [activityView addConstraint:[self layoutConstraintsWithItem:activityView
+                                                             toItem:nil
+                                                          attribute:NSLayoutAttributeWidth
+                                                           constant:activityView.frame.size.width]];
+
+        [activityView addConstraint:[self layoutConstraintsWithItem:activityView
+                                                             toItem:nil
+                                                          attribute:NSLayoutAttributeHeight
+                                                           constant:activityView.frame.size.height]];
+    }
     
     self.progressView_cda = activityView;
     
