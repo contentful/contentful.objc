@@ -16,6 +16,7 @@
 
 #import "CDAClient+Private.h"
 #import "CDAContentTypeRegistry.h"
+#import "CDAInputSanitizer.h"
 #import "CDAResource+Private.h"
 #import "CDAUtilities.h"
 
@@ -64,6 +65,8 @@
     if (![dictionary isKindOfClass:[NSDictionary class]]) {
         return nil;
     }
+
+    dictionary = [CDAInputSanitizer sanitizeObject:dictionary];
     
     NSString* resourceType = dictionary[@"sys"][@"type"];
     

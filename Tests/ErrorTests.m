@@ -291,6 +291,25 @@
     XCTAssertEqual(0, target.size, @"");
 }
 
+- (void)testNulledContentForField
+{
+    NSDictionary* ct = @{
+                         @"name": @"Some content type",
+                         @"fields": @[
+                                 @{ @"id": @"title",
+                                    @"items": [NSNull null],
+                                    @"linkType": [NSNull null],
+                                    @"name": @"Titre",
+                                    @"required": [NSNull null],
+                                    @"type": @"Text" }
+                                 ],
+                         @"sys": @{ @"id": @"6749332", @"type": @"ContentType" },
+                         };
+
+    CDAContentType* brokenContentType = (CDAContentType*)[CDAResource resourceObjectForDictionary:ct client:self.client];
+    XCTAssertNotNil(brokenContentType);
+}
+
 - (void)testNulledContentForEntries
 {
     CDAEntry* brokenEntry = [self customEntryHelperWithFields:@{
