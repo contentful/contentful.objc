@@ -200,6 +200,7 @@
 		A1D2DC0418D076F50053DC83 /* CDAResourceTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A1D2DC0018D076F50053DC83 /* CDAResourceTableViewCell.h */; };
 		A1D2DC0518D076F50053DC83 /* CDAResourceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D2DC0118D076F50053DC83 /* CDAResourceTableViewCell.m */; };
 		A1D2DC0718D0811F0053DC83 /* ArrayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D2DC0618D0811F0053DC83 /* ArrayTests.m */; };
+		A1D4BDF31A4B735D008816F3 /* CDAError.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A0315318C76839006470B7 /* CDAError.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1DE35D8197D384700DE0904 /* CDARequestSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = A1DE35D6197D384700DE0904 /* CDARequestSerializer.h */; };
 		A1DE35D9197D384700DE0904 /* CDARequestSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A1DE35D7197D384700DE0904 /* CDARequestSerializer.m */; };
 		A1E3CFF218C864A400E4F488 /* ContentfulDeliveryAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = A19FD8D918C63DF00081677E /* ContentfulDeliveryAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1203,6 +1204,7 @@
 				A1E8391818CE2A7200B697F6 /* CDASpace.h in Headers */,
 				A18AA81718E2E2CF00D430D5 /* CDADeletedAsset.h in Headers */,
 				A160862518CDF2AC0047D44F /* CDARequest+Private.h in Headers */,
+				A1D4BDF31A4B735D008816F3 /* CDAError.h in Headers */,
 				A1D2DC0418D076F50053DC83 /* CDAResourceTableViewCell.h in Headers */,
 				A1E3D04B18C8795500E4F488 /* CDAEntry.h in Headers */,
 				A17012F818FC20120086BE07 /* CDAPersistedSpace.h in Headers */,
