@@ -144,7 +144,7 @@ or run them directly from Xcode.
 
 ## License
 
-Copyright (c) 2014 Contentful GmbH. See LICENSE for further details.
+Copyright (c) 2015 Contentful GmbH. See LICENSE for further details.
 
 
 
