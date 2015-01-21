@@ -11,7 +11,7 @@ really-clean: clean
 all: test example-static
 
 pod:
-	pod install
+	bundle exec pod install
 
 example:
 	set -o pipefail && xcodebuild clean build -workspace $(WORKSPACE) \
@@ -26,8 +26,8 @@ example-static: static-lib
 		-sdk iphonesimulator | xcpretty -c
 
 static-lib:
-	pod repo update >/dev/null
-	pod package ContentfulDeliveryAPI.podspec
+	bundle exec pod repo update >/dev/null
+	bundle exec pod package ContentfulDeliveryAPI.podspec
 
 	@cd Examples/UFO/Distribution; ./update.sh
 	cd Examples; ./ship_it.sh
@@ -35,7 +35,7 @@ static-lib:
 	rm -rf ContentfulDeliveryAPI-*/
 
 test: example
-	pod lib coverage
+	bundle exec pod lib coverage
 
 lint:
 	set -o pipefail && xcodebuild clean build -workspace $(WORKSPACE) -dry-run \
@@ -45,4 +45,4 @@ lint:
 	oclint-json-compilation-database
 
 doc:
-	pod lib docstats
+	bundle exec pod lib docstats
