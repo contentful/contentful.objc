@@ -108,30 +108,10 @@
                 parameters:(NSDictionary*)parameters
                    success:(CDAObjectFetchedBlock)success
                    failure:(CDARequestFailureBlock)failure {
-    AFHTTPRequestOperation* operation = [self GET:URLPath parameters:parameters
-      success:^(AFHTTPRequestOperation *operation, id responseObject) {
-          if (!responseObject && operation.response.statusCode != 204) {
-              if (failure) {
-                  failure([CDAResponse responseWithHTTPURLResponse:operation.response], [NSError errorWithDomain:NSURLErrorDomain code:kCFURLErrorZeroByteResource userInfo:nil]);
-              }
-              
-              return;
-          }
-          
-          if (success) {
-              success([CDAResponse responseWithHTTPURLResponse:operation.response], responseObject);
-          }
-      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-          if (failure) {
-              if ([operation.responseObject isKindOfClass:[CDAError class]]) {
-                  error = [operation.responseObject errorRepresentationWithCode:operation.response.statusCode];
-              }
-              
-              failure([CDAResponse responseWithHTTPURLResponse:operation.response], error);
-          }
-      }];
+    parameters = [self fixParametersInDictionary:parameters];
+    return [self requestWithMethod:@"GET" URLPath:URLPath headers:nil parameters:parameters
+                           success:success failure:failure];
 
-    return [self buildRequestResultWithOperation:operation];
 }
 
 -(id)fetchURLPathSynchronously:(NSString*)URLPath
@@ -166,14 +146,6 @@
     }];
     
     return mutableParameters.count == 0 ? nil : [mutableParameters copy];
-}
-
--(AFHTTPRequestOperation *)GET:(NSString *)URLString
-                    parameters:(id)parameters
-                       success:(void (^)(AFHTTPRequestOperation *, id))success
-                       failure:(void (^)(AFHTTPRequestOperation *, NSError *))failure {
-    parameters = [self fixParametersInDictionary:parameters];
-    return [super GET:URLString parameters:parameters success:success failure:failure];
 }
 
 -(id)initWithSpaceKey:(NSString *)spaceKey
