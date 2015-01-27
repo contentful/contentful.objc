@@ -177,6 +177,15 @@ NSString* const CMAContentTypeHeader = @"application/vnd.contentful.management.v
 -(CDARequest*)fetchContentTypeWithIdentifier:(NSString *)identifier
                                      success:(CDAContentTypeFetchedBlock)success
                                      failure:(CDARequestFailureBlock)failure {
+    CDAContentType* contentType = [self.contentTypeRegistry contentTypeForIdentifier:identifier];
+
+    if (contentType && contentType.fetched) {
+        if (success) {
+            success(nil, contentType);
+        }
+        return nil;
+    }
+
     return [self fetchArrayAtURLPath:@"content_types" parameters:@{ @"sys.id": identifier }
                              success:^(CDAResponse *response, CDAArray *array) {
                                  if (array.items.count == 0) {
