@@ -18,6 +18,7 @@ const CGFloat CDAImageQualityOriginal = 0.0;
 @interface CDAAsset ()
 
 @property (nonatomic) NSDictionary* localizedFields;
+@property (nonatomic) NSString* protocol;
 
 @end
 
@@ -231,6 +232,14 @@ const CGFloat CDAImageQualityOriginal = 0.0;
                                   } failure:failure];
 }
 
+-(void)setClient:(CDAClient *)client {
+    [super setClient:client];
+
+    if (self.client.protocol) {
+        self.protocol = self.client.protocol;
+    }
+}
+
 -(void)setLocale:(NSString *)locale {
     if (_locale == locale) {
         return;
@@ -265,7 +274,7 @@ const CGFloat CDAImageQualityOriginal = 0.0;
     }
     
     if ([url rangeOfString:@"://"].location == NSNotFound) {
-        url = [NSString stringWithFormat:@"%@:%@", self.client.protocol, url];
+        url = [NSString stringWithFormat:@"%@:%@", self.protocol, url];
     }
     
     return [NSURL URLWithString:url];

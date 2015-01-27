@@ -8,6 +8,7 @@
 
 @import ImageIO;
 
+#import "CDAResource+Private.h"
 #import "ContentfulBaseTestCase.h"
 
 @interface AssetTests : ContentfulBaseTestCase
@@ -95,6 +96,26 @@
         EndBlock();
     }];
     
+    WaitUntilBlockCompletes();
+}
+
+-(void)testDoNotRequireClientPropertyForGeneratingURL {
+    StartBlock();
+
+    [self.client fetchAssetWithIdentifier:@"nyancat" success:^(CDAResponse *response, CDAAsset *asset) {
+        NSURL* imageURL = [asset imageURLWithSize:CGSizeMake(50.0, 50.0)];
+
+        asset.client = nil;
+        NSURL* otherImageURL = [asset imageURLWithSize:CGSizeMake(50.0, 50.0)];
+
+        XCTAssertEqualObjects(imageURL, otherImageURL);
+        EndBlock();
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTFail(@"Error: %@", error);
+
+        EndBlock();
+    }];
+
     WaitUntilBlockCompletes();
 }
 
