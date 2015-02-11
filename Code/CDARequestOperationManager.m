@@ -6,6 +6,8 @@
 //
 //
 
+@import Darwin.TargetConditionals;
+
 #if TARGET_OS_IPHONE
 #import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 #endif

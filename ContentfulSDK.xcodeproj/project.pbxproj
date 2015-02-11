@@ -380,7 +380,6 @@
 		A193EB6718D21B260017B777 /* UIKitAdditionsTests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = UIKitAdditionsTests; sourceTree = "<group>"; };
 		A19FD86718C631E60081677E /* libContentfulDeliveryAPI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libContentfulDeliveryAPI.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A19FD86A18C631E60081677E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		A19FD86E18C631E60081677E /* ContentfulDeliveryAPI-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ContentfulDeliveryAPI-Prefix.pch"; sourceTree = "<group>"; };
 		A19FD86F18C631E60081677E /* CDAClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDAClient.h; sourceTree = "<group>"; };
 		A19FD87118C631E60081677E /* CDAClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDAClient.m; sourceTree = "<group>"; };
 		A19FD87718C631E60081677E /* CDA Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CDA Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -770,7 +769,6 @@
 				A1D2DBF418CF618A0053DC83 /* UIKit Extensions */,
 				A18AA85E18E5D5DB00D430D5 /* Utilities */,
 				A19FD8D918C63DF00081677E /* ContentfulDeliveryAPI.h */,
-				A19FD86E18C631E60081677E /* ContentfulDeliveryAPI-Prefix.pch */,
 			);
 			path = Code;
 			sourceTree = "<group>";
@@ -2084,7 +2082,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Code/ContentfulDeliveryAPI-Prefix.pch";
+				GCC_PREFIX_HEADER = "";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -2133,7 +2131,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Code/ContentfulDeliveryAPI-Prefix.pch";
+				GCC_PREFIX_HEADER = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -2183,7 +2181,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Code/ContentfulDeliveryAPI-Prefix.pch";
+				GCC_PREFIX_HEADER = "";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -2234,7 +2232,7 @@
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Code/ContentfulDeliveryAPI-Prefix.pch";
+				GCC_PREFIX_HEADER = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
