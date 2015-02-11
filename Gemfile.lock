@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/orta/cocoapods-keys.git
-  revision: 9107f957bb079cbfa1d4fa27b2d9cb91afc80ec8
+  revision: 81b9301700ed03255f77e2711fa57947770d5502
   specs:
     cocoapods-keys (1.0.0)
       osx_keychain
@@ -19,10 +19,10 @@ GEM
       tzinfo (~> 1.1)
     claide (0.8.0)
     clamp (0.6.3)
-    cocoapods (0.36.0.beta.1)
+    cocoapods (0.36.0.beta.2)
       activesupport (>= 3.2.15)
       claide (~> 0.8.0)
-      cocoapods-core (= 0.36.0.beta.1)
+      cocoapods-core (= 0.36.0.beta.2)
       cocoapods-downloader (~> 0.8.1)
       cocoapods-plugins (~> 0.4.0)
       cocoapods-trunk (~> 0.5.0)
@@ -32,8 +32,8 @@ GEM
       molinillo (~> 0.2.0)
       nap (~> 0.8)
       open4 (~> 1.3)
-      xcodeproj (~> 0.21.0)
-    cocoapods-core (0.36.0.beta.1)
+      xcodeproj (~> 0.21.2)
+    cocoapods-core (0.36.0.beta.2)
       activesupport (>= 3.2.15)
       fuzzy_match (~> 2.0.4)
       nap (~> 0.8.0)
@@ -78,7 +78,7 @@ GEM
     thread_safe (0.3.4)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    xcodeproj (0.21.0)
+    xcodeproj (0.21.2)
       activesupport (>= 3)
       colored (~> 1.2)
     xcpretty (0.1.7)
