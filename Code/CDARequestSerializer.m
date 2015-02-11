@@ -7,6 +7,7 @@
 //
 
 #import "CDARequestSerializer.h"
+#import "CDAUtilities.h"
 
 @implementation CDARequestSerializer
 

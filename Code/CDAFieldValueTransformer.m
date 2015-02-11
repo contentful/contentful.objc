@@ -13,6 +13,7 @@
 #import "CDAClient+Private.h"
 #import "CDAFieldValueTransformer.h"
 #import "CDAResource+Private.h"
+#import "CDAUtilities.h"
 
 @interface CDAFieldValueTransformer ()
 
