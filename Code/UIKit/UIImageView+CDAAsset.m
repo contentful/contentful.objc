@@ -29,6 +29,64 @@ static const char* CDAProgressViewKey   = "CDAProgressViewKey";
 
 @implementation UIImageView (CDAAsset)
 
+static NSCache* cache = nil;
+
+-(void)cda_decompressImageWithAsset:(CDAAsset*)asset forSize:(CGSize)size atURL:(NSURL*)URL {
+    if (!cache) {
+        cache = [NSCache new];
+    }
+
+    NSString* cacheFilePath = CDACacheFileNameForResource(asset);
+
+    if ([[NSFileManager defaultManager] fileExistsAtPath:cacheFilePath]) {
+        BOOL cached = YES;
+        UIImage* cachedImage = [cache objectForKey:cacheFilePath];
+
+        if (!cachedImage) {
+            cached = NO;
+            cachedImage = [UIImage imageWithContentsOfFile:cacheFilePath];
+        }
+
+        NSDictionary *attributes = [[NSFileManager defaultManager] attributesOfItemAtPath:cacheFilePath error:nil];
+        NSDate *date = [attributes fileModificationDate];
+
+        if (![asset updatedAfterDate:date]
+            && size.width <= cachedImage.size.width
+            && size.height <= cachedImage.size.height) {
+
+            [asset.client fetchAssetWithIdentifier:asset.identifier
+                                           success:^(CDAResponse *response, CDAAsset *asset) {
+                                               if ([asset updatedAfterDate:date]) {
+                                                   dispatch_async(dispatch_get_main_queue(), ^{
+                                                       [self cda_fetchImageWithAsset:asset
+                                                                                 URL:URL
+                                                                    placeholderImage:cachedImage];
+                                                   });
+                                               }
+                                           } failure:nil];
+
+            if (!cached) {
+                @synchronized(cache) {
+                    UIGraphicsBeginImageContextWithOptions(cachedImage.size, YES, 0);
+                    [cachedImage drawAtPoint:CGPointZero];
+                    cachedImage = UIGraphicsGetImageFromCurrentImageContext();
+                    UIGraphicsEndImageContext();
+                }
+            }
+
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (!cached) {
+                    [cache setObject:cachedImage forKey:cacheFilePath];
+                }
+
+                self.image = cachedImage;
+            });
+
+            return;
+        }
+    }
+}
+
 -(void)cda_fetchImageWithAsset:(CDAAsset*)asset
                            URL:(NSURL*)URL
               placeholderImage:(UIImage *)placeholderImage {
@@ -39,7 +97,7 @@ static const char* CDAProgressViewKey   = "CDAProgressViewKey";
     if (!URL) {
         return;
     }
-    
+
     [self showActivityIndicatorIfNeeded];
     
     [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:URL]
@@ -73,31 +131,9 @@ static const char* CDAProgressViewKey   = "CDAProgressViewKey";
     [self cda_validateAsset:asset];
     
     if (self.offlineCaching_cda) {
-        NSString* cacheFilePath = CDACacheFileNameForResource(asset);
-        
-        if ([[NSFileManager defaultManager] fileExistsAtPath:cacheFilePath]) {
-            UIImage* cachedImage = [UIImage imageWithContentsOfFile:cacheFilePath];
-            
-            NSDictionary *attributes = [[NSFileManager defaultManager] attributesOfItemAtPath:cacheFilePath error:nil];
-            NSDate *date = [attributes fileModificationDate];
-
-            if (![asset updatedAfterDate:date]
-                && size.width <= cachedImage.size.width
-                && size.height <= cachedImage.size.height) {
-
-                [asset.client fetchAssetWithIdentifier:asset.identifier
-                                               success:^(CDAResponse *response, CDAAsset *asset) {
-                                                   if ([asset updatedAfterDate:date]) {
-                                                       [self cda_fetchImageWithAsset:asset
-                                                                                 URL:URL
-                                                                    placeholderImage:cachedImage];
-                                                   }
-                                               } failure:nil];
-                
-                self.image = cachedImage;
-                return;
-            }
-        }
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+            [self cda_decompressImageWithAsset:asset forSize:size atURL:URL];
+        });
     }
     
     [self cda_fetchImageWithAsset:asset URL:URL placeholderImage:placeholderImage];

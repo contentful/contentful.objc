@@ -295,6 +295,8 @@
     imageView.offlineCaching_cda = YES;
 
     [imageView cda_setImageWithAsset:asset size:CGSizeMake(20.0, 20.0)];
+    // Wait for async load from cache
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.5]];
     XCTAssertNotNil(imageView.image);
     imageView.image = nil;
 
