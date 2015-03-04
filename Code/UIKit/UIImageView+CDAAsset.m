@@ -33,7 +33,10 @@ static const char* CDARequestURLKey     = "CDARequestURLKey";
 
 static NSCache* cache = nil;
 
--(void)cda_decompressImageWithAsset:(CDAAsset*)asset forSize:(CGSize)size atURL:(NSURL*)URL {
+-(void)cda_decompressImageWithAsset:(CDAAsset*)asset
+                            forSize:(CGSize)size
+                              atURL:(NSURL*)URL
+                   placeholderImage:(UIImage*)placeholderImage {
     if (!cache) {
         cache = [NSCache new];
     }
@@ -45,8 +48,12 @@ static NSCache* cache = nil;
         UIImage* cachedImage = [cache objectForKey:cacheFilePath];
 
         if (!cachedImage) {
+            NSData* data = [NSData dataWithContentsOfFile:cacheFilePath];
+
             cached = NO;
-            cachedImage = [UIImage imageWithContentsOfFile:cacheFilePath];
+            cachedImage = [UIImage imageWithData:data];
+
+            data = nil;
         }
 
         NSDictionary *attributes = [[NSFileManager defaultManager] attributesOfItemAtPath:cacheFilePath error:nil];
@@ -68,12 +75,10 @@ static NSCache* cache = nil;
                                            } failure:nil];
 
             if (!cached) {
-                @synchronized(cache) {
-                    UIGraphicsBeginImageContextWithOptions(cachedImage.size, YES, 0);
-                    [cachedImage drawAtPoint:CGPointZero];
-                    cachedImage = UIGraphicsGetImageFromCurrentImageContext();
-                    UIGraphicsEndImageContext();
-                }
+                UIGraphicsBeginImageContextWithOptions(cachedImage.size, YES, 0);
+                [cachedImage drawAtPoint:CGPointZero];
+                cachedImage = UIGraphicsGetImageFromCurrentImageContext();
+                UIGraphicsEndImageContext();
             }
 
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -86,6 +91,10 @@ static NSCache* cache = nil;
 
             return;
         }
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self cda_fetchImageWithAsset:asset URL:URL placeholderImage:placeholderImage];
+        });
     }
 }
 
@@ -140,8 +149,13 @@ static NSCache* cache = nil;
     
     if (self.offlineCaching_cda) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-            [self cda_decompressImageWithAsset:asset forSize:size atURL:URL];
+            [self cda_decompressImageWithAsset:asset
+                                       forSize:size
+                                         atURL:URL
+                              placeholderImage:placeholderImage];
         });
+
+        return;
     }
     
     [self cda_fetchImageWithAsset:asset URL:URL placeholderImage:placeholderImage];
