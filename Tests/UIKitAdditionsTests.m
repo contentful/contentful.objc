@@ -280,6 +280,7 @@
                                                                             size:CGSizeMake(20.0, 20.0)];
                                             } failure:^(CDAResponse *response, NSError *error) {
                                                 XCTFail(@"Error: %@", error);
+                                                EndBlock();
                                             } afterBlock:^(CDAAsset *local_asset) {
                                                 asset = local_asset;
                                                 EndBlock();

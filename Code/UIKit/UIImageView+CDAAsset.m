@@ -99,11 +99,11 @@ static NSCache* cache = nil;
 
             return;
         }
-
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self cda_fetchImageWithAsset:asset URL:URL placeholderImage:placeholderImage];
-        });
     }
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self cda_fetchImageWithAsset:asset URL:URL placeholderImage:placeholderImage];
+    });
 }
 
 -(void)cda_fetchImageWithAsset:(CDAAsset*)asset
