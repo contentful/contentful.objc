@@ -37,6 +37,14 @@ static NSCache* cache = nil;
                             forSize:(CGSize)size
                               atURL:(NSURL*)URL
                    placeholderImage:(UIImage*)placeholderImage {
+    if (asset.size.width < size.width) {
+        size.width = asset.size.width;
+    }
+
+    if (asset.size.height < size.height) {
+        size.height = asset.size.height;
+    }
+
     if (!cache) {
         cache = [NSCache new];
     }
