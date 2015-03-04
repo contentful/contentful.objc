@@ -18,10 +18,12 @@
 
 static const char* CDAOfflineCachingKey = "CDAOfflineCachingKey";
 static const char* CDAProgressViewKey   = "CDAProgressViewKey";
+static const char* CDARequestURLKey     = "CDARequestURLKey";
 
 @interface UIImageView ()
 
 @property (nonatomic) UIActivityIndicatorView* progressView_cda;
+@property (nonatomic) NSURL* requestURL_cda;
 
 @end
 
@@ -100,9 +102,15 @@ static NSCache* cache = nil;
 
     [self showActivityIndicatorIfNeeded];
     
+    self.requestURL_cda = URL;
     [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:URL]
                                        queue:[NSOperationQueue mainQueue]
                            completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                               if (![self.requestURL_cda isEqual:response.URL]) {
+                                   return;
+                               }
+                               self.requestURL_cda = nil;
+
                                [self hideActivityIndicator];
                                
                                if (!data) {
@@ -270,12 +278,20 @@ static NSCache* cache = nil;
     return objc_getAssociatedObject(self, CDAProgressViewKey);
 }
 
+-(NSURL *)requestURL_cda {
+    return objc_getAssociatedObject(self, CDARequestURLKey);
+}
+
 -(void)setOfflineCaching_cda:(BOOL)offlineCaching {
     objc_setAssociatedObject(self, CDAOfflineCachingKey, @(offlineCaching), OBJC_ASSOCIATION_RETAIN);
 }
 
 -(void)setProgressView_cda:(UIActivityIndicatorView *)progressView {
     objc_setAssociatedObject(self, CDAProgressViewKey, progressView, OBJC_ASSOCIATION_RETAIN);
+}
+
+-(void)setRequestURL_cda:(NSURL *)requestURL {
+    objc_setAssociatedObject(self, CDARequestURLKey, requestURL, OBJC_ASSOCIATION_RETAIN);
 }
 
 @end
