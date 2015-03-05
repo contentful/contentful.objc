@@ -201,6 +201,13 @@
 -(id<CDAPersistedSpace>)fetchSpaceFromDataStore;
 
 /**
+ *  Whether any data has changed since the last synchronization.
+ *
+ *  @return True if any changes occured, false otherwise.
+ */
+-(BOOL)hasChanged;
+
+/**
  *  Save all changes of the object model to the persistent store.
  *
  *  This method needs to be overridden by subclasses.

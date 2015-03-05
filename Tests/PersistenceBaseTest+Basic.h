@@ -12,6 +12,7 @@
 
 -(void)basic_continueSyncFromDataStore;
 -(void)basic_continueSyncWithSameManager;
+-(void)basic_hasChanged;
 -(void)basic_imageCaching;
 -(void)basic_initialSync;
 -(void)basic_relationships;

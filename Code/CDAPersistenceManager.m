@@ -24,6 +24,7 @@
 
 @property (nonatomic) NSMutableDictionary* classesForEntries;
 @property (nonatomic) CDAClient* client;
+@property (nonatomic) BOOL hasChanged;
 @property (nonatomic) NSMutableDictionary* mappingForEntries;
 @property (nonatomic, copy) NSDictionary* query;
 @property (nonatomic) CDASyncedSpace* syncedSpace;
@@ -257,7 +258,9 @@
     NSParameterAssert(self.classForAssets);
     NSParameterAssert(self.classForSpaces);
     NSParameterAssert(self.client);
-    
+
+    self.hasChanged = NO;
+
     if (self.query) {
         if (self.syncedSpace) {
             [self.syncedSpace performSynchronizationWithSuccess:^{
@@ -399,22 +402,32 @@
 #pragma mark - CDASyncedSpaceDelegate
 
 -(void)syncedSpace:(CDASyncedSpace *)space didCreateAsset:(CDAAsset *)asset {
+    self.hasChanged = YES;
+
     [self persistedAssetForAsset:asset];
 }
 
 -(void)syncedSpace:(CDASyncedSpace *)space didCreateEntry:(CDAEntry *)entry {
+    self.hasChanged = YES;
+
     [self persistedEntryForEntry:entry];
 }
 
 -(void)syncedSpace:(CDASyncedSpace *)space didDeleteAsset:(CDAAsset *)asset {
+    self.hasChanged = YES;
+
     [self deleteAssetWithIdentifier:asset.identifier];
 }
 
 -(void)syncedSpace:(CDASyncedSpace *)space didDeleteEntry:(CDAEntry *)entry {
+    self.hasChanged = YES;
+
     [self deleteEntryWithIdentifier:entry.identifier];
 }
 
 -(void)syncedSpace:(CDASyncedSpace *)space didUpdateAsset:(CDAAsset *)asset {
+    self.hasChanged = YES;
+
     id<CDAPersistedAsset> persistedAsset = [self fetchAssetWithIdentifier:asset.identifier];
     
     if (!persistedAsset) {
@@ -425,6 +438,8 @@
 }
 
 -(void)syncedSpace:(CDASyncedSpace *)space didUpdateEntry:(CDAEntry *)entry {
+    self.hasChanged = YES;
+
     id<CDAPersistedEntry> persistedEntry = [self fetchEntryWithIdentifier:entry.identifier];
     
     if (!persistedEntry) {

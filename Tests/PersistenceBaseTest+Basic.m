@@ -163,6 +163,30 @@
     WaitUntilBlockCompletes();
 }
 
+-(void)basic_hasChanged {
+    StartBlock();
+
+    [self.persistenceManager performSynchronizationWithSuccess:^{
+        XCTAssertFalse(self.persistenceManager.hasChanged);
+
+        [self.persistenceManager performSynchronizationWithSuccess:^{
+            XCTAssertTrue(self.persistenceManager.hasChanged);
+
+            EndBlock();
+        } failure:^(CDAResponse *response, NSError *error) {
+            XCTFail(@"Error: %@", error);
+
+            EndBlock();
+        }];
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTFail(@"Error: %@", error);
+
+        EndBlock();
+    }];
+
+    WaitUntilBlockCompletes();
+}
+
 -(void)basic_initialSync {
     [self removeAllStubs];
     [self buildPersistenceManagerWithDefaultClient:YES];

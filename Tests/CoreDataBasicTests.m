@@ -34,6 +34,10 @@
     [self basic_continueSyncWithSameManager];
 }
 
+-(void)testHasChanged {
+    [self basic_hasChanged];
+}
+
 -(void)testInitialSync {
     [self basic_initialSync];
 }
