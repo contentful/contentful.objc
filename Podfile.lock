@@ -58,6 +58,11 @@ EXTERNAL SOURCES:
   ContentfulDeliveryAPI:
     :path: .
 
+CHECKOUT OPTIONS:
+  CCLRequestReplay:
+    :commit: e2d771c32c5327ef18b367acaed299e3c841b9ed
+    :git: https://github.com/neonichu/CCLRequestReplay.git
+
 SPEC CHECKSUMS:
   AFNetworking: 47947303319594706f48a55185ea95a95159ab94
   CCLRequestReplay: a472e52da260c28d7a41df76697b8e518625a44f
