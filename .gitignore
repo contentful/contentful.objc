@@ -11,6 +11,7 @@ doc
 .pt
 Examples/ContentfulDeliveryAPI.zip
 Examples/UFO.zip
+Examples/UFO/Distribution/ContentfulDeliveryAPI.framework/
 compile_commands.json
 .gutter.json
 
