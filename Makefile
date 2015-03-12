@@ -4,6 +4,7 @@ WORKSPACE=ContentfulSDK.xcworkspace
 
 clean:
 	rm -rf build Examples/UFO/build Examples/*.zip compile_commands.json .gutter.json
+	rm -rf Examples/UFO/Distribution/ContentfulDeliveryAPI.framework
 
 really-clean: clean
 	rm -rf Pods $(HOME)/Library/Developer/Xcode/DerivedData/*
