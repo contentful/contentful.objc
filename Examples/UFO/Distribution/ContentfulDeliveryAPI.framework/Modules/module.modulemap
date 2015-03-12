@@ -1,0 +1,6 @@
+framework module ContentfulDeliveryAPI {
+  umbrella header "ContentfulDeliveryAPI.h"
+
+  export *
+  module * { export * }
+}

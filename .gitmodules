@@ -1,0 +1,4 @@
+[submodule "Pods"]
+	path = Pods
+	url = https://github.com/contentful/contentful.objc.git
+	branch = Pods
