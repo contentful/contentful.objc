@@ -1,0 +1,30 @@
+[
+  {
+    "body" : "ewogICJzeXMiOiB7CiAgICAidHlwZSI6ICJTcGFjZSIsCiAgICAiaWQiOiAiY2Zl\r\neGFtcGxlYXBpIgogIH0sCiAgIm5hbWUiOiAiQ29udGVudGZ1bCBFeGFtcGxlIEFQ\r\nSSIsCiAgImxvY2FsZXMiOiBbCiAgICB7CiAgICAgICJjb2RlIjogImVuLVVTIiwK\r\nICAgICAgImRlZmF1bHQiOiB0cnVlLAogICAgICAibmFtZSI6ICJFbmdsaXNoIgog\r\nICAgfSwKICAgIHsKICAgICAgImNvZGUiOiAidGxoIiwKICAgICAgImRlZmF1bHQi\r\nOiBmYWxzZSwKICAgICAgIm5hbWUiOiAiS2xpbmdvbiIKICAgIH0KICBdCn0K",
+    "headers" : {
+      "Access-Control-Allow-Headers" : "Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization",
+      "Cache-Control" : "max-age=0",
+      "Vary" : "Accept-Encoding",
+      "Access-Control-Allow-Origin" : "*",
+      "X-Cache-Hits" : "1",
+      "Etag" : "\"14a17843cf0cf8b116801f96c1c6fe23\"",
+      "Content-Length" : "285",
+      "Keep-Alive" : "timeout=10, max=50",
+      "Access-Control-Max-Age" : "86400",
+      "Connection" : "Keep-Alive",
+      "Accept-Ranges" : "bytes",
+      "X-Served-By" : "cache-fra1232-FRA",
+      "Content-Type" : "application\/vnd.contentful.delivery.v1+json",
+      "X-Cache" : "HIT",
+      "Via" : "1.1 varnish",
+      "Server" : "nginx\/1.1.19",
+      "Access-Control-Allow-Methods" : "GET,HEAD,OPTIONS",
+      "X-Contentful-Request-Id" : "f1c-737785047",
+      "Age" : "574",
+      "Date" : "Mon, 28 Apr 2014 14:01:49 GMT"
+    },
+    "method" : "GET",
+    "status" : 200,
+    "uri" : "https:\/\/cdn.contentful.com\/spaces\/cfexampleapi\/"
+  }
+]

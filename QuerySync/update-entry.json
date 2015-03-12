@@ -1,0 +1,81 @@
+{
+  "sys": {
+    "type": "Array"
+  },
+  "total": 1,
+  "skip": 0,
+  "limit": 100,
+  "items": [
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "6mhvnnmyn9e1"
+          }
+        },
+        "type": "Entry",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "6PnRGY1dxSUmaQ2Yq2Ege2"
+          }
+        },
+        "id": "3f1WNyJWX6sS0CKgyuCEYK",
+        "revision": 6,
+        "createdAt": "2014-04-28T07:57:26.031Z",
+        "updatedAt": "2014-04-30T11:55:24.363Z",
+        "locale": "en-US"
+      },
+      "fields": {
+        "title": "Post 1 changed!",
+        "image": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Asset",
+            "id": "2Z6AsQkKwMcOSA4Smi22E0"
+          }
+        },
+        "deleted": false
+      }
+    }
+  ],
+  "includes": {
+    "Asset": [
+      {
+        "fields": {
+          "file": {
+            "fileName": "2013-09-18 08.49.21.jpg",
+            "contentType": "image/jpeg",
+            "details": {
+              "image": {
+                "width": 3264,
+                "height": 2448
+              },
+              "size": 2508805
+            },
+            "url": "//images.contentful.com/6mhvnnmyn9e1/2Z6AsQkKwMcOSA4Smi22E0/e76971c97eab30dfd89ad80cdc09480d/2013-09-18_08.49.21.jpg"
+          },
+          "title": "3f5a00acf72df93528b6bb7cd0a4fd0c"
+        },
+        "sys": {
+          "space": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Space",
+              "id": "6mhvnnmyn9e1"
+            }
+          },
+          "type": "Asset",
+          "id": "2Z6AsQkKwMcOSA4Smi22E0",
+          "revision": 2,
+          "createdAt": "2014-04-28T15:38:00.539Z",
+          "updatedAt": "2014-04-29T13:11:27.478Z",
+          "locale": "en-US"
+        }
+      }
+    ]
+  }
+}

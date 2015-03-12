@@ -1,0 +1,328 @@
+{
+  "sys": {
+    "type": "Array"
+  },
+  "items": [
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "emh6o2ireilu"
+          }
+        },
+        "type": "Entry",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "4yCmJfmk1WeqACagaemOIs"
+          }
+        },
+        "id": "5ZmiC472OAg2SY2W0QM6Gs",
+        "revision": 1,
+        "createdAt": "2014-04-11T11:39:09.283Z",
+        "updatedAt": "2014-04-11T11:39:09.283Z"
+      },
+      "fields": {
+        "link1": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "4upDPGUMMEkG8w8UUs2OiO"
+            }
+          }
+        },
+        "link2": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "1gQ4P2tG7QaGkQwkC4a6Gg"
+            }
+          }
+        },
+        "link3": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "1Wl5HnguK8CiaykiQAiGu6"
+            }
+          }
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "emh6o2ireilu"
+          }
+        },
+        "type": "Entry",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "5kLp8FbRwAG0kcOOYa6GMa"
+          }
+        },
+        "id": "7FQCYfimc0aQa8okuCakAS",
+        "revision": 1,
+        "createdAt": "2014-04-11T08:39:23.206Z",
+        "updatedAt": "2014-04-11T08:39:23.206Z"
+      },
+      "fields": {
+        "suchField": {
+          "en-US": "new entry such crash wow"
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "emh6o2ireilu"
+          }
+        },
+        "type": "Entry",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "6bAvxqodl6s4MoKuWYkmqe"
+          }
+        },
+        "id": "42yYtmO46IY0GO2UCgOK2o",
+        "revision": 1,
+        "createdAt": "2014-04-10T09:37:06.719Z",
+        "updatedAt": "2014-04-10T09:37:06.719Z"
+      },
+      "fields": {
+        "title": {
+          "en-US": "NewOneWithLinkToFoobar"
+        },
+        "body": {
+          "en-US": "foo"
+        },
+        "category": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "6nRlw4CofeeICEYgIqaIIg"
+            }
+          }
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "emh6o2ireilu"
+          }
+        },
+        "type": "Entry",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "6bAvxqodl6s4MoKuWYkmqe"
+          }
+        },
+        "id": "1Wl5HnguK8CiaykiQAiGu6",
+        "revision": 3,
+        "createdAt": "2014-04-09T11:48:47.866Z",
+        "updatedAt": "2014-04-10T09:36:40.283Z"
+      },
+      "fields": {
+        "title": {
+          "en-US": "WithCategory"
+        },
+        "body": {
+          "en-US": "some text"
+        },
+        "category": {
+          "en-US": null
+        },
+        "picture": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "2q1Ns7Oygo2mAgoweuMCAA"
+            }
+          }
+        }
+      }
+    },
+    {
+      "fields": {
+        "title": {
+          "en-US": "contentful-logo"
+        },
+        "file": {
+          "en-US": {
+            "fileName": "512_black.png",
+            "contentType": "image/png",
+            "details": {
+              "image": {
+                "width": 512,
+                "height": 512
+              },
+              "size": 4189
+            },
+            "url": "//images.contentful.com/emh6o2ireilu/2q1Ns7Oygo2mAgoweuMCAA/7a4eb574952f359b851b3f353573b708/512_black.png"
+          }
+        }
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "emh6o2ireilu"
+          }
+        },
+        "type": "Asset",
+        "id": "2q1Ns7Oygo2mAgoweuMCAA",
+        "revision": 2,
+        "createdAt": "2014-03-25T11:01:41.057Z",
+        "updatedAt": "2014-04-10T08:46:27.961Z"
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "emh6o2ireilu"
+          }
+        },
+        "type": "Entry",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "51LZmvenywOe8aig28sCgY"
+          }
+        },
+        "id": "6nRlw4CofeeICEYgIqaIIg",
+        "revision": 1,
+        "createdAt": "2014-04-09T11:48:42.407Z",
+        "updatedAt": "2014-04-09T11:48:42.407Z"
+      },
+      "fields": {
+        "name": {
+          "en-US": "foobar"
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "emh6o2ireilu"
+          }
+        },
+        "type": "Entry",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "51LZmvenywOe8aig28sCgY"
+          }
+        },
+        "id": "1YCXOBW1xu2uSkekCmwyqo",
+        "revision": 1,
+        "createdAt": "2014-04-09T11:44:21.359Z",
+        "updatedAt": "2014-04-09T11:44:21.359Z"
+      },
+      "fields": {
+        "name": {
+          "en-US": "Some Category"
+        }
+      }
+    },
+    {
+      "fields": {
+        "title": {
+          "en-US": "doge (changed)"
+        },
+        "file": {
+          "en-US": {
+            "fileName": "vaa4by0.png",
+            "contentType": "image/png",
+            "details": {
+              "image": {
+                "width": 265,
+                "height": 265
+              },
+              "size": 103652
+            },
+            "url": "//images.contentful.com/emh6o2ireilu/6koKmTXVzUquae6ewQQ8Eu/5f79cef98e3feb466c30f0b38bec0359/vaa4by0.png"
+          }
+        }
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "emh6o2ireilu"
+          }
+        },
+        "type": "Asset",
+        "id": "6koKmTXVzUquae6ewQQ8Eu",
+        "revision": 2,
+        "createdAt": "2014-03-25T11:08:25.412Z",
+        "updatedAt": "2014-03-26T10:37:20.069Z"
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "emh6o2ireilu"
+          }
+        },
+        "type": "Entry",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "6bAvxqodl6s4MoKuWYkmqe"
+          }
+        },
+        "id": "4upDPGUMMEkG8w8UUs2OiO",
+        "revision": 2,
+        "createdAt": "2014-03-25T11:00:43.065Z",
+        "updatedAt": "2014-03-26T10:37:09.128Z"
+      },
+      "fields": {
+        "title": {
+          "en-US": "Test (changed)"
+        },
+        "body": {
+          "en-US": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        }
+      }
+    }
+  ],
+  "nextSyncUrl": "https://cdn.contentful.com/spaces/emh6o2ireilu/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdyZxwrTDssOKwr9SACovw47Ckn1vcwjDuEXCqV3DlMKiw6LDjxPCjDfDisONc8KtcHvDrsKsP8O2w5Azw6rCglcncRM7w7fDmyh3QzEpKcKiWsOOw5LDtsOlcgXCi8Omw7M"
+}
