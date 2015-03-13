@@ -116,6 +116,22 @@
                           progressive:false];
 }
 
+-(void)testChangeImageFocusRight {
+    [self fetchImageWithParametersFit:CDAFitDefault
+                                focus:@"right"
+                               radius:CDARadiusNone
+                           background:nil
+                          progressive:false];
+}
+
+-(void)testChangeImageFocusTopRight {
+    [self fetchImageWithParametersFit:CDAFitDefault
+                                focus:@"top_right"
+                               radius:CDARadiusNone
+                           background:nil
+                          progressive:false];
+}
+
 -(void)testChangeImageFormatToJPEG {
     StartBlock();
     
