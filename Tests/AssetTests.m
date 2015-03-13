@@ -39,6 +39,83 @@
     }];
 }
 
+-(void)fetchImageWithParametersFit:(CDAFitType)fit
+                             focus:(NSString*)focus
+                            radius:(CGFloat)radius
+                        background:(NSString*)backgroundColor
+                       progressive:(BOOL)progressive {
+    StartBlock();
+
+    [self.client fetchAssetWithIdentifier:@"nyancat" success:^(CDAResponse *response, CDAAsset *asset) {
+        __block NSURL* imageURL = [asset imageURLWithSize:CGSizeZero
+                                                  quality:CDAImageQualityOriginal
+                                                   format:CDAImageFormatJPEG
+                                                      fit:fit
+                                                    focus:focus
+                                                   radius:radius
+                                               background:backgroundColor
+                                              progressive:progressive];
+
+        [self fetchImageAtURL:imageURL completionBlock:^(UIImage *image, NSDictionary* properties) {
+            EndBlock();
+        }];
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTFail(@"Error: %@", error);
+
+        EndBlock();
+    }];
+
+    WaitUntilBlockCompletes();
+}
+
+-(void)testChangeImageFitCrop {
+    [self fetchImageWithParametersFit:CDAFitCrop
+                                focus:nil
+                               radius:CDARadiusNone
+                           background:nil
+                          progressive:false];
+}
+
+-(void)testChangeImageFitDefault {
+    [self fetchImageWithParametersFit:CDAFitDefault
+                                focus:nil
+                               radius:CDARadiusNone
+                           background:nil
+                          progressive:false];
+}
+
+-(void)testChangeImageFitFill {
+    [self fetchImageWithParametersFit:CDAFitFill
+                                focus:nil
+                               radius:CDARadiusNone
+                           background:nil
+                          progressive:false];
+}
+
+-(void)testChangeImageFitPad {
+    [self fetchImageWithParametersFit:CDAFitPad
+                                focus:nil
+                               radius:CDARadiusNone
+                           background:nil
+                          progressive:false];
+}
+
+-(void)testChangeImageFitScale {
+    [self fetchImageWithParametersFit:CDAFitScale
+                                focus:nil
+                               radius:CDARadiusNone
+                           background:nil
+                          progressive:false];
+}
+
+-(void)testChangeImageFitThumb {
+    [self fetchImageWithParametersFit:CDAFitThumb
+                                focus:nil
+                               radius:CDARadiusNone
+                           background:nil
+                          progressive:false];
+}
+
 -(void)testChangeImageFormatToJPEG {
     StartBlock();
     
