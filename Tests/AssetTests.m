@@ -148,6 +148,14 @@
                           progressive:false];
 }
 
+-(void)testChangeImageProgressive {
+    [self fetchImageWithParametersFit:CDAFitCrop
+                                focus:nil
+                               radius:CDARadiusNone
+                           background:nil
+                          progressive:true];
+}
+
 -(void)testChangeImageRadiusAny {
     [self fetchImageWithParametersFit:CDAFitDefault
                                 focus:nil
