@@ -13,7 +13,9 @@
 #import "CDASpace+Private.h"
 #import "CDAUtilities.h"
 
-const CGFloat CDAImageQualityOriginal = 0.0;
+const CGFloat CDAImageQualityOriginal   = 0.0;
+const CGFloat CDARadiusMaximum          = -100.0;
+const CGFloat CDARadiusNone             = 0.0;
 
 @interface CDAAsset ()
 
@@ -125,6 +127,24 @@ const CGFloat CDAImageQualityOriginal = 0.0;
 }
 
 -(NSURL *)imageURLWithSize:(CGSize)size quality:(CGFloat)quality format:(CDAImageFormat)format {
+    return [self imageURLWithSize:size
+                          quality:quality
+                           format:format
+                              fit:CDAFitDefault
+                            focus:nil
+                           radius:CDARadiusNone
+                       background:nil
+                      progressive:false];
+}
+
+-(NSURL *)imageURLWithSize:(CGSize)size
+                   quality:(CGFloat)quality
+                    format:(CDAImageFormat)format
+                       fit:(CDAFitType)fit
+                     focus:(NSString *)focus
+                    radius:(CGFloat)radius
+                background:(NSString *)backgroundColor
+               progressive:(BOOL)progressive {
     if (!self.isImage) {
         return self.URL;
     }
@@ -150,7 +170,49 @@ const CGFloat CDAImageQualityOriginal = 0.0;
         case CDAImageFormatOriginal:
             break;
     }
-    
+
+    switch (fit) {
+        case CDAFitPad:
+            parameters[@"fit"] = @"pad";
+            break;
+        case CDAFitCrop:
+            parameters[@"fit"] = @"crop";
+            break;
+        case CDAFitFill:
+            parameters[@"fit"] = @"fill";
+            break;
+        case CDAFitScale:
+            parameters[@"fit"] = @"scale";
+            break;
+        case CDAFitThumb:
+            parameters[@"fit"] = @"thumb";
+            break;
+        case CDAFitDefault:
+            break;
+    }
+
+    if (focus) {
+        parameters[@"f"] = focus;
+    }
+
+    if (fabs(radius - CDARadiusNone) > FLT_EPSILON) {
+        if (fabs(radius - CDARadiusMaximum) < FLT_EPSILON) {
+            parameters[@"r"] = @"max";
+        } else {
+            if (radius > 0) {
+                parameters[@"r"] = @(radius);
+            }
+        }
+    }
+
+    if (backgroundColor) {
+        parameters[@"bg"] = backgroundColor;
+    }
+
+    if (progressive) {
+        parameters[@"fl"] = @"progressive";
+    }
+
     if (parameters.count == 0) {
         return self.URL;
     }

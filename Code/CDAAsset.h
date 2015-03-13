@@ -12,6 +12,11 @@
 /** Pass this constant as image quality to not modify the quality. */
 extern const CGFloat CDAImageQualityOriginal;
 
+/** Do not round corners (default) */
+extern const CGFloat CDARadiusNone;
+/** Crop a circle or elipsis instead of rounding corners */
+extern const CGFloat CDARadiusMaximum;
+
 /** Enumeration for specifying image formats. */
 typedef NS_ENUM(NSInteger, CDAImageFormat) {
     /** JPEG image format */
@@ -20,6 +25,22 @@ typedef NS_ENUM(NSInteger, CDAImageFormat) {
     CDAImageFormatPNG,
     /** Keep the original image format */
     CDAImageFormatOriginal,
+};
+
+/** Enumeration for specifying resizing behaviour */
+typedef NS_ENUM(NSInteger, CDAFitType) {
+    /** Keep aspect ratio while fitting the given dimensions */
+    CDAFitDefault,
+    /** Crop a part of the original image */
+    CDAFitCrop,
+    /** Scale the image regardless of the original aspect ratio */
+    CDAFitScale,
+    /** Create a thumbnail of detected faces from image, used with `focus` argument */
+    CDAFitThumb,
+    /** Same as `CDAFitDefault`, but add padding so that the generated image has the given dimensions */
+    CDAFitPad,
+    /** Fill the given dimensions by cropping the image */
+    CDAFitFill,
 };
 
 /**
@@ -64,6 +85,39 @@ typedef NS_ENUM(NSInteger, CDAImageFormat) {
  *  @return An URL for retrieving the processed image.
  */
 -(NSURL *)imageURLWithSize:(CGSize)size quality:(CGFloat)quality format:(CDAImageFormat)format;
+
+/**
+ *  URL for retrieving an image asset which is being processed by the server.
+ *
+ *  If the asset is not refering an image, this method will return the same the `URL` property.
+ *
+ *  @param size            The desired size of the output image.
+ *  @param quality         The desired quality, with a range from 0.01 to 1.0. Only supported for JPEGs.
+ *  @param format          The desired output format or `CDAImageFormatOriginal` if it should not be
+ *                         changed.
+ *  @param fit             Modify the resizing behaviour (`CDAFitDefault` for default)
+ *  @param focus           Specify the focused area of resizing, this can be:
+ *                         1. 'top', 'right', 'left', 'bottom'
+ *                         2. A combination like 'bottom_right'
+ *                         3. 'face' or 'faces' to focus the resizing via face detection
+ *                         4. `nil` to use the default
+ *  @param radius          Radius for rounded corners, optionally crop a circle/elipsis via 
+ *                         `CDARadiusMaximum`. The default is `CDARadiusNone` for not rounding corners.
+ *  @param backgroundColor Background color, relevant if the fit type `CDAFitPad` is used. Color
+ *                         constant like 'blue' or RGB values like 'rgb:9090ff'. Default: `nil` for
+ *                         transparency.
+ *  @param progressive     Deliver a progressive image, only supported for JPEGs.
+ *
+ *  @return An URL for retrieving the processed image.
+ */
+-(NSURL *)imageURLWithSize:(CGSize)size
+                   quality:(CGFloat)quality
+                    format:(CDAImageFormat)format
+                       fit:(CDAFitType)fit
+                     focus:(NSString*)focus
+                    radius:(CGFloat)radius
+                background:(NSString*)backgroundColor
+               progressive:(BOOL)progressive;
 
 /** @name Accessing Localized Content */
 
