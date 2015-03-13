@@ -132,6 +132,22 @@
                           progressive:false];
 }
 
+-(void)testChangeImageRadiusAny {
+    [self fetchImageWithParametersFit:CDAFitDefault
+                                focus:nil
+                               radius:23.0
+                           background:nil
+                          progressive:false];
+}
+
+-(void)testChangeImageRadiusMax {
+    [self fetchImageWithParametersFit:CDAFitDefault
+                                focus:nil
+                               radius:CDARadiusMaximum
+                           background:nil
+                          progressive:false];
+}
+
 -(void)testChangeImageFormatToJPEG {
     StartBlock();
     
