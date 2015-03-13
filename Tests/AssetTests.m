@@ -68,6 +68,22 @@
     WaitUntilBlockCompletes();
 }
 
+-(void)testChangeImageBackgroundBlue {
+    [self fetchImageWithParametersFit:CDAFitCrop
+                                focus:nil
+                               radius:CDARadiusNone
+                           background:@"blue"
+                          progressive:false];
+}
+
+-(void)testChangeImageBackgroundHex {
+    [self fetchImageWithParametersFit:CDAFitCrop
+                                focus:nil
+                               radius:CDARadiusNone
+                           background:@"rgb:ffffff"
+                          progressive:false];
+}
+
 -(void)testChangeImageFitCrop {
     [self fetchImageWithParametersFit:CDAFitCrop
                                 focus:nil
