@@ -170,15 +170,15 @@ static NSCache* cache = nil;
 }
 
 -(void)cda_setImageWithAsset:(CDAAsset *)asset {
-    [self cda_setImageWithAsset:asset URL:asset.URL size:asset.size placeholderImage:nil];
+    [self cda_setImageWithAsset:asset size:asset.size placeholderImage:nil];
 }
 
 -(void)cda_setImageWithAsset:(CDAAsset *)asset size:(CGSize)size {
-    [self cda_setImageWithAsset:asset URL:[asset imageURLWithSize:size] size:size placeholderImage:nil];
+    [self cda_setImageWithAsset:asset size:size placeholderImage:nil];
 }
 
 -(void)cda_setImageWithAsset:(CDAAsset *)asset placeholderImage:(UIImage *)placeholderImage {
-    [self cda_setImageWithAsset:asset URL:asset.URL size:asset.size placeholderImage:placeholderImage];
+    [self cda_setImageWithAsset:asset size:asset.size placeholderImage:placeholderImage];
 }
 
 -(void)cda_setImageWithAsset:(CDAAsset *)asset
