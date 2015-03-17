@@ -29,7 +29,7 @@ PODS:
   - CCLRequestReplay/Manager (0.9.0)
   - CCLRequestReplay/Record (0.9.0)
   - CCLRequestReplay/Replay (0.9.0)
-  - ContentfulDeliveryAPI (1.5.0):
+  - ContentfulDeliveryAPI (1.6.0):
     - AFNetworking
     - ISO8601DateFormatter
   - FBSnapshotTestCase (1.5)
@@ -66,7 +66,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AFNetworking: 47947303319594706f48a55185ea95a95159ab94
   CCLRequestReplay: a472e52da260c28d7a41df76697b8e518625a44f
-  ContentfulDeliveryAPI: bcffc0f1c5b0a44af22084794b8d0c5a1db4a58c
+  ContentfulDeliveryAPI: b39a985a2b2567a969c228d8a74a2f67e6a783ef
   FBSnapshotTestCase: e2914fbaabccea1dcc773d6a16b1c24540642488
   ISO8601DateFormatter: 59731cd880cf87e71b4fa95f0d6b713dcbc4cbce
   OCMock: 6db79185520e24f9f299548f2b8b07e41d881bd5
