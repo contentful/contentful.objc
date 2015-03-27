@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "ContentfulDeliveryAPI"
-  s.version          = "1.6.0"
+  s.version          = "1.6.1"
   s.summary          = "Objective-C SDK for Contentful's Content Delivery API."
   s.homepage         = "https://github.com/contentful/contentful.objc/"
   s.social_media_url = 'https://twitter.com/contentful'
@@ -25,6 +25,6 @@ Pod::Spec.new do |s|
 
   s.osx.deployment_target     = '10.8'
 
-  s.dependency 'AFNetworking'
+  s.dependency 'AFNetworking', '>= 2.5.2'
   s.dependency 'ISO8601DateFormatter'
 end
