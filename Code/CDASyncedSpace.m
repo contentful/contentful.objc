@@ -234,7 +234,13 @@
                                                                        failure:failure];
                               } failure:failure];
         } else {
-            [self handleSynchronizationResponseWithArray:array success:success failure:failure];
+            [self handleSynchronizationResponseWithArray:array success:^{
+                for (CDAEntry* entry in self.syncedEntries.allValues) {
+                    [entry resolveLinksWithIncludedAssets:self.syncedAssets entries:self.syncedEntries];
+                }
+
+                success();
+            } failure:failure];
         }
     } failure:failure];
 }
