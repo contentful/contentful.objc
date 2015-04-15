@@ -157,6 +157,7 @@ const CGFloat CDARadiusNone             = 0.0;
     }
     
     if (fabs((quality) - (CDAImageQualityOriginal)) > FLT_EPSILON) {
+        NSAssert(quality <= 1.0, @"Quality parameter should be between 0.0 and 1.0, but is %.2f", quality);
         parameters[@"q"] = @(quality * 100);
     }
     

@@ -212,6 +212,25 @@
     WaitUntilBlockCompletes();
 }
 
+-(void)testAssertImageQuality {
+    StartBlock();
+
+    [self.client fetchAssetWithIdentifier:@"nyancat" success:^(CDAResponse *response, CDAAsset *asset) {
+        XCTAssertThrowsSpecificNamed([asset imageURLWithSize:CGSizeZero
+                                                     quality:70.0
+                                                      format:CDAImageFormatOriginal],
+                                     NSException, NSInternalInconsistencyException, @"");
+
+        EndBlock();
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTFail(@"Error: %@", error);
+
+        EndBlock();
+    }];
+
+    WaitUntilBlockCompletes();
+}
+
 -(void)testChangeImageQuality {
     StartBlock();
     
