@@ -16,6 +16,16 @@
 
 @implementation ClientConfiguration
 
+-(void)testClientCanBeInstantiatedWithoutSpaceKey {
+    CDAClient* client1 = [[CDAClient alloc] initWithSpaceKey:nil accessToken:@"yolo"];
+    CDAClient* client2 = [[CDAClient alloc] initWithSpaceKey:nil
+                                                 accessToken:@"yolo"
+                                               configuration:[CDAConfiguration defaultConfiguration]];
+
+    XCTAssertNotNil(client1);
+    XCTAssertNotNil(client2);
+}
+
 -(void)testDefaultUserAgent {
     CDARequest* request = [self.client fetchEntriesWithSuccess:^(CDAResponse *response,
                                                                  CDAArray *array) { }

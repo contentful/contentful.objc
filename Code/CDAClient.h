@@ -57,7 +57,7 @@ typedef void(^CDASyncedSpaceFetchedBlock)(CDAResponse* response, CDASyncedSpace*
 *
 *  @return A client initialized for requesting data from the server.
 */
--(id)initWithSpaceKey:(NSString *)spaceKey accessToken:(NSString *)accessToken;
+-(id)initWithSpaceKey:(NSString * __nullable)spaceKey accessToken:(NSString *)accessToken;
 
 /**
  *  Initializes a client for requesting data from the server, while passing additional configuration
@@ -69,7 +69,7 @@ typedef void(^CDASyncedSpaceFetchedBlock)(CDAResponse* response, CDASyncedSpace*
  *
  *  @return A client initialized for requesting data from the server.
  */
--(id)initWithSpaceKey:(NSString *)spaceKey
+-(id)initWithSpaceKey:(NSString * __nullable)spaceKey
           accessToken:(NSString *)accessToken
         configuration:(CDAConfiguration*)configuration;
 
