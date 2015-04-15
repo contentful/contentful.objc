@@ -6,6 +6,8 @@
 //
 //
 
+#import <ContentfulDeliveryAPI/CDANullabilityStubs.h>
+
 #import "CDAEntry.h"
 #import "CDAPersistedAsset.h"
 
@@ -60,7 +62,7 @@ typedef NS_ENUM(NSInteger, CDAFitType) {
 /** @name Accessing the URL */
 
 /** The URL with which the asset was initialized. (read-only). */
-@property (nonatomic, readonly) NSURL* URL;
+@property (nonatomic, readonly) NSURL* __nullable URL;
 
 /**
  *  URL for retrieving an image asset which is being resized by the server.
@@ -71,7 +73,7 @@ typedef NS_ENUM(NSInteger, CDAFitType) {
  *
  *  @return An URL for retrieving the resized image.
  */
--(NSURL *)imageURLWithSize:(CGSize)size;
+-(NSURL * __nullable)imageURLWithSize:(CGSize)size;
 
 /**
  *  URL for retrieving an image asset which is being processed by the server.
@@ -84,7 +86,7 @@ typedef NS_ENUM(NSInteger, CDAFitType) {
  *
  *  @return An URL for retrieving the processed image.
  */
--(NSURL *)imageURLWithSize:(CGSize)size quality:(CGFloat)quality format:(CDAImageFormat)format;
+-(NSURL * __nullable)imageURLWithSize:(CGSize)size quality:(CGFloat)quality format:(CDAImageFormat)format;
 
 /**
  *  URL for retrieving an image asset which is being processed by the server.
@@ -110,13 +112,13 @@ typedef NS_ENUM(NSInteger, CDAFitType) {
  *
  *  @return An URL for retrieving the processed image.
  */
--(NSURL *)imageURLWithSize:(CGSize)size
+-(NSURL * __nullable)imageURLWithSize:(CGSize)size
                    quality:(CGFloat)quality
                     format:(CDAImageFormat)format
                        fit:(CDAFitType)fit
-                     focus:(NSString*)focus
+                     focus:(NSString* __nullable)focus
                     radius:(CGFloat)radius
-                background:(NSString*)backgroundColor
+                background:(NSString* __nullable)backgroundColor
                progressive:(BOOL)progressive;
 
 /** @name Accessing Localized Content */
@@ -133,16 +135,16 @@ typedef NS_ENUM(NSInteger, CDAFitType) {
  *  be accurate for Assets obtained from a `CDASyncedSpace`originally.
  *
  */
-@property (nonatomic) NSString* locale;
+@property (nonatomic) NSString* __nonnull locale;
 
 /** @name Accessing Meta-Data */
 
 /** All fields associated with this asset. */
-@property (nonatomic, readonly) NSDictionary* fields;
+@property (nonatomic, readonly) NSDictionary* __nonnull fields;
 /** Returns `YES` if this asset is referencing an image file, `NO` otherwise. */
 @property (nonatomic, readonly) BOOL isImage;
 /** File type of the asset. */
-@property (nonatomic, readonly) NSString* MIMEType;
+@property (nonatomic, readonly) NSString* __nullable MIMEType;
 /** Size of the asset, if it is an image. */
 @property (nonatomic, readonly) CGSize size;
 
@@ -155,7 +157,7 @@ typedef NS_ENUM(NSInteger, CDAFitType) {
  *
  *  @return Cached data or `nil` if none was found.
  */
-+(NSData*)cachedDataForAsset:(CDAAsset*)asset;
++(NSData* __nullable)cachedDataForAsset:(CDAAsset* __nonnull)asset;
 
 /**
  *  Access previously cached data for an Asset.
@@ -165,7 +167,7 @@ typedef NS_ENUM(NSInteger, CDAFitType) {
  *
  *  @return Cached data or `nil` if none was found.
  */
-+(NSData*)cachedDataForPersistedAsset:(id<CDAPersistedAsset>)persistedAsset client:(CDAClient*)client;
++(NSData* __nullable)cachedDataForPersistedAsset:(id<CDAPersistedAsset> __nonnull)persistedAsset client:(CDAClient* __nonnull)client;
 
 /**
  *  Cache the data of an Asset to disk.
@@ -175,9 +177,9 @@ typedef NS_ENUM(NSInteger, CDAFitType) {
  *  @param forceOverwrite If `NO` and file already exists, nothing will be done.
  *  @param handler        This block will be called after persisting the asset.
  */
-+(void)cachePersistedAsset:(id<CDAPersistedAsset>)persistedAsset
-                    client:(CDAClient*)client
++(void)cachePersistedAsset:(id<CDAPersistedAsset> __nonnull)persistedAsset
+                    client:(CDAClient* __nonnull)client
           forcingOverwrite:(BOOL)forceOverwrite
-         completionHandler:(void (^)(BOOL success))handler;
+         completionHandler:(void (^ __nonnull)(BOOL success))handler;
 
 @end

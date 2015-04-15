@@ -8,9 +8,12 @@
 
 @import MapKit;
 
+#import <ContentfulDeliveryAPI/CDANullabilityStubs.h>
 #import <ContentfulDeliveryAPI/CDAResource.h>
 
 @class CDAContentType;
+
+NS_ASSUME_NONNULL_BEGIN
 
 /** 
  Entries represent textual content in a Space. An Entry's data adheres to a certain Content Type.
@@ -79,3 +82,5 @@
 -(id)mapFieldsToObject:(NSObject*)object usingMapping:(NSDictionary*)dictionary;
 
 @end
+
+NS_ASSUME_NONNULL_END

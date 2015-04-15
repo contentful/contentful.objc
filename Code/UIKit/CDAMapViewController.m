@@ -83,7 +83,8 @@
         annotation.identifier = entry.identifier;
         
         if (self.coordinateFieldIdentifier) {
-            annotation.coordinate = [entry CLLocationCoordinate2DFromFieldWithIdentifier:self.coordinateFieldIdentifier];
+            NSString* identifier = self.coordinateFieldIdentifier;
+            annotation.coordinate = [entry CLLocationCoordinate2DFromFieldWithIdentifier:identifier];
         }
         
         if (self.subtitleFieldIdentifier) {

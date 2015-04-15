@@ -261,8 +261,12 @@
     if (indexPath.section != 0) {
         return;
     }
-    
-    [self didSelectRowWithResource:self.items[indexPath.row]];
+
+    id entry = self.items[indexPath.row];
+
+    if (entry) {
+        [self didSelectRowWithResource:entry];
+    }
 }
 
 @end

@@ -343,6 +343,7 @@
 		A173F59B18D9A2FD000E6F92 /* CDAResourceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAResourceCell.m; sourceTree = "<group>"; };
 		A173F60218DB3E1E000E6F92 /* PreviewModeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewModeTests.m; sourceTree = "<group>"; };
 		A173F60418DB412C000E6F92 /* PreviewModeTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = PreviewModeTests.json; path = Data/Recordings/PreviewModeTests.json; sourceTree = "<group>"; };
+		A17CC3D61ADE5F2700C7AA57 /* CDANullabilityStubs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDANullabilityStubs.h; sourceTree = "<group>"; };
 		A18AA81018E1D14F00D430D5 /* CDASyncedSpace+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDASyncedSpace+Private.h"; sourceTree = "<group>"; };
 		A18AA81118E2D98200D430D5 /* CDADeletedEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDADeletedEntry.h; sourceTree = "<group>"; };
 		A18AA81218E2D98200D430D5 /* CDADeletedEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDADeletedEntry.m; sourceTree = "<group>"; };
@@ -705,6 +706,7 @@
 			children = (
 				A18AA85F18E5D63B00D430D5 /* CDAFallbackDictionary.h */,
 				A18AA86018E5D63B00D430D5 /* CDAFallbackDictionary.m */,
+				A17CC3D61ADE5F2700C7AA57 /* CDANullabilityStubs.h */,
 				A1A0313D18C66667006470B7 /* CDAUtilities.h */,
 				A1A0313E18C66667006470B7 /* CDAUtilities.m */,
 			);

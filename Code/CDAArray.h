@@ -6,6 +6,7 @@
 //
 //
 
+#import <ContentfulDeliveryAPI/CDANullabilityStubs.h>
 #import <ContentfulDeliveryAPI/CDAResource.h>
 
 /**
@@ -16,7 +17,7 @@
 /** @name Accessing Local Data */
 
 /** A list of items available locally. */
-@property (nonatomic, readonly) NSArray* items;
+@property (nonatomic, readonly) NSArray* __nonnull items;
 
 /** @name Information about Remote Data */
 
@@ -35,6 +36,6 @@
  *  For example, if there is a link to an Entry which no longer exists, there will be a `notResolvable`
  *  error in the `errors` array.
  */
-@property (nonatomic, readonly) NSArray* errors;
+@property (nonatomic, readonly) NSArray* __nonnull errors;
 
 @end

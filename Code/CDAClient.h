@@ -8,6 +8,8 @@
 
 @import Foundation;
 
+#import <ContentfulDeliveryAPI/CDANullabilityStubs.h>
+
 @class CDAArray;
 @class CDAAsset;
 @class CDAConfiguration;
@@ -28,13 +30,15 @@ typedef NS_ENUM(NSInteger, CDAResourceType) {
     CDAResourceTypeEntry,
 };
 
+NS_ASSUME_NONNULL_BEGIN
+
 typedef void(^CDAArrayFetchedBlock)(CDAResponse* response, CDAArray* array);
 typedef void(^CDAAssetFetchedBlock)(CDAResponse* response, CDAAsset* asset);
-typedef void(^CDAContentTypeFetchedBlock)(CDAResponse* response, CDAContentType* contentType);
+typedef void(^CDAContentTypeFetchedBlock)(CDAResponse* __nullable response, CDAContentType* contentType);
 typedef void(^CDAEntryFetchedBlock)(CDAResponse* response, CDAEntry* entry);
 typedef void(^CDAObjectFetchedBlock)(CDAResponse* response, id responseObject);
-typedef void(^CDARequestFailureBlock)(CDAResponse* response, NSError* error);
-typedef void(^CDASpaceFetchedBlock)(CDAResponse* response, CDASpace* space);
+typedef void(^CDARequestFailureBlock)(CDAResponse* __nullable response, NSError* error);
+typedef void(^CDASpaceFetchedBlock)(CDAResponse* __nullable response, CDASpace* space);
 typedef void(^CDASyncedSpaceFetchedBlock)(CDAResponse* response, CDASyncedSpace* space);
 
 /**
@@ -80,9 +84,9 @@ typedef void(^CDASyncedSpaceFetchedBlock)(CDAResponse* response, CDASyncedSpace*
  *  @param failure A block which gets called if an error occured during the retrieval process.
  *  @return The request used for fetching data.
  */
--(CDARequest*)fetchAssetsMatching:(NSDictionary*)query
+-(CDARequest*)fetchAssetsMatching:(NSDictionary* __nullable)query
                           success:(CDAArrayFetchedBlock)success
-                          failure:(CDARequestFailureBlock)failure;
+                          failure:(CDARequestFailureBlock __nullable)failure;
 
 /**
  *  Fetch all Assets from the server.
@@ -92,7 +96,7 @@ typedef void(^CDASyncedSpaceFetchedBlock)(CDAResponse* response, CDASyncedSpace*
  *  @return The request used for fetching data.
  */
 -(CDARequest*)fetchAssetsWithSuccess:(CDAArrayFetchedBlock)success
-                             failure:(CDARequestFailureBlock)failure;
+                             failure:(CDARequestFailureBlock __nullable)failure;
 
 /**
  *  Fetch one specific Asset from the server.
@@ -104,7 +108,7 @@ typedef void(^CDASyncedSpaceFetchedBlock)(CDAResponse* response, CDASyncedSpace*
  */
 -(CDARequest*)fetchAssetWithIdentifier:(NSString*)identifier
                                success:(CDAAssetFetchedBlock)success
-                               failure:(CDARequestFailureBlock)failure;
+                               failure:(CDARequestFailureBlock __nullable)failure;
 
 /** @name Fetching Content Types */
 
@@ -116,7 +120,7 @@ typedef void(^CDASyncedSpaceFetchedBlock)(CDAResponse* response, CDASyncedSpace*
  *  @return The request used for fetching data.
  */
 -(CDARequest*)fetchContentTypesWithSuccess:(CDAArrayFetchedBlock)success
-                                   failure:(CDARequestFailureBlock)failure;
+                                   failure:(CDARequestFailureBlock __nullable)failure;
 
 /**
  *  Fetch one specific Content Type from the server.
@@ -128,7 +132,7 @@ typedef void(^CDASyncedSpaceFetchedBlock)(CDAResponse* response, CDASyncedSpace*
  */
 -(CDARequest*)fetchContentTypeWithIdentifier:(NSString*)identifier
                                      success:(CDAContentTypeFetchedBlock)success
-                                     failure:(CDARequestFailureBlock)failure;
+                                     failure:(CDARequestFailureBlock __nullable)failure;
 
 /** @name Fetching Entries */
 
@@ -141,9 +145,9 @@ typedef void(^CDASyncedSpaceFetchedBlock)(CDAResponse* response, CDASyncedSpace*
  *  @param failure A block which gets called if an error occured during the retrieval process.
  *  @return The request used for fetching data.
  */
--(CDARequest*)fetchEntriesMatching:(NSDictionary*)query
+-(CDARequest*)fetchEntriesMatching:(NSDictionary* __nullable)query
                            success:(CDAArrayFetchedBlock)success
-                           failure:(CDARequestFailureBlock)failure;
+                           failure:(CDARequestFailureBlock __nullable)failure;
 
 /**
  *  Fetch all Entries from the server.
@@ -153,7 +157,7 @@ typedef void(^CDASyncedSpaceFetchedBlock)(CDAResponse* response, CDASyncedSpace*
  *  @return The request used for fetching data.
  */
 -(CDARequest*)fetchEntriesWithSuccess:(CDAArrayFetchedBlock)success
-                              failure:(CDARequestFailureBlock)failure;
+                              failure:(CDARequestFailureBlock __nullable)failure;
 
 /**
  *  Fetch one specific Entry from the server.
@@ -165,7 +169,7 @@ typedef void(^CDASyncedSpaceFetchedBlock)(CDAResponse* response, CDASyncedSpace*
  */
 -(CDARequest*)fetchEntryWithIdentifier:(NSString*)identifier
                                success:(CDAEntryFetchedBlock)success
-                               failure:(CDARequestFailureBlock)failure;
+                               failure:(CDARequestFailureBlock __nullable)failure;
 
 /** @name Fetching Resources */
 
@@ -184,9 +188,9 @@ typedef void(^CDASyncedSpaceFetchedBlock)(CDAResponse* response, CDASyncedSpace*
  *  @return The request used for fetching data.
  */
 -(CDARequest*)fetchResourcesOfType:(CDAResourceType)resourceType
-                          matching:(NSDictionary*)query
+                          matching:(NSDictionary* __nullable)query
                            success:(CDAArrayFetchedBlock)success
-                           failure:(CDARequestFailureBlock)failure;
+                           failure:(CDARequestFailureBlock __nullable)failure;
 
 /** @name Fetching Spaces */
 
@@ -198,7 +202,7 @@ typedef void(^CDASyncedSpaceFetchedBlock)(CDAResponse* response, CDASyncedSpace*
  *  @return The request used for fetching data.
  */
 -(CDARequest*)fetchSpaceWithSuccess:(CDASpaceFetchedBlock)success
-                            failure:(CDARequestFailureBlock)failure;
+                            failure:(CDARequestFailureBlock __nullable)failure;
 
 /** @name Fetching Arrays */
 
@@ -214,7 +218,7 @@ typedef void(^CDASyncedSpaceFetchedBlock)(CDAResponse* response, CDASyncedSpace*
  */
 -(void)fetchAllItemsFromArray:(CDAArray*)array
                       success:(void (^)(NSArray* items))success
-                      failure:(CDARequestFailureBlock)failure;
+                      failure:(CDARequestFailureBlock __nullable)failure;
 
 /** @name Synchronization */
 
@@ -234,7 +238,7 @@ typedef void(^CDASyncedSpaceFetchedBlock)(CDAResponse* response, CDASyncedSpace*
  *  @return The request used for fetching data.
  */
 -(CDARequest*)initialSynchronizationWithSuccess:(CDASyncedSpaceFetchedBlock)success
-                                        failure:(CDARequestFailureBlock)failure;
+                                        failure:(CDARequestFailureBlock __nullable)failure;
 
 /**
  *  Perform the initial synchronization of a Space.
@@ -253,9 +257,9 @@ typedef void(^CDASyncedSpaceFetchedBlock)(CDAResponse* response, CDASyncedSpace*
  *
  *  @return The request used for fetching data.
  */
--(CDARequest*)initialSynchronizationMatching:(NSDictionary*)query
+-(CDARequest*)initialSynchronizationMatching:(NSDictionary* __nullable)query
                                      success:(CDASyncedSpaceFetchedBlock)success
-                                     failure:(CDARequestFailureBlock)failure;
+                                     failure:(CDARequestFailureBlock __nullable)failure;
 
 /** @name Register classes for custom value objects */
 
@@ -301,6 +305,8 @@ typedef void(^CDASyncedSpaceFetchedBlock)(CDAResponse* response, CDASyncedSpace*
  */
 -(void)resolveLinksFromArray:(NSArray*)array
                      success:(void (^)(NSArray* items))success
-                     failure:(CDARequestFailureBlock)failure;
+                     failure:(CDARequestFailureBlock __nullable)failure;
 
 @end
+
+NS_ASSUME_NONNULL_END

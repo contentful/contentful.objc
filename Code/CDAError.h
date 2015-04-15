@@ -6,7 +6,10 @@
 //
 //
 
+#import <ContentfulDeliveryAPI/CDANullabilityStubs.h>
 #import <ContentfulDeliveryAPI/CDAResource.h>
+
+NS_ASSUME_NONNULL_BEGIN
 
 extern NSString* const CDAErrorDomain;
 
@@ -26,3 +29,5 @@ extern NSString* const CDAErrorDomain;
 @property (nonatomic, readonly) NSString* message;
 
 @end
+
+NS_ASSUME_NONNULL_END

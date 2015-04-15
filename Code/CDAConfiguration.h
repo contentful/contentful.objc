@@ -8,6 +8,10 @@
 
 @import Foundation;
 
+#import <ContentfulDeliveryAPI/CDANullabilityStubs.h>
+
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  Class representing additional configuration options for a `CDAClient`.
  */
@@ -59,3 +63,5 @@
 @property (nonatomic) BOOL previewMode;
 
 @end
+
+NS_ASSUME_NONNULL_END

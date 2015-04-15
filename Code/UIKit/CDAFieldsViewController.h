@@ -10,6 +10,8 @@
 
 @class CDAEntry;
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  `CDAFieldsViewController` is designed to make it easy to display Field values of a single Entry in a
  simple way.
@@ -29,7 +31,7 @@
  *  @return An array of Field identifiers as strings. Any identifiers which do not match actual
  *      Fields on the Entry will be ignored.
  */
-@property (nonatomic, readonly) NSArray* visibleFields;
+@property (nonatomic, readonly) NSArray* __nullable visibleFields;
 
 /** @name Initializing the CDAEntriesViewController Object */
 
@@ -40,7 +42,7 @@
  *
  *  @return An initialized `CDAFieldsViewController` or `nil` if the object couldn't be created.
  */
--(id)initWithEntry:(CDAEntry*)entry;
+-(id __nullable)initWithEntry:(CDAEntry*)entry;
 
 /**
  *  Initializes a new instance with the given Entry.
@@ -82,3 +84,5 @@
 -(void)showError:(NSError*)error;
 
 @end
+
+NS_ASSUME_NONNULL_END
