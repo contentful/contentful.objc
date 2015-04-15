@@ -11,6 +11,8 @@
 #import <ContentfulDeliveryAPI/CDAPersistedEntry.h>
 #import <ContentfulDeliveryAPI/CDAPersistedSpace.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *  Subclasses of this class manage a persistent store.
  *
@@ -30,7 +32,7 @@
 *
 *  @return An initialized `CDAPersistenceManager` or `nil` if the object couldn't be created.
 */
--(id)initWithClient:(CDAClient*)client;
+-(id __nullable)initWithClient:(CDAClient*)client;
 
 /**
  *  Initializes a new `CDAPersistenceManager` object. Using this initializer will use queries for
@@ -41,7 +43,7 @@
  *
  *  @return An initialized `CDAPersistenceManager` or `nil` if the object couldn't be created.
  */
--(id)initWithClient:(CDAClient *)client query:(NSDictionary*)query;
+-(id __nullable)initWithClient:(CDAClient *)client query:(NSDictionary*)query;
 
 /** @name Performing Synchronizations */
 
@@ -171,7 +173,7 @@
  *
  *  @return The Asset with the given identifier or `nil` if it could not be found.
  */
--(id<CDAPersistedAsset>)fetchAssetWithIdentifier:(NSString*)identifier;
+-(id<CDAPersistedAsset> __nullable)fetchAssetWithIdentifier:(NSString*)identifier;
 
 /**
  *  Fetch all Entries from the store.
@@ -189,7 +191,7 @@
  *
  *  @return The Entry with the given identifier or `nil` if it could not be found.
  */
--(id<CDAPersistedEntry>)fetchEntryWithIdentifier:(NSString*)identifier;
+-(id<CDAPersistedEntry> __nullable)fetchEntryWithIdentifier:(NSString*)identifier;
 
 /**
  *  Fetch a Space from the persistent store.
@@ -198,7 +200,7 @@
  *
  *  @return The fetched Space or `nil` if none could be retrieved.
  */
--(id<CDAPersistedSpace>)fetchSpaceFromDataStore;
+-(id<CDAPersistedSpace> __nullable)fetchSpaceFromDataStore;
 
 /**
  *  Whether any data has changed since the last synchronization.
@@ -241,3 +243,5 @@
 +(void)seedFromBundleWithInitialCacheDirectory:(NSString*)initialCacheDirectory;
 
 @end
+
+NS_ASSUME_NONNULL_END

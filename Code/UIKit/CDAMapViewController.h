@@ -18,18 +18,18 @@
 @interface CDAMapViewController : UIViewController
 
 /** The underlying map view managed by this view controller. */
-@property (nonatomic, readonly) MKMapView* mapView;
+@property (nonatomic, readonly) MKMapView* __nonnull mapView;
 
 /** @name Configure Data to Display */
 
 /** Identifier for the Field which contains the coordinate for each `MKAnnotation`. */
-@property (nonatomic, copy) NSString* coordinateFieldIdentifier;
+@property (nonatomic, copy) NSString* __nullable coordinateFieldIdentifier;
 
 /** Identifier for the Field which contains the subtitle for each `MKAnnotation`. */
-@property (nonatomic, copy) NSString* subtitleFieldIdentifier;
+@property (nonatomic, copy) NSString* __nullable subtitleFieldIdentifier;
 
 /** Identifier for the Field which contains the title for each `MKAnnotation`. */
-@property (nonatomic, copy) NSString* titleFieldIdentifier;
+@property (nonatomic, copy) NSString* __nullable titleFieldIdentifier;
 
 /** @name Configure Data to Fetch */
 
@@ -40,16 +40,16 @@
  
  The client is not retained.
  */
-@property (nonatomic, weak) CDAClient* client;
+@property (nonatomic, weak) CDAClient* __nullable client;
 
 /** The items which are currently displayed in this view controller's table view. */
-@property (nonatomic, readonly) NSArray* items;
+@property (nonatomic, readonly) NSArray* __nullable items;
 
 /**
  The query parameters used for fetching Entries. By default, all Entries from the Space associated
  with the client will be fetched.
  */
-@property (nonatomic) NSDictionary* query;
+@property (nonatomic) NSDictionary* __nullable query;
 
 /**
  Activate the built-in support for caching Resources offline.

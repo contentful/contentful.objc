@@ -12,6 +12,7 @@
 #import <ContentfulDeliveryAPI/CDAContentType.h>
 #import <ContentfulDeliveryAPI/CDAEntry.h>
 
+#import "CDAUtilities.h"
 #import "CoreDataManager.h"
 
 @interface CoreDataManager ()

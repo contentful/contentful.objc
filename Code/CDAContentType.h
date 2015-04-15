@@ -6,9 +6,12 @@
 //
 //
 
+#import <ContentfulDeliveryAPI/CDANullabilityStubs.h>
 #import <ContentfulDeliveryAPI/CDAResource.h>
 
 @class CDAField;
+
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  Content Types are schemas describing the shape of Entries. They mainly consist of a list of fields 
@@ -29,15 +32,17 @@
  @param identifier The `sys.id` to look for in the list of fields.
  @return The specific field requested, or `nil` if none matches.
  */
--(CDAField*)fieldForIdentifier:(NSString*)identifier;
+-(CDAField* __nullable)fieldForIdentifier:(NSString*)identifier;
 
 /** @name Accessing Meta-Data */
 
 /** The identifier of the Field which should be displayed as a title for Entries */
-@property (nonatomic, readonly) NSString* displayField;
+@property (nonatomic, readonly) NSString* __nullable displayField;
 /** Name of the Content Type. */
 @property (nonatomic, readonly) NSString* name;
 /** Description of the Content Type. */
 @property (nonatomic, readonly) NSString* userDescription;
 
 @end
+
+NS_ASSUME_NONNULL_END

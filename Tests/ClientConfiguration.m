@@ -17,7 +17,9 @@
 @implementation ClientConfiguration
 
 -(void)testDefaultUserAgent {
-    CDARequest* request = [self.client fetchEntriesWithSuccess:nil failure:nil];
+    CDARequest* request = [self.client fetchEntriesWithSuccess:^(CDAResponse *response,
+                                                                 CDAArray *array) { }
+                                                       failure:nil];
     NSString* userAgent = request.request.allHTTPHeaderFields[@"User-Agent"];
 
     XCTAssertTrue([userAgent hasPrefix:@"contentful.objc"], @"");
@@ -30,7 +32,9 @@
                                           accessToken:@"test"
                                         configuration:configuration];
 
-    CDARequest* request = [self.client fetchEntriesWithSuccess:nil failure:nil];
+    CDARequest* request = [self.client fetchEntriesWithSuccess:^(CDAResponse *response,
+                                                                 CDAArray *array) { }
+                                                       failure:nil];
     NSString* userAgent = request.request.allHTTPHeaderFields[@"User-Agent"];
 
     XCTAssertTrue([userAgent hasPrefix:@"CustomUserAgent/foo"], @"");

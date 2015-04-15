@@ -377,7 +377,7 @@
 }
 
 - (void)testResourcesViewControllerDoesNotThrowWhenSelectingGarbage {
-    CDAResourcesViewController* resourcesVC = [[CDAResourcesViewController alloc] initWithCellMapping:nil items:@[ [self customEntryHelperWithFields:@{}] ]];
+    CDAResourcesViewController* resourcesVC = [[CDAResourcesViewController alloc] initWithCellMapping:@{} items:@[ [self customEntryHelperWithFields:@{}] ]];
     [resourcesVC didSelectRowWithResource:(CDAResource*)[NSDate date]];
 }
 
@@ -385,7 +385,7 @@
     CDAAsset* asset = [[CDAAsset alloc] initWithDictionary:@{ @"sys": @{ @"id": @"foo" },
                                                               @"contentType": @"image/png" }
                                                               client:self.client];
-    CDAResourcesViewController* resourcesVC = [[CDAResourcesViewController alloc] initWithCellMapping:nil items:@[ asset ]];
+    CDAResourcesViewController* resourcesVC = [[CDAResourcesViewController alloc] initWithCellMapping:@{} items:@[ asset ]];
     
     XCTAssertNotNil(resourcesVC.view, @"");
     [resourcesVC viewWillAppear:NO];

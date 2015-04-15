@@ -28,8 +28,8 @@
  *  @param entriesViewController    The sender of the delegate method.
  *  @param entry                    The Entry associated with the row the user selected.
  */
--(void)entriesViewController:(CDAEntriesViewController*)entriesViewController
-       didSelectRowWithEntry:(CDAEntry*)entry;
+-(void)entriesViewController:(CDAEntriesViewController* __nonnull)entriesViewController
+       didSelectRowWithEntry:(CDAEntry* __nonnull)entry;
 
 @end
 
@@ -49,6 +49,6 @@
  
  The delegate must adopt the `CDAEntriesViewControllerDelegate` protocol. The delegate is not retained.
  */
-@property (nonatomic, weak) id<CDAEntriesViewControllerDelegate> delegate;
+@property (nonatomic, weak) id<CDAEntriesViewControllerDelegate> __nullable delegate;
 
 @end

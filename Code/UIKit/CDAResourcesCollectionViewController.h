@@ -35,13 +35,13 @@
 *  @return An initialized `CDAResourcesCollectionViewController` or `nil` if the object
 *  couldn't be created.
 */
--(id)initWithCollectionViewLayout:(UICollectionViewLayout *)layout
-                      cellMapping:(NSDictionary*)cellMapping;
+-(id __nullable)initWithCollectionViewLayout:(UICollectionViewLayout * __nonnull)layout
+                      cellMapping:(NSDictionary* __nonnull)cellMapping;
 
 /** @name Access Displayed Data */
 
 /** The items which are currently displayed in this view controller's table view. */
-@property (nonatomic, readonly) NSArray* items;
+@property (nonatomic, readonly) NSArray* __nullable items;
 
 /** @name Configure Data to Fetch */
 
@@ -52,16 +52,16 @@
  
  The client is not retained.
  */
-@property (nonatomic, weak) CDAClient* client;
+@property (nonatomic, weak) CDAClient* __nullable client;
 
 /** Locale to use when querying Resources. */
-@property (nonatomic, copy) NSString* locale;
+@property (nonatomic, copy) NSString* __nullable locale;
 
 /**
  The query parameters used for fetching Resources. By default, all Resources from the Space associated
  with the client will be fetched.
  */
-@property (nonatomic) NSDictionary* query;
+@property (nonatomic) NSDictionary* __nullable query;
 
 /** The type of Resources which ought to be fetched. */
 @property (nonatomic) CDAResourceType resourceType;
@@ -90,7 +90,7 @@
  own `UICollectionViewCell` subclass, override this method in your subclass of 
  `CDAResourcesCollectionViewController`.
  */
-+(Class)cellClass;
++(Class __nonnull)cellClass;
 
 /**
  *  By default, errors related to requests made to the Contentful API will be displayed in a
@@ -99,6 +99,6 @@
  *
  *  @param error The error which occured.
  */
--(void)showError:(NSError*)error;
+-(void)showError:(NSError* __nonnull)error;
 
 @end

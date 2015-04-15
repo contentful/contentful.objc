@@ -35,7 +35,10 @@
     }
     
     if ([self.delegate respondsToSelector:@selector(entriesViewController:didSelectRowWithEntry:)]) {
-        [self.delegate entriesViewController:self didSelectRowWithEntry:self.items[indexPath.row]];
+        id entry = self.items[indexPath.row];
+        if (entry) {
+            [self.delegate entriesViewController:self didSelectRowWithEntry:entry];
+        }
     }
 }
 

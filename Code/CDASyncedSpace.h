@@ -12,6 +12,8 @@
 @class CDAEntry;
 @class CDASyncedSpace;
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  The delegate of a `CDASyncedSpace` object must adopt the `CDASyncedSpaceDelegate`
  protocol. The optional methods will inform the delegate about updates on the contents of the target
@@ -88,14 +90,14 @@
 /** @name Accessing Space Contents */
 
 /** All published Assets in the given Space. */
-@property (nonatomic, readonly) NSArray* assets;
+@property (nonatomic, readonly) NSArray* __nullable assets;
 /** All published Entries in the given Space. */
-@property (nonatomic, readonly) NSArray* entries;
+@property (nonatomic, readonly) NSArray* __nullable entries;
 
 /** @name Managing the Delegate */
 
 /** The object acts as a delegate on the receiving synchronized Space. */
-@property (nonatomic) id<CDASyncedSpaceDelegate> delegate;
+@property (nonatomic) id<CDASyncedSpaceDelegate> __nullable delegate;
 
 /** @name Perform Synchronizations */
 
@@ -109,7 +111,7 @@
  *  @param success A block which is called upon the successful synchronization of the Space.
  *  @param failure A block which is called if any errors occur during the synchronization process.
  */
--(void)performSynchronizationWithSuccess:(void (^)())success failure:(CDARequestFailureBlock)failure;
+-(void)performSynchronizationWithSuccess:(void (^)())success failure:(CDARequestFailureBlock __nullable)failure;
 
 /** @name Persisting Synchronized Spaces */
 
@@ -162,7 +164,7 @@
  *  only create and delete operations will be reported to the delegate of a shallow synchronized Space.
  *
  */
-@property (nonatomic) NSDate* lastSyncTimestamp;
+@property (nonatomic) NSDate* __nullable lastSyncTimestamp;
 
 /**
  Retrieve the synchronization token for the next synchronization operation.
@@ -175,3 +177,5 @@
 @property (nonatomic, readonly) NSString* syncToken;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -120,16 +120,23 @@
     if (self) {
         self.entry = entry;
 
-        switch ([entry.contentType fieldForIdentifier:entry.contentType.displayField].type) {
+        NSString* displayField = entry.contentType.displayField;
+        CDAFieldType titleType = CDAFieldTypeNone;
+
+        if (displayField) {
+            titleType = [entry.contentType fieldForIdentifier:displayField].type;
+        }
+
+        switch (titleType) {
             case CDAFieldTypeText:
             case CDAFieldTypeSymbol:
-                self.title = entry.fields[entry.contentType.displayField];
+                self.title = entry.fields[displayField];
                 break;
 
             case CDAFieldTypeInteger:
             case CDAFieldTypeBoolean:
             case CDAFieldTypeNumber:
-                self.title = [entry.fields[entry.contentType.displayField] stringValue];
+                self.title = [entry.fields[displayField] stringValue];
                 break;
 
             case CDAFieldTypeArray:

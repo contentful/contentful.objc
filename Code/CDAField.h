@@ -8,6 +8,8 @@
 
 @import Foundation;
 
+#import <ContentfulDeliveryAPI/CDANullabilityStubs.h>
+
 /**
  Possible field types.
  
@@ -42,6 +44,8 @@ typedef NS_ENUM(NSInteger, CDAFieldType) {
     CDAFieldTypeAsset,
 };
 
+NS_ASSUME_NONNULL_BEGIN
+
 /** A `CDAField` describes a single property of a `CDAEntry`. */
 @interface CDAField : NSObject <NSCoding, NSSecureCoding>
 
@@ -62,3 +66,5 @@ typedef NS_ENUM(NSInteger, CDAFieldType) {
 @property (nonatomic, readonly) CDAFieldType itemType;
 
 @end
+
+NS_ASSUME_NONNULL_END
