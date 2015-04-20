@@ -63,7 +63,7 @@ All Resource classes support `NSCoding` and bring convenience methods for storin
 CDAEntry* readEntry = [CDAEntry readFromFile:@"/some/path" client:client];
 ```
 
-The helper methods use [HRCoder][10] internally, to account for the possibility of circular links between Entries. Most of the UIKit extensions have an `offlineCaching` property which transparently uses this mechanism for showing content when offline.
+Most of the UIKit extensions have an `offlineCaching` property which transparently uses this mechanism for showing content when offline.
 
 If you rather use another solution, there is the abstract `CDAPersistenceManager` class with a [sample implementation](https://github.com/contentful/contentful.objc/blob/master/Code/CoreData/CoreDataManager.m) for Core Data. It supports mapping Resources to another method for managing your object graph easily and ties this to the Contentful synchronization API. Check out the Core Data example app for integrating it yourself.
 
@@ -109,13 +109,13 @@ This is the easiest way to keep your copy of the Contentful Delivery API updated
 
 In the case you prefer to manage your dependencies manually, you can just drag all files from the `Code` subdirectory into your project or integrate the `ContentfulDeliveryAPI` static library target into your build process. It might be a good idea to add this repository as a [Git submodule][5] if you choose this path.
 
-Be aware that the Contentful Delivery API requires both [AFNetworking][3], [HRCoder][10] and [ISO8601DateFormatter][4] to compile successfully, so you need to provide these dependencies if you do manual integration.
+Be aware that the Contentful Delivery API requires both [AFNetworking][3] and [ISO8601DateFormatter][4] to compile successfully, so you need to provide these dependencies if you do manual integration.
 
 ### Static Framework
 
 You can [download][8] the Contentful Delivery API as an universal static framework for iOS. Integrate it into your project by unzipping and dragging the `ContentfulDeliveryAPI.framework` into the `Frameworks` group of your project. You can also [download][9] the UFO example application including the static framework, as an example of integrating it into an Xcode project.
 
-The static framework contains [AFNetworking][3], [HRCoder][10] and [ISO8601DateFormatter][4], so beware of linker errors if you already have those libraries in your project. If this is the case, you should use another method of installation.
+The static framework contains [AFNetworking][3] and [ISO8601DateFormatter][4], so beware of linker errors if you already have those libraries in your project. If this is the case, you should use another method of installation.
 
 It depends on the `SystemConfiguration.framework` not included by default in iOS projects, so open your project file on the `General` tab.
 
@@ -157,5 +157,4 @@ Copyright (c) 2015 Contentful GmbH. See LICENSE for further details.
 [7]: http://cocoadocs.org/docsets/ContentfulDeliveryAPI/1.7.1/
 [8]: http://static.contentful.com/downloads/iOS/ContentfulDeliveryAPI-1.7.1.zip
 [9]: http://static.contentful.com/downloads/iOS/UFO.zip
-[10]: https://github.com/nicklockwood/HRCoder
 [11]: https://www.contentful.com/blog/2014/04/04/Contentful-iOS-SDK/
