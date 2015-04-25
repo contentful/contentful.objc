@@ -105,6 +105,14 @@ pod 'ContentfulDeliveryAPI'
 
 This is the easiest way to keep your copy of the Contentful Delivery API updated.
 
+For simple Swift support using iOS 8, you can simply enable framework support usage in CocoaPods.
+
+```ruby
+platform :ios, '8.0'
+use_frameworks!
+pod 'ContentfulDeliveryAPI'
+```
+
 ### Manual integration
 
 In the case you prefer to manage your dependencies manually, you can just drag all files from the `Code` subdirectory into your project or integrate the `ContentfulDeliveryAPI` static library target into your build process. It might be a good idea to add this repository as a [Git submodule][5] if you choose this path.
