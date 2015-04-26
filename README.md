@@ -105,7 +105,7 @@ pod 'ContentfulDeliveryAPI'
 
 This is the easiest way to keep your copy of the Contentful Delivery API updated.
 
-For simple Swift support using iOS 8, you can simply enable framework support usage in CocoaPods.
+For Swift support using iOS 8, you can enable framework support usage in [CocoaPods][2]:
 
 ```ruby
 platform :ios, '8.0'
