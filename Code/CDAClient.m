@@ -179,10 +179,12 @@ NSString* const CMAContentTypeHeader = @"application/vnd.contentful.management.v
                                      failure:(CDARequestFailureBlock)failure {
     CDAContentType* contentType = [self.contentTypeRegistry contentTypeForIdentifier:identifier];
 
-    if (contentType && contentType.fetched) {
-        if (success) {
-            success(nil, contentType);
-        }
+    if (contentType && contentType.fetched && !self.configuration.usesManagementAPI) {
+        dispatch_async(self.requestOperationManager.completionQueue, ^{
+            if (success) {
+                success(nil, contentType);
+            }
+        });
         return nil;
     }
 
