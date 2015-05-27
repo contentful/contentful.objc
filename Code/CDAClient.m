@@ -180,7 +180,7 @@ NSString* const CMAContentTypeHeader = @"application/vnd.contentful.management.v
     CDAContentType* contentType = [self.contentTypeRegistry contentTypeForIdentifier:identifier];
 
     if (contentType && contentType.fetched && !self.configuration.usesManagementAPI) {
-        dispatch_async(self.requestOperationManager.completionQueue, ^{
+        dispatch_async(self.requestOperationManager.completionQueue ?: dispatch_get_main_queue(), ^{
             if (success) {
                 success(nil, contentType);
             }
