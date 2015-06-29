@@ -82,7 +82,7 @@ CDAClient* client = [[CDAClient alloc] initWithSpaceKey:@"YourSpaceKey"
                                           configuration:configuration];
 ```
 
-Apart from the configuration option, you can use the SDK without modifications with one exception: you need to obtain a preview access token, which you can get in the "API" tab of the Contentful app. In preview mode, data can be invalid, because no validation is performed on unpublished entries. Your app needs to deal with that. Be aware that the access token is read-write and should in no case be shipped with a production app.
+Apart from the configuration option, you can use the SDK without modifications with one exception: you need to obtain a preview access token, which you can get in the "API" tab of the Contentful app. In preview mode, data can be invalid, because no validation is performed on unpublished entries. Your app needs to deal with that. Be aware that the access token should in no case be shipped with a production app.
 
 ### UIKit Extensions
 
@@ -123,7 +123,7 @@ Be aware that the Contentful Delivery API requires both [AFNetworking][3] and [I
 
 You can [download][8] the Contentful Delivery API as an universal static framework for iOS. Integrate it into your project by unzipping and dragging the `ContentfulDeliveryAPI.framework` into the `Frameworks` group of your project. You can also [download][9] the UFO example application including the static framework, as an example of integrating it into an Xcode project.
 
-The static framework contains [AFNetworking][3] and [ISO8601DateFormatter][4], so beware of linker errors if you already have those libraries in your project. If this is the case, you should use another method of installation.
+The static framework contains [AFNetworking][3] and [ISO8601DateFormatter][4], but they are prefixed so that they do not clash with any copies that might already be part of your application.
 
 It depends on the `SystemConfiguration.framework` not included by default in iOS projects, so open your project file on the `General` tab.
 
@@ -152,8 +152,7 @@ or run them directly from Xcode.
 
 ## License
 
-Copyright (c) 2015 Contentful GmbH. See LICENSE for further details.
-
+Copyright (c) 2014, 2015 Contentful GmbH. See LICENSE for further details.
 
 
 [1]: https://www.contentful.com
