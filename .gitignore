@@ -17,6 +17,8 @@ compile_commands.json
 
 ## Xcode
 
+*.gcda
+*.gcno
 *.xccheckout
 xcuserdata
 .idea
