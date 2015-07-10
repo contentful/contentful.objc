@@ -16,6 +16,8 @@
 
 @implementation StagingTests
 
+// FIXME: Source space has been deleted, test data needs to be recreated
+#if 0
 - (void)setUp
 {
     [super setUp];
@@ -57,5 +59,6 @@
     
     WaitUntilBlockCompletes();
 }
+#endif
 
 @end

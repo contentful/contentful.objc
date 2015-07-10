@@ -299,6 +299,8 @@
     WaitUntilBlockCompletes();
 }
 
+// FIXME: Source space has been deleted, test data needs to be recreated
+#if 0
 - (void)testSearchLimitZero {
     StartBlock();
     
@@ -322,6 +324,7 @@
     
     WaitUntilBlockCompletes();
 }
+#endif
 
 - (void)testSearchSkip {
     StartBlock();
