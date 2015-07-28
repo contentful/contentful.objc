@@ -7,6 +7,7 @@
 //
 
 #import "CDAResponse+Private.h"
+#import "CDAUtilities.h"
 
 @implementation CDAResponse
 
@@ -17,7 +18,10 @@
 #pragma mark -
 
 -(id)initWithHTTPURLResponse:(NSHTTPURLResponse*)response {
-    self = [super initWithURL:response.URL
+    NSURL* responseURL = response.URL;
+    NSParameterAssert(responseURL);
+
+    self = [super initWithURL:responseURL
                    statusCode:response.statusCode
                   HTTPVersion:@"HTTP/1.1"
                  headerFields:response.allHeaderFields];

@@ -54,7 +54,11 @@
     CDAResource* item = nil;
     
     if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
-        item = [NSKeyedUnarchiver unarchiveObjectWithData:[NSData dataWithContentsOfFile:filePath]];
+        NSData* data = [NSData dataWithContentsOfFile:filePath];
+
+        if (data) {
+            item = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        }
     }
     
     item.client = client;
@@ -158,7 +162,14 @@
 }
 
 -(BOOL)isEqualToResource:(CDAResource*)resource {
-    return [self.sys[@"type"] isEqualToString:resource.sys[@"type"]] && [self.identifier isEqualToString:resource.identifier];
+    NSString* resourceType = resource.sys[@"type"];
+    NSString* resourceIdentifier = resource.identifier;
+
+    if (!resourceIdentifier || !resourceType) {
+        return false;
+    }
+
+    return [self.sys[@"type"] isEqualToString:resourceType] && [self.identifier isEqualToString:resourceIdentifier];
 }
 
 -(BOOL)isLink {

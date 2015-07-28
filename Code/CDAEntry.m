@@ -75,7 +75,8 @@
 }
 
 -(NSDictionary *)fields {
-    return self.localizedFields[self.locale];
+    NSDictionary* localizedFields = self.localizedFields[self.locale];
+    return localizedFields ?: @{};
 }
 
 -(NSArray*)findUnresolvedResourceOfClass:(Class)class {

@@ -156,9 +156,10 @@ NSString* const CMAContentTypeHeader = @"application/vnd.contentful.management.v
                                  }
                                  
                                  if (success) {
-                                     NSAssert(array.items.count == 1,
+                                     CDAAsset* asset = [array.items firstObject];
+                                     NSAssert(array.items.count == 1 && asset,
                                               @"Should have only one item.");
-                                     success(response, [array.items firstObject]);
+                                     success(response, asset);
                                  }
                              } failure:failure];
 }
@@ -199,9 +200,10 @@ NSString* const CMAContentTypeHeader = @"application/vnd.contentful.management.v
                                  }
                                  
                                  if (success) {
-                                     NSAssert(array.items.count == 1,
+                                     CDAContentType* contentType = [array.items firstObject];
+                                     NSAssert(array.items.count == 1 && contentType,
                                               @"Should have only one item.");
-                                     success(response, [array.items firstObject]);
+                                     success(response, contentType);
                                  }
                              } failure:failure];
 }
@@ -235,10 +237,11 @@ NSString* const CMAContentTypeHeader = @"application/vnd.contentful.management.v
                                       
                                       return;
                                   }
-                                  
-                                  NSAssert(array.items.count == 1, @"Should only have one entry.");
+
+                                  CDAEntry* entry = [array.items firstObject];
+                                  NSAssert(array.items.count == 1 && entry, @"Should only have one entry.");
                                   if (success) {
-                                      success(response, [array.items firstObject]);
+                                      success(response, entry);
                                   }
                               } failure:failure];
 }

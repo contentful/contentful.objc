@@ -33,8 +33,11 @@
     UIWebView* webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
     webView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:webView];
-    
-    [webView loadData:self.data MIMEType:self.MIMEType textEncodingName:nil baseURL:nil];
+
+    NSURL* baseURL = [NSURL URLWithString:@"/"];
+    if (baseURL) {
+        [webView loadData:self.data MIMEType:self.MIMEType textEncodingName:@"" baseURL:baseURL];
+    }
     
     self.data = nil;
     self.MIMEType = nil;

@@ -70,7 +70,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return Class to be used for Entries of that Content Type.
  */
--(Class)classForEntriesOfContentTypeWithIdentifier:(NSString*)identifier;
+-(Class __nullable)classForEntriesOfContentTypeWithIdentifier:(NSString*)identifier;
 
 /** List of identifiers of all Content Types for which a class was defined. */
 @property (nonatomic, readonly) NSArray* identifiersOfHandledContentTypes;
@@ -130,7 +130,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param identifier Identifier of the Content Type of the new Entry.
  *  @return A new persisted Entry.
  */
--(id<CDAPersistedEntry>)createPersistedEntryForContentTypeWithIdentifier:(NSString*)identifier;
+-(id<CDAPersistedEntry> __nullable)createPersistedEntryForContentTypeWithIdentifier:(NSString*)identifier;
 
 /**
  *  Override this method in subclasses if Space instances cannot be created with +new.

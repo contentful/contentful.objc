@@ -95,7 +95,12 @@ const CGFloat CDARadiusNone             = 0.0;
         return;
     }
 
-    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:self.URL]
+    if (!self.URL) {
+        return;
+    }
+
+    NSURL* url = self.URL;
+    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:url]
                                        queue:[NSOperationQueue mainQueue]
                            completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
                                if (!data) {
@@ -119,7 +124,8 @@ const CGFloat CDARadiusNone             = 0.0;
 }
 
 -(NSDictionary *)fields {
-    return self.localizedFields[self.locale];
+    NSDictionary* localizedFields = self.localizedFields[self.locale];
+    return localizedFields ?: @{};
 }
 
 -(NSURL *)imageURLWithSize:(CGSize)size {
@@ -241,11 +247,14 @@ const CGFloat CDARadiusNone             = 0.0;
         if (fields) {
             // Ensure there is a zero size in any case
             if (!fields[@"file"][@"details"][@"size"]) {
+                NSDictionary* file = fields[@"file"] ?: @{};
+                NSDictionary* details = file[@"details"] ?: @{};
+
                 NSMutableDictionary* mutableFields = [fields mutableCopy];
                 NSMutableDictionary* mutableFile = [[NSMutableDictionary alloc]
-                                                    initWithDictionary:fields[@"file"]];
+                                                    initWithDictionary:file];
                 NSMutableDictionary* mutableDetails = [[NSMutableDictionary alloc]
-                                                       initWithDictionary:fields[@"file"][@"details"]];
+                                                       initWithDictionary:details];
                 
                 mutableDetails[@"size"] = @0;
                 mutableFile[@"details"] = [mutableDetails copy];

@@ -200,10 +200,13 @@
 
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     [self.view endEditing:YES];
-    
-    NSMutableDictionary* query = [[NSMutableDictionary alloc] initWithDictionary:self.query];
-    query[@"query"] = searchBar.text;
-    [self performQuery:query];
+
+    if (self.query) {
+        NSDictionary* myQuery = self.query;
+        NSMutableDictionary* query = [[NSMutableDictionary alloc] initWithDictionary:myQuery];
+        query[@"query"] = searchBar.text;
+        [self performQuery:query];
+    }
 }
 
 -(void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {

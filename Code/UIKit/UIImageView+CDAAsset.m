@@ -141,9 +141,11 @@ static NSCache* cache = nil;
 }
 
 -(void)cda_handleCachingForAsset:(CDAAsset*)asset {
-    if (self.offlineCaching_cda) {
+    if (self.offlineCaching_cda && self.image) {
+        UIImage* image = self.image;
+
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            [UIImagePNGRepresentation(self.image) writeToFile:CDACacheFileNameForResource(asset)
+            [UIImagePNGRepresentation(image) writeToFile:CDACacheFileNameForResource(asset)
                                                    atomically:YES];
         });
     }

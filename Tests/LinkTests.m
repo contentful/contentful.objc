@@ -79,7 +79,7 @@
 }
 
 -(void)testResolveContentTypeLink {
-    CDAContentType* contentType = [[CDAContentType alloc] initWithDictionary:@{ @"sys": @{ @"id": @"cat", @"type": @"Link" } } client:self.client];
+    CDAContentType* contentType = [[CDAContentType alloc] initWithDictionary:@{ @"sys": @{ @"id": @"cat", @"type": @"Link" }, @"name": @"ct" } client:self.client];
     XCTAssertFalse(contentType.fetched, @"");
     XCTAssertEqual(0U, contentType.fields.count, @"");
     

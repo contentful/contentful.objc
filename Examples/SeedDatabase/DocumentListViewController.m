@@ -48,8 +48,12 @@
     _dataSource.cellConfigurator = ^(UITableViewCell* cell, NSIndexPath* indexPath) {
         Document* doc = [welf.dataSource objectAtIndexPath:indexPath];
         cell.detailTextLabel.text = doc.abstract;
-        cell.imageView.image = [UIImage imageWithData:[CDAAsset cachedDataForPersistedAsset:doc.thumbnail client:[CoreDataManager sharedManager].client]];
         cell.textLabel.text = doc.title;
+
+        NSData* data = [CDAAsset cachedDataForPersistedAsset:doc.thumbnail client:[CoreDataManager sharedManager].client];
+        if (data) {
+            cell.imageView.image = [UIImage imageWithData:data];
+        }
     };
     
     return _dataSource;

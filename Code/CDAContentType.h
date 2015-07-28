@@ -41,7 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Name of the Content Type. */
 @property (nonatomic, readonly) NSString* name;
 /** Description of the Content Type. */
-@property (nonatomic, readonly) NSString* userDescription;
+@property (nonatomic, readonly) NSString* __nullable userDescription;
 
 @end
 

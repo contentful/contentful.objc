@@ -88,11 +88,13 @@
         }
         
         if (self.subtitleFieldIdentifier) {
-            annotation.subtitle = entry.fields[self.subtitleFieldIdentifier];
+            NSString* subtitleFieldIdentifier = self.subtitleFieldIdentifier;
+            annotation.subtitle = entry.fields[subtitleFieldIdentifier];
         }
         
         if (self.titleFieldIdentifier) {
-            annotation.title = entry.fields[self.titleFieldIdentifier];
+            NSString* titleFieldIdentifier = self.titleFieldIdentifier;
+            annotation.title = entry.fields[titleFieldIdentifier];
         }
         
         [self.mapView addAnnotation:annotation];

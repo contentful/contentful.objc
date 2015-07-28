@@ -29,7 +29,9 @@
 @implementation CDAResourcesViewController
 
 +(Class)cellClass {
-    return NSClassFromString(@"CDAResourceTableViewCell");
+    Class cellClass = NSClassFromString(@"CDAResourceTableViewCell");
+    NSParameterAssert(cellClass);
+    return cellClass;
 }
 
 #pragma mark -
@@ -48,7 +50,8 @@
     
     if ([resource isKindOfClass:[CDAContentType class]]) {
         CDAContentType* contentType = (CDAContentType*)resource;
-        NSDictionary* cellMapping = contentType.displayField ? @{ @"textLabel.text": [@"fields." stringByAppendingString:contentType.displayField] } : nil;
+        NSString* displayField = contentType.displayField;
+        NSDictionary* cellMapping = displayField ? @{ @"textLabel.text": [@"fields." stringByAppendingString:displayField] } : nil;
         
         CDAEntriesViewController* entriesVC = [[CDAEntriesViewController alloc] initWithCellMapping:cellMapping];
         entriesVC.client = self.client;
@@ -194,10 +197,13 @@
     }
     
     [self.view endEditing:YES];
-    
-    NSMutableDictionary* query = [[NSMutableDictionary alloc] initWithDictionary:self.query];
-    query[@"query"] = searchBar.text;
-    [self performQuery:query];
+
+    if (self.query) {
+        NSDictionary* myQuery = self.query;
+        NSMutableDictionary* query = [[NSMutableDictionary alloc] initWithDictionary:myQuery];
+        query[@"query"] = searchBar.text;
+        [self performQuery:query];
+    }
 }
 
 -(void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {

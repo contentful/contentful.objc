@@ -33,8 +33,12 @@
                 [self.mapView addAnnotation:item];
             }
         }
-        
-        [self.mapView selectAnnotation:[self.mapView.annotations firstObject] animated:YES];
+
+        id<MKAnnotation> annotation = [self.mapView.annotations firstObject];
+
+        if (annotation) {
+            [self.mapView selectAnnotation:annotation animated:YES];
+        }
     }
 }
 
@@ -57,13 +61,22 @@
 }
 
 -(void)nextTapped {
-    NSUInteger currentIndex = [self.mapView.annotations indexOfObject:[[self.mapView selectedAnnotations] firstObject]];
+    id<MKAnnotation> annotation = [[self.mapView selectedAnnotations] firstObject];
+    if (!annotation) {
+        return;
+    }
+
+    NSUInteger currentIndex = [self.mapView.annotations indexOfObject:annotation];
     currentIndex++;
     
     if (currentIndex < self.mapView.annotations.count) {
         [self.mapView selectAnnotation:self.mapView.annotations[currentIndex] animated:YES];
     } else {
-        [self.mapView selectAnnotation:[self.mapView.annotations firstObject] animated:YES];
+        id<MKAnnotation> annotation = [self.mapView.annotations firstObject];
+
+        if (annotation) {
+            [self.mapView selectAnnotation:annotation animated:YES];
+        }
     }
 }
 
@@ -87,8 +100,11 @@
                     [self.mapView addAnnotation:item];
                 }
             }
-            
-            [self.mapView selectAnnotation:[self.mapView.annotations firstObject] animated:YES];
+
+            id<MKAnnotation> annotation = [self.mapView.annotations firstObject];
+            if (annotation) {
+                [self.mapView selectAnnotation:annotation animated:YES];
+            }
         }];
         
         return;
@@ -162,8 +178,13 @@
     }
     
     [self.view addSubview:self.textView];
+
+    id<MKAnnotation> annotation = view.annotation;
+    if (!annotation) {
+        return;
+    }
     
-    NSInteger index = [self.mapView.annotations indexOfObject:view.annotation] + 1;
+    NSInteger index = [self.mapView.annotations indexOfObject:annotation] + 1;
     self.title = [NSString stringWithFormat:@"%ld of %lu sightings", (long)index, (unsigned long)self.mapView.annotations.count];
 }
 
@@ -181,8 +202,9 @@
         if (!item.title) {
             continue;
         }
-        
-        if ([self.currentRegex matchesInString:item.title options:0 range:NSMakeRange(0, item.title.length)].count > 0 || [self.currentRegex matchesInString:item.sightingDescription options:0 range:NSMakeRange(0, item.sightingDescription.length)].count > 0) {
+
+        NSString* title = item.title;
+        if ([self.currentRegex matchesInString:title options:0 range:NSMakeRange(0, item.title.length)].count > 0 || [self.currentRegex matchesInString:item.sightingDescription options:0 range:NSMakeRange(0, item.sightingDescription.length)].count > 0) {
             if ([self.mapView.annotations indexOfObject:item] == NSNotFound) {
                 [self.mapView addAnnotation:item];
             }
@@ -197,8 +219,13 @@
         self.title = NSLocalizedString(@"UFO Sightings", nil);
         return;
     }
+
+    id<MKAnnotation> annotation = [self.mapView.annotations firstObject];
+    if (!annotation) {
+        return;
+    }
     
-    [self.mapView selectAnnotation:[self.mapView.annotations firstObject] animated:YES];
+    [self.mapView selectAnnotation:annotation animated:YES];
 }
 
 @end

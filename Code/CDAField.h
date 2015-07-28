@@ -54,7 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Unique ID of the field. */
 @property (nonatomic, readonly) NSString* identifier;
 /** Name of the field. */
-@property (nonatomic, readonly) NSString* name;
+@property (nonatomic, readonly) NSString* __nullable name;
 /** Type of the field. */
 @property (nonatomic, readonly) CDAFieldType type;
 /** Whether the field was disabled. */

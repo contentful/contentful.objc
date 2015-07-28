@@ -91,7 +91,10 @@ extern void __gcov_flush();
                  statusCode:(NSInteger)statusCode
                     headers:(NSDictionary*)headers
                     matcher:(CCLURLRequestMatcher)matcher {
-    CCLRequestRecording* recording = [[CCLRequestRecording alloc] initWithRequest:nil response:[[NSHTTPURLResponse alloc] initWithURL:nil statusCode:statusCode HTTPVersion:@"1.1" headerFields:headers] data:data];
+    NSURL* baseURL = [NSURL URLWithString:@"/"];
+    NSParameterAssert(baseURL);
+
+    CCLRequestRecording* recording = [[CCLRequestRecording alloc] initWithRequest:nil response:[[NSHTTPURLResponse alloc] initWithURL:baseURL statusCode:statusCode HTTPVersion:@"1.1" headerFields:headers] data:data];
     recording.matcher = matcher;
     [self.requestReplayManager addRecording:recording];
 }

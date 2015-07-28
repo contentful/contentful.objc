@@ -142,7 +142,13 @@
         NSParameterAssert(client);
         self.client = client;
         
-        self.identifier = dictionary[@"id"];
+        if (dictionary[@"id"]) {
+            NSString* identifier = dictionary[@"id"];
+            self.identifier = identifier;
+        } else {
+            [NSException raise:NSInvalidArgumentException format:@"Fields need an identifier"];
+        }
+
         self.name = dictionary[@"name"];
         
         NSString* itemType = dictionary[@"items"][@"linkType"] ?: dictionary[@"linkType"];

@@ -322,7 +322,12 @@
 }
 
 -(id<CDAPersistedEntry>)persistedEntryForEntry:(CDAEntry*)entry {
-    id<CDAPersistedEntry> persistedEntry = [self createPersistedEntryForContentTypeWithIdentifier:entry.contentType.identifier];
+    NSString* identifier = entry.contentType.identifier;
+    if (!identifier) {
+        return nil;
+    }
+
+    id<CDAPersistedEntry> persistedEntry = [self createPersistedEntryForContentTypeWithIdentifier:identifier];
     if (!persistedEntry) {
         return nil;
     }
@@ -393,8 +398,13 @@
 -(void)updatePersistedEntry:(id<CDAPersistedEntry>)persistedEntry withEntry:(CDAEntry*)entry {
     NSAssert([persistedEntry conformsToProtocol:@protocol(CDAPersistedEntry)],
              @"%@ does not conform to CDAPersistedEntry protocol.", persistedEntry);
+
+    NSString* identifier = entry.contentType.identifier;
+    if (!identifier) {
+        return;
+    }
     
-    NSDictionary* mappingForEntries = [self mappingForEntriesOfContentTypeWithIdentifier:entry.contentType.identifier];
+    NSDictionary* mappingForEntries = [self mappingForEntriesOfContentTypeWithIdentifier:identifier];
     [entry mapFieldsToObject:persistedEntry usingMapping:mappingForEntries];
     persistedEntry.identifier = entry.identifier;
 }
@@ -438,12 +448,17 @@
 }
 
 -(void)syncedSpace:(CDASyncedSpace *)space didUpdateEntry:(CDAEntry *)entry {
+    NSString* identifier = entry.contentType.identifier;
+    if (!identifier) {
+        return;
+    }
+
     self.hasChanged = YES;
 
     id<CDAPersistedEntry> persistedEntry = [self fetchEntryWithIdentifier:entry.identifier];
     
     if (!persistedEntry) {
-        persistedEntry = [self createPersistedEntryForContentTypeWithIdentifier:entry.contentType.identifier];
+        persistedEntry = [self createPersistedEntryForContentTypeWithIdentifier:identifier];
     }
     
     [self updatePersistedEntry:persistedEntry withEntry:entry];

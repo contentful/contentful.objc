@@ -38,7 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** @name Accessing Content Types */
 
 /** The Entry's Content Type. */
-@property (nonatomic, readonly) CDAContentType* contentType;
+@property (nonatomic, readonly) CDAContentType* __nullable contentType;
 
 /** @name Accessing Localized Content */
 

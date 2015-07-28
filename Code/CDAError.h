@@ -21,12 +21,12 @@ extern NSString* const CDAErrorDomain;
 /**
  *  Detailed representation of the error.
  */
-@property (nonatomic, readonly) NSDictionary* details;
+@property (nonatomic, readonly, nullable) NSDictionary* details;
 
 /**
  *  Short message on the cause of the error.
  */
-@property (nonatomic, readonly) NSString* message;
+@property (nonatomic, readonly, nullable) NSString* message;
 
 @end
 

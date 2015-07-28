@@ -191,7 +191,8 @@
     if ([resource isKindOfClass:[CDAEntry class]]) {
         CDAEntry* entry = (CDAEntry*)resource;
         if (entry.contentType.displayField) {
-            cellMapping = @{ @"textLabel.text": [@"fields." stringByAppendingString:entry.contentType.displayField] };
+            NSString* displayField = entry.contentType.displayField;
+            cellMapping = @{ @"textLabel.text": [@"fields." stringByAppendingString:displayField] };
         }
     }
     

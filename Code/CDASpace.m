@@ -33,8 +33,9 @@
         self.name = dictionary[@"name"];
         
         for (NSDictionary* locale in self.locales) {
-            if ([locale[@"default"] boolValue]) {
-                self.defaultLocale = locale[@"code"];
+            if ([locale[@"default"] boolValue] && locale[@"code"]) {
+                NSString* code = locale[@"code"];
+                self.defaultLocale = code;
             }
         }
     }
