@@ -66,8 +66,10 @@ extern void __gcov_flush();
 {
     [VCR save:[NSString stringWithFormat:@"/tmp/%@.json", self.cassetteBaseName]];
     [VCR stop];
-    
+
+#ifndef __IPHONE_9_0
     __gcov_flush();
+#endif
 }
 
 - (void)addRecordingWithJSONNamed:(NSString*)JSONName
