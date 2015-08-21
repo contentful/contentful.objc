@@ -100,4 +100,11 @@
     XCTAssert(CDAIsNoNetworkError(someError), @"");
 }
 
+-(void)testURLParameterParsing {
+    NSURL* url = [NSURL URLWithString:@"https://cdn.contentful.com/spaces/cfexampleapi/entries?locale=%2A&sys.id=nyancat"];
+    NSString* value = CDAValueForQueryParameter(url, @"locale");
+
+    XCTAssertEqualObjects(value, @"*");
+}
+
 @end

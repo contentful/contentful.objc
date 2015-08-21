@@ -195,7 +195,7 @@ NSString* CDAValueForQueryParameter(NSURL* url, NSString* queryParameter) {
         NSArray* query = [parameters componentsSeparatedByString:@"="];
 
         if ([[query firstObject] isEqualToString:queryParameter]) {
-            return [query lastObject];
+            return [[query lastObject] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         }
     }
 
