@@ -17,6 +17,7 @@
 #import "CDAOrganizationContainer.h"
 #import "CDAResource+Private.h"
 #import "CDAResponseSerializer.h"
+#import "CDAUtilities.h"
 
 @interface CDAResponseSerializer ()
 
@@ -130,7 +131,7 @@
         return nil;
     }
     
-    self.client.synchronizing = JSONObject[@"nextPageUrl"] || JSONObject[@"nextSyncUrl"];
+    self.client.synchronizing = JSONObject[@"nextPageUrl"] || JSONObject[@"nextSyncUrl"] || [CDAValueForQueryParameter(response.URL, @"locale") isEqualToString:@"*"];
     
     NSMutableDictionary* assets = [@{} mutableCopy];
     for (NSDictionary* possibleAsset in JSONObject[@"includes"][@"Asset"]) {

@@ -100,6 +100,7 @@
 		A193EB6518D20FA90017B777 /* UIImageView+CDAAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = A193EB6318D20FA90017B777 /* UIImageView+CDAAsset.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A193EB6618D20FA90017B777 /* UIImageView+CDAAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = A193EB6418D20FA90017B777 /* UIImageView+CDAAsset.m */; };
 		A193EB6818D21B260017B777 /* UIKitAdditionsTests in Resources */ = {isa = PBXBuildFile; fileRef = A193EB6718D21B260017B777 /* UIKitAdditionsTests */; };
+		A19CA3EA1B84EFF800A0EFCD /* LocaleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A19CA3E91B84EFF800A0EFCD /* LocaleTests.m */; };
 		A19FD86B18C631E60081677E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD86A18C631E60081677E /* Foundation.framework */; };
 		A19FD87018C631E60081677E /* CDAClient.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = A19FD86F18C631E60081677E /* CDAClient.h */; };
 		A19FD87218C631E60081677E /* CDAClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A19FD87118C631E60081677E /* CDAClient.m */; };
@@ -379,6 +380,7 @@
 		A193EB6318D20FA90017B777 /* UIImageView+CDAAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+CDAAsset.h"; sourceTree = "<group>"; };
 		A193EB6418D20FA90017B777 /* UIImageView+CDAAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+CDAAsset.m"; sourceTree = "<group>"; };
 		A193EB6718D21B260017B777 /* UIKitAdditionsTests */ = {isa = PBXFileReference; lastKnownFileType = folder; name = UIKitAdditionsTests; path = Data/UIKitAdditionsTests; sourceTree = "<group>"; };
+		A19CA3E91B84EFF800A0EFCD /* LocaleTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocaleTests.m; sourceTree = "<group>"; };
 		A19FD86718C631E60081677E /* libContentfulDeliveryAPI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libContentfulDeliveryAPI.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A19FD86A18C631E60081677E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A19FD86F18C631E60081677E /* CDAClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDAClient.h; sourceTree = "<group>"; };
@@ -971,6 +973,7 @@
 				A1E9797718CBEDFC00E79632 /* ErrorTests.m */,
 				A1E832D718E0A1640092F926 /* LinkTests.json */,
 				A1C8DCD218E098E80019A519 /* LinkTests.m */,
+				A19CA3E91B84EFF800A0EFCD /* LocaleTests.m */,
 				A144FAFD18C9F8CA00110B35 /* SearchAPITests.json */,
 				A1A0314E18C756B7006470B7 /* SearchAPITests.m */,
 				A193EB5418D1C88A0017B777 /* ValueObjectsTests.json */,
@@ -1847,6 +1850,7 @@
 				A1CEC1A71A35ED58007B4565 /* RealmManager.m in Sources */,
 				A1CEC1AB1A35EE9D007B4565 /* RealmQuerySyncTests.m in Sources */,
 				A1E9797818CBEDFC00E79632 /* ErrorTests.m in Sources */,
+				A19CA3EA1B84EFF800A0EFCD /* LocaleTests.m in Sources */,
 				A170131018FD4B9A0086BE07 /* Asset.m in Sources */,
 				A1CEC1B71A360D2C007B4565 /* ManagedRealmCat.m in Sources */,
 				A1D2DC0718D0811F0053DC83 /* ArrayTests.m in Sources */,
