@@ -45,6 +45,7 @@
         @try {
             item = [NSKeyedUnarchiver unarchiveObjectWithData:data];
         } @catch (id ue) {
+            (void) ue;
             return nil;
         }
         item.client = client;
