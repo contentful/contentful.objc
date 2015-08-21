@@ -338,15 +338,7 @@
 }
 
 -(NSString*)syncTokenFromURL:(NSURL*)url {
-    for (NSString* parameters in [url.query componentsSeparatedByString:@"&"]) {
-        NSArray* query = [parameters componentsSeparatedByString:@"="];
-        
-        if ([[query firstObject] isEqualToString:@"sync_token"]) {
-            return [query lastObject];
-        }
-    }
-    
-    return nil;
+    return CDAValueForQueryParameter(url, @"sync_token");
 }
 
 -(void)updateLastSyncTimestamp {

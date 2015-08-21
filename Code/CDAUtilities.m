@@ -189,3 +189,15 @@ NSString* CDASquashCharactersFromSetInString(NSCharacterSet* characterSet, NSStr
     
     return [components componentsJoinedByString:@""];
 }
+
+NSString* CDAValueForQueryParameter(NSURL* url, NSString* queryParameter) {
+    for (NSString* parameters in [url.query componentsSeparatedByString:@"&"]) {
+        NSArray* query = [parameters componentsSeparatedByString:@"="];
+
+        if ([[query firstObject] isEqualToString:queryParameter]) {
+            return [query lastObject];
+        }
+    }
+
+    return nil;
+}
