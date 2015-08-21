@@ -29,16 +29,28 @@
 
 @implementation CDASyncedSpace
 
-+(instancetype)readFromFile:(NSString*)filePath client:(CDAClient*)client {
-    CDASyncedSpace* item = nil;
-    
-    if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
-        NSData *data = [NSData dataWithContentsOfFile:filePath];
-        item = [NSKeyedUnarchiver unarchiveObjectWithData:data];
++(nullable instancetype)readFromFile:(NSString*)filePath client:(CDAClient*)client {
+    if (filePath == nil) {
+        return nil;
     }
-    
-    item.client = client;
-    return item;
+    return [self readFromFileURL:[NSURL fileURLWithPath:filePath] client:client];
+}
++(nullable instancetype)readFromFileURL:(NSURL*)fileURL client:(CDAClient*)client {
+    if (fileURL == nil || !fileURL.isFileURL) {
+        return nil;
+    }
+    CDASyncedSpace* item = nil;
+    NSData *data = [NSData dataWithContentsOfURL:fileURL options:NSDataReadingMappedIfSafe error:nil];
+    if (data != nil) {
+        @try {
+            item = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        } @catch (id ue) {
+            return nil;
+        }
+        item.client = client;
+        return item;
+    }
+    return nil;
 }
 
 +(instancetype)shallowSyncSpaceWithToken:(NSString *)syncToken client:(CDAClient *)client {

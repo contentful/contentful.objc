@@ -123,7 +123,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return A new Resource initialized with values from a previously serialized synchronized Space.
  */
-+(instancetype)readFromFile:(NSString*)filePath client:(CDAClient*)client;
++(nullable instancetype)readFromFile:(NSString*)filePath client:(CDAClient*)client;
+/**
+ *  Read a previously serialized synchronized Space from file.
+ *
+ *  @param fileURL  The file URL to the file with a serialized synchronized Space.
+ *  @param client   The client to use for upcoming requests.
+ *
+ *  @return A new Resource initialized with values from a previously serialized synchronized Space.
+ */
++(nullable instancetype)readFromFileURL:(NSURL*)fileURL client:(CDAClient*)client;
 
 /**
  *  Serialize a synchronized Space to a file.
