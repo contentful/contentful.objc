@@ -35,6 +35,7 @@
     }
     return [self readFromFileURL:[NSURL fileURLWithPath:filePath] client:client];
 }
+
 +(nullable instancetype)readFromFileURL:(NSURL*)fileURL client:(CDAClient*)client {
     if (fileURL == nil || !fileURL.isFileURL) {
         return nil;
