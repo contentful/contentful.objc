@@ -50,19 +50,15 @@
     return NO;
 }
 
-+(instancetype)readFromFile:(NSString*)filePath client:(CDAClient*)client {
-    CDAResource* item = nil;
-    
-    if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
-        NSData* data = [NSData dataWithContentsOfFile:filePath];
-
-        if (data) {
-            item = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-        }
++(nullable instancetype)readFromFile:(NSString*)filePath client:(CDAClient*)client {
+    if (filePath == nil) {
+        return nil;
     }
-    
-    item.client = client;
-    return item;
+    return [self readFromFileURL:[NSURL fileURLWithPath:filePath] client:client];
+}
+
++(nullable instancetype)readFromFileURL:(NSURL*)fileURL client:(CDAClient*)client {
+    return CDAReadItemFromFileURL(fileURL, client);
 }
 
 +(instancetype)resourceObjectForDictionary:(NSDictionary *)dictionary client:(CDAClient*)client {

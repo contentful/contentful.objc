@@ -45,6 +45,16 @@
 +(instancetype)readFromFile:(NSString*)filePath client:(CDAClient*)client;
 
 /**
+ *  Read a previously serialized Resource from file.
+ *
+ *  @param fileURL  The file URL to the file with a serialized Resource.
+ *  @param client   The client to use for upcoming requests.
+ *
+ *  @return A new Resource initialized with values from a previously serialized Resource.
+ */
++(instancetype)readFromFileURL:(NSURL*)fileURL client:(CDAClient*)client;
+
+/**
  *  Serialize a Resource to a file.
  *
  *  This can be used for offline caching of Resources.
