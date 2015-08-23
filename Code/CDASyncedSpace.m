@@ -37,22 +37,7 @@
 }
 
 +(nullable instancetype)readFromFileURL:(NSURL*)fileURL client:(CDAClient*)client {
-    if (fileURL == nil || !fileURL.isFileURL) {
-        return nil;
-    }
-    CDASyncedSpace* item = nil;
-    NSData *data = [NSData dataWithContentsOfURL:fileURL options:NSDataReadingMappedIfSafe error:nil];
-    if (data != nil) {
-        @try {
-            item = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-        } @catch (id ue) {
-            (void) ue;
-            return nil;
-        }
-        item.client = client;
-        return item;
-    }
-    return nil;
+    return CDAReadItemFromFileURL(fileURL, client);
 }
 
 +(instancetype)shallowSyncSpaceWithToken:(NSString *)syncToken client:(CDAClient *)client {

@@ -176,6 +176,28 @@ void CDAPropertyVisitor(Class class, void(^visitor)(objc_property_t property, NS
     CDAPropertyVisitor([class superclass], visitor);
 }
 
+id CDAReadItemFromFileURL(NSURL* fileURL, CDAClient* client) {
+    if (fileURL == nil || !fileURL.isFileURL) {
+        return nil;
+    }
+
+    id item = nil;
+    NSData *data = [NSData dataWithContentsOfURL:fileURL options:NSDataReadingMappedIfSafe error:nil];
+    if (data != nil) {
+        @try {
+            item = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        } @catch (id ue) {
+            (void) ue;
+            return nil;
+        }
+
+        [item setClient:client];
+        return item;
+    }
+
+    return nil;
+}
+
 NSString* CDASquashWhitespacesInString(NSString* string) {
     return CDASquashCharactersFromSetInString([NSCharacterSet whitespaceAndNewlineCharacterSet], string);
 }
