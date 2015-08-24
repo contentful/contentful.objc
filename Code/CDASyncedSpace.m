@@ -301,27 +301,10 @@
     for (CDAAsset* asset in assets) {
         assetsMap[asset.identifier] = asset;
     }
-    
-    if (unresolvedEntryIds.count == 0) {
-        [self resolveLinksInEntries:entries withIncludedAssets:assetsMap entries:@{}];
-        
-        success();
-    } else {
-        [self.client fetchEntriesMatching:@{ @"sys.id[in]": unresolvedEntryIds,
-                                             @"limit": @(unresolvedEntryIds.count) }
-                                  success:^(CDAResponse *response, CDAArray *array) {
-                                      NSMutableDictionary* entriesMap = [@{} mutableCopy];
-                                      for (CDAEntry* entry in array.items) {
-                                          entriesMap[entry.identifier] = entry;
-                                      }
-                                      
-                                      [self resolveLinksInEntries:entries
-                                               withIncludedAssets:assetsMap
-                                                          entries:entriesMap];
-                                      
-                                      success();
-                                  } failure:failure];
-    }
+
+    [self resolveLinksInEntries:entries withIncludedAssets:assetsMap entries:@{}];
+
+    success();
 }
 
 -(void)resolveLinksInEntries:(NSArray*)entriesWithLinks
