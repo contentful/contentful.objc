@@ -6,6 +6,8 @@
 //
 //
 
+#import <ContentfulDeliveryAPI/CDANullabilityStubs.h>
+
 @import Foundation;
 
 @class CDAClient;
