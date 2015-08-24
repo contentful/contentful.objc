@@ -20,6 +20,8 @@
 #import "CDAResource+Private.h"
 #import "CDASyncedSpace+Private.h"
 
+static NSString* const CDAAllowPreviewModeInProductionKey = @"CDAAllowPreviewModeInProduction";
+
 NSString* const CDAContentTypeHeader = @"application/vnd.contentful.delivery.v1+json";
 NSString* const CMAContentTypeHeader = @"application/vnd.contentful.management.v1+json";
 
@@ -393,7 +395,9 @@ NSString* const CMAContentTypeHeader = @"application/vnd.contentful.management.v
         self.resourceClassPrefix = @"CDA";
 
 #ifndef DEBUG
-        if (self.configuration.previewMode) {
+        BOOL allowPreviewMode = [[NSUserDefaults standardUserDefaults] boolForKey:CDAAllowPreviewModeInProductionKey];
+
+        if (self.configuration.previewMode && !allowPreviewMode) {
             [[NSException exceptionWithName:NSInternalInconsistencyException
                                      reason:@"You are using the preview-mode in a release-build"
                                    userInfo:@{}] raise];
