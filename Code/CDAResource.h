@@ -11,6 +11,8 @@
 @class CDAClient;
 @class CDAResponse;
 
+NS_ASSUME_NONNULL_BEGIN
+
 /** Base class of all remotely available entities. */
 @interface CDAResource : NSObject <NSCoding, NSSecureCoding>
 
@@ -42,7 +44,7 @@
  *
  *  @return A new Resource initialized with values from a previously serialized Resource.
  */
-+(instancetype)readFromFile:(NSString*)filePath client:(CDAClient*)client;
++(nullable instancetype)readFromFile:(NSString*)filePath client:(CDAClient*)client;
 
 /**
  *  Read a previously serialized Resource from file.
@@ -52,7 +54,7 @@
  *
  *  @return A new Resource initialized with values from a previously serialized Resource.
  */
-+(instancetype)readFromFileURL:(NSURL*)fileURL client:(CDAClient*)client;
++(nullable instancetype)readFromFileURL:(NSURL*)fileURL client:(CDAClient*)client;
 
 /**
  *  Serialize a Resource to a file.
@@ -84,3 +86,5 @@
                   failure:(void (^)(CDAResponse* response, NSError* error))failure;
 
 @end
+
+NS_ASSUME_NONNULL_END

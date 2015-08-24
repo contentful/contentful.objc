@@ -167,8 +167,8 @@
                                                                                   @"type": @"Link" } }
                                                              client:self.client];
     
-    XCTAssertThrowsSpecificNamed([resource resolveWithSuccess:nil failure:nil], NSException,
-                                 NSInternalInconsistencyException, @"");
+    XCTAssertThrowsSpecificNamed([resource resolveWithSuccess:^(CDAResponse* a, CDAResource* b) {
+    } failure:^(CDAResponse* a, NSError* b) {}], NSException, NSInternalInconsistencyException, @"");
 }
 
 @end

@@ -126,9 +126,12 @@
                                   [self handleCaching];
                               }
                               failure:^(CDAResponse *response, NSError *error) {
-                                  if (CDAIsNoNetworkError(error)) {
+                                  CDAClient* client = self.client;
+                                  NSParameterAssert(client);
+
+                                  if (CDAIsNoNetworkError(error) && client) {
                                       self.entries = [CDAArray readFromFile:self.cacheFileName
-                                                                     client:self.client];
+                                                                     client:client];
                                       
                                       [self refresh];
                                       return;
