@@ -256,7 +256,7 @@
 
 - (void)testNulledContentForAssets
 {
-    NSDictionary* assetDictionary = @{ @"sys": @{ @"identifier": [NSNull null], @"type": @"Asset" },
+    NSDictionary* assetDictionary = @{ @"sys": @{ @"id": @"my_id", @"type": @"Asset" },
                                        @"fields": @{ @"file": @{ @"url": [NSNull null],
                                                                  @"details": @{ @"size": [NSNull null] } },
                                                      @"title": [NSNull null],
@@ -267,7 +267,7 @@
     CDAAsset* brokenAsset = [[CDAAsset alloc] initWithDictionary:assetDictionary
                                                           client:[CDAClient new]];
     
-    XCTAssertNil(brokenAsset.identifier, @"");
+    XCTAssertEqualObjects(@"my_id", brokenAsset.identifier, @"");
     XCTAssertNil(brokenAsset.fields[@"description"], @"");
     XCTAssertNil(brokenAsset.fields[@"title"], @"");
     XCTAssertNil(brokenAsset.URL, @"");
@@ -284,7 +284,7 @@
                                      @"fields.someLink.URL": @"url",
                                      }];
     
-    XCTAssertNil(target.identifier, @"");
+    XCTAssertEqualObjects(@"my_id", target.identifier, @"");
     XCTAssertNil(target.myDescription, @"");
     XCTAssertNil(target.title, @"");
     XCTAssertNil(target.url, @"");

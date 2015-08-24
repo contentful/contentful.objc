@@ -125,7 +125,9 @@
 }
 
 -(NSString *)identifier {
-    return self.sys[@"id"];
+    NSString* identifier = self.sys[@"id"];
+    NSParameterAssert(identifier);
+    return identifier;
 }
 
 -(id)initWithCoder:(NSCoder *)aDecoder {
