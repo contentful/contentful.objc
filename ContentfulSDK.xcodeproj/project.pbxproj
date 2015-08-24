@@ -222,6 +222,9 @@
 		A1E9797818CBEDFC00E79632 /* ErrorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E9797718CBEDFC00E79632 /* ErrorTests.m */; };
 		A1E9797B18CC683200E79632 /* CDAFieldValueTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = A1E9797918CC683200E79632 /* CDAFieldValueTransformer.h */; };
 		A1E9797C18CC683200E79632 /* CDAFieldValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E9797A18CC683200E79632 /* CDAFieldValueTransformer.m */; };
+		A1F5DE731B8B10DD00F0B554 /* LocaleTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A1F5DE721B8B10DD00F0B554 /* LocaleTests.json */; };
+		A1F5DE761B8B110200F0B554 /* RealmBasicTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A1F5DE741B8B110200F0B554 /* RealmBasicTests.json */; };
+		A1F5DE771B8B110200F0B554 /* RealmQuerySyncTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A1F5DE751B8B110200F0B554 /* RealmQuerySyncTests.json */; };
 		A1F70C9B18FFDE030080C72C /* CoreDataBasicTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A1F70C9A18FFDE030080C72C /* CoreDataBasicTests.json */; };
 		A1F70C9D1900140D0080C72C /* CDAAsset+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A1F70C9C19000FD90080C72C /* CDAAsset+Private.h */; };
 		A1FAC312190654E30093B308 /* DeepIncludes.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FAC311190654E30093B308 /* DeepIncludes.m */; };
@@ -527,6 +530,9 @@
 		A1E9797918CC683200E79632 /* CDAFieldValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAFieldValueTransformer.h; sourceTree = "<group>"; };
 		A1E9797A18CC683200E79632 /* CDAFieldValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAFieldValueTransformer.m; sourceTree = "<group>"; };
 		A1F265931987990F00365AEF /* CDAOrganizationContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDAOrganizationContainer.h; sourceTree = "<group>"; };
+		A1F5DE721B8B10DD00F0B554 /* LocaleTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LocaleTests.json; path = Data/Recordings/LocaleTests.json; sourceTree = "<group>"; };
+		A1F5DE741B8B110200F0B554 /* RealmBasicTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = RealmBasicTests.json; path = Data/Recordings/RealmBasicTests.json; sourceTree = "<group>"; };
+		A1F5DE751B8B110200F0B554 /* RealmQuerySyncTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = RealmQuerySyncTests.json; path = Data/Recordings/RealmQuerySyncTests.json; sourceTree = "<group>"; };
 		A1F70C9A18FFDE030080C72C /* CoreDataBasicTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = CoreDataBasicTests.json; path = Data/Recordings/CoreDataBasicTests.json; sourceTree = "<group>"; };
 		A1F70C9C19000FD90080C72C /* CDAAsset+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CDAAsset+Private.h"; sourceTree = "<group>"; };
 		A1FAC311190654E30093B308 /* DeepIncludes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeepIncludes.m; sourceTree = "<group>"; };
@@ -973,6 +979,7 @@
 				A1E9797718CBEDFC00E79632 /* ErrorTests.m */,
 				A1E832D718E0A1640092F926 /* LinkTests.json */,
 				A1C8DCD218E098E80019A519 /* LinkTests.m */,
+				A1F5DE721B8B10DD00F0B554 /* LocaleTests.json */,
 				A19CA3E91B84EFF800A0EFCD /* LocaleTests.m */,
 				A144FAFD18C9F8CA00110B35 /* SearchAPITests.json */,
 				A1A0314E18C756B7006470B7 /* SearchAPITests.m */,
@@ -1064,7 +1071,9 @@
 				A1CEC1B61A360D2C007B4565 /* ManagedRealmCat.m */,
 				A1CEC1B21A360A20007B4565 /* RealmAsset.h */,
 				A1CEC1B31A360A20007B4565 /* RealmAsset.m */,
+				A1F5DE741B8B110200F0B554 /* RealmBasicTests.json */,
 				A1CEC1A81A35EE9D007B4565 /* RealmBasicTests.m */,
+				A1F5DE751B8B110200F0B554 /* RealmQuerySyncTests.json */,
 				A1CEC1A91A35EE9D007B4565 /* RealmQuerySyncTests.m */,
 				A1CEC1A51A35ED58007B4565 /* RealmManager.h */,
 				A1CEC1A61A35ED58007B4565 /* RealmManager.m */,
@@ -1439,9 +1448,11 @@
 			files = (
 				A12797A618E1A45700043A44 /* SyncTests in Resources */,
 				A193EB5718D1C88A0017B777 /* ValueObjectsTests.json in Resources */,
+				A1F5DE731B8B10DD00F0B554 /* LocaleTests.json in Resources */,
 				A171BD5219EC6E98008D7F0D /* SyncSpecificContentTests.json in Resources */,
 				A144FB0018C9F8D200110B35 /* DocumentationTests.json in Resources */,
 				A193EB5518D1C88A0017B777 /* ArrayTests.json in Resources */,
+				A1F5DE771B8B110200F0B554 /* RealmQuerySyncTests.json in Resources */,
 				A1B815BB18F56BFD0027B26D /* ComplexSyncTests in Resources */,
 				A144FAFE18C9F8CA00110B35 /* SearchAPITests.json in Resources */,
 				A173F54618D386CD000E6F92 /* ErrorTests.json in Resources */,
@@ -1450,6 +1461,7 @@
 				A1A1CCBB190E962300BE37EB /* DeepIncludes.json in Resources */,
 				A1A1CCBE190E96FC00BE37EB /* UtilityTests.json in Resources */,
 				A171BD5119EC6E8B008D7F0D /* ClientConfiguration.json in Resources */,
+				A1F5DE761B8B110200F0B554 /* RealmBasicTests.json in Resources */,
 				A170131618FD5DE20086BE07 /* PreviewModeSyncTests.json in Resources */,
 				A193EB6818D21B260017B777 /* UIKitAdditionsTests in Resources */,
 				A18AA85C18E4952C00D430D5 /* AssetTests.json in Resources */,
