@@ -191,7 +191,7 @@ id CDAReadItemFromFileURL(NSURL* fileURL, CDAClient* client) {
             return nil;
         }
 
-        [item setClient:client];
+        [(CDAResource*)item setClient:client];
         return item;
     }
 
