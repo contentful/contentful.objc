@@ -25,6 +25,6 @@ Pod::Spec.new do |s|
 
   s.osx.deployment_target     = '10.8'
 
-  s.dependency 'AFNetworking', '>= 2.5.3'
+  s.dependency 'AFNetworking', '~> 2.5.3'
   s.dependency 'ISO8601DateFormatter'
 end
