@@ -204,6 +204,7 @@
 		A1D4BDF31A4B735D008816F3 /* CDAError.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A0315318C76839006470B7 /* CDAError.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1DE35D8197D384700DE0904 /* CDARequestSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = A1DE35D6197D384700DE0904 /* CDARequestSerializer.h */; };
 		A1DE35D9197D384700DE0904 /* CDARequestSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A1DE35D7197D384700DE0904 /* CDARequestSerializer.m */; };
+		A1E1045D1BA1E02300C18173 /* CDATargetConditionals.h in Headers */ = {isa = PBXBuildFile; fileRef = A1E1045C1BA1DF3A00C18173 /* CDATargetConditionals.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1E3CFF218C864A400E4F488 /* ContentfulDeliveryAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = A19FD8D918C63DF00081677E /* ContentfulDeliveryAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1E3D04718C8791200E4F488 /* CDAArray.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A0313318C6449F006470B7 /* CDAArray.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1E3D04818C8794000E4F488 /* CDAClient.h in Headers */ = {isa = PBXBuildFile; fileRef = A19FD86F18C631E60081677E /* CDAClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -520,6 +521,7 @@
 		A1D2DC0618D0811F0053DC83 /* ArrayTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayTests.m; sourceTree = "<group>"; };
 		A1DE35D6197D384700DE0904 /* CDARequestSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDARequestSerializer.h; sourceTree = "<group>"; };
 		A1DE35D7197D384700DE0904 /* CDARequestSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDARequestSerializer.m; sourceTree = "<group>"; };
+		A1E1045C1BA1DF3A00C18173 /* CDATargetConditionals.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDATargetConditionals.h; sourceTree = "<group>"; };
 		A1E3D05818C87D3B00E4F488 /* CDARequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDARequestOperationManager.h; sourceTree = "<group>"; };
 		A1E3D05918C87D3B00E4F488 /* CDARequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDARequestOperationManager.m; sourceTree = "<group>"; };
 		A1E43F0218CE1CF80060A89A /* CDAArray+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDAArray+Private.h"; sourceTree = "<group>"; };
@@ -715,6 +717,7 @@
 				A18AA85F18E5D63B00D430D5 /* CDAFallbackDictionary.h */,
 				A18AA86018E5D63B00D430D5 /* CDAFallbackDictionary.m */,
 				A17CC3D61ADE5F2700C7AA57 /* CDANullabilityStubs.h */,
+				A1E1045C1BA1DF3A00C18173 /* CDATargetConditionals.h */,
 				A1A0313D18C66667006470B7 /* CDAUtilities.h */,
 				A1A0313E18C66667006470B7 /* CDAUtilities.m */,
 			);
@@ -1210,6 +1213,7 @@
 				A193EB4318D0AC0C0017B777 /* CDAFieldsViewController.h in Headers */,
 				A1E9797618CBE93A00E79632 /* CDAResource+Private.h in Headers */,
 				A193EB6518D20FA90017B777 /* UIImageView+CDAAsset.h in Headers */,
+				A1E1045D1BA1E02300C18173 /* CDATargetConditionals.h in Headers */,
 				A1E3D04718C8791200E4F488 /* CDAArray.h in Headers */,
 				A1DE35D8197D384700DE0904 /* CDARequestSerializer.h in Headers */,
 				A1F70C9D1900140D0080C72C /* CDAAsset+Private.h in Headers */,
