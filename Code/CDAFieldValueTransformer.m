@@ -6,7 +6,7 @@
 //
 //
 
-@import MapKit;
+@import CoreLocation;
 
 #import <ISO8601DateFormatter/ISO8601DateFormatter.h>
 

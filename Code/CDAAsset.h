@@ -6,6 +6,8 @@
 //
 //
 
+@import CoreGraphics;
+
 #import <ContentfulDeliveryAPI/CDANullabilityStubs.h>
 
 #import "CDAEntry.h"

@@ -6,7 +6,7 @@
 //
 //
 
-@import MapKit;
+@import CoreLocation;
 
 #import <ContentfulDeliveryAPI/CDANullabilityStubs.h>
 #import <ContentfulDeliveryAPI/CDAResource.h>
