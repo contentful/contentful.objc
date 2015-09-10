@@ -6,6 +6,7 @@
 //
 //
 
+@import MapKit;
 @import UIKit;
 
 #import <ContentfulDeliveryAPI/CDAClient.h>
