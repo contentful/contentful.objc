@@ -21,8 +21,9 @@
 #import <ContentfulDeliveryAPI/CDAResponse.h>
 #import <ContentfulDeliveryAPI/CDASpace.h>
 #import <ContentfulDeliveryAPI/CDASyncedSpace.h>
+#import <ContentfulDeliveryAPI/CDATargetConditionals.h>
 
-#if TARGET_OS_IPHONE
+#if TARGET_OS_IPHONE && !TARGET_OS_TV
 #import <ContentfulDeliveryAPI/CDAEntriesViewController.h>
 #import <ContentfulDeliveryAPI/CDAFieldsViewController.h>
 #import <ContentfulDeliveryAPI/CDAMapViewController.h>

@@ -8,7 +8,7 @@
 
 #import <ContentfulDeliveryAPI/CDATargetConditionals.h>
 
-#if TARGET_OS_IPHONE
+#if TARGET_OS_IPHONE && !TARGET_OS_TV
 #import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 #endif
 
@@ -180,7 +180,7 @@
         [self.dateFormatter setLocale:posixLocale];
         [self.dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
         
-#if TARGET_OS_IPHONE
+#if TARGET_OS_IPHONE && !TARGET_OS_TV
         [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
 #endif
     }
