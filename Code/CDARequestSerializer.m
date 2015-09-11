@@ -18,7 +18,7 @@
     if (self) {
         [self setValue:[@"Bearer " stringByAppendingString:accessToken] forHTTPHeaderField:@"Authorization"];
 
-        self.userAgent = @"contentful.objc/1.8.0";
+        self.userAgent = @"contentful.objc/1.8.1";
     }
     return self;
 }
