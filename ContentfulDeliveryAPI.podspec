@@ -21,10 +21,14 @@ Pod::Spec.new do |s|
   s.ios.deployment_target     = '7.0'
   s.ios.source_files          = 'Code/UIKit/*.{h,m}'
   s.ios.frameworks            = 'UIKit', 'MapKit'
-  s.ios.public_header_files  = 'Code/UIKit/{CDAEntriesViewController,CDAFieldsViewController,UIImageView+CDAAsset,CDAMapViewController,CDAResourcesCollectionViewController,CDAResourcesViewController,CDAResourceCell}.h'
+  s.ios.public_header_files   = 'Code/UIKit/{CDAEntriesViewController,CDAFieldsViewController,UIImageView+CDAAsset,CDAMapViewController,CDAResourcesCollectionViewController,CDAResourcesViewController,CDAResourceCell}.h'
 
   s.osx.deployment_target     = '10.9'
+
   s.tvos.deployment_target    = '9.0'
+  s.tvos.source_files         = 'Code/UIKit/UIImageView*.{h,m}'
+  s.tvos.frameworks           = 'UIKit'
+  s.tvos.public_header_files  = 'Code/UIKit/UIImageView+CDAAsset.h'
 
   s.dependency 'AFNetworking', '~> 2.6.0'
   s.dependency 'ISO8601DateFormatter'
