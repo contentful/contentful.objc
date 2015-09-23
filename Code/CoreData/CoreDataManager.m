@@ -211,6 +211,9 @@ NSString* EntityNameFromClass(Class class) {
 {
     NSFetchRequest *request = [self fetchRequestForEntititiesOfClass:class
                                                    matchingPredicate:predicateString];
+    if (!request) {
+        return nil;
+    }
     return [self.managedObjectContext executeFetchRequest:request error:error];
 }
 
@@ -259,6 +262,9 @@ NSString* EntityNameFromClass(Class class) {
     NSFetchRequest *request = [NSFetchRequest new];
 
     NSEntityDescription *entityDescription = [self entityDescriptionForClass:class];
+    if (!entityDescription) {
+        return nil;
+    }
     [request setEntity:entityDescription];
     
     if (predicateString) {
