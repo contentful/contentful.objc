@@ -14,6 +14,7 @@
 		A10A11FE19090F5D00EFF083 /* CatDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A10A11FD19090F5D00EFF083 /* CatDetailViewController.m */; };
 		A12085771BB2707300A6504B /* CDALocalizablePersistedEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = A12085751BB2707300A6504B /* CDALocalizablePersistedEntry.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A12085781BB2707300A6504B /* CDALocalizablePersistedEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = A12085761BB2707300A6504B /* CDALocalizablePersistedEntry.m */; };
+		A120857B1BB2712300A6504B /* ManagedCatLocalized.m in Sources */ = {isa = PBXBuildFile; fileRef = A120857A1BB2712300A6504B /* ManagedCatLocalized.m */; };
 		A12797A618E1A45700043A44 /* SyncTests in Resources */ = {isa = PBXBuildFile; fileRef = A12797A518E1A45700043A44 /* SyncTests */; };
 		A12797AB18E1B08F00043A44 /* SyncTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A12797AA18E1B08F00043A44 /* SyncTests.m */; };
 		A12797AE18E1B10300043A44 /* CDASyncedSpace.h in Headers */ = {isa = PBXBuildFile; fileRef = A12797AC18E1B10300043A44 /* CDASyncedSpace.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -72,6 +73,9 @@
 		A173F60318DB3E1E000E6F92 /* PreviewModeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A173F60218DB3E1E000E6F92 /* PreviewModeTests.m */; };
 		A173F60518DB412C000E6F92 /* PreviewModeTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A173F60418DB412C000E6F92 /* PreviewModeTests.json */; };
 		A18919971BB1E4ED0094256E /* CDALocalizedPersistedEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = A18919961BB1E4EA0094256E /* CDALocalizedPersistedEntry.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A189199B1BB1E7870094256E /* LocalizedModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A18919991BB1E7870094256E /* LocalizedModel.xcdatamodeld */; };
+		A189199E1BB1E8FA0094256E /* LocalizedCat.m in Sources */ = {isa = PBXBuildFile; fileRef = A189199D1BB1E8FA0094256E /* LocalizedCat.m */; };
+		A18919A01BB1EA200094256E /* CoreDataMultipleLocalesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A189199F1BB1EA200094256E /* CoreDataMultipleLocalesTests.m */; };
 		A18AA81318E2D98200D430D5 /* CDADeletedEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = A18AA81118E2D98200D430D5 /* CDADeletedEntry.h */; };
 		A18AA81418E2D98200D430D5 /* CDADeletedEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = A18AA81218E2D98200D430D5 /* CDADeletedEntry.m */; };
 		A18AA81718E2E2CF00D430D5 /* CDADeletedAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = A18AA81518E2E2CF00D430D5 /* CDADeletedAsset.h */; };
@@ -290,6 +294,8 @@
 		A10A11FD19090F5D00EFF083 /* CatDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatDetailViewController.m; sourceTree = "<group>"; };
 		A12085751BB2707300A6504B /* CDALocalizablePersistedEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDALocalizablePersistedEntry.h; sourceTree = "<group>"; };
 		A12085761BB2707300A6504B /* CDALocalizablePersistedEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDALocalizablePersistedEntry.m; sourceTree = "<group>"; };
+		A12085791BB2712300A6504B /* ManagedCatLocalized.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagedCatLocalized.h; sourceTree = "<group>"; };
+		A120857A1BB2712300A6504B /* ManagedCatLocalized.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagedCatLocalized.m; sourceTree = "<group>"; };
 		A12797A518E1A45700043A44 /* SyncTests */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SyncTests; path = Data/SyncTests; sourceTree = "<group>"; };
 		A12797AA18E1B08F00043A44 /* SyncTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncTests.m; sourceTree = "<group>"; };
 		A12797AC18E1B10300043A44 /* CDASyncedSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDASyncedSpace.h; sourceTree = "<group>"; };
@@ -354,6 +360,10 @@
 		A173F60418DB412C000E6F92 /* PreviewModeTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = PreviewModeTests.json; path = Data/Recordings/PreviewModeTests.json; sourceTree = "<group>"; };
 		A17CC3D61ADE5F2700C7AA57 /* CDANullabilityStubs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDANullabilityStubs.h; sourceTree = "<group>"; };
 		A18919961BB1E4EA0094256E /* CDALocalizedPersistedEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDALocalizedPersistedEntry.h; sourceTree = "<group>"; };
+		A189199A1BB1E7870094256E /* LocalizedModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocalizedModel.xcdatamodel; sourceTree = "<group>"; };
+		A189199C1BB1E8FA0094256E /* LocalizedCat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalizedCat.h; sourceTree = "<group>"; };
+		A189199D1BB1E8FA0094256E /* LocalizedCat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalizedCat.m; sourceTree = "<group>"; };
+		A189199F1BB1EA200094256E /* CoreDataMultipleLocalesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataMultipleLocalesTests.m; sourceTree = "<group>"; };
 		A18AA81018E1D14F00D430D5 /* CDASyncedSpace+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDASyncedSpace+Private.h"; sourceTree = "<group>"; };
 		A18AA81118E2D98200D430D5 /* CDADeletedEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDADeletedEntry.h; sourceTree = "<group>"; };
 		A18AA81218E2D98200D430D5 /* CDADeletedEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDADeletedEntry.m; sourceTree = "<group>"; };
@@ -673,11 +683,13 @@
 		A170130918FD30880086BE07 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				A18919981BB1E7090094256E /* Localization */,
 				A1A1CCBF190FAE5B00BE37EB /* QuerySync */,
 				A1F70C9A18FFDE030080C72C /* CoreDataBasicTests.json */,
 				A170130A18FD30A50086BE07 /* CoreDataBasicTests.m */,
 				A171BD4A19EC6E1B008D7F0D /* CoreDataIssues.json */,
 				A1AE68B419B74F1C00D2C35F /* CoreDataIssues.m */,
+				A189199F1BB1EA200094256E /* CoreDataMultipleLocalesTests.m */,
 				A171BD4C19EC6E2C008D7F0D /* CoreDataMultipleContentTypesTests.json */,
 				A1AB59091974069E00098F87 /* CoreDataMultipleContentTypesTests.m */,
 				A1A1CCB8190E960800BE37EB /* CoreDataQuerySyncTests.json */,
@@ -716,6 +728,18 @@
 				A173F56218D705B2000E6F92 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A18919981BB1E7090094256E /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				A18919991BB1E7870094256E /* LocalizedModel.xcdatamodeld */,
+				A189199C1BB1E8FA0094256E /* LocalizedCat.h */,
+				A189199D1BB1E8FA0094256E /* LocalizedCat.m */,
+				A12085791BB2712300A6504B /* ManagedCatLocalized.h */,
+				A120857A1BB2712300A6504B /* ManagedCatLocalized.m */,
+			);
+			name = Localization;
 			sourceTree = "<group>";
 		};
 		A18AA85E18E5D5DB00D430D5 /* Utilities */ = {
@@ -1834,6 +1858,7 @@
 				A1A1CCC21911248600BE37EB /* SyncSpecificContentTests.m in Sources */,
 				A1CEC16B1A35DCA1007B4565 /* PersistenceBaseTest+Basic.m in Sources */,
 				A170131218FD4BA00086BE07 /* SyncInfo.m in Sources */,
+				A189199B1BB1E7870094256E /* LocalizedModel.xcdatamodeld in Sources */,
 				A1A1CCB2190E382E00BE37EB /* CoreDataQuerySyncTests.m in Sources */,
 				A170131118FD4B9D0086BE07 /* ManagedCat.m in Sources */,
 				A1AE68BB19B761B200D2C35F /* Member.m in Sources */,
@@ -1853,10 +1878,12 @@
 				A173F60318DB3E1E000E6F92 /* PreviewModeTests.m in Sources */,
 				A1B815CA18F588D70027B26D /* LinkedAssetSyncTest.m in Sources */,
 				A1C8DCD318E098E80019A519 /* LinkTests.m in Sources */,
+				A18919A01BB1EA200094256E /* CoreDataMultipleLocalesTests.m in Sources */,
 				A170130F18FD47B70086BE07 /* CoreDataExample.xcdatamodeld in Sources */,
 				A1C180691A038B3300117DB3 /* RobustnessTests.m in Sources */,
 				A1AB590A1974069E00098F87 /* CoreDataMultipleContentTypesTests.m in Sources */,
 				A1AE68B819B761B100D2C35F /* Group.m in Sources */,
+				A120857B1BB2712300A6504B /* ManagedCatLocalized.m in Sources */,
 				A18AA86418E5DB1A00D430D5 /* UtilityTests.m in Sources */,
 				A170130C18FD31320086BE07 /* CoreDataManager.m in Sources */,
 				A1A1CCB4190E387B00BE37EB /* CoreDataBaseTestCase.m in Sources */,
@@ -1872,6 +1899,7 @@
 				A144FAF618C90DD100110B35 /* StagingTests.m in Sources */,
 				A1AE68B519B74F1C00D2C35F /* CoreDataIssues.m in Sources */,
 				A1CEC1A71A35ED58007B4565 /* RealmManager.m in Sources */,
+				A189199E1BB1E8FA0094256E /* LocalizedCat.m in Sources */,
 				A1CEC1AB1A35EE9D007B4565 /* RealmQuerySyncTests.m in Sources */,
 				A1E9797818CBEDFC00E79632 /* ErrorTests.m in Sources */,
 				A19CA3EA1B84EFF800A0EFCD /* LocaleTests.m in Sources */,
@@ -2733,6 +2761,16 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
+		A18919991BB1E7870094256E /* LocalizedModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A189199A1BB1E7870094256E /* LocalizedModel.xcdatamodel */,
+			);
+			currentVersion = A189199A1BB1E7870094256E /* LocalizedModel.xcdatamodel */;
+			path = LocalizedModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		A1A2CE571909687400B8D46D /* Doge.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (

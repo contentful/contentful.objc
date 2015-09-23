@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9053" systemVersion="15A263e" minimumToolsVersion="Xcode 7.0">
+    <entity name="Asset" representedClassName="Asset" syncable="YES">
+        <attribute name="height" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="internetMediaType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="width" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="localizedCat" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LocalizedCat" inverseName="picture" inverseEntity="LocalizedCat" syncable="YES"/>
+    </entity>
+    <entity name="LocalizedCat" representedClassName="LocalizedCat" syncable="YES">
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="localizedEntries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ManagedCatLocalized" inverseName="container" inverseEntity="ManagedCatLocalized" syncable="YES"/>
+        <relationship name="picture" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Asset" inverseName="localizedCat" inverseEntity="Asset" syncable="YES"/>
+    </entity>
+    <entity name="ManagedCatLocalized" representedClassName="ManagedCatLocalized" syncable="YES">
+        <attribute name="color" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="livesLeft" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="locale" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="container" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LocalizedCat" inverseName="localizedEntries" inverseEntity="LocalizedCat" syncable="YES"/>
+    </entity>
+    <entity name="SyncInfo" representedClassName="SyncInfo" syncable="YES">
+        <attribute name="lastSyncTimestamp" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="syncToken" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Asset" positionX="-54" positionY="-9" width="128" height="135"/>
+        <element name="LocalizedCat" positionX="36" positionY="126" width="128" height="90"/>
+        <element name="ManagedCatLocalized" positionX="18" positionY="63" width="128" height="135"/>
+        <element name="SyncInfo" positionX="-18" positionY="27" width="128" height="75"/>
+    </elements>
+</model>
