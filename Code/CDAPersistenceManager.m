@@ -12,6 +12,7 @@
 #import <ContentfulDeliveryAPI/CDAAsset.h>
 #import <ContentfulDeliveryAPI/CDAContentType.h>
 #import <ContentfulDeliveryAPI/CDAField.h>
+#import <ContentfulDeliveryAPI/CDALocalizablePersistedEntry.h>
 #import <ContentfulDeliveryAPI/CDASyncedSpace.h>
 
 #import "CDAClient+Private.h"
@@ -22,6 +23,7 @@
 
 @interface CDAPersistenceManager () <CDASyncedSpaceDelegate>
 
+@property (nonatomic) NSMutableDictionary* classesForLocalizedEntries;
 @property (nonatomic) NSMutableDictionary* classesForEntries;
 @property (nonatomic) CDAClient* client;
 @property (nonatomic) BOOL hasChanged;
@@ -57,6 +59,14 @@
     return self.classesForEntries[identifier];
 }
 
+-(Class)classForLocalizedEntriesOfContentTypeWithIdentifier:(NSString *)identifier {
+    return self.classesForLocalizedEntries[identifier];
+}
+
+-(id<CDALocalizedPersistedEntry>)createLocalizedPersistedEntryForContentTypeWithIdentifier:(NSString *)identifier {
+    return [self.classesForLocalizedEntries[identifier] new];
+}
+
 -(id<CDAPersistedAsset>)createPersistedAsset {
     return [self.classForAssets new];
 }
@@ -77,6 +87,10 @@
     [self doesNotRecognizeSelector:_cmd];
 }
 
+-(void)deleteLocalizedEntryWithIdentifier:(NSString*)identifier {
+    [self doesNotRecognizeSelector:_cmd];
+}
+
 -(NSArray *)fetchAssetsFromDataStore {
     [self doesNotRecognizeSelector:_cmd];
     return nil;
@@ -93,6 +107,12 @@
 }
 
 -(id<CDAPersistedEntry>)fetchEntryWithIdentifier:(NSString*)identifier {
+    [self doesNotRecognizeSelector:_cmd];
+    return nil;
+}
+
+-(id<CDALocalizedPersistedEntry>)fetchLocalizedEntryWithIdentifier:(NSString*)identifier
+                                                            locale:(NSString*)locale {
     [self doesNotRecognizeSelector:_cmd];
     return nil;
 }
@@ -163,6 +183,7 @@
     self = [super init];
     if (self) {
         self.classesForEntries = [@{} mutableCopy];
+        self.classesForLocalizedEntries = [@{} mutableCopy];
         self.client = client;
         self.mappingForEntries = [@{} mutableCopy];
     }
@@ -173,6 +194,7 @@
     self = [super init];
     if (self) {
         self.classesForEntries = [@{} mutableCopy];
+        self.classesForLocalizedEntries = [@{} mutableCopy];
         self.client = client;
         self.mappingForEntries = [@{} mutableCopy];
         self.query = query;
@@ -359,6 +381,10 @@
 
 -(void)setClass:(Class)classForEntries forEntriesOfContentTypeWithIdentifier:(NSString *)identifier {
     self.classesForEntries[identifier] = classForEntries;
+}
+
+-(void)setClass:(Class)classForEntries forLocalizedEntriesOfContentTypeWithIdentifier:(NSString *)identifier {
+    self.classesForLocalizedEntries[identifier] = classForEntries;
 }
 
 -(void)setMapping:(NSDictionary *)mapping forEntriesOfContentTypeWithIdentifier:(NSString *)identifier {

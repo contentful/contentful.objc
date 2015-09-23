@@ -68,6 +68,15 @@ NSString* EntityNameFromClass(Class class) {
 
 #pragma mark -
 
+- (id<CDAPersistedEntry>)createLocalizedPersistedEntryForContentTypeWithIdentifier:(NSString *)identifier {
+    Class entryClass = [self classForLocalizedEntriesOfContentTypeWithIdentifier:identifier];
+    if (!entryClass) {
+        return nil;
+    }
+    return [NSEntityDescription insertNewObjectForEntityForName:EntityNameFromClass(entryClass)
+                                         inManagedObjectContext:self.managedObjectContext];
+}
+
 - (id<CDAPersistedAsset>)createPersistedAsset
 {
     NSParameterAssert(self.classForAssets);
@@ -132,6 +141,12 @@ NSString* EntityNameFromClass(Class class) {
     id<CDAPersistedEntry> entry = [self fetchEntryWithIdentifier:identifier];
     
     if (entry) {
+        [self.managedObjectContext deleteObject:entry];
+    }
+}
+
+- (void)deleteLocalizedEntryWithIdentifier:(NSString *)identifier {
+    for (NSManagedObject* entry in [self fetchLocalizedEntriesWithIdentifier:identifier]) {
         [self.managedObjectContext deleteObject:entry];
     }
 }
@@ -252,6 +267,33 @@ NSString* EntityNameFromClass(Class class) {
 {
     NSString* predicate = [NSString stringWithFormat:@"identifier == '%@'", identifier];
     return [[self fetchEntriesMatchingPredicate:predicate] firstObject];
+}
+
+- (NSArray*)fetchLocalizedEntriesWithIdentifier:(NSString *)identifier {
+    NSString* predicate = [NSString stringWithFormat:@"identifier == '%@'", identifier];
+
+    NSError* error;
+    NSArray* entries = [self fetchEntititiesOfClass:[self classForLocalizedEntriesOfContentTypeWithIdentifier:identifier] matchingPredicate:predicate error:&error];
+
+    if (!entries) {
+        NSLog(@"Could not fetch entries: %@", error);
+    }
+
+    return entries;
+}
+
+- (id<CDALocalizedPersistedEntry>)fetchLocalizedEntryWithIdentifier:(NSString *)identifier
+                                                             locale:(NSString *)locale {
+    NSString* predicate = [NSString stringWithFormat:@"identifier == '%@' AND locale == '%@'", identifier, locale];
+
+    NSError* error;
+    NSArray* entries = [self fetchEntititiesOfClass:[self classForLocalizedEntriesOfContentTypeWithIdentifier:identifier] matchingPredicate:predicate error:&error];
+
+    if (!entries) {
+        NSLog(@"Could not fetch entries: %@", error);
+    }
+
+    return entries.firstObject;
 }
 
 - (NSFetchRequest *)fetchRequestForEntititiesOfClass:(Class)class

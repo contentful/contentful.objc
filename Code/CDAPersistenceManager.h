@@ -7,6 +7,7 @@
 //
 
 #import <ContentfulDeliveryAPI/CDAClient.h>
+#import <ContentfulDeliveryAPI/CDALocalizedPersistedEntry.h>
 #import <ContentfulDeliveryAPI/CDAPersistedAsset.h>
 #import <ContentfulDeliveryAPI/CDAPersistedEntry.h>
 #import <ContentfulDeliveryAPI/CDAPersistedSpace.h>
@@ -72,6 +73,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 -(Class __nullable)classForEntriesOfContentTypeWithIdentifier:(NSString*)identifier;
 
+/**
+ *  Class used for localized persisted Entries of a certain Content Type.
+ *
+ *  @param identifier Identifier of the Content Type.
+ *
+ *  @return Class to be used for localized Entries of that Content Type.
+ */
+-(Class __nullable)classForLocalizedEntriesOfContentTypeWithIdentifier:(NSString*)identifier;
+
 /** List of identifiers of all Content Types for which a class was defined. */
 @property (nonatomic, readonly) NSArray* identifiersOfHandledContentTypes;
 
@@ -83,6 +93,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param identifier      Identifier of the Content Type.
  */
 -(void)setClass:(Class)classForEntries forEntriesOfContentTypeWithIdentifier:(NSString*)identifier;
+
+/**
+ *  Class to be used for localized persisted Entries of a certain Content Type. Entries for which
+ *  no class was defined will not be persisted to the data store.
+ *
+ *  @param classForEntries Class to be used for localized Entries of the given Content Type.
+ *  @param identifier      Identifier of the Content Type.
+ */
+-(void)setClass:(Class)classForEntries forLocalizedEntriesOfContentTypeWithIdentifier:(NSString*)identifier;
 
 /** @name Mapping Fields to Properties */
 
@@ -125,6 +144,14 @@ NS_ASSUME_NONNULL_BEGIN
 -(id<CDAPersistedAsset>)createPersistedAsset;
 
 /**
+ *  Override this method in subclasses if localized Entry instances cannot be created with +new.
+ *
+ *  @param identifier Identifier of the Content Type of the new localized Entry.
+ *  @return A new persisted Entry.
+ */
+-(id<CDALocalizedPersistedEntry> __nullable)createLocalizedPersistedEntryForContentTypeWithIdentifier:(NSString*)identifier;
+
+/**
  *  Override this method in subclasses if Entry instances cannot be created with +new.
  *
  *  @param identifier Identifier of the Content Type of the new Entry.
@@ -147,6 +174,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param identifier The identifier of the Asset to delete.
  */
 -(void)deleteAssetWithIdentifier:(NSString*)identifier;
+
+/**
+ *  Delete a localized Entry from the persisten store.
+ *
+ *  This method needs to be overridden by subclasses.
+ *
+ *  @param identifier The identifier of the localized Entry to delete.
+ */
+-(void)deleteLocalizedEntryWithIdentifier:(NSString*)identifier;
 
 /**
  *  Delete an Entry from the persisten store.
@@ -192,6 +228,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return The Entry with the given identifier or `nil` if it could not be found.
  */
 -(id<CDAPersistedEntry> __nullable)fetchEntryWithIdentifier:(NSString*)identifier;
+
+/**
+ *  Retrieve a localized Entry from the persistent store.
+ *
+ *  This method needs to be overridden by subclasses.
+ *
+ *  @param identifier The identifier of the Entry to fetch.
+ *  @param locale     The locale of the Entry to fetch.
+ *
+ *  @return The localized Entry with the given identifier or `nil` if it could not be found.
+ */
+-(id<CDALocalizedPersistedEntry> __nullable)fetchLocalizedEntryWithIdentifier:(NSString*)identifier
+                                                                       locale:(NSString*)locale;
 
 /**
  *  Fetch a Space from the persistent store.
