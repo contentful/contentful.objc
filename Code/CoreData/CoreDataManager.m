@@ -11,9 +11,22 @@
 #import <ContentfulDeliveryAPI/CDAAsset.h>
 #import <ContentfulDeliveryAPI/CDAContentType.h>
 #import <ContentfulDeliveryAPI/CDAEntry.h>
+#import <ContentfulDeliveryAPI/CDAField.h>
 
 #import "CDAUtilities.h"
 #import "CoreDataManager.h"
+
+NSString* EntityNameFromClass(Class class) {
+    NSString* entityName = NSStringFromClass(class);
+
+    if ([entityName rangeOfString:@"."].location != NSNotFound) {
+        NSArray* components = [entityName componentsSeparatedByString:@"."];
+        NSCAssert(components.count == 2, @"Unexpected entity class name: %@", entityName);
+        entityName = components[1];
+    }
+
+    return entityName;
+}
 
 @interface CoreDataManager ()
 
@@ -58,7 +71,7 @@
 - (id<CDAPersistedAsset>)createPersistedAsset
 {
     NSParameterAssert(self.classForAssets);
-    return [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass(self.classForAssets)
+    return [NSEntityDescription insertNewObjectForEntityForName:EntityNameFromClass(self.classForAssets)
                                          inManagedObjectContext:self.managedObjectContext];
 }
 
@@ -68,15 +81,41 @@
     if (!entryClass) {
         return nil;
     }
-    return [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass(entryClass)
+    return [NSEntityDescription insertNewObjectForEntityForName:EntityNameFromClass(entryClass)
                                          inManagedObjectContext:self.managedObjectContext];
 }
 
 - (id<CDAPersistedSpace>)createPersistedSpace
 {
     NSParameterAssert(self.classForSpaces);
-    return [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass(self.classForSpaces)
+    return [NSEntityDescription insertNewObjectForEntityForName:EntityNameFromClass(self.classForSpaces)
                                          inManagedObjectContext:self.managedObjectContext];
+}
+
+- (void)deleteAll {
+    NSMutableArray* allFetchRequests = [@[] mutableCopy];
+
+    [allFetchRequests addObject:[self fetchRequestForEntititiesOfClass:self.classForAssets
+                                                    matchingPredicate:nil]];
+    [allFetchRequests addObject:[self fetchRequestForEntititiesOfClass:self.classForSpaces
+                                                    matchingPredicate:nil]];
+
+    for (NSString* contentTypeIdentifier in self.identifiersOfHandledContentTypes) {
+        Class c = [self classForEntriesOfContentTypeWithIdentifier:contentTypeIdentifier];
+        NSFetchRequest* r = [self fetchRequestForEntititiesOfClass:c matchingPredicate:nil];
+        [allFetchRequests addObject:r];
+    }
+
+    for (NSFetchRequest* request in allFetchRequests) {
+        [request setIncludesPropertyValues:NO];
+        [request setReturnsObjectsAsFaults:YES];
+
+        for (NSManagedObject* obj in [self.managedObjectContext executeFetchRequest:request error:nil]) {
+            [self.managedObjectContext deleteObject:obj];
+        }
+    }
+
+    [self saveDataStore];
 }
 
 - (void)deleteAssetWithIdentifier:(NSString *)identifier
@@ -97,15 +136,39 @@
     }
 }
 
+- (void)enumerateMappedFieldsForContentTypeWithIdentifier:(NSString*)identifier mapping:(NSDictionary*)mapping usingBlock:(void (^)(CDAContentType* contentType, CDAField* field, NSString* keyPath))block {
+    NSParameterAssert(block);
+
+    for (NSString* keyPath in mapping.allKeys) {
+        NSArray* key = [keyPath componentsSeparatedByString:@"."];
+
+        if (key.count != 2 || ![key[0] isEqualToString:@"fields"]) {
+            continue;
+        }
+
+        [self.client fetchContentTypeWithIdentifier:identifier success:^(CDAResponse *response,
+                                                                         CDAContentType *contentType) {
+            CDAField* field = [contentType fieldForIdentifier:key[1]];
+            if (field) {
+                block(contentType, field, keyPath);
+            }
+        } failure:nil];
+    }
+}
+
 - (void)enumerateRelationshipsForClass:(Class)class usingBlock:(void (^)(NSString* relationshipName))block {
     NSParameterAssert(block);
 
-    NSEntityDescription* entityDescription = [NSEntityDescription entityForName:NSStringFromClass(class) inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription* entityDescription = [self entityDescriptionForClass:class];
 
     NSArray* relationships = [entityDescription relationshipsByName].allKeys;
     [relationships enumerateObjectsUsingBlock:^(NSString* relationshipName, NSUInteger idx, BOOL *stop) {
         block(relationshipName);
     }];
+}
+
+- (NSEntityDescription*)entityDescriptionForClass:(Class)class {
+    return [NSEntityDescription entityForName:EntityNameFromClass(class) inManagedObjectContext:self.managedObjectContext];
 }
 
 - (NSArray *)fetchAssetsFromDataStore
@@ -194,11 +257,8 @@
     NSParameterAssert(class);
     
     NSFetchRequest *request = [NSFetchRequest new];
-    
-    NSManagedObjectContext *moc = [self managedObjectContext];
-    NSEntityDescription *entityDescription = [NSEntityDescription
-                                              entityForName:NSStringFromClass(class)
-                                              inManagedObjectContext:moc];
+
+    NSEntityDescription *entityDescription = [self entityDescriptionForClass:class];
     [request setEntity:entityDescription];
     
     if (predicateString) {
@@ -274,6 +334,21 @@
         }
     }];
 
+    [self enumerateMappedFieldsForContentTypeWithIdentifier:identifier mapping:mapping usingBlock:^(CDAContentType *contentType, CDAField *field, NSString *keyPath) {
+        if (field.type == CDAFieldTypeArray) {
+            if (field.itemType == CDAFieldTypeSymbol) {
+                // Handled after the fact in updatePersistedEntry:withEntry:
+                [mapping removeObjectForKey:keyPath];
+            } else {
+                [NSException raise:NSInvalidArgumentException format:@"Invalid mapping: field '%@' of Content Type '%@' is a list, but '%@' is not a relationship.", field.name, contentType.name, mapping[keyPath]];
+            }
+        }
+
+        if (field.type == CDAFieldTypeLink) {
+            [NSException raise:NSInvalidArgumentException format:@"Invalid mapping: field '%@' of Content Type '%@' is a link, but '%@' is not a relationship.", field.name, contentType.name, mapping[keyPath]];
+        }
+    }];
+
     return mapping;
 }
 
@@ -285,13 +360,13 @@
 
 - (NSRelationshipDescription*)relationshipDescriptionForName:(NSString*)relationshipName
                                                  entityClass:(Class)class {
-    NSEntityDescription* entityDescription = [NSEntityDescription entityForName:NSStringFromClass(class) inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription* entityDescription = [self entityDescriptionForClass:class];
     return entityDescription.relationshipsByName[relationshipName];
 }
 
 - (NSArray *)propertiesForEntriesOfContentTypeWithIdentifier:(NSString *)identifier {
     Class class = [self classForEntriesOfContentTypeWithIdentifier:identifier];
-    NSEntityDescription* entityDescription = [NSEntityDescription entityForName:NSStringFromClass(class) inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription* entityDescription = [self entityDescriptionForClass:class];
     return [entityDescription.properties valueForKey:@"name"];
 }
 
@@ -353,11 +428,26 @@
 - (void)updatePersistedEntry:(id<CDAPersistedEntry>)persistedEntry withEntry:(CDAEntry *)entry {
     [super updatePersistedEntry:persistedEntry withEntry:entry];
 
+    NSDictionary* mappingForEntries = [super mappingForEntriesOfContentTypeWithIdentifier:entry.contentType.identifier];
+    [self enumerateMappedFieldsForContentTypeWithIdentifier:entry.contentType.identifier mapping:mappingForEntries usingBlock:^(CDAContentType *contentType, CDAField *field, NSString *keyPath) {
+        if (field.type == CDAFieldTypeArray && field.itemType == CDAFieldTypeSymbol) {
+            NSString* key = mappingForEntries[keyPath];
+            NSAttributeDescription* attributeDescription = [self entityDescriptionForClass:persistedEntry.class].attributesByName[key];
+
+            if (attributeDescription.attributeType != NSBinaryDataAttributeType) {
+                [NSException raise:NSInvalidArgumentException format:@"Invalid Core Data model: %@ needs to be of NSBinaryDataAttributeType.", attributeDescription.name];
+            }
+
+            NSArray* symbolArray = entry.fields[field.identifier];
+            NSData* symbolArrayAsData = [NSKeyedArchiver archivedDataWithRootObject:symbolArray];
+            [(NSObject*)persistedEntry setValue:symbolArrayAsData forKey:key];
+        }
+    }];
+
     NSMutableDictionary* relationships = [@{} mutableCopy];
 
     [self enumerateRelationshipsForClass:persistedEntry.class usingBlock:^(NSString *relationshipName) {
 		NSRelationshipDescription* description = [self relationshipDescriptionForName:relationshipName entityClass:persistedEntry.class];
-        NSDictionary* mappingForEntries = [super mappingForEntriesOfContentTypeWithIdentifier:entry.contentType.identifier];
         NSString* entryKeyPath = [[mappingForEntries allKeysForObject:relationshipName] firstObject];
 
         if (!entryKeyPath) {
@@ -398,6 +488,7 @@
     NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
     if (coordinator != nil) {
         _managedObjectContext = [[NSManagedObjectContext alloc] init];
+        _managedObjectContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy;
         [_managedObjectContext setPersistentStoreCoordinator:coordinator];
     }
     return _managedObjectContext;
@@ -408,8 +499,16 @@
     if (_managedObjectModel != nil) {
         return _managedObjectModel;
     }
-    NSURL *modelURL = [[NSBundle bundleForClass:[self class]]
-                       URLForResource:self.dataModelName withExtension:@"momd"];
+
+    NSURL* modelURL = nil;
+    for (NSBundle* bundle in @[ [NSBundle mainBundle], [NSBundle bundleForClass:self.class] ]) {
+        modelURL = [bundle URLForResource:self.dataModelName withExtension:@"momd"];
+
+        if (modelURL) {
+            break;
+        }
+    }
+
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     return _managedObjectModel;
 }
