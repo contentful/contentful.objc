@@ -12,6 +12,8 @@
 		69542C72475B4BE9B13D2B9D /* libPods-ContentfulSeedDatabase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A95F13622EB14F0E953B6A82 /* libPods-ContentfulSeedDatabase.a */; };
 		7831960E0E0E4914B8E3441C /* libPods-UFO Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C0CBBA8A43044059BA56429 /* libPods-UFO Example.a */; };
 		A10A11FE19090F5D00EFF083 /* CatDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A10A11FD19090F5D00EFF083 /* CatDetailViewController.m */; };
+		A12085771BB2707300A6504B /* CDALocalizablePersistedEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = A12085751BB2707300A6504B /* CDALocalizablePersistedEntry.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A12085781BB2707300A6504B /* CDALocalizablePersistedEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = A12085761BB2707300A6504B /* CDALocalizablePersistedEntry.m */; };
 		A12797A618E1A45700043A44 /* SyncTests in Resources */ = {isa = PBXBuildFile; fileRef = A12797A518E1A45700043A44 /* SyncTests */; };
 		A12797AB18E1B08F00043A44 /* SyncTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A12797AA18E1B08F00043A44 /* SyncTests.m */; };
 		A12797AE18E1B10300043A44 /* CDASyncedSpace.h in Headers */ = {isa = PBXBuildFile; fileRef = A12797AC18E1B10300043A44 /* CDASyncedSpace.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -69,6 +71,7 @@
 		A173F59D18D9A2FD000E6F92 /* CDAResourceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A173F59B18D9A2FD000E6F92 /* CDAResourceCell.m */; };
 		A173F60318DB3E1E000E6F92 /* PreviewModeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A173F60218DB3E1E000E6F92 /* PreviewModeTests.m */; };
 		A173F60518DB412C000E6F92 /* PreviewModeTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A173F60418DB412C000E6F92 /* PreviewModeTests.json */; };
+		A18919971BB1E4ED0094256E /* CDALocalizedPersistedEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = A18919961BB1E4EA0094256E /* CDALocalizedPersistedEntry.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A18AA81318E2D98200D430D5 /* CDADeletedEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = A18AA81118E2D98200D430D5 /* CDADeletedEntry.h */; };
 		A18AA81418E2D98200D430D5 /* CDADeletedEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = A18AA81218E2D98200D430D5 /* CDADeletedEntry.m */; };
 		A18AA81718E2E2CF00D430D5 /* CDADeletedAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = A18AA81518E2E2CF00D430D5 /* CDADeletedAsset.h */; };
@@ -285,6 +288,8 @@
 		9DF1075E60163430847D0C6C /* Pods-CDA Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CDA Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CDA Tests/Pods-CDA Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		A10A11FC19090F5D00EFF083 /* CatDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatDetailViewController.h; sourceTree = "<group>"; };
 		A10A11FD19090F5D00EFF083 /* CatDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatDetailViewController.m; sourceTree = "<group>"; };
+		A12085751BB2707300A6504B /* CDALocalizablePersistedEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDALocalizablePersistedEntry.h; sourceTree = "<group>"; };
+		A12085761BB2707300A6504B /* CDALocalizablePersistedEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDALocalizablePersistedEntry.m; sourceTree = "<group>"; };
 		A12797A518E1A45700043A44 /* SyncTests */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SyncTests; path = Data/SyncTests; sourceTree = "<group>"; };
 		A12797AA18E1B08F00043A44 /* SyncTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncTests.m; sourceTree = "<group>"; };
 		A12797AC18E1B10300043A44 /* CDASyncedSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDASyncedSpace.h; sourceTree = "<group>"; };
@@ -348,6 +353,7 @@
 		A173F60218DB3E1E000E6F92 /* PreviewModeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewModeTests.m; sourceTree = "<group>"; };
 		A173F60418DB412C000E6F92 /* PreviewModeTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = PreviewModeTests.json; path = Data/Recordings/PreviewModeTests.json; sourceTree = "<group>"; };
 		A17CC3D61ADE5F2700C7AA57 /* CDANullabilityStubs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDANullabilityStubs.h; sourceTree = "<group>"; };
+		A18919961BB1E4EA0094256E /* CDALocalizedPersistedEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDALocalizedPersistedEntry.h; sourceTree = "<group>"; };
 		A18AA81018E1D14F00D430D5 /* CDASyncedSpace+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDASyncedSpace+Private.h"; sourceTree = "<group>"; };
 		A18AA81118E2D98200D430D5 /* CDADeletedEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDADeletedEntry.h; sourceTree = "<group>"; };
 		A18AA81218E2D98200D430D5 /* CDADeletedEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDADeletedEntry.m; sourceTree = "<group>"; };
@@ -635,6 +641,9 @@
 		A17012F218FC1FB00086BE07 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
+				A12085751BB2707300A6504B /* CDALocalizablePersistedEntry.h */,
+				A12085761BB2707300A6504B /* CDALocalizablePersistedEntry.m */,
+				A18919961BB1E4EA0094256E /* CDALocalizedPersistedEntry.h */,
 				A17012F518FC1FEE0086BE07 /* CDAPersistedAsset.h */,
 				A17012F318FC1FD90086BE07 /* CDAPersistedEntry.h */,
 				A17012F718FC20120086BE07 /* CDAPersistedSpace.h */,
@@ -1211,6 +1220,7 @@
 				A1E9797618CBE93A00E79632 /* CDAResource+Private.h in Headers */,
 				A193EB6518D20FA90017B777 /* UIImageView+CDAAsset.h in Headers */,
 				A1E3D04718C8791200E4F488 /* CDAArray.h in Headers */,
+				A18919971BB1E4ED0094256E /* CDALocalizedPersistedEntry.h in Headers */,
 				A1DE35D8197D384700DE0904 /* CDARequestSerializer.h in Headers */,
 				A1F70C9D1900140D0080C72C /* CDAAsset+Private.h in Headers */,
 				A1E8391818CE2A7200B697F6 /* CDASpace.h in Headers */,
@@ -1224,6 +1234,7 @@
 				A173F58D18D752A9000E6F92 /* CDAImageViewController.h in Headers */,
 				A193EB3E18D09AC10017B777 /* CDAResponse+Private.h in Headers */,
 				A12797AE18E1B10300043A44 /* CDASyncedSpace.h in Headers */,
+				A12085771BB2707300A6504B /* CDALocalizablePersistedEntry.h in Headers */,
 				A1E3D04C18C8797700E4F488 /* CDAResource.h in Headers */,
 				A1E8391618CE2A1800B697F6 /* CDAConfiguration.h in Headers */,
 				A18AA86118E5D63B00D430D5 /* CDAFallbackDictionary.h in Headers */,
@@ -1807,6 +1818,7 @@
 				A1924C8E18EBFFB600C97F9D /* CDAResourcesViewController.m in Sources */,
 				A1A0313518C6449F006470B7 /* CDAArray.m in Sources */,
 				A173F59618D9A269000E6F92 /* CDAResourcesCollectionViewController.m in Sources */,
+				A12085781BB2707300A6504B /* CDALocalizablePersistedEntry.m in Sources */,
 				A193EB6618D20FA90017B777 /* UIImageView+CDAAsset.m in Sources */,
 				A1DE35D9197D384700DE0904 /* CDARequestSerializer.m in Sources */,
 				A1A0313F18C66667006470B7 /* CDAUtilities.m in Sources */,
