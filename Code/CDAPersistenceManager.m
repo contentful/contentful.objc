@@ -233,6 +233,39 @@
     return userDefinedMapping;
 }
 
+-(NSDictionary *)fieldMappingForEntriesOfContentTypeWithIdentifier:(NSString *)identifier {
+    NSDictionary* mapping = [self mappingForEntriesOfContentTypeWithIdentifier:identifier];
+    CDAContentType* type = [self.client.contentTypeRegistry contentTypeForIdentifier:identifier];
+
+    NSMutableDictionary* fieldMapping = [mapping mutableCopy];
+    for (NSString* key in mapping.allKeys) {
+        if (![key hasPrefix:@"fields."]) {
+            continue;
+        }
+
+        NSString* fieldId = [key componentsSeparatedByString:@"."][1];
+        CDAField* field = [type fieldForIdentifier:fieldId];
+
+        if (field && field.type == CDAFieldTypeArray && field.itemType != CDAFieldTypeSymbol) {
+            [fieldMapping removeObjectForKey:key];
+        }
+    }
+
+    return [fieldMapping copy];
+}
+
+-(NSDictionary *)relationshipMappingForEntriesOfContentTypeWithIdentifier:(NSString *)identifier {
+    NSDictionary* fieldMapping = [self fieldMappingForEntriesOfContentTypeWithIdentifier:identifier];
+    NSDictionary* mapping = [self mappingForEntriesOfContentTypeWithIdentifier:identifier];
+
+    NSMutableDictionary* relationshipMapping = [mapping mutableCopy];
+    for (NSString* key in fieldMapping.allKeys) {
+        [relationshipMapping removeObjectForKey:key];
+    }
+
+    return [relationshipMapping copy];
+}
+
 -(void)performInitalSynchronizationForQueryWithSuccess:(void (^)())success
                                                failure:(CDARequestFailureBlock)failure {
     NSDate* syncTimestamp = [self roundedCurrentDate];
@@ -431,6 +464,31 @@
     }
     
     NSDictionary* mappingForEntries = [self mappingForEntriesOfContentTypeWithIdentifier:identifier];
+
+    if ([persistedEntry isKindOfClass:[CDALocalizablePersistedEntry class]]) {
+        mappingForEntries = [self relationshipMappingForEntriesOfContentTypeWithIdentifier:identifier];
+        CDALocalizablePersistedEntry* parent = (CDALocalizablePersistedEntry*)persistedEntry;
+        NSDictionary* fieldMapping = [self fieldMappingForEntriesOfContentTypeWithIdentifier:identifier];
+        NSString* initialLocale = entry.locale;
+
+        for (NSString* locale in entry.localizedFields.allKeys) {
+            id<CDALocalizedPersistedEntry> localEntry = [self fetchLocalizedEntryWithIdentifier:identifier
+                                                                                         locale:locale];
+
+            if (!localEntry) {
+                localEntry = [self createLocalizedPersistedEntryForContentTypeWithIdentifier:identifier];
+                [parent addLocalizedEntriesObject:localEntry];
+            }
+
+            entry.locale = locale;
+            [entry mapFieldsToObject:localEntry usingMapping:fieldMapping];
+            localEntry.identifier = entry.identifier;
+            localEntry.locale = locale;
+        }
+
+        entry.locale = initialLocale;
+    }
+
     [entry mapFieldsToObject:persistedEntry usingMapping:mappingForEntries];
     persistedEntry.identifier = entry.identifier;
 }
