@@ -33,7 +33,6 @@
 		A160862218CDF0E60047D44F /* CDARequest.h in Headers */ = {isa = PBXBuildFile; fileRef = A160862018CDF0E60047D44F /* CDARequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A160862318CDF0E60047D44F /* CDARequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A160862118CDF0E60047D44F /* CDARequest.m */; };
 		A160862518CDF2AC0047D44F /* CDARequest+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A160862418CDF2AC0047D44F /* CDARequest+Private.h */; };
-		A17012EE18FBDFDA0086BE07 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A17012ED18FBDFDA0086BE07 /* CoreDataManager.m */; };
 		A17012F418FC1FD90086BE07 /* CDAPersistedEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = A17012F318FC1FD90086BE07 /* CDAPersistedEntry.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A17012F618FC1FF80086BE07 /* CDAPersistedAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = A17012F518FC1FEE0086BE07 /* CDAPersistedAsset.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A17012F818FC20120086BE07 /* CDAPersistedSpace.h in Headers */ = {isa = PBXBuildFile; fileRef = A17012F718FC20120086BE07 /* CDAPersistedSpace.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -44,7 +43,6 @@
 		A170130718FD291E0086BE07 /* CDAPersistenceManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A170130518FD291E0086BE07 /* CDAPersistenceManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A170130818FD291E0086BE07 /* CDAPersistenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A170130618FD291E0086BE07 /* CDAPersistenceManager.m */; };
 		A170130B18FD30A50086BE07 /* CoreDataBasicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A170130A18FD30A50086BE07 /* CoreDataBasicTests.m */; };
-		A170130C18FD31320086BE07 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A17012ED18FBDFDA0086BE07 /* CoreDataManager.m */; };
 		A170130E18FD31950086BE07 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A170130D18FD31950086BE07 /* CoreData.framework */; };
 		A170130F18FD47B70086BE07 /* CoreDataExample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A1B8159518F2A8090027B26D /* CoreDataExample.xcdatamodeld */; };
 		A170131018FD4B9A0086BE07 /* Asset.m in Sources */ = {isa = PBXBuildFile; fileRef = A17012FA18FC21260086BE07 /* Asset.m */; };
@@ -149,7 +147,6 @@
 		A1A1CCC21911248600BE37EB /* SyncSpecificContentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A1CCC11911248600BE37EB /* SyncSpecificContentTests.m */; };
 		A1A2CE48190963BA00B8D46D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD86A18C631E60081677E /* Foundation.framework */; };
 		A1A2CE4B190963BA00B8D46D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A2CE4A190963BA00B8D46D /* main.m */; };
-		A1A2CE53190967CA00B8D46D /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A17012ED18FBDFDA0086BE07 /* CoreDataManager.m */; };
 		A1A2CE591909687400B8D46D /* Doge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A1A2CE571909687400B8D46D /* Doge.xcdatamodeld */; };
 		A1A2CE5D190969D300B8D46D /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A2CE5C190969D300B8D46D /* Document.m */; };
 		A1A2CE6419096A1600B8D46D /* Asset.m in Sources */ = {isa = PBXBuildFile; fileRef = A17012FA18FC21260086BE07 /* Asset.m */; };
@@ -161,11 +158,8 @@
 		A1A2CE79190A547C00B8D46D /* CDAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A2CE78190A547C00B8D46D /* CDAAppDelegate.m */; };
 		A1A2CE96190A597900B8D46D /* CoreDataManager+SeedDB.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A2CE95190A597900B8D46D /* CoreDataManager+SeedDB.m */; };
 		A1A2CE97190A597900B8D46D /* CoreDataManager+SeedDB.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A2CE95190A597900B8D46D /* CoreDataManager+SeedDB.m */; };
-		A1A2CE9A190A5D3600B8D46D /* CoreDataFetchDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A2CE99190A5D3600B8D46D /* CoreDataFetchDataSource.m */; };
-		A1A2CE9B190A5D3600B8D46D /* CoreDataFetchDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A2CE99190A5D3600B8D46D /* CoreDataFetchDataSource.m */; };
 		A1A2CE9E190A633E00B8D46D /* DocumentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A2CE9D190A633E00B8D46D /* DocumentListViewController.m */; };
 		A1A2CE9F190A64F000B8D46D /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A2CE5C190969D300B8D46D /* Document.m */; };
-		A1A2CEA0190A64F600B8D46D /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A17012ED18FBDFDA0086BE07 /* CoreDataManager.m */; };
 		A1A2CEA1190A64FD00B8D46D /* Asset.m in Sources */ = {isa = PBXBuildFile; fileRef = A17012FA18FC21260086BE07 /* Asset.m */; };
 		A1A2CEA2190A650100B8D46D /* SyncInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A17012FD18FC21260086BE07 /* SyncInfo.m */; };
 		A1A2CEA3190A656B00B8D46D /* Doge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A1A2CE571909687400B8D46D /* Doge.xcdatamodeld */; };
@@ -1919,7 +1913,6 @@
 				A1AE68B819B761B100D2C35F /* Group.m in Sources */,
 				A120857B1BB2712300A6504B /* ManagedCatLocalized.m in Sources */,
 				A18AA86418E5DB1A00D430D5 /* UtilityTests.m in Sources */,
-				A170130C18FD31320086BE07 /* CoreDataManager.m in Sources */,
 				A1A1CCB4190E387B00BE37EB /* CoreDataBaseTestCase.m in Sources */,
 				A1D1D35F18C8ABB800261A1C /* DocumentationTests.m in Sources */,
 				A18AA85918E48B4200D430D5 /* AssetTests.m in Sources */,
@@ -1964,7 +1957,6 @@
 				A1A2CE591909687400B8D46D /* Doge.xcdatamodeld in Sources */,
 				A1A2CE96190A597900B8D46D /* CoreDataManager+SeedDB.m in Sources */,
 				A1A2CE6419096A1600B8D46D /* Asset.m in Sources */,
-				A1A2CE53190967CA00B8D46D /* CoreDataManager.m in Sources */,
 				A1A2CE4B190963BA00B8D46D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1975,11 +1967,9 @@
 			files = (
 				A1A2CEA2190A650100B8D46D /* SyncInfo.m in Sources */,
 				A1A2CE9F190A64F000B8D46D /* Document.m in Sources */,
-				A1A2CEA0190A64F600B8D46D /* CoreDataManager.m in Sources */,
 				A1A2CEA1190A64FD00B8D46D /* Asset.m in Sources */,
 				A1A2CEA6190A659600B8D46D /* DocumentTableViewCell.m in Sources */,
 				A1A2CEA3190A656B00B8D46D /* Doge.xcdatamodeld in Sources */,
-				A1A2CE9B190A5D3600B8D46D /* CoreDataFetchDataSource.m in Sources */,
 				A1A2CEA9190A67A100B8D46D /* WebViewController.m in Sources */,
 				A1A2CE75190A547C00B8D46D /* main.m in Sources */,
 				A1A2CE79190A547C00B8D46D /* CDAAppDelegate.m in Sources */,
@@ -1996,11 +1986,9 @@
 				A17012FB18FC21260086BE07 /* Asset.m in Sources */,
 				A1B8159418F2A8090027B26D /* AppDelegate.m in Sources */,
 				A1B8159018F2A8090027B26D /* main.m in Sources */,
-				A17012EE18FBDFDA0086BE07 /* CoreDataManager.m in Sources */,
 				A1FAC3581908FDB40093B308 /* CatListViewController.m in Sources */,
 				A10A11FE19090F5D00EFF083 /* CatDetailViewController.m in Sources */,
 				A17012FE18FC21260086BE07 /* SyncInfo.m in Sources */,
-				A1A2CE9A190A5D3600B8D46D /* CoreDataFetchDataSource.m in Sources */,
 				A1B8159718F2A8090027B26D /* CoreDataExample.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

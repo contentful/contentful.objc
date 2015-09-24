@@ -1,4 +1,5 @@
 source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/contentful/CocoaPodsSpecs.git'
 
 platform :ios, "6.0"
 
@@ -12,6 +13,7 @@ end
 target "CDA Tests", :exclusive => true do
 
 pod 'CCLRequestReplay', :git => 'https://github.com/neonichu/CCLRequestReplay.git'
+pod 'ContentfulPersistence'
 pod 'FBSnapshotTestCase'
 pod 'OCMock'
 pod 'Realm'
@@ -31,18 +33,21 @@ target "ContentfulSeedDatabase", :exclusive => true do
 platform :osx, "10.8"
 
 pod 'ContentfulDeliveryAPI', :path => '.'
+pod 'ContentfulPersistence'
 
 end
 
 target "CoreDataExample", :exclusive => true do
 
 pod 'ContentfulDeliveryAPI', :path => '.'
+pod 'ContentfulPersistence'
 
 end
 
 target "SeedDatabaseExample", :exclusive => true do
 
 pod 'ContentfulDeliveryAPI', :path => '.'
+pod 'ContentfulPersistence'
 
 end
 
