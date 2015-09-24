@@ -19,6 +19,8 @@
 		A12797AB18E1B08F00043A44 /* SyncTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A12797AA18E1B08F00043A44 /* SyncTests.m */; };
 		A12797AE18E1B10300043A44 /* CDASyncedSpace.h in Headers */ = {isa = PBXBuildFile; fileRef = A12797AC18E1B10300043A44 /* CDASyncedSpace.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A12797AF18E1B10300043A44 /* CDASyncedSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = A12797AD18E1B10300043A44 /* CDASyncedSpace.m */; };
+		A12F19DE1BB48F190088C199 /* CoreDataMultipleLocalesTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A12F19DD1BB48F190088C199 /* CoreDataMultipleLocalesTests.json */; };
+		A12F19E01BB48F380088C199 /* ComplexSyncTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A12F19DF1BB48F380088C199 /* ComplexSyncTests.json */; };
 		A144FAF418C8C98400110B35 /* CDAContentType.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A0314018C66E90006470B7 /* CDAContentType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A144FAF618C90DD100110B35 /* StagingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A144FAF518C90DD100110B35 /* StagingTests.m */; };
 		A144FAFC18C9F8C200110B35 /* StagingTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A144FAFB18C9F8C200110B35 /* StagingTests.json */; };
@@ -304,6 +306,8 @@
 		A12797AA18E1B08F00043A44 /* SyncTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncTests.m; sourceTree = "<group>"; };
 		A12797AC18E1B10300043A44 /* CDASyncedSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDASyncedSpace.h; sourceTree = "<group>"; };
 		A12797AD18E1B10300043A44 /* CDASyncedSpace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDASyncedSpace.m; sourceTree = "<group>"; };
+		A12F19DD1BB48F190088C199 /* CoreDataMultipleLocalesTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = CoreDataMultipleLocalesTests.json; path = Data/Recordings/CoreDataMultipleLocalesTests.json; sourceTree = "<group>"; };
+		A12F19DF1BB48F380088C199 /* ComplexSyncTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = ComplexSyncTests.json; path = Data/Recordings/ComplexSyncTests.json; sourceTree = "<group>"; };
 		A144FAF518C90DD100110B35 /* StagingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StagingTests.m; sourceTree = "<group>"; };
 		A144FAFB18C9F8C200110B35 /* StagingTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = StagingTests.json; path = Data/Recordings/StagingTests.json; sourceTree = "<group>"; };
 		A144FAFD18C9F8CA00110B35 /* SearchAPITests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = SearchAPITests.json; path = Data/Recordings/SearchAPITests.json; sourceTree = "<group>"; };
@@ -710,6 +714,7 @@
 				A170130A18FD30A50086BE07 /* CoreDataBasicTests.m */,
 				A171BD4A19EC6E1B008D7F0D /* CoreDataIssues.json */,
 				A1AE68B419B74F1C00D2C35F /* CoreDataIssues.m */,
+				A12F19DD1BB48F190088C199 /* CoreDataMultipleLocalesTests.json */,
 				A189199F1BB1EA200094256E /* CoreDataMultipleLocalesTests.m */,
 				A1521F141BB433600010B9C8 /* CoreDataLinkDeletionTests.m */,
 				A171BD4C19EC6E2C008D7F0D /* CoreDataMultipleContentTypesTests.json */,
@@ -1050,6 +1055,7 @@
 				A1B815D518F7E2F20027B26D /* AddContentTypesSyncTests.m */,
 				A1B815D718F830C00027B26D /* ComplexLinkSyncTests.m */,
 				A1B815BA18F56BFD0027B26D /* ComplexSyncTests */,
+				A12F19DF1BB48F380088C199 /* ComplexSyncTests.json */,
 				A1B815BC18F56C150027B26D /* ComplexSyncTests.m */,
 				A1B815C918F588D70027B26D /* LinkedAssetSyncTest.m */,
 				A1B815CF18F69E0F0027B26D /* NewEntryAndDeletionSyncTest.m */,
@@ -1496,6 +1502,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A12F19DE1BB48F190088C199 /* CoreDataMultipleLocalesTests.json in Resources */,
+				A12F19E01BB48F380088C199 /* ComplexSyncTests.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
