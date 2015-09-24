@@ -504,7 +504,7 @@
       "Keep-Alive" : "timeout=10, max=25",
       "Content-Length" : "890",
       "Date" : "Mon, 28 Apr 2014 13:52:14 GMT",
-      "X-Served-By" : "cache-fra1232-FRA",
+      "X-Cache-Hits" : "0",
       "Access-Control-Allow-Methods" : "GET,HEAD,OPTIONS",
       "Etag" : "\"ddcabcb6839c040fb24e2b4ba227db57\"",
       "X-Contentful-Request-Id" : "71a-635740994",
@@ -513,7 +513,7 @@
       "X-Cache" : "MISS",
       "Access-Control-Allow-Origin" : "*",
       "Via" : "1.1 varnish",
-      "X-Cache-Hits" : "0"
+      "X-Served-By" : "cache-fra1232-FRA"
     },
     "method" : "GET",
     "status" : 200,
