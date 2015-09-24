@@ -657,6 +657,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A12F19DC1BB48DE90088C199 /* LinkDeletion-Support */ = {
+			isa = PBXGroup;
+			children = (
+				A1521F1D1BB43F550010B9C8 /* LinkedData.xcdatamodeld */,
+				A1521F201BB446960010B9C8 /* LinkedEntry.h */,
+				A1521F211BB446960010B9C8 /* LinkedEntry.m */,
+			);
+			name = "LinkDeletion-Support";
+			sourceTree = "<group>";
+		};
 		A17012F218FC1FB00086BE07 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
@@ -692,8 +702,9 @@
 		A170130918FD30880086BE07 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				A18919981BB1E7090094256E /* Localization */,
 				A1521F1B1BB43EBE0010B9C8 /* LinkDeletion */,
+				A12F19DC1BB48DE90088C199 /* LinkDeletion-Support */,
+				A18919981BB1E7090094256E /* Localization */,
 				A1A1CCBF190FAE5B00BE37EB /* QuerySync */,
 				A1F70C9A18FFDE030080C72C /* CoreDataBasicTests.json */,
 				A170130A18FD30A50086BE07 /* CoreDataBasicTests.m */,
@@ -705,9 +716,6 @@
 				A1AB59091974069E00098F87 /* CoreDataMultipleContentTypesTests.m */,
 				A1A1CCB8190E960800BE37EB /* CoreDataQuerySyncTests.json */,
 				A1A1CCB1190E382E00BE37EB /* CoreDataQuerySyncTests.m */,
-				A1521F1D1BB43F550010B9C8 /* LinkedData.xcdatamodeld */,
-				A1521F201BB446960010B9C8 /* LinkedEntry.h */,
-				A1521F211BB446960010B9C8 /* LinkedEntry.m */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -2779,16 +2787,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		A18919991BB1E7870094256E /* LocalizedModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				A189199A1BB1E7870094256E /* LocalizedModel.xcdatamodel */,
-			);
-			currentVersion = A189199A1BB1E7870094256E /* LocalizedModel.xcdatamodel */;
-			path = LocalizedModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
 		A1521F1D1BB43F550010B9C8 /* LinkedData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
@@ -2796,6 +2794,16 @@
 			);
 			currentVersion = A1521F1E1BB43F550010B9C8 /* LinkedData.xcdatamodel */;
 			path = LinkedData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		A18919991BB1E7870094256E /* LocalizedModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A189199A1BB1E7870094256E /* LocalizedModel.xcdatamodel */,
+			);
+			currentVersion = A189199A1BB1E7870094256E /* LocalizedModel.xcdatamodel */;
+			path = LocalizedModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
