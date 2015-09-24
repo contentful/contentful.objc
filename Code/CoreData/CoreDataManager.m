@@ -371,6 +371,8 @@
         }
 
         if ([relationshipTarget isKindOfClass:[NSArray class]]) {
+            NSAssert(description.toMany, @"Relationship cardinality mismatch: to-one locally, but to-many on Contentful.");
+
 			if (description.isOrdered) {
 				relationshipTarget = [NSOrderedSet orderedSetWithArray:relationshipTarget];
 			} else {
@@ -379,6 +381,7 @@
         } else {
             NSAssert([relationshipTarget isKindOfClass:[CDAResource class]],
                      @"Relationship target ought to be a Resource.");
+            NSAssert(!description.toMany, @"Relationship cardinality mismatch: to-many locally, but to-one on Contentful.");
         }
         
         relationships[relationshipName] = relationshipTarget;
