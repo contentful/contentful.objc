@@ -83,4 +83,7 @@
  */
 @property (nonatomic, readonly) NSURL* storeURL;
 
+/** Delete all managed objects from the persistent store. */
+-(void)deleteAll;
+
 @end
