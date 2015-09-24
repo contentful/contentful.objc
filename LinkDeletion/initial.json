@@ -1,0 +1,73 @@
+{
+  "sys": {
+    "type": "Array"
+  },
+  "items": [
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "hsut5b3lu3cv"
+          }
+        },
+        "type": "Entry",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "SUHIqy1t2USm0iuIgYGMU"
+          }
+        },
+        "id": "1sPD1WORSoyCEKqyM00uck",
+        "revision": 2,
+        "createdAt": "2015-09-24T13:32:50.987Z",
+        "updatedAt": "2015-09-24T13:33:11.123Z"
+      },
+      "fields": {
+        "name": {
+          "en-US": "A"
+        },
+        "link": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "5JuJSvHqcoSWaCkcKScECs"
+            }
+          }
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "hsut5b3lu3cv"
+          }
+        },
+        "type": "Entry",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "SUHIqy1t2USm0iuIgYGMU"
+          }
+        },
+        "id": "5JuJSvHqcoSWaCkcKScECs",
+        "revision": 1,
+        "createdAt": "2015-09-24T13:32:59.826Z",
+        "updatedAt": "2015-09-24T13:32:59.826Z"
+      },
+      "fields": {
+        "name": {
+          "en-US": "B"
+        }
+      }
+    }
+  ],
+  "nextSyncUrl": "https://cdn.contentful.com/spaces/hsut5b3lu3cv/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdyY6XTXDhsOALVLDh2TCn8O0LsO-w7AcImrCh3tAJwDDn2tHw4Jhw7p3DsOoBwjCrmlZfx7Cn2HCugnDisK1wqfDgnhHw5pzRMOUwq8XMy5uKR82wqbCpn7Crw"
+}

@@ -1,0 +1,39 @@
+{
+  "sys": {
+    "type": "Array"
+  },
+  "items": [
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "hsut5b3lu3cv"
+          }
+        },
+        "type": "Entry",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "SUHIqy1t2USm0iuIgYGMU"
+          }
+        },
+        "id": "1sPD1WORSoyCEKqyM00uck",
+        "revision": 3,
+        "createdAt": "2015-09-24T13:32:50.987Z",
+        "updatedAt": "2015-09-24T13:53:46.209Z"
+      },
+      "fields": {
+        "name": {
+          "en-US": "A"
+        },
+        "link": {
+          "en-US": null
+        }
+      }
+    }
+  ],
+  "nextSyncUrl": "https://cdn.contentful.com/spaces/hsut5b3lu3cv/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdyYOw5wYYcK8woFzYV9QwoQBw611wpXDl3nDkhE9esOKwrUgHRgwJsOTw5YzwqLDn8OSwrg3NMOOwobCisOnMcKPN8OOGzXCsMKlNwRGanDCqsOyw6bCm8O4w5bDpEzDscKP"
+}
