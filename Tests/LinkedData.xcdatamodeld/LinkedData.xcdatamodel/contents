@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="15A263e" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Asset" representedClassName="Asset" syncable="YES">
+        <attribute name="height" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="internetMediaType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="width" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+    </entity>
+    <entity name="LinkedEntry" representedClassName="LinkedEntry" syncable="YES">
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="link" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LinkedEntry" inverseName="link" inverseEntity="LinkedEntry" syncable="YES"/>
+    </entity>
+    <entity name="SyncInfo" representedClassName="SyncInfo" syncable="YES">
+        <attribute name="lastSyncTimestamp" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="syncToken" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Asset" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="SyncInfo" positionX="-54" positionY="-9" width="128" height="75"/>
+        <element name="LinkedEntry" positionX="-36" positionY="45" width="128" height="90"/>
+    </elements>
+</model>

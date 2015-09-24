@@ -24,6 +24,10 @@
 		A144FAFC18C9F8C200110B35 /* StagingTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A144FAFB18C9F8C200110B35 /* StagingTests.json */; };
 		A144FAFE18C9F8CA00110B35 /* SearchAPITests.json in Resources */ = {isa = PBXBuildFile; fileRef = A144FAFD18C9F8CA00110B35 /* SearchAPITests.json */; };
 		A144FB0018C9F8D200110B35 /* DocumentationTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A144FAFF18C9F8D200110B35 /* DocumentationTests.json */; };
+		A1521F151BB433600010B9C8 /* CoreDataLinkDeletionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1521F141BB433600010B9C8 /* CoreDataLinkDeletionTests.m */; };
+		A1521F1C1BB43EBE0010B9C8 /* LinkDeletion in Resources */ = {isa = PBXBuildFile; fileRef = A1521F1B1BB43EBE0010B9C8 /* LinkDeletion */; };
+		A1521F1F1BB43F550010B9C8 /* LinkedData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A1521F1D1BB43F550010B9C8 /* LinkedData.xcdatamodeld */; };
+		A1521F221BB446960010B9C8 /* LinkedEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = A1521F211BB446960010B9C8 /* LinkedEntry.m */; };
 		A160862218CDF0E60047D44F /* CDARequest.h in Headers */ = {isa = PBXBuildFile; fileRef = A160862018CDF0E60047D44F /* CDARequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A160862318CDF0E60047D44F /* CDARequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A160862118CDF0E60047D44F /* CDARequest.m */; };
 		A160862518CDF2AC0047D44F /* CDARequest+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A160862418CDF2AC0047D44F /* CDARequest+Private.h */; };
@@ -305,6 +309,11 @@
 		A144FAFD18C9F8CA00110B35 /* SearchAPITests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = SearchAPITests.json; path = Data/Recordings/SearchAPITests.json; sourceTree = "<group>"; };
 		A144FAFF18C9F8D200110B35 /* DocumentationTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = DocumentationTests.json; path = Data/Recordings/DocumentationTests.json; sourceTree = "<group>"; };
 		A1462B911993B472004906D0 /* CDAError+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDAError+Private.h"; sourceTree = "<group>"; };
+		A1521F141BB433600010B9C8 /* CoreDataLinkDeletionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataLinkDeletionTests.m; sourceTree = "<group>"; };
+		A1521F1B1BB43EBE0010B9C8 /* LinkDeletion */ = {isa = PBXFileReference; lastKnownFileType = folder; name = LinkDeletion; path = Data/LinkDeletion; sourceTree = "<group>"; };
+		A1521F1E1BB43F550010B9C8 /* LinkedData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LinkedData.xcdatamodel; sourceTree = "<group>"; };
+		A1521F201BB446960010B9C8 /* LinkedEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkedEntry.h; sourceTree = "<group>"; };
+		A1521F211BB446960010B9C8 /* LinkedEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkedEntry.m; sourceTree = "<group>"; };
 		A160862018CDF0E60047D44F /* CDARequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDARequest.h; sourceTree = "<group>"; };
 		A160862118CDF0E60047D44F /* CDARequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDARequest.m; sourceTree = "<group>"; };
 		A160862418CDF2AC0047D44F /* CDARequest+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDARequest+Private.h"; sourceTree = "<group>"; };
@@ -684,16 +693,21 @@
 			isa = PBXGroup;
 			children = (
 				A18919981BB1E7090094256E /* Localization */,
+				A1521F1B1BB43EBE0010B9C8 /* LinkDeletion */,
 				A1A1CCBF190FAE5B00BE37EB /* QuerySync */,
 				A1F70C9A18FFDE030080C72C /* CoreDataBasicTests.json */,
 				A170130A18FD30A50086BE07 /* CoreDataBasicTests.m */,
 				A171BD4A19EC6E1B008D7F0D /* CoreDataIssues.json */,
 				A1AE68B419B74F1C00D2C35F /* CoreDataIssues.m */,
 				A189199F1BB1EA200094256E /* CoreDataMultipleLocalesTests.m */,
+				A1521F141BB433600010B9C8 /* CoreDataLinkDeletionTests.m */,
 				A171BD4C19EC6E2C008D7F0D /* CoreDataMultipleContentTypesTests.json */,
 				A1AB59091974069E00098F87 /* CoreDataMultipleContentTypesTests.m */,
 				A1A1CCB8190E960800BE37EB /* CoreDataQuerySyncTests.json */,
 				A1A1CCB1190E382E00BE37EB /* CoreDataQuerySyncTests.m */,
+				A1521F1D1BB43F550010B9C8 /* LinkedData.xcdatamodeld */,
+				A1521F201BB446960010B9C8 /* LinkedEntry.h */,
+				A1521F211BB446960010B9C8 /* LinkedEntry.m */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -1487,6 +1501,7 @@
 				A171BD5219EC6E98008D7F0D /* SyncSpecificContentTests.json in Resources */,
 				A144FB0018C9F8D200110B35 /* DocumentationTests.json in Resources */,
 				A193EB5518D1C88A0017B777 /* ArrayTests.json in Resources */,
+				A1521F1C1BB43EBE0010B9C8 /* LinkDeletion in Resources */,
 				A1F5DE771B8B110200F0B554 /* RealmQuerySyncTests.json in Resources */,
 				A1B815BB18F56BFD0027B26D /* ComplexSyncTests in Resources */,
 				A144FAFE18C9F8CA00110B35 /* SearchAPITests.json in Resources */,
@@ -1864,11 +1879,14 @@
 				A1AE68BB19B761B200D2C35F /* Member.m in Sources */,
 				A1CEC1AA1A35EE9D007B4565 /* RealmBasicTests.m in Sources */,
 				A1B815D618F7E2F20027B26D /* AddContentTypesSyncTests.m in Sources */,
+				A1521F221BB446960010B9C8 /* LinkedEntry.m in Sources */,
 				A1CEC1651A35B142007B4565 /* PersistenceBaseTest.m in Sources */,
 				A1B815D018F69E0F0027B26D /* NewEntryAndDeletionSyncTest.m in Sources */,
+				A1521F151BB433600010B9C8 /* CoreDataLinkDeletionTests.m in Sources */,
 				A1B815BD18F56C150027B26D /* ComplexSyncTests.m in Sources */,
 				A1CEC1B11A360A0A007B4565 /* RealmSpace.m in Sources */,
 				A1B815BF18F56E620027B26D /* SyncBaseTestCase.m in Sources */,
+				A1521F1F1BB43F550010B9C8 /* LinkedData.xcdatamodeld in Sources */,
 				A12797AB18E1B08F00043A44 /* SyncTests.m in Sources */,
 				A1CEC1B41A360A20007B4565 /* RealmAsset.m in Sources */,
 				A1B815B418F2ACCB0027B26D /* PersistenceTests.m in Sources */,
@@ -2768,6 +2786,16 @@
 			);
 			currentVersion = A189199A1BB1E7870094256E /* LocalizedModel.xcdatamodel */;
 			path = LocalizedModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		A1521F1D1BB43F550010B9C8 /* LinkedData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A1521F1E1BB43F550010B9C8 /* LinkedData.xcdatamodel */,
+			);
+			currentVersion = A1521F1E1BB43F550010B9C8 /* LinkedData.xcdatamodel */;
+			path = LinkedData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
