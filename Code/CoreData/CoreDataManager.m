@@ -505,6 +505,7 @@ NSString* EntityNameFromClass(Class class) {
         id relationshipTarget = [entry valueForKeyPath:entryKeyPath];
 
         if (!relationshipTarget) {
+            [(NSObject*)persistedEntry setValue:nil forKey:relationshipName];
             return;
         }
 
