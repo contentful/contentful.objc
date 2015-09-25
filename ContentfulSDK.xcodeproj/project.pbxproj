@@ -315,8 +315,6 @@
 		A160862018CDF0E60047D44F /* CDARequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDARequest.h; sourceTree = "<group>"; };
 		A160862118CDF0E60047D44F /* CDARequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDARequest.m; sourceTree = "<group>"; };
 		A160862418CDF2AC0047D44F /* CDARequest+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDARequest+Private.h"; sourceTree = "<group>"; };
-		A17012EC18FBDFDA0086BE07 /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataManager.h; path = ../../Code/CoreData/CoreDataManager.h; sourceTree = "<group>"; };
-		A17012ED18FBDFDA0086BE07 /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataManager.m; path = ../../Code/CoreData/CoreDataManager.m; sourceTree = "<group>"; };
 		A17012F318FC1FD90086BE07 /* CDAPersistedEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAPersistedEntry.h; sourceTree = "<group>"; };
 		A17012F518FC1FEE0086BE07 /* CDAPersistedAsset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDAPersistedAsset.h; sourceTree = "<group>"; };
 		A17012F718FC20120086BE07 /* CDAPersistedSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAPersistedSpace.h; sourceTree = "<group>"; };
@@ -475,8 +473,6 @@
 		A1A2CE78190A547C00B8D46D /* CDAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDAAppDelegate.m; sourceTree = "<group>"; };
 		A1A2CE94190A597900B8D46D /* CoreDataManager+SeedDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CoreDataManager+SeedDB.h"; sourceTree = "<group>"; };
 		A1A2CE95190A597900B8D46D /* CoreDataManager+SeedDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CoreDataManager+SeedDB.m"; sourceTree = "<group>"; };
-		A1A2CE98190A5D3600B8D46D /* CoreDataFetchDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataFetchDataSource.h; sourceTree = "<group>"; };
-		A1A2CE99190A5D3600B8D46D /* CoreDataFetchDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataFetchDataSource.m; sourceTree = "<group>"; };
 		A1A2CE9C190A633E00B8D46D /* DocumentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentListViewController.h; sourceTree = "<group>"; };
 		A1A2CE9D190A633E00B8D46D /* DocumentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentListViewController.m; sourceTree = "<group>"; };
 		A1A2CEA4190A659600B8D46D /* DocumentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentTableViewCell.h; sourceTree = "<group>"; };
@@ -1000,10 +996,6 @@
 				A10A11FD19090F5D00EFF083 /* CatDetailViewController.m */,
 				A1FAC3561908FDB40093B308 /* CatListViewController.h */,
 				A1FAC3571908FDB40093B308 /* CatListViewController.m */,
-				A1A2CE98190A5D3600B8D46D /* CoreDataFetchDataSource.h */,
-				A1A2CE99190A5D3600B8D46D /* CoreDataFetchDataSource.m */,
-				A17012EC18FBDFDA0086BE07 /* CoreDataManager.h */,
-				A17012ED18FBDFDA0086BE07 /* CoreDataManager.m */,
 				A1B8159518F2A8090027B26D /* CoreDataExample.xcdatamodeld */,
 				A1B8158A18F2A8090027B26D /* Supporting Files */,
 			);
