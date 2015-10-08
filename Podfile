@@ -58,8 +58,11 @@ pod 'AFNetworking', :inhibit_warnings => true
 
 end
 
-post_install do |installer|
-  installer.project.targets.each do |target|
+post_install do |installer_or_rep|
+  # Support both CP 0.36.1 and >= 0.38
+  installer = installer_or_rep.respond_to?(:installer) ? installer_or_rep.installer : installer_or_rep
+
+  installer.pods_project.targets.each do |target|
     target.build_configurations.each do |config|
       config.build_settings['ONLY_ACTIVE_ARCH'] = "NO"
     end
