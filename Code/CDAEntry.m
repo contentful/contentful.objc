@@ -35,13 +35,6 @@
     return @"Entry";
 }
 
-+(NSArray*)subclasses {
-    static dispatch_once_t once;
-    static NSArray* subclasses;
-    dispatch_once(&once, ^ { subclasses = CDAClassGetSubclasses([self class]); });
-    return subclasses;
-}
-
 #pragma mark -
 
 -(CLLocationCoordinate2D)CLLocationCoordinate2DFromFieldWithIdentifier:(NSString*)identifier {

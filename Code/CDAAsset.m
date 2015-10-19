@@ -75,13 +75,6 @@ const CGFloat CDARadiusNone             = 0.0;
     return @"Asset";
 }
 
-+(NSArray*)subclasses {
-    static dispatch_once_t once;
-    static NSArray* subclasses;
-    dispatch_once(&once, ^ { subclasses = CDAClassGetSubclasses([self class]); });
-    return subclasses;
-}
-
 #pragma mark -
 
 -(void)cacheAssetForcingOverwrite:(BOOL)forceOverwrite

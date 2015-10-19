@@ -61,6 +61,22 @@
     return CDAReadItemFromFileURL(fileURL, client);
 }
 
+typedef struct typeToClassMap_s {
+    CFStringRef typeName;
+    CFStringRef className;
+} typeToClassMap_t;
+
+static const typeToClassMap_t typeToClassMap[] = {
+    { CFSTR("array"), CFSTR("CDAArray") },
+    { CFSTR("asset"), CFSTR("CDAAsset") },
+    { CFSTR("contenttype"), CFSTR("CDAContentType") },
+    { CFSTR("deletedasset"), CFSTR("CDADeletedAsset") },
+    { CFSTR("deletedentry"), CFSTR("CDADeletedEntry") },
+    { CFSTR("entry"), CFSTR("CDAEntry") },
+    { CFSTR("error"), CFSTR("CDAError") },
+    { CFSTR("space"), CFSTR("CDASpace") },
+};
+
 +(instancetype)resourceObjectForDictionary:(NSDictionary *)dictionary client:(CDAClient*)client {
     if (![dictionary isKindOfClass:[NSDictionary class]]) {
         return nil;
@@ -75,27 +91,25 @@
         resourceType = dictionary[@"sys"][@"linkType"];
     }
     
-    for (Class subclass in [self subclasses]) {
-        // Avoid clashes with custom subclasses the user created
-        if (![NSStringFromClass(subclass) hasPrefix:client.resourceClassPrefix]) {
-            continue;
-        }
-        
-        if ([[[subclass CDAType] lowercaseString] isEqualToString:[resourceType lowercaseString]]) {
-            CDAResource* resource = [[subclass alloc] initWithDictionary:dictionary client:client];
+    if (resourceType == nil) {
+        NSAssert(false, @"No resource type.");
+        return nil;
+    }
+    resourceType = [resourceType lowercaseString];
+    
+    size_t const typeCount = sizeof(typeToClassMap) / sizeof(*typeToClassMap);
+    for (size_t i = 0; i < typeCount; ++i) {
+        NSString * const name = (__bridge id) typeToClassMap[i].typeName;
+        if ([name isEqualToString:resourceType]) {
+            NSString * const className = (__bridge id) typeToClassMap[i].className;
+            Class const subclass = NSClassFromString(className);
+            CDAResource *resource = [[subclass alloc] initWithDictionary:dictionary client:client];
             return resource;
         }
     }
     
     NSAssert(false, @"Unsupported resource type '%@'", resourceType);
     return nil;
-}
-
-+(NSArray*)subclasses {
-    static dispatch_once_t once;
-    static NSArray* subclasses;
-    dispatch_once(&once, ^ { subclasses = CDAClassGetSubclasses([self class]); });
-    return subclasses;
 }
 
 +(BOOL)supportsSecureCoding {
