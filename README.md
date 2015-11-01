@@ -65,7 +65,7 @@ CDAEntry* readEntry = [CDAEntry readFromFile:@"/some/path" client:client];
 
 Most of the UIKit extensions have an `offlineCaching` property which transparently uses this mechanism for showing content when offline.
 
-If you rather use another solution, there is the abstract `CDAPersistenceManager` class with a [sample implementation](https://github.com/contentful/contentful.objc/blob/master/Code/CoreData/CoreDataManager.m) for Core Data. It supports mapping Resources to another method for managing your object graph easily and ties this to the Contentful synchronization API. Check out the Core Data example app for integrating it yourself.
+If you rather use another solution, there is the abstract `CDAPersistenceManager` class with a [sample implementation](https://github.com/contentful/contentful-persistence.objc/blob/master/Code/CoreDataManager.m) for Core Data. It supports mapping Resources to another method for managing your object graph easily and ties this to the Contentful synchronization API. Check out the Core Data example app for integrating it yourself.
 
 In both cases, you can use the `offlineCaching_cda` property of the SDK's `UIImageView` category to make any image view transparently cache its contents in a flat file on disk. This will only cache images that the user has viewed once while the app was online.
 
