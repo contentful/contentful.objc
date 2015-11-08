@@ -6,9 +6,11 @@
 //
 //
 
+#import "CDAClient+Private.h"
 #import "CoreDataBaseTestCase.h"
 #import "CoreDataManager.h"
 #import "Group.h"
+#import "LinkedEntry.h"
 #import "Member.h"
 
 @interface CoreDataIssues : CoreDataBaseTestCase
@@ -26,7 +28,40 @@
     [super buildPersistenceManagerWithDefaultClient:NO];
 }
 
+-(CDAPersistenceManager*)createPersistenceManagerWithClient:(CDAClient*)client {
+    if ([client.spaceKey isEqualToString:@"vfvjfjyjrbbp"]) {
+        return [[CoreDataManager alloc] initWithClient:client dataModelName:@"LinkedData"];
+    }
+
+    return [super createPersistenceManagerWithClient:client];
+}
+
 #pragma mark -
+
+-(void)testMissingEntity {
+    StartBlock();
+
+    self.client = [[CDAClient alloc] initWithSpaceKey:@"vfvjfjyjrbbp" accessToken:@"422588c021896d2ae01eaf2d68faa720aaf6da4b361e7c99e9afac6feacb498b"];
+    [super buildPersistenceManagerWithDefaultClient:NO];
+
+    [self.persistenceManager setClass:LinkedEntry.class forEntriesOfContentTypeWithIdentifier:@"3IeewiEyqc4sKeUWSoicuk"];
+    [self.persistenceManager setMapping:@{ @"fields.title": @"name", @"fields.link": @"link" }forEntriesOfContentTypeWithIdentifier:@"3IeewiEyqc4sKeUWSoicuk"];
+
+    [self.persistenceManager performSynchronizationWithSuccess:^{
+        NSArray* entries = [self.persistenceManager fetchEntriesFromDataStore];
+
+        XCTAssertEqual(entries.count, 1UL, @"");
+        XCTAssertEqualObjects([entries.firstObject name], @"B", @"");
+
+        EndBlock();
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTFail(@"Error: %@", error);
+
+        EndBlock();
+    }];
+
+    WaitUntilBlockCompletes();
+}
 
 -(void)testToManyRelationship {
     StartBlock();
