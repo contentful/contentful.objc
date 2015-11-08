@@ -63,33 +63,6 @@ NSString* CDACacheFileNameForResource(CDAResource* resource) {
     return [CDACacheDirectory() stringByAppendingPathComponent:fileName];
 }
 
-// Thanks to http://www.cocoawithlove.com/2010/01/getting-subclasses-of-objective-c-class.html
-NSArray* CDAClassGetSubclasses(Class parentClass) {
-    int numClasses = objc_getClassList(NULL, 0);
-    Class* classes = NULL;
-    static const Class invalidClass =  (__bridge Class) (void*) (((intptr_t) 0)-1);
-    
-    classes = (__unsafe_unretained Class*)malloc(sizeof(Class) * numClasses);
-    numClasses = objc_getClassList(classes, numClasses);
-    
-    NSMutableArray* result = [NSMutableArray array];
-    for (NSInteger i = 0; i < numClasses; i++) {
-        Class superClass = classes[i];
-        do {
-            superClass = class_getSuperclass(superClass);
-        } while(superClass && (superClass != parentClass) && (superClass != invalidClass));
-        
-        if ((superClass == nil) || (superClass == invalidClass)) {
-            continue;
-        }
-        
-        [result addObject:classes[i]];
-    }
-    
-    free(classes);
-    return result;
-}
-
 void CDADecodeObjectWithCoder(id object, NSCoder* aDecoder) {
     CDAPropertyVisitor([object class], ^(objc_property_t property, NSString *propertyName) {
         if (!CDAIgnoreProperty(property)) {
