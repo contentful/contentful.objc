@@ -83,6 +83,9 @@
         
         if ([[[subclass CDAType] lowercaseString] isEqualToString:[resourceType lowercaseString]]) {
             CDAResource* resource = [[subclass alloc] initWithDictionary:dictionary client:client];
+            if (!resource.fetched && client.configuration.filterNonExistingResources) {
+                return nil;
+            }
             return resource;
         }
     }

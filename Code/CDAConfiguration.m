@@ -20,6 +20,7 @@
 
 +(instancetype)defaultConfiguration {
     CDAConfiguration* configuration = [CDAConfiguration new];
+    configuration.filterNonExistingResources = NO;
     configuration.previewMode = NO;
     configuration.rateLimiting = NO;
     configuration.secure = YES;

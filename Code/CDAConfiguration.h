@@ -28,6 +28,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** @name Configuring parameters */
 
+/** Automatically filter any non-existing resources being linked to. */
+@property (nonatomic) BOOL filterNonExistingResources;
+
 /** Automatically retry requests if rate-limits are exceeded. */
 @property (nonatomic) BOOL rateLimiting;
 
