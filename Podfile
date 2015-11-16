@@ -13,7 +13,7 @@ end
 target "CDA Tests", :exclusive => true do
 
 pod 'CCLRequestReplay', :git => 'https://github.com/neonichu/CCLRequestReplay.git'
-pod 'ContentfulPersistence'
+pod 'ContentfulPersistence', '>= 0.3.1'
 pod 'FBSnapshotTestCase'
 pod 'OCMock'
 pod 'Realm'
