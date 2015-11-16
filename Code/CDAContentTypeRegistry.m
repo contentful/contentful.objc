@@ -35,6 +35,10 @@
     return self.customClasses[contentType.identifier];
 }
 
+-(BOOL)hasCustomClasses {
+    return self.customClasses.count > 0;
+}
+
 -(id)init {
     self = [super init];
     if (self) {
