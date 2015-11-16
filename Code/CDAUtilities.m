@@ -90,6 +90,20 @@ NSArray* CDAClassGetSubclasses(Class parentClass) {
     return result;
 }
 
+BOOL CDAClassIsEqualToClass(Class someClass, Class otherClass) {
+    return [NSStringFromClass(someClass) isEqualToString:NSStringFromClass(otherClass)];
+}
+
+BOOL CDAClassIsOfType(Class someClass, Class otherClass) {
+    do {
+        if (CDAClassIsEqualToClass(someClass, otherClass)) {
+            return YES;
+        }
+    } while ((otherClass = class_getSuperclass(otherClass)));
+
+    return NO;
+}
+
 void CDADecodeObjectWithCoder(id object, NSCoder* aDecoder) {
     CDAPropertyVisitor([object class], ^(objc_property_t property, NSString *propertyName) {
         if (!CDAIgnoreProperty(property)) {

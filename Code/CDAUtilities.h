@@ -27,6 +27,7 @@ NSString* CDACacheDirectory();
 NSString* CDACacheFileNameForQuery(CDAClient* client, CDAResourceType resourceType, NSDictionary* query);
 NSString* CDACacheFileNameForResource(CDAResource* resource);
 NSArray* CDAClassGetSubclasses(Class parentClass);
+BOOL CDAClassIsOfType(Class someClass, Class otherClass);
 void CDADecodeObjectWithCoder(id object, NSCoder* aDecoder);
 void CDAEncodeObjectWithCoder(id object, NSCoder* aCoder);
 BOOL CDAIsNoNetworkError(NSError* error);

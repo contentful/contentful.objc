@@ -93,6 +93,11 @@
     WaitUntilBlockCompletes();
 }
 
+-(void)testClassComparison {
+    BOOL result = CDAClassIsOfType([NSString class], [NSString class]);
+    XCTAssertTrue(result);
+}
+
 -(void)testNoNetworkErrorCheck {
     NSError* someError = [NSError errorWithDomain:NSURLErrorDomain
                                              code:kCFURLErrorNotConnectedToInternet
