@@ -37,7 +37,7 @@
 @implementation CDAResource
 
 +(BOOL)classIsOfType:(Class)otherClass {
-    return CDAClassIsOfType(self.class, otherClass);
+    return CDAClassIsOfType(otherClass, self.class);
 }
 
 +(nullable instancetype)readFromFile:(NSString*)filePath client:(CDAClient*)client {

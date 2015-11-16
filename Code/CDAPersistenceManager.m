@@ -151,11 +151,11 @@
                                    usingBlock:^CDAResource *(CDAResource *resource,
                                                              NSDictionary *assets,
                                                              NSDictionary *entries) {
-                                       if ([resource isKindOfClass:[CDAAsset class]]) {
+                                       if (CDAClassIsOfType([resource class], CDAAsset.class)) {
                                            [self handleAsset:(CDAAsset*)resource];
                                        }
                                        
-                                       if ([resource isKindOfClass:[CDAEntry class]]) {
+                                       if (CDAClassIsOfType([resource class], CDAEntry.class)) {
                                            [self handleEntry:(CDAEntry*)resource];
                                        }
                                        
@@ -465,7 +465,7 @@
     
     NSDictionary* mappingForEntries = [self mappingForEntriesOfContentTypeWithIdentifier:identifier];
 
-    if ([persistedEntry isKindOfClass:[CDALocalizablePersistedEntry class]]) {
+    if (CDAClassIsOfType([persistedEntry class], CDALocalizablePersistedEntry.class)) {
         mappingForEntries = [self relationshipMappingForEntriesOfContentTypeWithIdentifier:identifier];
         CDALocalizablePersistedEntry* parent = (CDALocalizablePersistedEntry*)persistedEntry;
         NSDictionary* fieldMapping = [self fieldMappingForEntriesOfContentTypeWithIdentifier:identifier];

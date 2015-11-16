@@ -99,7 +99,7 @@ BOOL CDAClassIsOfType(Class someClass, Class otherClass) {
         if (CDAClassIsEqualToClass(someClass, otherClass)) {
             return YES;
         }
-    } while ((otherClass = class_getSuperclass(otherClass)));
+    } while ((someClass = class_getSuperclass(someClass)));
 
     return NO;
 }

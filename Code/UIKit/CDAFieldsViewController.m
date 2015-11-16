@@ -18,6 +18,7 @@
 #import "CDAImageViewController.h"
 #import "CDALocationViewController.h"
 #import "CDATextViewController.h"
+#import "CDAUtilities.h"
 
 @interface CDAFieldsViewController ()
 
@@ -45,7 +46,7 @@
             }
             
             CDAEntry* entry = [array firstObject];
-            if (![entry isKindOfClass:[CDAEntry class]] || !entry.fetched) {
+            if (!CDAClassIsOfType([entry class], CDAEntry.class) || !entry.fetched) {
                 [self.client resolveLinksFromArray:array
                                            success:^(NSArray *items) {
                                                [self showResourcesFromArray:items withTitle:field.name];
@@ -61,14 +62,14 @@
             
         case CDAFieldTypeLink: {
             [value resolveWithSuccess:^(CDAResponse *response, CDAResource *resource) {
-                if ([resource isKindOfClass:[CDAAsset class]]) {
+                if (CDAClassIsOfType([resource class], CDAAsset.class)) {
                     CDAImageViewController* imageVC = [CDAImageViewController new];
                     imageVC.asset = (CDAAsset*)resource;
                     imageVC.title = field.name;
                     [self.navigationController pushViewController:imageVC animated:YES];
                 }
                 
-                if ([resource isKindOfClass:[CDAEntry class]]) {
+                if (CDAClassIsOfType([resource class], CDAEntry.class)) {
                     CDAFieldsViewController* linkedFieldsVC = [[CDAFieldsViewController alloc]
                                                                initWithEntry:(CDAEntry*)resource];
                     linkedFieldsVC.client = self.client;
@@ -184,11 +185,11 @@
     NSDictionary* cellMapping = nil;
     CDAResource* resource = [array firstObject];
     
-    if ([resource isKindOfClass:[CDAAsset class]]) {
+    if (CDAClassIsOfType([resource class], CDAAsset.class)) {
         cellMapping = @{ @"textLabel.text": @"fields.title" };
     }
     
-    if ([resource isKindOfClass:[CDAEntry class]]) {
+    if (CDAClassIsOfType([resource class], CDAEntry.class)) {
         CDAEntry* entry = (CDAEntry*)resource;
         if (entry.contentType.displayField) {
             NSString* displayField = entry.contentType.displayField;

@@ -6,6 +6,7 @@
 //
 //
 
+#import "CDAUtilities.h"
 #import "ContentfulBaseTestCase.h"
 
 @interface ArrayTests : ContentfulBaseTestCase
@@ -50,7 +51,7 @@
                                   XCTAssertEqual(2U, array.items.count, @"");
                                   
                                   for (CDAContentType* ct in array.items) {
-                                      XCTAssert([ct isKindOfClass:[CDAContentType class]], @"");
+                                      XCTAssert(CDAClassIsOfType([ct class], CDAContentType.class));
                                   }
                                   
                                   EndBlock();
@@ -73,7 +74,7 @@
                                   XCTAssertEqual(100U, array.items.count, @"");
                                   
                                   for (CDAEntry* entry in array.items) {
-                                      XCTAssert([entry isKindOfClass:[CDAEntry class]], @"");
+                                      XCTAssert(CDAClassIsOfType([entry class], CDAEntry.class));
                                   }
                                   
                                   EndBlock();

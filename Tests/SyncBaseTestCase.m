@@ -12,6 +12,7 @@
 #import "CDADeletedAsset.h"
 #import "CDADeletedEntry.h"
 #import "CDAResource+Private.h"
+#import "CDAUtilities.h"
 #import "SyncBaseTestCase.h"
 
 @interface SyncBaseTestCase ()
@@ -82,7 +83,7 @@
 #pragma mark - CDASyncedSpaceDelegate
 
 -(void)syncedSpace:(CDASyncedSpace *)space didCreateAsset:(CDAAsset *)asset {
-    XCTAssert([asset isKindOfClass:[CDAAsset class]], @"");
+    XCTAssert(CDAClassIsOfType([asset class], CDAAsset.class), @"");
     XCTAssertNotNil(asset.identifier, @"");
     XCTAssertNotNil(asset.fields, @"");
     
@@ -90,7 +91,7 @@
 }
 
 -(void)syncedSpace:(CDASyncedSpace *)space didCreateEntry:(CDAEntry *)entry {
-    XCTAssert([entry isKindOfClass:[CDAEntry class]], @"");
+    XCTAssert(CDAClassIsOfType([entry class], CDAEntry.class), @"");
     XCTAssertNotNil(entry.identifier, @"");
     XCTAssertNotNil(entry.fields, @"");
     
@@ -98,8 +99,8 @@
 }
 
 -(void)syncedSpace:(CDASyncedSpace *)space didDeleteAsset:(CDAAsset *)asset {
-    XCTAssert([asset isKindOfClass:[CDAAsset class]] ||
-              [asset isKindOfClass:[CDADeletedAsset class]], @"");
+    XCTAssert((CDAClassIsOfType([asset class], CDAAsset.class) ||
+              (CDAClassIsOfType([asset class], CDADeletedAsset.class))));
     XCTAssertNotNil(asset.identifier, @"");
     
     if (self.expectFieldsInDeletedResources) {
@@ -110,8 +111,8 @@
 }
 
 -(void)syncedSpace:(CDASyncedSpace *)space didDeleteEntry:(CDAEntry *)entry {
-    XCTAssert([entry isKindOfClass:[CDAEntry class]] ||
-              [entry isKindOfClass:[CDADeletedEntry class]], @"");
+    XCTAssert((CDAClassIsOfType([entry class], CDAEntry.class) ||
+              CDAClassIsOfType([entry class], CDADeletedEntry.class)));
     XCTAssertNotNil(entry.identifier, @"");
     
     if (self.expectFieldsInDeletedResources) {
@@ -122,7 +123,7 @@
 }
 
 -(void)syncedSpace:(CDASyncedSpace *)space didUpdateAsset:(CDAAsset *)asset {
-    XCTAssert([asset isKindOfClass:[CDAAsset class]], @"");
+    XCTAssert(CDAClassIsOfType([asset class], CDAAsset.class), @"");
     XCTAssertNotNil(asset.identifier, @"");
     XCTAssertNotNil(asset.fields, @"");
     
@@ -130,7 +131,7 @@
 }
 
 -(void)syncedSpace:(CDASyncedSpace *)space didUpdateEntry:(CDAEntry *)entry {
-    XCTAssert([entry isKindOfClass:[CDAEntry class]], @"");
+    XCTAssert(CDAClassIsOfType([entry class], CDAEntry.class));
     XCTAssertNotNil(entry.identifier, @"");
     XCTAssertNotNil(entry.fields, @"");
     

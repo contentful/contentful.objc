@@ -156,13 +156,13 @@
     NSAssert([JSONObject isKindOfClass:[NSDictionary class]], @"JSON result is not a dictionary");
     CDAResource* resource = [CDAResource resourceObjectForDictionary:JSONObject client:self.client];
     
-    if ([resource isKindOfClass:[CDAArray class]]) {
+    if (CDAClassIsOfType([resource class], CDAArray.class)) {
         for (CDAResource* subResource in [(CDAArray*)resource items]) {
-            if ([subResource isKindOfClass:[CDAAsset class]]) {
+            if (CDAClassIsOfType([subResource class], CDAAsset.class)) {
                 assets[subResource.identifier] = subResource;
             }
             
-            if ([subResource isKindOfClass:[CDAEntry class]]) {
+            if (CDAClassIsOfType([subResource class], CDAEntry.class)) {
                 entries[subResource.identifier] = subResource;
             }
 

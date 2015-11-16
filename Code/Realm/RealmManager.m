@@ -9,6 +9,7 @@
 #import <objc/runtime.h>
 #import <Realm/Realm.h>
 
+#import "CDAUtilities.h"
 #import "RealmAsset.h"
 #import "RealmManager.h"
 #import "RealmSpace.h"
@@ -166,11 +167,11 @@
 }
 
 - (id)resolveResource:(CDAResource*)rsc {
-    if ([rsc isKindOfClass:[CDAAsset class]]) {
+    if (CDAClassIsOfType([rsc class], CDAAsset.class)) {
         return [self fetchAssetWithIdentifier:rsc.identifier];
     }
 
-    if ([rsc isKindOfClass:[CDAEntry class]]) {
+    if (CDAClassIsOfType([rsc class], CDAEntry.class)) {
         return [self fetchEntryWithIdentifier:rsc.identifier];
     }
 

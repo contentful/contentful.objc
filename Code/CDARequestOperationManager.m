@@ -24,6 +24,7 @@
 #import "CDAResponse+Private.h"
 #import "CDAResponseSerializer.h"
 #import "CDASpace.h"
+#import "CDAUtilities.h"
 
 @interface CDARequestOperationManager ()
 
@@ -69,7 +70,7 @@
                    parameters:parameters
                       success:^(CDAResponse *response, id responseObject) {
                           if (success) {
-                              NSAssert([responseObject isKindOfClass:[CDAArray class]],
+                              NSAssert(CDAClassIsOfType([responseObject class], CDAArray.class),
                                        @"Response object needs to be an array.");
                               [(CDAArray*)responseObject setQuery:parameters ?: @{}];
                               success(response, responseObject);
@@ -86,12 +87,13 @@
         return nil;
     }
 
-    if ([responseObject isKindOfClass:[CDAError class]]) {
+    if (CDAClassIsOfType([responseObject class], CDAError.class)) {
         NSAssert(false, [(CDAError*)responseObject message]);
         return nil;
     }
     
-    NSAssert([responseObject isKindOfClass:[CDAArray class]], @"Response object needs to be an array.");
+    NSAssert(CDAClassIsOfType([responseObject class], CDAArray.class),
+             @"Response object needs to be an array.");
     return (CDAArray*)responseObject;
 }
 
@@ -100,7 +102,7 @@
     return [self fetchURLPath:@""
                    parameters:nil
                       success:^(CDAResponse *response, id responseObject) {
-                          NSAssert([responseObject isKindOfClass:[CDASpace class]],
+                          NSAssert(CDAClassIsOfType([responseObject class], CDASpace.class),
                                    @"Response object needs to be a space.");
                           success(response, responseObject);
                       } failure:failure];
@@ -268,7 +270,7 @@
           }
 
           if (failure) {
-              if ([operation.responseObject isKindOfClass:[CDAError class]]) {
+              if (CDAClassIsOfType([operation.responseObject class], CDAError.class)) {
                   error = [operation.responseObject errorRepresentationWithCode:operation.response.statusCode];
               }
               

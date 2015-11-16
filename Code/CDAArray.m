@@ -9,6 +9,7 @@
 #import "CDAArray+Private.h"
 #import "CDAError+Private.h"
 #import "CDAResource+Private.h"
+#import "CDAUtilities.h"
 
 @interface CDAArray ()
 
@@ -57,7 +58,7 @@
         for (NSDictionary* item in dictionary[@"errors"]) {
             CDAError* error = (CDAError*)[CDAResource resourceObjectForDictionary:item
                                                                            client:self.client];
-            NSAssert([error isKindOfClass:[CDAError class]],
+            NSAssert(CDAClassIsOfType([error class], CDAError.class),
                      @"Invalid resource %@ in errors array.", error);
             [errors addObject:[error errorRepresentationWithCode:0]];
         }

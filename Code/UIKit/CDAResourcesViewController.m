@@ -41,14 +41,14 @@
 }
 
 -(void)didSelectRowWithResource:(CDAResource*)resource {
-    if ([resource isKindOfClass:[CDAAsset class]]) {
+    if (CDAClassIsOfType([resource class], CDAAsset.class)) {
         CDAImageViewController* imageVC = [CDAImageViewController new];
         imageVC.asset = (CDAAsset*)resource;
         imageVC.title = imageVC.asset.fields[@"title"];
         [self.navigationController pushViewController:imageVC animated:YES];
     }
     
-    if ([resource isKindOfClass:[CDAContentType class]]) {
+    if (CDAClassIsOfType([resource class], CDAContentType.class)) {
         CDAContentType* contentType = (CDAContentType*)resource;
         NSString* displayField = contentType.displayField;
         NSDictionary* cellMapping = displayField ? @{ @"textLabel.text": [@"fields." stringByAppendingString:displayField] } : nil;
@@ -61,7 +61,7 @@
         [self.navigationController pushViewController:entriesVC animated:YES];
     }
     
-    if ([resource isKindOfClass:[CDAEntry class]]) {
+    if (CDAClassIsOfType([resource class], CDAEntry.class)) {
         CDAFieldsViewController* fieldsVC = [[CDAFieldsViewController alloc]
                                              initWithEntry:(CDAEntry*)resource];
         fieldsVC.client = self.client;
@@ -235,7 +235,7 @@
                                                             forIndexPath:indexPath];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
-    if (![item isKindOfClass:[CDAResource class]]) {
+    if (!CDAClassIsOfType([item class], CDAResource.class)) {
         cell.accessoryType = UITableViewCellAccessoryNone;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.textLabel.text = [item respondsToSelector:@selector(stringValue)] ? [item stringValue] : item;
@@ -257,7 +257,7 @@
         [cell setValue:value forKeyPath:cellKeyPath];
     }];
     
-    if (cell.textLabel.text.length == 0 && [item isKindOfClass:[CDAResource class]]) {
+    if (cell.textLabel.text.length == 0 && CDAClassIsOfType([item class], CDAResource.class)) {
         cell.textLabel.text = [(CDAResource*)item identifier];
     }
     

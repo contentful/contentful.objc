@@ -98,6 +98,11 @@
     XCTAssertTrue(result);
 }
 
+-(void)testClassComparisonForSuperclass {
+    BOOL result = CDAClassIsOfType([NSString class], [NSObject class]);
+    XCTAssertTrue(result);
+}
+
 -(void)testNoNetworkErrorCheck {
     NSError* someError = [NSError errorWithDomain:NSURLErrorDomain
                                              code:kCFURLErrorNotConnectedToInternet

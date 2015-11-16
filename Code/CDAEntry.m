@@ -83,7 +83,7 @@
     __block NSMutableArray* unresolvedResources = [@[] mutableCopy];
     
     [self resolveLinksWithIncludedAssets:nil entries:nil usingBlock:^CDAResource *(CDAResource *resource, NSDictionary *assets, NSDictionary *entries) {
-        if ([resource isKindOfClass:class] && !resource.fetched) {
+        if (CDAClassIsOfType([resource class], class) && !resource.fetched) {
             [unresolvedResources addObject:resource];
         }
         
@@ -156,7 +156,7 @@
     [dictionary enumerateKeysAndObjectsUsingBlock:^(NSString* selfKeyPath,
                                                     NSString* objectKeyPath, BOOL *stop) {
         id value = [self valueForKeyPath:selfKeyPath];
-        if ([value isKindOfClass:[CDAResource class]] || !value) {
+        if (CDAClassIsOfType([value class], CDAResource.class) || !value) {
             return;
         }
         
@@ -197,7 +197,7 @@
         if (field.type == CDAFieldTypeArray && [value isKindOfClass:[NSArray class]]) {
             NSArray* array = value;
             
-            if (array.count > 0 && [[array firstObject] isKindOfClass:[CDAResource class]]) {
+            if (array.count > 0 && CDAClassIsOfType([[array firstObject] class], CDAResource.class)) {
                 NSMutableArray* newArray = [@[] mutableCopy];
                 
                 for (CDAResource* resource in array) {
@@ -209,7 +209,7 @@
             }
         }
         
-        if (field.type == CDAFieldTypeLink && [value isKindOfClass:[CDAResource class]]) {
+        if (field.type == CDAFieldTypeLink && CDAClassIsOfType([value class], CDAResource.class)) {
             CDAResource* possibleResource = resolver(value, assets, entries);
             
             fields[key] = possibleResource ?: value;
