@@ -34,7 +34,7 @@ PODS:
   - ContentfulDeliveryAPI (1.9.2):
     - AFNetworking (~> 2.5.3)
     - ISO8601DateFormatter
-  - ContentfulPersistence (0.3.1):
+  - ContentfulPersistence (0.3.2):
     - ContentfulDeliveryAPI (~> 1.9.1)
   - FBSnapshotTestCase (1.5)
   - ISO8601DateFormatter (0.7)
@@ -50,7 +50,7 @@ DEPENDENCIES:
   - CCLRequestReplay (from `https://github.com/neonichu/CCLRequestReplay.git`)
   - ContentfulDeliveryAPI (from `.`)
   - ContentfulPersistence
-  - ContentfulPersistence (>= 0.3.1)
+  - ContentfulPersistence (>= 0.3.2)
   - FBSnapshotTestCase
   - ISO8601DateFormatter
   - OCMock
@@ -73,7 +73,7 @@ SPEC CHECKSUMS:
   AFNetworking: e1d86c2a96bb5d2e7408da36149806706ee122fe
   CCLRequestReplay: a472e52da260c28d7a41df76697b8e518625a44f
   ContentfulDeliveryAPI: ed7a6c7e06a9ed4206714ab483749fe245765369
-  ContentfulPersistence: 7166ffca046214e7c3bde66c653608940fd50f0a
+  ContentfulPersistence: fd9ce1235865a968b7c7a57afebf7f235579842d
   FBSnapshotTestCase: 26f32d8fa9eb30e9f09712ecfb097808bc79b898
   ISO8601DateFormatter: ab926648eebe497f4d167c0fd083992f959f1274
   OCMock: a6a7dc0e3997fb9f35d99f72528698ebf60d64f2
