@@ -36,6 +36,7 @@ static-lib:
 	rm -rf ContentfulDeliveryAPI-*/
 
 test: example
+	@osascript -e 'tell app "iOS Simulator" to quit'
 	bundle exec pod lib coverage
 
 lint:
