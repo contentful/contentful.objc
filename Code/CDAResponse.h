@@ -6,7 +6,11 @@
 //
 //
 
+#if __has_feature(modules)
 @import Foundation;
+#else
+#import <Foundation/Foundation.h>
+#endif
 
 /**
  A `CDAResponse` encapsulates meta-information about a reponse received from the server, such as the 

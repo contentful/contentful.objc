@@ -6,7 +6,11 @@
 //
 //
 
+#if __has_feature(modules)
 @import MapKit;
+#else
+#import <MapKit/MapKit.h>
+#endif
 
 #import <ContentfulDeliveryAPI/CDANullabilityStubs.h>
 #import <ContentfulDeliveryAPI/CDAResource.h>

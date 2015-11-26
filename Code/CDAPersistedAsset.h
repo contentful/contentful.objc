@@ -6,7 +6,11 @@
 //
 //
 
+#if __has_feature(modules)
 @import Foundation;
+#else
+#import <Foundation/Foundation.h>
+#endif
 
 /**
  *  Any class representing Assets saved to a persistent store needs to conform to this protocol.

@@ -6,7 +6,12 @@
 //
 //
 
+#if __has_feature(modules)
 @import UIKit;
+#else
+#import <UIKit/UIKit.h>
+#endif
+
 
 @class CDAEntry;
 

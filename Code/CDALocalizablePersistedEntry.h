@@ -6,7 +6,11 @@
 //
 //
 
+#if __has_feature(modules)
 @import CoreData;
+#else
+#import <CoreData/CoreData.h>
+#endif
 
 #import <ContentfulDeliveryAPI/CDALocalizedPersistedEntry.h>
 

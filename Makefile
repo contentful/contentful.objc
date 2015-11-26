@@ -37,6 +37,7 @@ static-lib:
 
 test: example
 	@osascript -e 'tell app "iOS Simulator" to quit'
+	@osascript -e 'tell app "Simulator" to quit'
 	bundle exec pod lib coverage
 
 lint:
