@@ -1,3 +1,11 @@
+__SIM_ID=`xcrun simctl list|egrep -m 1 '$(SIM_NAME) \([^(]*\) \([^(]*\)$$'|sed -e 's/.* (\(.*\)) (.*)/\1/'`
+SIM_NAME=iPhone 4s
+SIM_ID=$(shell echo $(__SIM_ID))
+
+ifeq ($(strip $(SIM_ID)),)
+$(error Could not find $(SIM_NAME) simulator)
+endif
+
 WORKSPACE=ContentfulSDK.xcworkspace
 
 .PHONY: all clean doc example example-static pod really-clean static-lib test
@@ -17,14 +25,14 @@ pod:
 example:
 	set -o pipefail && xcodebuild clean build -workspace $(WORKSPACE) \
 		-scheme ContentfulDeliveryAPI \
-		-sdk iphonesimulator | xcpretty -c
+		-sdk iphonesimulator -destination 'id=$(SIM_ID)'| xcpretty -c
 	set -o pipefail && xcodebuild clean build -workspace $(WORKSPACE) \
 		-scheme 'UFO Example' \
-		-sdk iphonesimulator | xcpretty -c
+		-sdk iphonesimulator -destination 'id=$(SIM_ID)'| xcpretty -c
 
 example-static: static-lib
 	cd Examples/UFO; set -o pipefail && xcodebuild clean build \
-		-sdk iphonesimulator | xcpretty -c
+		-sdk iphonesimulator -destination 'id=$(SIM_ID)'| xcpretty -c
 
 static-lib:
 	bundle exec pod repo update >/dev/null
@@ -43,8 +51,8 @@ test: example
 lint:
 	set -o pipefail && xcodebuild clean build -workspace $(WORKSPACE) -dry-run \
 		-scheme ContentfulDeliveryAPI \
-		-sdk iphonesimulator clean build|xcpretty -r json-compilation-database \
-		-o compile_commands.json
+		-sdk iphonesimulator -destination 'id=$(SIM_ID)' clean build| \
+		xcpretty -r json-compilation-database -o compile_commands.json
 	oclint-json-compilation-database
 
 doc:
