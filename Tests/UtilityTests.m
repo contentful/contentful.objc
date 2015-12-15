@@ -6,6 +6,8 @@
 //
 //
 
+#import "CDAClient+Private.h"
+#import "CDAContentTypeRegistry.h"
 #import "CDAFallbackDictionary.h"
 #import "CDAResource+Private.h"
 #import "CDAUtilities.h"
@@ -101,6 +103,22 @@
 -(void)testClassComparisonForSuperclass {
     BOOL result = CDAClassIsOfType([NSString class], [NSObject class]);
     XCTAssertTrue(result);
+}
+
+-(void)testCopyClient {
+    CDAClient* client = [CDAClient new];
+    client.resourceClassPrefix = @"YOLO";
+    NSDictionary* dummyPayload = @{ @"sys": @{ @"id": @"06f5086772e0cd0b8f4e2381fa610d36" },
+                                    @"name": @"yolo" };
+    CDAContentType* dummyCT = [[CDAContentType alloc] initWithDictionary:dummyPayload client:self.client];
+    [client registerClass:CDAEntry.class forContentType:dummyCT];
+
+    CDASpace* space = [[CDASpace alloc] initWithDictionary:dummyPayload client:self.client];
+    CDAClient* copiedClient = [client copyWithSpace:space];
+
+    XCTAssertEqual(copiedClient.resourceClassPrefix, @"YOLO");
+    XCTAssertEqual(copiedClient.space, space);
+    XCTAssertTrue(copiedClient.contentTypeRegistry.hasCustomClasses);
 }
 
 -(void)testNoNetworkErrorCheck {
