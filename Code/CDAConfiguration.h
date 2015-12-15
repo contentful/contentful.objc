@@ -16,6 +16,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+extern const NSString* const CDA_DEFAULT_SERVER;
+
 /**
  Class representing additional configuration options for a `CDAClient`.
  */

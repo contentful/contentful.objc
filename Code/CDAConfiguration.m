@@ -8,6 +8,9 @@
 
 #import "CDAConfiguration+Private.h"
 
+NSString* const CDA_DEFAULT_SERVER = @"cdn.contentful.com";
+static NSString* const CDA_PREVIEW_SERVER = @"preview.contentful.com";
+
 @interface CDAConfiguration ()
 
 @property (nonatomic) BOOL usesManagementAPI;
@@ -24,7 +27,7 @@
     configuration.previewMode = NO;
     configuration.rateLimiting = NO;
     configuration.secure = YES;
-    configuration.server = @"cdn.contentful.com";
+    configuration.server = CDA_DEFAULT_SERVER;
     return configuration;
 }
 
@@ -38,7 +41,7 @@
     _previewMode = previewMode;
     
     if (previewMode) {
-        self.server = @"preview.contentful.com";
+        self.server = CDA_PREVIEW_SERVER;
     }
 }
 
