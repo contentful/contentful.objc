@@ -1,7 +1,7 @@
 source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/contentful/CocoaPodsSpecs.git'
 
-platform :ios, "6.0"
+platform :ios, "7.0"
 
 target "ContentfulDeliveryAPI", :exclusive => true do
 
@@ -32,7 +32,7 @@ end
 
 target "ContentfulSeedDatabase", :exclusive => true do
 
-platform :osx, "10.8"
+platform :osx, "10.9"
 
 pod 'ContentfulDeliveryAPI', :path => '.'
 pod 'ContentfulPersistence/CoreData'

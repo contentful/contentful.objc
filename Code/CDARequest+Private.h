@@ -6,11 +6,16 @@
 //
 //
 
-#import <AFNetworking/AFHTTPRequestOperation.h>
+#if __has_feature(modules)
+@import Foundation;
+#else
+#import <Foundation/Foundation.h>
+#endif
+
 #import <ContentfulDeliveryAPI/CDARequest.h>
 
 @interface CDARequest ()
 
--(id)initWithRequestOperation:(AFHTTPRequestOperation*)requestOperation;
+-(id)initWithSessionTask:(NSURLSessionTask *)task;
 
 @end
