@@ -151,9 +151,6 @@
         XCTAssertEqual(request.response.statusCode, response.statusCode, @"");
         XCTAssertEqualObjects([NSURL URLWithString:@"https://cdn.contentful.com/spaces/lzjz8hygvfgu/"], request.request.URL, @"");
         XCTAssertNil(request.error, @"");
-        XCTAssertNotNil(request.responseData, @"");
-        XCTAssertNotNil(request.responseObject, @"");
-        XCTAssertNotNil(request.responseString, @"");
         XCTAssertEqual((NSUInteger)NSUTF8StringEncoding,
                        (NSUInteger)request.responseStringEncoding, @"");
         

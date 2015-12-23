@@ -30,12 +30,6 @@
 
 /** @name Accessing Response Data */
 
-/** The raw data received from the server. */
-@property (readonly, nonatomic) NSData* __nullable responseData;
-/** The processed response data, usually an instance of a `CDAResource` subclass. */
-@property (readonly, nonatomic) id __nullable responseObject;
-/** String representation of the data received from the server. */
-@property (readonly, nonatomic) NSString* __nullable responseString;
 /** Encoding used for the response. */
 @property (readonly, nonatomic) NSStringEncoding responseStringEncoding;
 

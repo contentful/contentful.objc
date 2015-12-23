@@ -23,9 +23,6 @@
 @dynamic error;
 @dynamic request;
 @dynamic response;
-@dynamic responseData;
-@dynamic responseObject;
-@dynamic responseString;
 @dynamic responseStringEncoding;
 
 #pragma mark -
