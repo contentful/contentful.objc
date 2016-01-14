@@ -6,7 +6,7 @@
 //
 //
 
-#import "CDAEntry.h"
+#import <ContentfulDeliveryAPI/CDAEntry.h>
 
 @interface CDAEntry ()
 

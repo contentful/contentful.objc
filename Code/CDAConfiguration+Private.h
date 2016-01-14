@@ -6,7 +6,7 @@
 //
 //
 
-#import "CDAConfiguration.h"
+#import <ContentfulDeliveryAPI/CDAConfiguration.h>
 
 @interface CDAConfiguration (Private)
 

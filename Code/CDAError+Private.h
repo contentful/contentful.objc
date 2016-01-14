@@ -6,7 +6,7 @@
 //
 //
 
-#import "CDAError.h"
+#import <ContentfulDeliveryAPI/CDAError.h>
 
 @interface CDAError (Private)
 

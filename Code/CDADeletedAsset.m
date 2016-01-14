@@ -6,7 +6,7 @@
 //
 //
 
-#import "CDADeletedAsset.h"
+#import <ContentfulDeliveryAPI/CDADeletedAsset.h>
 
 @implementation CDADeletedAsset
 

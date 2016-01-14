@@ -6,8 +6,9 @@
 //
 //
 
+#import <ContentfulDeliveryAPI/CDAContentType.h>
+
 #import "CDAClient+Private.h"
-#import "CDAContentType.h"
 #import "CDAContentTypeRegistry.h"
 #import "CDAField+Private.h"
 #import "CDAResource+Private.h"

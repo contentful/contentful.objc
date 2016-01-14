@@ -6,13 +6,13 @@
 //
 //
 
+#import <ContentfulDeliveryAPI/CDADeletedAsset.h>
+#import <ContentfulDeliveryAPI/CDADeletedEntry.h>
 #import <ContentfulDeliveryAPI/ContentfulDeliveryAPI.h>
 
 #import "CDAArray+Private.h"
 #import "CDAClient+Private.h"
 #import "CDAContentTypeRegistry.h"
-#import "CDADeletedAsset.h"
-#import "CDADeletedEntry.h"
 #import "CDAEntry+Private.h"
 #import "CDAResource+Private.h"
 #import "CDASyncedSpace+Private.h"

@@ -6,7 +6,7 @@
 //
 //
 
-#import "CDASyncedSpace.h"
+#import <ContentfulDeliveryAPI/CDASyncedSpace.h>
 
 @interface CDASyncedSpace ()
 

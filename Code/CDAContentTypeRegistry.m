@@ -6,7 +6,8 @@
 //
 //
 
-#import "CDAContentType.h"
+#import <ContentfulDeliveryAPI/CDAContentType.h>
+
 #import "CDAContentTypeRegistry.h"
 
 @interface CDAContentTypeRegistry ()

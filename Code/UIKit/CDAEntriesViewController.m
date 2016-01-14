@@ -7,8 +7,7 @@
 //
 
 #import <ContentfulDeliveryAPI/CDAEntry.h>
-
-#import "CDAEntriesViewController.h"
+#import <ContentfulDeliveryAPI/CDAEntriesViewController.h>
 
 @implementation CDAEntriesViewController
 

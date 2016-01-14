@@ -6,11 +6,11 @@
 //
 //
 
+#import <ContentfulDeliveryAPI/CDAImageViewController.h>
+#import <ContentfulDeliveryAPI/CDAResourcesViewController.h>
 #import <ContentfulDeliveryAPI/ContentfulDeliveryAPI.h>
 
 #import "CDAFieldsViewController+Private.h"
-#import "CDAImageViewController.h"
-#import "CDAResourcesViewController.h"
 #import "CDAUtilities.h"
 
 @interface CDAResourcesViewController () <UISearchBarDelegate>

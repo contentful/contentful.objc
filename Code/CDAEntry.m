@@ -6,9 +6,10 @@
 //
 //
 
-#import "CDAAsset.h"
+#import <ContentfulDeliveryAPI/CDAAsset.h>
+#import <ContentfulDeliveryAPI/CDAContentType.h>
+
 #import "CDAClient+Private.h"
-#import "CDAContentType.h"
 #import "CDAContentTypeRegistry.h"
 #import "CDAEntry+Private.h"
 #import "CDAFallbackDictionary.h"

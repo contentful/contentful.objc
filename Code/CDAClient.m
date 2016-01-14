@@ -7,13 +7,13 @@
 //
 
 #import <ContentfulDeliveryAPI/CDAAsset.h>
+#import <ContentfulDeliveryAPI/CDAContentType.h>
 #import <ContentfulDeliveryAPI/CDAEntry.h>
 #import <ContentfulDeliveryAPI/CDASpace.h>
 
 #import "CDAArray+Private.h"
 #import "CDAClient+Private.h"
 #import "CDAConfiguration+Private.h"
-#import "CDAContentType.h"
 #import "CDAContentTypeRegistry.h"
 #import "CDAError+Private.h"
 #import "CDARequestOperationManager.h"

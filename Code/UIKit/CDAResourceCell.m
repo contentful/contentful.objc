@@ -7,8 +7,7 @@
 //
 
 #import <AFNetworking/UIImageView+AFNetworking.h>
-
-#import "CDAResourceCell.h"
+#import <ContentfulDeliveryAPI/CDAResourceCell.h>
 
 @interface CDAResourceCell ()
 

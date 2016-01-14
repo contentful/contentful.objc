@@ -6,7 +6,7 @@
 //
 //
 
-#import "CDADeletedEntry.h"
+#import <ContentfulDeliveryAPI/CDADeletedEntry.h>
 
 @implementation CDADeletedEntry
 

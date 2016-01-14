@@ -8,9 +8,9 @@
 
 @import MapKit;
 
+#import <ContentfulDeliveryAPI/CDAMapViewController.h>
 #import <ContentfulDeliveryAPI/ContentfulDeliveryAPI.h>
 
-#import "CDAMapViewController.h"
 #import "CDAUtilities.h"
 
 @interface CDAMapAnnotation : NSObject <MKAnnotation>

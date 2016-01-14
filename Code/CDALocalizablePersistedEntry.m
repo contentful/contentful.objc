@@ -6,7 +6,7 @@
 //
 //
 
-#import "CDALocalizablePersistedEntry.h"
+#import <ContentfulDeliveryAPI/CDALocalizablePersistedEntry.h>
 
 @implementation CDALocalizablePersistedEntry
 

@@ -6,8 +6,8 @@
 //
 //
 
-#import "CDAAsset.h"
-#import "CDAPersistedAsset.h"
+#import <ContentfulDeliveryAPI/CDAAsset.h>
+#import <ContentfulDeliveryAPI/CDAPersistedAsset.h>
 
 @interface CDAAsset ()
 

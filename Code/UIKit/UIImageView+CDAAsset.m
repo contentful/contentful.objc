@@ -8,13 +8,13 @@
 
 #import <AFNetworking/UIImageView+AFNetworking.h>
 #import <ContentfulDeliveryAPI/CDAAsset.h>
+#import <ContentfulDeliveryAPI/UIImageView+CDAAsset.h>
 
 @import ObjectiveC.runtime;
 
 #import "CDAAsset+Private.h"
 #import "CDAResource+Private.h"
 #import "CDAUtilities.h"
-#import "UIImageView+CDAAsset.h"
 
 static const char* CDAOfflineCachingKey = "CDAOfflineCachingKey";
 static const char* CDAProgressViewKey   = "CDAProgressViewKey";

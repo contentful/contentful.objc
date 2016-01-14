@@ -8,10 +8,10 @@
 
 #import <ContentfulDeliveryAPI/CDAArray.h>
 #import <ContentfulDeliveryAPI/CDAResourceCell.h>
+#import <ContentfulDeliveryAPI/CDAResourcesCollectionViewController.h>
+#import <ContentfulDeliveryAPI/UIImageView+CDAAsset.h>
 
-#import "CDAResourcesCollectionViewController.h"
 #import "CDAUtilities.h"
-#import "UIImageView+CDAAsset.h"
 
 @interface CDAResourcesCollectionViewController () <UISearchBarDelegate>
 

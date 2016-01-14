@@ -13,12 +13,12 @@
 #import <ContentfulDeliveryAPI/CDAContentType.h>
 #import <ContentfulDeliveryAPI/CDAField.h>
 #import <ContentfulDeliveryAPI/CDALocalizablePersistedEntry.h>
+#import <ContentfulDeliveryAPI/CDAPersistenceManager.h>
 #import <ContentfulDeliveryAPI/CDASyncedSpace.h>
 
 #import "CDAClient+Private.h"
 #import "CDAContentTypeRegistry.h"
 #import "CDAEntry+Private.h"
-#import "CDAPersistenceManager.h"
 #import "CDAUtilities.h"
 
 @interface CDAPersistenceManager () <CDASyncedSpaceDelegate>

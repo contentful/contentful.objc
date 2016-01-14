@@ -14,16 +14,17 @@
 
 @import ObjectiveC.runtime;
 
+#import <ContentfulDeliveryAPI/CDAConfiguration.h>
+#import <ContentfulDeliveryAPI/CDASpace.h>
+
 #import "CDAArray+Private.h"
 #import "CDAClient+Private.h"
-#import "CDAConfiguration.h"
 #import "CDAError+Private.h"
 #import "CDARequest+Private.h"
 #import "CDARequestOperationManager.h"
 #import "CDARequestSerializer.h"
 #import "CDAResponse+Private.h"
 #import "CDAResponseSerializer.h"
-#import "CDASpace.h"
 #import "CDAUtilities.h"
 
 @interface CDARequestOperationManager ()
