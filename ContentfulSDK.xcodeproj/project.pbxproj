@@ -190,6 +190,8 @@
 		A1BA6F9119DBECC600AC3471 /* ClientConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = A1BA6F9019DBECC600AC3471 /* ClientConfiguration.m */; };
 		A1C180691A038B3300117DB3 /* RobustnessTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C180671A0388F800117DB3 /* RobustnessTests.m */; };
 		A1C1AC4318CE032200DBF0D0 /* CDAClient+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A1C1AC4218CE032200DBF0D0 /* CDAClient+Private.h */; };
+		A1C4EE8E1C4E61F10065EA72 /* APICoverageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C4EE8D1C4E61F10065EA72 /* APICoverageTests.m */; };
+		A1C4EE901C4E6B730065EA72 /* APICoverageTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A1C4EE8F1C4E6B730065EA72 /* APICoverageTests.json */; };
 		A1C8DCD318E098E80019A519 /* LinkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C8DCD218E098E80019A519 /* LinkTests.m */; };
 		A1CEC1651A35B142007B4565 /* PersistenceBaseTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CEC1641A35B142007B4565 /* PersistenceBaseTest.m */; };
 		A1CEC16B1A35DCA1007B4565 /* PersistenceBaseTest+Basic.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CEC16A1A35DCA1007B4565 /* PersistenceBaseTest+Basic.m */; };
@@ -508,6 +510,8 @@
 		A1BA6F9019DBECC600AC3471 /* ClientConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientConfiguration.m; sourceTree = "<group>"; };
 		A1C180671A0388F800117DB3 /* RobustnessTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RobustnessTests.m; sourceTree = "<group>"; };
 		A1C1AC4218CE032200DBF0D0 /* CDAClient+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDAClient+Private.h"; sourceTree = "<group>"; };
+		A1C4EE8D1C4E61F10065EA72 /* APICoverageTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APICoverageTests.m; sourceTree = "<group>"; };
+		A1C4EE8F1C4E6B730065EA72 /* APICoverageTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = APICoverageTests.json; path = Data/Recordings/APICoverageTests.json; sourceTree = "<group>"; };
 		A1C8DCD218E098E80019A519 /* LinkTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkTests.m; sourceTree = "<group>"; };
 		A1CEC1631A35B142007B4565 /* PersistenceBaseTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistenceBaseTest.h; sourceTree = "<group>"; };
 		A1CEC1641A35B142007B4565 /* PersistenceBaseTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistenceBaseTest.m; sourceTree = "<group>"; };
@@ -1015,6 +1019,8 @@
 		A1B815C218F5812F0027B26D /* Basic Functionality */ = {
 			isa = PBXGroup;
 			children = (
+				A1C4EE8F1C4E6B730065EA72 /* APICoverageTests.json */,
+				A1C4EE8D1C4E61F10065EA72 /* APICoverageTests.m */,
 				A193EB5218D1C88A0017B777 /* ArrayTests.json */,
 				A1D2DC0618D0811F0053DC83 /* ArrayTests.m */,
 				A18AA85A18E4952800D430D5 /* AssetTests.json */,
@@ -1490,6 +1496,7 @@
 			files = (
 				A12F19DE1BB48F190088C199 /* CoreDataMultipleLocalesTests.json in Resources */,
 				A12F19E01BB48F380088C199 /* ComplexSyncTests.json in Resources */,
+				A1C4EE901C4E6B730065EA72 /* APICoverageTests.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1913,6 +1920,7 @@
 				A1A0314F18C756B7006470B7 /* SearchAPITests.m in Sources */,
 				A1B815D818F830C00027B26D /* ComplexLinkSyncTests.m in Sources */,
 				A1CEC16E1A35DCCA007B4565 /* PersistenceBaseTest+QuerySync.m in Sources */,
+				A1C4EE8E1C4E61F10065EA72 /* APICoverageTests.m in Sources */,
 				A1CEC1AD1A35EEB7007B4565 /* RealmBaseTestCase.m in Sources */,
 				A1D1D35C18C8A94800261A1C /* ContentfulBaseTestCase.m in Sources */,
 				A144FAF618C90DD100110B35 /* StagingTests.m in Sources */,
