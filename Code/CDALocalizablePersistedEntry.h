@@ -28,10 +28,18 @@
 
 @interface CDALocalizablePersistedEntry (Additions)
 
-/** Add a localized entry to the collection. */
+/**
+Add a localized entry to the collection.
+
+@param entry The entry to add to the collection.
+*/
 - (void)addLocalizedEntriesObject:(id<CDAPersistedEntry>)entry;
 
-/** Remove a localized entry to the collection. */
+/**
+Remove a localized entry to the collection.
+
+@param entry The entry to remove from the collection.
+*/
 - (void)removeLocalizedEntriesObject:(id<CDAPersistedEntry>)entry;
 
 @end
