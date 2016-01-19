@@ -58,6 +58,8 @@ typedef void(^CDAEntriesFetchBlock)(NSArray* entries);
     [self.client fetchEntryWithIdentifier:@"nyancat" success:^(CDAResponse* response,
                                                                CDAEntry* entry) {
         XCTAssertEqualObjects(entry.identifier, @"nyancat");
+
+        EndBlock();
     } failure:^(CDAResponse* response, NSError* error) {
         XCTFail(@"%@", error);
 
@@ -106,7 +108,7 @@ typedef void(^CDAEntriesFetchBlock)(NSArray* entries);
 
 -(void)testFetchEntriesWithIncludes {
     [self fetchEntriesMatching:@{ @"include": @3 } success:^(NSArray *entries) {
-        XCTAssertEqual(entries.count, 14);
+        XCTAssertEqual(entries.count, 11);
     }];
 }
 
@@ -152,6 +154,10 @@ typedef void(^CDAEntriesFetchBlock)(NSArray* entries);
 
 /*
 API endpoints not being tested:
+
+/spaces/{space_id}/content_types/{content_type_id}
+/spaces/{space_id}/entries/{entry_id}
+/spaces/{space_id}/assets/{asset_id}
 
 /spaces/{space_id}/entries/{entry_id}?locale={locale}
 */
