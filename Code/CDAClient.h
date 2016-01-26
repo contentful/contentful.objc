@@ -36,13 +36,68 @@ typedef NS_ENUM(NSInteger, CDAResourceType) {
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ *  Completion block for an array of results
+ *
+ *  @param response The server response
+ *  @param array    The received array
+ */
 typedef void(^CDAArrayFetchedBlock)(CDAResponse* response, CDAArray* array);
+
+/**
+ *  Completion block for an Asset result
+ *
+ *  @param response The server response
+ *  @param asset    The received Asset
+ */
 typedef void(^CDAAssetFetchedBlock)(CDAResponse* response, CDAAsset* asset);
+
+/**
+ *  Completion block for a Content Type result
+ *
+ *  @param response    The server response
+ *  @param contentType The received Content Type
+ */
 typedef void(^CDAContentTypeFetchedBlock)(CDAResponse* __nullable response, CDAContentType* contentType);
+
+/**
+ *  Completion block for an Entry result
+ *
+ *  @param response The server response
+ *  @param entry    The received Entry
+ */
 typedef void(^CDAEntryFetchedBlock)(CDAResponse* response, CDAEntry* entry);
+
+/**
+ *  Completion block for an unspecified object result
+ *
+ *  @param response       The server response
+ *  @param responseObject The received object
+ */
 typedef void(^CDAObjectFetchedBlock)(CDAResponse* response, id responseObject);
+
+/**
+ *  Completion block for a failed request
+ *
+ *  @param response The server response
+ *  @param error    The error which occurred
+ */
 typedef void(^CDARequestFailureBlock)(CDAResponse* __nullable response, NSError* error);
+
+/**
+ *  Completion block for a Space result
+ *
+ *  @param response The server response
+ *  @param space    The received Space
+ */
 typedef void(^CDASpaceFetchedBlock)(CDAResponse* __nullable response, CDASpace* space);
+
+/**
+ *  Completion block for a synchronized Space result
+ *
+ *  @param response The server response
+ *  @param space    The received synchronized Space
+ */
 typedef void(^CDASyncedSpaceFetchedBlock)(CDAResponse* response, CDASyncedSpace* space);
 
 /**
