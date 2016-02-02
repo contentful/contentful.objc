@@ -266,6 +266,10 @@
     return [relationshipMapping copy];
 }
 
+-(void)performBlock:(void (^)())block {
+    block();
+}
+
 -(void)performInitalSynchronizationForQueryWithSuccess:(void (^)())success
                                                failure:(CDARequestFailureBlock)failure {
     NSDate* syncTimestamp = [self roundedCurrentDate];
@@ -293,15 +297,19 @@
                                       @"sys.updatedAt[gt]": space.lastSyncTimestamp };
     
     [self.client fetchEntriesMatching:query success:^(CDAResponse *response, CDAArray *entries) {
-        space.lastSyncTimestamp = syncTimestamp;
+        [self performBlock:^{
+            space.lastSyncTimestamp = syncTimestamp;
+        }];
         
         [self.client fetchAssetsMatching:queryForAssets
                                  success:^(CDAResponse *response, CDAArray *assets) {
-                                     for (CDAAsset* asset in assets.items) {
-                                         [self handleAsset:asset];
-                                     }
-                                     
-                                     [self handleResponseArray:entries withSuccess:success];
+                                     [self performBlock:^{
+                                         for (CDAAsset* asset in assets.items) {
+                                             [self handleAsset:asset];
+                                         }
+
+                                         [self handleResponseArray:entries withSuccess:success];
+                                     }];
                                  }
                                  failure:failure];
     } failure:failure];
@@ -323,7 +331,9 @@
             } failure:failure];
         } else {
             [self.client initialSynchronizationMatching:@{ @"type": @"Deletion" } success:^(CDAResponse *response, CDASyncedSpace *space) {
-                [self persistedSpaceForSpace:space];
+                [self performBlock:^{
+                    [self persistedSpaceForSpace:space];
+                }];
                 [self performInitalSynchronizationForQueryWithSuccess:success failure:failure];
             } failure:failure];
         }
@@ -334,21 +344,23 @@
     if (!self.syncedSpace) {
         CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response,
                                                                                CDASyncedSpace *space) {
-            [self persistedSpaceForSpace:space];
-            
-            for (CDAAsset* asset in space.assets) {
-                [self persistedAssetForAsset:asset];
-            }
-            
-            for (CDAEntry* entry in space.entries) {
-                [self persistedEntryForEntry:entry];
-            }
-            
-            [self saveDataStore];
-            
-            if (success) {
-                success();
-            }
+            [self performBlock:^{
+                [self persistedSpaceForSpace:space];
+
+                for (CDAAsset* asset in space.assets) {
+                    [self persistedAssetForAsset:asset];
+                }
+
+                for (CDAEntry* entry in space.entries) {
+                    [self persistedEntryForEntry:entry];
+                }
+
+                [self saveDataStore];
+
+                if (success) {
+                    success();
+                }
+            }];
         } failure:failure];
 
         if (request) {
@@ -358,15 +370,17 @@
     }
     
     [self.syncedSpace performSynchronizationWithSuccess:^{
-        id<CDAPersistedSpace> space = [self fetchSpaceFromDataStore];
-        space.lastSyncTimestamp = self.syncedSpace.lastSyncTimestamp;
-        space.syncToken = self.syncedSpace.syncToken;
-        
-        [self saveDataStore];
-        
-        if (success) {
-            success();
-        }
+        [self performBlock:^{
+            id<CDAPersistedSpace> space = [self fetchSpaceFromDataStore];
+            space.lastSyncTimestamp = self.syncedSpace.lastSyncTimestamp;
+            space.syncToken = self.syncedSpace.syncToken;
+
+            [self saveDataStore];
+
+            if (success) {
+                success();
+            }
+        }];
     } failure:failure];
 }
 

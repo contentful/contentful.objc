@@ -259,6 +259,16 @@ NS_ASSUME_NONNULL_BEGIN
 -(BOOL)hasChanged;
 
 /**
+ *  Perform the given block on the right queue for interacting with the data store.
+ *
+ *  The default implementation will simply run the block on the current queue. Subclasses can override
+ *  this behaviour in case their data store is associated with a specific queue or thread.
+ *
+ *  @param block A block to be performed asynchronously
+ */
+-(void)performBlock:(void (^)())block;
+
+/**
  *  Save all changes of the object model to the persistent store.
  *
  *  This method needs to be overridden by subclasses.
