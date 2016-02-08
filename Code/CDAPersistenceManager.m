@@ -559,7 +559,9 @@
         persistedEntry = [self createPersistedEntryForContentTypeWithIdentifier:identifier];
     }
     
-    [self updatePersistedEntry:persistedEntry withEntry:entry];
+    if (persistedEntry) {
+        [self updatePersistedEntry:persistedEntry withEntry:entry];
+    }
 }
 
 @end
