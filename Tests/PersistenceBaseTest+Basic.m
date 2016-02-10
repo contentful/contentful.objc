@@ -29,6 +29,7 @@
         [self assertNumberOfAssets:1U numberOfEntries:1U];
         [self buildPersistenceManagerWithDefaultClient:NO];
 
+        [self.persistenceManager performBlock:^{ // Since we are switching managers here
         id<CDAPersistedAsset> asset = [[self.persistenceManager fetchAssetsFromDataStore] firstObject];
         XCTAssertEqualObjects(@"512_black.png", asset.url.lastPathComponent, @"");
         id cat = [[self.persistenceManager fetchEntriesFromDataStore] firstObject];
@@ -85,7 +86,7 @@
             XCTFail(@"Error: %@", error);
 
             EndBlock();
-        }];
+        }]; }];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
 
@@ -216,15 +217,17 @@
     [self.persistenceManager performSynchronizationWithSuccess:^{
         [self buildPersistenceManagerWithDefaultClient:YES];
 
-        XCTAssertEqual(4U, [self.persistenceManager fetchAssetsFromDataStore].count, @"");
-        XCTAssertEqual(3U, [self.persistenceManager fetchEntriesFromDataStore].count, @"");
+        [self.persistenceManager performBlock:^{ // we are using a different manager here
+            XCTAssertEqual(4U, [self.persistenceManager fetchAssetsFromDataStore].count, @"");
+            XCTAssertEqual(3U, [self.persistenceManager fetchEntriesFromDataStore].count, @"");
 
-        id nyanCat = [self.persistenceManager fetchEntryWithIdentifier:@"nyancat"];
-        XCTAssertNotNil(nyanCat, @"");
-        XCTAssertNotNil([nyanCat picture], @"");
-        XCTAssertNotNil([nyanCat picture].url, @"");
-
-        EndBlock();
+            id nyanCat = [self.persistenceManager fetchEntryWithIdentifier:@"nyancat"];
+            XCTAssertNotNil(nyanCat, @"");
+            XCTAssertNotNil([nyanCat picture], @"");
+            XCTAssertNotNil([nyanCat picture].url, @"");
+            
+            EndBlock();
+        }];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
 
@@ -281,6 +284,26 @@
     WaitUntilBlockCompletes();
 }
 
+-(void)assertCachedImageWithData:(NSData*)data {
+    id<CDAPersistedAsset> asset = [[[self.persistenceManager fetchAssetsFromDataStore] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"identifier == 'nyancat'"]] firstObject];
+    
+    CDAClient* client = [self.persistenceManager client];
+    XCTAssertNotNil(client, @"");
+    NSData* cachedData = [CDAAsset cachedDataForPersistedAsset:asset client:client];
+
+    UIImage* cachedImage = [UIImage imageWithData:cachedData];
+    XCTAssertNotNil(cachedImage, @"");
+    XCTAssertEqual(asset.width.floatValue, cachedImage.size.width, @"");
+    XCTAssertEqual(asset.height.floatValue, cachedImage.size.height, @"");
+
+    UIImage* refImage = [UIImage imageWithData:data];
+    NSError* error;
+    BOOL result = [self.snapshotTestController compareReferenceImage:refImage
+                                                             toImage:cachedImage
+                                                               error:&error];
+    XCTAssertTrue(result, @"Error: %@", error);
+}
+
 -(void)basic_imageCaching {
     [self removeAllStubs];
     [self buildPersistenceManagerWithDefaultClient:YES];
@@ -290,34 +313,22 @@
     [self.persistenceManager performSynchronizationWithSuccess:^{
         __block id<CDAPersistedAsset> asset = [[[self.persistenceManager fetchAssetsFromDataStore] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"identifier == 'nyancat'"]] firstObject];
         XCTAssertNotNil(asset, @"");
+        NSString* url = asset.url;
 
         [CDAAsset cachePersistedAsset:asset
                                client:self.persistenceManager.client
                      forcingOverwrite:YES
                     completionHandler:^(BOOL success) {
-                        NSURLRequest* assetRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:asset.url]];
+                        NSURLRequest* assetRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
                         [NSURLConnection sendAsynchronousRequest:assetRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
                             XCTAssertNotNil(data, @"Error: %@", connectionError);
 
                             [self buildPersistenceManagerWithDefaultClient:YES];
-                            CDAClient* client = [self.persistenceManager client];
-                            asset = [[[self.persistenceManager fetchAssetsFromDataStore] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"identifier == 'nyancat'"]] firstObject];
+                            [self.persistenceManager performBlock:^{ // we are on another context here
+                                [self assertCachedImageWithData:data];
 
-                            NSData* cachedData = [CDAAsset cachedDataForPersistedAsset:asset
-                                                                                client:client];
-                            UIImage* cachedImage = [UIImage imageWithData:cachedData];
-                            XCTAssertNotNil(cachedImage, @"");
-                            XCTAssertEqual(asset.width.floatValue, cachedImage.size.width, @"");
-                            XCTAssertEqual(asset.height.floatValue, cachedImage.size.height, @"");
-
-                            UIImage* refImage = [UIImage imageWithData:data];
-                            NSError* error;
-                            BOOL result = [self.snapshotTestController compareReferenceImage:refImage
-                                                                                     toImage:cachedImage
-                                                                                       error:&error];
-                            XCTAssertTrue(result, @"Error: %@", error);
-
-                            EndBlock();
+                                EndBlock();
+                            }];
                         }];
                     }];
     } failure:^(CDAResponse *response, NSError *error) {
