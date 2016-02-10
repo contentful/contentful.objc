@@ -275,10 +275,12 @@
     NSDate* syncTimestamp = [self roundedCurrentDate];
     
     [self.client fetchEntriesMatching:self.query success:^(CDAResponse *response, CDAArray *array) {
-        id<CDAPersistedSpace> space = [self fetchSpaceFromDataStore];
-        space.lastSyncTimestamp = syncTimestamp;
+        [self performBlock:^{
+            id<CDAPersistedSpace> space = [self fetchSpaceFromDataStore];
+            space.lastSyncTimestamp = syncTimestamp;
         
-        [self handleResponseArray:array withSuccess:success];
+            [self handleResponseArray:array withSuccess:success];
+        }];
     } failure:failure];
 }
 
@@ -327,7 +329,9 @@
     if (self.query) {
         if (self.syncedSpace) {
             [self.syncedSpace performSynchronizationWithSuccess:^{
-                [self performSubsequentSynchronizationWithSuccess:success failure:failure];
+                [self performBlock:^{
+                    [self performSubsequentSynchronizationWithSuccess:success failure:failure];
+                }];
             } failure:failure];
         } else {
             [self.client initialSynchronizationMatching:@{ @"type": @"Deletion" } success:^(CDAResponse *response, CDASyncedSpace *space) {
