@@ -510,58 +510,70 @@
 #pragma mark - CDASyncedSpaceDelegate
 
 -(void)syncedSpace:(CDASyncedSpace *)space didCreateAsset:(CDAAsset *)asset {
-    self.hasChanged = YES;
+    [self performBlock:^{
+        self.hasChanged = YES;
 
-    [self persistedAssetForAsset:asset];
+        [self persistedAssetForAsset:asset];
+    }];
 }
 
 -(void)syncedSpace:(CDASyncedSpace *)space didCreateEntry:(CDAEntry *)entry {
-    self.hasChanged = YES;
+    [self performBlock:^{
+        self.hasChanged = YES;
 
-    [self persistedEntryForEntry:entry];
+        [self persistedEntryForEntry:entry];
+    }];
 }
 
 -(void)syncedSpace:(CDASyncedSpace *)space didDeleteAsset:(CDAAsset *)asset {
-    self.hasChanged = YES;
+    [self performBlock:^{
+        self.hasChanged = YES;
 
-    [self deleteAssetWithIdentifier:asset.identifier];
+        [self deleteAssetWithIdentifier:asset.identifier];
+    }];
 }
 
 -(void)syncedSpace:(CDASyncedSpace *)space didDeleteEntry:(CDAEntry *)entry {
-    self.hasChanged = YES;
+    [self performBlock:^{
+        self.hasChanged = YES;
 
-    [self deleteEntryWithIdentifier:entry.identifier];
+        [self deleteEntryWithIdentifier:entry.identifier];
+    }];
 }
 
 -(void)syncedSpace:(CDASyncedSpace *)space didUpdateAsset:(CDAAsset *)asset {
-    self.hasChanged = YES;
+    [self performBlock:^{
+        self.hasChanged = YES;
 
-    id<CDAPersistedAsset> persistedAsset = [self fetchAssetWithIdentifier:asset.identifier];
-    
-    if (!persistedAsset) {
-        persistedAsset = [self createPersistedAsset];
-    }
-    
-    [self updatePersistedAsset:persistedAsset withAsset:asset];
+        id<CDAPersistedAsset> persistedAsset = [self fetchAssetWithIdentifier:asset.identifier];
+
+        if (!persistedAsset) {
+            persistedAsset = [self createPersistedAsset];
+        }
+
+        [self updatePersistedAsset:persistedAsset withAsset:asset];
+    }];
 }
 
 -(void)syncedSpace:(CDASyncedSpace *)space didUpdateEntry:(CDAEntry *)entry {
-    NSString* identifier = entry.contentType.identifier;
-    if (!identifier) {
-        return;
-    }
+    [self performBlock:^{
+        NSString* identifier = entry.contentType.identifier;
+        if (!identifier) {
+            return;
+        }
 
-    self.hasChanged = YES;
+        self.hasChanged = YES;
 
-    id<CDAPersistedEntry> persistedEntry = [self fetchEntryWithIdentifier:entry.identifier];
-    
-    if (!persistedEntry) {
-        persistedEntry = [self createPersistedEntryForContentTypeWithIdentifier:identifier];
-    }
-    
-    if (persistedEntry) {
-        [self updatePersistedEntry:persistedEntry withEntry:entry];
-    }
+        id<CDAPersistedEntry> persistedEntry = [self fetchEntryWithIdentifier:entry.identifier];
+
+        if (!persistedEntry) {
+            persistedEntry = [self createPersistedEntryForContentTypeWithIdentifier:identifier];
+        }
+
+        if (persistedEntry) {
+            [self updatePersistedEntry:persistedEntry withEntry:entry];
+        }
+    }];
 }
 
 @end
