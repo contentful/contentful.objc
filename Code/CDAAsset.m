@@ -17,6 +17,14 @@ const CGFloat CDAImageQualityOriginal   = 0.0;
 const CGFloat CDARadiusMaximum          = -100.0;
 const CGFloat CDARadiusNone             = 0.0;
 
+#if CGFLOAT_IS_DOUBLE
+#define CGFLOAT_EPSILON DBL_EPSILON
+#define cgfloat_abs     fabs
+#else
+#define CGFLOAT_EPSILON FLT_EPSILON
+#define cgfloat_abs     fabsf
+#endif
+
 @interface CDAAsset ()
 
 @property (nonatomic) NSDictionary* localizedFields;
@@ -162,8 +170,11 @@ const CGFloat CDARadiusNone             = 0.0;
         parameters[@"h"] = @(size.height);
     }
     
-    if (fabs((quality) - (CDAImageQualityOriginal)) > FLT_EPSILON) {
+    if (cgfloat_abs((quality) - (CDAImageQualityOriginal)) > CGFLOAT_EPSILON) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdouble-promotion"
         NSAssert(quality <= 1.0, @"Quality parameter should be between 0.0 and 1.0, but is %.2f", quality);
+#pragma clang diagnostic pop
         parameters[@"q"] = @(quality * 100);
     }
     
@@ -202,8 +213,8 @@ const CGFloat CDARadiusNone             = 0.0;
         parameters[@"f"] = focus;
     }
 
-    if (fabs(radius - CDARadiusNone) > FLT_EPSILON) {
-        if (fabs(radius - CDARadiusMaximum) < FLT_EPSILON) {
+    if (cgfloat_abs(radius - CDARadiusNone) > CGFLOAT_EPSILON) {
+        if (cgfloat_abs(radius - CDARadiusMaximum) < CGFLOAT_EPSILON) {
             parameters[@"r"] = @"max";
         } else {
             if (radius > 0) {
@@ -336,7 +347,11 @@ const CGFloat CDARadiusNone             = 0.0;
 
 -(CGSize)size {
     NSDictionary* size = self.fields[@"file"][@"details"][@"image"];
+#if CGFLOAT_IS_DOUBLE
+    return size ? CGSizeMake([size[@"width"] doubleValue], [size[@"height"] doubleValue]) : CGSizeZero;
+#else
     return size ? CGSizeMake([size[@"width"] floatValue], [size[@"height"] floatValue]) : CGSizeZero;
+#endif
 }
 
 -(NSURL *)URL {

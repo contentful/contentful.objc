@@ -52,7 +52,11 @@
         self.resourceType = CDAResourceTypeEntry;
         
         self.collectionView.alwaysBounceVertical = YES;
-        self.collectionView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+
+        if ([self.collectionView respondsToSelector:@selector(keyboardDismissMode)]) {
+            [self.collectionView setValue:@(UIScrollViewKeyboardDismissModeOnDrag)
+                                   forKey:@"keyboardDismissMode"];
+        }
         
         [self.collectionView registerClass:[[self class] cellClass]
                 forCellWithReuseIdentifier:NSStringFromClass([self class])];

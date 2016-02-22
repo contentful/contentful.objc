@@ -51,8 +51,8 @@
 -(id)locationFromDictionary:(NSDictionary*)dictionary {
     CLLocationCoordinate2D location;
     if ([dictionary isKindOfClass:[NSDictionary class]]) {
-        location.latitude = [dictionary[@"lat"] floatValue];
-        location.longitude = [dictionary[@"lon"] floatValue];
+        location.latitude = [dictionary[@"lat"] doubleValue];
+        location.longitude = [dictionary[@"lon"] doubleValue];
     }
     return [NSData dataWithBytes:&location length:sizeof(CLLocationCoordinate2D)];
 }

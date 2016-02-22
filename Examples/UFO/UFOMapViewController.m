@@ -148,7 +148,7 @@
 
 -(void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
     CGRect frame = self.view.frame;
-    frame.origin.y = (frame.size.height / 2) + 50.0;
+    frame.origin.y = (frame.size.height / 2) + 50.0f;
     frame.size.height -= frame.origin.y;
     
     UFOSighting* sighting = (UFOSighting*)view.annotation;

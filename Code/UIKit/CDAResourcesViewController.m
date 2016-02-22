@@ -83,9 +83,12 @@
         self.cellMapping = cellMapping;
         self.firstTime = YES;
         self.resourceType = CDAResourceTypeEntry;
-        
-        self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
-        
+
+        if ([self.tableView respondsToSelector:@selector(keyboardDismissMode)]) {
+            [self.tableView setValue:@(UIScrollViewKeyboardDismissModeInteractive)
+                              forKey:@"keyboardDismissMode"];
+        }
+
         [self.tableView registerClass:[[self class] cellClass]
                forCellReuseIdentifier:NSStringFromClass([self class])];
     }
