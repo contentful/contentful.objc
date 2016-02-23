@@ -33,6 +33,7 @@
 		A160862218CDF0E60047D44F /* CDARequest.h in Headers */ = {isa = PBXBuildFile; fileRef = A160862018CDF0E60047D44F /* CDARequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A160862318CDF0E60047D44F /* CDARequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A160862118CDF0E60047D44F /* CDARequest.m */; };
 		A160862518CDF2AC0047D44F /* CDARequest+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A160862418CDF2AC0047D44F /* CDARequest+Private.h */; };
+		A16675BF1C7C5EC800231AC1 /* RealmClassHierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = A16675BE1C7C5EC800231AC1 /* RealmClassHierarchy.m */; };
 		A17012F418FC1FD90086BE07 /* CDAPersistedEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = A17012F318FC1FD90086BE07 /* CDAPersistedEntry.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A17012F618FC1FF80086BE07 /* CDAPersistedAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = A17012F518FC1FEE0086BE07 /* CDAPersistedAsset.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A17012F818FC20120086BE07 /* CDAPersistedSpace.h in Headers */ = {isa = PBXBuildFile; fileRef = A17012F718FC20120086BE07 /* CDAPersistedSpace.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -188,6 +189,7 @@
 		A1B815D618F7E2F20027B26D /* AddContentTypesSyncTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B815D518F7E2F20027B26D /* AddContentTypesSyncTests.m */; };
 		A1B815D818F830C00027B26D /* ComplexLinkSyncTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B815D718F830C00027B26D /* ComplexLinkSyncTests.m */; };
 		A1BA6F9119DBECC600AC3471 /* ClientConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = A1BA6F9019DBECC600AC3471 /* ClientConfiguration.m */; };
+		A1BEA5C71C7B6E2700B63E86 /* RealmAdvancedTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1BEA5C61C7B6E2700B63E86 /* RealmAdvancedTests.m */; };
 		A1C180691A038B3300117DB3 /* RobustnessTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C180671A0388F800117DB3 /* RobustnessTests.m */; };
 		A1C1AC4318CE032200DBF0D0 /* CDAClient+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A1C1AC4218CE032200DBF0D0 /* CDAClient+Private.h */; };
 		A1C4EE8E1C4E61F10065EA72 /* APICoverageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C4EE8D1C4E61F10065EA72 /* APICoverageTests.m */; };
@@ -314,6 +316,8 @@
 		A160862018CDF0E60047D44F /* CDARequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDARequest.h; sourceTree = "<group>"; };
 		A160862118CDF0E60047D44F /* CDARequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDARequest.m; sourceTree = "<group>"; };
 		A160862418CDF2AC0047D44F /* CDARequest+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDARequest+Private.h"; sourceTree = "<group>"; };
+		A16675BD1C7C5EC800231AC1 /* RealmClassHierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealmClassHierarchy.h; sourceTree = "<group>"; };
+		A16675BE1C7C5EC800231AC1 /* RealmClassHierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealmClassHierarchy.m; sourceTree = "<group>"; };
 		A17012F318FC1FD90086BE07 /* CDAPersistedEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAPersistedEntry.h; sourceTree = "<group>"; };
 		A17012F518FC1FEE0086BE07 /* CDAPersistedAsset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDAPersistedAsset.h; sourceTree = "<group>"; };
 		A17012F718FC20120086BE07 /* CDAPersistedSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAPersistedSpace.h; sourceTree = "<group>"; };
@@ -505,6 +509,7 @@
 		A1B815D518F7E2F20027B26D /* AddContentTypesSyncTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddContentTypesSyncTests.m; sourceTree = "<group>"; };
 		A1B815D718F830C00027B26D /* ComplexLinkSyncTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComplexLinkSyncTests.m; sourceTree = "<group>"; };
 		A1BA6F9019DBECC600AC3471 /* ClientConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientConfiguration.m; sourceTree = "<group>"; };
+		A1BEA5C61C7B6E2700B63E86 /* RealmAdvancedTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealmAdvancedTests.m; sourceTree = "<group>"; };
 		A1C180671A0388F800117DB3 /* RobustnessTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RobustnessTests.m; sourceTree = "<group>"; };
 		A1C1AC4218CE032200DBF0D0 /* CDAClient+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDAClient+Private.h"; sourceTree = "<group>"; };
 		A1C4EE8D1C4E61F10065EA72 /* APICoverageTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APICoverageTests.m; sourceTree = "<group>"; };
@@ -1113,8 +1118,11 @@
 			children = (
 				A1CEC1B51A360D2C007B4565 /* ManagedRealmCat.h */,
 				A1CEC1B61A360D2C007B4565 /* ManagedRealmCat.m */,
+				A1BEA5C61C7B6E2700B63E86 /* RealmAdvancedTests.m */,
 				A1F5DE741B8B110200F0B554 /* RealmBasicTests.json */,
 				A1CEC1A81A35EE9D007B4565 /* RealmBasicTests.m */,
+				A16675BD1C7C5EC800231AC1 /* RealmClassHierarchy.h */,
+				A16675BE1C7C5EC800231AC1 /* RealmClassHierarchy.m */,
 				A1F5DE751B8B110200F0B554 /* RealmQuerySyncTests.json */,
 				A1CEC1A91A35EE9D007B4565 /* RealmQuerySyncTests.m */,
 			);
@@ -1882,6 +1890,8 @@
 				A1521F1F1BB43F550010B9C8 /* LinkedData.xcdatamodeld in Sources */,
 				A12797AB18E1B08F00043A44 /* SyncTests.m in Sources */,
 				A1B815B418F2ACCB0027B26D /* PersistenceTests.m in Sources */,
+				A16675BF1C7C5EC800231AC1 /* RealmClassHierarchy.m in Sources */,
+				A1BEA5C71C7B6E2700B63E86 /* RealmAdvancedTests.m in Sources */,
 				A1BA6F9119DBECC600AC3471 /* ClientConfiguration.m in Sources */,
 				A193EB4018D09D180017B777 /* UIKitAdditionsTests.m in Sources */,
 				A193EB3B18D084C50017B777 /* ValueObjectsTests.m in Sources */,
