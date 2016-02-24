@@ -1,4 +1,5 @@
 language: objective-c
+osx_image: xcode6.4
 before_install: 
 - bundle install
 - rm -rf $(HOME)/Library/Developer/Xcode/DerivedData/*
