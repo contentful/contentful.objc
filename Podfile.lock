@@ -34,28 +34,31 @@ PODS:
   - ContentfulDeliveryAPI (1.9.5):
     - AFNetworking (~> 2.5.3)
     - ISO8601DateFormatter
-  - ContentfulPersistence (0.3.5):
+  - ContentfulPersistence/CoreData (0.4.0):
     - ContentfulDeliveryAPI (~> 1.9.4)
+  - ContentfulPersistence/Realm (0.4.0):
+    - ContentfulDeliveryAPI (~> 1.9.4)
+    - Realm (~> 0.98.0)
   - FBSnapshotTestCase (1.5)
   - ISO8601DateFormatter (0.7)
   - OCMock (2.2.4)
   - PDKTCollectionViewWaterfallLayout (0.1)
-  - Realm (0.88.0):
-    - Realm/Headers (= 0.88.0)
-  - Realm/Headers (0.88.0)
+  - Realm (0.98.2):
+    - Realm/Headers (= 0.98.2)
+  - Realm/Headers (0.98.2)
   - VCRURLConnection (0.2.0)
 
 DEPENDENCIES:
   - AFNetworking
   - CCLRequestReplay (from `https://github.com/neonichu/CCLRequestReplay.git`)
   - ContentfulDeliveryAPI (from `.`)
-  - ContentfulPersistence
-  - ContentfulPersistence (>= 0.3.5)
+  - ContentfulPersistence/CoreData
+  - ContentfulPersistence/CoreData (>= 0.4.0)
+  - ContentfulPersistence/Realm (>= 0.4.0)
   - FBSnapshotTestCase
   - ISO8601DateFormatter
   - OCMock
   - PDKTCollectionViewWaterfallLayout
-  - Realm
   - VCRURLConnection
 
 EXTERNAL SOURCES:
@@ -73,12 +76,12 @@ SPEC CHECKSUMS:
   AFNetworking: e1d86c2a96bb5d2e7408da36149806706ee122fe
   CCLRequestReplay: a472e52da260c28d7a41df76697b8e518625a44f
   ContentfulDeliveryAPI: b7118554bf00dc8e4f122dd880445f71afc5c34d
-  ContentfulPersistence: 58b1c014cf7bdb6e2a12afc784283a0f4e79ca05
+  ContentfulPersistence: 86dd8d1baeda6956a09b967a547b2094afd8a000
   FBSnapshotTestCase: 26f32d8fa9eb30e9f09712ecfb097808bc79b898
   ISO8601DateFormatter: ab926648eebe497f4d167c0fd083992f959f1274
   OCMock: a6a7dc0e3997fb9f35d99f72528698ebf60d64f2
   PDKTCollectionViewWaterfallLayout: a246de22e843bdb2677ab2fe5d6c1fb0a623f93e
-  Realm: 0c9ee710b77cf79809c1ed85655fed9f1f887142
+  Realm: 88a147fe04b8f07191a676b15c779b2b448991de
   VCRURLConnection: accd771ebd4be11183a3e4d5a4403f180a9a235e
 
-COCOAPODS: 0.36.1
+COCOAPODS: 0.38.2

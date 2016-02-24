@@ -12,11 +12,13 @@ end
 
 target "CDA Tests", :exclusive => true do
 
+platform :ios, "7.0"
+
 pod 'CCLRequestReplay', :git => 'https://github.com/neonichu/CCLRequestReplay.git'
-pod 'ContentfulPersistence', '>= 0.3.5'
+pod 'ContentfulPersistence/CoreData', '>= 0.4.0'
+pod 'ContentfulPersistence/Realm', '>= 0.4.0'
 pod 'FBSnapshotTestCase'
 pod 'OCMock'
-pod 'Realm'
 pod 'VCRURLConnection', :inhibit_warnings => true
 
 end
@@ -33,21 +35,21 @@ target "ContentfulSeedDatabase", :exclusive => true do
 platform :osx, "10.8"
 
 pod 'ContentfulDeliveryAPI', :path => '.'
-pod 'ContentfulPersistence'
+pod 'ContentfulPersistence/CoreData'
 
 end
 
 target "CoreDataExample", :exclusive => true do
 
 pod 'ContentfulDeliveryAPI', :path => '.'
-pod 'ContentfulPersistence'
+pod 'ContentfulPersistence/CoreData'
 
 end
 
 target "SeedDatabaseExample", :exclusive => true do
 
 pod 'ContentfulDeliveryAPI', :path => '.'
-pod 'ContentfulPersistence'
+pod 'ContentfulPersistence/CoreData'
 
 end
 
