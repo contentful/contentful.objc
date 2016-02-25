@@ -102,7 +102,7 @@ typedef void(^CDAEntriesFetchBlock)(NSArray* entries);
 
 -(void)testFetchEntriesByLocationsInBoundingObject {
     [self fetchEntriesMatching:@{ @"fields.center[within]": @[@36, @-124, @40, @-120], @"content_type": @"1t9IbcfdCk6m04uISSsaIK" } success:^(NSArray *entries) {
-        XCTAssertEqual(entries.count, 0);
+        XCTAssertEqual(entries.count, 1);
     }];
 }
 
