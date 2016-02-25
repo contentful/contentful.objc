@@ -514,19 +514,11 @@
 #pragma mark - CDASyncedSpaceDelegate
 
 -(void)syncedSpace:(CDASyncedSpace *)space didCreateAsset:(CDAAsset *)asset {
-    [self performBlock:^{
-        self.hasChanged = YES;
-
-        [self persistedAssetForAsset:asset];
-    }];
+    [self syncedSpace:space didUpdateAsset:asset];
 }
 
 -(void)syncedSpace:(CDASyncedSpace *)space didCreateEntry:(CDAEntry *)entry {
-    [self performBlock:^{
-        self.hasChanged = YES;
-
-        [self persistedEntryForEntry:entry];
-    }];
+    [self syncedSpace:space didUpdateEntry:entry];
 }
 
 -(void)syncedSpace:(CDASyncedSpace *)space didDeleteAsset:(CDAAsset *)asset {
