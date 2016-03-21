@@ -168,7 +168,7 @@
     
     [self.client fetchEntriesMatching:@{ @"sys.updatedAt[gte]": date }
         success:^(CDAResponse *response, CDAArray *array) {
-            XCTAssertEqual(11U, array.items.count, @"");
+            XCTAssertEqual(10U, array.items.count, @"");
             
             EndBlock();
         } failure:^(CDAResponse *response, NSError *error) {
@@ -233,7 +233,7 @@
             XCTAssertEqual(400, error.code, @"");
             XCTAssertEqualObjects(@"The query you sent was invalid. Probably a filter or ordering specification is not applicable to the type of a field.", error.localizedDescription, @"");
             XCTAssertEqualObjects((@{ @"errors": @[ @{ @"name": @"unknownContentType",
-                                                       @"value": @"restaurant" } ] }),
+                                                       @"value": @"DOESNOTEXIST" } ] }),
                                   error.userInfo[@"details"], @"");
             XCTAssertEqualObjects(@"InvalidQuery", error.userInfo[@"identifier"], @"");
             
@@ -267,7 +267,7 @@
     
     [self.client fetchEntriesMatching:@{ @"order": @"-sys.updatedAt" }
         success:^(CDAResponse *response, CDAArray *array) {
-            XCTAssertEqualObjects(@"7qVBlCjpWE86Oseo40gAEY",
+            XCTAssertEqualObjects(@"5ETMRzkl9KM4omyMwKAOki",
                                   [[array.items firstObject] identifier], @"");
             XCTAssertEqualObjects(@"garfield", [[array.items lastObject] identifier], @"");
                                   
