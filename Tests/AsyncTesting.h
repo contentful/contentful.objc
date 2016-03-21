@@ -21,7 +21,7 @@ do { \
 NSDate* __startTime = [NSDate date]; \
 while(condition) { \
 [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:0.1]]; \
-if ([[NSDate date] timeIntervalSinceDate:__startTime] > 20.0) { \
+if ([[NSDate date] timeIntervalSinceDate:__startTime] > 30.0) { \
 XCTAssertFalse(true, @"Asynchronous test timed out."); \
 break; \
 } \
