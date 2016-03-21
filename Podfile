@@ -15,8 +15,8 @@ target "CDA Tests", :exclusive => true do
 platform :ios, "7.0"
 
 pod 'CCLRequestReplay', :git => 'https://github.com/neonichu/CCLRequestReplay.git'
-pod 'ContentfulPersistence/CoreData', '>= 0.4.0'
-pod 'ContentfulPersistence/Realm', '>= 0.4.0'
+pod 'ContentfulPersistence/CoreData', '>= 0.5.0'
+pod 'ContentfulPersistence/Realm', '>= 0.5.0'
 pod 'FBSnapshotTestCase'
 pod 'OCMock'
 pod 'VCRURLConnection', :inhibit_warnings => true
