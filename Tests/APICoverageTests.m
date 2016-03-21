@@ -90,7 +90,7 @@ typedef void(^CDAEntriesFetchBlock)(NSArray* entries);
 
 -(void)testFetchEntriesByAttributeExistsQuery {
     [self fetchEntriesMatching:@{ @"sys.archivedVersion[exists]": @NO } success:^(NSArray *entries) {
-        XCTAssertEqual(entries.count, 11);
+        XCTAssertEqual(entries.count, 10);
     }];
 }
 
@@ -108,7 +108,7 @@ typedef void(^CDAEntriesFetchBlock)(NSArray* entries);
 
 -(void)testFetchEntriesWithIncludes {
     [self fetchEntriesMatching:@{ @"include": @3 } success:^(NSArray *entries) {
-        XCTAssertEqual(entries.count, 11);
+        XCTAssertEqual(entries.count, 10);
     }];
 }
 
@@ -121,7 +121,7 @@ typedef void(^CDAEntriesFetchBlock)(NSArray* entries);
 
 -(void)testOrderEntriesByTwoAttributes {
     [self fetchEntriesMatching:@{ @"order": @[@"sys.revision", @"sys.id"] } success:^(NSArray *entries) {
-        NSArray* orderedEntriesByMultiple = @[ @"4MU1s3potiUEM2G4okYOqw", @"CVebBDcQsSsu6yKKIayy",
+        NSArray* orderedEntriesByMultiple = @[ @"4MU1s3potiUEM2G4okYOqw",
                                                @"ge1xHyH3QOWucKWCCAgIG", @"6KntaYXaHSyIw8M6eo26OK",
                                                @"7qVBlCjpWE86Oseo40gAEY", @"garfield",
                                                @"5ETMRzkl9KM4omyMwKAOki", @"jake", @"nyancat", @"finn",
