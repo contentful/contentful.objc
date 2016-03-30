@@ -21,7 +21,7 @@ all: test example-static
 
 pod:
 	bundle exec pod install
-	xcversion select 7.2
+	xcversion select 7.3
 	xcrun bitcode_strip -r Pods/Realm/core/librealm-ios.a -o Pods/Realm/core/librealm-ios.a
 
 example:
