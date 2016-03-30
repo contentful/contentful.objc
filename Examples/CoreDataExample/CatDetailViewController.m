@@ -25,8 +25,11 @@
     self = [super init];
     if (self) {
         self.cat = cat;
-        self.edgesForExtendedLayout = UIRectEdgeNone;
         self.title = self.cat.name;
+
+        if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
+            [self setValue:@(UIRectEdgeNone) forKey:@"edgesForExtendedLayout"];
+        }
     }
     return self;
 }
@@ -49,7 +52,7 @@
     }
     
     UILabel* nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0,
-                                                                   CGRectGetMaxY(imageView.frame) + 50.0,
+                                                                   CGRectGetMaxY(imageView.frame) + (CGFloat)50.0,
                                                                    self.view.frame.size.width,
                                                                    50.0)];
     nameLabel.font = [UIFont systemFontOfSize:40.0];
