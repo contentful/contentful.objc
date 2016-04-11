@@ -14,6 +14,9 @@
 
 /**
  *  Any class representing Assets saved to a persistent store needs to conform to this protocol.
+ *
+ *  If any of the optional properties are implemented, they will automatically be mapped to the
+ *  corresponding Asset fields from Contentful.
  */
 @protocol CDAPersistedAsset <NSObject>
 
@@ -26,6 +29,10 @@
 
 @optional
 
+/** The description of the Asset. */
+@property (nonatomic) NSString* assetDescription;
+/** The title of the Asset. */
+@property (nonatomic) NSString* title;
 /** The width of the Asset, if it is an image. */
 @property (nonatomic) NSNumber* width;
 /** The height of the Asset, if it is an image. */

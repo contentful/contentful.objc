@@ -463,6 +463,14 @@
     persistedAsset.internetMediaType = asset.MIMEType;
     persistedAsset.url = asset.URL.absoluteString;
 
+    if ([persistedAsset respondsToSelector:@selector(setAssetDescription:)]) {
+        persistedAsset.assetDescription = asset.fields[@"description"];
+    }
+
+    if ([persistedAsset respondsToSelector:@selector(setTitle:)]) {
+        persistedAsset.title = asset.fields[@"title"];
+    }
+
     if ([persistedAsset respondsToSelector:@selector(setWidth:)]) {
         persistedAsset.width = @(asset.size.width);
     }

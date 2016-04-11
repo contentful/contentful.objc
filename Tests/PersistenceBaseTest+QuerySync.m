@@ -125,11 +125,15 @@
         id<CDAPersistedAsset> asset = [[self.persistenceManager fetchAssetsFromDataStore] firstObject];
         XCTAssertEqualObjects(@"3f5a00acf72df93528b6bb7cd0a4fd0c.jpeg",
                               asset.url.lastPathComponent, @"");
+        XCTAssertNil(asset.assetDescription);
+        XCTAssertEqualObjects(@"3f5a00acf72df93528b6bb7cd0a4fd0c", asset.title);
 
         [self.persistenceManager performSynchronizationWithSuccess:^{
             [self assertNumberOfAssets:1 numberOfEntries:2];
             XCTAssertNotEqualObjects(@"3f5a00acf72df93528b6bb7cd0a4fd0c.jpeg",
                                      asset.url.lastPathComponent, @"");
+            XCTAssertEqualObjects(@"yolo", asset.assetDescription);
+            XCTAssertEqualObjects(@"3f5a00acf72df93528b6bb7cd0a4fd0c", asset.title);
 
             EndBlock();
         } failure:^(CDAResponse *response, NSError *error) {

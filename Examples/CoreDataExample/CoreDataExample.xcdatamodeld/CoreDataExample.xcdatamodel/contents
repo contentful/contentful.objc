@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6244" systemVersion="14A361c" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15B42" minimumToolsVersion="Automatic">
     <entity name="Asset" representedClassName="Asset" syncable="YES">
+        <attribute name="assetDescription" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="height" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="internetMediaType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="width" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <relationship name="cat" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ManagedCat" inverseName="picture" inverseEntity="ManagedCat" syncable="YES"/>
@@ -31,7 +33,7 @@
         <attribute name="syncToken" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Asset" positionX="0" positionY="0" width="128" height="135"/>
+        <element name="Asset" positionX="0" positionY="0" width="128" height="165"/>
         <element name="Group" positionX="9" positionY="54" width="128" height="90"/>
         <element name="ManagedCat" positionX="0" positionY="0" width="128" height="135"/>
         <element name="Member" positionX="18" positionY="63" width="128" height="88"/>
