@@ -31,21 +31,21 @@ PODS:
   - CCLRequestReplay/Manager (0.9.0)
   - CCLRequestReplay/Record (0.9.0)
   - CCLRequestReplay/Replay (0.9.0)
-  - ContentfulDeliveryAPI (1.9.6):
+  - ContentfulDeliveryAPI (1.10.0):
     - AFNetworking (~> 2.5.3)
     - ISO8601DateFormatter
-  - ContentfulPersistence/CoreData (0.5.0):
-    - ContentfulDeliveryAPI (~> 1.9.4)
-  - ContentfulPersistence/Realm (0.5.0):
-    - ContentfulDeliveryAPI (~> 1.9.4)
+  - ContentfulPersistence/CoreData (0.6.0):
+    - ContentfulDeliveryAPI (~> 1.10.0)
+  - ContentfulPersistence/Realm (0.6.0):
+    - ContentfulDeliveryAPI (~> 1.10.0)
     - Realm (~> 0.98.0)
   - FBSnapshotTestCase (1.5)
   - ISO8601DateFormatter (0.7)
   - OCMock (2.2.4)
   - PDKTCollectionViewWaterfallLayout (0.1)
-  - Realm (0.98.5):
-    - Realm/Headers (= 0.98.5)
-  - Realm/Headers (0.98.5)
+  - Realm (0.98.6):
+    - Realm/Headers (= 0.98.6)
+  - Realm/Headers (0.98.6)
   - VCRURLConnection (0.2.0)
 
 DEPENDENCIES:
@@ -53,8 +53,8 @@ DEPENDENCIES:
   - CCLRequestReplay (from `https://github.com/neonichu/CCLRequestReplay.git`)
   - ContentfulDeliveryAPI (from `.`)
   - ContentfulPersistence/CoreData
-  - ContentfulPersistence/CoreData (>= 0.5.0)
-  - ContentfulPersistence/Realm (>= 0.5.0)
+  - ContentfulPersistence/CoreData (>= 0.6.0)
+  - ContentfulPersistence/Realm (>= 0.6.0)
   - FBSnapshotTestCase
   - ISO8601DateFormatter
   - OCMock
@@ -75,13 +75,13 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AFNetworking: e1d86c2a96bb5d2e7408da36149806706ee122fe
   CCLRequestReplay: a472e52da260c28d7a41df76697b8e518625a44f
-  ContentfulDeliveryAPI: 86f1a69dce907032b92e5ec0fbbf3a0dbd49c588
-  ContentfulPersistence: d2ab0ad8082a7b1fc6b8060093e4cb9ffdb5b470
+  ContentfulDeliveryAPI: 27d721646f7a1bcb9d2d8b9b398b4c2ae2d2957d
+  ContentfulPersistence: 367a9555415355615b0eaa60d0ae13c62b279426
   FBSnapshotTestCase: 26f32d8fa9eb30e9f09712ecfb097808bc79b898
   ISO8601DateFormatter: ab926648eebe497f4d167c0fd083992f959f1274
   OCMock: a6a7dc0e3997fb9f35d99f72528698ebf60d64f2
   PDKTCollectionViewWaterfallLayout: a246de22e843bdb2677ab2fe5d6c1fb0a623f93e
-  Realm: db08379969e45cea2edd1c3c0a090fe9e22d2d2f
+  Realm: 44803f35418c5d89b27825a564247fcd190de37e
   VCRURLConnection: accd771ebd4be11183a3e4d5a4403f180a9a235e
 
 COCOAPODS: 0.38.2
