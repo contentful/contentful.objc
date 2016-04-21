@@ -46,6 +46,7 @@ static const typeToClassMap_t typeToClassMap[] = {
 
 @property (nonatomic, readonly) BOOL isLink;
 @property (nonatomic) NSDate* lastFetchedDate;
+@property (nonatomic) BOOL localizationAvailable;
 @property (nonatomic) NSDictionary* sys;
 
 @end
@@ -69,7 +70,9 @@ static const typeToClassMap_t typeToClassMap[] = {
     return CDAReadItemFromFileURL(fileURL, client);
 }
 
-+(instancetype)resourceObjectForDictionary:(NSDictionary *)dictionary client:(CDAClient*)client {
++(instancetype)resourceObjectForDictionary:(NSDictionary *)dictionary
+                                    client:(CDAClient*)client
+                     localizationAvailable:(BOOL)localizationAvailable {
     if (![dictionary isKindOfClass:[NSDictionary class]]) {
         return nil;
     }
@@ -97,7 +100,10 @@ static const typeToClassMap_t typeToClassMap[] = {
             }
 
             if ([[[subclass CDAType] lowercaseString] isEqualToString:resourceType]) {
-                return [self resourceObjectForSubclass:subclass dictionary:dictionary client:client];
+                return [self resourceObjectForSubclass:subclass
+                                            dictionary:dictionary
+                                                client:client
+                                 localizationAvailable:localizationAvailable];
             }
         }
     } else {
@@ -107,7 +113,10 @@ static const typeToClassMap_t typeToClassMap[] = {
             if ([name isEqualToString:resourceType]) {
                 NSString * const className = (__bridge id) typeToClassMap[i].className;
                 Class const subclass = NSClassFromString(className);
-                return [self resourceObjectForSubclass:subclass dictionary:dictionary client:client];
+                return [self resourceObjectForSubclass:subclass
+                                            dictionary:dictionary
+                                                client:client
+                                 localizationAvailable:localizationAvailable];
             }
         }
     }
@@ -118,8 +127,11 @@ static const typeToClassMap_t typeToClassMap[] = {
 
 +(instancetype)resourceObjectForSubclass:(Class)subclass
                               dictionary:(NSDictionary *)dictionary
-                                  client:(CDAClient *)client {
-    CDAResource* resource = [[subclass alloc] initWithDictionary:dictionary client:client];
+                                  client:(CDAClient *)client
+                   localizationAvailable:(BOOL)localizationAvailable {
+    CDAResource* resource = [[subclass alloc] initWithDictionary:dictionary
+                                                          client:client
+                                           localizationAvailable:localizationAvailable];
     if (!resource.fetched && client.configuration.filterNonExistingResources) {
         return nil;
     }
@@ -173,7 +185,9 @@ static const typeToClassMap_t typeToClassMap[] = {
     return self;
 }
 
--(id)initWithDictionary:(NSDictionary *)dictionary client:(CDAClient*)client {
+-(id)initWithDictionary:(NSDictionary *)dictionary
+                 client:(CDAClient*)client
+  localizationAvailable:(BOOL)localizationAvailable {
     self = [super init];
     if (self) {
         self.defaultLocaleOfSpace = @"en-US";
@@ -182,6 +196,7 @@ static const typeToClassMap_t typeToClassMap[] = {
 
         NSParameterAssert(client);
         self.client = client;
+        self.localizationAvailable = localizationAvailable;
     }
     return self;
 }
@@ -207,11 +222,6 @@ static const typeToClassMap_t typeToClassMap[] = {
 
 -(BOOL)isLink {
     return [self.sys[@"type"] isEqualToString:@"Link"];
-}
-
-
--(BOOL)localizationAvailable {
-    return self.client.localizationAvailable;
 }
 
 -(NSDictionary*)localizeFieldsFromDictionary:(NSDictionary*)fields {
@@ -327,7 +337,9 @@ static const typeToClassMap_t typeToClassMap[] = {
         }
 
         if ([key isEqualToString:@"space"]) {
-            CDASpace* space = [[CDASpace alloc] initWithDictionary:value client:client];
+            CDASpace* space = [[CDASpace alloc] initWithDictionary:value
+                                                            client:client
+                                             localizationAvailable:NO];
             systemProperties[key] = space;
         }
     }];

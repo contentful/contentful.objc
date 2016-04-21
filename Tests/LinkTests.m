@@ -18,7 +18,7 @@
 @implementation LinkTests
 
 -(void)testResolveArrayOfLinks {
-    NSArray* assetArray = @[ [[CDAAsset alloc] initWithDictionary:@{ @"sys": @{ @"id": @"nyancat", @"type": @"Link" } } client:self.client], [[CDAAsset alloc] initWithDictionary:@{ @"sys": @{ @"id": @"happycat", @"type": @"Link" } } client:self.client] ];
+    NSArray* assetArray = @[ [[CDAAsset alloc] initWithDictionary:@{ @"sys": @{ @"id": @"nyancat", @"type": @"Link" } } client:self.client localizationAvailable:NO], [[CDAAsset alloc] initWithDictionary:@{ @"sys": @{ @"id": @"happycat", @"type": @"Link" } } client:self.client localizationAvailable:NO] ];
     
     for (CDAAsset* asset in assetArray) {
         XCTAssertFalse(asset.fetched, @"");
@@ -49,7 +49,8 @@
 -(void)testResolveAssetLink {
     CDAAsset* asset = [[CDAAsset alloc] initWithDictionary:@{ @"sys": @{ @"id": @"nyancat",
                                                                          @"type": @"Link" } }
-                                                    client:self.client];
+                                                    client:self.client
+                                     localizationAvailable:NO];
     XCTAssertFalse(asset.fetched, @"");
     XCTAssertNil(asset.URL, @"");
     
@@ -79,7 +80,7 @@
 }
 
 -(void)testResolveContentTypeLink {
-    CDAContentType* contentType = [[CDAContentType alloc] initWithDictionary:@{ @"sys": @{ @"id": @"cat", @"type": @"Link" }, @"name": @"ct" } client:self.client];
+    CDAContentType* contentType = [[CDAContentType alloc] initWithDictionary:@{ @"sys": @{ @"id": @"cat", @"type": @"Link" }, @"name": @"ct" } client:self.client localizationAvailable:NO];
     XCTAssertFalse(contentType.fetched, @"");
     XCTAssertEqual(0U, contentType.fields.count, @"");
     
@@ -112,7 +113,8 @@
 -(void)testResolveEntry {
     CDAEntry* entry = [[CDAEntry alloc] initWithDictionary:@{ @"sys": @{ @"id": @"nyancat",
                                                                          @"type": @"Link" } }
-                                                    client:self.client];
+                                                    client:self.client
+                                     localizationAvailable:NO];
     XCTAssertFalse(entry.fetched, @"");
     XCTAssertEqual(0U, entry.fields.count, @"");
     
@@ -147,7 +149,8 @@
 -(void)testResolveResource {
     CDAResource* resource = [[CDAResource alloc] initWithDictionary:@{ @"sys": @{ @"id": @"nyancat",
                                                                                   @"type": @"Entry" } }
-                                                             client:self.client];
+                                                             client:self.client
+                                              localizationAvailable:NO];
     
     StartBlock();
     
@@ -165,7 +168,8 @@
 -(void)testUnimplementedResolveThrows {
     CDAResource* resource = [[CDAResource alloc] initWithDictionary:@{ @"sys": @{ @"id": @"nyancat",
                                                                                   @"type": @"Link" } }
-                                                             client:self.client];
+                                                             client:self.client
+                                              localizationAvailable:NO];
     
     XCTAssertThrowsSpecificNamed([resource resolveWithSuccess:^(CDAResponse* a, CDAResource* b) {
     } failure:^(CDAResponse* a, NSError* b) {}], NSException, NSInternalInconsistencyException, @"");

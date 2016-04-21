@@ -18,6 +18,7 @@
 @interface CDAFieldValueTransformer ()
 
 @property (nonatomic, weak) CDAClient* client;
+@property (nonatomic) BOOL localizationAvailable;
 @property (nonatomic) CDAFieldType type;
 
 @end
@@ -30,13 +31,17 @@
     return NO;
 }
 
-+(instancetype)transformerOfType:(CDAFieldType)type client:(CDAClient*)client {
-    return [[[self class] alloc] initWithType:type client:client];
++(instancetype)transformerOfType:(CDAFieldType)type
+                          client:(CDAClient*)client
+           localizationAvailable:(BOOL)localizationAvailable {
+    return [[[self class] alloc] initWithType:type client:client localizationAvailable:localizationAvailable];
 }
 
 #pragma mark -
 
--(id)initWithType:(CDAFieldType)type client:(CDAClient*)client {
+-(id)initWithType:(CDAFieldType)type
+           client:(CDAClient*)client
+localizationAvailable:(BOOL)localizationAvailable {
     self = [super init];
     if (self) {
         NSParameterAssert(client);
@@ -59,7 +64,8 @@
 
 -(id)transformArrayValue:(id)arrayValue {
     CDAFieldValueTransformer* transformer = [CDAFieldValueTransformer transformerOfType:self.itemType
-                                                                                 client:self.client];
+                                                                                 client:self.client
+                                                                  localizationAvailable:self.localizationAvailable];
     
     NSMutableArray* array = [@[] mutableCopy];
     for (id value in arrayValue) {
@@ -109,7 +115,9 @@
                 return nil;
             }
             
-            return [CDAResource resourceObjectForDictionary:value client:self.client];
+            return [CDAResource resourceObjectForDictionary:value
+                                                     client:self.client
+                                      localizationAvailable:self.localizationAvailable];
             
         case CDAFieldTypeLocation:
             if (value == [NSNull null]) {

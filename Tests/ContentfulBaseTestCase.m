@@ -137,7 +137,7 @@ extern void __gcov_flush();
 {
     NSData* spaceData = [NSData dataWithContentsOfFile:[[NSBundle bundleForClass:[self class]] pathForResource:@"space" ofType:@"json" inDirectory:@"SyncTests"]];
     NSDictionary* spaceJSON = [NSJSONSerialization JSONObjectWithData:spaceData options:0 error:nil];
-    CDASpace* space = [[CDASpace alloc] initWithDictionary:spaceJSON client:self.client];
+    CDASpace* space = [[CDASpace alloc] initWithDictionary:spaceJSON client:self.client localizationAvailable:NO];
     [self.client setSpace:space];
     
     NSDictionary* ct = @{
@@ -157,7 +157,7 @@ extern void __gcov_flush();
                          @"sys": @{ @"id": @"trolololo" },
                          };
     
-    CDAContentType* contentType = [[CDAContentType alloc] initWithDictionary:ct client:self.client];
+    CDAContentType* contentType = [[CDAContentType alloc] initWithDictionary:ct client:self.client localizationAvailable:NO];
     XCTAssertEqual(9U, contentType.fields.count, @"");
     
     NSDictionary* entry = @{
@@ -167,7 +167,7 @@ extern void __gcov_flush();
                                     @"contentType": @{ @"sys": @{ @"id": @"trolololo" } }
                                     },
                             };
-    CDAEntry* brokenEntry = [[CDAEntry alloc] initWithDictionary:entry client:self.client];
+    CDAEntry* brokenEntry = [[CDAEntry alloc] initWithDictionary:entry client:self.client localizationAvailable:NO];
     XCTAssertEqualObjects(@"brokenEntry", brokenEntry.identifier, @"");
     return brokenEntry;
 }

@@ -37,8 +37,10 @@
     return self.items.description;
 }
 
--(id)initWithDictionary:(NSDictionary*)dictionary client:(CDAClient*)client {
-    self = [super initWithDictionary:dictionary client:client];
+-(id)initWithDictionary:(NSDictionary*)dictionary
+                 client:(CDAClient*)client
+  localizationAvailable:(BOOL)localizationAvailable {
+    self = [super initWithDictionary:dictionary client:client localizationAvailable:localizationAvailable];
     if (self) {
         self.limit = [dictionary[@"limit"] unsignedIntegerValue];
         self.skip = [dictionary[@"skip"] unsignedIntegerValue];
@@ -49,7 +51,9 @@
         
         NSMutableArray* items = [@[] mutableCopy];
         for (NSDictionary* item in dictionary[@"items"]) {
-            CDAResource* resource = [CDAResource resourceObjectForDictionary:item client:self.client];
+            CDAResource* resource = [CDAResource resourceObjectForDictionary:item
+                                                                      client:self.client
+                                                       localizationAvailable:localizationAvailable];
             [items addObject:resource];
         }
         self.items = [items copy];
@@ -57,7 +61,8 @@
         NSMutableArray* errors = [@[] mutableCopy];
         for (NSDictionary* item in dictionary[@"errors"]) {
             CDAError* error = (CDAError*)[CDAResource resourceObjectForDictionary:item
-                                                                           client:self.client];
+                                                                           client:self.client
+                                                            localizationAvailable:localizationAvailable];
             NSAssert(CDAClassIsOfType([error class], CDAError.class),
                      @"Invalid resource %@ in errors array.", error);
             [errors addObject:[error errorRepresentationWithCode:0]];
@@ -68,7 +73,7 @@
 }
 
 -(id)initWithItems:(NSArray *)items client:(CDAClient *)client {
-    self = [self initWithDictionary:@{ @"sys": @{} } client:client];
+    self = [self initWithDictionary:@{ @"sys": @{} } client:client localizationAvailable:NO];
     if (self) {
         self.limit = items.count;
         self.skip = 0;

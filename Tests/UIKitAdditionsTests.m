@@ -384,7 +384,8 @@
 - (void)testResourcesViewControllerShowsImageViewControllerForAssets {
     CDAAsset* asset = [[CDAAsset alloc] initWithDictionary:@{ @"sys": @{ @"id": @"foo" },
                                                               @"contentType": @"image/png" }
-                                                              client:self.client];
+                                                    client:self.client
+                                     localizationAvailable:NO];
     CDAResourcesViewController* resourcesVC = [[CDAResourcesViewController alloc] initWithCellMapping:@{} items:@[ asset ]];
     
     XCTAssertNotNil(resourcesVC.view, @"");

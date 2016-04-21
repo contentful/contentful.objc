@@ -46,8 +46,10 @@
     return self.allFields[identifier];
 }
 
--(id)initWithDictionary:(NSDictionary *)dictionary client:(CDAClient*)client {
-    self = [super initWithDictionary:dictionary client:client];
+-(id)initWithDictionary:(NSDictionary *)dictionary
+                 client:(CDAClient*)client
+  localizationAvailable:(BOOL)localizationAvailable {
+    self = [super initWithDictionary:dictionary client:client localizationAvailable:localizationAvailable];
     if (self) {
         if (dictionary[@"name"]) {
             NSString* name = dictionary[@"name"];
@@ -64,7 +66,8 @@
         
         for (NSDictionary* field in dictionary[@"fields"]) {
             CDAField* fieldObject = [[[self.class fieldClass] alloc] initWithDictionary:field
-                                                                                 client:self.client];
+                                                                                 client:self.client
+                                                                  localizationAvailable:localizationAvailable];
             
             allFields[fieldObject.identifier] = fieldObject;
             [fields addObject:fieldObject];

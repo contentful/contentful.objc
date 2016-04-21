@@ -81,7 +81,8 @@
     CDAClient* client = [CDAClient new];
     [client fetchSpaceWithSuccess:^(CDAResponse *response, CDASpace *space) {
         CDAResource* resource = [CDAResource resourceObjectForDictionary:@{ @"sys": @{ @"id": @"foo", @"type": @"Asset" }, @"fields": @{ @"file": @{ @"url": @"file:///test/test.foo" } } }
-                                                                  client:client];
+                                                                  client:client
+                                                   localizationAvailable:NO];
         NSString* cacheFileName = CDACacheFileNameForResource(resource);
         [self assertCacheFile:cacheFileName againstSuffix:@"com.contentful.sdk/cache_cfexampleapi_Asset_foo.foo"];
         
@@ -110,10 +111,10 @@
     client.resourceClassPrefix = @"YOLO";
     NSDictionary* dummyPayload = @{ @"sys": @{ @"id": @"06f5086772e0cd0b8f4e2381fa610d36" },
                                     @"name": @"yolo" };
-    CDAContentType* dummyCT = [[CDAContentType alloc] initWithDictionary:dummyPayload client:self.client];
+    CDAContentType* dummyCT = [[CDAContentType alloc] initWithDictionary:dummyPayload client:self.client localizationAvailable:NO];
     [client registerClass:CDAEntry.class forContentType:dummyCT];
 
-    CDASpace* space = [[CDASpace alloc] initWithDictionary:dummyPayload client:self.client];
+    CDASpace* space = [[CDASpace alloc] initWithDictionary:dummyPayload client:self.client localizationAvailable:NO];
     CDAClient* copiedClient = [client copyWithSpace:space];
 
     XCTAssertEqual(copiedClient.resourceClassPrefix, @"YOLO");
