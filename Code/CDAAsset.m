@@ -253,7 +253,6 @@ const CGFloat CDARadiusNone             = 0.0;
     self = [super initWithDictionary:dictionary client:client];
     if (self) {
         NSDictionary* fields = [CDAInputSanitizer sanitizeObject:dictionary[@"fields"]];
-        NSMutableDictionary* localizedFields = [@{} mutableCopy];
         
         if (fields) {
             // Ensure there is a zero size in any case
@@ -272,18 +271,9 @@ const CGFloat CDARadiusNone             = 0.0;
                 mutableFields[@"file"] = [mutableFile copy];
                 fields = [mutableFields copy];
             }
-            
-            if (self.localizationAvailable) {
-                for (NSString* locale in self.client.space.localeCodes) {
-                    localizedFields[locale] = [self localizedDictionaryFromDictionary:fields
-                                                                            forLocale:locale];
-                }
-            } else {
-                localizedFields[self.defaultLocaleOfSpace] = fields;
-            }
+
+            self.localizedFields = [self localizeFieldsFromDictionary:fields];
         }
-        
-        self.localizedFields = [localizedFields copy];
     }
     return self;
 }

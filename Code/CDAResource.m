@@ -16,8 +16,10 @@
 
 #import "CDAClient+Private.h"
 #import "CDAContentTypeRegistry.h"
+#import "CDAFallbackDictionary.h"
 #import "CDAInputSanitizer.h"
 #import "CDAResource+Private.h"
+#import "CDASpace+Private.h"
 #import "CDAUtilities.h"
 
 // From: https://www.mikeash.com/pyblog/friday-qa-2010-06-18-implementing-equality-and-hashing.html
@@ -207,8 +209,33 @@ static const typeToClassMap_t typeToClassMap[] = {
     return [self.sys[@"type"] isEqualToString:@"Link"];
 }
 
+
 -(BOOL)localizationAvailable {
     return self.client.localizationAvailable;
+}
+
+-(NSDictionary*)localizeFieldsFromDictionary:(NSDictionary*)fields {
+    NSMutableDictionary* localizedFields = [@{} mutableCopy];
+
+    if (self.localizationAvailable) {
+        NSDictionary* defaultDictionary = [self localizedDictionaryFromDictionary:fields forLocale:self.defaultLocaleOfSpace];
+        localizedFields[self.defaultLocaleOfSpace] = defaultDictionary;
+
+        for (NSString* locale in self.client.space.localeCodes) {
+            if ([locale isEqualToString:self.defaultLocaleOfSpace]) {
+                continue;
+            }
+
+            NSDictionary* localizedDictionary = [self localizedDictionaryFromDictionary:fields
+                                                                              forLocale:locale];
+
+            localizedFields[locale] = [[CDAFallbackDictionary alloc] initWithDictionary:localizedDictionary fallbackDictionary:defaultDictionary];
+        }
+    } else {
+        localizedFields[self.defaultLocaleOfSpace] = [self parseDictionary:fields];
+    }
+
+    return [localizedFields copy];
 }
 
 -(NSDictionary*)localizedDictionaryFromDictionary:(NSDictionary*)dictionary forLocale:(NSString*)locale {
@@ -228,6 +255,10 @@ static const typeToClassMap_t typeToClassMap[] = {
     }];
     
     return [result copy];
+}
+
+-(NSDictionary*)parseDictionary:(NSDictionary*)dictionary {
+    return dictionary;
 }
 
 -(void)resolveLinksWithIncludedAssets:(NSDictionary*)assets entries:(NSDictionary*)entries {

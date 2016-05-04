@@ -12,10 +12,8 @@
 #import "CDAClient+Private.h"
 #import "CDAContentTypeRegistry.h"
 #import "CDAEntry+Private.h"
-#import "CDAFallbackDictionary.h"
 #import "CDAField+Private.h"
 #import "CDAResource+Private.h"
-#import "CDASpace+Private.h"
 #import "CDAUtilities.h"
 
 @interface CDAEntry ()
@@ -113,31 +111,12 @@
         }
         
         NSDictionary* fields = dictionary[@"fields"];
-        NSMutableDictionary* localizedFields = [@{} mutableCopy];
         
         if (!fields) {
             return self;
         }
         
-        if (self.localizationAvailable) {
-            NSDictionary* defaultDictionary = [self localizedDictionaryFromDictionary:fields forLocale:self.defaultLocaleOfSpace];
-            localizedFields[self.defaultLocaleOfSpace] = defaultDictionary;
-            
-            for (NSString* locale in self.client.space.localeCodes) {
-                if ([locale isEqualToString:self.defaultLocaleOfSpace]) {
-                    continue;
-                }
-                
-                NSDictionary* localizedDictionary = [self localizedDictionaryFromDictionary:fields
-                                                                                  forLocale:locale];
-                
-                localizedFields[locale] = [[CDAFallbackDictionary alloc] initWithDictionary:localizedDictionary fallbackDictionary:defaultDictionary];
-            }
-        } else {
-            localizedFields[self.defaultLocaleOfSpace] = [self parseDictionary:fields];
-        }
-        
-        self.localizedFields = [localizedFields copy];
+        self.localizedFields = [self localizeFieldsFromDictionary:fields];
     }
     return self;
 }

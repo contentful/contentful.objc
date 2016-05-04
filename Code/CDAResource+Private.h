@@ -22,7 +22,10 @@
 
 -(BOOL)createdAfterDate:(NSDate*)date;
 -(id)initWithDictionary:(NSDictionary*)dictionary client:(CDAClient*)client;
+-(BOOL)localizationAvailable;
+-(NSDictionary*)localizeFieldsFromDictionary:(NSDictionary*)fields;
 -(NSDictionary*)localizedDictionaryFromDictionary:(NSDictionary*)dictionary forLocale:(NSString*)locale;
+-(NSDictionary*)parseDictionary:(NSDictionary*)dictionary;
 -(void)resolveLinksWithIncludedAssets:(NSDictionary*)assets entries:(NSDictionary*)entries;
 -(BOOL)updatedAfterDate:(NSDate*)date;
 -(void)updateWithContentsOfDictionary:(NSDictionary*)dictionary client:(CDAClient*)client;
