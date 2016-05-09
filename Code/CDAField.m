@@ -136,7 +136,9 @@
     return self;
 }
 
--(id)initWithDictionary:(NSDictionary *)dictionary client:(CDAClient*)client {
+-(id)initWithDictionary:(NSDictionary *)dictionary
+                 client:(CDAClient*)client
+  localizationAvailable:(BOOL)localizationAvailable {
     self = [super init];
     if (self) {
         NSParameterAssert(client);
@@ -165,7 +167,9 @@
         self.localized = [dictionary[@"localized"] boolValue];
         self.required = [dictionary[@"required"] boolValue];
         
-        self.transformer = [CDAFieldValueTransformer transformerOfType:self.type client:self.client];
+        self.transformer = [CDAFieldValueTransformer transformerOfType:self.type
+                                                                client:self.client
+                                                 localizationAvailable:localizationAvailable];
         self.transformer.itemType = self.itemType;
     }
     return self;

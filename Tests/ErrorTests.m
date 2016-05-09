@@ -265,7 +265,8 @@
                                        };
     
     CDAAsset* brokenAsset = [[CDAAsset alloc] initWithDictionary:assetDictionary
-                                                          client:[CDAClient new]];
+                                                          client:[CDAClient new]
+                                           localizationAvailable:NO];
     
     XCTAssertEqualObjects(@"my_id", brokenAsset.identifier, @"");
     XCTAssertNil(brokenAsset.fields[@"description"], @"");
@@ -306,7 +307,7 @@
                          @"sys": @{ @"id": @"6749332", @"type": @"ContentType" },
                          };
 
-    CDAContentType* brokenContentType = (CDAContentType*)[CDAResource resourceObjectForDictionary:ct client:self.client];
+    CDAContentType* brokenContentType = (CDAContentType*)[CDAResource resourceObjectForDictionary:ct client:self.client localizationAvailable:NO];
     XCTAssertNotNil(brokenContentType);
 }
 

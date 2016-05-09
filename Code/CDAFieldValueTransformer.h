@@ -14,6 +14,8 @@
 
 @property (nonatomic) CDAFieldType itemType;
 
-+(instancetype)transformerOfType:(CDAFieldType)type client:(CDAClient*)client;
++(instancetype)transformerOfType:(CDAFieldType)type
+                          client:(CDAClient*)client
+           localizationAvailable:(BOOL)localizationAvailable;
 
 @end

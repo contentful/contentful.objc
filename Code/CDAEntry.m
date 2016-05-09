@@ -100,14 +100,18 @@
     return [self findUnresolvedResourceOfClass:[CDAEntry class]];
 }
 
--(id)initWithDictionary:(NSDictionary *)dictionary client:(CDAClient*)client {
-    self = [super initWithDictionary:dictionary client:client];
+-(id)initWithDictionary:(NSDictionary *)dictionary
+                 client:(CDAClient*)client
+  localizationAvailable:(BOOL)localizationAvailable {
+    self = [super initWithDictionary:dictionary client:client localizationAvailable:localizationAvailable];
     if (self && self.fetched) {
         NSAssert(self.contentType, @"Content-Type needs to be available.");
         
         Class customClass = [self.client.contentTypeRegistry customClassForContentType:self.contentType];
         if (customClass && customClass != [self class]) {
-            return [[customClass alloc] initWithDictionary:dictionary client:client];
+            return [[customClass alloc] initWithDictionary:dictionary
+                                                    client:client
+                                     localizationAvailable:localizationAvailable];
         }
         
         NSDictionary* fields = dictionary[@"fields"];

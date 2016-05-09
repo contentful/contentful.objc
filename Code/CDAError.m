@@ -45,8 +45,10 @@ NSString* const CDAErrorDomain = @"CDAErrorDomain";
                                                NSLocalizedDescriptionKey: self.message ?: @"" }];
 }
 
--(id)initWithDictionary:(NSDictionary *)dictionary client:(CDAClient*)client {
-    self = [super initWithDictionary:dictionary client:client];
+-(id)initWithDictionary:(NSDictionary *)dictionary
+                 client:(CDAClient*)client
+  localizationAvailable:(BOOL)localizationAvailable {
+    self = [super initWithDictionary:dictionary client:client localizationAvailable:localizationAvailable];
     if (self) {
         self.details = dictionary[@"details"];
         self.message = dictionary[@"message"];

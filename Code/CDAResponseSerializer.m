@@ -131,17 +131,21 @@
         return nil;
     }
     
-    self.client.synchronizing = JSONObject[@"nextPageUrl"] || JSONObject[@"nextSyncUrl"] || [CDAValueForQueryParameter(response.URL, @"locale") isEqualToString:@"*"];
+    BOOL localizationAvailable = JSONObject[@"nextPageUrl"] || JSONObject[@"nextSyncUrl"] || [CDAValueForQueryParameter(response.URL, @"locale") isEqualToString:@"*"] || self.client.localizationAvailable;
     
     NSMutableDictionary* assets = [@{} mutableCopy];
     for (NSDictionary* possibleAsset in JSONObject[@"includes"][@"Asset"]) {
-        CDAAsset* asset = [[CDAAsset alloc] initWithDictionary:possibleAsset client:self.client];
+        CDAAsset* asset = [[CDAAsset alloc] initWithDictionary:possibleAsset
+                                                        client:self.client
+                                         localizationAvailable:localizationAvailable];
         assets[asset.identifier] = asset;
     }
     
     NSMutableDictionary* entries = [@{} mutableCopy];
     for (NSDictionary* possibleEntry in JSONObject[@"includes"][@"Entry"]) {
-        CDAEntry* entry = [[CDAEntry alloc] initWithDictionary:possibleEntry client:self.client];
+        CDAEntry* entry = [[CDAEntry alloc] initWithDictionary:possibleEntry
+                                                        client:self.client
+                                         localizationAvailable:localizationAvailable];
         [entry resolveLinksWithIncludedAssets:assets entries:nil];
         entries[entry.identifier] = entry;
     }
@@ -149,12 +153,15 @@
     NSMutableArray* organizations = [@[] mutableCopy];
     for (NSDictionary* possibleOrganization in JSONObject[@"includes"][@"Organization"]) {
         CDAResource* resource = [CDAResource resourceObjectForDictionary:possibleOrganization
-                                                                  client:self.client];
+                                                                  client:self.client
+                                                   localizationAvailable:localizationAvailable];
         [organizations addObject:resource];
     }
     
     NSAssert([JSONObject isKindOfClass:[NSDictionary class]], @"JSON result is not a dictionary");
-    CDAResource* resource = [CDAResource resourceObjectForDictionary:JSONObject client:self.client];
+    CDAResource* resource = [CDAResource resourceObjectForDictionary:JSONObject
+                                                              client:self.client
+                                               localizationAvailable:localizationAvailable];
     
     if (CDAClassIsOfType([resource class], CDAArray.class)) {
         for (CDAResource* subResource in [(CDAArray*)resource items]) {

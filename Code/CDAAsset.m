@@ -48,15 +48,12 @@ const CGFloat CDARadiusNone             = 0.0;
     
     NSDictionary* fileContent = @{ @"contentType": persistedAsset.internetMediaType,
                                    @"url": persistedAsset.url };
-    
-    if (client.localizationAvailable) {
-        fileContent = @{ client.space.defaultLocale ?: @"en-US": fileContent };
-    }
-    
+
     return [[self alloc] initWithDictionary:@{ @"sys": @{ @"id": persistedAsset.identifier,
                                                           @"type": @"Asset" },
                                                @"fields": @{ @"file": fileContent } }
-                                     client:client];
+                                     client:client
+                      localizationAvailable:NO];
 }
 
 +(NSData*)cachedDataForAsset:(CDAAsset*)asset {
@@ -249,8 +246,10 @@ const CGFloat CDARadiusNone             = 0.0;
     return [NSURL URLWithString:imageUrlString];
 }
 
--(id)initWithDictionary:(NSDictionary *)dictionary client:(CDAClient*)client {
-    self = [super initWithDictionary:dictionary client:client];
+-(id)initWithDictionary:(NSDictionary *)dictionary
+                 client:(CDAClient*)client
+  localizationAvailable:(BOOL)localizationAvailable {
+    self = [super initWithDictionary:dictionary client:client localizationAvailable:localizationAvailable];
     if (self) {
         NSDictionary* fields = [CDAInputSanitizer sanitizeObject:dictionary[@"fields"]];
         

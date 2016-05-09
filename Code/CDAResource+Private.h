@@ -13,16 +13,18 @@
 @interface CDAResource ()
 
 @property (nonatomic, weak) CDAClient* client;
-@property (nonatomic) NSString* defaultLocaleOfSpace;
-@property (nonatomic, readonly) BOOL localizationAvailable;
+@property (nonatomic) NSString* defaultLocaleOfSpace; // FIXME: should this be `readonly`?
 
 +(NSString*)CDAType;
 +(BOOL)classIsOfType:(Class)class;
-+(instancetype)resourceObjectForDictionary:(NSDictionary*)dictionary client:(CDAClient*)client;
++(instancetype)resourceObjectForDictionary:(NSDictionary*)dictionary
+                                    client:(CDAClient*)client
+                     localizationAvailable:(BOOL)localizationAvailable;
 
 -(BOOL)createdAfterDate:(NSDate*)date;
--(id)initWithDictionary:(NSDictionary*)dictionary client:(CDAClient*)client;
--(BOOL)localizationAvailable;
+-(id)initWithDictionary:(NSDictionary*)dictionary
+                 client:(CDAClient*)client
+  localizationAvailable:(BOOL)localizationAvailable;
 -(NSDictionary*)localizeFieldsFromDictionary:(NSDictionary*)fields;
 -(NSDictionary*)localizedDictionaryFromDictionary:(NSDictionary*)dictionary forLocale:(NSString*)locale;
 -(NSDictionary*)parseDictionary:(NSDictionary*)dictionary;

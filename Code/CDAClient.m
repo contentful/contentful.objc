@@ -410,7 +410,7 @@ NSString* const CMAContentTypeHeader = @"application/vnd.contentful.management.v
 }
 
 -(BOOL)localizationAvailable {
-    return self.configuration.usesManagementAPI || self.synchronizing;
+    return self.configuration.usesManagementAPI;
 }
 
 -(CDARequest *)postURLPath:(NSString *)URLPath
