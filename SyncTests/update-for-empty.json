@@ -1,0 +1,36 @@
+{
+  "sys": {
+    "type": "Array"
+  },
+  "items": [
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "a7uc4j82xa5d"
+          }
+        },
+        "id": "3f5qqrqbsAGMqAeIkkMYeK",
+        "type": "Entry",
+        "createdAt": "2016-05-11T15:15:46.680Z",
+        "updatedAt": "2016-05-11T15:17:12.148Z",
+        "revision": 2,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "test"
+          }
+        }
+      },
+      "fields": {
+        "test": {
+          "en-US": null
+        }
+      }
+    }
+  ],
+  "nextSyncUrl": "https://cdn.contentful.com/spaces/a7uc4j82xa5d/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdybDiMOEwoFaGsOjw7_DvwQdCmZXwqnChsOcAcOkUysgwrTCsy4bw6jCkcO9wqchwoFvwppIGWxiwp7ClwfCmQfDunpyUy1KOEptd8Oyf2rCn0TDvcO6LXbDhEEG"
+}
