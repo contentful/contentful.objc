@@ -19,7 +19,7 @@
     self.persistenceManager.classForSpaces = [SyncInfo class];
 
     NSArray* contentTypeIds = @[ @"1nGOrvlRTaMcyyq4IEa8ea", @"6bAvxqodl6s4MoKuWYkmqe",
-                                 @"6PnRGY1dxSUmaQ2Yq2Ege2", @"cat" ];
+                                 @"6PnRGY1dxSUmaQ2Yq2Ege2", @"cat", @"test" ];
 
     Class c = [ManagedCat class];
     for (NSString* contentTypeId in contentTypeIds) {

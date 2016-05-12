@@ -17,7 +17,7 @@
      The tests are based on a sync session with five subsequent syncs where each one either added,
      removed or updated Resources.
      */
-    NSDictionary* stubs = @{ @"https://cdn.contentful.com/spaces/emh6o2ireilu/sync?initial=true": @"initial", @"https://cdn.contentful.com/spaces/emh6o2ireilu/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdyYxwoHDtsKywrXDmQs_WcOvIcOzwotYw6PCgcOsAcOYYcO4YsKCw7TCnsK_clnClS7Csx9lwoFcw6nCqnnCpWh3w7k7SkI-CcOuQyXDlw_Dlh9RwqkcElwpW30sw4k": @"added", @"https://cdn.contentful.com/spaces/emh6o2ireilu/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdyY0w4bCiMKOWDIFw61bwqQ_w73CnMKsB8KpwrFZPsOZw5ZQwqDDnUA0w5tOPRtwwoAkwpJMTzghdEnDjCkiw5fCuynDlsO5DyvCsjgQa2TDisKNZ8Kqw4TCjhZIGQ": @"deleted", @"https://cdn.contentful.com/spaces/emh6o2ireilu/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdyZew5xDN04dJg3DkmBAw4XDh8OEw5o5UVhIw6nDlFjDoBxIasKIDsKIw4VcIV18GicdwoTDjCtoMiFAfcKiwrRKIsKYwrzCmMKBw4ZhwrdhwrsGa8KTwpQ6w6A": @"added-asset", @"https://cdn.contentful.com/spaces/emh6o2ireilu/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdyZ_NnHDoQzCtcKoMh9KZHtAWcObw7XCimZgVGPChUfDuxQHwoHDosO6CcKodsO2MWJQwrrCrsOswpl5w6LCuV0tw4Njwo9Ww5fCl8KqEgB6XgAJNVF2wpk3Lg": @"deleted-asset", @"https://cdn.contentful.com/spaces/emh6o2ireilu/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdyYHPUPDhggxwr5qw5RBbMKWw4VjOg3DumTDg0_CgsKcYsO8UcOZfMKLw4sKUcOnJcKxfDUkGWwxNMOVw4AiacK5Bmo4ScOhI0g2cXLClxTClsOyE8OOc8O3": @"update", @"https://cdn.contentful.com/spaces/emh6o2ireilu/": @"space", @"https://cdn.contentful.com/spaces/emh6o2ireilu/content_types": @"all-content-types", @"https://cdn.contentful.com/spaces/giq5kda3eap4/sync?initial=true": @"932-initial", @"https://cdn.contentful.com/spaces/giq5kda3eap4/": @"932-space", @"https://cdn.contentful.com/spaces/giq5kda3eap4/content_types?limit=1&sys.id%5Bin%5D=1nGOrvlRTaMcyyq4IEa8ea": @"932-content-types", @"https://cdn.contentful.com/spaces/giq5kda3eap4/": @"932-space", @"https://cdn.contentful.com/spaces/giq5kda3eap4/content_types": @"932-all-content-types", @"https://cdn.contentful.com/spaces/giq5kda3eap4/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdybDqiDCvSIrAFoiw7XDkQrCu8K7N8OkwqlhwoHCscOLM8Knwr7Cp8Ogw7LCjE3DicO8w6cCwoFwO1AVw6B8DGTCtlbDgMKDw7zDicKawrXDqsKkSX7DnMO-ThjDtMORwqHDhk_Ct1o": @"932-add-entry", @"https://cdn.contentful.com/spaces/giq5kda3eap4/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdyY5dsK6w79SE2ADw41bNA58M8KLw5ZzWcKMw5Q-w4Nxw6UzCSTCtQPCrcK5w63CmcKtwq9IwqM6V8OrCsKow6LCisO9K8KfSiEKw5PCnVZQBQfCrsOiwoweCcK0wpvDoQ": @"932-unpublish-entry", @"https://cdn.contentful.com/spaces/giq5kda3eap4/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdybCqx_CocOlwpNuw41raMKrw7nCv8OAwrnCihwDwqnCmUbCjhnDmTojwrZAw7vDuMKCH8Kcw6USTMOqw4NAwo7Cn8KUaVYXwrHCkVLCmsOgNxs-wptWw5LDl8KIw4vCvsOTwq7CsnJJ": @"932-republish-entry" };
+    NSDictionary* stubs = @{ @"https://cdn.contentful.com/spaces/emh6o2ireilu/sync?initial=true": @"initial", @"https://cdn.contentful.com/spaces/emh6o2ireilu/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdyYxwoHDtsKywrXDmQs_WcOvIcOzwotYw6PCgcOsAcOYYcO4YsKCw7TCnsK_clnClS7Csx9lwoFcw6nCqnnCpWh3w7k7SkI-CcOuQyXDlw_Dlh9RwqkcElwpW30sw4k": @"added", @"https://cdn.contentful.com/spaces/emh6o2ireilu/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdyY0w4bCiMKOWDIFw61bwqQ_w73CnMKsB8KpwrFZPsOZw5ZQwqDDnUA0w5tOPRtwwoAkwpJMTzghdEnDjCkiw5fCuynDlsO5DyvCsjgQa2TDisKNZ8Kqw4TCjhZIGQ": @"deleted", @"https://cdn.contentful.com/spaces/emh6o2ireilu/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdyZew5xDN04dJg3DkmBAw4XDh8OEw5o5UVhIw6nDlFjDoBxIasKIDsKIw4VcIV18GicdwoTDjCtoMiFAfcKiwrRKIsKYwrzCmMKBw4ZhwrdhwrsGa8KTwpQ6w6A": @"added-asset", @"https://cdn.contentful.com/spaces/emh6o2ireilu/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdyZ_NnHDoQzCtcKoMh9KZHtAWcObw7XCimZgVGPChUfDuxQHwoHDosO6CcKodsO2MWJQwrrCrsOswpl5w6LCuV0tw4Njwo9Ww5fCl8KqEgB6XgAJNVF2wpk3Lg": @"deleted-asset", @"https://cdn.contentful.com/spaces/emh6o2ireilu/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdyYHPUPDhggxwr5qw5RBbMKWw4VjOg3DumTDg0_CgsKcYsO8UcOZfMKLw4sKUcOnJcKxfDUkGWwxNMOVw4AiacK5Bmo4ScOhI0g2cXLClxTClsOyE8OOc8O3": @"update", @"https://cdn.contentful.com/spaces/emh6o2ireilu/": @"space", @"https://cdn.contentful.com/spaces/emh6o2ireilu/content_types": @"all-content-types", @"https://cdn.contentful.com/spaces/giq5kda3eap4/sync?initial=true": @"932-initial", @"https://cdn.contentful.com/spaces/giq5kda3eap4/": @"932-space", @"https://cdn.contentful.com/spaces/giq5kda3eap4/content_types?limit=1&sys.id%5Bin%5D=1nGOrvlRTaMcyyq4IEa8ea": @"932-content-types", @"https://cdn.contentful.com/spaces/giq5kda3eap4/": @"932-space", @"https://cdn.contentful.com/spaces/giq5kda3eap4/content_types": @"932-all-content-types", @"https://cdn.contentful.com/spaces/giq5kda3eap4/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdybDqiDCvSIrAFoiw7XDkQrCu8K7N8OkwqlhwoHCscOLM8Knwr7Cp8Ogw7LCjE3DicO8w6cCwoFwO1AVw6B8DGTCtlbDgMKDw7zDicKawrXDqsKkSX7DnMO-ThjDtMORwqHDhk_Ct1o": @"932-add-entry", @"https://cdn.contentful.com/spaces/giq5kda3eap4/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdyY5dsK6w79SE2ADw41bNA58M8KLw5ZzWcKMw5Q-w4Nxw6UzCSTCtQPCrcK5w63CmcKtwq9IwqM6V8OrCsKow6LCisO9K8KfSiEKw5PCnVZQBQfCrsOiwoweCcK0wpvDoQ": @"932-unpublish-entry", @"https://cdn.contentful.com/spaces/giq5kda3eap4/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdybCqx_CocOlwpNuw41raMKrw7nCv8OAwrnCihwDwqnCmUbCjhnDmTojwrZAw7vDuMKCH8Kcw6USTMOqw4NAwo7Cn8KUaVYXwrHCkVLCmsOgNxs-wptWw5LDl8KIw4vCvsOTwq7CsnJJ": @"932-republish-entry", @"https://cdn.contentful.com/spaces/a7uc4j82xa5d/sync?initial=true": @"initial-for-empty", @"https://cdn.contentful.com/spaces/a7uc4j82xa5d/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdyY9ZMK9AsOcwqzCqmEWwr7CucOhw7LCm8ONZQICw4PCo8Olwq0lwofCocO2C3rDmAM_wr_DuMOcDBVGwqnCpcOBXsKXw6M9J8O4w4EUw7Zww6TCtsKwOzfCucOpVkLDtWXCsMOydg": @"update-for-empty", @"https://cdn.contentful.com/spaces/a7uc4j82xa5d/": @"space-for-empty", @"https://cdn.contentful.com/spaces/a7uc4j82xa5d/content_types": @"content-types-for-empty" };
 
     [self stubHTTPRequestUsingFixtures:stubs inDirectory:@"SyncTests"];
 }
@@ -338,6 +338,43 @@
         EndBlock();
     }];
     
+    WaitUntilBlockCompletes();
+}
+
+-(void)basic_syncEmptyField {
+    self.client = [[CDAClient alloc] initWithSpaceKey:@"a7uc4j82xa5d" accessToken:@"966a679442707ea882caec4592bf3058e188a35b9bfcf1968a870cfc5e5441d5"];
+     [self buildPersistenceManagerWithDefaultClient:NO];
+
+    [self.persistenceManager setMapping:@{ @"fields.test": @"name" } forEntriesOfContentTypeWithIdentifier:@"test"];
+
+    StartBlock();
+
+    [self.persistenceManager performSynchronizationWithSuccess:^{
+        NSArray* entries = [self.persistenceManager fetchEntriesFromDataStore];
+        XCTAssertEqual(1U, entries.count, @"");
+        id entry = [entries firstObject];
+        XCTAssertEqualObjects(@"yolo", [entry valueForKey:@"name"]);
+
+        [self.persistenceManager performSynchronizationWithSuccess:^{
+            NSArray* entries = [self.persistenceManager fetchEntriesFromDataStore];
+            XCTAssertEqual(1U, entries.count, @"");
+            id updatedEntry = [entries firstObject];
+            XCTAssertNil([updatedEntry valueForKey:@"name"]);
+
+            EndBlock();
+        } failure:^(CDAResponse *response, NSError *error) {
+            XCTFail(@"Error: %@", error);
+
+            EndBlock();
+        }];
+
+        EndBlock();
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTFail(@"Error: %@", error);
+
+        EndBlock();
+    }];
+
     WaitUntilBlockCompletes();
 }
 

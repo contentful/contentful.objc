@@ -77,4 +77,8 @@
     [self basic_imageCaching];
 }
 
+-(void)testSyncEmptyField {
+    [self basic_syncEmptyField];
+}
+
 @end

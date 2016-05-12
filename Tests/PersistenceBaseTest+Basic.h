@@ -17,6 +17,7 @@
 -(void)basic_initialSync;
 -(void)basic_relationships;
 -(void)basic_setupFixtures;
+-(void)basic_syncEmptyField;
 -(void)basic_syncWithRepublishedEntries;
 
 @end
