@@ -359,6 +359,7 @@
             NSArray* entries = [self.persistenceManager fetchEntriesFromDataStore];
             XCTAssertEqual(1U, entries.count, @"");
             id updatedEntry = [entries firstObject];
+            XCTAssertNotNil(updatedEntry);
             XCTAssertNil([updatedEntry valueForKey:@"name"]);
 
             EndBlock();

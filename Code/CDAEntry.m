@@ -130,9 +130,11 @@
 }
 
 -(NSDictionary *)localizedDictionaryFromDictionary:(NSDictionary *)dictionary
-                                         forLocale:(NSString *)locale {
+                                         forLocale:(NSString *)locale
+                                           default:(BOOL)isDefault {
     NSDictionary* localizedDictionary = [super localizedDictionaryFromDictionary:dictionary
-                                                                       forLocale:locale];
+                                                                       forLocale:locale
+                                                                         default:isDefault];
     return [self parseDictionary:localizedDictionary];
 }
 

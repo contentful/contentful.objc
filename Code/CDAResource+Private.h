@@ -26,7 +26,9 @@
                  client:(CDAClient*)client
   localizationAvailable:(BOOL)localizationAvailable;
 -(NSDictionary*)localizeFieldsFromDictionary:(NSDictionary*)fields;
--(NSDictionary*)localizedDictionaryFromDictionary:(NSDictionary*)dictionary forLocale:(NSString*)locale;
+-(NSDictionary*)localizedDictionaryFromDictionary:(NSDictionary*)dictionary
+                                        forLocale:(NSString*)locale
+                                          default:(BOOL)isDefault;
 -(NSDictionary*)parseDictionary:(NSDictionary*)dictionary;
 -(void)resolveLinksWithIncludedAssets:(NSDictionary*)assets entries:(NSDictionary*)entries;
 -(BOOL)updatedAfterDate:(NSDate*)date;

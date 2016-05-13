@@ -610,7 +610,7 @@
         [space performSynchronizationWithSuccess:^{
             XCTAssertEqual(1U, space.entries.count, @"");
             CDAEntry* updatedEntry = space.entries[0];
-            XCTAssertNil(updatedEntry.fields[@"test"]);
+            XCTAssertEqualObjects(updatedEntry.fields[@"test"], @"");
 
             EndBlock();
         } failure:^(CDAResponse *response, NSError *error) {

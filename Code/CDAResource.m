@@ -228,7 +228,7 @@ static const typeToClassMap_t typeToClassMap[] = {
     NSMutableDictionary* localizedFields = [@{} mutableCopy];
 
     if (self.localizationAvailable) {
-        NSDictionary* defaultDictionary = [self localizedDictionaryFromDictionary:fields forLocale:self.defaultLocaleOfSpace];
+        NSDictionary* defaultDictionary = [self localizedDictionaryFromDictionary:fields forLocale:self.defaultLocaleOfSpace default:YES];
         localizedFields[self.defaultLocaleOfSpace] = defaultDictionary;
 
         for (NSString* locale in self.client.space.localeCodes) {
@@ -237,7 +237,8 @@ static const typeToClassMap_t typeToClassMap[] = {
             }
 
             NSDictionary* localizedDictionary = [self localizedDictionaryFromDictionary:fields
-                                                                              forLocale:locale];
+                                                                              forLocale:locale
+                                                                                default:NO];
 
             localizedFields[locale] = [[CDAFallbackDictionary alloc] initWithDictionary:localizedDictionary fallbackDictionary:defaultDictionary];
         }
@@ -248,7 +249,9 @@ static const typeToClassMap_t typeToClassMap[] = {
     return [localizedFields copy];
 }
 
--(NSDictionary*)localizedDictionaryFromDictionary:(NSDictionary*)dictionary forLocale:(NSString*)locale {
+-(NSDictionary*)localizedDictionaryFromDictionary:(NSDictionary*)dictionary
+                                        forLocale:(NSString*)locale
+                                          default:(BOOL)isDefault {
     NSParameterAssert(dictionary);
     NSParameterAssert(locale);
     
@@ -257,11 +260,11 @@ static const typeToClassMap_t typeToClassMap[] = {
     [dictionary enumerateKeysAndObjectsUsingBlock:^(NSString* key, NSDictionary* value, BOOL *stop) {
         id localizedValue = value[locale];
         
-        if (!localizedValue) {
+        if (!localizedValue && !isDefault) {
             return;
         }
         
-        result[key] = localizedValue;
+        result[key] = localizedValue ?: [NSNull null];
     }];
     
     return [result copy];
