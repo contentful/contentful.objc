@@ -83,7 +83,7 @@ static NSCache* cache = nil;
                                            } failure:nil];
 
             if (!cached) {
-                UIGraphicsBeginImageContextWithOptions(cachedImage.size, YES, 0);
+                UIGraphicsBeginImageContextWithOptions(cachedImage.size, NO, 0);
                 [cachedImage drawAtPoint:CGPointZero];
                 cachedImage = UIGraphicsGetImageFromCurrentImageContext();
                 UIGraphicsEndImageContext();
