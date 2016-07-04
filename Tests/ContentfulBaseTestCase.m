@@ -7,9 +7,12 @@
 //
 
 #import <CCLRequestReplay/CCLRequestReplayManager.h>
+#import <CCLRequestReplay/CCLRequestRecordProtocol.h>
 #import <CCLRequestReplay/CCLRequestReplayProtocol.h>
 #import <VCRURLConnection/VCR.h>
 
+#import "CDAClient+Private.h"
+#import "CDARequestOperationManager.h"
 #import "CDAResource+Private.h"
 #import "ContentfulBaseTestCase.h"
 
@@ -189,10 +192,30 @@ extern void __gcov_flush();
     self.snapshotTestController = [[FBSnapshotTestController alloc] initWithTestClass:[self class]];
     self.snapshotTestController.referenceImagesDirectory = [[NSBundle bundleForClass:[self class]]
                                                             bundlePath];
+
+
+}
+
+/*
+ CCLRequestReplay doesn't contain support for NSURLSession by default, so we need to add its URL
+ protocols manually to the session used by CDAClient
+ */
+- (void)setUpCCLRequestReplayForNSURLSession
+{
+    NSURLSessionConfiguration* config = self.client.requestOperationManager.session.configuration;
+
+    NSMutableArray* protocolClasses = [config.protocolClasses mutableCopy];
+    [protocolClasses insertObject:[CCLRequestRecordProtocol class] atIndex:0];
+    [protocolClasses insertObject:[CCLRequestReplayProtocol class] atIndex:0];
+    config.protocolClasses = protocolClasses;
+
+    [self.client.requestOperationManager setValue:[NSURLSession sessionWithConfiguration:config delegate:self.client.requestOperationManager delegateQueue:self.client.requestOperationManager.operationQueue] forKey:@"session"];
 }
 
 - (void)stubHTTPRequestUsingFixtures:(NSDictionary*)fixtureMap inDirectory:(NSString*)directoryName
 {
+    [self setUpCCLRequestReplayForNSURLSession];
+
     [fixtureMap enumerateKeysAndObjectsUsingBlock:^(NSString* url, NSString* JSONName, BOOL *stop) {
         [self addRecordingWithJSONNamed:JSONName
                             inDirectory:directoryName

@@ -31,7 +31,6 @@ NSString* const CMAContentTypeHeader = @"application/vnd.contentful.management.v
 @property (nonatomic) NSString* accessToken;
 @property (nonatomic) CDAConfiguration* configuration;
 @property (nonatomic) CDAContentTypeRegistry* contentTypeRegistry;
-@property (nonatomic) CDARequestOperationManager* requestOperationManager;
 @property (nonatomic) CDASpace* space;
 @property (nonatomic) NSString* spaceKey;
 
