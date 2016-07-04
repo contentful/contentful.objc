@@ -102,6 +102,12 @@
     return [self fetchURLPath:@""
                    parameters:nil
                       success:^(CDAResponse *response, id responseObject) {
+                          if (CDAClassIsOfType([responseObject class], CDAError.class)) {
+                              CDAError* error = (CDAError*)responseObject;
+                              failure(response, [error errorRepresentationWithCode:response.statusCode]);
+                              return;
+                          }
+
                           NSAssert(CDAClassIsOfType([responseObject class], CDASpace.class),
                                    @"Response object needs to be a space.");
                           success(response, responseObject);

@@ -34,6 +34,8 @@
 -(void)addDummyContentType {
     CDAContentType* ct = [[CDAContentType alloc] initWithDictionary:@{ @"sys": @{ @"id": @"6bAvxqodl6s4MoKuWYkmqe" }, @"name": @"Stub", @"fields": @[ @{ @"id": @"title", @"type": @"Symbol" }, @{ @"id": @"body", @"type": @"Text" }, @{ @"id": @"category", @"type": @"Link" }, @{ @"id": @"picture", @"type": @"Link" } ] } client:self.client localizationAvailable:NO];
     ct = [[CDAContentType alloc] initWithDictionary:@{ @"sys": @{ @"id": @"51LZmvenywOe8aig28sCgY" }, @"name": @"OtherStub", @"fields": @[ @{ @"id": @"name", @"type": @"Symbol" } ], } client:self.client localizationAvailable:NO];
+    ct = [[CDAContentType alloc] initWithDictionary:@{ @"sys": @{ @"id": @"4yCmJfmk1WeqACagaemOIs" }, @"name": @"AnotherStub", @"fields": @[ @{ @"id": @"link1", @"type": @"Link" }, @{ @"id": @"link2", @"type": @"Link" }, @{ @"id": @"link3", @"type": @"Link" } ], } client:self.client localizationAvailable:NO];
+    ct = [[CDAContentType alloc] initWithDictionary:@{ @"sys": @{ @"id": @"5kLp8FbRwAG0kcOOYa6GMa" }, @"name": @"OtherStub", @"fields": @[ @{ @"id": @"suchField", @"type": @"Symbol" } ], } client:self.client localizationAvailable:NO];
 }
 
 -(CDAClient*)buildClient {

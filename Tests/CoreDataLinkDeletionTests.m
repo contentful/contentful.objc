@@ -50,12 +50,12 @@
         XCTAssertEqual(0U, [self.persistenceManager fetchAssetsFromDataStore].count, @"");
         XCTAssertEqual(2U, [self.persistenceManager fetchEntriesFromDataStore].count, @"");
 
-        LinkedEntry* entry = [self.persistenceManager fetchEntryWithIdentifier:@"1sPD1WORSoyCEKqyM00uck"];
+        LinkedEntry* entry = (LinkedEntry*)[self.persistenceManager fetchEntryWithIdentifier:@"1sPD1WORSoyCEKqyM00uck"];
         XCTAssertNotNil(entry.link);
         XCTAssertEqualObjects(@"B", entry.link.name);
 
         [self.persistenceManager performSynchronizationWithSuccess:^{
-            LinkedEntry* e = [self.persistenceManager fetchEntryWithIdentifier:@"1sPD1WORSoyCEKqyM00uck"];
+            LinkedEntry* e = (LinkedEntry*)[self.persistenceManager fetchEntryWithIdentifier:@"1sPD1WORSoyCEKqyM00uck"];
             XCTAssertNil(e.link);
 
             EndBlock();
