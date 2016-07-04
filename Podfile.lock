@@ -1,18 +1,18 @@
 PODS:
-  - AFNetworking (3.0.4):
-    - AFNetworking/NSURLSession (= 3.0.4)
-    - AFNetworking/Reachability (= 3.0.4)
-    - AFNetworking/Security (= 3.0.4)
-    - AFNetworking/Serialization (= 3.0.4)
-    - AFNetworking/UIKit (= 3.0.4)
-  - AFNetworking/NSURLSession (3.0.4):
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (3.0.4)
-  - AFNetworking/Security (3.0.4)
-  - AFNetworking/Serialization (3.0.4)
-  - AFNetworking/UIKit (3.0.4):
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - CCLRequestReplay (0.9.0):
     - CCLRequestReplay/Blueprint (= 0.9.0)
@@ -26,7 +26,7 @@ PODS:
   - CCLRequestReplay/Record (0.9.0)
   - CCLRequestReplay/Replay (0.9.0)
   - ContentfulDeliveryAPI (1.10.3):
-    - AFNetworking (~> 3.0.4)
+    - AFNetworking (~> 3.1.0)
     - ISO8601DateFormatter (= 0.7)
   - ContentfulPersistence/CoreData (0.6.0):
     - ContentfulDeliveryAPI (~> 1.10.0)
@@ -67,9 +67,9 @@ CHECKOUT OPTIONS:
     :git: https://github.com/neonichu/CCLRequestReplay.git
 
 SPEC CHECKSUMS:
-  AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   CCLRequestReplay: a472e52da260c28d7a41df76697b8e518625a44f
-  ContentfulDeliveryAPI: f843dd718b790a1f2e6a30b7e9d74b2d83c88570
+  ContentfulDeliveryAPI: ae7efba3ccec3cd85056a4b89d0fd41453fb47aa
   ContentfulPersistence: 367a9555415355615b0eaa60d0ae13c62b279426
   FBSnapshotTestCase: 26f32d8fa9eb30e9f09712ecfb097808bc79b898
   ISO8601DateFormatter: ab926648eebe497f4d167c0fd083992f959f1274
