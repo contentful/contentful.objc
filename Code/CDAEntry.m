@@ -249,6 +249,15 @@
         }
     }
     
+    if ([resource isKindOfClass:[CDAEntry class]]) {
+        CDAEntry* entry = entries[resource.identifier];
+        NSDate *resourceDate = resource.sys[@"updatedAt"];
+        NSDate *entryDate = entry.sys[@"updatedAt"];
+        if ([resourceDate compare:entryDate] == NSOrderedAscending) {
+            return entry;
+        }
+    }
+    
     return nil;
 }
 
