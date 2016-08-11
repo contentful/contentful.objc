@@ -1,0 +1,165 @@
+{
+  "sys": {
+    "type": "Array"
+  },
+  "items": [
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "emh6o2ireilu"
+          }
+        },
+        "id": "51mdUtjJRKyGiUYGUiYiUA",
+        "type": "Entry",
+        "createdAt": "2016-07-29T14:57:34.664Z",
+        "updatedAt": "2016-08-01T20:03:10.526Z",
+        "revision": 2,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "collection"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Sample Collection"
+        },
+        "items": {
+          "en-US": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "4TzdkYASnum0we4C0wUueu"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "36vQ96QfjG2ikQKmMU6Ieu"
+              }
+            }
+          ]
+        },
+        "images": {
+          "en-US": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Asset",
+                "id": "6M2bp501m8kmAWW0YyQMus"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "emh6o2ireilu"
+          }
+        },
+        "id": "6M2bp501m8kmAWW0YyQMus",
+        "type": "Asset",
+        "createdAt": "2016-08-01T19:42:06.498Z",
+        "updatedAt": "2016-08-01T19:43:41.062Z",
+        "revision": 2
+      },
+      "fields": {
+        "title": {
+          "en-US": "Git"
+        },
+        "description": {
+          "en-US": "Git Merge"
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.contentful.com/emh6o2ireilu/6M2bp501m8kmAWW0YyQMus/b1a7690a89e90f0638765e6b89985714/images.jpeg",
+            "details": {
+              "size": 3669,
+              "image": {
+                "width": 124,
+                "height": 124
+              }
+            },
+            "fileName": "images.jpeg",
+            "contentType": "image/jpeg"
+          }
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "emh6o2ireilu"
+          }
+        },
+        "id": "4TzdkYASnum0we4C0wUueu",
+        "type": "Entry",
+        "createdAt": "2016-07-29T14:57:34.875Z",
+        "updatedAt": "2016-08-01T14:30:00.684Z",
+        "revision": 3,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "item"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Item One"
+        },
+        "description": {
+          "en-US": "Test item one"
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "emh6o2ireilu"
+          }
+        },
+        "id": "36vQ96QfjG2ikQKmMU6Ieu",
+        "type": "Entry",
+        "createdAt": "2016-07-29T14:57:34.588Z",
+        "updatedAt": "2016-07-29T14:57:34.588Z",
+        "revision": 1,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "item"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Item Two"
+        },
+        "description": {
+          "en-US": "Test item two"
+        }
+      }
+    }
+  ],
+  "nextSyncUrl": "https://cdn.contentful.com/spaces/emh6o2ireilu/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdyY5SVo4wpHDo0nDpVXClcKgw7tKCTpCw5ovJw7DncOXFkJdwphhCwvCmcKdf8KQwqEnw6MuDW3CghPCusKXwojCsn4JwqNew6tweTXComLDm1PCrsKyw4zCoMO5L8Oy"
+}

@@ -1,0 +1,77 @@
+{
+  "sys": {
+    "type": "Array"
+  },
+  "items": [
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "emh6o2ireilu"
+          }
+        },
+        "id": "4TzdkYASnum0we4C0wUueu",
+        "type": "Entry",
+        "createdAt": "2016-07-29T14:57:34.875Z",
+        "updatedAt": "2016-08-01T20:31:23.105Z",
+        "revision": 3,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "item"
+          }
+        }
+      },
+      "fields": {
+        "name": {
+          "en-US": "Item One"
+        },
+        "description": {
+          "en-US": "Test item one (updated)"
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "emh6o2ireilu"
+          }
+        },
+        "id": "6M2bp501m8kmAWW0YyQMus",
+        "type": "Asset",
+        "createdAt": "2016-08-01T19:42:06.498Z",
+        "updatedAt": "2016-08-01T20:31:23.105Z",
+        "revision": 3
+      },
+      "fields": {
+        "title": {
+          "en-US": "Git"
+        },
+        "description": {
+          "en-US": "Git Merge"
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.contentful.com/emh6o2ireilu/6M2bp501m8kmAWW0YyQMus/c5785032c00eaf5b8937ffdb76b3e288/images.jpeg",
+            "details": {
+              "size": 11386,
+              "image": {
+                "width": 124,
+                "height": 124
+              }
+            },
+            "fileName": "images.jpeg",
+            "contentType": "image/jpeg"
+          }
+        }
+      }
+    }
+  ],
+  "nextSyncUrl": "https://cdn.contentful.com/spaces/emh6o2ireilu/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdybDplVGM8KaPDg_wo8Hw50fw6pSW2XDhMKIw6DCnMKsZHdiwrVLKS0YAMKmw53CmUzDt8KTaMOBw5E7GDLDj8OSRsOtYWFNTsO5wp1NwqnCh8OIbMO-HGnCpHANOA"
+}

@@ -1,0 +1,107 @@
+{
+  "sys": {
+    "type": "Array"
+  },
+  "total": 2,
+  "skip": 0,
+  "limit": 2,
+  "items": [
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "emh6o2ireilu"
+          }
+        },
+        "id": "collection",
+        "type": "ContentType",
+        "createdAt": "2016-07-29T14:54:42.628Z",
+        "updatedAt": "2016-08-01T19:43:01.262Z",
+        "revision": 3
+      },
+      "displayField": "name",
+      "name": "Collection",
+      "description": "",
+      "fields": [
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "items",
+          "name": "Items",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [],
+            "linkType": "Entry"
+          }
+        },
+        {
+          "id": "images",
+          "name": "Images",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [],
+            "linkType": "Asset"
+          }
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "emh6o2ireilu"
+          }
+        },
+        "id": "item",
+        "type": "ContentType",
+        "createdAt": "2016-07-29T14:55:28.400Z",
+        "updatedAt": "2016-07-29T14:55:28.400Z",
+        "revision": 1
+      },
+      "displayField": "name",
+      "name": "Item",
+      "description": "",
+      "fields": [
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "description",
+          "name": "Description",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    }
+  ]
+}
