@@ -249,6 +249,24 @@
         }
     }
     
+    if ([resource isKindOfClass:[CDAEntry class]]) {
+        CDAEntry* entry = entries[resource.identifier];
+        NSDate *resourceDate = resource.sys[@"updatedAt"];
+        NSDate *entryDate = entry.sys[@"updatedAt"];
+        if ([resourceDate compare:entryDate] == NSOrderedAscending) {
+            return entry;
+        }
+    }
+    
+    if ([resource isKindOfClass:[CDAAsset class]]) {
+        CDAAsset* asset = assets[resource.identifier];
+        NSDate *resourceDate = resource.sys[@"updatedAt"];
+        NSDate *assetDate = asset.sys[@"updatedAt"];
+        if ([resourceDate compare:assetDate] == NSOrderedAscending) {
+            return asset;
+        }
+    }
+    
     return nil;
 }
 
