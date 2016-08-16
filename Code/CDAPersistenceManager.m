@@ -19,6 +19,7 @@
 #import "CDAClient+Private.h"
 #import "CDAContentTypeRegistry.h"
 #import "CDAEntry+Private.h"
+#import "CDAInputSanitizer.h"
 #import "CDAUtilities.h"
 
 @interface CDAPersistenceManager () <CDASyncedSpaceDelegate>
@@ -463,12 +464,14 @@
     persistedAsset.internetMediaType = asset.MIMEType;
     persistedAsset.url = asset.URL.absoluteString;
 
+    NSDictionary *fields = [CDAInputSanitizer sanitizeObject:asset.fields];
+
     if ([persistedAsset respondsToSelector:@selector(setAssetDescription:)]) {
-        persistedAsset.assetDescription = asset.fields[@"description"];
+        persistedAsset.assetDescription = fields[@"description"];
     }
 
     if ([persistedAsset respondsToSelector:@selector(setTitle:)]) {
-        persistedAsset.title = asset.fields[@"title"];
+        persistedAsset.title = fields[@"title"];
     }
 
     if ([persistedAsset respondsToSelector:@selector(setWidth:)]) {
