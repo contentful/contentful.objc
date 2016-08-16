@@ -1,5 +1,5 @@
 __SIM_ID=`xcrun simctl list|egrep -m 1 '$(SIM_NAME) \([^(]*\) \([^(]*\)$$'|sed -e 's/.* (\(.*\)) (.*)/\1/'`
-SIM_NAME=iPhone 4s
+SIM_NAME=iPhone 5s
 SIM_ID=$(shell echo $(__SIM_ID))
 
 ifeq ($(strip $(SIM_ID)),)

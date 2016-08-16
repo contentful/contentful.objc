@@ -34,6 +34,7 @@
 - (void)compareView:(UIView*)view forTestSelector:(SEL)testSelector;
 - (CDAEntry*)customEntryHelperWithFields:(NSDictionary*)fields;
 - (void)removeAllStubs;
+- (void)setUpCCLRequestReplayForNSURLSession;
 - (void)stubHTTPRequestUsingFixtures:(NSDictionary*)fixtureMap inDirectory:(NSString*)directoryName;
 
 @end

@@ -13,6 +13,8 @@
 @implementation CoreDataBaseTestCase
 
 -(void)buildPersistenceManagerWithDefaultClient:(BOOL)defaultClient {
+    [self deleteStore];
+
     [super buildPersistenceManagerWithDefaultClient:defaultClient];
 
     self.persistenceManager.classForAssets = [Asset class];
@@ -37,21 +39,26 @@
     return [[CoreDataManager alloc] initWithClient:client dataModelName:@"CoreDataExample"];
 }
 
+-(NSURL*)appendString:(NSString*)string toFileURL:(NSURL*)url {
+    NSString* path = [url.path stringByAppendingString:string];
+    return [NSURL fileURLWithPath:path];
+}
+
 -(void)deleteStore {
     CoreDataManager* manager = (CoreDataManager*)self.persistenceManager;
+
+    if (!manager.storeURL) {
+        return;
+    }
     [[NSFileManager defaultManager] removeItemAtURL:manager.storeURL error:nil];
-}
 
--(void)setUp {
-    [super setUp];
+    NSURL* itemURL = [self appendString:@"-shm" toFileURL:manager.storeURL];
+    [[NSFileManager defaultManager] removeItemAtURL:itemURL error:nil];
 
-    [self deleteStore];
-}
+    itemURL = [self appendString:@"-wal" toFileURL:manager.storeURL];
+    [[NSFileManager defaultManager] removeItemAtURL:itemURL error:nil];
 
--(void)tearDown {
-    [super tearDown];
-
-    [self deleteStore];
+    [NSThread sleepUntilDate:[NSDate dateWithTimeIntervalSinceNow:3.0]];
 }
 
 @end
