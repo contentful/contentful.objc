@@ -70,7 +70,9 @@ localizationAvailable:(BOOL)localizationAvailable {
     NSMutableArray* array = [@[] mutableCopy];
     for (id value in arrayValue) {
         id transformedValue = [transformer transformedValue:value];
-        [array addObject:transformedValue];
+        if(transformedValue) {
+            [array addObject:transformedValue];
+        }
     }
     
     return [array copy];
