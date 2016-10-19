@@ -73,104 +73,104 @@
     NSMutableDictionary* newAssets = [@{} mutableCopy];
     NSMutableDictionary* newEntries = [@{} mutableCopy];
     NSDate* nextTimestamp = self.lastSyncTimestamp;
-    
+
     for (CDAResource* item in array.items) {
         if (CDAClassIsOfType([item class], CDAAsset.class)) {
             newAssets[item.identifier] = item;
         }
-        
+
         if (CDAClassIsOfType([item class], CDAEntry.class)) {
             newEntries[item.identifier] = item;
         }
     }
-    
+
     for (CDAResource* item in array.items) {
         if ([item updatedAfterDate:nextTimestamp]) {
             nextTimestamp = item.sys[@"updatedAt"];
         }
-        
+
         if ([CDADeletedAsset classIsOfType:item.class]) {
             CDAAsset* deletedAsset = self.syncedAssets[item.identifier] ?: (CDAAsset*)item;
-            
+
             if ([self.delegate respondsToSelector:@selector(syncedSpace:didDeleteAsset:)]) {
                 [self.delegate syncedSpace:self didDeleteAsset:deletedAsset];
             }
-            
+
             [self willChangeValueForKey:@"assets"];
             [self.syncedAssets removeObjectForKey:deletedAsset.identifier];
             [self didChangeValueForKey:@"assets"];
         }
-        
+
         if ([CDADeletedEntry classIsOfType:item.class]) {
             CDAEntry* deletedEntry = self.syncedEntries[item.identifier] ?: (CDAEntry*)item;
-            
+
             if ([self.delegate respondsToSelector:@selector(syncedSpace:didDeleteEntry:)]) {
                 [self.delegate syncedSpace:self didDeleteEntry:deletedEntry];
             }
-            
+
             [self willChangeValueForKey:@"entries"];
             [self.syncedEntries removeObjectForKey:deletedEntry.identifier];
             [self didChangeValueForKey:@"entries"];
         }
-        
+
         if ([CDAAsset classIsOfType:item.class]) {
             [self willChangeValueForKey:@"assets"];
-            
+
             NSUInteger assetIndex = [self.syncedAssets.allKeys indexOfObject:item.identifier];
             if (!self.syncedAssets) {
                 assetIndex = [item createdAfterDate:self.lastSyncTimestamp] ? NSNotFound : 0;
             }
-            
+
             if (assetIndex != NSNotFound) {
                 self.syncedAssets[item.identifier] = item;
-                
+
                 if ([self.delegate respondsToSelector:@selector(syncedSpace:didUpdateAsset:)]) {
                     [self.delegate syncedSpace:self didUpdateAsset:(CDAAsset*)item];
                 }
             } else {
                 self.syncedAssets[item.identifier] = item;
-                
+
                 if ([self.delegate respondsToSelector:@selector(syncedSpace:didCreateAsset:)]) {
                     [self.delegate syncedSpace:self didCreateAsset:(CDAAsset*)item];
                 }
             }
-            
+
             [self didChangeValueForKey:@"assets"];
         }
-        
+
         if ([CDAEntry classIsOfType:item.class]) {
             [item resolveLinksWithIncludedAssets:self.syncedAssets entries:self.syncedEntries];
             [item resolveLinksWithIncludedAssets:newAssets entries:newEntries];
-            
+
             [self willChangeValueForKey:@"entries"];
-            
+
             NSUInteger entryIndex = [self.syncedEntries.allKeys indexOfObject:item.identifier];
             if (!self.syncedEntries) {
                 entryIndex = [item createdAfterDate:self.lastSyncTimestamp] ? NSNotFound : 0;
             }
-            
+
             if (entryIndex != NSNotFound) {
                 self.syncedEntries[item.identifier] = item;
-                
+
                 if ([self.delegate respondsToSelector:@selector(syncedSpace:didUpdateEntry:)]) {
                     [self.delegate syncedSpace:self didUpdateEntry:(CDAEntry*)item];
                 }
             } else {
                 self.syncedEntries[item.identifier] = item;
-                
+
                 if ([self.delegate respondsToSelector:@selector(syncedSpace:didCreateEntry:)]) {
                     [self.delegate syncedSpace:self didCreateEntry:(CDAEntry*)item];
                 }
             }
-            
+
             [self didChangeValueForKey:@"entries"];
         }
     }
-    
+
     self.lastSyncTimestamp = nextTimestamp;
     self.nextPageUrl = array.nextPageUrl;
     self.nextSyncUrl = array.nextSyncUrl;
-    
+
     if (success) {
         if (self.nextPageUrl) {
             [self performSynchronizationWithSuccess:success failure:failure];
@@ -196,7 +196,7 @@
         for (CDAAsset* asset in assets) {
             self.syncedAssets[asset.identifier] = asset;
         }
-        
+
         for (CDAEntry* entry in entries) {
             self.syncedEntries[entry.identifier] = entry;
         }
@@ -215,12 +215,12 @@
 -(void)performSynchronizationWithSuccess:(void (^)())success
                                  failure:(CDARequestFailureBlock)failure {
     NSParameterAssert(self.client);
-    
+
     if (!self.syncToken) {
         if (failure) {
             failure(nil, [NSError errorWithDomain:CDAErrorDomain code:901 userInfo:@{ NSLocalizedDescriptionKey: NSLocalizedString(@"No sync token available.", nil) }]);
         }
-        
+
         return;
     }
 
@@ -250,7 +250,7 @@
     NSMutableArray* entriesInQuery = [@[] mutableCopy];
     NSMutableArray* unresolvedAssets = [@[] mutableCopy];
     NSMutableArray* unresolvedEntries = [@[] mutableCopy];
-    
+
     for (CDAResource* item in array.items) {
         if (CDAClassIsOfType([item class], CDAEntry.class)) {
             CDAEntry* entry = (CDAEntry*)item;
@@ -259,25 +259,29 @@
             [unresolvedEntries addObjectsFromArray:[entry findUnresolvedEntries]];
         }
     }
-    
+
     if (entriesInQuery.count == 0) {
         success();
         return;
     }
-    
-    NSArray* unresolvedAssetIds = [unresolvedAssets valueForKey:@"identifier"];
-    NSArray* unresolvedEntryIds = [unresolvedEntries valueForKey:@"identifier"];
-    
+
+    NSMutableArray* unresolvedAssetIds = [NSMutableArray alloc];
+    [unresolvedAssetIds addObjectsFromArray:[unresolvedAssets valueForKey:@"identifier"]];
+
+    NSMutableArray* unresolvedEntryIds = [NSMutableArray alloc];
+    [unresolvedEntryIds addObjectsFromArray:[unresolvedEntries valueForKey:@"identifier"]];
+
     if (unresolvedAssetIds.count > 0) {
-        [self.client fetchAssetsMatching:@{ @"sys.id[in]": unresolvedAssetIds,
-                                            @"limit": @(unresolvedAssetIds.count) }
-                                 success:^(CDAResponse *response, CDAArray *array) {
-                                     [self resolveLinksInEntries:entriesInQuery
-                                                     usingAssets:array.items
-                                              unresolvedEntryIds:unresolvedEntryIds
-                                                         success:success
-                                                         failure:failure];
-                                 } failure:failure];
+        [self resolveAssets:unresolvedAssets
+         unresolvedAssetIds:unresolvedAssetIds
+                    success:^(CDAArray *completeArray) {
+                        [self resolveLinksInEntries:entriesInQuery
+                                        usingAssets:completeArray.items
+                                 unresolvedEntryIds:unresolvedEntryIds
+                                            success:success
+                                            failure:failure];
+                               }
+                  failure: failure];
     } else {
         [self resolveLinksInEntries:entriesInQuery
                         usingAssets:@[]
@@ -285,6 +289,67 @@
                             success:success
                             failure:failure];
     }
+}
+
+- (void)resolveAssetsRecursively:(NSMutableArray *)unresolvedAssets
+              unresolvedAssetIds:(NSMutableArray *)unresolvedAssetIds
+                  resolvedAssets:(NSMutableArray *)resolvedAssets
+                         success:(void(^)(CDAArray *completeArray))success
+                         failure:(CDARequestFailureBlock)failure {
+
+    if (unresolvedAssets.count > 64) {
+        NSRange range = NSMakeRange(0, 64);
+
+        NSArray *subset = [unresolvedAssetIds subarrayWithRange:range];
+
+        [self.client fetchAssetsMatching:@{@"sys.id[in]": subset, @"limit": @(64)}
+                                 success:^(CDAResponse *response, CDAArray *array) {
+
+                                     NSRange unresolvedRange = NSMakeRange(64, 64);
+
+                                     NSMutableArray *stillUnresolvedAssets = [[NSMutableArray alloc]init];
+                                     [stillUnresolvedAssets addObjectsFromArray:[unresolvedAssets subarrayWithRange:unresolvedRange]];
+
+                                     NSMutableArray *stillUnresolvedAssetIds = [[NSMutableArray alloc]init];
+                                     [stillUnresolvedAssetIds addObjectsFromArray:[unresolvedAssetIds subarrayWithRange:unresolvedRange]];
+
+                                     [resolvedAssets addObjectsFromArray:array.items];
+
+                                     [self resolveAssetsRecursively:stillUnresolvedAssets
+                                                 unresolvedAssetIds:stillUnresolvedAssetIds
+                                                     resolvedAssets:resolvedAssets
+                                                            success:success
+                                                            failure:failure];
+                                 }
+                                 failure:failure];
+    } else {
+        [self.client fetchAssetsMatching:@{@"sys.id[in]": unresolvedAssetIds, @"limit": @(unresolvedAssetIds.count)}
+                                 success:^(CDAResponse *response, CDAArray *array) {
+                                     success(array);
+                                 }
+                                 failure:failure];
+    }
+
+}
+
+- (void)resolveAssets:(NSMutableArray *)unresolvedAssets
+   unresolvedAssetIds:(NSMutableArray *)unresolvedAssetIds
+              success:(void(^)(CDAArray *completeArray))success
+              failure:(CDARequestFailureBlock)failure {
+    if (unresolvedAssets.count > 64) {
+        [self resolveAssetsRecursively:unresolvedAssets
+                   unresolvedAssetIds:unresolvedAssetIds
+                       resolvedAssets:[[NSMutableArray alloc]init]
+                              success:success
+                              failure:failure];
+    } else {
+        [self.client fetchAssetsMatching:@{@"sys.id[in]": unresolvedAssetIds, @"limit": @(unresolvedAssetIds.count)}
+                                 success:^(CDAResponse *response, CDAArray *array) {
+                                     success(array);
+                                 }
+                                 failure:failure];
+    }
+
 }
 
 -(void)resolveLinksInEntries:(NSArray*)entries
@@ -296,7 +361,7 @@
         success();
         return;
     }
-    
+
     NSMutableDictionary* assetsMap = [@{} mutableCopy];
     for (CDAAsset* asset in assets) {
         assetsMap[asset.identifier] = asset;
@@ -329,7 +394,7 @@
             self.lastSyncTimestamp = asset.sys[@"updatedAt"];
         }
     }
-    
+
     for (CDAEntry* entry in self.entries) {
         if ([entry updatedAfterDate:self.lastSyncTimestamp]) {
             self.lastSyncTimestamp = entry.sys[@"updatedAt"];
