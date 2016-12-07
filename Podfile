@@ -3,14 +3,14 @@ source 'https://github.com/contentful/CocoaPodsSpecs.git'
 
 platform :ios, "6.0"
 
-target "ContentfulDeliveryAPI", :exclusive => true do
+target "ContentfulDeliveryAPI" do
 
 pod 'AFNetworking', :inhibit_warnings => true
 pod 'ISO8601DateFormatter'
 
 end
 
-target "CDA Tests", :exclusive => true do
+target "CDA Tests" do
 
 platform :ios, "7.0"
 
@@ -23,14 +23,14 @@ pod 'VCRURLConnection', :inhibit_warnings => true
 
 end
 
-target "Catalog", :exclusive => true do
+target "Catalog" do
 
 pod 'ContentfulDeliveryAPI', :path => '.'
 pod 'PDKTCollectionViewWaterfallLayout'
 
 end
 
-target "ContentfulSeedDatabase", :exclusive => true do
+target "ContentfulSeedDatabase" do
 
 platform :osx, "10.8"
 
@@ -39,21 +39,21 @@ pod 'ContentfulPersistence/CoreData'
 
 end
 
-target "CoreDataExample", :exclusive => true do
+target "CoreDataExample" do
 
 pod 'ContentfulDeliveryAPI', :path => '.'
 pod 'ContentfulPersistence/CoreData'
 
 end
 
-target "SeedDatabaseExample", :exclusive => true do
+target "SeedDatabaseExample" do
 
 pod 'ContentfulDeliveryAPI', :path => '.'
 pod 'ContentfulPersistence/CoreData'
 
 end
 
-target "UFO Example", :exclusive => true do
+target "UFO Example" do
 
 pod 'ContentfulDeliveryAPI', :path => '.'
 pod 'AFNetworking', :inhibit_warnings => true

@@ -1,7 +1,3 @@
-[submodule "Pods"]
-	path = Pods
-	url = https://github.com/contentful/contentful.objc.git
-	branch = Pods
 [submodule "Tests/Data"]
 	path = Tests/Data
 	url = https://github.com/contentful/contentful.objc.git
