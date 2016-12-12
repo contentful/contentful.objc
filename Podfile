@@ -5,7 +5,7 @@ platform :ios, "7.0"
 
 target "ContentfulDeliveryAPI" do
 
-pod 'AFNetworking', :inhibit_warnings => true
+pod 'AFNetworking'
 pod 'ISO8601DateFormatter'
 
 end
@@ -56,7 +56,7 @@ end
 target "UFO Example" do
 
 pod 'ContentfulDeliveryAPI', :path => '.'
-pod 'AFNetworking', :inhibit_warnings => true
+#pod 'AFNetworking'
 
 end
 
