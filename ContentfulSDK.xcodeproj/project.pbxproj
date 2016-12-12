@@ -257,13 +257,6 @@
 			remoteGlobalIDString = A1A2CE46190963BA00B8D46D;
 			remoteInfo = ContentfulSeedDatabase;
 		};
-		ED22866D1DFEA971004C4464 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A19FD85D18C6315E0081677E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A19FD89618C637400081677E;
-			remoteInfo = "UFO Example";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -1366,7 +1359,6 @@
 			);
 			dependencies = (
 				A19FD87E18C631E60081677E /* PBXTargetDependency */,
-				ED22866E1DFEA971004C4464 /* PBXTargetDependency */,
 			);
 			name = "CDA Tests";
 			productName = ContentfulDeliveryAPITests;
@@ -2083,11 +2075,6 @@
 			isa = PBXTargetDependency;
 			target = A1A2CE46190963BA00B8D46D /* ContentfulSeedDatabase */;
 			targetProxy = A1A2CEAB190A844900B8D46D /* PBXContainerItemProxy */;
-		};
-		ED22866E1DFEA971004C4464 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A19FD89618C637400081677E /* UFO Example */;
-			targetProxy = ED22866D1DFEA971004C4464 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
