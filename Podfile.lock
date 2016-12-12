@@ -47,7 +47,6 @@ DEPENDENCIES:
   - CCLRequestReplay (from `https://github.com/neonichu/CCLRequestReplay.git`)
   - ContentfulDeliveryAPI (from `.`)
   - ContentfulPersistence/CoreData
-  - ContentfulPersistence/CoreData (>= 0.6.0)
   - ContentfulPersistence/Realm (>= 0.6.0)
   - FBSnapshotTestCase/Core
   - ISO8601DateFormatter
@@ -78,6 +77,6 @@ SPEC CHECKSUMS:
   Realm: 0e293bb62999730599efc3048896bbd4f2e43bcd
   VCRURLConnection: 1b14489604ca90b7b144b50dab6f9845d8931a45
 
-PODFILE CHECKSUM: b4c2163e414aad18c4e9e37b85e5f98ea7974f0f
+PODFILE CHECKSUM: f2817875d1f0b01c422233904a1596e61d04beaf
 
 COCOAPODS: 1.1.1
