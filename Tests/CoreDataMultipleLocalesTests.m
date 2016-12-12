@@ -46,7 +46,7 @@
         XCTAssertEqual(4U, [self.persistenceManager fetchAssetsFromDataStore].count, @"");
         XCTAssertEqual(3U, [self.persistenceManager fetchEntriesFromDataStore].count, @"");
 
-        LocalizedCat* nyancat = [self.persistenceManager fetchEntryWithIdentifier:@"nyancat"];
+        LocalizedCat* nyancat = (LocalizedCat*)[self.persistenceManager fetchEntryWithIdentifier:@"nyancat"];
         XCTAssertNotNil(nyancat, @"");
 
         for (ManagedCatLocalized* cat in nyancat.localizedEntries) {

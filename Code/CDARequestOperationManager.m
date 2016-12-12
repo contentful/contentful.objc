@@ -12,8 +12,6 @@
 #import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 #endif
 
-@import ObjectiveC.runtime;
-
 #import <ContentfulDeliveryAPI/CDAConfiguration.h>
 #import <ContentfulDeliveryAPI/CDASpace.h>
 
@@ -38,16 +36,17 @@
 
 @implementation CDARequestOperationManager
 
--(CDARequest*)buildRequestResultWithOperation:(AFHTTPRequestOperation*)operation {
-    CDAClient* client = [(CDAResponseSerializer*)self.responseSerializer client];
-    objc_setAssociatedObject(operation, "client", client, OBJC_ASSOCIATION_RETAIN);
-
-    return [[CDARequest alloc] initWithRequestOperation:operation];
+-(CDARequest*)buildRequestResultWithSessionTask:(NSURLSessionTask*)task {
+    return [[CDARequest alloc] initWithSessionTask:task];
 }
 
 -(NSURLRequest*)buildRequestWithURLString:(NSString*)URLString parameters:(NSDictionary*)parameters {
     parameters = [self fixParametersInDictionary:parameters];
-    return [[self.requestSerializer requestWithMethod:@"GET" URLString:[[NSURL URLWithString:URLString relativeToURL:self.baseURL] absoluteString] parameters:parameters error:nil] copy];
+
+    URLString = [[NSURL URLWithString:URLString relativeToURL:self.baseURL] absoluteString];
+    NSParameterAssert(URLString);
+
+    return [[self.requestSerializer requestWithMethod:@"GET" URLString:URLString parameters:parameters error:nil] copy];
 }
 
 -(CDARequest*)deleteURLPath:(NSString*)URLPath
@@ -103,6 +102,12 @@
     return [self fetchURLPath:@""
                    parameters:nil
                       success:^(CDAResponse *response, id responseObject) {
+                          if (CDAClassIsOfType([responseObject class], CDAError.class)) {
+                              CDAError* error = (CDAError*)responseObject;
+                              failure(response, [error errorRepresentationWithCode:response.statusCode]);
+                              return;
+                          }
+
                           NSAssert(CDAClassIsOfType([responseObject class], CDASpace.class),
                                    @"Response object needs to be a space.");
                           success(response, responseObject);
@@ -222,7 +227,9 @@
               parameters:(NSDictionary*)parameters
                  success:(CDAObjectFetchedBlock)success
                  failure:(CDARequestFailureBlock)failure {
-    NSMutableURLRequest *request = [self.requestSerializer requestWithMethod:method URLString:[[NSURL URLWithString:URLPath relativeToURL:self.baseURL] absoluteString] parameters:parameters error:nil];
+    NSString* URLString = [[NSURL URLWithString:URLPath relativeToURL:self.baseURL] absoluteString];
+    NSParameterAssert(URLString);
+    NSMutableURLRequest *request = [self.requestSerializer requestWithMethod:method URLString:URLString parameters:parameters error:nil];
 
     [headers enumerateKeysAndObjectsUsingBlock:^(NSString* headerField, NSString* value, BOOL *stop) {
         [request setValue:value forHTTPHeaderField:headerField];
@@ -230,57 +237,61 @@
 
     [request setValue:CMAContentTypeHeader forHTTPHeaderField:@"Content-Type"];
 
-    AFHTTPRequestOperation* operation = [self requestOperationWithRequest:request
-                                                               retryCount:0
-                                                                  success:success
-                                                                  failure:failure];
+    NSURLSessionTask* task = [self sessionTaskWithRequest:request
+                                               retryCount:0
+                                                  success:success
+                                                  failure:failure];
 
-    return [self buildRequestResultWithOperation:operation];
+    return [self buildRequestResultWithSessionTask:task];
 }
 
--(AFHTTPRequestOperation*)requestOperationWithRequest:(NSURLRequest*)request
-                                           retryCount:(NSUInteger)retryCount
-                                              success:(CDAObjectFetchedBlock)success
-                                              failure:(CDARequestFailureBlock)failure {
-    AFHTTPRequestOperation* operation = [self HTTPRequestOperationWithRequest:request
-      success:^(AFHTTPRequestOperation *operation, id responseObject) {
-          if (!responseObject && operation.response.statusCode != 204) {
-              if (failure) {
-                  failure([CDAResponse responseWithHTTPURLResponse:operation.response], [NSError errorWithDomain:NSURLErrorDomain code:kCFURLErrorZeroByteResource userInfo:nil]);
-              }
+-(NSURLSessionTask*)sessionTaskWithRequest:(NSURLRequest*)request
+                                retryCount:(NSUInteger)retryCount
+                                   success:(CDAObjectFetchedBlock)success
+                                   failure:(CDARequestFailureBlock)failure {
+    NSURLSessionTask* task = [self dataTaskWithRequest:request completionHandler:^(NSURLResponse *r, id responseObject, NSError *error) {
+        NSAssert(!r || [r isKindOfClass:NSHTTPURLResponse.class], @"Invalid response.");
+        NSHTTPURLResponse* response = (NSHTTPURLResponse*)r;
 
-              return;
-          }
+        if (error) {
+            // Rate-Limiting
+            if (response.statusCode == 429 && retryCount < 10 && self.rateLimiting) {
+                NSUInteger delayInSeconds = 2^retryCount * 100 * 1000;
 
-          if (success) {
-              success([CDAResponse responseWithHTTPURLResponse:operation.response], responseObject);
-          }
-      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-          // Rate-Limiting
-          if (operation.response.statusCode == 429 && retryCount < 10 && self.rateLimiting) {
-              NSUInteger delayInSeconds = 2^retryCount * 100 * 1000;
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC)),
+                               dispatch_get_main_queue(), ^{
+                                   [self sessionTaskWithRequest:request
+                                                     retryCount:retryCount + 1
+                                                        success:success
+                                                        failure:failure];
+                               });
+                return;
+            }
 
-              dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC)),
-                             dispatch_get_main_queue(), ^{
-                                 [self requestOperationWithRequest:request
-                                                        retryCount:retryCount + 1
-                                                           success:success
-                                                           failure:failure];
-              });
-              return;
-          }
+            if (failure) {
+                if (CDAClassIsOfType([responseObject class], CDAError.class)) {
+                    error = [responseObject errorRepresentationWithCode:response.statusCode];
+                }
 
-          if (failure) {
-              if (CDAClassIsOfType([operation.responseObject class], CDAError.class)) {
-                  error = [operation.responseObject errorRepresentationWithCode:operation.response.statusCode];
-              }
-              
-              failure([CDAResponse responseWithHTTPURLResponse:operation.response], error);
-          }
-      }];
-    [self.operationQueue addOperation:operation];
+                failure([CDAResponse responseWithHTTPURLResponse:response], error);
+            }
+        }
 
-    return operation;
+        if (!responseObject && response.statusCode != 204) {
+            if (failure) {
+                failure([CDAResponse responseWithHTTPURLResponse:response], [NSError errorWithDomain:NSURLErrorDomain code:kCFURLErrorZeroByteResource userInfo:nil]);
+            }
+
+            return;
+        }
+
+        if (success) {
+            success([CDAResponse responseWithHTTPURLResponse:response], responseObject);
+        }
+    }];
+
+    [task resume];
+    return task;
 }
 
 @end

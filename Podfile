@@ -1,7 +1,7 @@
 source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/contentful/CocoaPodsSpecs.git'
 
-platform :ios, "6.0"
+platform :ios, "7.0"
 
 target "ContentfulDeliveryAPI" do
 
@@ -17,7 +17,7 @@ platform :ios, "7.0"
 pod 'CCLRequestReplay', :git => 'https://github.com/neonichu/CCLRequestReplay.git'
 pod 'ContentfulPersistence/CoreData', '>= 0.6.0'
 pod 'ContentfulPersistence/Realm', '>= 0.6.0'
-pod 'FBSnapshotTestCase'
+pod 'FBSnapshotTestCase/Core'
 pod 'OCMock'
 pod 'VCRURLConnection', :inhibit_warnings => true
 
@@ -32,7 +32,7 @@ end
 
 target "ContentfulSeedDatabase" do
 
-platform :osx, "10.8"
+platform :osx, "10.9"
 
 pod 'ContentfulDeliveryAPI', :path => '.'
 pod 'ContentfulPersistence/CoreData'

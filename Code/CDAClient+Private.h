@@ -18,6 +18,7 @@ extern NSString* const CMAContentTypeHeader;
 
 @property (nonatomic, readonly) BOOL localizationAvailable;
 @property (nonatomic, readonly) NSString* protocol;
+@property (nonatomic) CDARequestOperationManager* requestOperationManager;
 @property (nonatomic) NSString* resourceClassPrefix;
 
 -(CDAConfiguration*)configuration;

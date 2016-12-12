@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		36A8DFA6A5CACBBB8AE41D8E /* libPods-SeedDatabaseExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5923830A1243D789EFDEF5C4 /* libPods-SeedDatabaseExample.a */; };
 		3872E6160203F7E38D6411F0 /* libPods-CoreDataExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 938956E5E9AC7D168481BBDD /* libPods-CoreDataExample.a */; };
-		490C139C04A4CA4E12CE58AF /* libPods-CDA Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 47F67E1315CFF789288504C4 /* libPods-CDA Tests.a */; };
+		3EDC4244A6F16486E1890DD0 /* libPods-CDA Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68F51DB7AA83AF6B1C822438 /* libPods-CDA Tests.a */; };
 		571B1E9CFD01D60AC7EC2ECC /* libPods-Catalog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C96A08CF02815557110EBA /* libPods-Catalog.a */; };
 		7D5606271594C675ACE5559A /* libPods-ContentfulDeliveryAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E6C6EC04709841DA846E2B7 /* libPods-ContentfulDeliveryAPI.a */; };
 		8DAF60C8B20C1C3A24CFB1CD /* libPods-ContentfulSeedDatabase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EAA5E7BEFB4508EBB6493AD /* libPods-ContentfulSeedDatabase.a */; };
@@ -217,7 +217,6 @@
 		A1DE35D9197D384700DE0904 /* CDARequestSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A1DE35D7197D384700DE0904 /* CDARequestSerializer.m */; };
 		A1E3CFF218C864A400E4F488 /* ContentfulDeliveryAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = A19FD8D918C63DF00081677E /* ContentfulDeliveryAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1E3D04718C8791200E4F488 /* CDAArray.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A0313318C6449F006470B7 /* CDAArray.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A1E3D04818C8794000E4F488 /* CDAClient.h in Headers */ = {isa = PBXBuildFile; fileRef = A19FD86F18C631E60081677E /* CDAClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1E3D04B18C8795500E4F488 /* CDAEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A0312A18C64187006470B7 /* CDAEntry.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1E3D04C18C8797700E4F488 /* CDAResource.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A0312718C64165006470B7 /* CDAResource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1E3D05A18C87D3B00E4F488 /* CDARequestOperationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A1E3D05818C87D3B00E4F488 /* CDARequestOperationManager.h */; };
@@ -240,6 +239,7 @@
 		A1F70C9D1900140D0080C72C /* CDAAsset+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A1F70C9C19000FD90080C72C /* CDAAsset+Private.h */; };
 		A1FAC312190654E30093B308 /* DeepIncludes.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FAC311190654E30093B308 /* DeepIncludes.m */; };
 		A1FAC3581908FDB40093B308 /* CatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FAC3571908FDB40093B308 /* CatListViewController.m */; };
+		ED10258E1DFED8F500BD7ABE /* CDAClient.h in Headers */ = {isa = PBXBuildFile; fileRef = A19FD86F18C631E60081677E /* CDAClient.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -256,6 +256,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = A1A2CE46190963BA00B8D46D;
 			remoteInfo = ContentfulSeedDatabase;
+		};
+		ED22866D1DFEA971004C4464 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A19FD85D18C6315E0081677E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A19FD89618C637400081677E;
+			remoteInfo = "UFO Example";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -288,10 +295,10 @@
 		35A2E77DE1873F65E22AECA6 /* Pods-CoreDataExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDataExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoreDataExample/Pods-CoreDataExample.release.xcconfig"; sourceTree = "<group>"; };
 		3E6C6EC04709841DA846E2B7 /* libPods-ContentfulDeliveryAPI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ContentfulDeliveryAPI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		40FA54C6CC17743CFDA85F15 /* Pods-Catalog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Catalog.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Catalog/Pods-Catalog.debug.xcconfig"; sourceTree = "<group>"; };
-		47F67E1315CFF789288504C4 /* libPods-CDA Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CDA Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F10CED6DA47BDA5CA8EE539 /* Pods-ContentfulDeliveryAPI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContentfulDeliveryAPI.release.xcconfig"; path = "Pods/Target Support Files/Pods-ContentfulDeliveryAPI/Pods-ContentfulDeliveryAPI.release.xcconfig"; sourceTree = "<group>"; };
 		4FC08117A907B8D9C63DBA3A /* Pods-UFO Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UFO Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UFO Example/Pods-UFO Example.debug.xcconfig"; sourceTree = "<group>"; };
 		5923830A1243D789EFDEF5C4 /* libPods-SeedDatabaseExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SeedDatabaseExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		68F51DB7AA83AF6B1C822438 /* libPods-CDA Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CDA Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69281BD4F8741D1837720F65 /* Pods-UFO Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UFO Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-UFO Example/Pods-UFO Example.release.xcconfig"; sourceTree = "<group>"; };
 		699620E739F044BF5A703A5E /* Pods-SeedDatabaseExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeedDatabaseExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SeedDatabaseExample/Pods-SeedDatabaseExample.debug.xcconfig"; sourceTree = "<group>"; };
 		6B5EE375354722D682353458 /* Pods-CoreDataExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDataExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoreDataExample/Pods-CoreDataExample.debug.xcconfig"; sourceTree = "<group>"; };
@@ -374,7 +381,6 @@
 		A173F59B18D9A2FD000E6F92 /* CDAResourceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAResourceCell.m; sourceTree = "<group>"; };
 		A173F60218DB3E1E000E6F92 /* PreviewModeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewModeTests.m; sourceTree = "<group>"; };
 		A173F60418DB412C000E6F92 /* PreviewModeTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = PreviewModeTests.json; path = Data/Recordings/PreviewModeTests.json; sourceTree = "<group>"; };
-		A17CC3D61ADE5F2700C7AA57 /* CDANullabilityStubs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDANullabilityStubs.h; sourceTree = "<group>"; };
 		A18919961BB1E4EA0094256E /* CDALocalizedPersistedEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDALocalizedPersistedEntry.h; sourceTree = "<group>"; };
 		A189199A1BB1E7870094256E /* LocalizedModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocalizedModel.xcdatamodel; sourceTree = "<group>"; };
 		A189199C1BB1E8FA0094256E /* LocalizedCat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalizedCat.h; sourceTree = "<group>"; };
@@ -568,6 +574,7 @@
 		A655923E20F08A143627BB83 /* Pods-ContentfulSeedDatabase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContentfulSeedDatabase.release.xcconfig"; path = "Pods/Target Support Files/Pods-ContentfulSeedDatabase/Pods-ContentfulSeedDatabase.release.xcconfig"; sourceTree = "<group>"; };
 		B5C96A08CF02815557110EBA /* libPods-Catalog.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Catalog.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6D73F30B0A30E52597C3DBC /* Pods-ContentfulDeliveryAPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContentfulDeliveryAPI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ContentfulDeliveryAPI/Pods-ContentfulDeliveryAPI.debug.xcconfig"; sourceTree = "<group>"; };
+		ED1025911DFEDC1F00BD7ABE /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = "../../../Library/Developer/Xcode/DerivedData/ContentfulSDK-ewuedslirxtuzkhibcstxqewkote/Build/Products/Debug-iphonesimulator/AFNetworking-framework/AFNetworking.framework"; sourceTree = "<group>"; };
 		EEC6E85E52A03459E24BA61D /* Pods-ContentfulSeedDatabase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContentfulSeedDatabase.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ContentfulSeedDatabase/Pods-ContentfulSeedDatabase.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -600,7 +607,7 @@
 				A19FD87918C631E60081677E /* XCTest.framework in Frameworks */,
 				A19FD87C18C631E60081677E /* UIKit.framework in Frameworks */,
 				A19FD87A18C631E60081677E /* Foundation.framework in Frameworks */,
-				490C139C04A4CA4E12CE58AF /* libPods-CDA Tests.a in Frameworks */,
+				3EDC4244A6F16486E1890DD0 /* libPods-CDA Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -763,7 +770,6 @@
 			children = (
 				A18AA85F18E5D63B00D430D5 /* CDAFallbackDictionary.h */,
 				A18AA86018E5D63B00D430D5 /* CDAFallbackDictionary.m */,
-				A17CC3D61ADE5F2700C7AA57 /* CDANullabilityStubs.h */,
 				A1A0313D18C66667006470B7 /* CDAUtilities.h */,
 				A1A0313E18C66667006470B7 /* CDAUtilities.m */,
 			);
@@ -799,19 +805,20 @@
 		A19FD86918C631E60081677E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ED1025911DFEDC1F00BD7ABE /* AFNetworking.framework */,
 				A170130D18FD31950086BE07 /* CoreData.framework */,
 				A19FD89918C637400081677E /* CoreGraphics.framework */,
 				A19FD86A18C631E60081677E /* Foundation.framework */,
 				A19FD87B18C631E60081677E /* UIKit.framework */,
 				A19FD87818C631E60081677E /* XCTest.framework */,
 				A1B8158718F2A8090027B26D /* CoreData.framework */,
-				47F67E1315CFF789288504C4 /* libPods-CDA Tests.a */,
 				B5C96A08CF02815557110EBA /* libPods-Catalog.a */,
 				3E6C6EC04709841DA846E2B7 /* libPods-ContentfulDeliveryAPI.a */,
 				9EAA5E7BEFB4508EBB6493AD /* libPods-ContentfulSeedDatabase.a */,
 				938956E5E9AC7D168481BBDD /* libPods-CoreDataExample.a */,
 				5923830A1243D789EFDEF5C4 /* libPods-SeedDatabaseExample.a */,
 				9B6A4C445B7E81D2351DA7FD /* libPods-UFO Example.a */,
+				68F51DB7AA83AF6B1C822438 /* libPods-CDA Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1274,7 +1281,6 @@
 				A1E8391618CE2A1800B697F6 /* CDAConfiguration.h in Headers */,
 				A18AA86118E5D63B00D430D5 /* CDAFallbackDictionary.h in Headers */,
 				A1C1AC4318CE032200DBF0D0 /* CDAClient+Private.h in Headers */,
-				A1E3D04818C8794000E4F488 /* CDAClient.h in Headers */,
 				A193EB4718D0ACFE0017B777 /* CDAFieldCell.h in Headers */,
 				A1E43F0318CE1CF80060A89A /* CDAArray+Private.h in Headers */,
 				A170130718FD291E0086BE07 /* CDAPersistenceManager.h in Headers */,
@@ -1296,6 +1302,7 @@
 				A1E3D05A18C87D3B00E4F488 /* CDARequestOperationManager.h in Headers */,
 				A17012F418FC1FD90086BE07 /* CDAPersistedEntry.h in Headers */,
 				A160862218CDF0E60047D44F /* CDARequest.h in Headers */,
+				ED10258E1DFED8F500BD7ABE /* CDAClient.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1359,6 +1366,7 @@
 			);
 			dependencies = (
 				A19FD87E18C631E60081677E /* PBXTargetDependency */,
+				ED22866E1DFEA971004C4464 /* PBXTargetDependency */,
 			);
 			name = "CDA Tests";
 			productName = ContentfulDeliveryAPITests;
@@ -2076,6 +2084,11 @@
 			target = A1A2CE46190963BA00B8D46D /* ContentfulSeedDatabase */;
 			targetProxy = A1A2CEAB190A844900B8D46D /* PBXContainerItemProxy */;
 		};
+		ED22866E1DFEA971004C4464 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A19FD89618C637400081677E /* UFO Example */;
+			targetProxy = ED22866D1DFEA971004C4464 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
@@ -2121,7 +2134,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Examples/Catalog/Catalog-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.contentful.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2166,7 +2179,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Examples/Catalog/Catalog-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.contentful.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -2357,7 +2370,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
@@ -2412,7 +2424,6 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
@@ -2480,7 +2491,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Examples/UFO/UFO Example-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.contentful.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2527,7 +2539,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Examples/UFO/UFO Example-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.contentful.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -2657,7 +2670,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Examples/SeedDatabase/SeedDatabaseExample-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.vu0.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2702,7 +2715,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Examples/SeedDatabase/SeedDatabaseExample-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.vu0.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -2753,7 +2766,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Examples/CoreDataExample/CoreDataExample-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.vu0.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2798,7 +2811,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Examples/CoreDataExample/CoreDataExample-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.vu0.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;

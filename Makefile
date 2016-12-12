@@ -1,5 +1,5 @@
 __SIM_ID=`xcrun simctl list|egrep -m 1 '$(SIM_NAME) \([^(]*\) \([^(]*\)$$'|sed -e 's/.* (\(.*\)) (.*)/\1/'`
-SIM_NAME=iPhone 4s
+SIM_NAME=iPhone 5s
 SIM_ID=$(shell echo $(__SIM_ID))
 
 ifeq ($(strip $(SIM_ID)),)
@@ -8,7 +8,10 @@ endif
 
 WORKSPACE=ContentfulSDK.xcworkspace
 
-.PHONY: all clean doc example example-static pod really-clean static-lib test
+.PHONY: all open clean doc example example-static pod really-clean static-lib test
+
+open:
+	open ContentfulSDK.xcworkspace
 
 clean:
 	rm -rf build Examples/UFO/build Examples/*.zip compile_commands.json .gutter.json
@@ -21,7 +24,7 @@ all: test example-static
 
 pod:
 	bundle exec pod install
-	xcversion select 7.3
+	xcversion select 7.3.1
 	xcrun bitcode_strip -r Pods/Realm/core/librealm-ios.a -o Pods/Realm/core/librealm-ios.a
 
 example:
