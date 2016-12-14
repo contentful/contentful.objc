@@ -12,6 +12,8 @@
 #import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 #endif
 
+@import ObjectiveC.runtime;
+
 #import <ContentfulDeliveryAPI/CDAConfiguration.h>
 #import <ContentfulDeliveryAPI/CDASpace.h>
 
@@ -219,6 +221,7 @@
                parameters:(NSDictionary *)parameters
                   success:(CDAObjectFetchedBlock)success
                   failure:(CDARequestFailureBlock)failure {
+    
     return [self requestWithMethod:@"PUT"
                            URLPath:URLPath
                            headers:headers
@@ -229,10 +232,11 @@
 
 -(CDARequest*)requestWithMethod:(NSString*)method
                         URLPath:(NSString*)URLPath
-                 headers:(NSDictionary*)headers
-              parameters:(NSDictionary*)parameters
-                 success:(CDAObjectFetchedBlock)success
-                 failure:(CDARequestFailureBlock)failure {
+                        headers:(NSDictionary*)headers
+                     parameters:(NSDictionary*)parameters
+                        success:(CDAObjectFetchedBlock)success
+                        failure:(CDARequestFailureBlock)failure {
+
     NSString* URLString = [[NSURL URLWithString:URLPath relativeToURL:self.baseURL] absoluteString];
     NSParameterAssert(URLString);
     NSMutableURLRequest *request = [self.requestSerializer requestWithMethod:method URLString:URLString parameters:parameters error:nil];
@@ -248,7 +252,14 @@
                                                   success:success
                                                   failure:failure];
 
+
+
     CDARequest *cdaRequest = [[CDARequest alloc] initWithSessionTask:task];
+
+    // Retain the CDAClient in the request.
+    CDAClient* client = [(CDAResponseSerializer*)self.responseSerializer client];
+    objc_setAssociatedObject(cdaRequest, "client", client, OBJC_ASSOCIATION_RETAIN);
+
     return cdaRequest;
 }
 
@@ -256,13 +267,15 @@
                                 retryCount:(NSUInteger)retryCount
                                    success:(CDAObjectFetchedBlock)success
                                    failure:(CDARequestFailureBlock)failure {
-    NSURLSessionTask* task = [self dataTaskWithRequest:request completionHandler:^(NSURLResponse *r, id responseObject, NSError *error) {
-        NSAssert(!r || [r isKindOfClass:NSHTTPURLResponse.class], @"Invalid response.");
-        NSHTTPURLResponse* response = (NSHTTPURLResponse*)r;
+    
+    NSURLSessionTask* task = [self dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        NSAssert(!response || [response isKindOfClass:NSHTTPURLResponse.class], @"Invalid response.");
+        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
 
+        // Handle failure.
         if (error) {
             // Rate-Limiting
-            if (response.statusCode == 429 && retryCount < 10 && self.rateLimiting) {
+            if (httpResponse.statusCode == 429 && retryCount < 10 && self.rateLimiting) {
                 NSUInteger delayInSeconds = 2^retryCount * 100 * 1000;
 
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC)),
@@ -277,23 +290,24 @@
 
             if (failure) {
                 if (CDAClassIsOfType([responseObject class], CDAError.class)) {
-                    error = [responseObject errorRepresentationWithCode:response.statusCode];
+                    error = [responseObject errorRepresentationWithCode:httpResponse.statusCode];
                 }
 
-                failure([CDAResponse responseWithHTTPURLResponse:response], error);
+                failure([CDAResponse responseWithHTTPURLResponse:httpResponse], error);
             }
-        }
-
-        if (!responseObject && response.statusCode != 204) {
-            if (failure) {
-                failure([CDAResponse responseWithHTTPURLResponse:response], [NSError errorWithDomain:NSURLErrorDomain code:kCFURLErrorZeroByteResource userInfo:nil]);
-            }
-
             return;
         }
 
+        if (!responseObject && httpResponse.statusCode != 204) {
+            if (failure) {
+                failure([CDAResponse responseWithHTTPURLResponse:httpResponse], [NSError errorWithDomain:NSURLErrorDomain code:kCFURLErrorZeroByteResource userInfo:nil]);
+            }
+            return;
+        }
+
+        // Handle success.
         if (success) {
-            success([CDAResponse responseWithHTTPURLResponse:response], responseObject);
+            success([CDAResponse responseWithHTTPURLResponse:httpResponse], responseObject);
         }
     }];
 
