@@ -66,8 +66,18 @@
                    parameters:parameters
                       success:^(CDAResponse *response, id responseObject) {
                           if (success) {
-                              NSAssert(CDAClassIsOfType([responseObject class], CDAArray.class),
-                                       @"Response object needs to be an array.");
+                              if (!CDAClassIsOfType([responseObject class], CDAArray.class)) {
+                                  if (CDAClassIsOfType([responseObject class], CDAError.class)) {
+
+                                      NSError *errorResponse = [((CDAError *)responseObject) errorRepresentationWithCode:response.statusCode];
+                                      failure(response, errorResponse);
+                                    return;
+                                  }
+                                  NSAssert(CDAClassIsOfType([responseObject class], CDAArray.class),
+                                           @"Response object needs to be a CDAArray or a CDAError.");
+                                  return;
+                              }
+                              // Success
                               [(CDAArray*)responseObject setQuery:parameters ?: @{}];
                               success(response, responseObject);
                           }
