@@ -36,10 +36,6 @@
 
 @implementation CDARequestOperationManager
 
--(CDARequest*)buildRequestResultWithSessionTask:(NSURLSessionTask*)task {
-    return [[CDARequest alloc] initWithSessionTask:task];
-}
-
 -(NSURLRequest*)buildRequestWithURLString:(NSString*)URLString parameters:(NSDictionary*)parameters {
     parameters = [self fixParametersInDictionary:parameters];
 
@@ -242,7 +238,8 @@
                                                   success:success
                                                   failure:failure];
 
-    return [self buildRequestResultWithSessionTask:task];
+    CDARequest *cdaRequest = [[CDARequest alloc] initWithSessionTask:task];
+    return cdaRequest;
 }
 
 -(NSURLSessionTask*)sessionTaskWithRequest:(NSURLRequest*)request

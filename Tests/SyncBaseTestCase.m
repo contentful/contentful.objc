@@ -34,10 +34,14 @@
 -(void)addDummyContentType {
     CDAContentType* ct = [[CDAContentType alloc] initWithDictionary:@{ @"sys": @{ @"id": @"6bAvxqodl6s4MoKuWYkmqe" }, @"name": @"Stub", @"fields": @[ @{ @"id": @"title", @"type": @"Symbol" }, @{ @"id": @"body", @"type": @"Text" }, @{ @"id": @"category", @"type": @"Link" }, @{ @"id": @"picture", @"type": @"Link" } ] } client:self.client localizationAvailable:NO];
     ct = [[CDAContentType alloc] initWithDictionary:@{ @"sys": @{ @"id": @"51LZmvenywOe8aig28sCgY" }, @"name": @"OtherStub", @"fields": @[ @{ @"id": @"name", @"type": @"Symbol" } ], } client:self.client localizationAvailable:NO];
+    ct = [[CDAContentType alloc] initWithDictionary:@{ @"sys": @{ @"id": @"4yCmJfmk1WeqACagaemOIs" }, @"name": @"AnotherStub", @"fields": @[ @{ @"id": @"link1", @"type": @"Link" }, @{ @"id": @"link2", @"type": @"Link" }, @{ @"id": @"link3", @"type": @"Link" } ], } client:self.client localizationAvailable:NO];
+    ct = [[CDAContentType alloc] initWithDictionary:@{ @"sys": @{ @"id": @"5kLp8FbRwAG0kcOOYa6GMa" }, @"name": @"OtherStub", @"fields": @[ @{ @"id": @"suchField", @"type": @"Symbol" } ], } client:self.client localizationAvailable:NO];
 }
 
 -(CDAClient*)buildClient {
-    return [[CDAClient alloc] initWithSpaceKey:@"emh6o2ireilu" accessToken:@"1bf1261e0225089be464c79fff1a0773ca8214f1e82dd521f3ecf9690ba888ac"];
+    self.client = [[CDAClient alloc] initWithSpaceKey:@"emh6o2ireilu" accessToken:@"1bf1261e0225089be464c79fff1a0773ca8214f1e82dd521f3ecf9690ba888ac"];
+    [self setUpCCLRequestReplayForNSURLSession];
+    return self.client;
 }
 
 -(CDAClient*)mockContentTypeRetrievalForClient:(CDAClient*)client {

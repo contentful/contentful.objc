@@ -296,7 +296,7 @@
     XCTAssertEqualObjects(asset.title, @"Nyan Cat");
     XCTAssertEqual(asset.width.floatValue, cachedImage.size.width, @"");
     XCTAssertEqual(asset.height.floatValue, cachedImage.size.height, @"");
-    // FIXME: Reimplement this test
+    // FIXME: 
 //
 //    UIImage* refImage = [UIImage imageWithData:data];
 //    NSError* error;
