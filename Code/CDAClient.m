@@ -122,7 +122,10 @@ NSString* const CMAContentTypeHeader = @"application/vnd.contentful.management.v
 -(CDARequest*)fetchArrayAtURLPath:(NSString *)URLPath
                           success:(CDAArrayFetchedBlock)success
                           failure:(CDARequestFailureBlock)failure {
-    return [self fetchArrayAtURLPath:URLPath parameters:nil success:success failure:failure];
+    return [self fetchArrayAtURLPath:URLPath
+                          parameters:nil
+                             success:success
+                             failure:failure];
 }
 
 -(CDARequest*)fetchAssetsMatching:(NSDictionary*)query
@@ -175,7 +178,9 @@ NSString* const CMAContentTypeHeader = @"application/vnd.contentful.management.v
 
 -(CDARequest*)fetchContentTypesWithSuccess:(CDAArrayFetchedBlock)success
                                    failure:(CDARequestFailureBlock)failure {
-    return [self fetchArrayAtURLPath:@"content_types" success:success failure:failure];
+    return [self fetchArrayAtURLPath:@"content_types"
+                             success:success
+                             failure:failure];
 }
 
 -(CDARequest*)fetchContentTypeWithIdentifier:(NSString *)identifier

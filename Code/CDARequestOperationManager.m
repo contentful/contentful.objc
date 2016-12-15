@@ -127,8 +127,12 @@
                    success:(CDAObjectFetchedBlock)success
                    failure:(CDARequestFailureBlock)failure {
     parameters = [self fixParametersInDictionary:parameters];
-    return [self requestWithMethod:@"GET" URLPath:URLPath headers:nil parameters:parameters
-                           success:success failure:failure];
+    return [self requestWithMethod:@"GET"
+                           URLPath:URLPath
+                           headers:nil
+                        parameters:parameters
+                           success:success
+                           failure:failure];
 
 }
 
@@ -239,7 +243,10 @@
 
     NSString* URLString = [[NSURL URLWithString:URLPath relativeToURL:self.baseURL] absoluteString];
     NSParameterAssert(URLString);
-    NSMutableURLRequest *request = [self.requestSerializer requestWithMethod:method URLString:URLString parameters:parameters error:nil];
+    NSMutableURLRequest *request = [self.requestSerializer requestWithMethod:method
+                                                                   URLString:URLString
+                                                                  parameters:parameters
+                                                                       error:nil];
 
     [headers enumerateKeysAndObjectsUsingBlock:^(NSString* headerField, NSString* value, BOOL *stop) {
         [request setValue:value forHTTPHeaderField:headerField];
