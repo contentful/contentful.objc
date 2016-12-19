@@ -31,6 +31,23 @@
 
 @implementation SyncBaseTestCase
 
+-(void)setUp {
+    [super setUp];
+
+    self.client = [self buildClient];
+    self.contentTypesWereFetched = NO;
+
+    self.numberOfAssetsCreated = 0;
+    self.numberOfAssetsDeleted = 0;
+    self.numberOfAssetsUpdated = 0;
+
+    self.numberOfEntriesCreated = 0;
+    self.numberOfEntriesDeleted = 0;
+    self.numberOfEntriesUpdated = 0;
+
+    [self addDummyContentType];
+}
+
 -(void)addDummyContentType {
     CDAContentType* ct = [[CDAContentType alloc] initWithDictionary:@{ @"sys": @{ @"id": @"6bAvxqodl6s4MoKuWYkmqe" }, @"name": @"Stub", @"fields": @[ @{ @"id": @"title", @"type": @"Symbol" }, @{ @"id": @"body", @"type": @"Text" }, @{ @"id": @"category", @"type": @"Link" }, @{ @"id": @"picture", @"type": @"Link" } ] } client:self.client localizationAvailable:NO];
     ct = [[CDAContentType alloc] initWithDictionary:@{ @"sys": @{ @"id": @"51LZmvenywOe8aig28sCgY" }, @"name": @"OtherStub", @"fields": @[ @{ @"id": @"name", @"type": @"Symbol" } ], } client:self.client localizationAvailable:NO];
@@ -65,23 +82,6 @@
     }] fetchContentTypesMatching:[OCMArg any] synchronouslyWithError:err];
     
     return partiallyMockedClient;
-}
-
--(void)setUp {
-    [super setUp];
-    
-    self.client = [self buildClient];
-    self.contentTypesWereFetched = NO;
-    
-    self.numberOfAssetsCreated = 0;
-    self.numberOfAssetsDeleted = 0;
-    self.numberOfAssetsUpdated = 0;
-    
-    self.numberOfEntriesCreated = 0;
-    self.numberOfEntriesDeleted = 0;
-    self.numberOfEntriesUpdated = 0;
-    
-    [self addDummyContentType];
 }
 
 #pragma mark - CDASyncedSpaceDelegate
