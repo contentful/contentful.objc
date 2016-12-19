@@ -13,15 +13,17 @@
 @implementation CoreDataBaseTestCase
 
 -(void)buildPersistenceManagerWithDefaultClient:(BOOL)defaultClient {
-    [self deleteStore];
-
     [super buildPersistenceManagerWithDefaultClient:defaultClient];
 
     self.persistenceManager.classForAssets = [Asset class];
     self.persistenceManager.classForSpaces = [SyncInfo class];
 
-    NSArray* contentTypeIds = @[ @"1nGOrvlRTaMcyyq4IEa8ea", @"6bAvxqodl6s4MoKuWYkmqe",
-                                 @"6PnRGY1dxSUmaQ2Yq2Ege2", @"cat", @"test" ];
+    NSArray* contentTypeIds = @[ @"1nGOrvlRTaMcyyq4IEa8ea",
+                                 @"6bAvxqodl6s4MoKuWYkmqe",
+                                 @"6PnRGY1dxSUmaQ2Yq2Ege2",
+                                 @"cat",
+                                 @"test"
+                               ];
 
     Class c = [ManagedCat class];
     for (NSString* contentTypeId in contentTypeIds) {
@@ -47,7 +49,7 @@
 -(void)deleteStore {
     CoreDataManager* manager = (CoreDataManager*)self.persistenceManager;
 
-    if (!manager.storeURL) {
+    if (![manager storeURL]) {
         return;
     }
     [[NSFileManager defaultManager] removeItemAtURL:manager.storeURL error:nil];

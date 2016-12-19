@@ -12,6 +12,4 @@
 
 @interface CoreDataBaseTestCase : PersistenceBaseTest
 
--(void)deleteStore;
-
 @end

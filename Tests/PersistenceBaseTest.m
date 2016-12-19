@@ -11,13 +11,32 @@
 @interface PersistenceBaseTest ()
 
 @property (nonatomic) CDAPersistenceManager* persistenceManager;
-@property (nonatomic) NSDate* lastSyncTimestamp;
 
 @end
 
 #pragma mark -
 
 @implementation PersistenceBaseTest
+
+-(void)setUp {
+    [super setUp];
+
+    self.lastSyncTimestamp = nil;
+
+    [self buildPersistenceManagerWithDefaultClient:NO];
+
+    [self deleteStore];
+}
+
+-(void)tearDown {
+    [super tearDown];
+
+    self.persistenceManager = nil;
+}
+
+- (void)deleteStore {
+    [NSException raise:@"Delete not implemented" format:@"Must implement deleteStore method"];
+}
 
 -(void)assertNumberOfAssets:(NSUInteger)numberOfAssets numberOfEntries:(NSUInteger)numberOfEntries {
     XCTAssertEqual(numberOfAssets, [self.persistenceManager fetchAssetsFromDataStore].count, @"");
@@ -35,8 +54,12 @@
 
     self.persistenceManager = [self createPersistenceManagerWithClient:client];
 
-    NSArray* contentTypeIds = @[ @"1nGOrvlRTaMcyyq4IEa8ea", @"6bAvxqodl6s4MoKuWYkmqe",
-                                 @"6PnRGY1dxSUmaQ2Yq2Ege2", @"cat" ];
+    NSArray* contentTypeIds = @[
+                                @"1nGOrvlRTaMcyyq4IEa8ea",
+                                @"6bAvxqodl6s4MoKuWYkmqe",
+                                @"6PnRGY1dxSUmaQ2Yq2Ege2",
+                                @"cat"
+                               ];
 
     NSMutableDictionary* mapping = [@{ @"fields.color": @"color",
                                        @"fields.lives": @"livesLeft",
@@ -55,20 +78,6 @@
 
 -(CDAPersistenceManager*)createPersistenceManagerWithClient:(CDAClient*)client {
     return nil;
-}
-
--(void)setUp {
-    [super setUp];
-
-    self.lastSyncTimestamp = nil;
-
-    [self buildPersistenceManagerWithDefaultClient:NO];
-}
-
--(void)tearDown {
-    [super tearDown];
-
-    self.persistenceManager = nil;
 }
 
 @end
