@@ -335,8 +335,10 @@
                 }];
             } failure:failure];
         } else {
+            // Return deleted assets and entries so we can properly update CoreData database.
             [self.client initialSynchronizationMatching:@{ @"type": @"Deletion" } success:^(CDAResponse *response, CDASyncedSpace *space) {
                 [self performBlock:^{
+                    // FIXME: either assign or rename method so that it's side effects are made explicit.
                     [self persistedSpaceForSpace:space];
                 }];
                 [self performInitalSynchronizationForQueryWithSuccess:success failure:failure];

@@ -25,6 +25,7 @@
                                  @"test"
                                ];
 
+    // FIXME: this is overriding content mappings done in super method call.
     Class c = [ManagedCat class];
     for (NSString* contentTypeId in contentTypeIds) {
         [self.persistenceManager setClass:c forEntriesOfContentTypeWithIdentifier:contentTypeId];
@@ -32,6 +33,8 @@
 }
 
 -(CDAPersistenceManager*)createPersistenceManagerWithClient:(CDAClient*)client {
+
+    // FIXME: Move to query related tests and out of base test class.
     if (self.query) {
         return [[CoreDataManager alloc] initWithClient:client
                                          dataModelName:@"CoreDataExample"

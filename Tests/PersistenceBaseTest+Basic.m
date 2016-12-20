@@ -63,6 +63,7 @@
         }
         self.lastSyncTimestamp = timestamp;
 
+        // Resets the persistence manager to a new instance.
         [self buildPersistenceManagerWithDefaultClient:NO];
 
         [self.persistenceManager performBlock:^{ // Since we are switching managers here

@@ -10,16 +10,60 @@
 
 @implementation PersistenceBaseTest (QuerySync)
 
+#pragma mark Setup
+
+// TODO: rename build client
+-(void)querySync_setupClient {
+    self.client = [[CDAClient alloc] initWithSpaceKey:@"6mhvnnmyn9e1"
+                                          accessToken:@"c054f8439246817a657ba7c5fa99989fa50db48c4893572d9537335b0c9b153e"];
+    self.query = @{ @"content_type": @"6PnRGY1dxSUmaQ2Yq2Ege2" };
+}
+
+-(void)querySync_stubInitialRequestWithJSONNamed:(NSString*)initial updateWithJSONNamed:(NSString*)update {
+
+    // Stub sync response when querying entries without any updates.
+    [self addRecordingWithJSONNamed:initial
+                        inDirectory:@"QuerySync"
+                            matcher:^BOOL(NSURLRequest *request) {
+                                return [request.URL.absoluteString rangeOfString:@"entries"].location != NSNotFound && [request.URL.absoluteString rangeOfString:@"sys.updatedAt"].location == NSNotFound;
+                            }];
+
+    // Stub sync response when querying entries with updates.
+    [self addRecordingWithJSONNamed:update
+                        inDirectory:@"QuerySync"
+                            matcher:^BOOL(NSURLRequest *request) {
+                                return [request.URL.absoluteString rangeOfString:@"entries"].location != NSNotFound && [request.URL.absoluteString rangeOfString:@"sys.updatedAt"].location != NSNotFound;
+                            }];
+}
+
+
+#pragma mark Tests
+
 -(void)querySync_addEntry {
     [self querySync_stubInitialRequestWithJSONNamed:@"initial" updateWithJSONNamed:@"add-entry"];
 
     StartBlock();
 
     [self.persistenceManager performSynchronizationWithSuccess:^{
-        [self assertNumberOfAssets:1 numberOfEntries:2];
+        XCTAssertEqual(1, [self.persistenceManager fetchAssetsFromDataStore].count, @"");
+        XCTAssertEqual(2, [self.persistenceManager fetchEntriesFromDataStore].count, @"");
+
+        NSDate* timestamp = [self.persistenceManager fetchSpaceFromDataStore].lastSyncTimestamp;
+        if (![[timestamp description] hasSuffix:@":00 +0000"]) {
+            XCTAssertNotEqualObjects(self.lastSyncTimestamp, timestamp, @"");
+        }
+        self.lastSyncTimestamp = timestamp;
 
         [self.persistenceManager performSynchronizationWithSuccess:^{
-            [self assertNumberOfAssets:2 numberOfEntries:3];
+
+            XCTAssertEqual(2, [self.persistenceManager fetchAssetsFromDataStore].count, @"");
+            XCTAssertEqual(3, [self.persistenceManager fetchEntriesFromDataStore].count, @"");
+
+            NSDate* timestamp = [self.persistenceManager fetchSpaceFromDataStore].lastSyncTimestamp;
+            if (![[timestamp description] hasSuffix:@":00 +0000"]) {
+                XCTAssertNotEqualObjects(self.lastSyncTimestamp, timestamp, @"");
+            }
+            self.lastSyncTimestamp = timestamp;
 
             EndBlock();
         } failure:^(CDAResponse *response, NSError *error) {
@@ -87,25 +131,6 @@
     }];
 
     WaitUntilBlockCompletes();
-}
-
--(void)querySync_setupClient {
-    self.client = [[CDAClient alloc] initWithSpaceKey:@"6mhvnnmyn9e1" accessToken:@"c054f8439246817a657ba7c5fa99989fa50db48c4893572d9537335b0c9b153e"];
-    self.query = @{ @"content_type": @"6PnRGY1dxSUmaQ2Yq2Ege2" };
-}
-
--(void)querySync_stubInitialRequestWithJSONNamed:(NSString*)initial updateWithJSONNamed:(NSString*)update {
-    [self addRecordingWithJSONNamed:initial
-                        inDirectory:@"QuerySync"
-                            matcher:^BOOL(NSURLRequest *request) {
-                                return [request.URL.absoluteString rangeOfString:@"entries"].location != NSNotFound && [request.URL.absoluteString rangeOfString:@"sys.updatedAt"].location == NSNotFound;
-                            }];
-
-    [self addRecordingWithJSONNamed:update
-                        inDirectory:@"QuerySync"
-                            matcher:^BOOL(NSURLRequest *request) {
-                                return [request.URL.absoluteString rangeOfString:@"entries"].location != NSNotFound && [request.URL.absoluteString rangeOfString:@"sys.updatedAt"].location != NSNotFound;
-                            }];
 }
 
 -(void)querySync_updateAsset {

@@ -34,7 +34,13 @@
 -(void)setUp {
     [super setUp];
 
-    NSDictionary* stubs = @{ @"https://cdn.contentful.com/spaces/hsut5b3lu3cv/sync?initial=true": @"initial", @"https://cdn.contentful.com/spaces/hsut5b3lu3cv/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdyY6XTXDhsOALVLDh2TCn8O0LsO-w7AcImrCh3tAJwDDn2tHw4Jhw7p3DsOoBwjCrmlZfx7Cn2HCugnDisK1wqfDgnhHw5pzRMOUwq8XMy5uKR82wqbCpn7Crw": @"link-deleted", @"https://cdn.contentful.com/spaces/hsut5b3lu3cv/": @"space", @"https://cdn.contentful.com/spaces/hsut5b3lu3cv/content_types?limit=1&sys.id%5Bin%5D=SUHIqy1t2USm0iuIgYGMU": @"content-types", @"https://cdn.contentful.com/spaces/hsut5b3lu3cv/content_types": @"all-content-types" };
+    NSDictionary* stubs = @{
+                            @"https://cdn.contentful.com/spaces/hsut5b3lu3cv/": @"space",
+                            @"https://cdn.contentful.com/spaces/hsut5b3lu3cv/content_types": @"all-content-types",
+                            @"https://cdn.contentful.com/spaces/hsut5b3lu3cv/sync?initial=true": @"initial",
+                            @"https://cdn.contentful.com/spaces/hsut5b3lu3cv/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdyY6XTXDhsOALVLDh2TCn8O0LsO-w7AcImrCh3tAJwDDn2tHw4Jhw7p3DsOoBwjCrmlZfx7Cn2HCugnDisK1wqfDgnhHw5pzRMOUwq8XMy5uKR82wqbCpn7Crw": @"link-deleted",
+                            @"https://cdn.contentful.com/spaces/hsut5b3lu3cv/content_types?limit=1&sys.id%5Bin%5D=SUHIqy1t2USm0iuIgYGMU": @"content-types",
+                            };
 
     [self stubHTTPRequestUsingFixtures:stubs inDirectory:@"LinkDeletion"];
 }
@@ -74,5 +80,3 @@
 }
 
 @end
-
-//

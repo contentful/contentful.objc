@@ -47,21 +47,17 @@ extern void __gcov_flush();
     self.client = [CDAClient new];
 
     self.requestReplayManager = [CCLRequestReplayManager new];
-    //    [self.requestReplayManager record];
 
     [self.requestReplayManager replay];
 
     self.snapshotTestController = [[FBSnapshotTestController alloc] initWithTestClass:[self class]];
     self.snapshotTestController.referenceImagesDirectory = [[NSBundle bundleForClass:[self class]]
                                                             bundlePath];
-
-
 }
 
 -(void)tearDown {
     [super tearDown];
 
-    //    [self.requestReplayManager stopRecording];
     [self.requestReplayManager stopReplay];
     self.requestReplayManager = nil;
 }
