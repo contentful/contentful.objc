@@ -149,21 +149,21 @@ extern void __gcov_flush();
 
 - (void)compareView:(UIView*)view forTestSelector:(SEL)testSelector
 {
-//    NSError* error;
-//    UIImage* referenceImage = [self.snapshotTestController referenceImageForSelector:testSelector
-//                                                                          identifier:nil
-//                                                                               error:&error];
-//    
-//    if (!referenceImage) {
-//        self.snapshotTestController.recordMode = YES;
-//        XCTFail(@"No reference image found.");
-//    }
-//    
-//    XCTAssert([self.snapshotTestController compareSnapshotOfView:view
-//                                                        selector:testSelector
-//                                                      identifier:nil
-//                                                           error:&error],
-//              @"Error ocurred: %@", error);
+    NSError* error;
+    UIImage* referenceImage = [self.snapshotTestController referenceImageForSelector:testSelector
+                                                                          identifier:nil
+                                                                               error:&error];
+    
+    if (!referenceImage) {
+        self.snapshotTestController.recordMode = YES;
+        XCTFail(@"No reference image found.");
+    }
+    
+    XCTAssert([self.snapshotTestController compareSnapshotOfView:view
+                                                        selector:testSelector
+                                                      identifier:nil
+                                                           error:&error],
+              @"Error ocurred: %@", error);
 }
 
 - (CDAEntry*)customEntryHelperWithFields:(NSDictionary*)fields
