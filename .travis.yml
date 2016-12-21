@@ -1,6 +1,7 @@
 language: objective-c
 osx_image: xcode7.3
 before_install: 
+- gem install bundler
 - bundle install
 - rm -rf $(HOME)/Library/Developer/Xcode/DerivedData/*
 script: make test # Until cp-packager works properly on Travis again
