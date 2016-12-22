@@ -8,7 +8,7 @@ endif
 
 WORKSPACE=ContentfulSDK.xcworkspace
 
-.PHONY: all open clean doc example example-static pod really-clean static-lib test
+.PHONY: all open clean doc example example-static pod really-clean static-lib test kill_simulator
 
 open:
 	open ContentfulSDK.xcworkspace
@@ -48,15 +48,15 @@ static-lib:
 
 	rm -rf ContentfulDeliveryAPI-*/
 
-test:
-	open -b com.apple.iphonesimulator # fixes a bug when the simulator doens't open fast enough in Travis CI
-	set -o pipefail && xcodebuild test -workspace $(WORKSPACE) \
+kill_simulator:
+	killall "Simulator" || true
+
+test: kill_simulator
+	set -x -o pipefail && xcodebuild test -workspace $(WORKSPACE) \
 		-scheme 'ContentfulDeliveryAPI' -sdk iphonesimulator \
-		-destination 'platform=iOS Simulator,name=iPhone 5s,OS=9.3'| xcpretty -c \
-		ONLY_ACTIVE_ARCH=NO CODE_SIGNING_IDENTITY="" CODE_SIGNING_REQUIRED=NO
-	#@osascript -e 'tell app "iOS Simulator" to quit'
-	#@osascript -e 'tell app "Simulator" to quit'
-	#bundle exec pod lib coverage
+		-destination 'platform=iOS Simulator,name=iPhone 5s,OS=9.3'| xcpretty -c 
+	kill_simulator	
+	bundle exec pod lib coverage
 
 lint:
 	set -o pipefail && xcodebuild clean build -workspace $(WORKSPACE) -dry-run \
