@@ -1,3 +1,6 @@
+BUILD_DIR=./Build-command-line
+DERIVED_DARTA_DIR=./Build-command-line/DerivedData
+
 __SIM_ID=`xcrun simctl list|egrep -m 1 '$(SIM_NAME) \([^(]*\) \([^(]*\)$$'|sed -e 's/.* (\(.*\)) (.*)/\1/'`
 SIM_NAME=iPhone 5s
 SIM_ID=$(shell echo $(__SIM_ID))
@@ -13,12 +16,20 @@ WORKSPACE=ContentfulSDK.xcworkspace
 open:
 	open ContentfulSDK.xcworkspace
 
-clean:
+clean: clean_simulators
 	rm -rf build Examples/UFO/build Examples/*.zip compile_commands.json .gutter.json
 	rm -rf Examples/UFO/Distribution/ContentfulDeliveryAPI.framework
+##	rm -rf $(BUILD_DIR)
+##	rm -rf $(DERIVED_DATA_DIR)
 
-really-clean: clean
-	rm -rf Pods $(HOME)/Library/Developer/Xcode/DerivedData/*
+clean_pods:
+	rm -rf Pods/
+
+really_clean: clean
+	rm -rf $(HOME)/Library/Developer/Xcode/DerivedData/*
+
+clean_simulators:
+	xcrun simctl erase all
 
 all: test example-static
 
@@ -51,7 +62,7 @@ static-lib:
 kill_simulator:
 	killall "Simulator" || true
 
-test: kill_simulator
+test: kill_simulator really_clean
 	set -x -o pipefail && xcodebuild test -workspace $(WORKSPACE) \
 		-scheme 'ContentfulDeliveryAPI' -sdk iphonesimulator \
 		-destination 'platform=iOS Simulator,name=iPhone 5s,OS=9.3'| xcpretty -c 
