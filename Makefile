@@ -1,6 +1,3 @@
-BUILD_DIR=./Build-command-line
-DERIVED_DARTA_DIR=./Build-command-line/DerivedData
-
 __SIM_ID=`xcrun simctl list|egrep -m 1 '$(SIM_NAME) \([^(]*\) \([^(]*\)$$'|sed -e 's/.* (\(.*\)) (.*)/\1/'`
 SIM_NAME=iPhone 5s
 SIM_ID=$(shell echo $(__SIM_ID))
@@ -11,7 +8,7 @@ endif
 
 WORKSPACE=ContentfulSDK.xcworkspace
 
-.PHONY: all open clean doc example example-static pod really-clean static-lib test kill_simulator
+.PHONY: all open clean clean_simulators doc example example-static pod really-clean static-lib test kill_simulator
 
 open:
 	open ContentfulSDK.xcworkspace
@@ -19,8 +16,6 @@ open:
 clean: clean_simulators
 	rm -rf build Examples/UFO/build Examples/*.zip compile_commands.json .gutter.json
 	rm -rf Examples/UFO/Distribution/ContentfulDeliveryAPI.framework
-##	rm -rf $(BUILD_DIR)
-##	rm -rf $(DERIVED_DATA_DIR)
 
 clean_pods:
 	rm -rf Pods/

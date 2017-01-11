@@ -14,7 +14,6 @@ before_install:
 - echo $(WORKSPACE)
 - gem install bundler
 - bundle install
-- rm -rf $(HOME)/Library/Developer/Xcode/DerivedData/*
 script:
 - ./scripts/travis-build-test.sh
 

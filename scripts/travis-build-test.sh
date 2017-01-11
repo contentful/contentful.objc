@@ -4,7 +4,9 @@ set -x -o pipefail
 
 echo "Building"
 
-make clean
+make clean_simulators
+
+rm -rf ${HOME}/Library/Developer/Xcode/DerivedData/*
 
 # -jobs -- specify the number of concurrent jobs
 # `sysctl -n hw.ncpu` -- fetch number of 'logical' cores in macOS machine
