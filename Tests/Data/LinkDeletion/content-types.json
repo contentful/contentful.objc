@@ -1,0 +1,42 @@
+{
+  "sys": {
+    "type": "Array"
+  },
+  "total": 1,
+  "skip": 0,
+  "limit": 1,
+  "items": [
+    {
+      "name": "type",
+      "fields": [
+        {
+          "name": "name",
+          "id": "name",
+          "type": "Symbol"
+        },
+        {
+          "name": "link",
+          "id": "link",
+          "type": "Link",
+          "linkType": "Entry"
+        }
+      ],
+      "description": "",
+      "displayField": "name",
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "hsut5b3lu3cv"
+          }
+        },
+        "type": "ContentType",
+        "id": "SUHIqy1t2USm0iuIgYGMU",
+        "revision": 2,
+        "createdAt": "2015-09-24T13:31:53.863Z",
+        "updatedAt": "2015-09-24T13:32:41.875Z"
+      }
+    }
+  ]
+}

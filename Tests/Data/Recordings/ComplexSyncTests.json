@@ -1,0 +1,25 @@
+[
+  {
+    "body" : "ewogICJzeXMiOiB7CiAgICAidHlwZSI6ICJFcnJvciIsCiAgICAiaWQiOiAiQWNj\r\nZXNzVG9rZW5JbnZhbGlkIgogIH0sCiAgIm1lc3NhZ2UiOiAiVGhlIGFjY2VzcyB0\r\nb2tlbiB5b3Ugc2VudCBjb3VsZCBub3QgYmUgZm91bmQgb3IgaXMgaW52YWxpZC4i\r\nLAogICJyZXF1ZXN0SWQiOiAiOTBhLTIxMzA4NzIxODQiCn0K",
+    "headers" : {
+      "Date" : "Thu, 24 Sep 2015 20:03:43 GMT",
+      "X-Served-By" : "cache-fra1227-FRA",
+      "Access-Control-Allow-Origin" : "*",
+      "Via" : "1.1 varnish",
+      "Accept-Ranges" : "bytes",
+      "Content-Type" : "application\/vnd.contentful.delivery.v1+json",
+      "Access-Control-Allow-Headers" : "Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation",
+      "Connection" : "keep-alive",
+      "Access-Control-Max-Age" : "86400",
+      "Server" : "nginx",
+      "X-Cache" : "MISS",
+      "X-Cache-Hits" : "0",
+      "Content-Length" : "180",
+      "Access-Control-Allow-Methods" : "GET,HEAD,OPTIONS",
+      "Cache-Control" : "max-age=0"
+    },
+    "method" : "GET",
+    "status" : 401,
+    "uri" : "https:\/\/cdn.contentful.com\/spaces\/test\/"
+  }
+]
