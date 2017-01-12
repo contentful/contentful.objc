@@ -60,7 +60,7 @@ kill_simulator:
 test: kill_simulator really_clean
 	set -x -o pipefail && xcodebuild test -workspace $(WORKSPACE) \
 		-scheme 'ContentfulDeliveryAPI' -sdk iphonesimulator \
-		-destination 'platform=iOS Simulator,name=iPhone 5s,OS=9.3'| xcpretty -c 
+		-destination 'platform=iOS Simulator,name=iPhone 5s,OS=10.2'| xcpretty -c 
 	kill_simulator	
 	bundle exec pod lib coverage
 

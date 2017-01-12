@@ -55,6 +55,12 @@ extern void __gcov_flush();
                                                             bundlePath];
 }
 
+
+- (void)setClient:(CDAClient *)client {
+    _client = client;
+    [self setUpCCLRequestReplayForNSURLSession];
+}
+
 -(void)tearDown {
     [super tearDown];
 

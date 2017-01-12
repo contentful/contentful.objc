@@ -57,7 +57,6 @@
 
 -(CDAClient*)buildClient {
     self.client = [[CDAClient alloc] initWithSpaceKey:@"emh6o2ireilu" accessToken:@"1bf1261e0225089be464c79fff1a0773ca8214f1e82dd521f3ecf9690ba888ac"];
-    [self setUpCCLRequestReplayForNSURLSession];
     return self.client;
 }
 

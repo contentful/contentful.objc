@@ -21,12 +21,12 @@
 
 @implementation CoreDataIssues
 
-//-(void)buildPersistenceManagerWithDefaultClient:(BOOL)defaultClient {
-//    self.client = [CDAClient new];
-//    self.query = @{ @"order": @"sys.createdAt" };
-//
-//    [super buildPersistenceManagerWithDefaultClient:NO];
-//}
+-(void)buildPersistenceManagerWithDefaultClient:(BOOL)defaultClient {
+    self.client = [CDAClient new];
+    self.query = @{ @"order": @"sys.createdAt" };
+
+    [super buildPersistenceManagerWithDefaultClient:NO];
+}
 
 -(CDAPersistenceManager*)createPersistenceManagerWithClient:(CDAClient*)client {
     if ([client.spaceKey isEqualToString:@"vfvjfjyjrbbp"]) {

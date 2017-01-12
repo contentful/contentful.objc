@@ -18,16 +18,21 @@
 
 @implementation PersistenceBaseTest
 
+
+- (void)setPersistenceManager:(CDAPersistenceManager *)persistenceManager {
+    _persistenceManager = persistenceManager;
+
+    // Because of URLConnection -> Session changes. we must re-setup CCLRequestReplay for URL Session every time we create a new client so that the recordings are correctly fetched.
+    [self setUpCCLRequestReplayForNSURLSession];
+
+}
+
 -(void)setUp {
     [super setUp];
 
     self.lastSyncTimestamp = nil;
 
     [self buildPersistenceManagerWithDefaultClient:NO];
-    // MUST BE CALLED SO THAT THE STUBS ARE ACTUALLY RETURNED.
-    [self setUpCCLRequestReplayForNSURLSession];
-
-    [self deleteStore];
 }
 
 -(void)tearDown {
@@ -60,8 +65,6 @@
 
     self.persistenceManager = [self createPersistenceManagerWithClient:client];
 
-    // Because of URLConnection -> Session changes. we must re-setup CCLRequestReplay for URL Session every time we create a new client so that the recordings are correctly fetched.
-    [self setUpCCLRequestReplayForNSURLSession];
     NSArray* contentTypeIds = @[
                                 @"1nGOrvlRTaMcyyq4IEa8ea",
                                 @"6bAvxqodl6s4MoKuWYkmqe",

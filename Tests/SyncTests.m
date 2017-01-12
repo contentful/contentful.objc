@@ -399,7 +399,6 @@
     StartBlock();
     
     self.client = [[CDAClient alloc] initWithSpaceKey:@"emh6o2ireilu" accessToken:@"something"];
-    [self setUpCCLRequestReplayForNSURLSession];
     
     [self addDummyContentType];
     
@@ -614,7 +613,6 @@
     StartBlock();
 
     self.client = [[CDAClient alloc] initWithSpaceKey:@"a7uc4j82xa5d" accessToken:@"966a679442707ea882caec4592bf3058e188a35b9bfcf1968a870cfc5e5441d5"];
-    [self setUpCCLRequestReplayForNSURLSession];
 
     CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response,
                                                                            CDASyncedSpace *space) {

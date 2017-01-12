@@ -12,6 +12,18 @@
 
 @implementation CoreDataBaseTestCase
 
+-(void)setUp {
+    [super setUp];
+
+    [self deleteStore];
+}
+
+-(void)tearDown {
+    [super tearDown];
+
+    [self deleteStore];
+}
+
 -(void)buildPersistenceManagerWithDefaultClient:(BOOL)defaultClient {
     [super buildPersistenceManagerWithDefaultClient:defaultClient];
 
@@ -55,6 +67,7 @@
     if (![manager storeURL]) {
         return;
     }
+    
     [[NSFileManager defaultManager] removeItemAtURL:manager.storeURL error:nil];
 
     NSURL* itemURL = [self appendString:@"-shm" toFileURL:manager.storeURL];
@@ -63,7 +76,7 @@
     itemURL = [self appendString:@"-wal" toFileURL:manager.storeURL];
     [[NSFileManager defaultManager] removeItemAtURL:itemURL error:nil];
 
-    [NSThread sleepUntilDate:[NSDate dateWithTimeIntervalSinceNow:3.0]];
+//    [NSThread sleepUntilDate:[NSDate dateWithTimeIntervalSinceNow:3.0]];
 }
 
 @end
