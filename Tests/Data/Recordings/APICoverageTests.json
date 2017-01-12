@@ -389,6 +389,6 @@
     },
     "method" : "GET",
     "status" : 200,
-    "uri" : "https:\/\/cdn.contentful.com\/spaces\/cfexampleapi\/content_types?limit=5&sys.id%5Bin%5D=cat%2C63k4qdEi9aI8IQUGaYGg4O%2Cdog%2Chuman%2C1t9IbcfdCk6m04uISSsaIK"
+    "uri" : "https:\/\/cdn.contentful.com\/spaces\/cfexampleapi\/content_types?limit=5&sys.id%5Bin%5D=cat%2Cdog%2Chuman%2C1t9IbcfdCk6m04uISSsaIK"
   }
 ]

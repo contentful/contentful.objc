@@ -53,7 +53,7 @@
     },
     "method" : "GET",
     "status" : 200,
-    "uri" : "https:\/\/cdn.contentful.com\/spaces\/cfexampleapi\/content_types?limit=5&sys.id%5Bin%5D=cat%2C63k4qdEi9aI8IQUGaYGg4O%2Cdog%2Chuman%2C1t9IbcfdCk6m04uISSsaIK"
+    "uri" : "https:\/\/cdn.contentful.com\/spaces\/cfexampleapi\/content_types?limit=5&sys.id%5Bin%5D=cat%2Cdog%2Chuman%2C1t9IbcfdCk6m04uISSsaIK"
   },
   {
     "body" : "ewogICJzeXMiOiB7CiAgICAidHlwZSI6ICJTcGFjZSIsCiAgICAiaWQiOiAiY2Zl\r\neGFtcGxlYXBpIgogIH0sCiAgIm5hbWUiOiAiQ29udGVudGZ1bCBFeGFtcGxlIEFQ\r\nSSIsCiAgImxvY2FsZXMiOiBbCiAgICB7CiAgICAgICJjb2RlIjogImVuLVVTIiwK\r\nICAgICAgImRlZmF1bHQiOiB0cnVlLAogICAgICAibmFtZSI6ICJFbmdsaXNoIgog\r\nICAgfSwKICAgIHsKICAgICAgImNvZGUiOiAidGxoIiwKICAgICAgImRlZmF1bHQi\r\nOiBmYWxzZSwKICAgICAgIm5hbWUiOiAiS2xpbmdvbiIKICAgIH0KICBdCn0K",

@@ -68,47 +68,47 @@ extern void __gcov_flush();
     self.requestReplayManager = nil;
 }
 
-//+ (NSArray *)testInvocations
-//{
-//    if (self == [ContentfulBaseTestCase class]) {
-//        return nil;
-//    }
-//    
-//    NSMutableArray *testInvocations = [NSMutableArray arrayWithArray:[super testInvocations]];
-//    
-//    if ([self instancesRespondToSelector:@selector(beforeAll)]) {
-//        NSInvocation *beforeAll = [NSInvocation invocationWithMethodSignature:SIG(self, @selector(beforeAll))];
-//        beforeAll.selector = @selector(beforeAll);
-//        [testInvocations insertObject:beforeAll atIndex:0];
-//    }
-//    
-//    if ([self instancesRespondToSelector:@selector(afterAll)]) {
-//        NSInvocation *afterAll = [NSInvocation invocationWithMethodSignature:SIG(self, @selector(afterAll))];
-//        afterAll.selector = @selector(afterAll);
-//        [testInvocations addObject:afterAll];
-//    }
-//    
-//    return testInvocations;
-//}
-//
-//#pragma mark -
-//
-//- (void)beforeAll
-//{
-//    [VCR loadCassetteWithContentsOfURL:[[NSBundle bundleForClass:[self class]]
-//                                        URLForResource:self.cassetteBaseName withExtension:@"json"]];
-//    [VCR start];
-//}
-//
-//- (void)afterAll
-//{
-//    [VCR save:[NSString stringWithFormat:@"/tmp/%@.json", self.cassetteBaseName]];
-//    [VCR stop];
-//
-//#ifndef __IPHONE_9_0
-//    __gcov_flush();
-//#endif
-//}
++ (NSArray *)testInvocations
+{
+    if (self == [ContentfulBaseTestCase class]) {
+        return nil;
+    }
+    
+    NSMutableArray *testInvocations = [NSMutableArray arrayWithArray:[super testInvocations]];
+    
+    if ([self instancesRespondToSelector:@selector(beforeAll)]) {
+        NSInvocation *beforeAll = [NSInvocation invocationWithMethodSignature:SIG(self, @selector(beforeAll))];
+        beforeAll.selector = @selector(beforeAll);
+        [testInvocations insertObject:beforeAll atIndex:0];
+    }
+    
+    if ([self instancesRespondToSelector:@selector(afterAll)]) {
+        NSInvocation *afterAll = [NSInvocation invocationWithMethodSignature:SIG(self, @selector(afterAll))];
+        afterAll.selector = @selector(afterAll);
+        [testInvocations addObject:afterAll];
+    }
+    
+    return testInvocations;
+}
+
+#pragma mark -
+
+- (void)beforeAll
+{
+    [VCR loadCassetteWithContentsOfURL:[[NSBundle bundleForClass:[self class]]
+                                        URLForResource:self.cassetteBaseName withExtension:@"json"]];
+    [VCR start];
+}
+
+- (void)afterAll
+{
+    [VCR save:[NSString stringWithFormat:@"/tmp/%@.json", self.cassetteBaseName]];
+    [VCR stop];
+
+#ifndef __IPHONE_9_0
+    __gcov_flush();
+#endif
+}
 
 - (void)addRecordingWithJSONNamed:(NSString*)JSONName
                       inDirectory:(NSString*)directory
