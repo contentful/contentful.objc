@@ -80,7 +80,8 @@
                             @"https://cdn.contentful.com/spaces/a7uc4j82xa5d/sync?initial=true": @"initial-for-empty",
                             @"https://cdn.contentful.com/spaces/a7uc4j82xa5d/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdyY9ZMK9AsOcwqzCqmEWwr7CucOhw7LCm8ONZQICw4PCo8Olwq0lwofCocO2C3rDmAM_wr_DuMOcDBVGwqnCpcOBXsKXw6M9J8O4w4EUw7Zww6TCtsKwOzfCucOpVkLDtWXCsMOydg": @"update-for-empty",
                             @"https://cdn.contentful.com/spaces/a7uc4j82xa5d/": @"space-for-empty",
-                            @"https://cdn.contentful.com/spaces/a7uc4j82xa5d/content_types?limit=1&sys.id%5Bin%5D=test": @"content-types-for-empty"
+                            @"https://cdn.contentful.com/spaces/a7uc4j82xa5d/content_types?limit=1&sys.id%5Bin%5D=test": @"content-types-for-empty",
+                            @"http://cdn.contentful.com/spaces/bht13amj0fva/assets?locale=*" : @"asset-multiple-locales"
                             };
     
     [self stubHTTPRequestUsingFixtures:stubs inDirectory:@"SyncTests"];
@@ -323,38 +324,33 @@
     XCTAssertEqual(0U, self.numberOfEntriesUpdated, @"");
 }
 
-// FIXME: Reimplement this test.
-//-(void)testAssetWithMultipleLocalesWhileSyncing {
-//    [self removeAllStubs];
-//    
-//    StartBlock();
-//    
-//    CDAConfiguration* configuration = [CDAConfiguration defaultConfiguration];
-//    self.client = [[CDAClient alloc] initWithSpaceKey:@"0be4dalv8pk7" accessToken:@"062472725a8cbf6f11b0e0c63c616e321a9e245b1bf1a0f9b34cfd42162d5b0f" configuration:configuration];
-//    CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
-//        CDAAsset* asset = [space.assets firstObject];
-//        
-//        XCTAssertEqualObjects(@"foo", asset.fields[@"title"], @"");
-//        XCTAssertEqualObjects(@"512_black.png", asset.URL.lastPathComponent, @"");
-//        
-//        asset.locale = @"de-DE";
-//        XCTAssertEqualObjects(@"bar", asset.fields[@"title"], @"");
-//        XCTAssertEqualObjects(@"SeaLionWallpaper.jpg", asset.URL.lastPathComponent, @"");
-//        
-//        asset.locale = @"tlh";
-//        XCTAssertEqualObjects(@"foo", asset.fields[@"title"], @"");
-//        XCTAssertEqualObjects(@"512_black.png", asset.URL.lastPathComponent, @"");
-//        
-//        EndBlock();
-//    } failure:^(CDAResponse *response, NSError *error) {
-//        XCTFail(@"Error: %@", error);
-//        
-//        EndBlock();
-//    }];
-//    XCTAssertNotNil(request, @"");
-//    
-//    WaitUntilBlockCompletes();
-//}
+-(void)testAssetWithMultipleLocalesWhileSyncing {
+    [self removeAllStubs];
+    
+    StartBlock();
+    
+    CDAConfiguration* configuration = [CDAConfiguration defaultConfiguration];
+    self.client = [[CDAClient alloc] initWithSpaceKey:@"bht13amj0fva" accessToken:@"bb703a05e107148bed6ee246a9f6b3678c63fed7335632eb68fe1b689c801534" configuration:configuration];
+    CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
+        CDAAsset* asset = [space.assets firstObject];
+        
+        XCTAssertEqualObjects(@"EN Title", asset.fields[@"title"], @"");
+        XCTAssertEqualObjects(@"Flag_of_the_United_States.svg", asset.URL.lastPathComponent, @"");
+        
+        asset.locale = @"es";
+        XCTAssertEqualObjects(@"ES Title", asset.fields[@"title"], @"");
+        XCTAssertEqualObjects(@"Flag_of_Spain.svg", asset.URL.lastPathComponent, @"");
+
+        EndBlock();
+    } failure:^(CDAResponse *response, NSError *error) {
+        XCTFail(@"Error: %@", error);
+        
+        EndBlock();
+    }];
+    XCTAssertNotNil(request, @"");
+    
+    WaitUntilBlockCompletes();
+}
 
 -(void)testEntryWithMultipleLocalesWhileSyncing {
     [self removeAllStubs];
