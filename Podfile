@@ -4,7 +4,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/contentful/CocoaPodsSpecs.git'
 
 
-platform :ios, "7.0"
+platform :ios, "8.0"
 
 target "ContentfulDeliveryAPI" do
   pod 'AFNetworking'
@@ -52,7 +52,6 @@ end
 
 
 post_install do |installer_or_rep|
-  # Support both CP 0.36.1 and >= 0.38
   installer = installer_or_rep.respond_to?(:installer) ? installer_or_rep.installer : installer_or_rep
 
   installer.pods_project.targets.each do |target|
