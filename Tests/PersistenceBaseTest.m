@@ -49,8 +49,6 @@
     XCTAssertEqual(numberOfAssets, [self.persistenceManager fetchAssetsFromDataStore].count, @"");
     XCTAssertEqual(numberOfEntries, [self.persistenceManager fetchEntriesFromDataStore].count, @"");
 
-
-    // FIXME: make this is a helper method that returns a BOOl and then check for equality elsewhere.
     NSDate* timestamp = [self.persistenceManager fetchSpaceFromDataStore].lastSyncTimestamp;
     if (![[timestamp description] hasSuffix:@":00 +0000"]) {
         XCTAssertNotEqualObjects(self.lastSyncTimestamp, timestamp, @"");
@@ -58,8 +56,6 @@
     self.lastSyncTimestamp = timestamp;
 }
 
-// FIXME: don't pass in a BOOL here it. Pass in the client.
-// FIXME: rename method to describe that mappings are definied and classes for entries with content types are also defined.
 -(void)buildPersistenceManagerWithDefaultClient:(BOOL)defaultClient {
     CDAClient* client = defaultClient ? [CDAClient new] : self.client;
 
@@ -88,7 +84,6 @@
 }
 
 -(CDAPersistenceManager*)createPersistenceManagerWithClient:(CDAClient*)client {
-    // FIXME: Find if this is really an 'abstract' method and if so, make a protocol instead of having a base implementation that returns nil.
     return nil;
 }
 

@@ -12,7 +12,6 @@
 
 #pragma mark Setup
 
-// TODO: rename build client
 -(void)querySync_setupClient {
     self.client = [[CDAClient alloc] initWithSpaceKey:@"6mhvnnmyn9e1"
                                           accessToken:@"c054f8439246817a657ba7c5fa99989fa50db48c4893572d9537335b0c9b153e"];
