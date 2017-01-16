@@ -1,67 +1,57 @@
+#!/usr/bin/ruby
+
 source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/contentful/CocoaPodsSpecs.git'
 
-platform :ios, "6.0"
 
-target "ContentfulDeliveryAPI", :exclusive => true do
+platform :ios, "8.0"
 
-pod 'AFNetworking', :inhibit_warnings => true
-pod 'ISO8601DateFormatter'
+target "ContentfulDeliveryAPI" do
+  pod 'AFNetworking'
+  pod 'ISO8601DateFormatter'
 
+  target "CDA Tests" do
+    inherit! :search_paths
+
+    pod 'CCLRequestReplay', :git => 'https://github.com/neonichu/CCLRequestReplay.git'
+    pod 'OCMock'
+    pod 'VCRURLConnection', :inhibit_warnings => true
+    pod 'ContentfulPersistence/CoreData'
+    pod 'ContentfulPersistence/Realm', '>= 0.6.0'
+    pod 'FBSnapshotTestCase/Core'
+  end
 end
 
-target "CDA Tests", :exclusive => true do
-
-platform :ios, "7.0"
-
-pod 'CCLRequestReplay', :git => 'https://github.com/neonichu/CCLRequestReplay.git'
-pod 'ContentfulPersistence/CoreData', '>= 0.6.0'
-pod 'ContentfulPersistence/Realm', '>= 0.6.0'
-pod 'FBSnapshotTestCase'
-pod 'OCMock'
-pod 'VCRURLConnection', :inhibit_warnings => true
-
+target "Catalog" do
+  pod 'ContentfulDeliveryAPI', :path => '.'
+  pod 'PDKTCollectionViewWaterfallLayout'
 end
 
-target "Catalog", :exclusive => true do
 
+target "UFO Example" do    
 pod 'ContentfulDeliveryAPI', :path => '.'
-pod 'PDKTCollectionViewWaterfallLayout'
-
 end
 
-target "ContentfulSeedDatabase", :exclusive => true do
 
-platform :osx, "10.8"
-
-pod 'ContentfulDeliveryAPI', :path => '.'
-pod 'ContentfulPersistence/CoreData'
-
+target "CoreDataExample" do
+  pod 'ContentfulDeliveryAPI', :path => '.'
+  pod 'ContentfulPersistence/CoreData'
 end
 
-target "CoreDataExample", :exclusive => true do
-
-pod 'ContentfulDeliveryAPI', :path => '.'
-pod 'ContentfulPersistence/CoreData'
-
+target "SeedDatabaseExample" do
+  pod 'ContentfulDeliveryAPI', :path => '.'
+  pod 'ContentfulPersistence/CoreData'
 end
 
-target "SeedDatabaseExample", :exclusive => true do
+target "ContentfulSeedDatabase" do
+  platform :osx, "10.9"
 
-pod 'ContentfulDeliveryAPI', :path => '.'
-pod 'ContentfulPersistence/CoreData'
-
+  pod 'ContentfulDeliveryAPI', :path => '.'
+  pod 'ContentfulPersistence/CoreData'
 end
 
-target "UFO Example", :exclusive => true do
-
-pod 'ContentfulDeliveryAPI', :path => '.'
-pod 'AFNetworking', :inhibit_warnings => true
-
-end
 
 post_install do |installer_or_rep|
-  # Support both CP 0.36.1 and >= 0.38
   installer = installer_or_rep.respond_to?(:installer) ? installer_or_rep.installer : installer_or_rep
 
   installer.pods_project.targets.each do |target|

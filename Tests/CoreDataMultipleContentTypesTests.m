@@ -133,7 +133,7 @@
     self.client = [[CDAClient alloc] initWithSpaceKey:@"2007f97z5ihj" accessToken:@"7d75d1d4f8fcbee0ad4eaa6ef61981dd8625313a8497390c409f56e57d9d8812"];
     CoreDataManager* manager = [[TestCoreDataManager alloc] initWithClient:self.client
                                                              dataModelName:@"foobar"];
-    [[NSFileManager defaultManager] removeItemAtURL:manager.storeURL error:nil];
+    [self deleteStore];
 
     manager.classForAssets = [NSObject class];
     manager.classForSpaces = [MySpace class];

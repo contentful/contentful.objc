@@ -6,7 +6,10 @@ doc
 
 .DS_Store
 
-## Other
+## Cocoapods
+Pods/
+
+### Other
 
 .pt
 Examples/ContentfulDeliveryAPI.zip

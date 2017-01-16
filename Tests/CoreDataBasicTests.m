@@ -69,10 +69,6 @@
     [self basic_relationships];
 }
 
--(void)testSyncWithRepublishedEntry {
-    [self basic_syncWithRepublishedEntries];
-}
-
 -(void)testImageCaching {
     [self basic_imageCaching];
 }

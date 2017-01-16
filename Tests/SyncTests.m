@@ -68,7 +68,21 @@
      The tests are based on a sync session with five subsequent syncs where each one either added,
      removed or updated Resources.
      */
-    NSDictionary* stubs = @{ @"https://cdn.contentful.com/spaces/emh6o2ireilu/sync?initial=true": @"initial", @"https://cdn.contentful.com/spaces/emh6o2ireilu/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdyYxwoHDtsKywrXDmQs_WcOvIcOzwotYw6PCgcOsAcOYYcO4YsKCw7TCnsK_clnClS7Csx9lwoFcw6nCqnnCpWh3w7k7SkI-CcOuQyXDlw_Dlh9RwqkcElwpW30sw4k": @"added", @"https://cdn.contentful.com/spaces/emh6o2ireilu/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdyY0w4bCiMKOWDIFw61bwqQ_w73CnMKsB8KpwrFZPsOZw5ZQwqDDnUA0w5tOPRtwwoAkwpJMTzghdEnDjCkiw5fCuynDlsO5DyvCsjgQa2TDisKNZ8Kqw4TCjhZIGQ": @"deleted", @"https://cdn.contentful.com/spaces/emh6o2ireilu/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdyZew5xDN04dJg3DkmBAw4XDh8OEw5o5UVhIw6nDlFjDoBxIasKIDsKIw4VcIV18GicdwoTDjCtoMiFAfcKiwrRKIsKYwrzCmMKBw4ZhwrdhwrsGa8KTwpQ6w6A": @"added-asset", @"https://cdn.contentful.com/spaces/emh6o2ireilu/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdyZ_NnHDoQzCtcKoMh9KZHtAWcObw7XCimZgVGPChUfDuxQHwoHDosO6CcKodsO2MWJQwrrCrsOswpl5w6LCuV0tw4Njwo9Ww5fCl8KqEgB6XgAJNVF2wpk3Lg": @"deleted-asset", @"https://cdn.contentful.com/spaces/emh6o2ireilu/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdyYHPUPDhggxwr5qw5RBbMKWw4VjOg3DumTDg0_CgsKcYsO8UcOZfMKLw4sKUcOnJcKxfDUkGWwxNMOVw4AiacK5Bmo4ScOhI0g2cXLClxTClsOyE8OOc8O3": @"update", @"https://cdn.contentful.com/spaces/emh6o2ireilu/sync?initial=true": @"initialWithoutToken", @"https://cdn.contentful.com/spaces/emh6o2ireilu/": @"space", @"https://cdn.contentful.com/spaces/emh6o2ireilu/": @"space", @"https://cdn.contentful.com/spaces/a7uc4j82xa5d/sync?initial=true": @"initial-for-empty", @"https://cdn.contentful.com/spaces/a7uc4j82xa5d/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdyY9ZMK9AsOcwqzCqmEWwr7CucOhw7LCm8ONZQICw4PCo8Olwq0lwofCocO2C3rDmAM_wr_DuMOcDBVGwqnCpcOBXsKXw6M9J8O4w4EUw7Zww6TCtsKwOzfCucOpVkLDtWXCsMOydg": @"update-for-empty", @"https://cdn.contentful.com/spaces/a7uc4j82xa5d/": @"space-for-empty", @"https://cdn.contentful.com/spaces/a7uc4j82xa5d/content_types?limit=1&sys.id%5Bin%5D=test": @"content-types-for-empty" };
+    NSDictionary* stubs = @{
+                            @"https://cdn.contentful.com/spaces/emh6o2ireilu/sync?initial=true": @"initial",
+                            @"https://cdn.contentful.com/spaces/emh6o2ireilu/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdyYxwoHDtsKywrXDmQs_WcOvIcOzwotYw6PCgcOsAcOYYcO4YsKCw7TCnsK_clnClS7Csx9lwoFcw6nCqnnCpWh3w7k7SkI-CcOuQyXDlw_Dlh9RwqkcElwpW30sw4k": @"added",
+                            @"https://cdn.contentful.com/spaces/emh6o2ireilu/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdyY0w4bCiMKOWDIFw61bwqQ_w73CnMKsB8KpwrFZPsOZw5ZQwqDDnUA0w5tOPRtwwoAkwpJMTzghdEnDjCkiw5fCuynDlsO5DyvCsjgQa2TDisKNZ8Kqw4TCjhZIGQ": @"deleted",
+                            @"https://cdn.contentful.com/spaces/emh6o2ireilu/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdyZew5xDN04dJg3DkmBAw4XDh8OEw5o5UVhIw6nDlFjDoBxIasKIDsKIw4VcIV18GicdwoTDjCtoMiFAfcKiwrRKIsKYwrzCmMKBw4ZhwrdhwrsGa8KTwpQ6w6A": @"added-asset",
+                            @"https://cdn.contentful.com/spaces/emh6o2ireilu/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdyZ_NnHDoQzCtcKoMh9KZHtAWcObw7XCimZgVGPChUfDuxQHwoHDosO6CcKodsO2MWJQwrrCrsOswpl5w6LCuV0tw4Njwo9Ww5fCl8KqEgB6XgAJNVF2wpk3Lg": @"deleted-asset",
+                            @"https://cdn.contentful.com/spaces/emh6o2ireilu/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdyYHPUPDhggxwr5qw5RBbMKWw4VjOg3DumTDg0_CgsKcYsO8UcOZfMKLw4sKUcOnJcKxfDUkGWwxNMOVw4AiacK5Bmo4ScOhI0g2cXLClxTClsOyE8OOc8O3": @"update", @"https://cdn.contentful.com/spaces/emh6o2ireilu/sync?initial=true": @"initialWithoutToken",
+                            @"https://cdn.contentful.com/spaces/emh6o2ireilu/": @"space",
+                            @"https://cdn.contentful.com/spaces/emh6o2ireilu/": @"space",
+                            @"https://cdn.contentful.com/spaces/a7uc4j82xa5d/sync?initial=true": @"initial-for-empty",
+                            @"https://cdn.contentful.com/spaces/a7uc4j82xa5d/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdyY9ZMK9AsOcwqzCqmEWwr7CucOhw7LCm8ONZQICw4PCo8Olwq0lwofCocO2C3rDmAM_wr_DuMOcDBVGwqnCpcOBXsKXw6M9J8O4w4EUw7Zww6TCtsKwOzfCucOpVkLDtWXCsMOydg": @"update-for-empty",
+                            @"https://cdn.contentful.com/spaces/a7uc4j82xa5d/": @"space-for-empty",
+                            @"https://cdn.contentful.com/spaces/a7uc4j82xa5d/content_types?limit=1&sys.id%5Bin%5D=test": @"content-types-for-empty",
+                            @"http://cdn.contentful.com/spaces/bht13amj0fva/assets?locale=*" : @"asset-multiple-locales"
+                            };
     
     [self stubHTTPRequestUsingFixtures:stubs inDirectory:@"SyncTests"];
 }
@@ -316,22 +330,17 @@
     StartBlock();
     
     CDAConfiguration* configuration = [CDAConfiguration defaultConfiguration];
-    configuration.server = @"cdn.flinkly.com";
-    self.client = [[CDAClient alloc] initWithSpaceKey:@"0be4dalv8pk7" accessToken:@"062472725a8cbf6f11b0e0c63c616e321a9e245b1bf1a0f9b34cfd42162d5b0f" configuration:configuration];
+    self.client = [[CDAClient alloc] initWithSpaceKey:@"bht13amj0fva" accessToken:@"bb703a05e107148bed6ee246a9f6b3678c63fed7335632eb68fe1b689c801534" configuration:configuration];
     CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
         CDAAsset* asset = [space.assets firstObject];
         
-        XCTAssertEqualObjects(@"foo", asset.fields[@"title"], @"");
-        XCTAssertEqualObjects(@"512_black.png", asset.URL.lastPathComponent, @"");
+        XCTAssertEqualObjects(@"EN Title", asset.fields[@"title"], @"");
+        XCTAssertEqualObjects(@"Flag_of_the_United_States.svg", asset.URL.lastPathComponent, @"");
         
-        asset.locale = @"de-DE";
-        XCTAssertEqualObjects(@"bar", asset.fields[@"title"], @"");
-        XCTAssertEqualObjects(@"SeaLionWallpaper.jpg", asset.URL.lastPathComponent, @"");
-        
-        asset.locale = @"tlh";
-        XCTAssertEqualObjects(@"foo", asset.fields[@"title"], @"");
-        XCTAssertEqualObjects(@"512_black.png", asset.URL.lastPathComponent, @"");
-        
+        asset.locale = @"es";
+        XCTAssertEqualObjects(@"ES Title", asset.fields[@"title"], @"");
+        XCTAssertEqualObjects(@"Flag_of_Spain.svg", asset.URL.lastPathComponent, @"");
+
         EndBlock();
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);

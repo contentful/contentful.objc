@@ -71,8 +71,8 @@
 
 #pragma mark -
 
-- (void)noNetworkTestHelperWithContentTypeFetchedEarlier:(BOOL)contentTypeFetched
-{
+- (void)noNetworkTestHelperWithContentTypeFetchedEarlier:(BOOL)contentTypeFetched {
+    
     SEL sendSyncRequest = @selector(sendSynchronousRequest:returningResponse:error:);
     Method urlOriginalMethod = class_getClassMethod(NSURLConnection.class, sendSyncRequest);
     Method urlNewMethod = class_getClassMethod(self.class, sendSyncRequest);

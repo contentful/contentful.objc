@@ -38,16 +38,13 @@
 
 @implementation CDARequestOperationManager
 
--(CDARequest*)buildRequestResultWithOperation:(AFHTTPRequestOperation*)operation {
-    CDAClient* client = [(CDAResponseSerializer*)self.responseSerializer client];
-    objc_setAssociatedObject(operation, "client", client, OBJC_ASSOCIATION_RETAIN);
-
-    return [[CDARequest alloc] initWithRequestOperation:operation];
-}
-
 -(NSURLRequest*)buildRequestWithURLString:(NSString*)URLString parameters:(NSDictionary*)parameters {
     parameters = [self fixParametersInDictionary:parameters];
-    return [[self.requestSerializer requestWithMethod:@"GET" URLString:[[NSURL URLWithString:URLString relativeToURL:self.baseURL] absoluteString] parameters:parameters error:nil] copy];
+
+    URLString = [[NSURL URLWithString:URLString relativeToURL:self.baseURL] absoluteString];
+    NSParameterAssert(URLString);
+
+    return [[self.requestSerializer requestWithMethod:@"GET" URLString:URLString parameters:parameters error:nil] copy];
 }
 
 -(CDARequest*)deleteURLPath:(NSString*)URLPath
@@ -71,8 +68,18 @@
                    parameters:parameters
                       success:^(CDAResponse *response, id responseObject) {
                           if (success) {
-                              NSAssert(CDAClassIsOfType([responseObject class], CDAArray.class),
-                                       @"Response object needs to be an array.");
+                              if (!CDAClassIsOfType([responseObject class], CDAArray.class)) {
+                                  if (CDAClassIsOfType([responseObject class], CDAError.class)) {
+
+                                      NSError *errorResponse = [((CDAError *)responseObject) errorRepresentationWithCode:response.statusCode];
+                                      failure(response, errorResponse);
+                                    return;
+                                  }
+                                  NSAssert(CDAClassIsOfType([responseObject class], CDAArray.class),
+                                           @"Response object needs to be a CDAArray or a CDAError.");
+                                  return;
+                              }
+                              // Success
                               [(CDAArray*)responseObject setQuery:parameters ?: @{}];
                               success(response, responseObject);
                           }
@@ -103,6 +110,12 @@
     return [self fetchURLPath:@""
                    parameters:nil
                       success:^(CDAResponse *response, id responseObject) {
+                          if (CDAClassIsOfType([responseObject class], CDAError.class)) {
+                              CDAError* error = (CDAError*)responseObject;
+                              failure(response, [error errorRepresentationWithCode:response.statusCode]);
+                              return;
+                          }
+
                           NSAssert(CDAClassIsOfType([responseObject class], CDASpace.class),
                                    @"Response object needs to be a space.");
                           success(response, responseObject);
@@ -114,8 +127,12 @@
                    success:(CDAObjectFetchedBlock)success
                    failure:(CDARequestFailureBlock)failure {
     parameters = [self fixParametersInDictionary:parameters];
-    return [self requestWithMethod:@"GET" URLPath:URLPath headers:nil parameters:parameters
-                           success:success failure:failure];
+    return [self requestWithMethod:@"GET"
+                           URLPath:URLPath
+                           headers:nil
+                        parameters:parameters
+                           success:success
+                           failure:failure];
 
 }
 
@@ -208,6 +225,7 @@
                parameters:(NSDictionary *)parameters
                   success:(CDAObjectFetchedBlock)success
                   failure:(CDARequestFailureBlock)failure {
+    
     return [self requestWithMethod:@"PUT"
                            URLPath:URLPath
                            headers:headers
@@ -218,11 +236,17 @@
 
 -(CDARequest*)requestWithMethod:(NSString*)method
                         URLPath:(NSString*)URLPath
-                 headers:(NSDictionary*)headers
-              parameters:(NSDictionary*)parameters
-                 success:(CDAObjectFetchedBlock)success
-                 failure:(CDARequestFailureBlock)failure {
-    NSMutableURLRequest *request = [self.requestSerializer requestWithMethod:method URLString:[[NSURL URLWithString:URLPath relativeToURL:self.baseURL] absoluteString] parameters:parameters error:nil];
+                        headers:(NSDictionary*)headers
+                     parameters:(NSDictionary*)parameters
+                        success:(CDAObjectFetchedBlock)success
+                        failure:(CDARequestFailureBlock)failure {
+
+    NSString* URLString = [[NSURL URLWithString:URLPath relativeToURL:self.baseURL] absoluteString];
+    NSParameterAssert(URLString);
+    NSMutableURLRequest *request = [self.requestSerializer requestWithMethod:method
+                                                                   URLString:URLString
+                                                                  parameters:parameters
+                                                                       error:nil];
 
     [headers enumerateKeysAndObjectsUsingBlock:^(NSString* headerField, NSString* value, BOOL *stop) {
         [request setValue:value forHTTPHeaderField:headerField];
@@ -230,57 +254,72 @@
 
     [request setValue:CMAContentTypeHeader forHTTPHeaderField:@"Content-Type"];
 
-    AFHTTPRequestOperation* operation = [self requestOperationWithRequest:request
-                                                               retryCount:0
-                                                                  success:success
-                                                                  failure:failure];
+    NSURLSessionTask* task = [self sessionTaskWithRequest:request
+                                               retryCount:0
+                                                  success:success
+                                                  failure:failure];
 
-    return [self buildRequestResultWithOperation:operation];
+
+
+    CDARequest *cdaRequest = [[CDARequest alloc] initWithSessionTask:task];
+
+    // Retain the CDAClient in the request.
+    CDAClient* client = [(CDAResponseSerializer*)self.responseSerializer client];
+    objc_setAssociatedObject(cdaRequest, "client", client, OBJC_ASSOCIATION_RETAIN);
+
+    return cdaRequest;
 }
 
--(AFHTTPRequestOperation*)requestOperationWithRequest:(NSURLRequest*)request
-                                           retryCount:(NSUInteger)retryCount
-                                              success:(CDAObjectFetchedBlock)success
-                                              failure:(CDARequestFailureBlock)failure {
-    AFHTTPRequestOperation* operation = [self HTTPRequestOperationWithRequest:request
-      success:^(AFHTTPRequestOperation *operation, id responseObject) {
-          if (!responseObject && operation.response.statusCode != 204) {
-              if (failure) {
-                  failure([CDAResponse responseWithHTTPURLResponse:operation.response], [NSError errorWithDomain:NSURLErrorDomain code:kCFURLErrorZeroByteResource userInfo:nil]);
-              }
+-(NSURLSessionTask*)sessionTaskWithRequest:(NSURLRequest*)request
+                                retryCount:(NSUInteger)retryCount
+                                   success:(CDAObjectFetchedBlock)success
+                                   failure:(CDARequestFailureBlock)failure {
+    
+    NSURLSessionTask* task = [self dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        NSAssert(!response || [response isKindOfClass:NSHTTPURLResponse.class], @"Invalid response.");
+        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
 
-              return;
-          }
+        // Handle failure.
+        if (error) {
+            // Rate-Limiting
+            if (httpResponse.statusCode == 429 && retryCount < 10 && self.rateLimiting) {
+                NSUInteger delayInSeconds = 2^retryCount * 100 * 1000;
 
-          if (success) {
-              success([CDAResponse responseWithHTTPURLResponse:operation.response], responseObject);
-          }
-      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-          // Rate-Limiting
-          if (operation.response.statusCode == 429 && retryCount < 10 && self.rateLimiting) {
-              NSUInteger delayInSeconds = 2^retryCount * 100 * 1000;
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC)),
+                               dispatch_get_main_queue(), ^{
+                                   [self sessionTaskWithRequest:request
+                                                     retryCount:retryCount + 1
+                                                        success:success
+                                                        failure:failure];
+                               });
+                return;
+            }
 
-              dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC)),
-                             dispatch_get_main_queue(), ^{
-                                 [self requestOperationWithRequest:request
-                                                        retryCount:retryCount + 1
-                                                           success:success
-                                                           failure:failure];
-              });
-              return;
-          }
+            if (failure) {
+                if (CDAClassIsOfType([responseObject class], CDAError.class)) {
+                    error = [responseObject errorRepresentationWithCode:httpResponse.statusCode];
+                }
 
-          if (failure) {
-              if (CDAClassIsOfType([operation.responseObject class], CDAError.class)) {
-                  error = [operation.responseObject errorRepresentationWithCode:operation.response.statusCode];
-              }
-              
-              failure([CDAResponse responseWithHTTPURLResponse:operation.response], error);
-          }
-      }];
-    [self.operationQueue addOperation:operation];
+                failure([CDAResponse responseWithHTTPURLResponse:httpResponse], error);
+            }
+            return;
+        }
 
-    return operation;
+        if (!responseObject && httpResponse.statusCode != 204) {
+            if (failure) {
+                failure([CDAResponse responseWithHTTPURLResponse:httpResponse], [NSError errorWithDomain:NSURLErrorDomain code:kCFURLErrorZeroByteResource userInfo:nil]);
+            }
+            return;
+        }
+
+        // Handle success.
+        if (success) {
+            success([CDAResponse responseWithHTTPURLResponse:httpResponse], responseObject);
+        }
+    }];
+
+    [task resume];
+    return task;
 }
 
 @end

@@ -41,7 +41,8 @@
 -(void)testMissingEntity {
     StartBlock();
 
-    self.client = [[CDAClient alloc] initWithSpaceKey:@"vfvjfjyjrbbp" accessToken:@"422588c021896d2ae01eaf2d68faa720aaf6da4b361e7c99e9afac6feacb498b"];
+    self.client = [[CDAClient alloc] initWithSpaceKey:@"vfvjfjyjrbbp"
+                                          accessToken:@"422588c021896d2ae01eaf2d68faa720aaf6da4b361e7c99e9afac6feacb498b"];
     [super buildPersistenceManagerWithDefaultClient:NO];
 
     [self.persistenceManager setClass:LinkedEntry.class forEntriesOfContentTypeWithIdentifier:@"3IeewiEyqc4sKeUWSoicuk"];

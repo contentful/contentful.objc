@@ -6,12 +6,12 @@
 //
 //
 
-#import <AFNetworking/AFHTTPRequestOperationManager.h>
+#import <AFNetworking/AFHTTPSessionManager.h>
 #import <ContentfulDeliveryAPI/CDAClient.h>
 
 @class CDARequest;
 
-@interface CDARequestOperationManager : AFHTTPRequestOperationManager
+@interface CDARequestOperationManager : AFHTTPSessionManager
 
 -(CDARequest*)deleteURLPath:(NSString*)URLPath
                     headers:(NSDictionary*)headers

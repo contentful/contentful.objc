@@ -1,0 +1,60 @@
+{
+  "sys": {
+    "type": "Array"
+  },
+  "items": [
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "emh6o2ireilu"
+          }
+        },
+        "type": "Entry",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "4yCmJfmk1WeqACagaemOIs"
+          }
+        },
+        "id": "5ZmiC472OAg2SY2W0QM6Gs",
+        "revision": 2,
+        "createdAt": "2014-04-11T11:39:09.283Z",
+        "updatedAt": "2014-04-11T11:41:29.967Z"
+      },
+      "fields": {
+        "link1": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "4upDPGUMMEkG8w8UUs2OiO"
+            }
+          }
+        },
+        "link2": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "1gQ4P2tG7QaGkQwkC4a6Gg"
+            }
+          }
+        },
+        "link3": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "1Wl5HnguK8CiaykiQAiGu6"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "nextSyncUrl": "https://cdn.contentful.com/spaces/emh6o2ireilu/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdyY0wpV-EsO_VcK9LDPCs8O0wpBiw7vCusOKesOZXsO9wqYTw5bCiBQZacKGwolKexPDtxApQcKvwoPClcKtSWzCgFvDrnBHAsKrwqHDth_CvgbCiTkFw4rCpygefTsj"
+}

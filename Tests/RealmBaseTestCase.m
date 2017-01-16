@@ -14,11 +14,26 @@
 
 @implementation RealmBaseTestCase
 
+-(void)setUp {
+    [super setUp];
+
+    [self deleteStore];
+}
+
+-(void)tearDown {
+    [super tearDown];
+
+    [self deleteStore];
+}
+
 -(void)buildPersistenceManagerWithDefaultClient:(BOOL)defaultClient {
     [super buildPersistenceManagerWithDefaultClient:defaultClient];
 
-    NSArray* contentTypeIds = @[ @"1nGOrvlRTaMcyyq4IEa8ea", @"6bAvxqodl6s4MoKuWYkmqe",
-                                 @"6PnRGY1dxSUmaQ2Yq2Ege2", @"cat" ];
+    NSArray* contentTypeIds = @[ @"1nGOrvlRTaMcyyq4IEa8ea",
+                                 @"6bAvxqodl6s4MoKuWYkmqe",
+                                 @"6PnRGY1dxSUmaQ2Yq2Ege2",
+                                 @"cat"
+                               ];
 
     Class c = [ManagedRealmCat class];
     for (NSString* contentTypeId in contentTypeIds) {
@@ -41,16 +56,5 @@
     [realm commitWriteTransaction];
 }
 
--(void)setUp {
-    [super setUp];
-
-    [self deleteStore];
-}
-
--(void)tearDown {
-    [super tearDown];
-
-    [self deleteStore];
-}
 
 @end

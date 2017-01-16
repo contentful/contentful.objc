@@ -1,0 +1,57 @@
+{
+  "sys": {
+    "type": "Array"
+  },
+  "items": [
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "emh6o2ireilu"
+          }
+        },
+        "type": "Entry",
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "6bAvxqodl6s4MoKuWYkmqe"
+          }
+        },
+        "id": "1Wl5HnguK8CiaykiQAiGu6",
+        "revision": 2,
+        "createdAt": "2014-04-09T11:48:47.866Z",
+        "updatedAt": "2014-04-09T13:53:33.420Z"
+      },
+      "fields": {
+        "title": {
+          "en-US": "WithCategory"
+        },
+        "body": {
+          "en-US": "some text"
+        },
+        "category": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "6nRlw4CofeeICEYgIqaIIg"
+            }
+          }
+        },
+        "picture": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "2q1Ns7Oygo2mAgoweuMCAA"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "nextSyncUrl": "http://cdn.contentful.com/spaces/emh6o2ireilu/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdyYew4AvJMO0M2lFFcOkE2oaw50kwrUGHcKow7vDtcKbQ8KzIMKww73DvFvCq2TDmiLClS3DkwZVdncGXMKxXS3CgGQ3woUwHVnDlMKAIsO6w6DClkYfwprClsKfGw"
+}

@@ -7,9 +7,12 @@
 //
 
 #import <CCLRequestReplay/CCLRequestReplayManager.h>
+#import <CCLRequestReplay/CCLRequestRecordProtocol.h>
 #import <CCLRequestReplay/CCLRequestReplayProtocol.h>
 #import <VCRURLConnection/VCR.h>
 
+#import "CDAClient+Private.h"
+#import "CDARequestOperationManager.h"
 #import "CDAResource+Private.h"
 #import "ContentfulBaseTestCase.h"
 
@@ -37,6 +40,34 @@ extern void __gcov_flush();
 
 @implementation ContentfulBaseTestCase
 
+- (void)setUp {
+    [super setUp];
+
+    self.cassetteBaseName = NSStringFromClass([self class]);
+    self.client = [CDAClient new];
+
+    self.requestReplayManager = [CCLRequestReplayManager new];
+
+    [self.requestReplayManager replay];
+
+    self.snapshotTestController = [[FBSnapshotTestController alloc] initWithTestClass:[self class]];
+    self.snapshotTestController.referenceImagesDirectory = [[NSBundle bundleForClass:[self class]]
+                                                            bundlePath];
+}
+
+
+- (void)setClient:(CDAClient *)client {
+    _client = client;
+    [self setUpCCLRequestReplayForNSURLSession];
+}
+
+-(void)tearDown {
+    [super tearDown];
+
+    [self.requestReplayManager stopReplay];
+    self.requestReplayManager = nil;
+}
+
 + (NSArray *)testInvocations
 {
     if (self == [ContentfulBaseTestCase class]) {
@@ -62,6 +93,13 @@ extern void __gcov_flush();
 
 #pragma mark -
 
+- (void)beforeAll
+{
+    [VCR loadCassetteWithContentsOfURL:[[NSBundle bundleForClass:[self class]]
+                                        URLForResource:self.cassetteBaseName withExtension:@"json"]];
+    [VCR start];
+}
+
 - (void)afterAll
 {
     [VCR save:[NSString stringWithFormat:@"/tmp/%@.json", self.cassetteBaseName]];
@@ -75,7 +113,13 @@ extern void __gcov_flush();
 - (void)addRecordingWithJSONNamed:(NSString*)JSONName
                       inDirectory:(NSString*)directory
                           matcher:(CCLURLRequestMatcher)matcher {
-    CCLRequestJSONRecording* recording = [[CCLRequestJSONRecording alloc] initWithBundledJSONNamed:JSONName inDirectory:directory matcher:matcher statusCode:200 headerFields:@{ @"Content-Type": @"application/vnd.contentful.delivery.v1+json" }];
+
+    NSDictionary *headerFields = @{ @"Content-Type": @"application/vnd.contentful.delivery.v1+json" };
+    CCLRequestJSONRecording* recording = [[CCLRequestJSONRecording alloc] initWithBundledJSONNamed:JSONName
+                                                                                       inDirectory:directory
+                                                                                           matcher:matcher
+                                                                                        statusCode:200
+                                                                                      headerFields:headerFields];
     [self.requestReplayManager addRecording:recording];
 }
 
@@ -107,12 +151,7 @@ extern void __gcov_flush();
     [self.requestReplayManager addRecording:recording];
 }
 
-- (void)beforeAll
-{
-    [VCR loadCassetteWithContentsOfURL:[[NSBundle bundleForClass:[self class]]
-                                        URLForResource:self.cassetteBaseName withExtension:@"json"]];
-    [VCR start];
-}
+
 
 - (void)compareView:(UIView*)view forTestSelector:(SEL)testSelector
 {
@@ -176,28 +215,32 @@ extern void __gcov_flush();
     [self.requestReplayManager removeAllRecordings];
 }
 
-- (void)setUp
-{
-    [super setUp];
-    
-    self.cassetteBaseName = NSStringFromClass([self class]);
-    self.client = [CDAClient new];
-    
-    self.requestReplayManager = [CCLRequestReplayManager new];
-    [self.requestReplayManager replay];
-    
-    self.snapshotTestController = [[FBSnapshotTestController alloc] initWithTestClass:[self class]];
-    self.snapshotTestController.referenceImagesDirectory = [[NSBundle bundleForClass:[self class]]
-                                                            bundlePath];
+/*
+ CCLRequestReplay doesn't contain support for NSURLSession by default, so we need to add its URL
+ protocols manually to the session used by CDAClient
+ */
+- (void)setUpCCLRequestReplayForNSURLSession {
+     
+    NSURLSessionConfiguration* config = self.client.requestOperationManager.session.configuration;
+
+    NSMutableArray* protocolClasses = [config.protocolClasses mutableCopy];
+    [protocolClasses insertObject:[CCLRequestRecordProtocol class] atIndex:0];
+    [protocolClasses insertObject:[CCLRequestReplayProtocol class] atIndex:0];
+    config.protocolClasses = protocolClasses;
+
+    NSURLSession *newSession = [NSURLSession sessionWithConfiguration:config delegate:self.client.requestOperationManager delegateQueue:self.client.requestOperationManager.operationQueue];
+    [self.client.requestOperationManager setValue:newSession forKey:@"session"];
 }
 
-- (void)stubHTTPRequestUsingFixtures:(NSDictionary*)fixtureMap inDirectory:(NSString*)directoryName
-{
-    [fixtureMap enumerateKeysAndObjectsUsingBlock:^(NSString* url, NSString* JSONName, BOOL *stop) {
+- (void)stubHTTPRequestUsingFixtures:(NSDictionary*)fixtureMap inDirectory:(NSString*)directoryName {
+
+    [self setUpCCLRequestReplayForNSURLSession];
+
+    [fixtureMap enumerateKeysAndObjectsUsingBlock:^(NSString* urlString, NSString* JSONName, BOOL *stop) {
         [self addRecordingWithJSONNamed:JSONName
                             inDirectory:directoryName
                                 matcher:^BOOL(NSURLRequest *request) {
-                                    return [request.URL.absoluteString isEqualToString:url];
+                                    return [request.URL.absoluteString isEqualToString:urlString];
                                 }];
     }];
     
@@ -210,11 +253,6 @@ extern void __gcov_flush();
                                           statusCode:404
                                           headerFields:nil];
     [self.requestReplayManager addRecording:recording];
-}
-
--(void)tearDown {
-    [self.requestReplayManager stopReplay];
-    self.requestReplayManager = nil;
 }
 
 @end

@@ -1,5 +1,5 @@
 __SIM_ID=`xcrun simctl list|egrep -m 1 '$(SIM_NAME) \([^(]*\) \([^(]*\)$$'|sed -e 's/.* (\(.*\)) (.*)/\1/'`
-SIM_NAME=iPhone 4s
+SIM_NAME=iPhone 5s
 SIM_ID=$(shell echo $(__SIM_ID))
 
 ifeq ($(strip $(SIM_ID)),)
@@ -8,20 +8,29 @@ endif
 
 WORKSPACE=ContentfulSDK.xcworkspace
 
-.PHONY: all clean doc example example-static pod really-clean static-lib test
+.PHONY: all open clean clean_simulators doc example example-static pod really-clean static-lib test kill_simulator
 
-clean:
+open:
+	open ContentfulSDK.xcworkspace
+
+clean: clean_simulators
 	rm -rf build Examples/UFO/build Examples/*.zip compile_commands.json .gutter.json
 	rm -rf Examples/UFO/Distribution/ContentfulDeliveryAPI.framework
 
-really-clean: clean
-	rm -rf Pods $(HOME)/Library/Developer/Xcode/DerivedData/*
+clean_pods:
+	rm -rf Pods/
+
+really_clean: clean
+	rm -rf $(HOME)/Library/Developer/Xcode/DerivedData/*
+
+clean_simulators:
+	xcrun simctl erase all
 
 all: test example-static
 
 pod:
 	bundle exec pod install
-	xcversion select 7.3
+	xcversion select 7.3.1
 	xcrun bitcode_strip -r Pods/Realm/core/librealm-ios.a -o Pods/Realm/core/librealm-ios.a
 
 example:
@@ -45,9 +54,14 @@ static-lib:
 
 	rm -rf ContentfulDeliveryAPI-*/
 
-test: example
-	@osascript -e 'tell app "iOS Simulator" to quit'
-	@osascript -e 'tell app "Simulator" to quit'
+kill_simulator:
+	killall "Simulator" || true
+
+test: kill_simulator really_clean
+	set -x -o pipefail && xcodebuild test -workspace $(WORKSPACE) \
+		-scheme 'ContentfulDeliveryAPI' -sdk iphonesimulator \
+		-destination 'platform=iOS Simulator,name=iPhone 5s,OS=10.2'| xcpretty -c 
+	kill_simulator	
 	bundle exec pod lib coverage
 
 lint:

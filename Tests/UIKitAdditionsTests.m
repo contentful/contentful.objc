@@ -45,6 +45,23 @@
 
 @end
 
+// We need a fake as there is no way to test the topViewController property without a host application.
+// Without host, pushes to navigation stack will not update navigationController viewControllers in unit tests.
+@interface FakeNavigationController: UINavigationController
+
+@property (nonatomic, strong) UIViewController *pushedViewController;
+
+@end
+
+@implementation FakeNavigationController
+
+- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    _pushedViewController = viewController;
+    [super pushViewController:viewController animated:animated];
+}
+
+@end
+
 #pragma mark -
 
 @interface UIKitAdditionsTests : ContentfulBaseTestCase
@@ -210,13 +227,15 @@
     UITableViewCell* cell = [entriesVC.tableView cellForRowAtIndexPath:indexPath];
     XCTAssertEqualObjects(@"title", cell.textLabel.text, @"");
     
-    UINavigationController* navigationController = [[UINavigationController alloc] initWithRootViewController:entriesVC];
+    FakeNavigationController* navigationController = [[FakeNavigationController alloc] initWithRootViewController:entriesVC];
     [entriesVC tableView:entriesVC.tableView didSelectRowAtIndexPath:indexPath];
+
+    XCTAssert(navigationController == entriesVC.navigationController);
 
     StartBlock();
 
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        XCTAssert([navigationController.topViewController isKindOfClass:[CDAFieldsViewController class]], @"");
+        XCTAssert([navigationController.pushedViewController isKindOfClass:[CDAFieldsViewController class]], @"");
         EndBlock();
     });
 
@@ -391,7 +410,7 @@
     XCTAssertNotNil(resourcesVC.view, @"");
     [resourcesVC viewWillAppear:NO];
     
-    UINavigationController* navigationController = [[UINavigationController alloc]
+    FakeNavigationController* navigationController = [[FakeNavigationController alloc]
                                                     initWithRootViewController:resourcesVC];
     [resourcesVC tableView:resourcesVC.tableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
 
@@ -399,7 +418,7 @@
 
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)),
                    dispatch_get_main_queue(), ^{
-                       CDAImageViewController* topVC = (CDAImageViewController*)navigationController.topViewController;
+                       CDAImageViewController* topVC = (CDAImageViewController*)navigationController.pushedViewController;
                        XCTAssert([topVC isKindOfClass:[CDAImageViewController class]], @"");
                        XCTAssertNotNil(topVC.view, @"");
                        
@@ -417,7 +436,7 @@
 
 - (void)testTextViewController {
     CDAFieldsViewController* fieldsVC = [self buildFieldsViewController];
-    UINavigationController* navigationController = [[UINavigationController alloc]
+    FakeNavigationController* navigationController = [[FakeNavigationController alloc]
                                                     initWithRootViewController:fieldsVC];
     
     CDAField* field = [self customEntryHelperWithFields:@{}].contentType.fields[8];
@@ -427,7 +446,7 @@
     StartBlock();
 
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        CDATextViewController* topVC = (CDATextViewController*)navigationController.topViewController;
+        CDATextViewController* topVC = (CDATextViewController*)navigationController.pushedViewController;
         XCTAssert([topVC isKindOfClass:[CDATextViewController class]], @"");
         XCTAssertEqualObjects(topVC.text, textValue, @"");
         XCTAssertNotNil(topVC.view, @"");

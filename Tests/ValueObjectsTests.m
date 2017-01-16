@@ -150,7 +150,7 @@
                              CDAEntry* firstEntry = [array.items firstObject];
                              CLLocationCoordinate2D coordinate = [firstEntry CLLocationCoordinate2DFromFieldWithIdentifier:@"location"];
                              XCTAssertEqualWithAccuracy(40.31, coordinate.latitude, 0.01, @"");
-                             XCTAssertEqualWithAccuracy(-75.12, coordinate.longitude, 0.01, @"");
+                             XCTAssertEqualWithAccuracy(-75.13, coordinate.longitude, 0.01, @"");
                              
                              EndBlock();
                          } failure:^(CDAResponse *response, NSError *error) {

@@ -31,7 +31,6 @@ NSString* const CMAContentTypeHeader = @"application/vnd.contentful.management.v
 @property (nonatomic) NSString* accessToken;
 @property (nonatomic) CDAConfiguration* configuration;
 @property (nonatomic) CDAContentTypeRegistry* contentTypeRegistry;
-@property (nonatomic) CDARequestOperationManager* requestOperationManager;
 @property (nonatomic) CDASpace* space;
 @property (nonatomic) NSString* spaceKey;
 
@@ -123,7 +122,10 @@ NSString* const CMAContentTypeHeader = @"application/vnd.contentful.management.v
 -(CDARequest*)fetchArrayAtURLPath:(NSString *)URLPath
                           success:(CDAArrayFetchedBlock)success
                           failure:(CDARequestFailureBlock)failure {
-    return [self fetchArrayAtURLPath:URLPath parameters:nil success:success failure:failure];
+    return [self fetchArrayAtURLPath:URLPath
+                          parameters:nil
+                             success:success
+                             failure:failure];
 }
 
 -(CDARequest*)fetchAssetsMatching:(NSDictionary*)query
@@ -176,7 +178,9 @@ NSString* const CMAContentTypeHeader = @"application/vnd.contentful.management.v
 
 -(CDARequest*)fetchContentTypesWithSuccess:(CDAArrayFetchedBlock)success
                                    failure:(CDARequestFailureBlock)failure {
-    return [self fetchArrayAtURLPath:@"content_types" success:success failure:failure];
+    return [self fetchArrayAtURLPath:@"content_types"
+                             success:success
+                             failure:failure];
 }
 
 -(CDARequest*)fetchContentTypeWithIdentifier:(NSString *)identifier
@@ -185,7 +189,8 @@ NSString* const CMAContentTypeHeader = @"application/vnd.contentful.management.v
     CDAContentType* contentType = [self.contentTypeRegistry contentTypeForIdentifier:identifier];
 
     if (contentType && contentType.fetched && !self.configuration.usesManagementAPI) {
-        dispatch_async(self.requestOperationManager.completionQueue ?: dispatch_get_main_queue(), ^{
+        dispatch_queue_t queue = self.requestOperationManager.completionQueue ?: dispatch_get_main_queue();
+        dispatch_async(queue, ^{
             if (success) {
                 success(nil, contentType);
             }

@@ -43,10 +43,10 @@
         XCTAssertEqualObjects(@"cfexampleapi", space.identifier, @"");
         XCTAssertEqualObjects(@"Contentful Example API", space.name, @"");
         XCTAssertEqual(2U, space.locales.count, @"");
-        XCTAssertEqualObjects((@{ @"code": @"en-US",
-                                  @"name": @"English" }), space.locales[0], @"");
-        XCTAssertEqualObjects((@{ @"code": @"tlh",
-                                  @"name": @"Klingon" }), space.locales[1], @"");
+        XCTAssertEqualObjects(@"en-US", space.locales[0][@"code"], @"");
+        XCTAssertEqualObjects(@"English", space.locales[0][@"name"], @"");
+        XCTAssertEqualObjects(@"tlh", space.locales[1][@"code"], @"");
+        XCTAssertEqualObjects(@"Klingon", space.locales[1][@"name"], @"");
         
         EndBlock();
     } failure:^(CDAResponse *response, NSError *error) {

@@ -17,7 +17,6 @@
 
 -(void)buildPersistenceManagerWithDefaultClient:(BOOL)defaultClient {
     [self querySync_setupClient];
-    
     [super buildPersistenceManagerWithDefaultClient:NO];
 }
 
