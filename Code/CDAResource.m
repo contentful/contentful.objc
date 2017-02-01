@@ -159,9 +159,6 @@ static const typeToClassMap_t typeToClassMap[] = {
     return [(NSDate*)self.sys[@"createdAt"] compare:date] == NSOrderedDescending;
 }
 
--(void)encodeWithCoder:(NSCoder *)aCoder {
-    CDAEncodeObjectWithCoder(self, aCoder);
-}
 
 -(BOOL)fetched {
     return self.lastFetchedDate != nil;
@@ -175,14 +172,6 @@ static const typeToClassMap_t typeToClassMap[] = {
     NSString* identifier = self.sys[@"id"];
     NSParameterAssert(identifier);
     return identifier;
-}
-
--(id)initWithCoder:(NSCoder *)aDecoder {
-    self = [super init];
-    if (self) {
-        CDADecodeObjectWithCoder(self, aDecoder);
-    }
-    return self;
 }
 
 -(id)initWithDictionary:(NSDictionary *)dictionary
@@ -373,6 +362,27 @@ static const typeToClassMap_t typeToClassMap[] = {
 -(void)writeToFile:(NSString*)filePath {
     NSData* data = [NSKeyedArchiver archivedDataWithRootObject:self];
     [data writeToFile:filePath atomically:YES];
+}
+
+// We only encode properties that have write permissions
+#pragma mark - NSCoding
+
+-(id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
+    if (self) {
+        self.sys                    = [aDecoder decodeObjectForKey:@"sys"];
+        self.localizationAvailable  = [aDecoder decodeBoolForKey:@"localizationAvailable"];
+        self.lastFetchedDate        = [aDecoder decodeObjectForKey:@"lastFetchedDate"];
+        self.defaultLocaleOfSpace   = [aDecoder decodeObjectForKey:@"defaultLocaleOfSpace"];
+    }
+    return self;
+}
+
+-(void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.sys forKey:@"sys"];
+    [aCoder encodeBool:self.localizationAvailable forKey:@"localizationAvailable"];
+    [aCoder encodeObject:self.lastFetchedDate forKey:@"lastFetchedDate"];
+    [aCoder encodeObject:self.defaultLocaleOfSpace forKey:@"defaultLocaleOfSpace"];
 }
 
 @end

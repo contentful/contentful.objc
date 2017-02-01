@@ -97,10 +97,6 @@
     return rep;
 }
 
--(void)encodeWithCoder:(NSCoder *)aCoder {
-    CDAEncodeObjectWithCoder(self, aCoder);
-}
-
 -(NSDictionary*)fieldTypes {
     static dispatch_once_t once;
     static NSDictionary* fieldTypes;
@@ -126,14 +122,6 @@
     NSAssert(possibleFieldTypes.count == 1,
              @"Field-type %ld lacks proper string representation.", (long)fieldType);
     return possibleFieldTypes[0];
-}
-
--(id)initWithCoder:(NSCoder *)aDecoder {
-    self = [super init];
-    if (self) {
-        CDADecodeObjectWithCoder(self, aDecoder);
-    }
-    return self;
 }
 
 -(id)initWithDictionary:(NSDictionary *)dictionary
@@ -183,6 +171,38 @@
     NSNumber* fieldTypeNumber = self.fieldTypes[string];
     NSAssert(fieldTypeNumber, @"Unknown field-type '%@'", string);
     return [fieldTypeNumber integerValue];
+}
+
+// We only encode properties that have write permissions
+#pragma mark - NSCoding
+
+-(id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
+    if (self) {
+
+        self.name       = [aDecoder decodeObjectForKey:@"name"];
+        self.identifier = [aDecoder decodeObjectForKey:@"identifier"];
+
+        self.disabled   = [aDecoder decodeBoolForKey:@"disabled"];
+        self.localized  = [aDecoder decodeBoolForKey:@"localized"];
+        self.required   = [aDecoder decodeBoolForKey:@"required"];
+
+        self.itemType   = [aDecoder decodeIntegerForKey:@"itemType"];
+        self.type       = [aDecoder decodeIntegerForKey:@"type"];
+    }
+    return self;
+}
+
+-(void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.name forKey:@"name"];
+    [aCoder encodeObject:self.identifier forKey:@"identifier"];
+
+    [aCoder encodeBool:self.disabled forKey:@"disabled"];
+    [aCoder encodeBool:self.localized forKey:@"localized"];
+    [aCoder encodeBool:self.required forKey:@"required"];
+
+    [aCoder encodeInteger:self.itemType forKey:@"itemType"];
+    [aCoder encodeInteger:self.type forKey:@"type"];
 }
 
 @end

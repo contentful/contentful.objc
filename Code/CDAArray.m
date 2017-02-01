@@ -108,4 +108,38 @@
     }
 }
 
+// We only encode properties that have write permissions
+#pragma mark - NSCoding
+
+-(instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        self.errors             = [aDecoder decodeObjectForKey:@"errors"];
+        self.items              = [aDecoder decodeObjectForKey:@"items"];
+        self.query              = [aDecoder decodeObjectForKey:@"query"];
+        self.nextPageUrlString  = [aDecoder decodeObjectForKey:@"nextPageUrlString"];
+        self.nextSyncUrlString  = [aDecoder decodeObjectForKey:@"nextSyncUrlString"];
+
+        self.limit              = [(NSNumber *)[aDecoder decodeObjectForKey:@"limit"] unsignedIntegerValue];
+        self.skip               = [(NSNumber *)[aDecoder decodeObjectForKey:@"skip"] unsignedIntegerValue];
+        self.total              = [(NSNumber *)[aDecoder decodeObjectForKey:@"total"] unsignedIntegerValue];
+    }
+    return self;
+}
+
+-(void)encodeWithCoder:(NSCoder *)aCoder {
+    [super encodeWithCoder:aCoder];
+
+    [aCoder encodeObject:self.errors forKey:@"errors"];
+    [aCoder encodeObject:self.items forKey:@"items"];
+    [aCoder encodeObject:self.query forKey:@"query"];
+
+    [aCoder encodeObject:[NSNumber numberWithUnsignedInteger:self.limit] forKey:@"limit"];
+    [aCoder encodeObject:[NSNumber numberWithUnsignedInteger:self.skip] forKey:@"skip"];
+    [aCoder encodeObject:[NSNumber numberWithUnsignedInteger:self.total] forKey:@"total"];
+
+    [aCoder encodeObject:self.nextPageUrlString forKey:@"nextPageUrlString"];
+    [aCoder encodeObject:self.nextSyncUrlString forKey:@"nextSyncUrlString"];
+}
+
 @end

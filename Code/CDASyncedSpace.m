@@ -59,10 +59,6 @@
     return self.syncedAssets.allValues;
 }
 
--(void)encodeWithCoder:(NSCoder *)aCoder {
-    CDAEncodeObjectWithCoder(self, aCoder);
-}
-
 -(NSArray *)entries {
     return self.syncedEntries.allValues;
 }
@@ -204,14 +200,6 @@
     return self;
 }
 
--(id)initWithCoder:(NSCoder *)aDecoder {
-    self = [super init];
-    if (self) {
-        CDADecodeObjectWithCoder(self, aDecoder);
-    }
-    return self;
-}
-
 -(void)performSynchronizationWithSuccess:(void (^)())success
                                  failure:(CDARequestFailureBlock)failure {
     NSParameterAssert(self.client);
@@ -340,6 +328,27 @@
 -(void)writeToFile:(NSString*)filePath {
     NSData* data = [NSKeyedArchiver archivedDataWithRootObject:self];
     [data writeToFile:filePath atomically:YES];
+}
+
+// We only encode properties that have write permissions
+#pragma mark - NSCoding
+
+-(id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
+    if (self) {
+        self.syncedEntries  = [aDecoder decodeObjectForKey:@"syncedEntries"];
+        self.syncedAssets   = [aDecoder decodeObjectForKey:@"syncedAssets"];
+        self.nextPageUrl    = [aDecoder decodeObjectForKey:@"nextPageUrl"];
+        self.nextSyncUrl    = [aDecoder decodeObjectForKey:@"nextSyncUrl"];
+    }
+    return self;
+}
+
+-(void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.syncedAssets forKey:@"syncedAssets"];
+    [aCoder encodeObject:self.syncedEntries forKey:@"syncedEntries"];
+    [aCoder encodeObject:self.nextPageUrl forKey:@"nextPageUrl"];
+    [aCoder encodeObject:self.nextSyncUrl forKey:@"nextSyncUrl"];
 }
 
 @end

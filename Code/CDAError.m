@@ -56,4 +56,23 @@ NSString* const CDAErrorDomain = @"CDAErrorDomain";
     return self;
 }
 
+// We only encode properties that have write permissions
+#pragma mark - NSCoding
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        self.details    = [aDecoder decodeObjectForKey:@"details"];
+        self.message    = [aDecoder decodeObjectForKey:@"message"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [super encodeWithCoder:aCoder];
+
+    [aCoder encodeObject:self.details forKey:@"details"];
+    [aCoder encodeObject:self.message forKey:@"message"];
+}
+
 @end

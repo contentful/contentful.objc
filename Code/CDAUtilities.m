@@ -104,41 +104,6 @@ BOOL CDAClassIsOfType(Class someClass, Class otherClass) {
     return NO;
 }
 
-void CDADecodeObjectWithCoder(id object, NSCoder* aDecoder) {
-    CDAPropertyVisitor([object class], ^(objc_property_t property, NSString *propertyName) {
-        if (!CDAIgnoreProperty(property)) {
-            [object setValue:[aDecoder decodeObjectOfClass:[object class]
-                                                    forKey:propertyName] forKey:propertyName];
-        }
-    });
-}
-
-void CDAEncodeObjectWithCoder(id object, NSCoder* aCoder) {
-    CDAPropertyVisitor([object class], ^(objc_property_t property, NSString *propertyName) {
-        if (!CDAIgnoreProperty(property)) {
-            [aCoder encodeObject:[object valueForKey:propertyName] forKey:propertyName];
-        }
-    });
-}
-
-BOOL CDAIgnoreProperty(objc_property_t property) {
-    if (CDAPropertyIsReadOnly(property)) {
-        return YES;
-    }
-    
-    NSString* type = CDAPropertyGetTypeString(property);
-    if ([type hasSuffix:@"CDAClient\""] || [type hasSuffix:@"CDAFieldValueTransformer\""]) {
-        return YES;
-    }
-    
-    static const char* observationInfo = "observationInfo";
-    if (strncmp(property_getName(property), observationInfo, strlen(observationInfo)) == 0) {
-        return YES;
-    }
-    
-    return NO;
-}
-
 BOOL CDAIsNoNetworkError(NSError* error) {
     if (![error.domain isEqualToString:NSURLErrorDomain]) {
         return NO;
@@ -163,13 +128,6 @@ NSString* CDAPropertyGetTypeString(objc_property_t property) {
     buffer[len] = '\0';
     
     return [NSString stringWithCString:buffer encoding:NSUTF8StringEncoding];
-}
-
-BOOL CDAPropertyIsReadOnly(objc_property_t property) {
-    const char *propertyAttributes = property_getAttributes(property);
-    NSArray *attributes = [[NSString stringWithUTF8String:propertyAttributes]
-                           componentsSeparatedByString:@","];
-    return [attributes containsObject:@"R"];
 }
 
 void CDAPropertyVisitor(Class class, void(^visitor)(objc_property_t property, NSString* propertyName)) {
