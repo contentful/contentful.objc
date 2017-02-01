@@ -375,17 +375,17 @@ NSString* const CMAContentTypeHeader = @"application/vnd.contentful.management.v
                              failure:failure];
 }
 
--(id)init {
+-(instancetype)init {
     return [self initWithSpaceKey:@"cfexampleapi" accessToken:@"b4c0n73n7fu1"];
 }
 
--(id)initWithSpaceKey:(NSString *)spaceKey accessToken:(NSString *)accessToken {
+-(instancetype)initWithSpaceKey:(NSString *)spaceKey accessToken:(NSString *)accessToken {
     return [self initWithSpaceKey:spaceKey
                       accessToken:accessToken
                     configuration:[CDAConfiguration defaultConfiguration]];
 }
 
--(id)initWithSpaceKey:(NSString *)spaceKey
+-(instancetype)initWithSpaceKey:(NSString *)spaceKey
           accessToken:(NSString *)accessToken
         configuration:(CDAConfiguration*)configuration {
     if (!configuration.usesManagementAPI && !spaceKey) {

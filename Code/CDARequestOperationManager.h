@@ -31,7 +31,7 @@
                 parameters:(NSDictionary*)parameters
                    success:(CDAObjectFetchedBlock)success
                    failure:(CDARequestFailureBlock)failure;
--(id)initWithSpaceKey:(NSString *)spaceKey
+-(instancetype)initWithSpaceKey:(NSString *)spaceKey
           accessToken:(NSString *)accessToken
                client:(CDAClient*)client
         configuration:(CDAConfiguration*)configuration;

@@ -44,7 +44,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return An initialized `CDAResourcesViewController` or `nil` if the object couldn't be created.
  */
--(id)initWithCellMapping:(NSDictionary*)cellMapping;
+-(instancetype)initWithCellMapping:(NSDictionary*)cellMapping;
 
 /**
  *  Initializes a new instance with the given cell mapping and a local array of Resources. This allows
@@ -57,7 +57,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return An initialized `CDAResourcesViewController` or `nil` if the object couldn't be created.
  */
--(id)initWithCellMapping:(NSDictionary *)cellMapping items:(NSArray *)items;
+-(instancetype)initWithCellMapping:(NSDictionary *)cellMapping items:(NSArray *)items;
 
 /** @name Reacting on Cell Selection */
 

@@ -10,6 +10,6 @@
 
 @interface CDAFallbackDictionary : NSDictionary
 
--(id)initWithDictionary:(NSDictionary *)dict fallbackDictionary:(NSDictionary*)fallbackDict;
+-(instancetype)initWithDictionary:(NSDictionary *)dict fallbackDictionary:(NSDictionary*)fallbackDict;
 
 @end

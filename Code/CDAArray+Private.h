@@ -14,6 +14,6 @@
 @property (nonatomic, readonly) NSURL* nextSyncUrl;
 @property (nonatomic) NSDictionary* query;
 
--(id)initWithItems:(NSArray*)items client:(CDAClient*)client;
+-(instancetype)initWithItems:(NSArray*)items client:(CDAClient*)client;
 
 @end

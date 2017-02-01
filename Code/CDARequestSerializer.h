@@ -12,6 +12,6 @@
 
 @property (nonatomic) NSString* userAgent;
 
--(id)initWithAccessToken:(NSString*)accessToken;
+-(instancetype)initWithAccessToken:(NSString*)accessToken;
 
 @end

@@ -15,7 +15,7 @@
 @property (nonatomic) NSString* name;
 @property (nonatomic) CDAFieldType type;
 
--(id)initWithDictionary:(NSDictionary *)dictionary
+-(instancetype)initWithDictionary:(NSDictionary *)dictionary
                  client:(CDAClient*)client
   localizationAvailable:(BOOL)localizationAvailable;
 -(id)parseValue:(id)value;

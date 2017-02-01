@@ -17,7 +17,7 @@
 
 #pragma mark -
 
--(id)initWithHTTPURLResponse:(NSHTTPURLResponse*)response {
+-(instancetype)initWithHTTPURLResponse:(NSHTTPURLResponse*)response {
     NSURL* responseURL = response.URL ?: [NSURL URLWithString:@"http://example.com/"];
     NSParameterAssert(responseURL);
 

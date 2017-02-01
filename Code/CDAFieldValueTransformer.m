@@ -39,7 +39,7 @@
 
 #pragma mark -
 
--(id)initWithType:(CDAFieldType)type
+-(instancetype)initWithType:(CDAFieldType)type
            client:(CDAClient*)client
 localizationAvailable:(BOOL)localizationAvailable {
     self = [super init];

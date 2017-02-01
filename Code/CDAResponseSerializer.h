@@ -14,6 +14,6 @@
 
 @property (nonatomic, weak, readonly) CDAClient* client;
 
--(id)initWithClient:(CDAClient*)client;
+-(instancetype)initWithClient:(CDAClient*)client;
 
 @end

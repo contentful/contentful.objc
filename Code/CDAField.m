@@ -124,9 +124,9 @@
     return possibleFieldTypes[0];
 }
 
--(id)initWithDictionary:(NSDictionary *)dictionary
-                 client:(CDAClient*)client
-  localizationAvailable:(BOOL)localizationAvailable {
+-(instancetype)initWithDictionary:(NSDictionary *)dictionary
+                           client:(CDAClient*)client
+            localizationAvailable:(BOOL)localizationAvailable {
     self = [super init];
     if (self) {
         NSParameterAssert(client);
@@ -176,7 +176,7 @@
 // We only encode properties that have write permissions
 #pragma mark - NSCoding
 
--(id)initWithCoder:(NSCoder *)aDecoder {
+-(instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super init];
     if (self) {
 

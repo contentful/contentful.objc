@@ -44,7 +44,7 @@
     }
 }
 
--(id)initWithCollectionViewLayout:(UICollectionViewLayout *)layout
+-(instancetype)initWithCollectionViewLayout:(UICollectionViewLayout *)layout
                       cellMapping:(NSDictionary*)cellMapping {
     self = [super initWithCollectionViewLayout:layout];
     if (self) {

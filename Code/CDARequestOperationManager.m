@@ -170,7 +170,7 @@
     return mutableParameters.count == 0 ? nil : [mutableParameters copy];
 }
 
--(id)initWithSpaceKey:(NSString *)spaceKey
+-(instancetype)initWithSpaceKey:(NSString *)spaceKey
           accessToken:(NSString *)accessToken
                client:(CDAClient*)client
         configuration:(CDAConfiguration*)configuration {
