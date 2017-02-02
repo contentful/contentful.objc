@@ -332,4 +332,24 @@
     self.localizedFields = allFields;
 }
 
+// We only encode properties that have write permissions
+#pragma mark - NSCoding
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        NSString *locale = [aDecoder decodeObjectForKey:@"locale"];
+        self.locale             = locale ?: @"en-US"; // value cannot be null
+        self.localizedFields    = [aDecoder decodeObjectForKey:@"localizedFields"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [super encodeWithCoder:aCoder];
+
+    [aCoder encodeObject:self.locale forKey:@"locale"];
+    [aCoder encodeObject:self.localizedFields forKey:@"localizedFields"];
+}
+
 @end

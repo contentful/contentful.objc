@@ -356,4 +356,23 @@ const CGFloat CDARadiusNone             = 0.0;
     return [NSURL URLWithString:url];
 }
 
+// We only encode properties that have write permissions
+#pragma mark - NSCoding
+
+-(instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        self.localizedFields    = [aDecoder decodeObjectForKey:@"localizedFields"];
+        self.protocol           = [aDecoder decodeObjectForKey:@"protocol"];
+    }
+    return self;
+}
+
+-(void)encodeWithCoder:(NSCoder *)aCoder {
+    [super encodeWithCoder:aCoder];
+
+    [aCoder encodeObject:self.localizedFields forKey:@"localizedFields"];
+    [aCoder encodeObject:self.protocol forKey:@"protocol"];
+}
+
 @end

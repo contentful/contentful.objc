@@ -96,4 +96,30 @@
                                         } failure:failure];
 }
 
+// We only encode properties that have write permissions
+#pragma mark - NSCoding
+
+-(instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        self.allFields          = [aDecoder decodeObjectForKey:@"allFields"];
+        self.displayField       = [aDecoder decodeObjectForKey:@"displayField"];
+        self.fields             = [aDecoder decodeObjectForKey:@"fields"];
+        self.name               = [aDecoder decodeObjectForKey:@"name"];
+        self.userDescription    = [aDecoder decodeObjectForKey:@"userDescription"];
+    }
+    return self;
+}
+
+-(void)encodeWithCoder:(NSCoder *)aCoder {
+    [super encodeWithCoder:aCoder];
+
+    [aCoder encodeObject:self.allFields forKey:@"allFields"];
+    [aCoder encodeObject:self.displayField forKey:@"displayField"];
+    [aCoder encodeObject:self.fields forKey:@"fields"];
+    [aCoder encodeObject:self.name forKey:@"name"];
+    [aCoder encodeObject:self.userDescription forKey:@"userDescription"];
+
+}
+
 @end
