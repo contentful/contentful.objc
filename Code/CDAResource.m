@@ -174,9 +174,9 @@ static const typeToClassMap_t typeToClassMap[] = {
     return identifier;
 }
 
--(id)initWithDictionary:(NSDictionary *)dictionary
-                 client:(CDAClient*)client
-  localizationAvailable:(BOOL)localizationAvailable {
+-(instancetype)initWithDictionary:(NSDictionary *)dictionary
+                           client:(CDAClient*)client
+            localizationAvailable:(BOOL)localizationAvailable {
     self = [super init];
     if (self) {
         self.defaultLocaleOfSpace = @"en-US";
@@ -367,7 +367,7 @@ static const typeToClassMap_t typeToClassMap[] = {
 // We only encode properties that have write permissions
 #pragma mark - NSCoding
 
--(id)initWithCoder:(NSCoder *)aDecoder {
+-(instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super init];
     if (self) {
         self.sys                    = [aDecoder decodeObjectForKey:@"sys"];

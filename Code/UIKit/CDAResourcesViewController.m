@@ -77,7 +77,7 @@
     }
 }
 
--(id)initWithCellMapping:(NSDictionary *)cellMapping {
+-(instancetype)initWithCellMapping:(NSDictionary *)cellMapping {
     self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
         self.cellMapping = cellMapping;
@@ -95,7 +95,7 @@
     return self;
 }
 
--(id)initWithCellMapping:(NSDictionary *)cellMapping items:(NSArray *)items {
+-(instancetype)initWithCellMapping:(NSDictionary *)cellMapping items:(NSArray *)items {
     self = [self initWithCellMapping:cellMapping];
     if (self) {
         self.localItems = items;

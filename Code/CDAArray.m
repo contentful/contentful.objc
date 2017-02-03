@@ -37,7 +37,7 @@
     return self.items.description;
 }
 
--(id)initWithDictionary:(NSDictionary*)dictionary
+-(instancetype)initWithDictionary:(NSDictionary*)dictionary
                  client:(CDAClient*)client
   localizationAvailable:(BOOL)localizationAvailable {
     self = [super initWithDictionary:dictionary client:client localizationAvailable:localizationAvailable];
@@ -72,7 +72,7 @@
     return self;
 }
 
--(id)initWithItems:(NSArray *)items client:(CDAClient *)client {
+-(instancetype)initWithItems:(NSArray *)items client:(CDAClient *)client {
     self = [self initWithDictionary:@{ @"sys": @{} } client:client localizationAvailable:NO];
     if (self) {
         self.limit = items.count;

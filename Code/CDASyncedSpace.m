@@ -176,7 +176,7 @@
     }
 }
 
--(id)init {
+-(instancetype)init {
     self = [super init];
     if (self) {
         self.lastSyncTimestamp = [NSDate distantPast];
@@ -186,7 +186,7 @@
     return self;
 }
 
--(id)initWithAssets:(NSArray *)assets entries:(NSArray *)entries {
+-(instancetype)initWithAssets:(NSArray *)assets entries:(NSArray *)entries {
     self = [self init];
     if (self) {
         for (CDAAsset* asset in assets) {
@@ -333,7 +333,7 @@
 // We only encode properties that have write permissions
 #pragma mark - NSCoding
 
--(id)initWithCoder:(NSCoder *)aDecoder {
+-(instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super init];
     if (self) {
         self.syncedEntries  = [aDecoder decodeObjectForKey:@"syncedEntries"];

@@ -11,7 +11,7 @@
 
 @implementation CDAEntriesViewController
 
--(id)initWithCellMapping:(NSDictionary *)cellMapping {
+-(instancetype)initWithCellMapping:(NSDictionary *)cellMapping {
     self = [super initWithCellMapping:cellMapping];
     if (self) {
         self.delegate = self;

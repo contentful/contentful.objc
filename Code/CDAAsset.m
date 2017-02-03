@@ -246,7 +246,7 @@ const CGFloat CDARadiusNone             = 0.0;
     return [NSURL URLWithString:imageUrlString];
 }
 
--(id)initWithDictionary:(NSDictionary *)dictionary
+-(instancetype)initWithDictionary:(NSDictionary *)dictionary
                  client:(CDAClient*)client
   localizationAvailable:(BOOL)localizationAvailable {
     self = [super initWithDictionary:dictionary client:client localizationAvailable:localizationAvailable];

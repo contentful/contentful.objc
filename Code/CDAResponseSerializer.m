@@ -69,7 +69,7 @@
     return YES;
 }
 
--(id)initWithClient:(CDAClient*)client {
+-(instancetype)initWithClient:(CDAClient*)client {
     self = [super init];
     if (self) {
         self.client = client;

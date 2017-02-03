@@ -24,7 +24,7 @@
     return self.keySet.count;
 }
 
--(id)initWithDictionary:(NSDictionary *)dict fallbackDictionary:(NSDictionary *)fallbackDict {
+-(instancetype)initWithDictionary:(NSDictionary *)dict fallbackDictionary:(NSDictionary *)fallbackDict {
     self = [self initWithObjects:nil forKeys:nil count:0];
     if (self) {
         self.actualDictionary = dict;

@@ -11,7 +11,7 @@
 
 @implementation CDARequestSerializer
 
--(id)initWithAccessToken:(NSString*)accessToken {
+-(instancetype)initWithAccessToken:(NSString*)accessToken {
     NSParameterAssert(accessToken);
 
     self = [super init];

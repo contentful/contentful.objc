@@ -100,7 +100,7 @@
     return [self findUnresolvedResourceOfClass:[CDAEntry class]];
 }
 
--(id)initWithDictionary:(NSDictionary *)dictionary
+-(instancetype)initWithDictionary:(NSDictionary *)dictionary
                  client:(CDAClient*)client
   localizationAvailable:(BOOL)localizationAvailable {
     self = [super initWithDictionary:dictionary client:client localizationAvailable:localizationAvailable];

@@ -14,7 +14,7 @@
 @property (nonatomic) NSURL* nextPageUrl;
 @property (nonatomic) NSURL* nextSyncUrl;
 
--(id)initWithAssets:(NSArray*)assets entries:(NSArray*)entries;
+-(instancetype)initWithAssets:(NSArray*)assets entries:(NSArray*)entries;
 -(void)updateLastSyncTimestamp;
 
 @end

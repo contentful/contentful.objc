@@ -47,7 +47,7 @@
     return self.customClasses.count > 0;
 }
 
--(id)init {
+-(instancetype)init {
     self = [super init];
     if (self) {
         self.contentTypes = [@{} mutableCopy];

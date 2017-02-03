@@ -22,7 +22,7 @@
                      localizationAvailable:(BOOL)localizationAvailable;
 
 -(BOOL)createdAfterDate:(NSDate*)date;
--(id)initWithDictionary:(NSDictionary*)dictionary
+-(instancetype)initWithDictionary:(NSDictionary*)dictionary
                  client:(CDAClient*)client
   localizationAvailable:(BOOL)localizationAvailable;
 -(NSDictionary*)localizeFieldsFromDictionary:(NSDictionary*)fields;

@@ -111,12 +111,12 @@
     }
 }
 
--(id)initWithEntry:(CDAEntry *)entry {
+-(instancetype)initWithEntry:(CDAEntry *)entry {
     self = [self initWithEntry:entry tableViewStyle:UITableViewStyleGrouped];
     return self;
 }
 
--(id)initWithEntry:(CDAEntry*)entry tableViewStyle:(UITableViewStyle)style {
+-(instancetype)initWithEntry:(CDAEntry*)entry tableViewStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
         self.entry = entry;

@@ -57,7 +57,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return An initialized `CDAFieldsViewController` or `nil` if the object couldn't be created.
  */
--(id)initWithEntry:(CDAEntry*)entry tableViewStyle:(UITableViewStyle)style;
+-(instancetype)initWithEntry:(CDAEntry*)entry tableViewStyle:(UITableViewStyle)style;
 
 /** @name Reacting on Cell Selection */
 

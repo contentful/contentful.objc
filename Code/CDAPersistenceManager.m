@@ -175,12 +175,12 @@
     return self.classesForEntries.allKeys;
 }
 
--(id)init {
+-(instancetype)init {
     [self doesNotRecognizeSelector:_cmd];
     return nil;
 }
 
--(id)initWithClient:(CDAClient*)client {
+-(instancetype)initWithClient:(CDAClient*)client {
     self = [super init];
     if (self) {
         self.classesForEntries = [@{} mutableCopy];
@@ -191,7 +191,7 @@
     return self;
 }
 
--(id)initWithClient:(CDAClient *)client query:(NSDictionary *)query {
+-(instancetype)initWithClient:(CDAClient *)client query:(NSDictionary *)query {
     self = [super init];
     if (self) {
         self.classesForEntries = [@{} mutableCopy];
