@@ -10,6 +10,7 @@
 
 #import "CDAResource+Private.h"
 #import "ContentfulBaseTestCase.h"
+#import "CDARequestOperationManager.h"
 
 @interface ErrorTestsMapTargetAsset : NSObject
 
@@ -74,7 +75,7 @@
 - (void)noNetworkTestHelperWithContentTypeFetchedEarlier:(BOOL)contentTypeFetched {
     
     SEL sendSyncRequest = @selector(sendSynchronousRequest:returningResponse:error:);
-    Method urlOriginalMethod = class_getClassMethod(NSURLConnection.class, sendSyncRequest);
+    Method urlOriginalMethod = class_getClassMethod(CDARequestOperationManager.class, sendSyncRequest);
     Method urlNewMethod = class_getClassMethod(self.class, sendSyncRequest);
     method_exchangeImplementations(urlOriginalMethod, urlNewMethod);
     

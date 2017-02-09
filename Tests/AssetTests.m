@@ -21,22 +21,28 @@
 
 -(void)fetchImageAtURL:(NSURL*)imageURL
        completionBlock:(void (^)(UIImage* image, NSDictionary* properties))completionBlock {
-    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:imageURL] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        XCTAssertNotNil(data, @"");
-        
-        UIImage* image = [UIImage imageWithData:data];
-        XCTAssertNotNil(image, @"");
-        
-        CGImageSourceRef imageSource =CGImageSourceCreateWithData((__bridge CFDataRef)(data), nil);
-        NSDictionary* properties = CFBridgingRelease(CGImageSourceCopyPropertiesAtIndex(imageSource,
-                                                                                        0, nil));
-        CFRelease(imageSource);
-        XCTAssertNotNil(properties, @"");
-        
-        if (completionBlock) {
-            completionBlock(image, properties);
-        }
-    }];
+
+    NSURLRequest *request = [NSURLRequest requestWithURL:imageURL];
+    [[[NSURLSession sharedSession] dataTaskWithRequest:request
+                                     completionHandler:^(NSData * _Nullable data,
+                                                         NSURLResponse * _Nullable response,
+                                                         NSError * _Nullable error) {
+      XCTAssertNotNil(data, @"");
+
+      UIImage* image = [UIImage imageWithData:data];
+      XCTAssertNotNil(image, @"");
+
+      CGImageSourceRef imageSource =CGImageSourceCreateWithData((__bridge CFDataRef)(data), nil);
+      NSDictionary* properties = CFBridgingRelease(CGImageSourceCopyPropertiesAtIndex(imageSource,
+                                                                                     0, nil));
+      CFRelease(imageSource);
+      XCTAssertNotNil(properties, @"");
+     
+      if (completionBlock) {
+          completionBlock(image, properties);
+      }
+
+    }] resume];
 }
 
 -(void)fetchImageWithParametersFit:(CDAFitType)fit
