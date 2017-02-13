@@ -6,6 +6,8 @@ source 'https://github.com/contentful/CocoaPodsSpecs.git'
 
 platform :ios, "8.0"
 
+podspec :path => 'ContentfulDeliveryAPI.podspec'
+
 target "ContentfulDeliveryAPI" do
   pod 'AFNetworking'
   pod 'ISO8601DateFormatter'
