@@ -2,6 +2,7 @@
 language: objective-c
 git:
   depth: 5
+  submodules: false
 matrix:
   include:
     - osx_image: xcode8.2
@@ -11,6 +12,9 @@ matrix:
       env: 
       - SDK=iphonesimulator9.3 OS_VERSION=9.3 DEVICE_NAME='iPhone 5s'
 before_install:
+- git config --file=.gitmodules submodule.Submodules/ContentfulPersistence.url https://github.com/contentful/contentful-persistence.objc.git
+- git submodule sync
+- git submodule update --init --recursive --remote
 - echo $(WORKSPACE)
 - gem install bundler
 - bundle install
