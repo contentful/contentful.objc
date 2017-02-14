@@ -44,7 +44,6 @@
 		A170130718FD291E0086BE07 /* CDAPersistenceManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A170130518FD291E0086BE07 /* CDAPersistenceManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A170130818FD291E0086BE07 /* CDAPersistenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A170130618FD291E0086BE07 /* CDAPersistenceManager.m */; };
 		A170130B18FD30A50086BE07 /* CoreDataBasicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A170130A18FD30A50086BE07 /* CoreDataBasicTests.m */; };
-		A170130E18FD31950086BE07 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A170130D18FD31950086BE07 /* CoreData.framework */; };
 		A170130F18FD47B70086BE07 /* CoreDataExample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A1B8159518F2A8090027B26D /* CoreDataExample.xcdatamodeld */; };
 		A170131018FD4B9A0086BE07 /* Asset.m in Sources */ = {isa = PBXBuildFile; fileRef = A17012FA18FC21260086BE07 /* Asset.m */; };
 		A170131118FD4B9D0086BE07 /* ManagedCat.m in Sources */ = {isa = PBXBuildFile; fileRef = A170130018FC21260086BE07 /* ManagedCat.m */; };
@@ -118,7 +117,6 @@
 		A19FD87218C631E60081677E /* CDAClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A19FD87118C631E60081677E /* CDAClient.m */; };
 		A19FD87918C631E60081677E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD87818C631E60081677E /* XCTest.framework */; };
 		A19FD87A18C631E60081677E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD86A18C631E60081677E /* Foundation.framework */; };
-		A19FD87C18C631E60081677E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD87B18C631E60081677E /* UIKit.framework */; };
 		A19FD89818C637400081677E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD86A18C631E60081677E /* Foundation.framework */; };
 		A19FD89A18C637400081677E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD89918C637400081677E /* CoreGraphics.framework */; };
 		A19FD89B18C637400081677E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD87B18C631E60081677E /* UIKit.framework */; };
@@ -236,26 +234,36 @@
 		A1F70C9D1900140D0080C72C /* CDAAsset+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A1F70C9C19000FD90080C72C /* CDAAsset+Private.h */; };
 		A1FAC312190654E30093B308 /* DeepIncludes.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FAC311190654E30093B308 /* DeepIncludes.m */; };
 		A1FAC3581908FDB40093B308 /* CatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FAC3571908FDB40093B308 /* CatListViewController.m */; };
-		B6D3ED1B00132C9EA2F06139 /* libPods-CDA Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96C6ED327199C8B1B45B395D /* libPods-CDA Tests.a */; };
 		BD3343CAF4EB3EF5C30DE036 /* libPods-UFO Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4877526CEB877913A7F5211B /* libPods-UFO Example.a */; };
 		D868972396B5AFFA27D73DE7 /* libPods-SeedDatabaseExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A88212E4A849A33F0D8A226F /* libPods-SeedDatabaseExample.a */; };
 		ED10258E1DFED8F500BD7ABE /* CDAClient.h in Headers */ = {isa = PBXBuildFile; fileRef = A19FD86F18C631E60081677E /* CDAClient.h */; };
+		ED31CED81E534D15007C8E48 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ED31CEC81E534CEE007C8E48 /* CoreDataManager.m */; };
+		ED31CED91E534D15007C8E48 /* RealmAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = ED31CECA1E534CEE007C8E48 /* RealmAsset.m */; };
+		ED31CEDA1E534D15007C8E48 /* RealmManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ED31CECC1E534CEE007C8E48 /* RealmManager.m */; };
+		ED31CEDB1E534D15007C8E48 /* RealmSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = ED31CECE1E534CEE007C8E48 /* RealmSpace.m */; };
+		ED31CEDD1E534DA2007C8E48 /* CDANullabilityStubs.h in Headers */ = {isa = PBXBuildFile; fileRef = ED31CEDC1E534D9B007C8E48 /* CDANullabilityStubs.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED31CEDF1E534E43007C8E48 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED31CEDE1E534E43007C8E48 /* CoreData.framework */; };
+		ED31CEE21E534E85007C8E48 /* libContentfulDeliveryAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD86718C631E60081677E /* libContentfulDeliveryAPI.a */; };
+		ED31CEE41E534E92007C8E48 /* libAFNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED31CEE31E534E92007C8E48 /* libAFNetworking.a */; };
+		ED31CEE61E534EA3007C8E48 /* libISO8601DateFormatter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED31CEE51E534EA3007C8E48 /* libISO8601DateFormatter.a */; };
+		ED31CEEA1E534EBF007C8E48 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED31CEE91E534EBF007C8E48 /* UIKit.framework */; };
+		ED31CEEC1E534ED9007C8E48 /* libPods-CDA Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED31CEEB1E534ED9007C8E48 /* libPods-CDA Tests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		A19FD87D18C631E60081677E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A19FD85D18C6315E0081677E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A19FD86618C631E60081677E;
-			remoteInfo = ContentfulDeliveryAPI;
-		};
 		A1A2CEAB190A844900B8D46D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A19FD85D18C6315E0081677E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = A1A2CE46190963BA00B8D46D;
 			remoteInfo = ContentfulSeedDatabase;
+		};
+		ED31CEE71E534EB5007C8E48 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A19FD85D18C6315E0081677E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A19FD86618C631E60081677E;
+			remoteInfo = ContentfulDeliveryAPI;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -569,6 +577,22 @@
 		E29A402C653EE63879DC1F32 /* libPods-ContentfulSeedDatabase.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ContentfulSeedDatabase.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC7C48017B4FC4E3F4B05AB1 /* Pods-ContentfulDeliveryAPI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContentfulDeliveryAPI.release.xcconfig"; path = "Pods/Target Support Files/Pods-ContentfulDeliveryAPI/Pods-ContentfulDeliveryAPI.release.xcconfig"; sourceTree = "<group>"; };
 		ED1025911DFEDC1F00BD7ABE /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = "../../../Library/Developer/Xcode/DerivedData/ContentfulSDK-ewuedslirxtuzkhibcstxqewkote/Build/Products/Debug-iphonesimulator/AFNetworking-framework/AFNetworking.framework"; sourceTree = "<group>"; };
+		ED31CEC71E534CEE007C8E48 /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataManager.h; path = Submodules/ContentfulPersistence/Code/CoreDataManager.h; sourceTree = "<group>"; };
+		ED31CEC81E534CEE007C8E48 /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataManager.m; path = Submodules/ContentfulPersistence/Code/CoreDataManager.m; sourceTree = "<group>"; };
+		ED31CEC91E534CEE007C8E48 /* RealmAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RealmAsset.h; path = Submodules/ContentfulPersistence/Code/RealmAsset.h; sourceTree = "<group>"; };
+		ED31CECA1E534CEE007C8E48 /* RealmAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RealmAsset.m; path = Submodules/ContentfulPersistence/Code/RealmAsset.m; sourceTree = "<group>"; };
+		ED31CECB1E534CEE007C8E48 /* RealmManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RealmManager.h; path = Submodules/ContentfulPersistence/Code/RealmManager.h; sourceTree = "<group>"; };
+		ED31CECC1E534CEE007C8E48 /* RealmManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RealmManager.m; path = Submodules/ContentfulPersistence/Code/RealmManager.m; sourceTree = "<group>"; };
+		ED31CECD1E534CEE007C8E48 /* RealmSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RealmSpace.h; path = Submodules/ContentfulPersistence/Code/RealmSpace.h; sourceTree = "<group>"; };
+		ED31CECE1E534CEE007C8E48 /* RealmSpace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RealmSpace.m; path = Submodules/ContentfulPersistence/Code/RealmSpace.m; sourceTree = "<group>"; };
+		ED31CED41E534D00007C8E48 /* CoreDataFetchDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataFetchDataSource.h; path = Submodules/ContentfulPersistence/Code/UIKit/CoreDataFetchDataSource.h; sourceTree = "<group>"; };
+		ED31CED51E534D00007C8E48 /* CoreDataFetchDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataFetchDataSource.m; path = Submodules/ContentfulPersistence/Code/UIKit/CoreDataFetchDataSource.m; sourceTree = "<group>"; };
+		ED31CEDC1E534D9B007C8E48 /* CDANullabilityStubs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDANullabilityStubs.h; sourceTree = "<group>"; };
+		ED31CEDE1E534E43007C8E48 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.2.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
+		ED31CEE31E534E92007C8E48 /* libAFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAFNetworking.a; path = "../../../../Library/Developer/Xcode/DerivedData/ContentfulSDK-dqokadybfwzbxycecawequgzwmcs/Build/Products/Debug-iphonesimulator/AFNetworking/libAFNetworking.a"; sourceTree = "<group>"; };
+		ED31CEE51E534EA3007C8E48 /* libISO8601DateFormatter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libISO8601DateFormatter.a; path = "../../../../Library/Developer/Xcode/DerivedData/ContentfulSDK-dqokadybfwzbxycecawequgzwmcs/Build/Products/Debug-iphonesimulator/ISO8601DateFormatter/libISO8601DateFormatter.a"; sourceTree = "<group>"; };
+		ED31CEE91E534EBF007C8E48 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		ED31CEEB1E534ED9007C8E48 /* libPods-CDA Tests.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-CDA Tests.a"; path = "../../../../Library/Developer/Xcode/DerivedData/ContentfulSDK-dqokadybfwzbxycecawequgzwmcs/Build/Products/Debug-iphonesimulator/libPods-CDA Tests.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -596,11 +620,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A170130E18FD31950086BE07 /* CoreData.framework in Frameworks */,
+				ED31CEEC1E534ED9007C8E48 /* libPods-CDA Tests.a in Frameworks */,
+				ED31CEE61E534EA3007C8E48 /* libISO8601DateFormatter.a in Frameworks */,
+				ED31CEE41E534E92007C8E48 /* libAFNetworking.a in Frameworks */,
+				ED31CEE21E534E85007C8E48 /* libContentfulDeliveryAPI.a in Frameworks */,
+				ED31CEDF1E534E43007C8E48 /* CoreData.framework in Frameworks */,
 				A19FD87918C631E60081677E /* XCTest.framework in Frameworks */,
-				A19FD87C18C631E60081677E /* UIKit.framework in Frameworks */,
+				ED31CEEA1E534EBF007C8E48 /* UIKit.framework in Frameworks */,
 				A19FD87A18C631E60081677E /* Foundation.framework in Frameworks */,
-				B6D3ED1B00132C9EA2F06139 /* libPods-CDA Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -785,6 +812,7 @@
 		A18AA85E18E5D5DB00D430D5 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				ED31CEDC1E534D9B007C8E48 /* CDANullabilityStubs.h */,
 				A18AA85F18E5D63B00D430D5 /* CDAFallbackDictionary.h */,
 				A18AA86018E5D63B00D430D5 /* CDAFallbackDictionary.m */,
 				A1A0313D18C66667006470B7 /* CDAUtilities.h */,
@@ -796,6 +824,7 @@
 		A19FD85C18C6315E0081677E = {
 			isa = PBXGroup;
 			children = (
+				ED31CEC61E534CAC007C8E48 /* Submodule */,
 				A19FD86C18C631E60081677E /* Code */,
 				A19FD8D118C6379A0081677E /* Examples */,
 				A19FD86918C631E60081677E /* Frameworks */,
@@ -822,6 +851,11 @@
 		A19FD86918C631E60081677E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ED31CEEB1E534ED9007C8E48 /* libPods-CDA Tests.a */,
+				ED31CEE91E534EBF007C8E48 /* UIKit.framework */,
+				ED31CEE51E534EA3007C8E48 /* libISO8601DateFormatter.a */,
+				ED31CEE31E534E92007C8E48 /* libAFNetworking.a */,
+				ED31CEDE1E534E43007C8E48 /* CoreData.framework */,
 				ED1025911DFEDC1F00BD7ABE /* AFNetworking.framework */,
 				A170130D18FD31950086BE07 /* CoreData.framework */,
 				A19FD89918C637400081677E /* CoreGraphics.framework */,
@@ -1235,6 +1269,31 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		ED31CEC61E534CAC007C8E48 /* Submodule */ = {
+			isa = PBXGroup;
+			children = (
+				ED31CEC71E534CEE007C8E48 /* CoreDataManager.h */,
+				ED31CEC81E534CEE007C8E48 /* CoreDataManager.m */,
+				ED31CEC91E534CEE007C8E48 /* RealmAsset.h */,
+				ED31CECA1E534CEE007C8E48 /* RealmAsset.m */,
+				ED31CECB1E534CEE007C8E48 /* RealmManager.h */,
+				ED31CECC1E534CEE007C8E48 /* RealmManager.m */,
+				ED31CECD1E534CEE007C8E48 /* RealmSpace.h */,
+				ED31CECE1E534CEE007C8E48 /* RealmSpace.m */,
+				ED31CED31E534CF0007C8E48 /* UIKit */,
+			);
+			name = Submodule;
+			sourceTree = "<group>";
+		};
+		ED31CED31E534CF0007C8E48 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				ED31CED41E534D00007C8E48 /* CoreDataFetchDataSource.h */,
+				ED31CED51E534D00007C8E48 /* CoreDataFetchDataSource.m */,
+			);
+			name = UIKit;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -1280,6 +1339,7 @@
 				A1B815CC18F5A8250027B26D /* CDAEntry+Private.h in Headers */,
 				A1E9797B18CC683200E79632 /* CDAFieldValueTransformer.h in Headers */,
 				A17012F618FC1FF80086BE07 /* CDAPersistedAsset.h in Headers */,
+				ED31CEDD1E534DA2007C8E48 /* CDANullabilityStubs.h in Headers */,
 				A1924C9118EC0DF000C97F9D /* CDAMapViewController.h in Headers */,
 				A1D2DC0218D076F50053DC83 /* CDAEntriesViewController.h in Headers */,
 				A173F54E18D6FD03000E6F92 /* CDATextViewController.h in Headers */,
@@ -1350,7 +1410,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				A19FD87E18C631E60081677E /* PBXTargetDependency */,
+				ED31CEE81E534EB5007C8E48 /* PBXTargetDependency */,
 			);
 			name = "CDA Tests";
 			productName = ContentfulDeliveryAPITests;
@@ -1964,6 +2024,7 @@
 				A1BEA5C71C7B6E2700B63E86 /* RealmAdvancedTests.m in Sources */,
 				A1BA6F9119DBECC600AC3471 /* ClientConfiguration.m in Sources */,
 				A193EB4018D09D180017B777 /* UIKitAdditionsTests.m in Sources */,
+				ED31CEDA1E534D15007C8E48 /* RealmManager.m in Sources */,
 				A193EB3B18D084C50017B777 /* ValueObjectsTests.m in Sources */,
 				A173F60318DB3E1E000E6F92 /* PreviewModeTests.m in Sources */,
 				A1B815CA18F588D70027B26D /* LinkedAssetSyncTest.m in Sources */,
@@ -1972,6 +2033,7 @@
 				A170130F18FD47B70086BE07 /* CoreDataExample.xcdatamodeld in Sources */,
 				A1C180691A038B3300117DB3 /* RobustnessTests.m in Sources */,
 				A1AB590A1974069E00098F87 /* CoreDataMultipleContentTypesTests.m in Sources */,
+				ED31CED91E534D15007C8E48 /* RealmAsset.m in Sources */,
 				A1AE68B819B761B100D2C35F /* Group.m in Sources */,
 				A120857B1BB2712300A6504B /* ManagedCatLocalized.m in Sources */,
 				A18AA86418E5DB1A00D430D5 /* UtilityTests.m in Sources */,
@@ -1991,7 +2053,9 @@
 				A189199E1BB1E8FA0094256E /* LocalizedCat.m in Sources */,
 				A1CEC1AB1A35EE9D007B4565 /* RealmQuerySyncTests.m in Sources */,
 				A1E9797818CBEDFC00E79632 /* ErrorTests.m in Sources */,
+				ED31CED81E534D15007C8E48 /* CoreDataManager.m in Sources */,
 				A19CA3EA1B84EFF800A0EFCD /* LocaleTests.m in Sources */,
+				ED31CEDB1E534D15007C8E48 /* RealmSpace.m in Sources */,
 				A170131018FD4B9A0086BE07 /* Asset.m in Sources */,
 				A1CEC1B71A360D2C007B4565 /* ManagedRealmCat.m in Sources */,
 				A1D2DC0718D0811F0053DC83 /* ArrayTests.m in Sources */,
@@ -2058,15 +2122,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		A19FD87E18C631E60081677E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A19FD86618C631E60081677E /* ContentfulDeliveryAPI */;
-			targetProxy = A19FD87D18C631E60081677E /* PBXContainerItemProxy */;
-		};
 		A1A2CEAC190A844900B8D46D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A1A2CE46190963BA00B8D46D /* ContentfulSeedDatabase */;
 			targetProxy = A1A2CEAB190A844900B8D46D /* PBXContainerItemProxy */;
+		};
+		ED31CEE81E534EB5007C8E48 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A19FD86618C631E60081677E /* ContentfulDeliveryAPI */;
+			targetProxy = ED31CEE71E534EB5007C8E48 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -2284,6 +2348,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				STRIP_STYLE = "non-global";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -2328,6 +2393,7 @@
 				SKIP_INSTALL = YES;
 				STRIP_STYLE = "non-global";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;
 		};
@@ -2361,7 +2427,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
-				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = NO;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
@@ -2383,6 +2449,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				TEST_HOST = "$(BUNDLE_LOADER)";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 				WARNING_CFLAGS = "";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -2416,6 +2483,7 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -2431,6 +2499,7 @@
 				SDKROOT = iphoneos;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s";
 				WARNING_CFLAGS = "";
 				WRAPPER_EXTENSION = xctest;
 			};

@@ -29,6 +29,9 @@ PODS:
   - ISO8601DateFormatter (0.7)
   - OCMock (3.3.1)
   - PDKTCollectionViewWaterfallLayout (0.1)
+  - Realm (0.98.8):
+    - Realm/Headers (= 0.98.8)
+  - Realm/Headers (0.98.8)
   - VCRURLConnection (0.2.2)
 
 DEPENDENCIES:
@@ -38,6 +41,7 @@ DEPENDENCIES:
   - ISO8601DateFormatter (= 0.7)
   - OCMock
   - PDKTCollectionViewWaterfallLayout
+  - Realm (= 0.98.8)
   - VCRURLConnection
 
 EXTERNAL SOURCES:
@@ -56,8 +60,9 @@ SPEC CHECKSUMS:
   ISO8601DateFormatter: ab926648eebe497f4d167c0fd083992f959f1274
   OCMock: f3f61e6eaa16038c30caa5798c5e49d3307b6f22
   PDKTCollectionViewWaterfallLayout: a246de22e843bdb2677ab2fe5d6c1fb0a623f93e
+  Realm: 0e293bb62999730599efc3048896bbd4f2e43bcd
   VCRURLConnection: 1b14489604ca90b7b144b50dab6f9845d8931a45
 
-PODFILE CHECKSUM: 51539efa719624d3f323683ffa06848b716b973d
+PODFILE CHECKSUM: 61766325311a210553e78e0b1aff423bb31cd655
 
 COCOAPODS: 1.2.0

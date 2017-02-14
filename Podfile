@@ -15,6 +15,7 @@ target "ContentfulDeliveryAPI" do
     pod 'CCLRequestReplay', :git => 'https://github.com/neonichu/CCLRequestReplay.git'
     pod 'OCMock'
     pod 'VCRURLConnection', :inhibit_warnings => true
+    pod 'Realm', '= 0.98.8'
 #    pod 'ContentfulPersistence/CoreData'
 #    pod 'ContentfulPersistence/Realm', '>= 0.6.0'
     pod 'FBSnapshotTestCase/Core'

@@ -1,0 +1,3 @@
+[submodule "Submodules/ContentfulPersistence"]
+	path = Submodules/ContentfulPersistence
+	url = git@github.com:contentful/contentful-persistence.objc.git
