@@ -15,9 +15,7 @@ target "ContentfulDeliveryAPI" do
     pod 'CCLRequestReplay', :git => 'https://github.com/neonichu/CCLRequestReplay.git'
     pod 'OCMock'
     pod 'VCRURLConnection', :inhibit_warnings => true
-    pod 'Realm', '= 0.98.8'
-#    pod 'ContentfulPersistence/CoreData'
-#    pod 'ContentfulPersistence/Realm', '>= 0.6.0'
+    pod 'Realm', '= 0.98.8' # Realm must be linked for the persistence layer and should match the same version in the submodule
     pod 'FBSnapshotTestCase/Core'
   end
 
@@ -32,20 +30,16 @@ target "ContentfulDeliveryAPI" do
 
   target "CoreDataExample" do
     inherit! :search_paths
-#    pod 'ContentfulPersistence/CoreData'
   end
 
   target "SeedDatabaseExample" do
     inherit! :search_paths
-#    pod 'ContentfulPersistence/CoreData'
   end
 
   target "ContentfulSeedDatabase" do
     platform :osx, "10.9"
     inherit! :search_paths
-#    pod 'ContentfulPersistence/CoreData'
   end
-
 end
 
 
