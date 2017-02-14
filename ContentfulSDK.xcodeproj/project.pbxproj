@@ -235,6 +235,7 @@
 		A1FAC312190654E30093B308 /* DeepIncludes.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FAC311190654E30093B308 /* DeepIncludes.m */; };
 		A1FAC3581908FDB40093B308 /* CatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FAC3571908FDB40093B308 /* CatListViewController.m */; };
 		BD3343CAF4EB3EF5C30DE036 /* libPods-UFO Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4877526CEB877913A7F5211B /* libPods-UFO Example.a */; };
+		BF8457967229AD818404AB88 /* libPods-CDA Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96C6ED327199C8B1B45B395D /* libPods-CDA Tests.a */; };
 		D868972396B5AFFA27D73DE7 /* libPods-SeedDatabaseExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A88212E4A849A33F0D8A226F /* libPods-SeedDatabaseExample.a */; };
 		ED10258E1DFED8F500BD7ABE /* CDAClient.h in Headers */ = {isa = PBXBuildFile; fileRef = A19FD86F18C631E60081677E /* CDAClient.h */; };
 		ED31CED81E534D15007C8E48 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ED31CEC81E534CEE007C8E48 /* CoreDataManager.m */; };
@@ -628,6 +629,7 @@
 				A19FD87918C631E60081677E /* XCTest.framework in Frameworks */,
 				ED31CEEA1E534EBF007C8E48 /* UIKit.framework in Frameworks */,
 				A19FD87A18C631E60081677E /* Foundation.framework in Frameworks */,
+				BF8457967229AD818404AB88 /* libPods-CDA Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
