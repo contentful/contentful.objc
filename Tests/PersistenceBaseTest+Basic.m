@@ -343,16 +343,20 @@
                      forcingOverwrite:YES
                     completionHandler:^(BOOL success) {
                         NSURLRequest* assetRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-                        [NSURLConnection sendAsynchronousRequest:assetRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-                            XCTAssertNotNil(data, @"Error: %@", connectionError);
 
-                            [self buildPersistenceManagerWithDefaultClient:YES];
-                            [self.persistenceManager performBlock:^{ // we are on another context here
-                                [self assertCachedImageWithData:data];
+                        [[[NSURLSession sharedSession] dataTaskWithRequest:assetRequest
+                                                         completionHandler:^(NSData * _Nullable data,
+                                                                             NSURLResponse * _Nullable response,
+                                                                             NSError * _Nullable error) {
+                             XCTAssertNotNil(data, @"Error: %@", error);
 
-                                EndBlock();
-                            }];
-                        }];
+                             [self buildPersistenceManagerWithDefaultClient:YES];
+                             [self.persistenceManager performBlock:^{ // we are on another context here
+                                 [self assertCachedImageWithData:data];
+                             
+                                 EndBlock();
+                             }];
+                        }] resume];
                     }];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);

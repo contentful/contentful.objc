@@ -120,24 +120,26 @@ static NSCache* cache = nil;
     [self showActivityIndicatorIfNeeded];
     
     self.requestURL_cda = URL;
-    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:URL]
-                                       queue:[NSOperationQueue mainQueue]
-                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-                               if (![self.requestURL_cda isEqual:response.URL]) {
-                                   return;
-                               }
-                               self.requestURL_cda = nil;
+    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+    [[[NSURLSession sharedSession] dataTaskWithRequest:request
+                                     completionHandler:^(NSData * _Nullable data,
+                                                         NSURLResponse * _Nullable response,
+                                                         NSError * _Nullable error) {
+        if (![self.requestURL_cda isEqual:response.URL]) {
+            return;
+        }
+        self.requestURL_cda = nil;
 
-                               [self hideActivityIndicator];
-                               
-                               if (!data) {
-                                   NSLog(@"Error while request '%@': %@", response.URL, error);
-                                   return;
-                               }
-                               
-                               self.image = [UIImage imageWithData:data];
-                               [self cda_handleCachingForAsset:asset];
-                           }];
+        [self hideActivityIndicator];
+
+        if (!data) {
+            NSLog(@"Error while request '%@': %@", response.URL, error);
+            return;
+        }
+
+        self.image = [UIImage imageWithData:(NSData * _Nonnull)data];
+        [self cda_handleCachingForAsset:asset];
+    }] resume];
 }
 
 -(void)cda_handleCachingForAsset:(CDAAsset*)asset {

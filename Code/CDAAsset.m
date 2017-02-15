@@ -6,6 +6,7 @@
 //
 //
 
+@import Foundation;
 #import "CDAAsset+Private.h"
 #import "CDAClient+Private.h"
 #import "CDAInputSanitizer.h"
@@ -105,23 +106,24 @@ const CGFloat CDARadiusNone             = 0.0;
     }
 
     NSURL* url = self.URL;
-    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:url]
-                                       queue:[NSOperationQueue mainQueue]
-                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-                               if (!data) {
-                                   if (handler) {
-                                       handler(NO);
-                                   }
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request
+                                                                 completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (!data) {
+            if (handler) {
+                handler(NO);
+            }
 
-                                   return;
-                               }
+            return;
+        }
 
-                               [data writeToFile:fileName atomically:YES];
+        [data writeToFile:fileName atomically:YES];
 
-                               if (handler) {
-                                   handler(YES);
-                               }
-                           }];
+        if (handler) {
+            handler(YES);
+        }
+    }];
+    [task resume];
 }
 
 -(NSString *)description {

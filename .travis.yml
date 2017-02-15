@@ -1,7 +1,8 @@
 
 language: objective-c
 git:
-  depth: 5
+  depth: 50
+  submodules: false # Manually manage submodules so we can swap ssh with http
 matrix:
   include:
     - osx_image: xcode8.2
@@ -11,12 +12,13 @@ matrix:
       env: 
       - SDK=iphonesimulator9.3 OS_VERSION=9.3 DEVICE_NAME='iPhone 5s'
 before_install:
-- echo $(WORKSPACE)
+- git config --file=.gitmodules submodule.Submodules/ContentfulPersistence.url https://github.com/contentful/contentful-persistence.objc.git
+- git submodule sync
+- git submodule update --init --recursive
 - gem install bundler
 - bundle install
 script:
 - ./scripts/travis-build-test.sh
-
 notifications:
   slack:
   - secure: pbLVGeA+577zmld+ie/1KUWxin8PFB+uXogz1zrVhEqnparjbHNMvFfaAGG1gbaAJC0skGksCe+LeBrhLargbLSgAT3HrObwDCIu7H8IjaYOEhpNTHCObrwRIyOeBVHHAhjgjeElM7hvptJjRMuERErcnL65EOlaIdm4ZqOg3/0=
@@ -26,3 +28,4 @@ env:
   - secure: n/hnbmOoeLt4g+Mzm6Nm/fnxwr7fFjfFTlNxEco7kk9oeNklj0vudOwbYtxL2AWuMNWX/tSHlUieKf4UGOiwzFeQmWyLdi0dkwSKRMNBNz2XQrlzjemZNf8V9+E6+JPeH8BVBKyscYgNevrp7R0Lx2h5mcDVogHm416yUiNzGOQ=
   - secure: FAIgFb/XlYTHWXAE7dzl5KFAMmST39forxsfmJdysXdaIUXK1Y44PJnS4HQ0cRa79e+o+NSOJSHLGI+qboXNoDAHqaDGBqtC7QROjW7ed0ZQp0iyNeebSq8TQzuOwdrqEjh9SGK24bgbTgQx+i8brYRJA+N8igfNtVoTUXj7buI=
   - secure: LyiQhHG89Zn0FdprFntjvT34DOcvFU/IITWhhowfgYrXGObUTEOyIyE3ve6fJpMm23B8/u1EUNxBVvqxevdGmA2RuoJiMMy+V/uFsBHmuOeJ8TeDYOgjyWJgsJt1bfDLpFwX2Ztu0smdMeuBpmsOA2I3FW0mDCx5tiAuScNidnE=
+

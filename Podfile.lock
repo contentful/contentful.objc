@@ -25,16 +25,8 @@ PODS:
   - CCLRequestReplay/Manager (0.9.0)
   - CCLRequestReplay/Record (0.9.0)
   - CCLRequestReplay/Replay (0.9.0)
-  - ContentfulDeliveryAPI (1.10.4):
-    - AFNetworking (~> 3.1.0)
-    - ISO8601DateFormatter (= 0.7)
-  - ContentfulPersistence/CoreData (0.6.0):
-    - ContentfulDeliveryAPI (~> 1.10.0)
-  - ContentfulPersistence/Realm (0.6.0):
-    - ContentfulDeliveryAPI (~> 1.10.0)
-    - Realm (~> 0.98.0)
   - FBSnapshotTestCase/Core (2.1.4)
-  - ISO8601DateFormatter (0.7)
+  - ISO8601DateFormatter (0.8)
   - OCMock (3.3.1)
   - PDKTCollectionViewWaterfallLayout (0.1)
   - Realm (0.98.8):
@@ -43,22 +35,18 @@ PODS:
   - VCRURLConnection (0.2.2)
 
 DEPENDENCIES:
-  - AFNetworking
+  - AFNetworking (~> 3.1.0)
   - CCLRequestReplay (from `https://github.com/neonichu/CCLRequestReplay.git`)
-  - ContentfulDeliveryAPI (from `.`)
-  - ContentfulPersistence/CoreData
-  - ContentfulPersistence/Realm (>= 0.6.0)
   - FBSnapshotTestCase/Core
-  - ISO8601DateFormatter
+  - ISO8601DateFormatter (= 0.8)
   - OCMock
   - PDKTCollectionViewWaterfallLayout
+  - Realm (= 0.98.8)
   - VCRURLConnection
 
 EXTERNAL SOURCES:
   CCLRequestReplay:
     :git: https://github.com/neonichu/CCLRequestReplay.git
-  ContentfulDeliveryAPI:
-    :path: "."
 
 CHECKOUT OPTIONS:
   CCLRequestReplay:
@@ -68,15 +56,13 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   CCLRequestReplay: a472e52da260c28d7a41df76697b8e518625a44f
-  ContentfulDeliveryAPI: f4f077681f834cffcfcf7a851cdb90353d3f6f9d
-  ContentfulPersistence: 367a9555415355615b0eaa60d0ae13c62b279426
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  ISO8601DateFormatter: ab926648eebe497f4d167c0fd083992f959f1274
+  ISO8601DateFormatter: 4551b6ce4f83185425f583b0b3feb3c7b59b942c
   OCMock: f3f61e6eaa16038c30caa5798c5e49d3307b6f22
   PDKTCollectionViewWaterfallLayout: a246de22e843bdb2677ab2fe5d6c1fb0a623f93e
   Realm: 0e293bb62999730599efc3048896bbd4f2e43bcd
   VCRURLConnection: 1b14489604ca90b7b144b50dab6f9845d8931a45
 
-PODFILE CHECKSUM: c70096e808830da95487a8b70dda8e55247849ac
+PODFILE CHECKSUM: 999b9c7192de00f92b1b1d7706de5e3f90907143
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0

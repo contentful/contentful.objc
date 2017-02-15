@@ -6,49 +6,43 @@ source 'https://github.com/contentful/CocoaPodsSpecs.git'
 
 platform :ios, "8.0"
 
-target "ContentfulDeliveryAPI" do
-  pod 'AFNetworking'
-  pod 'ISO8601DateFormatter'
+podspec :path => 'ContentfulDeliveryAPI.podspec'
 
+target "ContentfulDeliveryAPI" do
+  
   target "CDA Tests" do
     inherit! :search_paths
-
     pod 'CCLRequestReplay', :git => 'https://github.com/neonichu/CCLRequestReplay.git'
     pod 'OCMock'
     pod 'VCRURLConnection', :inhibit_warnings => true
-    pod 'ContentfulPersistence/CoreData'
-    pod 'ContentfulPersistence/Realm', '>= 0.6.0'
+    pod 'Realm', '= 0.98.8' # Realm must be linked for the persistence layer and should match the same version in the submodule
     pod 'FBSnapshotTestCase/Core'
+  end
+
+  target "Catalog" do
+    inherit! :search_paths
+    pod 'PDKTCollectionViewWaterfallLayout'
+  end
+
+  target "UFO Example" do
+    inherit! :search_paths
+  end
+
+  target "CoreDataExample" do
+    inherit! :search_paths
+  end
+
+  target "SeedDatabaseExample" do
+    inherit! :search_paths
+  end
+
+  target "ContentfulSeedDatabase" do
+    platform :osx, "10.9"
+    inherit! :search_paths
   end
 end
 
-target "Catalog" do
-  pod 'ContentfulDeliveryAPI', :path => '.'
-  pod 'PDKTCollectionViewWaterfallLayout'
-end
 
-
-target "UFO Example" do    
-pod 'ContentfulDeliveryAPI', :path => '.'
-end
-
-
-target "CoreDataExample" do
-  pod 'ContentfulDeliveryAPI', :path => '.'
-  pod 'ContentfulPersistence/CoreData'
-end
-
-target "SeedDatabaseExample" do
-  pod 'ContentfulDeliveryAPI', :path => '.'
-  pod 'ContentfulPersistence/CoreData'
-end
-
-target "ContentfulSeedDatabase" do
-  platform :osx, "10.9"
-
-  pod 'ContentfulDeliveryAPI', :path => '.'
-  pod 'ContentfulPersistence/CoreData'
-end
 
 
 post_install do |installer_or_rep|

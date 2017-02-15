@@ -142,9 +142,9 @@
     NSURLRequest* request = [self buildRequestWithURLString:URLPath parameters:parameters];
     
     NSURLResponse* response;
-    NSData* responseData = [NSURLConnection sendSynchronousRequest:request
-                                                 returningResponse:&response
-                                                             error:error];
+    NSData *responseData = [CDARequestOperationManager sendSynchronousRequest:request
+                                                            returningResponse:&response
+                                                                        error:error];
     if (!responseData) {
         return nil;
     }
@@ -322,4 +322,33 @@
     return task;
 }
 
+
+// Synchronous methods don't exist with new NSURLSession API so we must implement it ourselves
+// with semaphores«
+// Thanks to this SO post: http://stackoverflow.com/a/34200617/4068264
+// Categories don't work though: http://stackoverflow.com/a/21685585/4068264
++ (NSData *)sendSynchronousRequest:(NSURLRequest *)request
+                 returningResponse:(__autoreleasing NSURLResponse **)responsePtr
+                             error:(__autoreleasing NSError **)errorPtr {
+    dispatch_semaphore_t sem = dispatch_semaphore_create(0);
+    __block NSData *result = nil;
+
+    [[[NSURLSession sharedSession] dataTaskWithRequest:request
+                                     completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                         if (errorPtr != NULL) {
+                                             *errorPtr = error;
+                                         }
+                                         if (responsePtr != NULL) {
+                                             *responsePtr = response;
+                                         }
+                                         if (error == nil) {
+                                             result = data;
+                                         }
+                                         dispatch_semaphore_signal(sem);
+                                     }] resume];
+
+    dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER);
+
+    return result;
+}
 @end
