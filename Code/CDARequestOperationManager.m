@@ -145,7 +145,10 @@
     NSData *responseData = [CDARequestOperationManager sendSynchronousRequest:request
                                                             returningResponse:&response
                                                                         error:error];
-
+    if (!responseData) {
+        return nil;
+    }
+    
     return [self.responseSerializer responseObjectForResponse:response
                                                          data:responseData
                                                         error:error];
