@@ -160,7 +160,7 @@ Copyright (c) 2014, 2015 Contentful GmbH. See LICENSE for further details.
 [3]: https://github.com/AFNetworking/AFNetworking
 [4]: http://boredzo.org/iso8601dateformatter/
 [5]: http://git-scm.com/docs/git-submodule
-[6]: http://docs.contentfulcda.apiary.io/
+[6]: https://www.contentful.com/developers/docs/references/content-delivery-api/
 [7]: http://cocoadocs.org/docsets/ContentfulDeliveryAPI/1.10.4/
 [8]: http://static.contentful.com/downloads/iOS/ContentfulDeliveryAPI-1.10.4.zip
 [9]: http://static.contentful.com/downloads/iOS/UFO.zip
