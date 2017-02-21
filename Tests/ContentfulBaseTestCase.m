@@ -5,6 +5,9 @@
 //  Created by Boris Bügling on 06/03/14.
 //
 //
+#ifdef API_COVERAGE
+#import <objc/runtime.h>
+#endif
 
 #import <CCLRequestReplay/CCLRequestReplayManager.h>
 #import <CCLRequestReplay/CCLRequestRecordProtocol.h>
@@ -42,6 +45,22 @@ extern void __gcov_flush();
 
 - (void)setUp {
     [super setUp];
+
+#ifdef API_COVERAGE
+    // Integration test configuration. Run tests against proxy server instead and record API coverage.
+    
+    Method m = class_getInstanceMethod(CDAConfiguration.class, @selector(server));
+    IMP returnsTestHost = imp_implementationWithBlock(^{
+        return @"127.0.0.1:5000";
+    });
+    method_setImplementation(m, returnsTestHost);
+
+    m = class_getInstanceMethod(CDAConfiguration.class, @selector(secure));
+    IMP returnsFalse = imp_implementationWithBlock(^{
+        return false;
+    });
+    method_setImplementation(m, returnsFalse);
+#endif
 
     self.cassetteBaseName = NSStringFromClass([self class]);
     self.client = [CDAClient new];
