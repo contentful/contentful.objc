@@ -3,6 +3,9 @@ language: objective-c
 git:
   depth: 50
   submodules: false # Manually manage submodules so we can swap ssh with http
+cache:
+- bundler
+- cocoapods
 matrix:
   include:
     - osx_image: xcode8.2
@@ -17,6 +20,7 @@ before_install:
 - git submodule update --init --recursive
 - gem install bundler
 - bundle install
+- pod repo update --silent
 script:
 - ./scripts/travis-build-test.sh
 notifications:
