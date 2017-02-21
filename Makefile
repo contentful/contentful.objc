@@ -8,7 +8,7 @@ endif
 
 WORKSPACE=ContentfulSDK.xcworkspace
 
-.PHONY: all open clean clean_simulators doc example example-static pod really-clean static-lib test kill_simulator
+.PHONY: all open clean clean_simulators doc example example-static pod really-clean static-lib test integration_test kill_simulator
 
 open:
 	open ContentfulSDK.xcworkspace
@@ -23,7 +23,7 @@ clean_pods:
 really_clean: clean
 	rm -rf $(HOME)/Library/Developer/Xcode/DerivedData/*
 
-clean_simulators:
+clean_simulators: kill_simulator
 	xcrun simctl erase all
 
 all: test example-static
@@ -57,12 +57,17 @@ static-lib:
 kill_simulator:
 	killall "Simulator" || true
 
-test: kill_simulator really_clean
+test: clean_simulators really_clean
 	set -x -o pipefail && xcodebuild test -workspace $(WORKSPACE) \
 		-scheme 'ContentfulDeliveryAPI' -sdk iphonesimulator \
 		-destination 'platform=iOS Simulator,name=iPhone 5s,OS=10.2'| xcpretty -c 
 	kill_simulator	
 	bundle exec pod lib coverage
+
+integration_test: really_clean clean_simulators
+	set -x -o pipefail && xcodebuild test -workspace $(WORKSPACE) \
+		-scheme 'ContentfulDeliveryAPI' -configuration "API_Coverage" \
+		-sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6s,OS=9.3' | xcpretty -c
 
 lint:
 	set -o pipefail && xcodebuild clean build -workspace $(WORKSPACE) -dry-run \
