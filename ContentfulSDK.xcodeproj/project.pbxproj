@@ -246,9 +246,9 @@
 		ED31CEDF1E534E43007C8E48 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED31CEDE1E534E43007C8E48 /* CoreData.framework */; };
 		ED31CEE21E534E85007C8E48 /* libContentfulDeliveryAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD86718C631E60081677E /* libContentfulDeliveryAPI.a */; };
 		ED31CEE41E534E92007C8E48 /* libAFNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED31CEE31E534E92007C8E48 /* libAFNetworking.a */; };
-		ED31CEE61E534EA3007C8E48 /* libISO8601DateFormatter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED31CEE51E534EA3007C8E48 /* libISO8601DateFormatter.a */; };
 		ED31CEEA1E534EBF007C8E48 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED31CEE91E534EBF007C8E48 /* UIKit.framework */; };
 		ED31CEEC1E534ED9007C8E48 /* libPods-CDA Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED31CEEB1E534ED9007C8E48 /* libPods-CDA Tests.a */; };
+		ED4AD4B71E5CA3F60049B8D4 /* libISO8601.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED4AD4B61E5CA3F60049B8D4 /* libISO8601.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -601,6 +601,7 @@
 		ED31CEE51E534EA3007C8E48 /* libISO8601DateFormatter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libISO8601DateFormatter.a; path = "../../../../Library/Developer/Xcode/DerivedData/ContentfulSDK-dqokadybfwzbxycecawequgzwmcs/Build/Products/Debug-iphonesimulator/ISO8601DateFormatter/libISO8601DateFormatter.a"; sourceTree = "<group>"; };
 		ED31CEE91E534EBF007C8E48 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		ED31CEEB1E534ED9007C8E48 /* libPods-CDA Tests.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-CDA Tests.a"; path = "../../../../Library/Developer/Xcode/DerivedData/ContentfulSDK-dqokadybfwzbxycecawequgzwmcs/Build/Products/Debug-iphonesimulator/libPods-CDA Tests.a"; sourceTree = "<group>"; };
+		ED4AD4B61E5CA3F60049B8D4 /* libISO8601.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libISO8601.a; path = "Pods/../build/Debug-iphoneos/ISO8601/libISO8601.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -628,8 +629,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED4AD4B71E5CA3F60049B8D4 /* libISO8601.a in Frameworks */,
 				ED31CEEC1E534ED9007C8E48 /* libPods-CDA Tests.a in Frameworks */,
-				ED31CEE61E534EA3007C8E48 /* libISO8601DateFormatter.a in Frameworks */,
 				ED31CEE41E534E92007C8E48 /* libAFNetworking.a in Frameworks */,
 				ED31CEE21E534E85007C8E48 /* libContentfulDeliveryAPI.a in Frameworks */,
 				ED31CEDF1E534E43007C8E48 /* CoreData.framework in Frameworks */,
@@ -867,6 +868,7 @@
 		A19FD86918C631E60081677E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ED4AD4B61E5CA3F60049B8D4 /* libISO8601.a */,
 				ED31CEEB1E534ED9007C8E48 /* libPods-CDA Tests.a */,
 				ED31CEE91E534EBF007C8E48 /* UIKit.framework */,
 				ED31CEE51E534EA3007C8E48 /* libISO8601DateFormatter.a */,
@@ -2460,6 +2462,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/ISO8601",
+				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.contentful.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2510,6 +2516,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/ISO8601",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.contentful.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -3028,6 +3038,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/ISO8601",
+				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.contentful.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";

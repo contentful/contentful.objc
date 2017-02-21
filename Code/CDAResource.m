@@ -12,7 +12,7 @@
 #import <ContentfulDeliveryAPI/CDAContentType.h>
 #import <ContentfulDeliveryAPI/CDAResource.h>
 #import <ContentfulDeliveryAPI/CDASpace.h>
-#import <ISO8601DateFormatter/ISO8601DateFormatter.h>
+#import <ISO8601/ISO8601.h>
 
 #import "CDAClient+Private.h"
 #import "CDAContentTypeRegistry.h"
@@ -296,7 +296,6 @@ static const typeToClassMap_t typeToClassMap[] = {
 }
 
 -(void)updateWithContentsOfDictionary:(NSDictionary*)dictionary client:(CDAClient*)client {
-    ISO8601DateFormatter* dateFormatter = [ISO8601DateFormatter new];
     NSMutableDictionary* systemProperties = [@{} mutableCopy];
 
     NSAssert(dictionary[@"sys"], @"A resource needs system properties");
@@ -315,7 +314,7 @@ static const typeToClassMap_t typeToClassMap[] = {
         }
 
         if ([@[ @"createdAt", @"updatedAt" ] containsObject:key]) {
-            NSDate* date = [dateFormatter dateFromString:value];
+            NSDate* date = [NSDate dateWithISO8601String:value];
             NSAssert(date, @"createdAt, updatedAt needs to be a valid date");
             systemProperties[key] = date;
         }

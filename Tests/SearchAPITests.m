@@ -6,7 +6,7 @@
 //
 //
 
-#import <ISO8601DateFormatter/ISO8601DateFormatter.h>
+#import <ISO8601/ISO8601.h>
 
 #import "ContentfulBaseTestCase.h"
 
@@ -164,7 +164,7 @@
 - (void)testDateRangeSearch {
     StartBlock();
     
-    NSDate* date = [[ISO8601DateFormatter new] dateFromString:@"2013-01-01T00:00:00Z"];
+    NSDate* date = [NSDate dateWithISO8601String:@"2013-01-01T00:00:00Z"];
     
     [self.client fetchEntriesMatching:@{ @"sys.updatedAt[gte]": date }
         success:^(CDAResponse *response, CDAArray *array) {

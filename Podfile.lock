@@ -26,8 +26,8 @@ PODS:
   - CCLRequestReplay/Record (0.9.0)
   - CCLRequestReplay/Replay (0.9.0)
   - FBSnapshotTestCase/Core (2.1.4)
-  - ISO8601DateFormatter (0.8)
-  - OCMock (3.3.1)
+  - ISO8601 (0.6.0)
+  - OCMock (3.4)
   - PDKTCollectionViewWaterfallLayout (0.1)
   - Realm (0.98.8):
     - Realm/Headers (= 0.98.8)
@@ -38,7 +38,7 @@ DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
   - CCLRequestReplay (from `https://github.com/neonichu/CCLRequestReplay.git`)
   - FBSnapshotTestCase/Core
-  - ISO8601DateFormatter (= 0.8)
+  - ISO8601 (~> 0.6.0)
   - OCMock
   - PDKTCollectionViewWaterfallLayout
   - Realm (= 0.98.8)
@@ -57,8 +57,8 @@ SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   CCLRequestReplay: a472e52da260c28d7a41df76697b8e518625a44f
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  ISO8601DateFormatter: 4551b6ce4f83185425f583b0b3feb3c7b59b942c
-  OCMock: f3f61e6eaa16038c30caa5798c5e49d3307b6f22
+  ISO8601: d3ea3ba9b752820cf92c6b47a9ee327e9f0e13fc
+  OCMock: 35ae71d6a8fcc1b59434d561d1520b9dd4f15765
   PDKTCollectionViewWaterfallLayout: a246de22e843bdb2677ab2fe5d6c1fb0a623f93e
   Realm: 0e293bb62999730599efc3048896bbd4f2e43bcd
   VCRURLConnection: 1b14489604ca90b7b144b50dab6f9845d8931a45
