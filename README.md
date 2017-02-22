@@ -117,13 +117,13 @@ pod 'ContentfulDeliveryAPI'
 
 In the case you prefer to manage your dependencies manually, you can just drag all files from the `Code` subdirectory into your project or integrate the `ContentfulDeliveryAPI` static library target into your build process. It might be a good idea to add this repository as a [Git submodule][5] if you choose this path.
 
-Be aware that the Contentful Delivery API requires both [AFNetworking][3] and [ISO8601DateFormatter][4] to compile successfully, so you need to provide these dependencies if you do manual integration.
+Be aware that the Contentful Delivery API requires both [AFNetworking][3] and [ISO8601][4] to compile successfully, so you need to provide these dependencies if you do manual integration.
 
 ### Static Framework
 
 You can [download][8] the Contentful Delivery API as an universal static framework for iOS. Integrate it into your project by unzipping and dragging the `ContentfulDeliveryAPI.framework` into the `Frameworks` group of your project. You can also [download][9] the UFO example application including the static framework, as an example of integrating it into an Xcode project.
 
-The static framework contains [AFNetworking][3] and [ISO8601DateFormatter][4], but they are prefixed so that they do not clash with any copies that might already be part of your application.
+The static framework contains [AFNetworking][3] and [ISO8601][4], but they are prefixed so that they do not clash with any copies that might already be part of your application.
 
 It depends on the `SystemConfiguration.framework` not included by default in iOS projects, so open your project file on the `General` tab.
 
@@ -158,7 +158,7 @@ Copyright (c) 2014, 2015 Contentful GmbH. See LICENSE for further details.
 [1]: https://www.contentful.com
 [2]: https://cocoapods.org/
 [3]: https://github.com/AFNetworking/AFNetworking
-[4]: http://boredzo.org/iso8601dateformatter/
+[4]: https://github.com/soffes/ISO8601
 [5]: http://git-scm.com/docs/git-submodule
 [6]: https://www.contentful.com/developers/docs/references/content-delivery-api/
 [7]: http://cocoadocs.org/docsets/ContentfulDeliveryAPI/1.10.4/

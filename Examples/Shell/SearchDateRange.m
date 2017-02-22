@@ -13,7 +13,7 @@ podfile-end
 int main(int argc, const char * argv[]) {
     NSApplicationLoad();
     
-    NSDate* date = [[ISO8601DateFormatter new] dateFromString:@"2013-01-01T00:00:00Z"];
+    NSDate* date = [NSDate dateWithISO8601String:@"2013-01-01T00:00:00Z"];
     
     CDAClient* client = [CDAClient new];
     [client fetchEntriesMatching:@{ @"sys.updatedAt[gte]": date }

@@ -598,7 +598,6 @@
 		ED31CEDC1E534D9B007C8E48 /* CDANullabilityStubs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDANullabilityStubs.h; sourceTree = "<group>"; };
 		ED31CEDE1E534E43007C8E48 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.2.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
 		ED31CEE31E534E92007C8E48 /* libAFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAFNetworking.a; path = "../../../../Library/Developer/Xcode/DerivedData/ContentfulSDK-dqokadybfwzbxycecawequgzwmcs/Build/Products/Debug-iphonesimulator/AFNetworking/libAFNetworking.a"; sourceTree = "<group>"; };
-		ED31CEE51E534EA3007C8E48 /* libISO8601DateFormatter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libISO8601DateFormatter.a; path = "../../../../Library/Developer/Xcode/DerivedData/ContentfulSDK-dqokadybfwzbxycecawequgzwmcs/Build/Products/Debug-iphonesimulator/ISO8601DateFormatter/libISO8601DateFormatter.a"; sourceTree = "<group>"; };
 		ED31CEE91E534EBF007C8E48 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		ED31CEEB1E534ED9007C8E48 /* libPods-CDA Tests.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-CDA Tests.a"; path = "../../../../Library/Developer/Xcode/DerivedData/ContentfulSDK-dqokadybfwzbxycecawequgzwmcs/Build/Products/Debug-iphonesimulator/libPods-CDA Tests.a"; sourceTree = "<group>"; };
 		ED4AD4B61E5CA3F60049B8D4 /* libISO8601.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libISO8601.a; path = "Pods/../build/Debug-iphoneos/ISO8601/libISO8601.a"; sourceTree = "<group>"; };
@@ -871,7 +870,6 @@
 				ED4AD4B61E5CA3F60049B8D4 /* libISO8601.a */,
 				ED31CEEB1E534ED9007C8E48 /* libPods-CDA Tests.a */,
 				ED31CEE91E534EBF007C8E48 /* UIKit.framework */,
-				ED31CEE51E534EA3007C8E48 /* libISO8601DateFormatter.a */,
 				ED31CEE31E534E92007C8E48 /* libAFNetworking.a */,
 				ED31CEDE1E534E43007C8E48 /* CoreData.framework */,
 				ED1025911DFEDC1F00BD7ABE /* AFNetworking.framework */,
