@@ -3,6 +3,9 @@ language: objective-c
 git:
   depth: 50
   submodules: false # Manually manage submodules so we can swap ssh with http
+cache:
+- bundler
+- cocoapods
 matrix:
   include:
     - osx_image: xcode8.2
@@ -15,8 +18,15 @@ before_install:
 - git config --file=.gitmodules submodule.Submodules/ContentfulPersistence.url https://github.com/contentful/contentful-persistence.objc.git
 - git submodule sync
 - git submodule update --init --recursive
-- gem install bundler
+
+# Projects with a Gemfile automatically run `bundle install` on travis
+# and subsequently `bundle exec pod install`, but we need to
+# update the pod specs repo first. Therefore, we override `install` to prevent
+# `bundle install` from running twice
+install:
 - bundle install
+- bundle exec pod repo update --silent
+- bundle exec pod install
 script:
 - ./scripts/travis-build-test.sh
 notifications:
