@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'cocoapods'
+gem 'cocoapods', '= 1.2.0'
 gem 'xcpretty'
 gem 'xcode-install'
 gem 'cocoapods-coverage'
