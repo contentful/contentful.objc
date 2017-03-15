@@ -130,14 +130,18 @@ static NSCache* cache = nil;
         }
         self.requestURL_cda = nil;
 
-        [self hideActivityIndicator];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self hideActivityIndicator];
+        });
 
         if (!data) {
             NSLog(@"Error while request '%@': %@", response.URL, error);
             return;
         }
 
-        self.image = [UIImage imageWithData:(NSData * _Nonnull)data];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.image = [UIImage imageWithData:(NSData * _Nonnull)data];
+        });
         [self cda_handleCachingForAsset:asset];
     }] resume];
 }
