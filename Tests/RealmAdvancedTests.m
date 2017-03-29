@@ -95,7 +95,7 @@ RLM_ARRAY_TYPE(RealmMember)
         XCTAssertEqual(4U, [self.persistenceManager fetchAssetsFromDataStore].count, @"");
         XCTAssertEqual(3U, [self.persistenceManager fetchEntriesFromDataStore].count, @"");
 
-        RealmClassHierarchy* nyancat = [self.persistenceManager fetchEntryWithIdentifier:@"nyancat"];
+        RealmClassHierarchy* nyancat = (RealmClassHierarchy*)[self.persistenceManager fetchEntryWithIdentifier:@"nyancat"];
         XCTAssertNotNil(nyancat);
         RealmClassHierarchy* friend = nyancat.bestFriend;
         XCTAssertNotNil(friend);

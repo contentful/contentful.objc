@@ -1,5 +1,5 @@
 __SIM_ID=`xcrun simctl list|egrep -m 1 '$(SIM_NAME) \([^(]*\) \([^(]*\)$$'|sed -e 's/.* (\(.*\)) (.*)/\1/'`
-SIM_NAME=iPhone 5s
+SIM_NAME=iPhone 6s
 SIM_ID=$(shell echo $(__SIM_ID))
 
 ifeq ($(strip $(SIM_ID)),)
@@ -60,7 +60,7 @@ kill_simulator:
 test: clean_simulators really_clean
 	set -x -o pipefail && xcodebuild test -workspace $(WORKSPACE) \
 		-scheme 'ContentfulDeliveryAPI' -sdk iphonesimulator \
-		-destination 'platform=iOS Simulator,name=iPhone 5s,OS=10.2'| xcpretty -c 
+		-destination 'platform=iOS Simulator,name=iPhone 6s,OS=10.3'| xcpretty -c 
 	kill_simulator	
 	bundle exec pod lib coverage
 

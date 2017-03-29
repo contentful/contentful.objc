@@ -21,21 +21,21 @@
 @protocol CDAPersistedAsset <NSObject>
 
 /** The `sys.id` of the Asset. */
-@property (nonatomic) NSString* identifier;
+@property (nonatomic, nonnull) NSString* identifier;
 /** File type of the Asset. */
-@property (nonatomic) NSString* internetMediaType;
+@property (nonatomic, nullable) NSString* internetMediaType;
 /** URL for the underlying file represented by the Asset. */
-@property (nonatomic) NSString* url;
+@property (nonatomic, nullable) NSString* url;
 
 @optional
 
 /** The description of the Asset. */
-@property (nonatomic) NSString* assetDescription;
+@property (nonatomic, nullable) NSString* assetDescription;
 /** The title of the Asset. */
-@property (nonatomic) NSString* title;
+@property (nonatomic, nullable) NSString* title;
 /** The width of the Asset, if it is an image. */
-@property (nonatomic) NSNumber* width;
+@property (nonatomic, nullable) NSNumber* width;
 /** The height of the Asset, if it is an image. */
-@property (nonatomic) NSNumber* height;
+@property (nonatomic, nullable) NSNumber* height;
 
 @end
