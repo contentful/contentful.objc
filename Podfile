@@ -15,7 +15,7 @@ target "ContentfulDeliveryAPI" do
     pod 'CCLRequestReplay', :git => 'https://github.com/neonichu/CCLRequestReplay.git'
     pod 'OCMock'
     pod 'VCRURLConnection', :inhibit_warnings => true
-    pod 'Realm', '= 0.98.8' # Realm must be linked for the persistence layer and should match the same version in the submodule
+    pod 'Realm', '~> 2.5.0' # Realm must be linked for the persistence layer and should match the same version in the submodule
     pod 'FBSnapshotTestCase/Core'
   end
 
