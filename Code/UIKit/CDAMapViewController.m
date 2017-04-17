@@ -104,12 +104,15 @@
 }
 
 -(void)showError:(NSError*)error {
+    #if !defined(CF_APP_EXTENSIONS)
+
     UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
                                                         message:error.localizedDescription
                                                        delegate:nil
                                               cancelButtonTitle:NSLocalizedString(@"OK", nil)
                                               otherButtonTitles:nil];
     [alertView show];
+#endif
 }
 
 -(void)viewWillAppear:(BOOL)animated {
