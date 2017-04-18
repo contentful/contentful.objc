@@ -1,5 +1,10 @@
 #!/usr/bin/ruby
 
+plugin 'cocoapods-keys', {
+  :project => 'ContentfulSDK',
+  :keys => [ 'ManagementAPIAccessToken' ]
+}
+
 source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/contentful/CocoaPodsSpecs.git'
 
@@ -44,6 +49,17 @@ end
 
 
 
+
+# Management API
+target "ContentfulManagementAPI" do
+
+  target "ManagementTests" do 
+    inherit! :search_paths
+    pod 'Specta'
+    pod 'Expecta'
+    pod 'CCLRequestReplay', :git => 'https://github.com/neonichu/CCLRequestReplay.git'
+  end
+end
 
 post_install do |installer_or_rep|
   installer = installer_or_rep.respond_to?(:installer) ? installer_or_rep.installer : installer_or_rep

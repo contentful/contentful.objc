@@ -25,28 +25,36 @@ PODS:
   - CCLRequestReplay/Manager (0.9.0)
   - CCLRequestReplay/Record (0.9.0)
   - CCLRequestReplay/Replay (0.9.0)
+  - Expecta (1.0.5)
   - FBSnapshotTestCase/Core (2.1.4)
   - ISO8601 (0.6.0)
+  - Keys (1.0.0)
   - OCMock (3.4)
   - PDKTCollectionViewWaterfallLayout (0.1)
   - Realm (2.5.0):
     - Realm/Headers (= 2.5.0)
   - Realm/Headers (2.5.0)
+  - Specta (1.0.6)
   - VCRURLConnection (0.2.2)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
   - CCLRequestReplay (from `https://github.com/neonichu/CCLRequestReplay.git`)
+  - Expecta
   - FBSnapshotTestCase/Core
   - ISO8601 (~> 0.6.0)
+  - Keys (from `Pods/CocoaPodsKeys`)
   - OCMock
   - PDKTCollectionViewWaterfallLayout
   - Realm (~> 2.5.0)
+  - Specta
   - VCRURLConnection
 
 EXTERNAL SOURCES:
   CCLRequestReplay:
     :git: https://github.com/neonichu/CCLRequestReplay.git
+  Keys:
+    :path: Pods/CocoaPodsKeys
 
 CHECKOUT OPTIONS:
   CCLRequestReplay:
@@ -56,13 +64,16 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   CCLRequestReplay: a472e52da260c28d7a41df76697b8e518625a44f
+  Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   ISO8601: d3ea3ba9b752820cf92c6b47a9ee327e9f0e13fc
+  Keys: 9c35bf00f612ee1d48556f4a4b9b4551e224e90f
   OCMock: 35ae71d6a8fcc1b59434d561d1520b9dd4f15765
   PDKTCollectionViewWaterfallLayout: a246de22e843bdb2677ab2fe5d6c1fb0a623f93e
   Realm: 62abce501668580092d2be9b6ba7324a3d5f906a
+  Specta: f506f3a8361de16bc0dcf3b17b75e269072ba465
   VCRURLConnection: 1b14489604ca90b7b144b50dab6f9845d8931a45
 
-PODFILE CHECKSUM: fe5feb1a2ede7855a7127f03c35fa1567e9f94d6
+PODFILE CHECKSUM: 32db3058ab579735b2761bca4175ff9f9ee90629
 
 COCOAPODS: 1.2.0

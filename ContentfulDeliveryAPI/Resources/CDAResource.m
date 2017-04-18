@@ -174,7 +174,7 @@ static const typeToClassMap_t typeToClassMap[] = {
     return identifier;
 }
 
--(instancetype)initWithDictionary:(NSDictionary *)dictionary
+-(instancetype)initWithDictionary:(nonnull NSDictionary *)dictionary
                            client:(CDAClient*)client
             localizationAvailable:(BOOL)localizationAvailable {
     self = [super init];

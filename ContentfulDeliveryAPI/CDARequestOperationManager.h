@@ -46,4 +46,8 @@
                  success:(CDAObjectFetchedBlock)success
                  failure:(CDARequestFailureBlock)failure;
 
++ (NSData *)sendSynchronousRequest:(NSURLRequest *)request
+                 returningResponse:(__autoreleasing NSURLResponse **)responsePtr
+                             error:(__autoreleasing NSError **)errorPtr;
+
 @end
