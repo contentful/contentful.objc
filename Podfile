@@ -57,7 +57,7 @@ target "ContentfulManagementAPI" do
     inherit! :search_paths
     pod 'Specta'
     pod 'Expecta'
-    pod 'CCLRequestReplay', :git => 'https://github.com/neonichu/CCLRequestReplay.git'
+    pod 'VCRURLConnection'
   end
 end
 

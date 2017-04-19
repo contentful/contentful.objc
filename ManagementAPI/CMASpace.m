@@ -35,8 +35,8 @@
 
     NSHTTPURLResponse* response;
     NSData* data = [CDARequestOperationManager sendSynchronousRequest:[request copy]
-                                         returningResponse:&response
-                                                     error:error];
+                                                    returningResponse:&response
+                                                                error:error];
 
     if (!data) {
         return @"application/octet-stream";

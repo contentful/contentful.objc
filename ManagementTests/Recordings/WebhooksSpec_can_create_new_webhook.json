@@ -1,0 +1,37 @@
+[
+  {
+    "body" : "ewogICJyZXF1ZXN0SWQiOiI1YTkzYTU5OTFhMGIzNWIwMDE0MDM4Y2FiNTgyM2ZkZSIsCiAgIm1lc3NhZ2UiOiJUaGUgcmVzb3VyY2UgeW91IHNlbnQgaW4gdGhlIGJvZHkgaXMgaW52YWxpZC4iLAogICJkZXRhaWxzIjp7CiAgICAiZXJyb3JzIjpbCiAgICAgIHsKICAgICAgICAibmFtZSI6InRha2VuIiwKICAgICAgICAicGF0aCI6InVybCIsCiAgICAgICAgInZhbHVlIjoiaHR0cDovL2V4YW1wbGUuY29tL2V4YW1wbGUiCiAgICAgIH0KICAgIF0KICB9LAogICJzeXMiOnsKICAgICJ0eXBlIjoiRXJyb3IiLAogICAgImlkIjoiVmFsaWRhdGlvbkZhaWxlZCIKICB9Cn0KCg==",
+    "headers" : {
+      "Content-Encoding" : "gzip",
+      "Access-Control-Allow-Methods" : "DELETE,GET,HEAD,POST,PUT,OPTIONS",
+      "Server" : "Contentful",
+      "Cache-Control" : "max-age=0",
+      "Strict-Transport-Security" : "max-age=15768000",
+      "CF-Space-Id" : "hvjkfbzcwrfn",
+      "Accept-Ranges" : "bytes",
+      "X-Contentful-RateLimit-Hour-Limit" : "36000",
+      "X-CDN" : "Incapsula",
+      "Access-Control-Allow-Origin" : "*",
+      "X-Contentful-Request-Id" : "5a93a5991a0b35b0014038cab5823fde",
+      "X-Contentful-RateLimit-Hour-Remaining" : "35784",
+      "X-Contentful-RateLimit-Reset" : "0",
+      "Access-Control-Allow-Headers" : "Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent",
+      "X-Contentful-RateLimit-Second-Limit" : "10",
+      "X-XSS-Protection" : "1; mode=block",
+      "Date" : "Sat, 22 Apr 2017 00:19:43 GMT",
+      "Connection" : "keep-alive",
+      "X-Iinfo" : "3-82378922-82378927 SNNN RT(1492820267873 115027) q(0 1 1 -1) r(2 2) U5",
+      "X-Contentful-RateLimit-Second-Remaining" : "7",
+      "Access-Control-Expose-Headers" : "Etag",
+      "Transfer-Encoding" : "Identity",
+      "CF-Organization-Id" : "3ubGFD1MWA6VgVYbIwSBg8",
+      "Access-Control-Max-Age" : "1728000",
+      "X-Frame-Options" : "ALLOWALL",
+      "Content-Type" : "application\/vnd.contentful.management.v1+json",
+      "X-Content-Type-Options" : "nosniff"
+    },
+    "method" : "POST",
+    "status" : 422,
+    "uri" : "https:\/\/api.contentful.com\/spaces\/hvjkfbzcwrfn\/webhook_definitions"
+  }
+]

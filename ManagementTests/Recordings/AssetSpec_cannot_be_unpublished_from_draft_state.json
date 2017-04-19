@@ -1,0 +1,61 @@
+[
+  {
+    "body" : "ewogICJmaWVsZHMiOiB7fSwKICAic3lzIjogewogICAgImlkIjogInFSbHhQaGRKaEFZd3VLRTJlT2dTRSIsCiAgICAidHlwZSI6ICJBc3NldCIsCiAgICAidmVyc2lvbiI6IDEsCiAgICAiY3JlYXRlZEF0IjogIjIwMTctMDQtMjFUMjE6MTY6NDYuNjExWiIsCiAgICAiY3JlYXRlZEJ5IjogewogICAgICAic3lzIjogewogICAgICAgICJ0eXBlIjogIkxpbmsiLAogICAgICAgICJsaW5rVHlwZSI6ICJVc2VyIiwKICAgICAgICAiaWQiOiAiMWE5clVyYjNBakRxVHhVR09ZeEJEZSIKICAgICAgfQogICAgfSwKICAgICJzcGFjZSI6IHsKICAgICAgInN5cyI6IHsKICAgICAgICAidHlwZSI6ICJMaW5rIiwKICAgICAgICAibGlua1R5cGUiOiAiU3BhY2UiLAogICAgICAgICJpZCI6ICJodmprZmJ6Y3dyZm4iCiAgICAgIH0KICAgIH0sCiAgICAidXBkYXRlZEF0IjogIjIwMTctMDQtMjFUMjE6MTY6NDYuNjExWiIsCiAgICAidXBkYXRlZEJ5IjogewogICAgICAic3lzIjogewogICAgICAgICJ0eXBlIjogIkxpbmsiLAogICAgICAgICJsaW5rVHlwZSI6ICJVc2VyIiwKICAgICAgICAiaWQiOiAiMWE5clVyYjNBakRxVHhVR09ZeEJEZSIKICAgICAgfQogICAgfQogIH0KfQo=",
+    "headers" : {
+      "X-Contentful-RateLimit-Hour-Limit" : "36000",
+      "X-Contentful-RateLimit-Second-Limit" : "10",
+      "Transfer-Encoding" : "Identity",
+      "Access-Control-Allow-Headers" : "Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent",
+      "Access-Control-Expose-Headers" : "Etag",
+      "X-Content-Type-Options" : "nosniff",
+      "Connection" : "keep-alive",
+      "Access-Control-Allow-Methods" : "DELETE,GET,HEAD,POST,PUT,OPTIONS",
+      "X-Iinfo" : "8-115237829-115237851 SNNN RT(1492809389652 16042) q(0 0 0 -1) r(4 4) U5",
+      "X-Contentful-RateLimit-Second-Remaining" : "8",
+      "Date" : "Fri, 21 Apr 2017 21:16:46 GMT",
+      "Content-Type" : "application\/vnd.contentful.management.v1+json",
+      "Content-Encoding" : "gzip",
+      "Access-Control-Allow-Origin" : "*",
+      "X-CDN" : "Incapsula",
+      "Access-Control-Max-Age" : "1728000",
+      "Strict-Transport-Security" : "max-age=15768000",
+      "X-Contentful-Request-Id" : "09080b341c733c60e6ff5fe949f812fc",
+      "Etag" : "\"83a07631e010a62f365389e65a730883\"",
+      "Server" : "Contentful",
+      "X-Contentful-RateLimit-Reset" : "0",
+      "X-Contentful-RateLimit-Hour-Remaining" : "35917",
+      "CF-Space-Id" : "hvjkfbzcwrfn"
+    },
+    "method" : "POST",
+    "status" : 201,
+    "uri" : "https:\/\/api.contentful.com\/spaces\/hvjkfbzcwrfn\/assets"
+  },
+  {
+    "body" : "ewogICJzeXMiOiB7CiAgICAidHlwZSI6ICJFcnJvciIsCiAgICAiaWQiOiAiQmFkUmVxdWVzdCIKICB9LAogICJtZXNzYWdlIjogIk5vdCBwdWJsaXNoZWQiLAogICJyZXF1ZXN0SWQiOiAiYTc3ZWEyYTA1ZTk4ZmFhYjMyMzEzZmUxOGNjNDcxMTUiCn0K",
+    "headers" : {
+      "X-Contentful-RateLimit-Hour-Limit" : "36000",
+      "X-Contentful-RateLimit-Second-Limit" : "10",
+      "Access-Control-Allow-Headers" : "Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent",
+      "Access-Control-Expose-Headers" : "Etag",
+      "X-Content-Type-Options" : "nosniff",
+      "Connection" : "keep-alive",
+      "Access-Control-Allow-Methods" : "DELETE,GET,HEAD,POST,PUT,OPTIONS",
+      "X-Iinfo" : "8-115237829-115237851 SNNN RT(1492809389652 17446) q(0 0 0 -1) r(2 2) U5",
+      "X-Contentful-RateLimit-Second-Remaining" : "9",
+      "Date" : "Fri, 21 Apr 2017 21:16:47 GMT",
+      "Content-Type" : "application\/vnd.contentful.management.v1+json",
+      "Access-Control-Allow-Origin" : "*",
+      "X-CDN" : "Incapsula",
+      "Access-Control-Max-Age" : "1728000",
+      "Strict-Transport-Security" : "max-age=15768000",
+      "X-Contentful-Request-Id" : "a77ea2a05e98faab32313fe18cc47115",
+      "Server" : "Contentful",
+      "X-Contentful-RateLimit-Reset" : "0",
+      "X-Contentful-RateLimit-Hour-Remaining" : "35916",
+      "Content-Length" : "144"
+    },
+    "method" : "DELETE",
+    "status" : 400,
+    "uri" : "https:\/\/api.contentful.com\/spaces\/hvjkfbzcwrfn\/assets\/qRlxPhdJhAYwuKE2eOgSE\/published"
+  }
+]

@@ -1,0 +1,37 @@
+[
+  {
+    "body" : "ewogICJ0b3RhbCI6MiwKICAibGltaXQiOjI1LAogICJza2lwIjowLAogICJzeXMiOnsKICAgICJ0eXBlIjoiQXJyYXkiCiAgfSwKICAiaXRlbXMiOlsKICAgIHsKICAgICAgInVybCI6Imh0dHA6Ly9leGFtcGxlLmNvbS8iLAogICAgICAiaHR0cEJhc2ljVXNlcm5hbWUiOiJ5b2xvIiwKICAgICAgIm5hbWUiOiJ1cGRhdGVkIG5hbWUiLAogICAgICAiaGVhZGVycyI6W10sCiAgICAgICJ0b3BpY3MiOlsKICAgICAgICAiRW50cnkuYXJjaGl2ZSIKICAgICAgXSwKICAgICAgInN5cyI6ewogICAgICAgICJ0eXBlIjoiV2ViaG9va0RlZmluaXRpb24iLAogICAgICAgICJpZCI6IjN5bGcybTRNWkVuaGdnR0Z5STBneUoiLAogICAgICAgICJ2ZXJzaW9uIjoyOCwKICAgICAgICAic3BhY2UiOnsKICAgICAgICAgICJzeXMiOnsKICAgICAgICAgICAgInR5cGUiOiJMaW5rIiwKICAgICAgICAgICAgImxpbmtUeXBlIjoiU3BhY2UiLAogICAgICAgICAgICAiaWQiOiJodmprZmJ6Y3dyZm4iCiAgICAgICAgICB9CiAgICAgICAgfSwKICAgICAgICAiY3JlYXRlZEJ5Ijp7CiAgICAgICAgICAic3lzIjp7CiAgICAgICAgICAgICJ0eXBlIjoiTGluayIsCiAgICAgICAgICAgICJsaW5rVHlwZSI6IlVzZXIiLAogICAgICAgICAgICAiaWQiOiI0RkxyVUhmdEhXM3YyQkxpOWZ6ZmpVIgogICAgICAgICAgfQogICAgICAgIH0sCiAgICAgICAgImNyZWF0ZWRBdCI6IjIwMTYtMDctMTFUMTA6NTI6MTZaIiwKICAgICAgICAidXBkYXRlZEJ5Ijp7CiAgICAgICAgICAic3lzIjp7CiAgICAgICAgICAgICJ0eXBlIjoiTGluayIsCiAgICAgICAgICAgICJsaW5rVHlwZSI6IlVzZXIiLAogICAgICAgICAgICAiaWQiOiIxYTlyVXJiM0FqRHFUeFVHT1l4QkRlIgogICAgICAgICAgfQogICAgICAgIH0sCiAgICAgICAgInVwZGF0ZWRBdCI6IjIwMTctMDQtMjBUMDk6MzU6MjNaIgogICAgICB9CiAgICB9LAogICAgewogICAgICAidXJsIjoiaHR0cDovL2V4YW1wbGUuY29tL2V4YW1wbGUiLAogICAgICAiaHR0cEJhc2ljVXNlcm5hbWUiOm51bGwsCiAgICAgICJuYW1lIjoieW9sbyIsCiAgICAgICJoZWFkZXJzIjpbXSwKICAgICAgInRvcGljcyI6WwogICAgICAgICIqLioiCiAgICAgIF0sCiAgICAgICJzeXMiOnsKICAgICAgICAidHlwZSI6IldlYmhvb2tEZWZpbml0aW9uIiwKICAgICAgICAiaWQiOiIxMzVYSU5Oa2w5SXlzeFpFRVZScW9wIiwKICAgICAgICAidmVyc2lvbiI6MCwKICAgICAgICAic3BhY2UiOnsKICAgICAgICAgICJzeXMiOnsKICAgICAgICAgICAgInR5cGUiOiJMaW5rIiwKICAgICAgICAgICAgImxpbmtUeXBlIjoiU3BhY2UiLAogICAgICAgICAgICAiaWQiOiJodmprZmJ6Y3dyZm4iCiAgICAgICAgICB9CiAgICAgICAgfSwKICAgICAgICAiY3JlYXRlZEJ5Ijp7CiAgICAgICAgICAic3lzIjp7CiAgICAgICAgICAgICJ0eXBlIjoiTGluayIsCiAgICAgICAgICAgICJsaW5rVHlwZSI6IlVzZXIiLAogICAgICAgICAgICAiaWQiOiI0RkxyVUhmdEhXM3YyQkxpOWZ6ZmpVIgogICAgICAgICAgfQogICAgICAgIH0sCiAgICAgICAgImNyZWF0ZWRBdCI6IjIwMTYtMDctMTJUMTM6MTE6NTdaIiwKICAgICAgICAidXBkYXRlZEJ5Ijp7CiAgICAgICAgICAic3lzIjp7CiAgICAgICAgICAgICJ0eXBlIjoiTGluayIsCiAgICAgICAgICAgICJsaW5rVHlwZSI6IlVzZXIiLAogICAgICAgICAgICAiaWQiOiI0RkxyVUhmdEhXM3YyQkxpOWZ6ZmpVIgogICAgICAgICAgfQogICAgICAgIH0sCiAgICAgICAgInVwZGF0ZWRBdCI6IjIwMTYtMDctMTJUMTM6MTE6NTdaIgogICAgICB9CiAgICB9CiAgXQp9Cgo=",
+    "headers" : {
+      "Content-Encoding" : "gzip",
+      "Access-Control-Allow-Methods" : "DELETE,GET,HEAD,POST,PUT,OPTIONS",
+      "Server" : "Contentful",
+      "Cache-Control" : "max-age=0",
+      "Strict-Transport-Security" : "max-age=15768000",
+      "CF-Space-Id" : "hvjkfbzcwrfn",
+      "X-CDN" : "Incapsula",
+      "X-Contentful-RateLimit-Hour-Limit" : "36000",
+      "Access-Control-Allow-Origin" : "*",
+      "X-Contentful-Request-Id" : "8a6f53878c7ab110c060856c4d5164e0",
+      "X-Contentful-RateLimit-Hour-Remaining" : "35785",
+      "X-Contentful-RateLimit-Reset" : "0",
+      "Access-Control-Allow-Headers" : "Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent",
+      "X-Contentful-RateLimit-Second-Limit" : "10",
+      "Content-Length" : "514",
+      "X-XSS-Protection" : "1; mode=block",
+      "Date" : "Sat, 22 Apr 2017 00:19:43 GMT",
+      "Connection" : "keep-alive",
+      "X-Iinfo" : "3-82378922-82378927 SNNN RT(1492820267873 114811) q(0 0 0 -1) r(2 2) U5",
+      "X-Contentful-RateLimit-Second-Remaining" : "8",
+      "Access-Control-Expose-Headers" : "Etag",
+      "CF-Organization-Id" : "3ubGFD1MWA6VgVYbIwSBg8",
+      "Access-Control-Max-Age" : "1728000",
+      "X-Frame-Options" : "ALLOWALL",
+      "Content-Type" : "application\/vnd.contentful.management.v1+json",
+      "Etag" : "W\/\"6b0eac6f5bb1916ec21a3fa7fddafbd5\"",
+      "X-Content-Type-Options" : "nosniff"
+    },
+    "method" : "GET",
+    "status" : 200,
+    "uri" : "https:\/\/api.contentful.com\/spaces\/hvjkfbzcwrfn\/webhook_definitions"
+  }
+]

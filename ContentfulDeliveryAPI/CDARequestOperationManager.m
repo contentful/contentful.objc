@@ -333,6 +333,7 @@
     dispatch_semaphore_t sem = dispatch_semaphore_create(0);
     __block NSData *result = nil;
 
+
     [[[NSURLSession sharedSession] dataTaskWithRequest:request
                                      completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                                          if (errorPtr != NULL) {
