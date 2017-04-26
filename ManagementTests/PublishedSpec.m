@@ -48,7 +48,7 @@ describe(@"Published", ^{
     waitUntil(^(DoneCallback done) {
         NSAssert(space, @"Test space could not be found.");
         [space fetchPublishedContentTypesWithSuccess:^(CDAResponse *response, CDAArray *array) {
-            XCTAssertEqual(array.items.count, 4);
+            XCTAssertEqual(array.items.count, 6);
 
             done();
         } failure:^(CDAResponse *response, NSError *error) {
