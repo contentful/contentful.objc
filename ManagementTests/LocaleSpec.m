@@ -12,12 +12,8 @@
 #import <VCRURLConnection/VCR.h>
 #import "TestHelpers.h"
 
-static NSString* randomLocaleCode() {
-    NSString* randomString = CDASquashCharactersFromSetInString([NSCharacterSet decimalDigitCharacterSet],
-                                                                [[NSUUID UUID] UUIDString]);
-    return [NSString stringWithFormat:@"%@-%@",
-            [randomString substringToIndex:2],
-            [randomString substringFromIndex:randomString.length - 2]];
+static NSString* testLocaleCode() {
+    return @"my-EN";
 }
 
 SpecBegin(Locale)
@@ -52,21 +48,28 @@ describe(@"Locale", ^{
     });
 
 
-    VCRTest_it(@"can_be_created")
+    VCRTest_it(@"can_be_created_and_deleted")
     
     waitUntil(^(DoneCallback done) {
         NSAssert(space, @"Test space could not be found.");
+
         [space createLocaleWithName:@"German"
-                               code:randomLocaleCode()
+                               code:testLocaleCode()
                             success:^(CDAResponse *response, CMALocale *locale) {
+
                                 expect(locale).toNot.beNil();
                                 expect(locale.identifier).toNot.beNil();
                                 expect(locale.name).to.equal(@"German");
 
-                                done();
+                                [locale deleteWithSuccess:^{
+
+                                    done();
+                                } failure:^(CDAResponse * _Nullable response, NSError * _Nonnull error) {
+                                    XCTFail(@"Error: %@", error);
+                                    done();
+                                }];
                             } failure:^(CDAResponse *response, NSError *error) {
                                 XCTFail(@"Error: %@", error);
-
                                 done();
                             }];
     });
@@ -77,23 +80,32 @@ describe(@"Locale", ^{
 
     waitUntil(^(DoneCallback done) {
         NSAssert(space, @"Test space could not be found.");
+
         [space createLocaleWithName:@"German"
-                               code:randomLocaleCode()
+                               code:testLocaleCode()
                             success:^(CDAResponse *response, CMALocale *locale) {
+
                                 expect(locale).toNot.beNil();
 
                                 locale.name = @"Not German";
                                 [locale updateWithSuccess:^{
                                     expect(locale.name).to.equal(@"Not German");
 
-                                    done();
+                                    [locale deleteWithSuccess:^{
+
+                                        done();
+                                    } failure:^(CDAResponse * _Nullable response, NSError * _Nonnull error) {
+                                        XCTFail(@"Error: %@", error);
+                                        done();
+                                    }];
                                 } failure:^(CDAResponse *response, NSError *error) {
                                     XCTFail(@"Error: %@", error);
 
                                     done();
                                 }];
                             } failure:^(CDAResponse *response, NSError *error) {
- 
+                                XCTFail(@"Error: %@", error);
+
                                 done();
                             }];
     });

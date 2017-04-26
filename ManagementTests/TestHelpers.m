@@ -19,9 +19,9 @@
     [VCR loadCassetteWithContentsOfURL:[[NSBundle bundleForClass:self]
                                         URLForResource:cassetteName
                                         withExtension:@"json"]];
-    [VCR setRecording:YES];
-//    [VCR setReplaying:YES];
-//    [VCR start];
+//    [VCR setRecording:YES];
+    [VCR setReplaying:YES];
+    [VCR start];
 }
 
 + (void)endRecordingAndSaveWithName:(NSString *)name

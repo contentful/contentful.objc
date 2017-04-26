@@ -285,8 +285,6 @@
 		ED01CB561EAAD9C60041E21E /* FetchingSpec_can_retrieve_ContentTypes_of_Space.json in Resources */ = {isa = PBXBuildFile; fileRef = ED01CB0E1EAAD9C60041E21E /* FetchingSpec_can_retrieve_ContentTypes_of_Space.json */; };
 		ED01CB571EAAD9C60041E21E /* FetchingSpec_can_retrieve_Entries_matching_query.json in Resources */ = {isa = PBXBuildFile; fileRef = ED01CB0F1EAAD9C60041E21E /* FetchingSpec_can_retrieve_Entries_matching_query.json */; };
 		ED01CB581EAAD9C60041E21E /* FetchingSpec_can_retrieve_single_ContentType_from_Space.json in Resources */ = {isa = PBXBuildFile; fileRef = ED01CB101EAAD9C60041E21E /* FetchingSpec_can_retrieve_single_ContentType_from_Space.json */; };
-		ED01CB591EAAD9C60041E21E /* LocaleSpec_can_be_created.json in Resources */ = {isa = PBXBuildFile; fileRef = ED01CB111EAAD9C60041E21E /* LocaleSpec_can_be_created.json */; };
-		ED01CB5A1EAAD9C60041E21E /* LocaleSpec_can_be_updated.json in Resources */ = {isa = PBXBuildFile; fileRef = ED01CB121EAAD9C60041E21E /* LocaleSpec_can_be_updated.json */; };
 		ED01CB5B1EAAD9C60041E21E /* LocaleSpec_fetch-space-before-each.json in Resources */ = {isa = PBXBuildFile; fileRef = ED01CB131EAAD9C60041E21E /* LocaleSpec_fetch-space-before-each.json */; };
 		ED01CB5C1EAAD9C60041E21E /* PublishedSpec_can_fetch_published_content_types.json in Resources */ = {isa = PBXBuildFile; fileRef = ED01CB141EAAD9C60041E21E /* PublishedSpec_can_fetch_published_content_types.json */; };
 		ED01CB5D1EAAD9C60041E21E /* PublishedSpec_fetch-space-before-each.json in Resources */ = {isa = PBXBuildFile; fileRef = ED01CB151EAAD9C60041E21E /* PublishedSpec_fetch-space-before-each.json */; };
@@ -322,6 +320,8 @@
 		ED1B1E6A1EB8B76300347DD7 /* CDANullabilityStubs.h in Headers */ = {isa = PBXBuildFile; fileRef = ED1B1E651EB8B76300347DD7 /* CDANullabilityStubs.h */; };
 		ED1B1E6B1EB8B76300347DD7 /* CDAUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = ED1B1E661EB8B76300347DD7 /* CDAUtilities.h */; };
 		ED1B1E6C1EB8B76300347DD7 /* CDAUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1B1E671EB8B76300347DD7 /* CDAUtilities.m */; };
+		ED1B1C981EB0E9F700347DD7 /* LocaleSpec_can_be_created_and_deleted.json in Resources */ = {isa = PBXBuildFile; fileRef = ED1B1C961EB0E9F700347DD7 /* LocaleSpec_can_be_created_and_deleted.json */; };
+		ED1B1C991EB0E9F700347DD7 /* LocaleSpec_can_be_updated.json in Resources */ = {isa = PBXBuildFile; fileRef = ED1B1C971EB0E9F700347DD7 /* LocaleSpec_can_be_updated.json */; };
 		ED21339F1EA6172C00C3CE94 /* libContentfulManagementAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED8FF5FA1EA5FF6C00798042 /* libContentfulManagementAPI.a */; };
 		ED2133A71EA6175D00C3CE94 /* WebhooksSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8FF6911EA601D000798042 /* WebhooksSpec.m */; };
 		ED2133A81EA6176700C3CE94 /* ValidationSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8FF6901EA601D000798042 /* ValidationSpec.m */; };
@@ -816,8 +816,6 @@
 		ED01CB0E1EAAD9C60041E21E /* FetchingSpec_can_retrieve_ContentTypes_of_Space.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FetchingSpec_can_retrieve_ContentTypes_of_Space.json; sourceTree = "<group>"; };
 		ED01CB0F1EAAD9C60041E21E /* FetchingSpec_can_retrieve_Entries_matching_query.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FetchingSpec_can_retrieve_Entries_matching_query.json; sourceTree = "<group>"; };
 		ED01CB101EAAD9C60041E21E /* FetchingSpec_can_retrieve_single_ContentType_from_Space.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FetchingSpec_can_retrieve_single_ContentType_from_Space.json; sourceTree = "<group>"; };
-		ED01CB111EAAD9C60041E21E /* LocaleSpec_can_be_created.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LocaleSpec_can_be_created.json; sourceTree = "<group>"; };
-		ED01CB121EAAD9C60041E21E /* LocaleSpec_can_be_updated.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LocaleSpec_can_be_updated.json; sourceTree = "<group>"; };
 		ED01CB131EAAD9C60041E21E /* LocaleSpec_fetch-space-before-each.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "LocaleSpec_fetch-space-before-each.json"; sourceTree = "<group>"; };
 		ED01CB141EAAD9C60041E21E /* PublishedSpec_can_fetch_published_content_types.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PublishedSpec_can_fetch_published_content_types.json; sourceTree = "<group>"; };
 		ED01CB151EAAD9C60041E21E /* PublishedSpec_fetch-space-before-each.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "PublishedSpec_fetch-space-before-each.json"; sourceTree = "<group>"; };
@@ -854,6 +852,8 @@
 		ED1B1E651EB8B76300347DD7 /* CDANullabilityStubs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDANullabilityStubs.h; path = ContentfulDeliveryAPI/CDANullabilityStubs.h; sourceTree = SOURCE_ROOT; };
 		ED1B1E661EB8B76300347DD7 /* CDAUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = CDAUtilities.h; path = ContentfulDeliveryAPI/CDAUtilities.h; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		ED1B1E671EB8B76300347DD7 /* CDAUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = CDAUtilities.m; path = ContentfulDeliveryAPI/CDAUtilities.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		ED1B1C961EB0E9F700347DD7 /* LocaleSpec_can_be_created_and_deleted.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LocaleSpec_can_be_created_and_deleted.json; sourceTree = "<group>"; };
+		ED1B1C971EB0E9F700347DD7 /* LocaleSpec_can_be_updated.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LocaleSpec_can_be_updated.json; sourceTree = "<group>"; };
 		ED21339A1EA6172C00C3CE94 /* ManagementTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ManagementTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED2133B91EA61BB400C3CE94 /* libAFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAFNetworking.a; path = "../../../../Library/Developer/Xcode/DerivedData/ContentfulSDK-bxoqptjjdoydzrbrpyvympuzkkee/Build/Products/Debug-iphonesimulator/AFNetworking/libAFNetworking.a"; sourceTree = "<group>"; };
 		ED2133BB1EA61BCB00C3CE94 /* libISO8601.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libISO8601.a; path = "../../../../Library/Developer/Xcode/DerivedData/ContentfulSDK-bxoqptjjdoydzrbrpyvympuzkkee/Build/Products/Debug-iphonesimulator/ISO8601/libISO8601.a"; sourceTree = "<group>"; };
@@ -1711,8 +1711,8 @@
 				ED01CB0E1EAAD9C60041E21E /* FetchingSpec_can_retrieve_ContentTypes_of_Space.json */,
 				ED01CB0F1EAAD9C60041E21E /* FetchingSpec_can_retrieve_Entries_matching_query.json */,
 				ED01CB101EAAD9C60041E21E /* FetchingSpec_can_retrieve_single_ContentType_from_Space.json */,
-				ED01CB111EAAD9C60041E21E /* LocaleSpec_can_be_created.json */,
-				ED01CB121EAAD9C60041E21E /* LocaleSpec_can_be_updated.json */,
+				ED1B1C961EB0E9F700347DD7 /* LocaleSpec_can_be_created_and_deleted.json */,
+				ED1B1C971EB0E9F700347DD7 /* LocaleSpec_can_be_updated.json */,
 				ED01CB131EAAD9C60041E21E /* LocaleSpec_fetch-space-before-each.json */,
 				ED01CB141EAAD9C60041E21E /* PublishedSpec_can_fetch_published_content_types.json */,
 				ED01CB151EAAD9C60041E21E /* PublishedSpec_fetch-space-before-each.json */,
@@ -2269,7 +2269,6 @@
 				ED01CB4E1EAAD9C60041E21E /* EntrySpec_can_be_unarchived.json in Resources */,
 				ED01CB5C1EAAD9C60041E21E /* PublishedSpec_can_fetch_published_content_types.json in Resources */,
 				ED01CB351EAAD9C60041E21E /* ContentTypeSpec_can_be_created_with_linked_assets_array_field-type.json in Resources */,
-				ED01CB591EAAD9C60041E21E /* LocaleSpec_can_be_created.json in Resources */,
 				ED01CAC71EAAB8A60041E21E /* AssetSpec_can_process_its_file.json in Resources */,
 				ED01CACF1EAAB8A60041E21E /* AssetSpec_fetch-space-before-each.json in Resources */,
 				ED01CB6B1EAAD9C60041E21E /* SpacesSpec_can_retrieve_user_associated_with_API_client.json in Resources */,
@@ -2294,10 +2293,10 @@
 				ED01CACC1EAAB8A60041E21E /* AssetSpec_can_be_updated.json in Resources */,
 				ED01CB4B1EAAD9C60041E21E /* EntrySpec_can_be_created.json in Resources */,
 				ED01CB401EAAD9C60041E21E /* ContentTypeSpec_can_update_with_changed_description.json in Resources */,
-				ED01CB5A1EAAD9C60041E21E /* LocaleSpec_can_be_updated.json in Resources */,
 				ED01CB631EAAD9C60041E21E /* SpacesSpec_can_change_name_of_Space.json in Resources */,
 				ED01CB541EAAD9C60041E21E /* FetchingSpec_can_retrieve_all_Entries_from_Space.json in Resources */,
 				ED01CB531EAAD9C60041E21E /* FetchingSpec_can_retrieve_all_Assets_from_Space.json in Resources */,
+				ED1B1C991EB0E9F700347DD7 /* LocaleSpec_can_be_updated.json in Resources */,
 				ED01CB7B1EAAD9C60041E21E /* WebhooksSpec_fetch-space-before-each.json in Resources */,
 				ED01CB3D1EAAD9C60041E21E /* ContentTypeSpec_can_update_type_of_an_existing_field.json in Resources */,
 				ED01CB711EAAD9C60041E21E /* ValidationSpec_can_create_ContentType_with_regex_validation.json in Resources */,
@@ -2336,6 +2335,7 @@
 				ED01CB361EAAD9C60041E21E /* ContentTypeSpec_can_be_created_with_linked_entries_array_field-type.json in Resources */,
 				ED01CB441EAAD9C60041E21E /* ContentTypeSpec_does_not_change_during_update.json in Resources */,
 				ED01CB461EAAD9C60041E21E /* EditorInterfaceSpec_can_fetch_editor_interface.json in Resources */,
+				ED1B1C981EB0E9F700347DD7 /* LocaleSpec_can_be_created_and_deleted.json in Resources */,
 				ED01CB421EAAD9C60041E21E /* ContentTypeSpec_can_update_with_deleted_field.json in Resources */,
 				ED01CAC51EAAB8A60041E21E /* AssetSpec_can_be_created.json in Resources */,
 				ED01CB551EAAD9C60041E21E /* FetchingSpec_can_retrieve_Assets_matching_query.json in Resources */,
