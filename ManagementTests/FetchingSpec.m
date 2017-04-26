@@ -121,7 +121,7 @@ describe(@"Space", ^{
         NSAssert(space, @"Test space could not be found.");
         [space fetchContentTypesWithSuccess:^(CDAResponse *response, CDAArray *array) {
             expect(array).toNot.beNil();
-            expect(array.items.count).equal(68);
+            expect(array.items.count).equal(66);
             expect([array.items[0] identifier]).toNot.beNil();
 
             done();
