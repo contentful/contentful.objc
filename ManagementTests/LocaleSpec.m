@@ -8,7 +8,6 @@
 
 #import <Keys/ManagementSDKKeys.h>
 #import <ContentfulManagementAPI/ContentfulManagementAPI.h>
-#import "CDAUtilities.h"
 #import <VCRURLConnection/VCR.h>
 #import "TestHelpers.h"
 

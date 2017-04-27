@@ -10,6 +10,7 @@
 #import <ContentfulManagementAPI/ContentfulManagementAPI.h>
 #import <VCRURLConnection/VCR.h>
 #import "TestHelpers.h"
+#import "CDAUtilities.h"
 
 void validateEditorRole(id self, CMARole* editorRole) {
     NSDictionary* expectedPermissions = @{
@@ -72,39 +73,45 @@ describe(@"Roles", ^{
                                         forClass:self.class];
     });
 
-#if 0 // TODO: Test disabled for now because the account used for testing doesn't work with R&P
-    it(@"can_create_new_role", ^{
-        waitUntil(^(DoneCallback done) {
-            NSAssert(space, @"Test space could not be found.");
 
-            NSString* name = @"YOLO";
-            NSString* description = @"The best role ever";
-            NSDictionary* permissions = @{ @"ContentDelivery": @[],
-                                           @"ContentModel": @[ @"read" ],
-                                           @"Settings": @[] };
-            NSArray* policies = @[ @{ @"actions": @"all", @"constraint": @{ @"equals": @[ @{ @"doc": @"sys.type" }, @"Entry" ] }, @"effect": @"allow" } ];
+    VCRTest_it(@"can_create_and_delete_role")
+    waitUntil(^(DoneCallback done) {
+        NSAssert(space, @"Test space could not be found.");
 
-            [space createRoleWithName:name
-                          description:description
-                          permissions:permissions
-                             policies:policies
-                              success:^(CDAResponse *response, CMARole *role) {
-                                  XCTAssertNotNil(role);
-                                  XCTAssertEqualObjects(role.name, name);
-                                  XCTAssertEqualObjects(role.description, description);
-                                  XCTAssertEqualObjects(role.permissions, permissions);
-                                  XCTAssertEqualObjects(role.policies, policies);
+        NSString* name = @"YOLO";
+        NSString* description = @"The best role ever";
+        NSDictionary* permissions = @{ @"ContentDelivery": @[],
+                                       @"ContentModel": @[ @"read" ],
+                                       @"Settings": @[] };
+        NSArray* policies = @[ @{ @"actions": @"all", @"constraint": @{ @"equals": @[ @{ @"doc": @"sys.type" }, @"Entry" ] }, @"effect": @"allow" } ];
 
+        [space createRoleWithName:name
+                      description:description
+                      permissions:permissions
+                         policies:policies
+                          success:^(CDAResponse *response, CMARole *role) {
+                              XCTAssertNotNil(role);
+                              XCTAssertEqualObjects(role.name, name);
+                              XCTAssertEqualObjects(role.roleDescription, description);
+                              XCTAssertEqualObjects(role.permissions, permissions);
+                              XCTAssertEqualObjects(role.policies, policies);
+
+                              [role deleteWithSuccess:^{
                                   done();
-                              }
-                              failure:^(CDAResponse *response, NSError *error) {
+                              } failure:^(CDAResponse * _Nullable response, NSError * _Nonnull error) {
                                   XCTFail("Error: %@", error);
 
                                   done();
                               }];
-        });
+                          }
+                          failure:^(CDAResponse *response, NSError *error) {
+                              XCTFail("Error: %@", error);
+
+                              done();
+                          }];
     });
-#endif
+    VCRTestEnd
+
 
     VCRTest_it(@"can_fetch_roles")
 
@@ -149,84 +156,80 @@ describe(@"Roles", ^{
     VCRTestEnd
 
 
-    VCRTest_it(@"can_update_single_role")
+    // This test hits the same fetch endpoint twice, so we must use different recordings.
+    it(@"can_update_single_role", ^{
 
-    waitUntil(^(DoneCallback done) {
-        NSAssert(space, @"Test space could not be found.");
-        [space fetchRoleWithIdentifier:@"7zStucnmwK4vSHUKRRcV73"
-                               success:^(CDAResponse *response, CMARole *role) {
-                                   XCTAssertNotNil(role);
-                                   XCTAssertEqualObjects(role.roleDescription, @"Allows only editing of content they created themselves");
+        NSString *roleId = @"7zStucnmwK4vSHUKRRcV73";
+        NSString *newRoleDescription = @"YOLO";
+        NSString *originalRoleDescription = @"Allows only editing of content they created themselves";
 
-
-                                   role.roleDescription = @"YOLO";
-
-                                   [role updateWithSuccess:^{
-                                       if (![VCR isReplaying]) {
-                                           [NSThread sleepForTimeInterval:3.0];
-                                       }
-                                       [space fetchRoleWithIdentifier:@"7zStucnmwK4vSHUKRRcV73"
-                                                              success:^(CDAResponse *r, CMARole *role) {
-                                                                  XCTAssertEqualObjects(role.roleDescription, @"YOLO");
-
-                                                                  role.roleDescription = @"Allows only editing of content they created themselves";
-
-                                                                  [role updateWithSuccess:^{
-                                                                      XCTAssertNotNil(role);
-                                                                      XCTAssertEqualObjects(role.roleDescription, @"Allows only editing of content they created themselves");
-                                                                      done();
-                                                                  } failure:^(CDAResponse * _Nullable response, NSError * _Nonnull error) {
-                                                                    XCTFail("Error: %@", error);
-                                                                      done();
-                                                                  }];
+        NSString *updateRoleTestName = @"can_successfully_update_role";
 
 
-                                                              } failure:^(CDAResponse *r, NSError *e) {
-                                                                  XCTFail("Error: %@", e);
+        [TestHelpers startRecordingOrLoadCassetteForTestNamed:updateRoleTestName
+                                                     forClass:self.class];
+        waitUntil(^(DoneCallback done) {
+            NSAssert(space, @"Test space could not be found.");
 
-                                                                  done();
-                                                              }];
-                                   } failure:^(CDAResponse *response, NSError *error) {
-                                       XCTFail("Error: %@", error);
+
+            [space fetchRoleWithIdentifier:roleId
+                       success:^(CDAResponse *response, CMARole *role) {
+                           XCTAssertNotNil(role);
+                           XCTAssertEqualObjects(role.roleDescription, originalRoleDescription);
+
+                           role.roleDescription = newRoleDescription;
+
+                           [role updateWithSuccess:^{
+                               if (![VCR isReplaying]) {
+                                   [NSThread sleepForTimeInterval:3.0];
+                               }
+                               done();
+                           } failure:^(CDAResponse *response, NSError *error) {
+                               XCTFail("Error: %@", error);
+
+                               done();
+                           }];
+                       } failure:^(CDAResponse *response, NSError *error) {
+                           XCTFail("Error: %@", error);
+
+                           done();
+                       }];
+        });
+        [TestHelpers endRecordingAndSaveWithName:updateRoleTestName
+                                        forClass:self.class];
+
+        NSString *updatedRoleCorrectlyTestName = @"updated_role_has_correct_description";
+
+        [TestHelpers startRecordingOrLoadCassetteForTestNamed:updatedRoleCorrectlyTestName
+                                                     forClass:self.class];
+        // Second fetch with different recording
+        waitUntil(^(DoneCallback done) {
+            [space fetchRoleWithIdentifier:roleId
+                                   success:^(CDAResponse *r, CMARole *role) {
+                                       XCTAssertNotNil(role);
+                                       XCTAssertEqualObjects(role.roleDescription, newRoleDescription);
+
+                                       role.roleDescription = originalRoleDescription;
+
+                                       [role updateWithSuccess:^{
+                                           if (![VCR isReplaying]) {
+                                               [NSThread sleepForTimeInterval:3.0];
+                                           }
+                                           done();
+                                       } failure:^(CDAResponse *response, NSError *error) {
+                                           XCTFail("Error: %@", error);
+                                           
+                                           done();
+                                       }];
+                                   } failure:^(CDAResponse *r, NSError *e) {
+                                       XCTFail("Error: %@", e);
 
                                        done();
                                    }];
-                               } failure:^(CDAResponse *response, NSError *error) {
-                                   XCTFail("Error: %@", error);
-
-                                   done();
-                               }];
+        });
+        [TestHelpers endRecordingAndSaveWithName:updatedRoleCorrectlyTestName
+                                        forClass:self.class];
     });
-    VCRTestEnd
-
-// FIXME: How can I create a role after deletion to reset the state?
-    VCRTest_it(@"can_delete_single_role")
-
-    waitUntil(^(DoneCallback done) {
-        NSAssert(space, @"Test space could not be found.");
-        [space fetchRoleWithIdentifier:@"7A5qhAwxThimzbpCe8FLhn"
-                               success:^(CDAResponse *response, CMARole *role) {
-                                   [role deleteWithSuccess:^{
-                                       [space fetchRoleWithIdentifier:@"7A5qhAwxThimzbpCe8FLhn"
-                                                              success:^(CDAResponse* r, CMARole* role) {
-                                                                  XCTFail(@"Role should not exists.");
-
-                                                                  done();
-                                                              } failure:^(CDAResponse* r, NSError* e) {
-                                                                  done();
-                                                              }];
-                                   } failure:^(CDAResponse *response, NSError *error) {
-                                       XCTFail("Error: %@", error);
-
-                                       done();
-                                   }];
-                               } failure:^(CDAResponse *response, NSError *error) {
-                                   XCTFail("Error: %@", error);
-
-                                   done();
-                               }];
-    });
-    VCRTestEnd
 });
 
 SpecEnd
