@@ -308,11 +308,6 @@
 		ED01CB741EAAD9C60041E21E /* ValidationSpec_can_create_ContentType_with_value_validation.json in Resources */ = {isa = PBXBuildFile; fileRef = ED01CB2C1EAAD9C60041E21E /* ValidationSpec_can_create_ContentType_with_value_validation.json */; };
 		ED0988F61EA8FFC300058BAF /* TestHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0988F51EA8FFC300058BAF /* TestHelpers.m */; };
 		ED10258E1DFED8F500BD7ABE /* CDAClient.h in Headers */ = {isa = PBXBuildFile; fileRef = A19FD86F18C631E60081677E /* CDAClient.h */; };
-		ED1B1E681EB8B76300347DD7 /* CDAFallbackDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = ED1B1E631EB8B76300347DD7 /* CDAFallbackDictionary.h */; };
-		ED1B1E691EB8B76300347DD7 /* CDAFallbackDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1B1E641EB8B76300347DD7 /* CDAFallbackDictionary.m */; };
-		ED1B1E6A1EB8B76300347DD7 /* CDANullabilityStubs.h in Headers */ = {isa = PBXBuildFile; fileRef = ED1B1E651EB8B76300347DD7 /* CDANullabilityStubs.h */; };
-		ED1B1E6B1EB8B76300347DD7 /* CDAUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = ED1B1E661EB8B76300347DD7 /* CDAUtilities.h */; };
-		ED1B1E6C1EB8B76300347DD7 /* CDAUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1B1E671EB8B76300347DD7 /* CDAUtilities.m */; };
 		ED1B1C981EB0E9F700347DD7 /* LocaleSpec_can_be_created_and_deleted.json in Resources */ = {isa = PBXBuildFile; fileRef = ED1B1C961EB0E9F700347DD7 /* LocaleSpec_can_be_created_and_deleted.json */; };
 		ED1B1C991EB0E9F700347DD7 /* LocaleSpec_can_be_updated.json in Resources */ = {isa = PBXBuildFile; fileRef = ED1B1C971EB0E9F700347DD7 /* LocaleSpec_can_be_updated.json */; };
 		ED1B1CB11EB1F4E800347DD7 /* RolesSpec_can_create_and_delete_role.json in Resources */ = {isa = PBXBuildFile; fileRef = ED1B1CAC1EB1F4E800347DD7 /* RolesSpec_can_create_and_delete_role.json */; };
@@ -321,6 +316,12 @@
 		ED1B1CB51EB1F4E800347DD7 /* RolesSpec_fetch-space-before-each.json in Resources */ = {isa = PBXBuildFile; fileRef = ED1B1CB01EB1F4E800347DD7 /* RolesSpec_fetch-space-before-each.json */; };
 		ED1B1CBE1EB20BD500347DD7 /* RolesSpec_can_successfully_update_role.json in Resources */ = {isa = PBXBuildFile; fileRef = ED1B1CBC1EB20BD500347DD7 /* RolesSpec_can_successfully_update_role.json */; };
 		ED1B1CBF1EB20BD500347DD7 /* RolesSpec_updated_role_has_correct_description.json in Resources */ = {isa = PBXBuildFile; fileRef = ED1B1CBD1EB20BD500347DD7 /* RolesSpec_updated_role_has_correct_description.json */; };
+		ED1B1E681EB8B76300347DD7 /* CDAFallbackDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = ED1B1E631EB8B76300347DD7 /* CDAFallbackDictionary.h */; };
+		ED1B1E691EB8B76300347DD7 /* CDAFallbackDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1B1E641EB8B76300347DD7 /* CDAFallbackDictionary.m */; };
+		ED1B1E6A1EB8B76300347DD7 /* CDANullabilityStubs.h in Headers */ = {isa = PBXBuildFile; fileRef = ED1B1E651EB8B76300347DD7 /* CDANullabilityStubs.h */; };
+		ED1B1E6B1EB8B76300347DD7 /* CDAUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = ED1B1E661EB8B76300347DD7 /* CDAUtilities.h */; };
+		ED1B1E6C1EB8B76300347DD7 /* CDAUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1B1E671EB8B76300347DD7 /* CDAUtilities.m */; };
+		ED1B1E6D1EB8C34600347DD7 /* CDANullabilityStubs.h in Headers */ = {isa = PBXBuildFile; fileRef = ED1B1E651EB8B76300347DD7 /* CDANullabilityStubs.h */; };
 		ED21339F1EA6172C00C3CE94 /* libContentfulManagementAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED8FF5FA1EA5FF6C00798042 /* libContentfulManagementAPI.a */; };
 		ED2133A71EA6175D00C3CE94 /* WebhooksSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8FF6911EA601D000798042 /* WebhooksSpec.m */; };
 		ED2133A81EA6176700C3CE94 /* ValidationSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8FF6901EA601D000798042 /* ValidationSpec.m */; };
@@ -839,11 +840,6 @@
 		ED0988F41EA8FFC300058BAF /* TestHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestHelpers.h; sourceTree = "<group>"; };
 		ED0988F51EA8FFC300058BAF /* TestHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestHelpers.m; sourceTree = "<group>"; };
 		ED1025911DFEDC1F00BD7ABE /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = "../../../Library/Developer/Xcode/DerivedData/ContentfulSDK-ewuedslirxtuzkhibcstxqewkote/Build/Products/Debug-iphonesimulator/AFNetworking-framework/AFNetworking.framework"; sourceTree = "<group>"; };
-		ED1B1E631EB8B76300347DD7 /* CDAFallbackDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDAFallbackDictionary.h; path = ContentfulDeliveryAPI/CDAFallbackDictionary.h; sourceTree = SOURCE_ROOT; };
-		ED1B1E641EB8B76300347DD7 /* CDAFallbackDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDAFallbackDictionary.m; path = ContentfulDeliveryAPI/CDAFallbackDictionary.m; sourceTree = SOURCE_ROOT; };
-		ED1B1E651EB8B76300347DD7 /* CDANullabilityStubs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDANullabilityStubs.h; path = ContentfulDeliveryAPI/CDANullabilityStubs.h; sourceTree = SOURCE_ROOT; };
-		ED1B1E661EB8B76300347DD7 /* CDAUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = CDAUtilities.h; path = ContentfulDeliveryAPI/CDAUtilities.h; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		ED1B1E671EB8B76300347DD7 /* CDAUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = CDAUtilities.m; path = ContentfulDeliveryAPI/CDAUtilities.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		ED1B1C961EB0E9F700347DD7 /* LocaleSpec_can_be_created_and_deleted.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LocaleSpec_can_be_created_and_deleted.json; sourceTree = "<group>"; };
 		ED1B1C971EB0E9F700347DD7 /* LocaleSpec_can_be_updated.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LocaleSpec_can_be_updated.json; sourceTree = "<group>"; };
 		ED1B1CAC1EB1F4E800347DD7 /* RolesSpec_can_create_and_delete_role.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = RolesSpec_can_create_and_delete_role.json; sourceTree = "<group>"; };
@@ -852,6 +848,11 @@
 		ED1B1CB01EB1F4E800347DD7 /* RolesSpec_fetch-space-before-each.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "RolesSpec_fetch-space-before-each.json"; sourceTree = "<group>"; };
 		ED1B1CBC1EB20BD500347DD7 /* RolesSpec_can_successfully_update_role.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = RolesSpec_can_successfully_update_role.json; sourceTree = "<group>"; };
 		ED1B1CBD1EB20BD500347DD7 /* RolesSpec_updated_role_has_correct_description.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = RolesSpec_updated_role_has_correct_description.json; sourceTree = "<group>"; };
+		ED1B1E631EB8B76300347DD7 /* CDAFallbackDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDAFallbackDictionary.h; path = ContentfulDeliveryAPI/CDAFallbackDictionary.h; sourceTree = SOURCE_ROOT; };
+		ED1B1E641EB8B76300347DD7 /* CDAFallbackDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDAFallbackDictionary.m; path = ContentfulDeliveryAPI/CDAFallbackDictionary.m; sourceTree = SOURCE_ROOT; };
+		ED1B1E651EB8B76300347DD7 /* CDANullabilityStubs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDANullabilityStubs.h; path = ContentfulDeliveryAPI/CDANullabilityStubs.h; sourceTree = SOURCE_ROOT; };
+		ED1B1E661EB8B76300347DD7 /* CDAUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = CDAUtilities.h; path = ContentfulDeliveryAPI/CDAUtilities.h; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		ED1B1E671EB8B76300347DD7 /* CDAUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = CDAUtilities.m; path = ContentfulDeliveryAPI/CDAUtilities.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		ED21339A1EA6172C00C3CE94 /* ManagementTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ManagementTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED2133B91EA61BB400C3CE94 /* libAFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAFNetworking.a; path = "../../../../Library/Developer/Xcode/DerivedData/ContentfulSDK-bxoqptjjdoydzrbrpyvympuzkkee/Build/Products/Debug-iphonesimulator/AFNetworking/libAFNetworking.a"; sourceTree = "<group>"; };
 		ED2133BB1EA61BCB00C3CE94 /* libISO8601.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libISO8601.a; path = "../../../../Library/Developer/Xcode/DerivedData/ContentfulSDK-bxoqptjjdoydzrbrpyvympuzkkee/Build/Products/Debug-iphonesimulator/ISO8601/libISO8601.a"; sourceTree = "<group>"; };
@@ -1930,6 +1931,7 @@
 				ED8FF6F81EA605D300798042 /* CMAUtilities.h in Headers */,
 				ED8FF6EC1EA605D300798042 /* CMAEditorInterface.h in Headers */,
 				ED8FF6F61EA605D300798042 /* CMASpace+Private.h in Headers */,
+				ED1B1E6D1EB8C34600347DD7 /* CDANullabilityStubs.h in Headers */,
 				ED8FF6F31EA605D300798042 /* CMAResource.h in Headers */,
 				ED8FF6A21EA6050400798042 /* CDAArray+Private.h in Headers */,
 				ED8FF6F21EA605D300798042 /* CMAPublishing.h in Headers */,

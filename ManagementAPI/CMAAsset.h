@@ -6,8 +6,8 @@
 //
 //
 
-#import <ContentfulDeliveryAPI/CDANullabilityStubs.h>
 #import <ContentfulManagementAPI/ContentfulManagementAPI.h>
+#import "CDANullabilityStubs.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

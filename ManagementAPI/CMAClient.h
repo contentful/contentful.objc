@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Boris Bügling. All rights reserved.
 //
 
-#import <ContentfulDeliveryAPI/CDANullabilityStubs.h>
+#import "CDANullabilityStubs.h"
 #import <ContentfulDeliveryAPI/ContentfulDeliveryAPI.h>
 
 NS_ASSUME_NONNULL_BEGIN

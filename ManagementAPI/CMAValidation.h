@@ -8,7 +8,7 @@
 
 @import Foundation;
 
-#import <ContentfulDeliveryAPI/CDANullabilityStubs.h>
+#import "CDANullabilityStubs.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
