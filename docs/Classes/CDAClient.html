@@ -1,0 +1,1779 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CDAClient Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/CDAClient" class="dashAnchor"></a>
+    <a title="CDAClient Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">ContentfulDeliveryAPI Docs</a> (99% documented)</p>
+        <p class="header-right"><a href="https://github.com/contentful/contentful.objc"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">ContentfulDeliveryAPI Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        CDAClient Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Categories.html">Categories</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Categories/UIImageView(CDAAsset).html">UIImageView(CDAAsset)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/CDAArray.html">CDAArray</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAAsset.html">CDAAsset</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAClient.html">CDAClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAConfiguration.html">CDAConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAContentType.html">CDAContentType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAEntriesViewController.html">CDAEntriesViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAEntry.html">CDAEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAError.html">CDAError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAField.html">CDAField</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAFieldsViewController.html">CDAFieldsViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAMapViewController.html">CDAMapViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAPersistenceManager.html">CDAPersistenceManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDARequest.html">CDARequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAResource.html">CDAResource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAResourceCell.html">CDAResourceCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAResourcesCollectionViewController.html">CDAResourcesCollectionViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAResourcesViewController.html">CDAResourcesViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)CDAResponse">CDAResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDASpace.html">CDASpace</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDASyncedSpace.html">CDASyncedSpace</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@CDAErrorDomain">CDAErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@CDAImageQualityOriginal">CDAImageQualityOriginal</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@CDARadiusMaximum">CDARadiusMaximum</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@CDARadiusNone">CDARadiusNone</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@CDA_DEFAULT_SERVER">CDA_DEFAULT_SERVER</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/CDAFieldType.html">CDAFieldType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CDAFitType.html">CDAFitType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CDAImageFormat.html">CDAImageFormat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CDAResourceType.html">CDAResourceType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/CDAEntriesViewControllerDelegate.html">CDAEntriesViewControllerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CDALocalizedPersistedEntry.html">CDALocalizedPersistedEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CDAPersistedAsset.html">CDAPersistedAsset</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CDAPersistedEntry.html">CDAPersistedEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CDAPersistedSpace.html">CDAPersistedSpace</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CDASyncedSpaceDelegate.html">CDASyncedSpaceDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Type Definitions.html">Type Definitions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:CDAClient.h@T@CDAArrayFetchedBlock">CDAArrayFetchedBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:CDAClient.h@T@CDAAssetFetchedBlock">CDAAssetFetchedBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:CDAClient.h@T@CDAContentTypeFetchedBlock">CDAContentTypeFetchedBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:CDAClient.h@T@CDAEntryFetchedBlock">CDAEntryFetchedBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:CDAClient.h@T@CDAObjectFetchedBlock">CDAObjectFetchedBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:CDAClient.h@T@CDARequestFailureBlock">CDARequestFailureBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:CDAClient.h@T@CDASpaceFetchedBlock">CDASpaceFetchedBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:CDAClient.h@T@CDASyncedSpaceFetchedBlock">CDASyncedSpaceFetchedBlock</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>CDAClient</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">CDAClient</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                </div>
+              </div>
+            <p>The CDAClient is used to request any information from the server. A client is associated with exactly
+one Space, but there is no limit to the concurrent number of clients existing at any one time.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Creating%20a%20Client%20*/"></a>
+                <a name="//apple_ref/objc/Section/Creating a Client */" class="dashAnchor"></a>
+                <a href="#/Creating%20a%20Client%20*/">
+                  <h3 class="section-name">Creating a Client */</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAClient(im)initWithSpaceKey:accessToken:"></a>
+                    <a name="//apple_ref/objc/Method/-initWithSpaceKey:accessToken:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAClient(im)initWithSpaceKey:accessToken:">-initWithSpaceKey:accessToken:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes a client for requesting data from the server.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithSpaceKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span><span class="nv">spaceKey</span>
+                             <span class="nf">accessToken</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">accessToken</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="nf">init</span><span class="p">(</span><span class="nv">spaceKey</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">accessToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>spaceKey</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key of the Space containing the desired data.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>accessToken</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The access token used for authentication against the API.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A client initialized for requesting data from the server.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAClient.h#L119">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAClient(im)initWithSpaceKey:accessToken:configuration:"></a>
+                    <a name="//apple_ref/objc/Method/-initWithSpaceKey:accessToken:configuration:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAClient(im)initWithSpaceKey:accessToken:configuration:">-initWithSpaceKey:accessToken:configuration:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes a client for requesting data from the server, while passing additional configuration
+  options.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithSpaceKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span><span class="nv">spaceKey</span>
+                             <span class="nf">accessToken</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">accessToken</span>
+                           <span class="nf">configuration</span><span class="p">:</span>
+                               <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/CDAConfiguration.html">CDAConfiguration</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">configuration</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="nf">init</span><span class="p">(</span><span class="nv">spaceKey</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">accessToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">configuration</span><span class="p">:</span> <span class="kt"><a href="../Classes/CDAConfiguration.html">CDAConfiguration</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>spaceKey</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key of the Space containing the desired data.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>accessToken</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The access token used for authentication against the API.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>configuration</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Specific options for configuring the client.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A client initialized for requesting data from the server.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAClient.h#L131-L133">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Fetching%20Assets%20*/"></a>
+                <a name="//apple_ref/objc/Section/Fetching Assets */" class="dashAnchor"></a>
+                <a href="#/Fetching%20Assets%20*/">
+                  <h3 class="section-name">Fetching Assets */</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAClient(im)fetchAssetsMatching:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-fetchAssetsMatching:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAClient(im)fetchAssetsMatching:success:failure:">-fetchAssetsMatching:success:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetch all Assets matching a query from the server.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/CDARequest.html">CDARequest</a></span> <span class="o">*</span><span class="p">)</span>
+<span class="nf">fetchAssetsMatching</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span><span class="nv">query</span>
+            <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDAArrayFetchedBlock">CDAArrayFetchedBlock</a></span><span class="p">)</span><span class="nv">success</span>
+            <span class="nf">failure</span><span class="p">:(</span><span class="n"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDARequestFailureBlock">CDARequestFailureBlock</a></span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">fetchAssets</span><span class="p">(</span><span class="n">matching</span> <span class="nv">query</span><span class="p">:</span> <span class="p">[</span><span class="kt">AnyHashable</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]?,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDAArrayFetchedBlock">CDAArrayFetchedBlock</a></span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kt"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDARequestFailureBlock">CDARequestFailureBlock</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/CDARequest.html">CDARequest</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>query</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The query which retrieved Assets shall match. Queries are expressed as dictionaries,
+             see <a href="https://www.contentful.com/developers/documentation/content-delivery-api/#search">Search Parameters</a> for more information.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block which gets called upon successful retrieval of all matching Assets.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block which gets called if an error occured during the retrieval process.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The request used for fetching data.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAClient.h#L146-L148">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAClient(im)fetchAssetsWithSuccess:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-fetchAssetsWithSuccess:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAClient(im)fetchAssetsWithSuccess:failure:">-fetchAssetsWithSuccess:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetch all Assets from the server.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/CDARequest.html">CDARequest</a></span> <span class="o">*</span><span class="p">)</span>
+<span class="nf">fetchAssetsWithSuccess</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDAArrayFetchedBlock">CDAArrayFetchedBlock</a></span><span class="p">)</span><span class="nv">success</span>
+               <span class="nf">failure</span><span class="p">:(</span><span class="n"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDARequestFailureBlock">CDARequestFailureBlock</a></span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">fetchAssets</span><span class="p">(</span><span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDAArrayFetchedBlock">CDAArrayFetchedBlock</a></span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kt"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDARequestFailureBlock">CDARequestFailureBlock</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/CDARequest.html">CDARequest</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block which gets called upon successful retrieval of all Assets.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block which gets called if an error occured during the retrieval process.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The request used for fetching data.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAClient.h#L157-L158">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAClient(im)fetchAssetWithIdentifier:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-fetchAssetWithIdentifier:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAClient(im)fetchAssetWithIdentifier:success:failure:">-fetchAssetWithIdentifier:success:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetch one specific Asset from the server.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/CDARequest.html">CDARequest</a></span> <span class="o">*</span><span class="p">)</span>
+<span class="nf">fetchAssetWithIdentifier</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">identifier</span>
+                 <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDAAssetFetchedBlock">CDAAssetFetchedBlock</a></span><span class="p">)</span><span class="nv">success</span>
+                 <span class="nf">failure</span><span class="p">:(</span><span class="n"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDARequestFailureBlock">CDARequestFailureBlock</a></span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">fetchAsset</span><span class="p">(</span><span class="n">withIdentifier</span> <span class="nv">identifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDAAssetFetchedBlock">CDAAssetFetchedBlock</a></span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kt"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDARequestFailureBlock">CDARequestFailureBlock</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/CDARequest.html">CDARequest</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>identifier</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The identifier of the Asset to request.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block which gets called upon successful retrieval of the Asset.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block which gets called if an error occured during the retrieval process.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The request used for fetching data.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAClient.h#L168-L170">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Fetching%20Content%20Types%20*/"></a>
+                <a name="//apple_ref/objc/Section/Fetching Content Types */" class="dashAnchor"></a>
+                <a href="#/Fetching%20Content%20Types%20*/">
+                  <h3 class="section-name">Fetching Content Types */</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAClient(im)fetchContentTypesWithSuccess:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-fetchContentTypesWithSuccess:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAClient(im)fetchContentTypesWithSuccess:failure:">-fetchContentTypesWithSuccess:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetch all Content Types from the server.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/CDARequest.html">CDARequest</a></span> <span class="o">*</span><span class="p">)</span>
+<span class="nf">fetchContentTypesWithSuccess</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDAArrayFetchedBlock">CDAArrayFetchedBlock</a></span><span class="p">)</span><span class="nv">success</span>
+                     <span class="nf">failure</span><span class="p">:(</span><span class="n"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDARequestFailureBlock">CDARequestFailureBlock</a></span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">fetchContentTypes</span><span class="p">(</span><span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDAArrayFetchedBlock">CDAArrayFetchedBlock</a></span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kt"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDARequestFailureBlock">CDARequestFailureBlock</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/CDARequest.html">CDARequest</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block which gets called upon successful retrieval of all Content Types.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block which gets called if an error occured during the retrieval process.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The request used for fetching data.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAClient.h#L181-L182">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAClient(im)fetchContentTypeWithIdentifier:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-fetchContentTypeWithIdentifier:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAClient(im)fetchContentTypeWithIdentifier:success:failure:">-fetchContentTypeWithIdentifier:success:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetch one specific Content Type from the server.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/CDARequest.html">CDARequest</a></span> <span class="o">*</span><span class="p">)</span>
+<span class="nf">fetchContentTypeWithIdentifier</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">identifier</span>
+                       <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDAContentTypeFetchedBlock">CDAContentTypeFetchedBlock</a></span><span class="p">)</span><span class="nv">success</span>
+                       <span class="nf">failure</span><span class="p">:(</span><span class="n"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDARequestFailureBlock">CDARequestFailureBlock</a></span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">fetchContentType</span><span class="p">(</span><span class="n">withIdentifier</span> <span class="nv">identifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDAContentTypeFetchedBlock">CDAContentTypeFetchedBlock</a></span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kt"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDARequestFailureBlock">CDARequestFailureBlock</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/CDARequest.html">CDARequest</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>identifier</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The identifier of the Content Type to request.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block which gets called upon successful retrieval of the Content Type.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block which gets called if an error occured during the retrieval process.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The request used for fetching data.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAClient.h#L192-L194">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Fetching%20Entries%20*/"></a>
+                <a name="//apple_ref/objc/Section/Fetching Entries */" class="dashAnchor"></a>
+                <a href="#/Fetching%20Entries%20*/">
+                  <h3 class="section-name">Fetching Entries */</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAClient(im)fetchEntriesMatching:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-fetchEntriesMatching:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAClient(im)fetchEntriesMatching:success:failure:">-fetchEntriesMatching:success:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetch all Entries matching a query from the server.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/CDARequest.html">CDARequest</a></span> <span class="o">*</span><span class="p">)</span>
+<span class="nf">fetchEntriesMatching</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span><span class="nv">query</span>
+             <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDAArrayFetchedBlock">CDAArrayFetchedBlock</a></span><span class="p">)</span><span class="nv">success</span>
+             <span class="nf">failure</span><span class="p">:(</span><span class="n"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDARequestFailureBlock">CDARequestFailureBlock</a></span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">fetchEntries</span><span class="p">(</span><span class="n">matching</span> <span class="nv">query</span><span class="p">:</span> <span class="p">[</span><span class="kt">AnyHashable</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]?,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDAArrayFetchedBlock">CDAArrayFetchedBlock</a></span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kt"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDARequestFailureBlock">CDARequestFailureBlock</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/CDARequest.html">CDARequest</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>query</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The query which retrieved Entries shall match. Queries are expressed as dictionaries,
+             see <a href="https://www.contentful.com/developers/documentation/content-delivery-api/#search">Search Parameters</a> for more information.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block which gets called upon successful retrieval of all matching Entries.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block which gets called if an error occured during the retrieval process.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The request used for fetching data.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAClient.h#L207-L209">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAClient(im)fetchEntriesWithSuccess:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-fetchEntriesWithSuccess:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAClient(im)fetchEntriesWithSuccess:failure:">-fetchEntriesWithSuccess:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetch all Entries from the server.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/CDARequest.html">CDARequest</a></span> <span class="o">*</span><span class="p">)</span>
+<span class="nf">fetchEntriesWithSuccess</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDAArrayFetchedBlock">CDAArrayFetchedBlock</a></span><span class="p">)</span><span class="nv">success</span>
+                <span class="nf">failure</span><span class="p">:(</span><span class="n"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDARequestFailureBlock">CDARequestFailureBlock</a></span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">fetchEntries</span><span class="p">(</span><span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDAArrayFetchedBlock">CDAArrayFetchedBlock</a></span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kt"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDARequestFailureBlock">CDARequestFailureBlock</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/CDARequest.html">CDARequest</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block which gets called upon successful retrieval of all Entries.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block which gets called if an error occured during the retrieval process.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The request used for fetching data.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAClient.h#L218-L219">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAClient(im)fetchEntryWithIdentifier:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-fetchEntryWithIdentifier:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAClient(im)fetchEntryWithIdentifier:success:failure:">-fetchEntryWithIdentifier:success:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetch one specific Entry from the server.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/CDARequest.html">CDARequest</a></span> <span class="o">*</span><span class="p">)</span>
+<span class="nf">fetchEntryWithIdentifier</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">identifier</span>
+                 <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDAEntryFetchedBlock">CDAEntryFetchedBlock</a></span><span class="p">)</span><span class="nv">success</span>
+                 <span class="nf">failure</span><span class="p">:(</span><span class="n"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDARequestFailureBlock">CDARequestFailureBlock</a></span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">fetchEntry</span><span class="p">(</span><span class="n">withIdentifier</span> <span class="nv">identifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDAEntryFetchedBlock">CDAEntryFetchedBlock</a></span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kt"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDARequestFailureBlock">CDARequestFailureBlock</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/CDARequest.html">CDARequest</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>identifier</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The identifier of the Entry to request.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block which gets called upon successful retrieval of the Entry.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block which gets called if an error occured during the retrieval process.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The request used for fetching data.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAClient.h#L229-L231">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Fetching%20Resources%20*/"></a>
+                <a name="//apple_ref/objc/Section/Fetching Resources */" class="dashAnchor"></a>
+                <a href="#/Fetching%20Resources%20*/">
+                  <h3 class="section-name">Fetching Resources */</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAClient(im)fetchResourcesOfType:matching:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-fetchResourcesOfType:matching:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAClient(im)fetchResourcesOfType:matching:success:failure:">-fetchResourcesOfType:matching:success:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetch any kind of Resource from the server.</p>
+
+<p>This method can be used in cases where the actual type of Resource to be fetched is determined at
+  runtime.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/CDARequest.html">CDARequest</a></span> <span class="o">*</span><span class="p">)</span>
+<span class="nf">fetchResourcesOfType</span><span class="p">:(</span><span class="n"><a href="../Enums/CDAResourceType.html">CDAResourceType</a></span><span class="p">)</span><span class="nv">resourceType</span>
+            <span class="nf">matching</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span><span class="nv">query</span>
+             <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDAArrayFetchedBlock">CDAArrayFetchedBlock</a></span><span class="p">)</span><span class="nv">success</span>
+             <span class="nf">failure</span><span class="p">:(</span><span class="n"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDARequestFailureBlock">CDARequestFailureBlock</a></span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">fetchResources</span><span class="p">(</span><span class="n">of</span> <span class="nv">resourceType</span><span class="p">:</span> <span class="kt"><a href="../Enums/CDAResourceType.html">CDAResourceType</a></span><span class="p">,</span> <span class="n">matching</span> <span class="nv">query</span><span class="p">:</span> <span class="p">[</span><span class="kt">AnyHashable</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]?,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDAArrayFetchedBlock">CDAArrayFetchedBlock</a></span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kt"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDARequestFailureBlock">CDARequestFailureBlock</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/CDARequest.html">CDARequest</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>resourceType</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The type of Resource to be fetched.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>query</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The query which retrieved Entries shall match. Queries are expressed as
+                  dictionaries, see <a href="https://www.contentful.com/developers/documentation/content-delivery-api/#search">Search Parameters</a> for more information. If <code>nil</code>, any Resource matches.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block which gets called upon successful retrieval of all matching Resources.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block which gets called if an error occured during the retrieval process.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The request used for fetching data.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAClient.h#L249-L252">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Fetching%20Spaces%20*/"></a>
+                <a name="//apple_ref/objc/Section/Fetching Spaces */" class="dashAnchor"></a>
+                <a href="#/Fetching%20Spaces%20*/">
+                  <h3 class="section-name">Fetching Spaces */</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAClient(im)fetchSpaceWithSuccess:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-fetchSpaceWithSuccess:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAClient(im)fetchSpaceWithSuccess:failure:">-fetchSpaceWithSuccess:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetch the Space associated with this client.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/CDARequest.html">CDARequest</a></span> <span class="o">*</span><span class="p">)</span>
+<span class="nf">fetchSpaceWithSuccess</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDASpaceFetchedBlock">CDASpaceFetchedBlock</a></span><span class="p">)</span><span class="nv">success</span>
+              <span class="nf">failure</span><span class="p">:(</span><span class="n"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDARequestFailureBlock">CDARequestFailureBlock</a></span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">fetchSpace</span><span class="p">(</span><span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDASpaceFetchedBlock">CDASpaceFetchedBlock</a></span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kt"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDARequestFailureBlock">CDARequestFailureBlock</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/CDARequest.html">CDARequest</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block which gets called upon successful retrieval of the Space.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block which gets called if an error occured during the retrieval process.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The request used for fetching data.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAClient.h#L263-L264">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Fetching%20Arrays%20*/"></a>
+                <a name="//apple_ref/objc/Section/Fetching Arrays */" class="dashAnchor"></a>
+                <a href="#/Fetching%20Arrays%20*/">
+                  <h3 class="section-name">Fetching Arrays */</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAClient(im)fetchAllItemsFromArray:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-fetchAllItemsFromArray:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAClient(im)fetchAllItemsFromArray:success:failure:">-fetchAllItemsFromArray:success:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetch all items from the given array.</p>
+
+<p>For performance reasons, queries matching many items will return data in chunks. If you would
+  still like to retrieve all available items from a given array, you can use this method.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">fetchAllItemsFromArray</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/CDAArray.html">CDAArray</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">array</span>
+                       <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSArray</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">success</span>
+                       <span class="nf">failure</span><span class="p">:(</span><span class="n"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDARequestFailureBlock">CDARequestFailureBlock</a></span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">fetchAllItems</span><span class="p">(</span><span class="n">from</span> <span class="nv">array</span><span class="p">:</span> <span class="kt"><a href="../Classes/CDAArray.html">CDAArray</a></span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">([</span><span class="kt">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kt"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDARequestFailureBlock">CDARequestFailureBlock</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>array</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The initially fetched array for which all items should now be fetched.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block which gets called upon successful retrieval of the items.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block which gets called if an error occured during the retrieval process.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAClient.h#L278-L280">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Synchronization%20*/"></a>
+                <a name="//apple_ref/objc/Section/Synchronization */" class="dashAnchor"></a>
+                <a href="#/Synchronization%20*/">
+                  <h3 class="section-name">Synchronization */</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAClient(im)initialSynchronizationWithSuccess:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-initialSynchronizationWithSuccess:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAClient(im)initialSynchronizationWithSuccess:failure:">-initialSynchronizationWithSuccess:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Perform the initial synchronization of a Space.</p>
+
+<p>A <code><a href="../Classes/CDASyncedSpace.html">CDASyncedSpace</a></code> instance will be available once the initial synchronization is done.
+  Subsequent updates can be done using that object.</p>
+
+<p>Using this method, a complete synchronization of all
+  <a href="https://www.contentful.com/developers/documentation/content-delivery-api/#sync-example-next-page">pages</a>
+  will be performed, which means that all data from the Space will be in memory.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/CDARequest.html">CDARequest</a></span> <span class="o">*</span><span class="p">)</span>
+<span class="nf">initialSynchronizationWithSuccess</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDASyncedSpaceFetchedBlock">CDASyncedSpaceFetchedBlock</a></span><span class="p">)</span><span class="nv">success</span>
+                          <span class="nf">failure</span><span class="p">:(</span><span class="n"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDARequestFailureBlock">CDARequestFailureBlock</a></span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">initialSynchronization</span><span class="p">(</span><span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDASyncedSpaceFetchedBlock">CDASyncedSpaceFetchedBlock</a></span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kt"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDARequestFailureBlock">CDARequestFailureBlock</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/CDARequest.html">CDARequest</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block which gets called upon successful retrieval of all content.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block which gets called if an error occured during the retrieval process.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The request used for fetching data.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAClient.h#L299-L300">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAClient(im)initialSynchronizationMatching:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-initialSynchronizationMatching:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAClient(im)initialSynchronizationMatching:success:failure:">-initialSynchronizationMatching:success:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Perform the initial synchronization of a Space.</p>
+
+<p>A <code><a href="../Classes/CDASyncedSpace.html">CDASyncedSpace</a></code> instance will be available once the initial synchronization is done.
+  Subsequent updates can be done using that object.</p>
+
+<p>Using this method, a complete synchronization of all
+  <a href="https://www.contentful.com/developers/documentation/content-delivery-api/#sync-example-next-page">pages</a>
+  will be performed, which means that all data from the Space will be in memory.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/CDARequest.html">CDARequest</a></span> <span class="o">*</span><span class="p">)</span>
+<span class="nf">initialSynchronizationMatching</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span><span class="nv">query</span>
+                       <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDASyncedSpaceFetchedBlock">CDASyncedSpaceFetchedBlock</a></span><span class="p">)</span><span class="nv">success</span>
+                       <span class="nf">failure</span><span class="p">:(</span><span class="n"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDARequestFailureBlock">CDARequestFailureBlock</a></span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">initialSynchronization</span><span class="p">(</span><span class="n">matching</span> <span class="nv">query</span><span class="p">:</span> <span class="p">[</span><span class="kt">AnyHashable</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]?,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDASyncedSpaceFetchedBlock">CDASyncedSpaceFetchedBlock</a></span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kt"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDARequestFailureBlock">CDARequestFailureBlock</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/CDARequest.html">CDARequest</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>query</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The query which retrieved Resources shall match. Queries are expressed as
+             dictionaries, see <a href="https://www.contentful.com/developers/documentation/content-delivery-api/javascript/#sync-types">Syncing Specific Content</a> for more information. If <code>nil</code>, any Resource matches.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block which gets called upon successful retrieval of all content.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block which gets called if an error occured during the retrieval process.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The request used for fetching data.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAClient.h#L319-L321">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Register%20classes%20for%20custom%20value%20objects%20*/"></a>
+                <a name="//apple_ref/objc/Section/Register classes for custom value objects */" class="dashAnchor"></a>
+                <a href="#/Register%20classes%20for%20custom%20value%20objects%20*/">
+                  <h3 class="section-name">Register classes for custom value objects */</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAClient(im)registerClass:forContentType:"></a>
+                    <a name="//apple_ref/objc/Method/-registerClass:forContentType:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAClient(im)registerClass:forContentType:">-registerClass:forContentType:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This method allows registering custom CDAEntry subclasses when Entries of a specific Content Type
+  are retrieved from the server.</p>
+
+<p>This allows the integration of custom value objects with convenience accessors, additional
+  conversions or custom functionality so that you can easily build your data model upon Entries.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">registerClass</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">Class</span><span class="p">)</span><span class="nv">customClass</span>
+       <span class="nf">forContentType</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/CDAContentType.html">CDAContentType</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">contentType</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">register</span><span class="p">(</span><span class="n">_</span> <span class="nv">customClass</span><span class="p">:</span> <span class="kt">AnyClass</span><span class="p">,</span> <span class="k">for</span> <span class="nv">contentType</span><span class="p">:</span> <span class="kt"><a href="../Classes/CDAContentType.html">CDAContentType</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>customClass</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The CDAEntry subclass which should be instantiated for Entries of the given
+                 Content Type.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>contentType</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The Content Type for which custom value objects should be created.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAClient.h#L336">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAClient(im)registerClass:forContentTypeWithIdentifier:"></a>
+                    <a name="//apple_ref/objc/Method/-registerClass:forContentTypeWithIdentifier:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAClient(im)registerClass:forContentTypeWithIdentifier:">-registerClass:forContentTypeWithIdentifier:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This method allows registering custom CDAEntry subclasses when Entries of a specific Content Type
+  are retrieved from the server. </p>
+
+<p>This allows the integration of custom value objects with convenience accessors, additional
+  conversions or custom functionality so that you can easily build your data model upon Entries.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">registerClass</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">Class</span><span class="p">)</span><span class="nv">customClass</span>
+    <span class="nf">forContentTypeWithIdentifier</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">identifier</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">register</span><span class="p">(</span><span class="n">_</span> <span class="nv">customClass</span><span class="p">:</span> <span class="kt">AnyClass</span><span class="p">,</span> <span class="n">forContentTypeWithIdentifier</span> <span class="nv">identifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>customClass</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The CDAEntry subclass which should be instantiated for Entries of the given
+                 Content Type.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>identifier</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The identifier of the Content Type for which custom value objects should be
+                 created.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAClient.h#L350">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAClient(im)resolveLinksFromArray:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-resolveLinksFromArray:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAClient(im)resolveLinksFromArray:success:failure:">-resolveLinksFromArray:success:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Resolve all Resources from the given array in case their data is not already available locally.</p>
+
+<p>This is a convenience method for cases where an Entry links to a list of other Entries which were
+  not included in the initial response, e.g. the list of tags associated with a blog post.
+  However, it is also save to call this method on arrays of already fetched Resources or even
+  any arrays which hold objects of any type. This means it is always safe to call this method even
+  if you are unsure about the contents of an array at the point you are calling it.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">resolveLinksFromArray</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSArray</span> <span class="o">*</span><span class="p">)</span><span class="nv">array</span>
+                      <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSArray</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">success</span>
+                      <span class="nf">failure</span><span class="p">:(</span><span class="n"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDARequestFailureBlock">CDARequestFailureBlock</a></span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">resolveLinks</span><span class="p">(</span><span class="n">from</span> <span class="nv">array</span><span class="p">:</span> <span class="p">[</span><span class="kt">Any</span><span class="p">],</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">([</span><span class="kt">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kt"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDARequestFailureBlock">CDARequestFailureBlock</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>array</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The array of unfetched Resources, usually coming from an Entry&rsquo;s field value.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block which gets called upon successful retrieval of all Resources.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block which gets called if an error occured during the retrieval process.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAClient.h#L365-L367">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="https://www.contentful.com" target="_blank" rel="external">Contentful</a>. All rights reserved. (Last updated: 2017-05-02)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
