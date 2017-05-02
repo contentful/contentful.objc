@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CDARequest Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/CDARequest" class="dashAnchor"></a>
+    <a title="CDARequest Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">ContentfulDeliveryAPI Docs</a> (99% documented)</p>
+        <p class="header-right"><a href="https://github.com/contentful/contentful.objc"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">ContentfulDeliveryAPI Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        CDARequest Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Categories.html">Categories</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Categories/UIImageView(CDAAsset).html">UIImageView(CDAAsset)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/CDAArray.html">CDAArray</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAAsset.html">CDAAsset</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAClient.html">CDAClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAConfiguration.html">CDAConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAContentType.html">CDAContentType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAEntriesViewController.html">CDAEntriesViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAEntry.html">CDAEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAError.html">CDAError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAField.html">CDAField</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAFieldsViewController.html">CDAFieldsViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAMapViewController.html">CDAMapViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAPersistenceManager.html">CDAPersistenceManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDARequest.html">CDARequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAResource.html">CDAResource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAResourceCell.html">CDAResourceCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAResourcesCollectionViewController.html">CDAResourcesCollectionViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAResourcesViewController.html">CDAResourcesViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)CDAResponse">CDAResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDASpace.html">CDASpace</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDASyncedSpace.html">CDASyncedSpace</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@CDAErrorDomain">CDAErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@CDAImageQualityOriginal">CDAImageQualityOriginal</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@CDARadiusMaximum">CDARadiusMaximum</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@CDARadiusNone">CDARadiusNone</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@CDA_DEFAULT_SERVER">CDA_DEFAULT_SERVER</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/CDAFieldType.html">CDAFieldType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CDAFitType.html">CDAFitType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CDAImageFormat.html">CDAImageFormat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CDAResourceType.html">CDAResourceType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/CDAEntriesViewControllerDelegate.html">CDAEntriesViewControllerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CDALocalizedPersistedEntry.html">CDALocalizedPersistedEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CDAPersistedAsset.html">CDAPersistedAsset</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CDAPersistedEntry.html">CDAPersistedEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CDAPersistedSpace.html">CDAPersistedSpace</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CDASyncedSpaceDelegate.html">CDASyncedSpaceDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Type Definitions.html">Type Definitions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:CDAClient.h@T@CDAArrayFetchedBlock">CDAArrayFetchedBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:CDAClient.h@T@CDAAssetFetchedBlock">CDAAssetFetchedBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:CDAClient.h@T@CDAContentTypeFetchedBlock">CDAContentTypeFetchedBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:CDAClient.h@T@CDAEntryFetchedBlock">CDAEntryFetchedBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:CDAClient.h@T@CDAObjectFetchedBlock">CDAObjectFetchedBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:CDAClient.h@T@CDARequestFailureBlock">CDARequestFailureBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:CDAClient.h@T@CDASpaceFetchedBlock">CDASpaceFetchedBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:CDAClient.h@T@CDASyncedSpaceFetchedBlock">CDASyncedSpaceFetchedBlock</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>CDARequest</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">CDARequest</span> <span class="p">:</span> <span class="nc">NSOperation</span></code></pre>
+
+                </div>
+              </div>
+            <p>A request encapsulates all necessary information for retrieving specific resources.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Accessing%20URL%20Connection%20Information%20*/"></a>
+                <a name="//apple_ref/objc/Section/Accessing URL Connection Information */" class="dashAnchor"></a>
+                <a href="#/Accessing%20URL%20Connection%20Information%20*/">
+                  <h3 class="section-name">Accessing URL Connection Information */</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDARequest(py)error"></a>
+                    <a name="//apple_ref/objc/Property/error" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDARequest(py)error">error</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Error which occured during the lifetime of the request, if any.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">error</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">Error</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDARequest.h#L25">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDARequest(py)request"></a>
+                    <a name="//apple_ref/objc/Property/request" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDARequest(py)request">request</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The actual request being sent to the server.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSURLRequest</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">URLRequest</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDARequest.h#L27">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDARequest(py)response"></a>
+                    <a name="//apple_ref/objc/Property/response" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDARequest(py)response">response</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The underlying response received from the server.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSHTTPURLResponse</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">response</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">response</span><span class="p">:</span> <span class="kt">HTTPURLResponse</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDARequest.h#L29">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Accessing%20Response%20Data%20*/"></a>
+                <a name="//apple_ref/objc/Section/Accessing Response Data */" class="dashAnchor"></a>
+                <a href="#/Accessing%20Response%20Data%20*/">
+                  <h3 class="section-name">Accessing Response Data */</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDARequest(py)responseData"></a>
+                    <a name="//apple_ref/objc/Property/responseData" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDARequest(py)responseData">responseData</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The raw data received from the server.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSData</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">responseData</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">responseData</span><span class="p">:</span> <span class="kt">Data</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDARequest.h#L34">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDARequest(py)responseObject"></a>
+                    <a name="//apple_ref/objc/Property/responseObject" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDARequest(py)responseObject">responseObject</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The processed response data, usually an instance of a <code><a href="../Classes/CDAResource.html">CDAResource</a></code> subclass.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">id</span> <span class="n">_Nullable</span> <span class="n">responseObject</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">responseObject</span><span class="p">:</span> <span class="kt">Any</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDARequest.h#L36">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDARequest(py)responseString"></a>
+                    <a name="//apple_ref/objc/Property/responseString" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDARequest(py)responseString">responseString</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>String representation of the data received from the server.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">responseString</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">responseString</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDARequest.h#L38">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDARequest(py)responseStringEncoding"></a>
+                    <a name="//apple_ref/objc/Property/responseStringEncoding" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDARequest(py)responseStringEncoding">responseStringEncoding</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Encoding used for the response.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSStringEncoding</span> <span class="n">responseStringEncoding</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">responseStringEncoding</span><span class="p">:</span> <span class="kt">UInt</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDARequest.h#L40">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="https://www.contentful.com" target="_blank" rel="external">Contentful</a>. All rights reserved. (Last updated: 2017-05-02)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

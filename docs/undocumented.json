@@ -1,0 +1,19 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/jpwright/Contentful/objc/SDK/contentful.objc/ContentfulDeliveryAPI/CDAConfiguration.h",
+      "line": 19,
+      "symbol": "CDA_DEFAULT_SERVER",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jpwright/Contentful/objc/SDK/contentful.objc/ContentfulDeliveryAPI/Resources/CDAError.h",
+      "line": 14,
+      "symbol": "CDAErrorDomain",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/jpwright/Contentful/objc/SDK/contentful.objc"
+}

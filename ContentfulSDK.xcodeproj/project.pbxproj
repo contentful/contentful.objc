@@ -80,15 +80,13 @@
 		A189199B1BB1E7870094256E /* LocalizedModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A18919991BB1E7870094256E /* LocalizedModel.xcdatamodeld */; };
 		A189199E1BB1E8FA0094256E /* LocalizedCat.m in Sources */ = {isa = PBXBuildFile; fileRef = A189199D1BB1E8FA0094256E /* LocalizedCat.m */; };
 		A18919A01BB1EA200094256E /* CoreDataMultipleLocalesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A189199F1BB1EA200094256E /* CoreDataMultipleLocalesTests.m */; };
-		A18AA81318E2D98200D430D5 /* CDADeletedEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = A18AA81118E2D98200D430D5 /* CDADeletedEntry.h */; };
+		A18AA81318E2D98200D430D5 /* CDADeletedEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = A18AA81118E2D98200D430D5 /* CDADeletedEntry.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A18AA81418E2D98200D430D5 /* CDADeletedEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = A18AA81218E2D98200D430D5 /* CDADeletedEntry.m */; };
-		A18AA81718E2E2CF00D430D5 /* CDADeletedAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = A18AA81518E2E2CF00D430D5 /* CDADeletedAsset.h */; };
+		A18AA81718E2E2CF00D430D5 /* CDADeletedAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = A18AA81518E2E2CF00D430D5 /* CDADeletedAsset.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A18AA81818E2E2CF00D430D5 /* CDADeletedAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = A18AA81618E2E2CF00D430D5 /* CDADeletedAsset.m */; };
 		A18AA85718E45C5E00D430D5 /* SyncTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A18AA85618E45C5E00D430D5 /* SyncTests.json */; };
 		A18AA85918E48B4200D430D5 /* AssetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A18AA85818E48B4200D430D5 /* AssetTests.m */; };
 		A18AA85C18E4952C00D430D5 /* AssetTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A18AA85A18E4952800D430D5 /* AssetTests.json */; };
-		A18AA86118E5D63B00D430D5 /* CDAFallbackDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = A18AA85F18E5D63B00D430D5 /* CDAFallbackDictionary.h */; };
-		A18AA86218E5D63B00D430D5 /* CDAFallbackDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = A18AA86018E5D63B00D430D5 /* CDAFallbackDictionary.m */; };
 		A18AA86418E5DB1A00D430D5 /* UtilityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A18AA86318E5DB1A00D430D5 /* UtilityTests.m */; };
 		A1924C8D18EBFFB600C97F9D /* CDAResourcesViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A1924C8B18EBFFB600C97F9D /* CDAResourcesViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1924C8E18EBFFB600C97F9D /* CDAResourcesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1924C8C18EBFFB600C97F9D /* CDAResourcesViewController.m */; };
@@ -129,7 +127,6 @@
 		A1A0313518C6449F006470B7 /* CDAArray.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A0313418C6449F006470B7 /* CDAArray.m */; };
 		A1A0313818C644B5006470B7 /* CDAResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A0313718C644B5006470B7 /* CDAResponse.m */; };
 		A1A0313C18C6627D006470B7 /* CDAResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A0313A18C660F6006470B7 /* CDAResponseSerializer.m */; };
-		A1A0313F18C66667006470B7 /* CDAUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A0313E18C66667006470B7 /* CDAUtilities.m */; };
 		A1A0314218C66E90006470B7 /* CDAContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A0314118C66E90006470B7 /* CDAContentType.m */; };
 		A1A0314818C6708C006470B7 /* CDAField.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A0314718C6708C006470B7 /* CDAField.m */; };
 		A1A0314B18C67527006470B7 /* CDAContentTypeRegistry.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A0314A18C67527006470B7 /* CDAContentTypeRegistry.m */; };
@@ -238,11 +235,15 @@
 		BF8457967229AD818404AB88 /* libPods-CDA Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96C6ED327199C8B1B45B395D /* libPods-CDA Tests.a */; };
 		D868972396B5AFFA27D73DE7 /* libPods-SeedDatabaseExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A88212E4A849A33F0D8A226F /* libPods-SeedDatabaseExample.a */; };
 		ED10258E1DFED8F500BD7ABE /* CDAClient.h in Headers */ = {isa = PBXBuildFile; fileRef = A19FD86F18C631E60081677E /* CDAClient.h */; };
+		ED1B1E681EB8B76300347DD7 /* CDAFallbackDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = ED1B1E631EB8B76300347DD7 /* CDAFallbackDictionary.h */; };
+		ED1B1E691EB8B76300347DD7 /* CDAFallbackDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1B1E641EB8B76300347DD7 /* CDAFallbackDictionary.m */; };
+		ED1B1E6A1EB8B76300347DD7 /* CDANullabilityStubs.h in Headers */ = {isa = PBXBuildFile; fileRef = ED1B1E651EB8B76300347DD7 /* CDANullabilityStubs.h */; };
+		ED1B1E6B1EB8B76300347DD7 /* CDAUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = ED1B1E661EB8B76300347DD7 /* CDAUtilities.h */; };
+		ED1B1E6C1EB8B76300347DD7 /* CDAUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1B1E671EB8B76300347DD7 /* CDAUtilities.m */; };
 		ED31CED81E534D15007C8E48 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ED31CEC81E534CEE007C8E48 /* CoreDataManager.m */; };
 		ED31CED91E534D15007C8E48 /* RealmAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = ED31CECA1E534CEE007C8E48 /* RealmAsset.m */; };
 		ED31CEDA1E534D15007C8E48 /* RealmManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ED31CECC1E534CEE007C8E48 /* RealmManager.m */; };
 		ED31CEDB1E534D15007C8E48 /* RealmSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = ED31CECE1E534CEE007C8E48 /* RealmSpace.m */; };
-		ED31CEDD1E534DA2007C8E48 /* CDANullabilityStubs.h in Headers */ = {isa = PBXBuildFile; fileRef = ED31CEDC1E534D9B007C8E48 /* CDANullabilityStubs.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ED31CEDF1E534E43007C8E48 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED31CEDE1E534E43007C8E48 /* CoreData.framework */; };
 		ED31CEE21E534E85007C8E48 /* libContentfulDeliveryAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD86718C631E60081677E /* libContentfulDeliveryAPI.a */; };
 		ED31CEE41E534E92007C8E48 /* libAFNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED31CEE31E534E92007C8E48 /* libAFNetworking.a */; };
@@ -310,13 +311,13 @@
 		96F2E1933FDE5D435367B26C /* libPods-ContentfulDeliveryAPI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ContentfulDeliveryAPI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A10A11FC19090F5D00EFF083 /* CatDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatDetailViewController.h; sourceTree = "<group>"; };
 		A10A11FD19090F5D00EFF083 /* CatDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatDetailViewController.m; sourceTree = "<group>"; };
-		A12085751BB2707300A6504B /* CDALocalizablePersistedEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDALocalizablePersistedEntry.h; sourceTree = "<group>"; };
-		A12085761BB2707300A6504B /* CDALocalizablePersistedEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDALocalizablePersistedEntry.m; sourceTree = "<group>"; };
+		A12085751BB2707300A6504B /* CDALocalizablePersistedEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = CDALocalizablePersistedEntry.h; path = ../CDALocalizablePersistedEntry.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		A12085761BB2707300A6504B /* CDALocalizablePersistedEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = CDALocalizablePersistedEntry.m; path = ../CDALocalizablePersistedEntry.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A12085791BB2712300A6504B /* ManagedCatLocalized.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagedCatLocalized.h; sourceTree = "<group>"; };
 		A120857A1BB2712300A6504B /* ManagedCatLocalized.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagedCatLocalized.m; sourceTree = "<group>"; };
 		A12797A518E1A45700043A44 /* SyncTests */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SyncTests; path = Data/SyncTests; sourceTree = "<group>"; };
 		A12797AA18E1B08F00043A44 /* SyncTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncTests.m; sourceTree = "<group>"; };
-		A12797AC18E1B10300043A44 /* CDASyncedSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDASyncedSpace.h; sourceTree = "<group>"; };
+		A12797AC18E1B10300043A44 /* CDASyncedSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDASyncedSpace.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A12797AD18E1B10300043A44 /* CDASyncedSpace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDASyncedSpace.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A12F19DD1BB48F190088C199 /* CoreDataMultipleLocalesTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = CoreDataMultipleLocalesTests.json; path = Data/Recordings/CoreDataMultipleLocalesTests.json; sourceTree = "<group>"; };
 		A12F19DF1BB48F380088C199 /* ComplexSyncTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = ComplexSyncTests.json; path = Data/Recordings/ComplexSyncTests.json; sourceTree = "<group>"; };
@@ -324,20 +325,20 @@
 		A144FAFB18C9F8C200110B35 /* StagingTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = StagingTests.json; path = Data/Recordings/StagingTests.json; sourceTree = "<group>"; };
 		A144FAFD18C9F8CA00110B35 /* SearchAPITests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = SearchAPITests.json; path = Data/Recordings/SearchAPITests.json; sourceTree = "<group>"; };
 		A144FAFF18C9F8D200110B35 /* DocumentationTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = DocumentationTests.json; path = Data/Recordings/DocumentationTests.json; sourceTree = "<group>"; };
-		A1462B911993B472004906D0 /* CDAError+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDAError+Private.h"; sourceTree = "<group>"; };
+		A1462B911993B472004906D0 /* CDAError+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "CDAError+Private.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A1521F141BB433600010B9C8 /* CoreDataLinkDeletionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataLinkDeletionTests.m; sourceTree = "<group>"; };
 		A1521F1B1BB43EBE0010B9C8 /* LinkDeletion */ = {isa = PBXFileReference; lastKnownFileType = folder; name = LinkDeletion; path = Data/LinkDeletion; sourceTree = "<group>"; };
 		A1521F1E1BB43F550010B9C8 /* LinkedData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LinkedData.xcdatamodel; sourceTree = "<group>"; };
 		A1521F201BB446960010B9C8 /* LinkedEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkedEntry.h; sourceTree = "<group>"; };
 		A1521F211BB446960010B9C8 /* LinkedEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkedEntry.m; sourceTree = "<group>"; };
-		A160862018CDF0E60047D44F /* CDARequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDARequest.h; sourceTree = "<group>"; };
+		A160862018CDF0E60047D44F /* CDARequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDARequest.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A160862118CDF0E60047D44F /* CDARequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDARequest.m; sourceTree = "<group>"; };
-		A160862418CDF2AC0047D44F /* CDARequest+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDARequest+Private.h"; sourceTree = "<group>"; };
+		A160862418CDF2AC0047D44F /* CDARequest+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "CDARequest+Private.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A16675BD1C7C5EC800231AC1 /* RealmClassHierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealmClassHierarchy.h; sourceTree = "<group>"; };
 		A16675BE1C7C5EC800231AC1 /* RealmClassHierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealmClassHierarchy.m; sourceTree = "<group>"; };
-		A17012F318FC1FD90086BE07 /* CDAPersistedEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAPersistedEntry.h; sourceTree = "<group>"; };
-		A17012F518FC1FEE0086BE07 /* CDAPersistedAsset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDAPersistedAsset.h; sourceTree = "<group>"; };
-		A17012F718FC20120086BE07 /* CDAPersistedSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAPersistedSpace.h; sourceTree = "<group>"; };
+		A17012F318FC1FD90086BE07 /* CDAPersistedEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = CDAPersistedEntry.h; path = ../CDAPersistedEntry.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		A17012F518FC1FEE0086BE07 /* CDAPersistedAsset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = CDAPersistedAsset.h; path = ../CDAPersistedAsset.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		A17012F718FC20120086BE07 /* CDAPersistedSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = CDAPersistedSpace.h; path = ../CDAPersistedSpace.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A17012F918FC21260086BE07 /* Asset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Asset.h; sourceTree = "<group>"; };
 		A17012FA18FC21260086BE07 /* Asset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Asset.m; sourceTree = "<group>"; };
 		A17012FC18FC21260086BE07 /* SyncInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncInfo.h; sourceTree = "<group>"; };
@@ -345,8 +346,8 @@
 		A17012FF18FC21260086BE07 /* ManagedCat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagedCat.h; sourceTree = "<group>"; };
 		A170130018FC21260086BE07 /* ManagedCat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagedCat.m; sourceTree = "<group>"; };
 		A170130318FC25640086BE07 /* PreviewModeSyncTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewModeSyncTests.m; sourceTree = "<group>"; };
-		A170130518FD291E0086BE07 /* CDAPersistenceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAPersistenceManager.h; sourceTree = "<group>"; };
-		A170130618FD291E0086BE07 /* CDAPersistenceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDAPersistenceManager.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		A170130518FD291E0086BE07 /* CDAPersistenceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = CDAPersistenceManager.h; path = ../CDAPersistenceManager.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		A170130618FD291E0086BE07 /* CDAPersistenceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = CDAPersistenceManager.m; path = ../CDAPersistenceManager.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A170130A18FD30A50086BE07 /* CoreDataBasicTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataBasicTests.m; sourceTree = "<group>"; };
 		A170130D18FD31950086BE07 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
 		A170131318FD5DE20086BE07 /* PersistenceTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = PersistenceTests.json; path = Data/Recordings/PersistenceTests.json; sourceTree = "<group>"; };
@@ -356,7 +357,7 @@
 		A171BD4A19EC6E1B008D7F0D /* CoreDataIssues.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = CoreDataIssues.json; path = Data/Recordings/CoreDataIssues.json; sourceTree = "<group>"; };
 		A171BD4C19EC6E2C008D7F0D /* CoreDataMultipleContentTypesTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = CoreDataMultipleContentTypesTests.json; path = Data/Recordings/CoreDataMultipleContentTypesTests.json; sourceTree = "<group>"; };
 		A171BD4E19EC6E53008D7F0D /* SyncSpecificContentTests.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = SyncSpecificContentTests.json; path = Data/Recordings/SyncSpecificContentTests.json; sourceTree = "<group>"; };
-		A17309691981642400F694DA /* CDAConfiguration+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDAConfiguration+Private.h"; sourceTree = "<group>"; };
+		A17309691981642400F694DA /* CDAConfiguration+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = "CDAConfiguration+Private.h"; path = "../ContentfulDeliveryAPI/CDAConfiguration+Private.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A173F54518D386CD000E6F92 /* ErrorTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = ErrorTests.json; path = Data/Recordings/ErrorTests.json; sourceTree = "<group>"; };
 		A173F54C18D6FD03000E6F92 /* CDATextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDATextViewController.h; sourceTree = "<group>"; };
 		A173F54D18D6FD03000E6F92 /* CDATextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDATextViewController.m; sourceTree = "<group>"; };
@@ -373,37 +374,35 @@
 		A173F58518D7091B000E6F92 /* CDALoadAssetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDALoadAssetsViewController.h; sourceTree = "<group>"; };
 		A173F58618D7091B000E6F92 /* CDALoadAssetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDALoadAssetsViewController.m; sourceTree = "<group>"; };
 		A173F58B18D752A9000E6F92 /* CDAImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAImageViewController.h; sourceTree = "<group>"; };
-		A173F58C18D752A9000E6F92 /* CDAImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAImageViewController.m; sourceTree = "<group>"; };
-		A173F59218D851D1000E6F92 /* CDAFieldsViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDAFieldsViewController+Private.h"; sourceTree = "<group>"; };
-		A173F59318D9A269000E6F92 /* CDAResourcesCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAResourcesCollectionViewController.h; sourceTree = "<group>"; };
+		A173F58C18D752A9000E6F92 /* CDAImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDAImageViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		A173F59218D851D1000E6F92 /* CDAFieldsViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "CDAFieldsViewController+Private.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		A173F59318D9A269000E6F92 /* CDAResourcesCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDAResourcesCollectionViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A173F59418D9A269000E6F92 /* CDAResourcesCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDAResourcesCollectionViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A173F59718D9A2A9000E6F92 /* CDAImageGalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAImageGalleryViewController.h; sourceTree = "<group>"; };
 		A173F59818D9A2A9000E6F92 /* CDAImageGalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAImageGalleryViewController.m; sourceTree = "<group>"; };
-		A173F59A18D9A2FD000E6F92 /* CDAResourceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAResourceCell.h; sourceTree = "<group>"; };
+		A173F59A18D9A2FD000E6F92 /* CDAResourceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDAResourceCell.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A173F59B18D9A2FD000E6F92 /* CDAResourceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDAResourceCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A173F60218DB3E1E000E6F92 /* PreviewModeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewModeTests.m; sourceTree = "<group>"; };
 		A173F60418DB412C000E6F92 /* PreviewModeTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = PreviewModeTests.json; path = Data/Recordings/PreviewModeTests.json; sourceTree = "<group>"; };
-		A18919961BB1E4EA0094256E /* CDALocalizedPersistedEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDALocalizedPersistedEntry.h; sourceTree = "<group>"; };
+		A18919961BB1E4EA0094256E /* CDALocalizedPersistedEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = CDALocalizedPersistedEntry.h; path = ../CDALocalizedPersistedEntry.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A189199A1BB1E7870094256E /* LocalizedModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocalizedModel.xcdatamodel; sourceTree = "<group>"; };
 		A189199C1BB1E8FA0094256E /* LocalizedCat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalizedCat.h; sourceTree = "<group>"; };
 		A189199D1BB1E8FA0094256E /* LocalizedCat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalizedCat.m; sourceTree = "<group>"; };
 		A189199F1BB1EA200094256E /* CoreDataMultipleLocalesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataMultipleLocalesTests.m; sourceTree = "<group>"; };
 		A18AA81018E1D14F00D430D5 /* CDASyncedSpace+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "CDASyncedSpace+Private.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A18AA81118E2D98200D430D5 /* CDADeletedEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDADeletedEntry.h; sourceTree = "<group>"; };
-		A18AA81218E2D98200D430D5 /* CDADeletedEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDADeletedEntry.m; sourceTree = "<group>"; };
+		A18AA81218E2D98200D430D5 /* CDADeletedEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDADeletedEntry.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A18AA81518E2E2CF00D430D5 /* CDADeletedAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDADeletedAsset.h; sourceTree = "<group>"; };
-		A18AA81618E2E2CF00D430D5 /* CDADeletedAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDADeletedAsset.m; sourceTree = "<group>"; };
+		A18AA81618E2E2CF00D430D5 /* CDADeletedAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDADeletedAsset.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A18AA85618E45C5E00D430D5 /* SyncTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = SyncTests.json; path = Data/Recordings/SyncTests.json; sourceTree = "<group>"; };
 		A18AA85818E48B4200D430D5 /* AssetTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetTests.m; sourceTree = "<group>"; };
 		A18AA85A18E4952800D430D5 /* AssetTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = AssetTests.json; path = Data/Recordings/AssetTests.json; sourceTree = "<group>"; };
-		A18AA85D18E596A000D430D5 /* CDASpace+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDASpace+Private.h"; sourceTree = "<group>"; };
-		A18AA85F18E5D63B00D430D5 /* CDAFallbackDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDAFallbackDictionary.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		A18AA86018E5D63B00D430D5 /* CDAFallbackDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDAFallbackDictionary.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		A18AA85D18E596A000D430D5 /* CDASpace+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "CDASpace+Private.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A18AA86318E5DB1A00D430D5 /* UtilityTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilityTests.m; sourceTree = "<group>"; };
 		A1924C8B18EBFFB600C97F9D /* CDAResourcesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDAResourcesViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A1924C8C18EBFFB600C97F9D /* CDAResourcesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDAResourcesViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		A1924C8F18EC0DF000C97F9D /* CDAMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAMapViewController.h; sourceTree = "<group>"; };
-		A1924C9018EC0DF000C97F9D /* CDAMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAMapViewController.m; sourceTree = "<group>"; };
+		A1924C8F18EC0DF000C97F9D /* CDAMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDAMapViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		A1924C9018EC0DF000C97F9D /* CDAMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDAMapViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A1924C9318EC15A100C97F9D /* CDASimpleMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDASimpleMapViewController.h; sourceTree = "<group>"; };
 		A1924C9418EC15A100C97F9D /* CDASimpleMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDASimpleMapViewController.m; sourceTree = "<group>"; };
 		A1924C9618EC3A1B00C97F9D /* CDASyncDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDASyncDemoViewController.h; sourceTree = "<group>"; };
@@ -411,7 +410,7 @@
 		A1924C9918EC43E100C97F9D /* CDADateQueryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDADateQueryViewController.h; sourceTree = "<group>"; };
 		A1924C9A18EC43E100C97F9D /* CDADateQueryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDADateQueryViewController.m; sourceTree = "<group>"; };
 		A193EB3A18D084C50017B777 /* ValueObjectsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValueObjectsTests.m; sourceTree = "<group>"; };
-		A193EB3D18D09AC10017B777 /* CDAResponse+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDAResponse+Private.h"; sourceTree = "<group>"; };
+		A193EB3D18D09AC10017B777 /* CDAResponse+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "CDAResponse+Private.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A193EB3F18D09D180017B777 /* UIKitAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIKitAdditionsTests.m; sourceTree = "<group>"; };
 		A193EB4118D0AC0C0017B777 /* CDAFieldsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDAFieldsViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A193EB4218D0AC0C0017B777 /* CDAFieldsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDAFieldsViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -420,14 +419,14 @@
 		A193EB5218D1C88A0017B777 /* ArrayTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = ArrayTests.json; path = Data/Recordings/ArrayTests.json; sourceTree = "<group>"; };
 		A193EB5318D1C88A0017B777 /* UIKitAdditionsTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = UIKitAdditionsTests.json; path = Data/Recordings/UIKitAdditionsTests.json; sourceTree = "<group>"; };
 		A193EB5418D1C88A0017B777 /* ValueObjectsTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = ValueObjectsTests.json; path = Data/Recordings/ValueObjectsTests.json; sourceTree = "<group>"; };
-		A193EB6318D20FA90017B777 /* UIImageView+CDAAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+CDAAsset.h"; sourceTree = "<group>"; };
-		A193EB6418D20FA90017B777 /* UIImageView+CDAAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+CDAAsset.m"; sourceTree = "<group>"; };
+		A193EB6318D20FA90017B777 /* UIImageView+CDAAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "UIImageView+CDAAsset.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		A193EB6418D20FA90017B777 /* UIImageView+CDAAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "UIImageView+CDAAsset.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A193EB6718D21B260017B777 /* UIKitAdditionsTests */ = {isa = PBXFileReference; lastKnownFileType = folder; name = UIKitAdditionsTests; path = Data/UIKitAdditionsTests; sourceTree = "<group>"; };
 		A19CA3E91B84EFF800A0EFCD /* LocaleTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocaleTests.m; sourceTree = "<group>"; };
 		A19FD86718C631E60081677E /* libContentfulDeliveryAPI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libContentfulDeliveryAPI.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A19FD86A18C631E60081677E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		A19FD86F18C631E60081677E /* CDAClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDAClient.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		A19FD87118C631E60081677E /* CDAClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDAClient.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		A19FD86F18C631E60081677E /* CDAClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = CDAClient.h; path = ../ContentfulDeliveryAPI/CDAClient.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		A19FD87118C631E60081677E /* CDAClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = CDAClient.m; path = ../ContentfulDeliveryAPI/CDAClient.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A19FD87718C631E60081677E /* CDA Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CDA Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A19FD87818C631E60081677E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		A19FD87B18C631E60081677E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -441,32 +440,30 @@
 		A19FD8A618C637400081677E /* UFOAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UFOAppDelegate.m; sourceTree = "<group>"; };
 		A19FD8D318C639C10081677E /* UFOMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UFOMapViewController.h; sourceTree = "<group>"; };
 		A19FD8D418C639C10081677E /* UFOMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UFOMapViewController.m; sourceTree = "<group>"; };
-		A19FD8D618C63AE10081677E /* CDAConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAConfiguration.h; sourceTree = "<group>"; };
-		A19FD8D718C63AE10081677E /* CDAConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAConfiguration.m; sourceTree = "<group>"; };
-		A19FD8D918C63DF00081677E /* ContentfulDeliveryAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentfulDeliveryAPI.h; sourceTree = "<group>"; };
-		A1A0312718C64165006470B7 /* CDAResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAResource.h; sourceTree = "<group>"; };
+		A19FD8D618C63AE10081677E /* CDAConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = CDAConfiguration.h; path = ../ContentfulDeliveryAPI/CDAConfiguration.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		A19FD8D718C63AE10081677E /* CDAConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDAConfiguration.m; path = ../ContentfulDeliveryAPI/CDAConfiguration.m; sourceTree = "<group>"; };
+		A19FD8D918C63DF00081677E /* ContentfulDeliveryAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ContentfulDeliveryAPI.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		A1A0312718C64165006470B7 /* CDAResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDAResource.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A1A0312818C64165006470B7 /* CDAResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDAResource.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		A1A0312A18C64187006470B7 /* CDAEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAEntry.h; sourceTree = "<group>"; };
+		A1A0312A18C64187006470B7 /* CDAEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDAEntry.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A1A0312B18C64187006470B7 /* CDAEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDAEntry.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A1A0312D18C641B6006470B7 /* UFOSighting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UFOSighting.h; sourceTree = "<group>"; };
 		A1A0312E18C641B6006470B7 /* UFOSighting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UFOSighting.m; sourceTree = "<group>"; };
 		A1A0313318C6449F006470B7 /* CDAArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAArray.h; sourceTree = "<group>"; };
 		A1A0313418C6449F006470B7 /* CDAArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDAArray.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		A1A0313618C644B5006470B7 /* CDAResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAResponse.h; sourceTree = "<group>"; };
+		A1A0313618C644B5006470B7 /* CDAResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDAResponse.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A1A0313718C644B5006470B7 /* CDAResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDAResponse.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A1A0313918C660F6006470B7 /* CDAResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDAResponseSerializer.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A1A0313A18C660F6006470B7 /* CDAResponseSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDAResponseSerializer.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		A1A0313D18C66667006470B7 /* CDAUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAUtilities.h; sourceTree = "<group>"; };
-		A1A0313E18C66667006470B7 /* CDAUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAUtilities.m; sourceTree = "<group>"; };
-		A1A0314018C66E90006470B7 /* CDAContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAContentType.h; sourceTree = "<group>"; };
+		A1A0314018C66E90006470B7 /* CDAContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDAContentType.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A1A0314118C66E90006470B7 /* CDAContentType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDAContentType.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		A1A0314618C6708C006470B7 /* CDAField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAField.h; sourceTree = "<group>"; };
+		A1A0314618C6708C006470B7 /* CDAField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDAField.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A1A0314718C6708C006470B7 /* CDAField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDAField.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		A1A0314918C67527006470B7 /* CDAContentTypeRegistry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAContentTypeRegistry.h; sourceTree = "<group>"; };
-		A1A0314A18C67527006470B7 /* CDAContentTypeRegistry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDAContentTypeRegistry.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		A1A0314918C67527006470B7 /* CDAContentTypeRegistry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDAContentTypeRegistry.h; path = ../ContentfulDeliveryAPI/CDAContentTypeRegistry.h; sourceTree = "<group>"; };
+		A1A0314A18C67527006470B7 /* CDAContentTypeRegistry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = CDAContentTypeRegistry.m; path = ../ContentfulDeliveryAPI/CDAContentTypeRegistry.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A1A0314E18C756B7006470B7 /* SearchAPITests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchAPITests.m; sourceTree = "<group>"; };
 		A1A0315018C75B2A006470B7 /* AsyncTesting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AsyncTesting.h; sourceTree = "<group>"; };
-		A1A0315318C76839006470B7 /* CDAError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAError.h; sourceTree = "<group>"; };
+		A1A0315318C76839006470B7 /* CDAError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDAError.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A1A0315418C76839006470B7 /* CDAError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDAError.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A1A0315718C76D38006470B7 /* CDAAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAAsset.h; sourceTree = "<group>"; };
 		A1A0315818C76D38006470B7 /* CDAAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDAAsset.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -527,7 +524,7 @@
 		A1BA6F9019DBECC600AC3471 /* ClientConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientConfiguration.m; sourceTree = "<group>"; };
 		A1BEA5C61C7B6E2700B63E86 /* RealmAdvancedTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealmAdvancedTests.m; sourceTree = "<group>"; };
 		A1C180671A0388F800117DB3 /* RobustnessTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RobustnessTests.m; sourceTree = "<group>"; };
-		A1C1AC4218CE032200DBF0D0 /* CDAClient+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDAClient+Private.h"; sourceTree = "<group>"; };
+		A1C1AC4218CE032200DBF0D0 /* CDAClient+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CDAClient+Private.h"; path = "../ContentfulDeliveryAPI/CDAClient+Private.h"; sourceTree = "<group>"; };
 		A1C4EE8D1C4E61F10065EA72 /* APICoverageTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APICoverageTests.m; sourceTree = "<group>"; };
 		A1C4EE8F1C4E6B730065EA72 /* APICoverageTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = APICoverageTests.json; path = Data/Recordings/APICoverageTests.json; sourceTree = "<group>"; };
 		A1C8DCD218E098E80019A519 /* LinkTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkTests.m; sourceTree = "<group>"; };
@@ -546,9 +543,9 @@
 		A1D1D35B18C8A94800261A1C /* ContentfulBaseTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentfulBaseTestCase.m; sourceTree = "<group>"; };
 		A1D1D35D18C8A99A00261A1C /* ContentfulBaseTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentfulBaseTestCase.h; sourceTree = "<group>"; };
 		A1D1D35E18C8ABB800261A1C /* DocumentationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentationTests.m; sourceTree = "<group>"; };
-		A1D1D36018C8B8D100261A1C /* CDASpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDASpace.h; sourceTree = "<group>"; };
+		A1D1D36018C8B8D100261A1C /* CDASpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDASpace.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A1D1D36118C8B8D100261A1C /* CDASpace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDASpace.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		A1D2DBFE18D076F50053DC83 /* CDAEntriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAEntriesViewController.h; sourceTree = "<group>"; };
+		A1D2DBFE18D076F50053DC83 /* CDAEntriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDAEntriesViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A1D2DBFF18D076F50053DC83 /* CDAEntriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDAEntriesViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A1D2DC0018D076F50053DC83 /* CDAResourceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAResourceTableViewCell.h; sourceTree = "<group>"; };
 		A1D2DC0118D076F50053DC83 /* CDAResourceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDAResourceTableViewCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -562,7 +559,7 @@
 		A1E9797418CA2D5900E79632 /* CDAField+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "CDAField+Private.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A1E9797518CBE93A00E79632 /* CDAResource+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "CDAResource+Private.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A1E9797718CBEDFC00E79632 /* ErrorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorTests.m; sourceTree = "<group>"; };
-		A1E9797918CC683200E79632 /* CDAFieldValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAFieldValueTransformer.h; sourceTree = "<group>"; };
+		A1E9797918CC683200E79632 /* CDAFieldValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDAFieldValueTransformer.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A1E9797A18CC683200E79632 /* CDAFieldValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDAFieldValueTransformer.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A1F265931987990F00365AEF /* CDAOrganizationContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDAOrganizationContainer.h; sourceTree = "<group>"; };
 		A1F5DE721B8B10DD00F0B554 /* LocaleTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LocaleTests.json; path = Data/Recordings/LocaleTests.json; sourceTree = "<group>"; };
@@ -585,6 +582,11 @@
 		E29A402C653EE63879DC1F32 /* libPods-ContentfulSeedDatabase.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ContentfulSeedDatabase.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC7C48017B4FC4E3F4B05AB1 /* Pods-ContentfulDeliveryAPI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContentfulDeliveryAPI.release.xcconfig"; path = "Pods/Target Support Files/Pods-ContentfulDeliveryAPI/Pods-ContentfulDeliveryAPI.release.xcconfig"; sourceTree = "<group>"; };
 		ED1025911DFEDC1F00BD7ABE /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = "../../../Library/Developer/Xcode/DerivedData/ContentfulSDK-ewuedslirxtuzkhibcstxqewkote/Build/Products/Debug-iphonesimulator/AFNetworking-framework/AFNetworking.framework"; sourceTree = "<group>"; };
+		ED1B1E631EB8B76300347DD7 /* CDAFallbackDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDAFallbackDictionary.h; path = ContentfulDeliveryAPI/CDAFallbackDictionary.h; sourceTree = SOURCE_ROOT; };
+		ED1B1E641EB8B76300347DD7 /* CDAFallbackDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDAFallbackDictionary.m; path = ContentfulDeliveryAPI/CDAFallbackDictionary.m; sourceTree = SOURCE_ROOT; };
+		ED1B1E651EB8B76300347DD7 /* CDANullabilityStubs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDANullabilityStubs.h; path = ContentfulDeliveryAPI/CDANullabilityStubs.h; sourceTree = SOURCE_ROOT; };
+		ED1B1E661EB8B76300347DD7 /* CDAUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = CDAUtilities.h; path = ContentfulDeliveryAPI/CDAUtilities.h; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		ED1B1E671EB8B76300347DD7 /* CDAUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = CDAUtilities.m; path = ContentfulDeliveryAPI/CDAUtilities.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		ED31CEC71E534CEE007C8E48 /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataManager.h; path = Submodules/ContentfulPersistence/Code/CoreDataManager.h; sourceTree = "<group>"; };
 		ED31CEC81E534CEE007C8E48 /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataManager.m; path = Submodules/ContentfulPersistence/Code/CoreDataManager.m; sourceTree = "<group>"; };
 		ED31CEC91E534CEE007C8E48 /* RealmAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RealmAsset.h; path = Submodules/ContentfulPersistence/Code/RealmAsset.h; sourceTree = "<group>"; };
@@ -595,7 +597,6 @@
 		ED31CECE1E534CEE007C8E48 /* RealmSpace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RealmSpace.m; path = Submodules/ContentfulPersistence/Code/RealmSpace.m; sourceTree = "<group>"; };
 		ED31CED41E534D00007C8E48 /* CoreDataFetchDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataFetchDataSource.h; path = Submodules/ContentfulPersistence/Code/UIKit/CoreDataFetchDataSource.h; sourceTree = "<group>"; };
 		ED31CED51E534D00007C8E48 /* CoreDataFetchDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataFetchDataSource.m; path = Submodules/ContentfulPersistence/Code/UIKit/CoreDataFetchDataSource.m; sourceTree = "<group>"; };
-		ED31CEDC1E534D9B007C8E48 /* CDANullabilityStubs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDANullabilityStubs.h; sourceTree = "<group>"; };
 		ED31CEDE1E534E43007C8E48 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.2.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
 		ED31CEE31E534E92007C8E48 /* libAFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAFNetworking.a; path = "../../../../Library/Developer/Xcode/DerivedData/ContentfulSDK-dqokadybfwzbxycecawequgzwmcs/Build/Products/Debug-iphonesimulator/AFNetworking/libAFNetworking.a"; sourceTree = "<group>"; };
 		ED31CEE91E534EBF007C8E48 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -737,6 +738,7 @@
 				A170130618FD291E0086BE07 /* CDAPersistenceManager.m */,
 			);
 			name = Persistence;
+			path = ../ContentfulDeliveryAPI/Persistence;
 			sourceTree = "<group>";
 		};
 		A170130218FC212E0086BE07 /* Managed Objects */ = {
@@ -828,13 +830,14 @@
 		A18AA85E18E5D5DB00D430D5 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				ED31CEDC1E534D9B007C8E48 /* CDANullabilityStubs.h */,
-				A18AA85F18E5D63B00D430D5 /* CDAFallbackDictionary.h */,
-				A18AA86018E5D63B00D430D5 /* CDAFallbackDictionary.m */,
-				A1A0313D18C66667006470B7 /* CDAUtilities.h */,
-				A1A0313E18C66667006470B7 /* CDAUtilities.m */,
+				ED1B1E631EB8B76300347DD7 /* CDAFallbackDictionary.h */,
+				ED1B1E641EB8B76300347DD7 /* CDAFallbackDictionary.m */,
+				ED1B1E651EB8B76300347DD7 /* CDANullabilityStubs.h */,
+				ED1B1E661EB8B76300347DD7 /* CDAUtilities.h */,
+				ED1B1E671EB8B76300347DD7 /* CDAUtilities.m */,
 			);
 			name = Utilities;
+			path = ../ContentfulDeliveryAPI/Utilities;
 			sourceTree = "<group>";
 		};
 		A19FD85C18C6315E0081677E = {
@@ -893,6 +896,7 @@
 		A19FD86C18C631E60081677E /* Code */ = {
 			isa = PBXGroup;
 			children = (
+				A19FD8D918C63DF00081677E /* ContentfulDeliveryAPI.h */,
 				A1D9D56718CF53220089D4A2 /* API Client */,
 				A1D9D56618CF53010089D4A2 /* Fields */,
 				A1D9D56518CF52B20089D4A2 /* Perform Requests */,
@@ -900,9 +904,9 @@
 				A1D9D56818CF533B0089D4A2 /* Resources */,
 				A1D2DBF418CF618A0053DC83 /* UIKit Extensions */,
 				A18AA85E18E5D5DB00D430D5 /* Utilities */,
-				A19FD8D918C63DF00081677E /* ContentfulDeliveryAPI.h */,
 			);
-			path = Code;
+			name = Code;
+			path = ContentfulDeliveryAPI;
 			sourceTree = "<group>";
 		};
 		A19FD88018C631E60081677E /* Tests */ = {
@@ -1199,7 +1203,7 @@
 				A193EB6418D20FA90017B777 /* UIImageView+CDAAsset.m */,
 			);
 			name = "UIKit Extensions";
-			path = UIKit;
+			path = ../ContentfulDeliveryAPI/UIKit;
 			sourceTree = "<group>";
 		};
 		A1D9D56518CF52B20089D4A2 /* Perform Requests */ = {
@@ -1282,7 +1286,7 @@
 				A1D1D36018C8B8D100261A1C /* CDASpace.h */,
 				A1D1D36118C8B8D100261A1C /* CDASpace.m */,
 			);
-			name = Resources;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		ED31CEC61E534CAC007C8E48 /* Submodule */ = {
@@ -1329,6 +1333,7 @@
 				A18AA81718E2E2CF00D430D5 /* CDADeletedAsset.h in Headers */,
 				A160862518CDF2AC0047D44F /* CDARequest+Private.h in Headers */,
 				A1D4BDF31A4B735D008816F3 /* CDAError.h in Headers */,
+				ED1B1E6B1EB8B76300347DD7 /* CDAUtilities.h in Headers */,
 				A1D2DC0418D076F50053DC83 /* CDAResourceTableViewCell.h in Headers */,
 				A1E3D04B18C8795500E4F488 /* CDAEntry.h in Headers */,
 				A17012F818FC20120086BE07 /* CDAPersistedSpace.h in Headers */,
@@ -1339,15 +1344,16 @@
 				A12085771BB2707300A6504B /* CDALocalizablePersistedEntry.h in Headers */,
 				A1E3D04C18C8797700E4F488 /* CDAResource.h in Headers */,
 				A1E8391618CE2A1800B697F6 /* CDAConfiguration.h in Headers */,
-				A18AA86118E5D63B00D430D5 /* CDAFallbackDictionary.h in Headers */,
 				A1C1AC4318CE032200DBF0D0 /* CDAClient+Private.h in Headers */,
 				A193EB4718D0ACFE0017B777 /* CDAFieldCell.h in Headers */,
 				A1E43F0318CE1CF80060A89A /* CDAArray+Private.h in Headers */,
 				A170130718FD291E0086BE07 /* CDAPersistenceManager.h in Headers */,
+				ED1B1E681EB8B76300347DD7 /* CDAFallbackDictionary.h in Headers */,
 				A144FAF418C8C98400110B35 /* CDAContentType.h in Headers */,
 				A1E8391518CE29E700B697F6 /* CDAAsset.h in Headers */,
 				A173F59C18D9A2FD000E6F92 /* CDAResourceCell.h in Headers */,
 				A193EB3C18D096C50017B777 /* CDAResponse.h in Headers */,
+				ED1B1E6A1EB8B76300347DD7 /* CDANullabilityStubs.h in Headers */,
 				A173F55218D700B8000E6F92 /* CDALocationViewController.h in Headers */,
 				A1E8391718CE2A5400B697F6 /* CDAField.h in Headers */,
 				A1924C8D18EBFFB600C97F9D /* CDAResourcesViewController.h in Headers */,
@@ -1355,7 +1361,6 @@
 				A1B815CC18F5A8250027B26D /* CDAEntry+Private.h in Headers */,
 				A1E9797B18CC683200E79632 /* CDAFieldValueTransformer.h in Headers */,
 				A17012F618FC1FF80086BE07 /* CDAPersistedAsset.h in Headers */,
-				ED31CEDD1E534DA2007C8E48 /* CDANullabilityStubs.h in Headers */,
 				A1924C9118EC0DF000C97F9D /* CDAMapViewController.h in Headers */,
 				A1D2DC0218D076F50053DC83 /* CDAEntriesViewController.h in Headers */,
 				A173F54E18D6FD03000E6F92 /* CDATextViewController.h in Headers */,
@@ -1976,6 +1981,7 @@
 			files = (
 				A1924C9218EC0DF000C97F9D /* CDAMapViewController.m in Sources */,
 				A12797AF18E1B10300043A44 /* CDASyncedSpace.m in Sources */,
+				ED1B1E691EB8B76300347DD7 /* CDAFallbackDictionary.m in Sources */,
 				A173F59D18D9A2FD000E6F92 /* CDAResourceCell.m in Sources */,
 				A173F54F18D6FD03000E6F92 /* CDATextViewController.m in Sources */,
 				A160862318CDF0E60047D44F /* CDARequest.m in Sources */,
@@ -1989,7 +1995,6 @@
 				A1A0314818C6708C006470B7 /* CDAField.m in Sources */,
 				A1D2DC0318D076F50053DC83 /* CDAEntriesViewController.m in Sources */,
 				A1A0312918C64165006470B7 /* CDAResource.m in Sources */,
-				A18AA86218E5D63B00D430D5 /* CDAFallbackDictionary.m in Sources */,
 				A1A0315618C7683E006470B7 /* CDAError.m in Sources */,
 				A19FD87218C631E60081677E /* CDAClient.m in Sources */,
 				A1E3D05B18C87D3B00E4F488 /* CDARequestOperationManager.m in Sources */,
@@ -2008,7 +2013,7 @@
 				A12085781BB2707300A6504B /* CDALocalizablePersistedEntry.m in Sources */,
 				A193EB6618D20FA90017B777 /* UIImageView+CDAAsset.m in Sources */,
 				A1DE35D9197D384700DE0904 /* CDARequestSerializer.m in Sources */,
-				A1A0313F18C66667006470B7 /* CDAUtilities.m in Sources */,
+				ED1B1E6C1EB8B76300347DD7 /* CDAUtilities.m in Sources */,
 				A1A0315918C76D38006470B7 /* CDAAsset.m in Sources */,
 				A1A0312C18C64187006470B7 /* CDAEntry.m in Sources */,
 			);

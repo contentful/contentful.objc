@@ -8,7 +8,7 @@ endif
 
 WORKSPACE=ContentfulSDK.xcworkspace
 
-.PHONY: all open clean clean_simulators doc example example-static pod really-clean static-lib test integration_test kill_simulator
+.PHONY: all open clean clean_simulators doc example example-static pod really-clean static-lib test integration_test kill_simulator docs
 
 open:
 	open ContentfulSDK.xcworkspace
@@ -76,5 +76,6 @@ lint:
 		xcpretty -r json-compilation-database -o compile_commands.json
 	oclint-json-compilation-database
 
-doc:
-	bundle exec pod lib docstats
+docs:
+	./scripts/reference-docs.sh
+

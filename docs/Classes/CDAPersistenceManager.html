@@ -1,0 +1,2023 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CDAPersistenceManager Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/CDAPersistenceManager" class="dashAnchor"></a>
+    <a title="CDAPersistenceManager Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">ContentfulDeliveryAPI Docs</a> (99% documented)</p>
+        <p class="header-right"><a href="https://github.com/contentful/contentful.objc"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">ContentfulDeliveryAPI Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        CDAPersistenceManager Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Categories.html">Categories</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Categories/UIImageView(CDAAsset).html">UIImageView(CDAAsset)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/CDAArray.html">CDAArray</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAAsset.html">CDAAsset</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAClient.html">CDAClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAConfiguration.html">CDAConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAContentType.html">CDAContentType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAEntriesViewController.html">CDAEntriesViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAEntry.html">CDAEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAError.html">CDAError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAField.html">CDAField</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAFieldsViewController.html">CDAFieldsViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAMapViewController.html">CDAMapViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAPersistenceManager.html">CDAPersistenceManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDARequest.html">CDARequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAResource.html">CDAResource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAResourceCell.html">CDAResourceCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAResourcesCollectionViewController.html">CDAResourcesCollectionViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAResourcesViewController.html">CDAResourcesViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)CDAResponse">CDAResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDASpace.html">CDASpace</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDASyncedSpace.html">CDASyncedSpace</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@CDAErrorDomain">CDAErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@CDAImageQualityOriginal">CDAImageQualityOriginal</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@CDARadiusMaximum">CDARadiusMaximum</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@CDARadiusNone">CDARadiusNone</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@CDA_DEFAULT_SERVER">CDA_DEFAULT_SERVER</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/CDAFieldType.html">CDAFieldType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CDAFitType.html">CDAFitType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CDAImageFormat.html">CDAImageFormat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CDAResourceType.html">CDAResourceType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/CDAEntriesViewControllerDelegate.html">CDAEntriesViewControllerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CDALocalizedPersistedEntry.html">CDALocalizedPersistedEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CDAPersistedAsset.html">CDAPersistedAsset</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CDAPersistedEntry.html">CDAPersistedEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CDAPersistedSpace.html">CDAPersistedSpace</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CDASyncedSpaceDelegate.html">CDASyncedSpaceDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Type Definitions.html">Type Definitions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:CDAClient.h@T@CDAArrayFetchedBlock">CDAArrayFetchedBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:CDAClient.h@T@CDAAssetFetchedBlock">CDAAssetFetchedBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:CDAClient.h@T@CDAContentTypeFetchedBlock">CDAContentTypeFetchedBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:CDAClient.h@T@CDAEntryFetchedBlock">CDAEntryFetchedBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:CDAClient.h@T@CDAObjectFetchedBlock">CDAObjectFetchedBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:CDAClient.h@T@CDARequestFailureBlock">CDARequestFailureBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:CDAClient.h@T@CDASpaceFetchedBlock">CDASpaceFetchedBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:CDAClient.h@T@CDASyncedSpaceFetchedBlock">CDASyncedSpaceFetchedBlock</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>CDAPersistenceManager</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">CDAPersistenceManager</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                </div>
+              </div>
+            <p>Subclasses of this class manage a persistent store.</p>
+
+<p>A minimal subclass needs to at least override <code>deleteAssetWithIdentifier:</code>,
+  <code>deleteEntryWithIdentifier:</code>, <code>fetchAssetsFromDataStore</code>, <code>fetchAssetWithIdentifier:</code>,
+  <code>fetchEntryWithIdentifier:</code>, <code>fetchSpaceFromDataStore</code> and <code>saveDataStore</code>.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Initializing%20a%20CDAPersistenceManager%20Object%20*/"></a>
+                <a name="//apple_ref/objc/Section/Initializing a CDAPersistenceManager Object */" class="dashAnchor"></a>
+                <a href="#/Initializing%20a%20CDAPersistenceManager%20Object%20*/">
+                  <h3 class="section-name">Initializing a CDAPersistenceManager Object */</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAPersistenceManager(im)initWithClient:"></a>
+                    <a name="//apple_ref/objc/Method/-initWithClient:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAPersistenceManager(im)initWithClient:">-initWithClient:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes a new <code>CDAPersistenceManager</code> object. Using this initializer will use synchronization
+  for retrieving Resources.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span> <span class="n">_Nullable</span><span class="p">)</span><span class="nf">initWithClient</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/CDAClient.html">CDAClient</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">client</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="nf">init</span><span class="p">?(</span><span class="nv">client</span><span class="p">:</span> <span class="kt"><a href="../Classes/CDAClient.html">CDAClient</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>client</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The client used for performing synchronizations.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An initialized <code>CDAPersistenceManager</code> or <code>nil</code> if the object couldn&rsquo;t be created.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAPersistenceManager.h#L36">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAPersistenceManager(im)initWithClient:query:"></a>
+                    <a name="//apple_ref/objc/Method/-initWithClient:query:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAPersistenceManager(im)initWithClient:query:">-initWithClient:query:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes a new <code>CDAPersistenceManager</code> object. Using this initializer will use queries for
+  retrieving Resources.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span> <span class="n">_Nullable</span><span class="p">)</span><span class="nf">initWithClient</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/CDAClient.html">CDAClient</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">client</span>
+                         <span class="nf">query</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">query</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="nf">init</span><span class="p">?(</span><span class="nv">client</span><span class="p">:</span> <span class="kt"><a href="../Classes/CDAClient.html">CDAClient</a></span><span class="p">,</span> <span class="nv">query</span><span class="p">:</span> <span class="p">[</span><span class="kt">AnyHashable</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>client</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The client used for performing queries.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>query</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The query to be performed.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An initialized <code>CDAPersistenceManager</code> or <code>nil</code> if the object couldn&rsquo;t be created.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAPersistenceManager.h#L47">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Performing%20Synchronizations%20*/"></a>
+                <a name="//apple_ref/objc/Section/Performing Synchronizations */" class="dashAnchor"></a>
+                <a href="#/Performing%20Synchronizations%20*/">
+                  <h3 class="section-name">Performing Synchronizations */</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAPersistenceManager(im)performSynchronizationWithSuccess:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-performSynchronizationWithSuccess:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAPersistenceManager(im)performSynchronizationWithSuccess:failure:">-performSynchronizationWithSuccess:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Perform an initial or subsequent synchronization of all Space content to the persistent store.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">performSynchronizationWithSuccess</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)())</span><span class="nv">success</span>
+                                  <span class="nf">failure</span><span class="p">:</span>
+                                      <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDARequestFailureBlock">CDARequestFailureBlock</a></span><span class="p">)</span><span class="nv">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">performSynchronization</span><span class="p">(</span><span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:CDAClient.h@T@CDARequestFailureBlock">CDARequestFailureBlock</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Completion handler called when the synchronization finished successfully.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Error handler called when any problem occured during the synchronization.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAPersistenceManager.h#L57-L58">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Defining%20Classes%20for%20Persistent%20Resources%20*/"></a>
+                <a name="//apple_ref/objc/Section/Defining Classes for Persistent Resources */" class="dashAnchor"></a>
+                <a href="#/Defining%20Classes%20for%20Persistent%20Resources%20*/">
+                  <h3 class="section-name">Defining Classes for Persistent Resources */</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAPersistenceManager(py)classForAssets"></a>
+                    <a name="//apple_ref/objc/Property/classForAssets" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAPersistenceManager(py)classForAssets">classForAssets</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Class to be used for any persisted Assets.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">Class</span> <span class="n">_Nonnull</span> <span class="n">classForAssets</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">classForAssets</span><span class="p">:</span> <span class="kt">AnyClass</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAPersistenceManager.h#L63">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAPersistenceManager(py)classForSpaces"></a>
+                    <a name="//apple_ref/objc/Property/classForSpaces" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAPersistenceManager(py)classForSpaces">classForSpaces</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Class to be used for any persisted Spaces.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">Class</span> <span class="n">_Nonnull</span> <span class="n">classForSpaces</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">classForSpaces</span><span class="p">:</span> <span class="kt">AnyClass</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAPersistenceManager.h#L65">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAPersistenceManager(im)classForEntriesOfContentTypeWithIdentifier:"></a>
+                    <a name="//apple_ref/objc/Method/-classForEntriesOfContentTypeWithIdentifier:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAPersistenceManager(im)classForEntriesOfContentTypeWithIdentifier:">-classForEntriesOfContentTypeWithIdentifier:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Class used for persisted Entries of a certain Content Type.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">Class</span> <span class="n">_Nullable</span><span class="p">)</span><span class="nf">classForEntriesOfContentTypeWithIdentifier</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">identifier</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">classForEntriesOfContentType</span><span class="p">(</span><span class="n">withIdentifier</span> <span class="nv">identifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">AnyClass</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>identifier</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Identifier of the Content Type.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Class to be used for Entries of that Content Type.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAPersistenceManager.h#L74">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAPersistenceManager(im)classForLocalizedEntriesOfContentTypeWithIdentifier:"></a>
+                    <a name="//apple_ref/objc/Method/-classForLocalizedEntriesOfContentTypeWithIdentifier:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAPersistenceManager(im)classForLocalizedEntriesOfContentTypeWithIdentifier:">-classForLocalizedEntriesOfContentTypeWithIdentifier:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Class used for localized persisted Entries of a certain Content Type.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">Class</span> <span class="n">_Nullable</span><span class="p">)</span><span class="nf">classForLocalizedEntriesOfContentTypeWithIdentifier</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">identifier</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">classForLocalizedEntriesOfContentType</span><span class="p">(</span><span class="n">withIdentifier</span> <span class="nv">identifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">AnyClass</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>identifier</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Identifier of the Content Type.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Class to be used for localized Entries of that Content Type.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAPersistenceManager.h#L83">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAPersistenceManager(py)identifiersOfHandledContentTypes"></a>
+                    <a name="//apple_ref/objc/Property/identifiersOfHandledContentTypes" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAPersistenceManager(py)identifiersOfHandledContentTypes">identifiersOfHandledContentTypes</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>List of identifiers of all Content Types for which a class was defined.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
+    <span class="n">NSArray</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">identifiersOfHandledContentTypes</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">identifiersOfHandledContentTypes</span><span class="p">:</span> <span class="p">[</span><span class="kt">Any</span><span class="p">]</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAPersistenceManager.h#L86">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAPersistenceManager(im)setClass:forEntriesOfContentTypeWithIdentifier:"></a>
+                    <a name="//apple_ref/objc/Method/-setClass:forEntriesOfContentTypeWithIdentifier:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAPersistenceManager(im)setClass:forEntriesOfContentTypeWithIdentifier:">-setClass:forEntriesOfContentTypeWithIdentifier:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Class to be used for persisted Entries of a certain Content Type. Entries for which no class was
+  defined will not be persisted to the data store.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setClass</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">Class</span><span class="p">)</span><span class="nv">classForEntries</span>
+    <span class="nf">forEntriesOfContentTypeWithIdentifier</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">identifier</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">setClass</span><span class="p">(</span><span class="n">_</span> <span class="nv">classForEntries</span><span class="p">:</span> <span class="kt">AnyClass</span><span class="p">,</span> <span class="n">forEntriesOfContentTypeWithIdentifier</span> <span class="nv">identifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>classForEntries</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Class to be used for Entries of the given Content Type.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>identifier</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Identifier of the Content Type.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAPersistenceManager.h#L95">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAPersistenceManager(im)setClass:forLocalizedEntriesOfContentTypeWithIdentifier:"></a>
+                    <a name="//apple_ref/objc/Method/-setClass:forLocalizedEntriesOfContentTypeWithIdentifier:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAPersistenceManager(im)setClass:forLocalizedEntriesOfContentTypeWithIdentifier:">-setClass:forLocalizedEntriesOfContentTypeWithIdentifier:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Class to be used for localized persisted Entries of a certain Content Type. Entries for which
+  no class was defined will not be persisted to the data store.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setClass</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">Class</span><span class="p">)</span><span class="nv">classForEntries</span>
+    <span class="nf">forLocalizedEntriesOfContentTypeWithIdentifier</span><span class="p">:</span>
+        <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">identifier</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">setClass</span><span class="p">(</span><span class="n">_</span> <span class="nv">classForEntries</span><span class="p">:</span> <span class="kt">AnyClass</span><span class="p">,</span> <span class="n">forLocalizedEntriesOfContentTypeWithIdentifier</span> <span class="nv">identifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>classForEntries</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Class to be used for localized Entries of the given Content Type.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>identifier</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Identifier of the Content Type.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAPersistenceManager.h#L104">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Mapping%20Fields%20to%20Properties%20*/"></a>
+                <a name="//apple_ref/objc/Section/Mapping Fields to Properties */" class="dashAnchor"></a>
+                <a href="#/Mapping%20Fields%20to%20Properties%20*/">
+                  <h3 class="section-name">Mapping Fields to Properties */</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAPersistenceManager(im)mappingForEntriesOfContentTypeWithIdentifier:"></a>
+                    <a name="//apple_ref/objc/Method/-mappingForEntriesOfContentTypeWithIdentifier:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAPersistenceManager(im)mappingForEntriesOfContentTypeWithIdentifier:">-mappingForEntriesOfContentTypeWithIdentifier:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get the mapping between the properties of persistent Resources and the Fields of Resources
+retrieved from Contentful.</p>
+
+<p>Note: If the property names on persisted Entries match the field identifiers on Contentful, the 
+mapping can be provided automatically and you do not need to call this method.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nf">mappingForEntriesOfContentTypeWithIdentifier</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">identifier</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">mappingForEntriesOfContentType</span><span class="p">(</span><span class="n">withIdentifier</span> <span class="nv">identifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">AnyHashable</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>identifier</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Identifier of the Content Type in question.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The defined mapping for Fields of Entries of the given Content Type.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAPersistenceManager.h#L118">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAPersistenceManager(im)propertiesForEntriesOfContentTypeWithIdentifier:"></a>
+                    <a name="//apple_ref/objc/Method/-propertiesForEntriesOfContentTypeWithIdentifier:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAPersistenceManager(im)propertiesForEntriesOfContentTypeWithIdentifier:">-propertiesForEntriesOfContentTypeWithIdentifier:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get all defined properties of the persited Entry class of a certain Content Type.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSArray</span> <span class="o">*</span><span class="p">)</span><span class="nf">propertiesForEntriesOfContentTypeWithIdentifier</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">identifier</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">propertiesForEntriesOfContentType</span><span class="p">(</span><span class="n">withIdentifier</span> <span class="nv">identifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">Any</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>identifier</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Identifier of the Content Type.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>List of properties which are defined on the relevant persisted Entry class.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAPersistenceManager.h#L126">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAPersistenceManager(im)setMapping:forEntriesOfContentTypeWithIdentifier:"></a>
+                    <a name="//apple_ref/objc/Method/-setMapping:forEntriesOfContentTypeWithIdentifier:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAPersistenceManager(im)setMapping:forEntriesOfContentTypeWithIdentifier:">-setMapping:forEntriesOfContentTypeWithIdentifier:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Set the mapping between the properties of persistent Resources and the Fields of Resources
+  retrieved from Contentful.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setMapping</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">mapping</span>
+    <span class="nf">forEntriesOfContentTypeWithIdentifier</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">identifier</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">setMapping</span><span class="p">(</span><span class="n">_</span> <span class="nv">mapping</span><span class="p">:</span> <span class="p">[</span><span class="kt">AnyHashable</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">],</span> <span class="n">forEntriesOfContentTypeWithIdentifier</span> <span class="nv">identifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>mapping</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The mapping for Fields of Entries of the given Content Type.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>identifier</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Identifier of the Content Type in question.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAPersistenceManager.h#L135">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Interact%20with%20the%20Data%20Store.%20*/"></a>
+                <a name="//apple_ref/objc/Section/Interact with the Data Store. */" class="dashAnchor"></a>
+                <a href="#/Interact%20with%20the%20Data%20Store.%20*/">
+                  <h3 class="section-name">Interact with the Data Store. */</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAPersistenceManager(im)createPersistedAsset"></a>
+                    <a name="//apple_ref/objc/Method/-createPersistedAsset" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAPersistenceManager(im)createPersistedAsset">-createPersistedAsset</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Override this method in subclasses if Asset instances cannot be created with +new.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/CDAPersistedAsset.html">CDAPersistedAsset</a></span><span class="o">&gt;</span><span class="p">)</span><span class="n">createPersistedAsset</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">createPersistedAsset</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/CDAPersistedAsset.html">CDAPersistedAsset</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A new persisted Asset.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAPersistenceManager.h#L144">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAPersistenceManager(im)createLocalizedPersistedEntryForContentTypeWithIdentifier:"></a>
+                    <a name="//apple_ref/objc/Method/-createLocalizedPersistedEntryForContentTypeWithIdentifier:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAPersistenceManager(im)createLocalizedPersistedEntryForContentTypeWithIdentifier:">-createLocalizedPersistedEntryForContentTypeWithIdentifier:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Override this method in subclasses if localized Entry instances cannot be created with +new.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/CDALocalizedPersistedEntry.html">CDALocalizedPersistedEntry</a></span><span class="o">&gt;</span> <span class="n">_Nullable</span><span class="p">)</span>
+<span class="nf">createLocalizedPersistedEntryForContentTypeWithIdentifier</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">identifier</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">createLocalizedPersistedEntryForContentType</span><span class="p">(</span><span class="n">withIdentifier</span> <span class="nv">identifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/CDALocalizedPersistedEntry.html">CDALocalizedPersistedEntry</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>identifier</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Identifier of the Content Type of the new localized Entry.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A new persisted Entry.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAPersistenceManager.h#L152">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAPersistenceManager(im)createPersistedEntryForContentTypeWithIdentifier:"></a>
+                    <a name="//apple_ref/objc/Method/-createPersistedEntryForContentTypeWithIdentifier:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAPersistenceManager(im)createPersistedEntryForContentTypeWithIdentifier:">-createPersistedEntryForContentTypeWithIdentifier:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Override this method in subclasses if Entry instances cannot be created with +new.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/CDAPersistedEntry.html">CDAPersistedEntry</a></span><span class="o">&gt;</span> <span class="n">_Nullable</span><span class="p">)</span>
+<span class="nf">createPersistedEntryForContentTypeWithIdentifier</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">identifier</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">createPersistedEntryForContentType</span><span class="p">(</span><span class="n">withIdentifier</span> <span class="nv">identifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/CDAPersistedEntry.html">CDAPersistedEntry</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>identifier</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Identifier of the Content Type of the new Entry.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A new persisted Entry.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAPersistenceManager.h#L160">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAPersistenceManager(im)createPersistedSpace"></a>
+                    <a name="//apple_ref/objc/Method/-createPersistedSpace" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAPersistenceManager(im)createPersistedSpace">-createPersistedSpace</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Override this method in subclasses if Space instances cannot be created with +new.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/CDAPersistedSpace.html">CDAPersistedSpace</a></span><span class="o">&gt;</span><span class="p">)</span><span class="n">createPersistedSpace</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">createPersistedSpace</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/CDAPersistedSpace.html">CDAPersistedSpace</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A new persisted Space.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAPersistenceManager.h#L167">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAPersistenceManager(im)deleteAssetWithIdentifier:"></a>
+                    <a name="//apple_ref/objc/Method/-deleteAssetWithIdentifier:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAPersistenceManager(im)deleteAssetWithIdentifier:">-deleteAssetWithIdentifier:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Delete an Asset from the persisten store.</p>
+
+<p>This method needs to be overridden by subclasses.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">deleteAssetWithIdentifier</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">identifier</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">deleteAsset</span><span class="p">(</span><span class="n">withIdentifier</span> <span class="nv">identifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>identifier</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The identifier of the Asset to delete.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAPersistenceManager.h#L176">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAPersistenceManager(im)deleteLocalizedEntryWithIdentifier:"></a>
+                    <a name="//apple_ref/objc/Method/-deleteLocalizedEntryWithIdentifier:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAPersistenceManager(im)deleteLocalizedEntryWithIdentifier:">-deleteLocalizedEntryWithIdentifier:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Delete a localized Entry from the persisten store.</p>
+
+<p>This method needs to be overridden by subclasses.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">deleteLocalizedEntryWithIdentifier</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">identifier</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">deleteLocalizedEntry</span><span class="p">(</span><span class="n">withIdentifier</span> <span class="nv">identifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>identifier</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The identifier of the localized Entry to delete.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAPersistenceManager.h#L185">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAPersistenceManager(im)deleteEntryWithIdentifier:"></a>
+                    <a name="//apple_ref/objc/Method/-deleteEntryWithIdentifier:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAPersistenceManager(im)deleteEntryWithIdentifier:">-deleteEntryWithIdentifier:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Delete an Entry from the persisten store.</p>
+
+<p>This method needs to be overridden by subclasses.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">deleteEntryWithIdentifier</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">identifier</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">deleteEntry</span><span class="p">(</span><span class="n">withIdentifier</span> <span class="nv">identifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>identifier</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The identifier of the Entry to delete.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAPersistenceManager.h#L194">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAPersistenceManager(im)fetchAssetsFromDataStore"></a>
+                    <a name="//apple_ref/objc/Method/-fetchAssetsFromDataStore" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAPersistenceManager(im)fetchAssetsFromDataStore">-fetchAssetsFromDataStore</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetch all Assets from the store.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSArray</span> <span class="o">*</span><span class="p">)</span><span class="n">fetchAssetsFromDataStore</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">fetchAssetsFromDataStore</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">Any</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An array of all Assets.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAPersistenceManager.h#L201">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAPersistenceManager(im)fetchAssetWithIdentifier:"></a>
+                    <a name="//apple_ref/objc/Method/-fetchAssetWithIdentifier:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAPersistenceManager(im)fetchAssetWithIdentifier:">-fetchAssetWithIdentifier:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Retrieve an Asset from the persistent store.</p>
+
+<p>This method needs to be overridden by subclasses.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/CDAPersistedAsset.html">CDAPersistedAsset</a></span><span class="o">&gt;</span> <span class="n">_Nullable</span><span class="p">)</span><span class="nf">fetchAssetWithIdentifier</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">identifier</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">fetchAsset</span><span class="p">(</span><span class="n">withIdentifier</span> <span class="nv">identifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/CDAPersistedAsset.html">CDAPersistedAsset</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>identifier</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The identifier of the Asset to fetch.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The Asset with the given identifier or <code>nil</code> if it could not be found.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAPersistenceManager.h#L212">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAPersistenceManager(im)fetchEntriesFromDataStore"></a>
+                    <a name="//apple_ref/objc/Method/-fetchEntriesFromDataStore" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAPersistenceManager(im)fetchEntriesFromDataStore">-fetchEntriesFromDataStore</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetch all Entries from the store.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSArray</span> <span class="o">*</span><span class="p">)</span><span class="n">fetchEntriesFromDataStore</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">fetchEntriesFromDataStore</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">Any</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An array of all Entries.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAPersistenceManager.h#L219">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAPersistenceManager(im)fetchEntryWithIdentifier:"></a>
+                    <a name="//apple_ref/objc/Method/-fetchEntryWithIdentifier:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAPersistenceManager(im)fetchEntryWithIdentifier:">-fetchEntryWithIdentifier:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Retrieve an Entry from the persistent store.</p>
+
+<p>This method needs to be overridden by subclasses.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/CDAPersistedEntry.html">CDAPersistedEntry</a></span><span class="o">&gt;</span> <span class="n">_Nullable</span><span class="p">)</span><span class="nf">fetchEntryWithIdentifier</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">identifier</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">fetchEntry</span><span class="p">(</span><span class="n">withIdentifier</span> <span class="nv">identifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/CDAPersistedEntry.html">CDAPersistedEntry</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>identifier</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The identifier of the Entry to fetch.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The Entry with the given identifier or <code>nil</code> if it could not be found.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAPersistenceManager.h#L230">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAPersistenceManager(im)fetchLocalizedEntryWithIdentifier:locale:"></a>
+                    <a name="//apple_ref/objc/Method/-fetchLocalizedEntryWithIdentifier:locale:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAPersistenceManager(im)fetchLocalizedEntryWithIdentifier:locale:">-fetchLocalizedEntryWithIdentifier:locale:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Retrieve a localized Entry from the persistent store.</p>
+
+<p>This method needs to be overridden by subclasses.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/CDALocalizedPersistedEntry.html">CDALocalizedPersistedEntry</a></span><span class="o">&gt;</span> <span class="n">_Nullable</span><span class="p">)</span>
+<span class="nf">fetchLocalizedEntryWithIdentifier</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">identifier</span>
+                           <span class="nf">locale</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">locale</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">fetchLocalizedEntry</span><span class="p">(</span><span class="n">withIdentifier</span> <span class="nv">identifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">locale</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/CDALocalizedPersistedEntry.html">CDALocalizedPersistedEntry</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>identifier</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The identifier of the Entry to fetch.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>locale</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The locale of the Entry to fetch.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The localized Entry with the given identifier or <code>nil</code> if it could not be found.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAPersistenceManager.h#L242-L243">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAPersistenceManager(im)fetchSpaceFromDataStore"></a>
+                    <a name="//apple_ref/objc/Method/-fetchSpaceFromDataStore" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAPersistenceManager(im)fetchSpaceFromDataStore">-fetchSpaceFromDataStore</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetch a Space from the persistent store.</p>
+
+<p>This method needs to be overridden by subclasses.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/CDAPersistedSpace.html">CDAPersistedSpace</a></span><span class="o">&gt;</span> <span class="n">_Nullable</span><span class="p">)</span><span class="n">fetchSpaceFromDataStore</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">fetchSpaceFromDataStore</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/CDAPersistedSpace.html">CDAPersistedSpace</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The fetched Space or <code>nil</code> if none could be retrieved.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAPersistenceManager.h#L252">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAPersistenceManager(im)hasChanged"></a>
+                    <a name="//apple_ref/objc/Method/-hasChanged" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAPersistenceManager(im)hasChanged">-hasChanged</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Whether any data has changed since the last synchronization.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="n">hasChanged</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">hasChanged</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>True if any changes occured, false otherwise.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAPersistenceManager.h#L259">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAPersistenceManager(im)performBlock:"></a>
+                    <a name="//apple_ref/objc/Method/-performBlock:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAPersistenceManager(im)performBlock:">-performBlock:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Perform the given block on the right queue for interacting with the data store.</p>
+
+<p>The default implementation will simply run the block on the current queue. Subclasses can override
+  this behaviour in case their data store is associated with a specific queue or thread.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">performBlock</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)())</span><span class="nv">block</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">perform</span><span class="p">(</span><span class="n">_</span> <span class="nv">block</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>block</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block to be performed asynchronously</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAPersistenceManager.h#L269">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAPersistenceManager(im)saveDataStore"></a>
+                    <a name="//apple_ref/objc/Method/-saveDataStore" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAPersistenceManager(im)saveDataStore">-saveDataStore</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Save all changes of the object model to the persistent store.</p>
+
+<p>This method needs to be overridden by subclasses.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">saveDataStore</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">saveDataStore</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAPersistenceManager.h#L277">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAPersistenceManager(im)updatePersistedEntry:withEntry:"></a>
+                    <a name="//apple_ref/objc/Method/-updatePersistedEntry:withEntry:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAPersistenceManager(im)updatePersistedEntry:withEntry:">-updatePersistedEntry:withEntry:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This method will be called internally each time new values for an Entry are available, including
+  during its initial creation. You can override it in your subclass to implement any custom behaviour,
+  for example resolving relationships between Resources. Usually, you want to call super in the
+  process to get updates for primitive values for free.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">updatePersistedEntry</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/CDAPersistedEntry.html">CDAPersistedEntry</a></span><span class="o">&gt;</span><span class="p">)</span><span class="nv">persistedEntry</span>
+                   <span class="nf">withEntry</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/CDAEntry.html">CDAEntry</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">entry</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">update</span><span class="p">(</span><span class="n">_</span> <span class="nv">persistedEntry</span><span class="p">:</span> <span class="kt"><a href="../Protocols/CDAPersistedEntry.html">CDAPersistedEntry</a></span><span class="p">,</span> <span class="n">with</span> <span class="nv">entry</span><span class="p">:</span> <span class="kt"><a href="../Classes/CDAEntry.html">CDAEntry</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>persistedEntry</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The persisted Entry to be updated by this method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>entry</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The Entry which contains the values used for the update operation.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAPersistenceManager.h#L288">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Interact%20with%20Contentful%20*/"></a>
+                <a name="//apple_ref/objc/Section/Interact with Contentful */" class="dashAnchor"></a>
+                <a href="#/Interact%20with%20Contentful%20*/">
+                  <h3 class="section-name">Interact with Contentful */</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAPersistenceManager(py)client"></a>
+                    <a name="//apple_ref/objc/Property/client" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAPersistenceManager(py)client">client</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The client object used for all API requests to Contentful.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Classes/CDAClient.html">CDAClient</a></span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">client</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">client</span><span class="p">:</span> <span class="kt"><a href="../Classes/CDAClient.html">CDAClient</a></span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAPersistenceManager.h#L293">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Use%20Initial%20Seed%20Data%20*/"></a>
+                <a name="//apple_ref/objc/Section/Use Initial Seed Data */" class="dashAnchor"></a>
+                <a href="#/Use%20Initial%20Seed%20Data%20*/">
+                  <h3 class="section-name">Use Initial Seed Data */</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAPersistenceManager(cm)seedFromBundleWithInitialCacheDirectory:"></a>
+                    <a name="//apple_ref/objc/Method/+seedFromBundleWithInitialCacheDirectory:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAPersistenceManager(cm)seedFromBundleWithInitialCacheDirectory:">+seedFromBundleWithInitialCacheDirectory:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Copy seed data from main bundle to the appropriate places.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">seedFromBundleWithInitialCacheDirectory</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">initialCacheDirectory</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">seedFromBundle</span><span class="p">(</span><span class="n">withInitialCacheDirectory</span> <span class="nv">initialCacheDirectory</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>initialCacheDirectory</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Directory in the main bundle which contains cached Resources.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAPersistenceManager.h#L302">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="https://www.contentful.com" target="_blank" rel="external">Contentful</a>. All rights reserved. (Last updated: 2017-05-02)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

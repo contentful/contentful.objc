@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CDAResourcesCollectionViewController Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/CDAResourcesCollectionViewController" class="dashAnchor"></a>
+    <a title="CDAResourcesCollectionViewController Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">ContentfulDeliveryAPI Docs</a> (99% documented)</p>
+        <p class="header-right"><a href="https://github.com/contentful/contentful.objc"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">ContentfulDeliveryAPI Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        CDAResourcesCollectionViewController Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Categories.html">Categories</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Categories/UIImageView(CDAAsset).html">UIImageView(CDAAsset)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/CDAArray.html">CDAArray</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAAsset.html">CDAAsset</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAClient.html">CDAClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAConfiguration.html">CDAConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAContentType.html">CDAContentType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAEntriesViewController.html">CDAEntriesViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAEntry.html">CDAEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAError.html">CDAError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAField.html">CDAField</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAFieldsViewController.html">CDAFieldsViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAMapViewController.html">CDAMapViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAPersistenceManager.html">CDAPersistenceManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDARequest.html">CDARequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAResource.html">CDAResource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAResourceCell.html">CDAResourceCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAResourcesCollectionViewController.html">CDAResourcesCollectionViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAResourcesViewController.html">CDAResourcesViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)CDAResponse">CDAResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDASpace.html">CDASpace</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDASyncedSpace.html">CDASyncedSpace</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@CDAErrorDomain">CDAErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@CDAImageQualityOriginal">CDAImageQualityOriginal</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@CDARadiusMaximum">CDARadiusMaximum</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@CDARadiusNone">CDARadiusNone</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@CDA_DEFAULT_SERVER">CDA_DEFAULT_SERVER</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/CDAFieldType.html">CDAFieldType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CDAFitType.html">CDAFitType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CDAImageFormat.html">CDAImageFormat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CDAResourceType.html">CDAResourceType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/CDAEntriesViewControllerDelegate.html">CDAEntriesViewControllerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CDALocalizedPersistedEntry.html">CDALocalizedPersistedEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CDAPersistedAsset.html">CDAPersistedAsset</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CDAPersistedEntry.html">CDAPersistedEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CDAPersistedSpace.html">CDAPersistedSpace</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CDASyncedSpaceDelegate.html">CDASyncedSpaceDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Type Definitions.html">Type Definitions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:CDAClient.h@T@CDAArrayFetchedBlock">CDAArrayFetchedBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:CDAClient.h@T@CDAAssetFetchedBlock">CDAAssetFetchedBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:CDAClient.h@T@CDAContentTypeFetchedBlock">CDAContentTypeFetchedBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:CDAClient.h@T@CDAEntryFetchedBlock">CDAEntryFetchedBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:CDAClient.h@T@CDAObjectFetchedBlock">CDAObjectFetchedBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:CDAClient.h@T@CDARequestFailureBlock">CDARequestFailureBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:CDAClient.h@T@CDASpaceFetchedBlock">CDASpaceFetchedBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:CDAClient.h@T@CDASyncedSpaceFetchedBlock">CDASyncedSpaceFetchedBlock</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>CDAResourcesCollectionViewController</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">CDAResourcesCollectionViewController</span> <span class="p">:</span> <span class="nc">UICollectionViewController</span></code></pre>
+
+                </div>
+              </div>
+            <p>The <code>CDAResourcesCollectionViewController</code> makes it easy to display content from different kinds
+of Resources in an <code>UICollectionView</code>.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Initializing%20the%20CDAResourcesCollectionViewController%20Object%20*/"></a>
+                <a name="//apple_ref/objc/Section/Initializing the CDAResourcesCollectionViewController Object */" class="dashAnchor"></a>
+                <a href="#/Initializing%20the%20CDAResourcesCollectionViewController%20Object%20*/">
+                  <h3 class="section-name">Initializing the CDAResourcesCollectionViewController Object */</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAResourcesCollectionViewController(im)initWithCollectionViewLayout:cellMapping:"></a>
+                    <a name="//apple_ref/objc/Method/-initWithCollectionViewLayout:cellMapping:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAResourcesCollectionViewController(im)initWithCollectionViewLayout:cellMapping:">-initWithCollectionViewLayout:cellMapping:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes a new instance with the given cell mapping. The cell mapping is a dictionary, containing
+  keypaths to properties on each cell and mapping them to Field identifiers. This is used for
+  automatically filling new cells with data from the Resources.</p>
+
+<p>Example:</p>
+
+<p><code>@{ @&quot;textLabel.text&quot;: @&quot;fields.name&quot; }</code></p>
+
+<p>This will set the text of each cell&rsquo;s <code>textLabel</code> to the corresponding Entry&rsquo;s value of Field <code>name</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span> <span class="n">_Nullable</span><span class="p">)</span>
+<span class="nf">initWithCollectionViewLayout</span><span class="p">:(</span><span class="n">UICollectionViewLayout</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">)</span><span class="nv">layout</span>
+                 <span class="nf">cellMapping</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">)</span><span class="nv">cellMapping</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="nf">init</span><span class="p">?(</span><span class="n">collectionViewLayout</span> <span class="nv">layout</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="nv">cellMapping</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>layout</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The layout to be used for the collection view.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>cellMapping</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Mapping between cell properties and Resource content.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An initialized <code>CDAResourcesCollectionViewController</code> or <code>nil</code> if the object
+couldn&rsquo;t be created.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/UIKit/CDAResourcesCollectionViewController.h#L42-L43">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Access%20Displayed%20Data%20*/"></a>
+                <a name="//apple_ref/objc/Section/Access Displayed Data */" class="dashAnchor"></a>
+                <a href="#/Access%20Displayed%20Data%20*/">
+                  <h3 class="section-name">Access Displayed Data */</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAResourcesCollectionViewController(py)items"></a>
+                    <a name="//apple_ref/objc/Property/items" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAResourcesCollectionViewController(py)items">items</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The items which are currently displayed in this view controller&rsquo;s table view.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSArray</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">items</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">items</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/UIKit/CDAResourcesCollectionViewController.h#L48">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Configure%20Data%20to%20Fetch%20*/"></a>
+                <a name="//apple_ref/objc/Section/Configure Data to Fetch */" class="dashAnchor"></a>
+                <a href="#/Configure%20Data%20to%20Fetch%20*/">
+                  <h3 class="section-name">Configure Data to Fetch */</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAResourcesCollectionViewController(py)client"></a>
+                    <a name="//apple_ref/objc/Property/client" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAResourcesCollectionViewController(py)client">client</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The client which is used to fetch Resources. Make sure to set it before displaying the view
+controller&rsquo;s view or an exception will be thrown unless <code>initWithCellMapping:items:</code> was used to
+initialize this view controller.</p>
+
+<p>The client is not retained.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Classes/CDAClient.html">CDAClient</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">client</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/UIKit/CDAResourcesCollectionViewController.h#L59">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAResourcesCollectionViewController(py)locale"></a>
+                    <a name="//apple_ref/objc/Property/locale" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAResourcesCollectionViewController(py)locale">locale</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Locale to use when querying Resources.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">locale</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/UIKit/CDAResourcesCollectionViewController.h#L62">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAResourcesCollectionViewController(py)query"></a>
+                    <a name="//apple_ref/objc/Property/query" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAResourcesCollectionViewController(py)query">query</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The query parameters used for fetching Resources. By default, all Resources from the Space associated
+with the client will be fetched.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSDictionary</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">query</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">query</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/UIKit/CDAResourcesCollectionViewController.h#L68">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAResourcesCollectionViewController(py)resourceType"></a>
+                    <a name="//apple_ref/objc/Property/resourceType" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAResourcesCollectionViewController(py)resourceType">resourceType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The type of Resources which ought to be fetched.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/CDAResourceType.html">CDAResourceType</a></span> <span class="n">resourceType</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">resourceType</span><span class="p">:</span> <span class="kt">Int32</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/UIKit/CDAResourcesCollectionViewController.h#L71">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAResourcesCollectionViewController(py)offlineCaching"></a>
+                    <a name="//apple_ref/objc/Property/offlineCaching" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAResourcesCollectionViewController(py)offlineCaching">offlineCaching</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Activate the built-in support for caching Resources offline. </p>
+
+<p>The cached data will only be used if the device is truly offline, use a <code><a href="../Classes/CDASyncedSpace.html">CDASyncedSpace</a></code> instead for
+general purpose caching.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">offlineCaching</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">offlineCaching</span><span class="p">:</span> <span class="kt">Int32</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/UIKit/CDAResourcesCollectionViewController.h#L79">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Configure%20Appearance%20*/"></a>
+                <a name="//apple_ref/objc/Section/Configure Appearance */" class="dashAnchor"></a>
+                <a href="#/Configure%20Appearance%20*/">
+                  <h3 class="section-name">Configure Appearance */</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAResourcesCollectionViewController(py)showSearchBar"></a>
+                    <a name="//apple_ref/objc/Property/showSearchBar" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAResourcesCollectionViewController(py)showSearchBar">showSearchBar</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Configure whether or not to show a search bar.</p>
+
+<p>The query will be handled automatically, by utilizing the full-text search of Contentful.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">showSearchBar</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">showSearchBar</span><span class="p">:</span> <span class="kt">Int32</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/UIKit/CDAResourcesCollectionViewController.h#L88">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Configuring%20behaviour%20in%20Subclasses%20*/"></a>
+                <a name="//apple_ref/objc/Section/Configuring behaviour in Subclasses */" class="dashAnchor"></a>
+                <a href="#/Configuring%20behaviour%20in%20Subclasses%20*/">
+                  <h3 class="section-name">Configuring behaviour in Subclasses */</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAResourcesCollectionViewController(cm)cellClass"></a>
+                    <a name="//apple_ref/objc/Method/+cellClass" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAResourcesCollectionViewController(cm)cellClass">+cellClass</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The collection view&rsquo;s data source is configured to return cells of this class. If you wish to use your
+own <code>UICollectionViewCell</code> subclass, override this method in your subclass of 
+<code>CDAResourcesCollectionViewController</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">+</span> <span class="p">(</span><span class="n">Class</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="n">cellClass</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">cellClass</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">AnyClass</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/UIKit/CDAResourcesCollectionViewController.h#L97">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAResourcesCollectionViewController(im)showError:"></a>
+                    <a name="//apple_ref/objc/Method/-showError:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAResourcesCollectionViewController(im)showError:">-showError:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>By default, errors related to requests made to the Contentful API will be displayed in a
+  <code>UIAlertView</code>. You can override this method in your subclass if you want to implement different
+  behaviour.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">showError</span><span class="p">:(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">showError</span><span class="p">(</span><span class="n">_</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>error</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The error which occured.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/UIKit/CDAResourcesCollectionViewController.h#L106">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="https://www.contentful.com" target="_blank" rel="external">Contentful</a>. All rights reserved. (Last updated: 2017-05-02)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

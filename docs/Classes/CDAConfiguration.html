@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CDAConfiguration Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/CDAConfiguration" class="dashAnchor"></a>
+    <a title="CDAConfiguration Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">ContentfulDeliveryAPI Docs</a> (99% documented)</p>
+        <p class="header-right"><a href="https://github.com/contentful/contentful.objc"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">ContentfulDeliveryAPI Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        CDAConfiguration Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Categories.html">Categories</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Categories/UIImageView(CDAAsset).html">UIImageView(CDAAsset)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/CDAArray.html">CDAArray</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAAsset.html">CDAAsset</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAClient.html">CDAClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAConfiguration.html">CDAConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAContentType.html">CDAContentType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAEntriesViewController.html">CDAEntriesViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAEntry.html">CDAEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAError.html">CDAError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAField.html">CDAField</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAFieldsViewController.html">CDAFieldsViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAMapViewController.html">CDAMapViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAPersistenceManager.html">CDAPersistenceManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDARequest.html">CDARequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAResource.html">CDAResource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAResourceCell.html">CDAResourceCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAResourcesCollectionViewController.html">CDAResourcesCollectionViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDAResourcesViewController.html">CDAResourcesViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)CDAResponse">CDAResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDASpace.html">CDASpace</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CDASyncedSpace.html">CDASyncedSpace</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@CDAErrorDomain">CDAErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@CDAImageQualityOriginal">CDAImageQualityOriginal</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@CDARadiusMaximum">CDARadiusMaximum</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@CDARadiusNone">CDARadiusNone</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@CDA_DEFAULT_SERVER">CDA_DEFAULT_SERVER</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/CDAFieldType.html">CDAFieldType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CDAFitType.html">CDAFitType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CDAImageFormat.html">CDAImageFormat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CDAResourceType.html">CDAResourceType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/CDAEntriesViewControllerDelegate.html">CDAEntriesViewControllerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CDALocalizedPersistedEntry.html">CDALocalizedPersistedEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CDAPersistedAsset.html">CDAPersistedAsset</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CDAPersistedEntry.html">CDAPersistedEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CDAPersistedSpace.html">CDAPersistedSpace</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CDASyncedSpaceDelegate.html">CDASyncedSpaceDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Type Definitions.html">Type Definitions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:CDAClient.h@T@CDAArrayFetchedBlock">CDAArrayFetchedBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:CDAClient.h@T@CDAAssetFetchedBlock">CDAAssetFetchedBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:CDAClient.h@T@CDAContentTypeFetchedBlock">CDAContentTypeFetchedBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:CDAClient.h@T@CDAEntryFetchedBlock">CDAEntryFetchedBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:CDAClient.h@T@CDAObjectFetchedBlock">CDAObjectFetchedBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:CDAClient.h@T@CDARequestFailureBlock">CDARequestFailureBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:CDAClient.h@T@CDASpaceFetchedBlock">CDASpaceFetchedBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:CDAClient.h@T@CDASyncedSpaceFetchedBlock">CDASyncedSpaceFetchedBlock</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>CDAConfiguration</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">CDAConfiguration</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                </div>
+              </div>
+            <p>Class representing additional configuration options for a <code><a href="../Classes/CDAClient.html">CDAClient</a></code>.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Creating%20a%20configuration%20*/"></a>
+                <a name="//apple_ref/objc/Section/Creating a configuration */" class="dashAnchor"></a>
+                <a href="#/Creating%20a%20configuration%20*/">
+                  <h3 class="section-name">Creating a configuration */</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAConfiguration(cm)defaultConfiguration"></a>
+                    <a name="//apple_ref/objc/Method/+defaultConfiguration" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAConfiguration(cm)defaultConfiguration">+defaultConfiguration</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creating a configuration with default parameters.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="n">defaultConfiguration</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kd">func</span> <span class="err">`</span><span class="k">default</span><span class="err">`</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A configuration initialized with default parameters.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAConfiguration.h#L33">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Configuring%20parameters%20*/"></a>
+                <a name="//apple_ref/objc/Section/Configuring parameters */" class="dashAnchor"></a>
+                <a href="#/Configuring%20parameters%20*/">
+                  <h3 class="section-name">Configuring parameters */</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAConfiguration(py)filterNonExistingResources"></a>
+                    <a name="//apple_ref/objc/Property/filterNonExistingResources" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAConfiguration(py)filterNonExistingResources">filterNonExistingResources</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Automatically filter any non-existing resources being linked to.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">filterNonExistingResources</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">filterNonExistingResources</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAConfiguration.h#L38">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAConfiguration(py)rateLimiting"></a>
+                    <a name="//apple_ref/objc/Property/rateLimiting" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAConfiguration(py)rateLimiting">rateLimiting</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Automatically retry requests if rate-limits are exceeded.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">rateLimiting</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">rateLimiting</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAConfiguration.h#L41">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAConfiguration(py)secure"></a>
+                    <a name="//apple_ref/objc/Property/secure" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAConfiguration(py)secure">secure</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>If <code>YES</code>, a secure HTTPS connection will be used instead of regular HTTP. Default value: <code>YES</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">secure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">secure</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAConfiguration.h#L44">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAConfiguration(py)server"></a>
+                    <a name="//apple_ref/objc/Property/server" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAConfiguration(py)server">server</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The server address to use for accessing any resources. Default value: <q>cdn.contentful.com</q></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">server</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">server</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAConfiguration.h#L47">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAConfiguration(py)userAgent"></a>
+                    <a name="//apple_ref/objc/Property/userAgent" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAConfiguration(py)userAgent">userAgent</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Configure a custom user-agent to be used in the HTTP request headers</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">userAgent</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">userAgent</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAConfiguration.h#L50">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Configure%20Preview%20Mode%20*/"></a>
+                <a name="//apple_ref/objc/Section/Configure Preview Mode */" class="dashAnchor"></a>
+                <a href="#/Configure%20Preview%20Mode%20*/">
+                  <h3 class="section-name">Configure Preview Mode */</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)CDAConfiguration(py)previewMode"></a>
+                    <a name="//apple_ref/objc/Property/previewMode" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)CDAConfiguration(py)previewMode">previewMode</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Preview mode allows retrieving unpublished Resources. </p>
+
+<p>To use it, you have to obtain a special access
+ token which you can get in the <q>API</q> tab of the Contentful app. </p>
+
+<p>In preview mode, data can be invalid, because no validation is performed on unpublished entries. Your
+ app needs to deal with that. Be aware that the access token is read-write and should in no case be
+ shipped with a production app.</p>
+
+<p>Another difference in preview mode is that there are never any updates when performing 
+ synchronizations. You will receive all Assets and Entries during the initial synchronization, just as
+ in normal mode, including the unpublished Resources. Any subsequent synchronization will return 
+ successful immediately, not reporting any changes. In addition to that, the parameters for syncing
+ specific content will have no effect in preview mode, instead all content will always be fetched.</p>
+
+<p>In preview mode, the <code>include</code> parameter of a query is not used at all, instead includes will always
+ be resolved for full ten levels. Because of this, preview mode will be slower than normal.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">previewMode</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">previewMode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/contentful/contentful.objc/tree/2.0.1/ContentfulDeliveryAPI/CDAConfiguration.h#L72">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="https://www.contentful.com" target="_blank" rel="external">Contentful</a>. All rights reserved. (Last updated: 2017-05-02)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
