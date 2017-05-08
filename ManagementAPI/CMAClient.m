@@ -118,7 +118,7 @@
 }
 
 -(CDARequest *)fetchUserWithSuccess:(CMAUserFetchedBlock)success failure:(CDARequestFailureBlock)failure {
-    return [self.client fetchURLPath:@"user"
+    return [self.client fetchURLPath:@"users/me"
                           parameters:nil
                              success:success
                              failure:failure];

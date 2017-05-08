@@ -17,41 +17,17 @@ Pod::Spec.new do |s|
                      :tag => s.version.to_s }
   s.requires_arc = true
 
-#  s.source_files         = 'Code/*.{h,m}',
-#  s.public_header_files  = 'Code/{CDAArray,CDAAsset,CDAClient,CDAConfiguration,CDAContentType,CDAEntry,CDAError,CDAField,CDANullabilityStubs,CDARequest,CDAResource,CDAResponse,CDASpace,CDASyncedSpace,ContentfulDeliveryAPI,CDAPersistenceManager,CDAPersistedAsset,CDAPersistedEntry,CDAPersistedSpace,CDALocalizablePersistedEntry,CDALocalizedPersistedEntry}.h'
+  s.source_files         = 'Code/*.{h,m}',
+  s.public_header_files  = 'Code/{CDAArray,CDAAsset,CDAClient,CDAConfiguration,CDAContentType,CDAEntry,CDAError,CDAField,CDANullabilityStubs,CDARequest,CDAResource,CDAResponse,CDASpace,CDASyncedSpace,ContentfulDeliveryAPI,CDAPersistenceManager,CDAPersistedAsset,CDAPersistedEntry,CDAPersistedSpace,CDALocalizablePersistedEntry,CDALocalizedPersistedEntry}.h'
 
   s.ios.deployment_target     = '8.0'
-#  s.ios.source_files          = 'Code/UIKit/*.{h,m}'
-#  s.ios.frameworks            = 'UIKit', 'MapKit'
-#  s.ios.public_header_files  = 'Code/UIKit/{CDAEntriesViewController,CDAFieldsViewController,UIImageView+CDAAsset,CDAMapViewController,CDAResourcesCollectionViewController,CDAResourcesViewController,CDAResourceCell}.h'
-#
+  s.ios.source_files          = 'Code/UIKit/*.{h,m}'
+  s.ios.frameworks            = 'UIKit', 'MapKit'
+  s.ios.public_header_files  = 'Code/UIKit/{CDAEntriesViewController,CDAFieldsViewController,UIImageView+CDAAsset,CDAMapViewController,CDAResourcesCollectionViewController,CDAResourcesViewController,CDAResourceCell}.h'
+
   s.osx.deployment_target     = '10.10'
-#
-#  s.dependency 'AFNetworking', '~> 3.1.0'
-#  s.dependency 'ISO8601', '~> 0.6.0'
 
-  s.default_subspec = 'Core'
-  
-  s.subspec 'Core' do |ss|
-    ss.source_files         = 'Code/*.{h,m}'
-    ss.public_header_files  = 'Code/{CDAArray,CDAAsset,CDAClient,CDAConfiguration,CDAContentType,CDAEntry,CDAError,CDAField,CDANullabilityStubs,CDARequest,CDAResource,CDAResponse,CDASpace,CDASyncedSpace,ContentfulDeliveryAPI,CDAPersistenceManager,CDAPersistedAsset,CDAPersistedEntry,CDAPersistedSpace,CDALocalizablePersistedEntry,CDALocalizedPersistedEntry}.h'
-
-    ss.ios.deployment_target     = '8.0'
-    ss.ios.source_files          = 'Code/UIKit/*.{h,m}'
-    ss.ios.frameworks            = 'UIKit', 'MapKit'
-    ss.ios.public_header_files  = 'Code/UIKit/{CDAEntriesViewController,CDAFieldsViewController,UIImageView+CDAAsset,CDAMapViewController,CDAResourcesCollectionViewController,CDAResourcesViewController,CDAResourceCell}.h'
-
-    ss.osx.deployment_target     = '10.10'
-
-    ss.dependency 'AFNetworking', '~> 3.1.0'
-    ss.dependency 'ISO8601', '~> 0.6.0'
-  end
-  
-  
-  s.subspec 'ContentfulManagementAPI' do |mgmt|
-    mgmt.source_files = 'ManagementAPI/*{h,m}'
-    mgmt.public_header_files = 'ManagementAPI/{}.h'
-  end
-
+  s.dependency 'AFNetworking', '~> 3.1.0'
+  s.dependency 'ISO8601', '~> 0.6.0'
 end
 
