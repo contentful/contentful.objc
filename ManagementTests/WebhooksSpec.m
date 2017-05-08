@@ -49,7 +49,7 @@ describe(@"Webhooks", ^{
     waitUntil(^(DoneCallback done) {
         NSAssert(space, @"Test space could not be found.");
         [space fetchWebhooksWithSuccess:^(CDAResponse* response, CDAArray* array) {
-            XCTAssertEqual(array.items.count, 2);
+            XCTAssertEqual(array.items.count, 1);
 
             done();
         } failure:^(CDAResponse* response, NSError* error) {
@@ -61,7 +61,7 @@ describe(@"Webhooks", ^{
     VCRTestEnd
 
 
-    VCRTest_it(@"can_create_new_webhook")
+    VCRTest_it(@"can_create_and_delete_webhooks")
 
     waitUntil(^(DoneCallback done) {
         NSAssert(space, @"Test space could not be found.");
@@ -84,6 +84,12 @@ describe(@"Webhooks", ^{
                                  XCTAssertNil(webhook.httpBasicUsername);
                                  XCTAssertNil(webhook.httpBasicPassword);
 
+                                 [webhook deleteWithSuccess:^{
+                                     done();
+                                 } failure:^(CDAResponse * _Nullable response, NSError * _Nonnull error) {
+                                     XCTFail("Error: %@", error);
+                                     done();
+                                 }];
                                  done();
                              } failure:^(CDAResponse* response, NSError* error) {
                                  XCTFail("Error: %@", error);
@@ -104,7 +110,7 @@ describe(@"Webhooks", ^{
                                       XCTAssertEqualObjects(webhook.name, @"yolo");
                                       XCTAssertEqualObjects(webhook.url, [NSURL URLWithString:@"http://example.com/"]);
                                       XCTAssertEqualObjects(webhook.topics, (@[ @"Entry.archive" ]));
-                                      XCTAssertEqualObjects(webhook.headers, (@{ @"foo": @"bar", @"moo": @"foo" }));
+                                      expect([webhook.headers isEqualToDictionary:@{ @"moo": @"foo",  @"foo": @"bar" }]);
                                       XCTAssertEqualObjects(webhook.httpBasicUsername, @"yolo");
 
                                       done();
@@ -116,68 +122,77 @@ describe(@"Webhooks", ^{
     });
     VCRTestEnd
 
-    VCRTest_it(@"can_update_single_webhook")
 
-    waitUntil(^(DoneCallback done) {
-        NSAssert(space, @"Test space could not be found.");
-        [space fetchWebhookWithIdentifier:@"3ylg2m4MZEnhggGFyI0gyJ"
-                                  success:^(CDAResponse* response, CMAWebhook* webhook) {
-                                      XCTAssertNotNil(webhook);
-                                      XCTAssertEqualObjects(webhook.name, @"yolo");
+    // This test hits the same fetch endpoint twice, so we must use different recordings
+    // and regular spec style test declaration.
+    it(@"can_update_single_webhook", ^{
 
-                                      webhook.name = @"updated name";
-                                      [webhook updateWithSuccess:^{
-                                          [space fetchWebhookWithIdentifier:@"3ylg2m4MZEnhggGFyI0gyJ"
-                                                                    success:^(CDAResponse* r, CMAWebhook* webhook) {
-                                                                        XCTAssertNotNil(webhook);
-                                                                        XCTAssertEqualObjects(webhook.name, @"updated name");
+        NSString *webhookId = @"3ylg2m4MZEnhggGFyI0gyJ";
+        NSString *newWebhookName = @"updated name";
+        NSString *originalWebhookName = @"yolo";
 
-                                                                        done();
-                                                                    } failure:^(CDAResponse* r, NSError* e) {
-                                                                        XCTFail("Error: %@", e);
+        NSString *updateWebhookTestName = @"can_successfully_update_webhook";
+        [TestHelpers startRecordingOrLoadCassetteForTestNamed:updateWebhookTestName
+                                                     forClass:self.class];
 
-                                                                        done();
-                                                                    }];
-                                      } failure:^(CDAResponse* r, NSError* e) {
-                                          XCTFail("Error: %@", e);
+        waitUntil(^(DoneCallback done) {
+            NSAssert(space, @"Test space could not be found.");
+            [space fetchWebhookWithIdentifier:webhookId
+                                      success:^(CDAResponse* response, CMAWebhook* webhook) {
+                                          XCTAssertNotNil(webhook);
+                                          XCTAssertEqualObjects(webhook.name, originalWebhookName);
 
-                                          done();
-                                      }];
-                                  } failure:^(CDAResponse* response, NSError* error) {
-                                      XCTFail("Error: %@", error);
+                                          webhook.name = newWebhookName;
 
-                                      done();
-                                  }];
-    });
-    VCRTestEnd
-
-
-    VCRTest_it(@"can_delete_single-webhook")
-
-    waitUntil(^(DoneCallback done) {
-        NSAssert(space, @"Test space could not be found.");
-        [space fetchWebhookWithIdentifier:@"4uUpDd5MecwQN8y6DmTXiF"
-                                  success:^(CDAResponse* response, CMAWebhook* webhook) {
-                                      [webhook deleteWithSuccess:^{
-                                          [space fetchWebhookWithIdentifier:@"4uUpDd5MecwQN8y6DmTXiF" success:^(CDAResponse* response, CMAWebhook* webhook) {
-                                              XCTFail(@"Webhook shouldn't exist.");
-
+                                          [webhook updateWithSuccess:^{
+                                              if (![VCR isReplaying]) {
+                                                  [NSThread sleepForTimeInterval:3.0];
+                                              }
                                               done();
-                                          } failure:^(CDAResponse* response, NSError* error) {
+
+                                          } failure:^(CDAResponse* r, NSError* e) {
+                                              XCTFail("Error: %@", e);
+                                              
                                               done();
                                           }];
                                       } failure:^(CDAResponse* response, NSError* error) {
                                           XCTFail("Error: %@", error);
-
+                                          
                                           done();
                                       }];
-                                  } failure:^(CDAResponse* response, NSError* error) {
-                                      XCTFail("Error: %@", error);
+        });
+        [TestHelpers endRecordingAndSaveWithName:updateWebhookTestName
+                                        forClass:self.class];
+
+        NSString *updatedWebhookCorrectlyTestName = @"updated_webhook_has_correct_description";
+        [TestHelpers startRecordingOrLoadCassetteForTestNamed:updatedWebhookCorrectlyTestName
+                                                     forClass:self.class];
+        waitUntil(^(DoneCallback done) {
+
+        [space fetchWebhookWithIdentifier:webhookId
+                                  success:^(CDAResponse* r, CMAWebhook* webhook) {
+                                      XCTAssertNotNil(webhook);
+                                      XCTAssertEqualObjects(webhook.name, newWebhookName);
+
+                                      webhook.name = originalWebhookName;
+
+                                      [webhook updateWithSuccess:^{
+                                          done();
+                                      } failure:^(CDAResponse * _Nullable response, NSError * _Nonnull error) {
+                                          XCTFail("Error: %@", error);
+                                          done();
+                                      }];
+                                  } failure:^(CDAResponse* r, NSError* e) {
+                                      XCTFail("Error: %@", e);
 
                                       done();
                                   }];
+        });
+        [TestHelpers endRecordingAndSaveWithName:updatedWebhookCorrectlyTestName
+                                        forClass:self.class];
+
     });
-    VCRTestEnd
+
 });
 
 SpecEnd

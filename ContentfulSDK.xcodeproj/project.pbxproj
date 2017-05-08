@@ -353,6 +353,13 @@
 		ED31CEEA1E534EBF007C8E48 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED31CEE91E534EBF007C8E48 /* UIKit.framework */; };
 		ED31CEEC1E534ED9007C8E48 /* libPods-CDA Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED31CEEB1E534ED9007C8E48 /* libPods-CDA Tests.a */; };
 		ED4AD4B71E5CA3F60049B8D4 /* libISO8601.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED4AD4B61E5CA3F60049B8D4 /* libISO8601.a */; };
+		ED571F6A1EC0AB2300216715 /* WebhooksSpec_can_create_and_delete_webhooks.json in Resources */ = {isa = PBXBuildFile; fileRef = ED571F631EC0AB2300216715 /* WebhooksSpec_can_create_and_delete_webhooks.json */; };
+		ED571F6B1EC0AB2300216715 /* WebhooksSpec_can_fetch_all_webhooks_for_space.json in Resources */ = {isa = PBXBuildFile; fileRef = ED571F641EC0AB2300216715 /* WebhooksSpec_can_fetch_all_webhooks_for_space.json */; };
+		ED571F6C1EC0AB2300216715 /* WebhooksSpec_can_fetch_single_webhook.json in Resources */ = {isa = PBXBuildFile; fileRef = ED571F651EC0AB2300216715 /* WebhooksSpec_can_fetch_single_webhook.json */; };
+		ED571F6D1EC0AB2300216715 /* WebhooksSpec_can_successfully_update_webhook.json in Resources */ = {isa = PBXBuildFile; fileRef = ED571F661EC0AB2300216715 /* WebhooksSpec_can_successfully_update_webhook.json */; };
+		ED571F6E1EC0AB2300216715 /* WebhooksSpec_can_update_single_webhook.json in Resources */ = {isa = PBXBuildFile; fileRef = ED571F671EC0AB2300216715 /* WebhooksSpec_can_update_single_webhook.json */; };
+		ED571F6F1EC0AB2300216715 /* WebhooksSpec_fetch-space-before-each.json in Resources */ = {isa = PBXBuildFile; fileRef = ED571F681EC0AB2300216715 /* WebhooksSpec_fetch-space-before-each.json */; };
+		ED571F701EC0AB2300216715 /* WebhooksSpec_updated_webhook_has_correct_description.json in Resources */ = {isa = PBXBuildFile; fileRef = ED571F691EC0AB2300216715 /* WebhooksSpec_updated_webhook_has_correct_description.json */; };
 		ED8FF6441EA5FFE300798042 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED8FF6431EA5FFE300798042 /* Foundation.framework */; };
 		ED8FF6A21EA6050400798042 /* CDAArray+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A1E43F0218CE1CF80060A89A /* CDAArray+Private.h */; };
 		ED8FF6E41EA605D300798042 /* CDAResource+Management.h in Headers */ = {isa = PBXBuildFile; fileRef = ED8FF6A41EA605B700798042 /* CDAResource+Management.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -870,6 +877,13 @@
 		ED31CEE91E534EBF007C8E48 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		ED31CEEB1E534ED9007C8E48 /* libPods-CDA Tests.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-CDA Tests.a"; path = "../../../../Library/Developer/Xcode/DerivedData/ContentfulSDK-dqokadybfwzbxycecawequgzwmcs/Build/Products/Debug-iphonesimulator/libPods-CDA Tests.a"; sourceTree = "<group>"; };
 		ED4AD4B61E5CA3F60049B8D4 /* libISO8601.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libISO8601.a; path = "Pods/../build/Debug-iphoneos/ISO8601/libISO8601.a"; sourceTree = "<group>"; };
+		ED571F631EC0AB2300216715 /* WebhooksSpec_can_create_and_delete_webhooks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WebhooksSpec_can_create_and_delete_webhooks.json; sourceTree = "<group>"; };
+		ED571F641EC0AB2300216715 /* WebhooksSpec_can_fetch_all_webhooks_for_space.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WebhooksSpec_can_fetch_all_webhooks_for_space.json; sourceTree = "<group>"; };
+		ED571F651EC0AB2300216715 /* WebhooksSpec_can_fetch_single_webhook.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WebhooksSpec_can_fetch_single_webhook.json; sourceTree = "<group>"; };
+		ED571F661EC0AB2300216715 /* WebhooksSpec_can_successfully_update_webhook.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WebhooksSpec_can_successfully_update_webhook.json; sourceTree = "<group>"; };
+		ED571F671EC0AB2300216715 /* WebhooksSpec_can_update_single_webhook.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WebhooksSpec_can_update_single_webhook.json; sourceTree = "<group>"; };
+		ED571F681EC0AB2300216715 /* WebhooksSpec_fetch-space-before-each.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "WebhooksSpec_fetch-space-before-each.json"; sourceTree = "<group>"; };
+		ED571F691EC0AB2300216715 /* WebhooksSpec_updated_webhook_has_correct_description.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WebhooksSpec_updated_webhook_has_correct_description.json; sourceTree = "<group>"; };
 		ED8FF5FA1EA5FF6C00798042 /* libContentfulManagementAPI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libContentfulManagementAPI.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED8FF6431EA5FFE300798042 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		ED8FF6831EA601D000798042 /* AssetsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetsSpec.m; sourceTree = "<group>"; };
@@ -1671,6 +1685,13 @@
 		ED01CA9B1EAAB8950041E21E /* Recordings */ = {
 			isa = PBXGroup;
 			children = (
+				ED571F631EC0AB2300216715 /* WebhooksSpec_can_create_and_delete_webhooks.json */,
+				ED571F641EC0AB2300216715 /* WebhooksSpec_can_fetch_all_webhooks_for_space.json */,
+				ED571F651EC0AB2300216715 /* WebhooksSpec_can_fetch_single_webhook.json */,
+				ED571F661EC0AB2300216715 /* WebhooksSpec_can_successfully_update_webhook.json */,
+				ED571F671EC0AB2300216715 /* WebhooksSpec_can_update_single_webhook.json */,
+				ED571F681EC0AB2300216715 /* WebhooksSpec_fetch-space-before-each.json */,
+				ED571F691EC0AB2300216715 /* WebhooksSpec_updated_webhook_has_correct_description.json */,
 				ED1B1CAC1EB1F4E800347DD7 /* RolesSpec_can_create_and_delete_role.json */,
 				ED1B1CAD1EB1F4E800347DD7 /* RolesSpec_can_fetch_roles.json */,
 				ED1B1CBC1EB20BD500347DD7 /* RolesSpec_can_successfully_update_role.json */,
@@ -2267,8 +2288,11 @@
 				ED01CB5C1EAAD9C60041E21E /* PublishedSpec_can_fetch_published_content_types.json in Resources */,
 				ED01CB351EAAD9C60041E21E /* ContentTypeSpec_can_be_created_with_linked_assets_array_field-type.json in Resources */,
 				ED01CAC71EAAB8A60041E21E /* AssetSpec_can_process_its_file.json in Resources */,
+				ED571F6E1EC0AB2300216715 /* WebhooksSpec_can_update_single_webhook.json in Resources */,
 				ED01CACF1EAAB8A60041E21E /* AssetSpec_fetch-space-before-each.json in Resources */,
 				ED01CB6B1EAAD9C60041E21E /* SpacesSpec_can_retrieve_user_associated_with_API_client.json in Resources */,
+				ED571F6C1EC0AB2300216715 /* WebhooksSpec_can_fetch_single_webhook.json in Resources */,
+				ED571F6D1EC0AB2300216715 /* WebhooksSpec_can_successfully_update_webhook.json in Resources */,
 				ED01CB3C1EAAD9C60041E21E /* ContentTypeSpec_can_update_name_of_an_existing.json in Resources */,
 				ED01CB4F1EAAD9C60041E21E /* EntrySpec_can_be_unpublished.json in Resources */,
 				ED01CB411EAAD9C60041E21E /* ContentTypeSpec_can_update_with_changed_name.json in Resources */,
@@ -2295,6 +2319,7 @@
 				ED1B1C991EB0E9F700347DD7 /* LocaleSpec_can_be_updated.json in Resources */,
 				ED1B1CBF1EB20BD500347DD7 /* RolesSpec_updated_role_has_correct_description.json in Resources */,
 				ED01CB3D1EAAD9C60041E21E /* ContentTypeSpec_can_update_type_of_an_existing_field.json in Resources */,
+				ED571F6F1EC0AB2300216715 /* WebhooksSpec_fetch-space-before-each.json in Resources */,
 				ED01CB711EAAD9C60041E21E /* ValidationSpec_can_create_ContentType_with_regex_validation.json in Resources */,
 				ED01CB681EAAD9C60041E21E /* SpacesSpec_can_retrieve_all_Access_Tokens_of_Space.json in Resources */,
 				ED1B1CB11EB1F4E800347DD7 /* RolesSpec_can_create_and_delete_role.json in Resources */,
@@ -2306,6 +2331,7 @@
 				ED01CACD1EAAB8A60041E21E /* AssetSpec_cannot_be_unpublished_from_draft_state.json in Resources */,
 				ED01CB3A1EAAD9C60041E21E /* ContentTypeSpec_can_be_deactivated.json in Resources */,
 				ED01CB481EAAD9C60041E21E /* EditorInterfaceSpec_can-fetch-space.json in Resources */,
+				ED571F701EC0AB2300216715 /* WebhooksSpec_updated_webhook_has_correct_description.json in Resources */,
 				ED01CB6A1EAAD9C60041E21E /* SpacesSpec_can_retrieve_all_Spaces_for_account.json in Resources */,
 				ED01CB741EAAD9C60041E21E /* ValidationSpec_can_create_ContentType_with_value_validation.json in Resources */,
 				ED01CAC91EAAB8A60041E21E /* AssetSpec_can_be_published.json in Resources */,
@@ -2323,6 +2349,7 @@
 				ED01CB4C1EAAD9C60041E21E /* EntrySpec_can_be_deleted.json in Resources */,
 				ED01CACE1EAAB8A60041E21E /* AssetSpec_can_be_created_with_user-defined_identifier.json in Resources */,
 				ED01CB731EAAD9C60041E21E /* ValidationSpec_can_create_ContentType_with_size_validation.json in Resources */,
+				ED571F6A1EC0AB2300216715 /* WebhooksSpec_can_create_and_delete_webhooks.json in Resources */,
 				ED01CB451EAAD9C60041E21E /* ContentTypeSpec_fetch-space-before-each.json in Resources */,
 				ED01CB6D1EAAD9C60041E21E /* ValidationSpec_can_create_ContentType_with_content_type_validation_on_array.json in Resources */,
 				ED01CB361EAAD9C60041E21E /* ContentTypeSpec_can_be_created_with_linked_entries_array_field-type.json in Resources */,
@@ -2335,6 +2362,7 @@
 				ED01CB551EAAD9C60041E21E /* FetchingSpec_can_retrieve_Assets_matching_query.json in Resources */,
 				ED01CB581EAAD9C60041E21E /* FetchingSpec_can_retrieve_single_ContentType_from_Space.json in Resources */,
 				ED01CAC41EAAB8A60041E21E /* AssetSpec_can_be_archived.json in Resources */,
+				ED571F6B1EC0AB2300216715 /* WebhooksSpec_can_fetch_all_webhooks_for_space.json in Resources */,
 				ED01CACB1EAAB8A60041E21E /* AssetSpec_can_update_its_file.json in Resources */,
 				ED01CB381EAAD9C60041E21E /* ContentTypeSpec_can_be_created_with_symbols_array_field-type.json in Resources */,
 				ED01CB671EAAD9C60041E21E /* SpacesSpec_can_retrieve_a_single_Space.json in Resources */,
