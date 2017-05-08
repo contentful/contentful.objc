@@ -2197,8 +2197,8 @@
 			projectRoot = "";
 			targets = (
 				A19FD86618C631E60081677E /* ContentfulDeliveryAPI */,
-				A19FD87618C631E60081677E /* CDA Tests */,
 				ED8FF5F91EA5FF6C00798042 /* ContentfulManagementAPI */,
+				A19FD87618C631E60081677E /* CDA Tests */,
 				ED2133991EA6172C00C3CE94 /* ManagementTests */,
 				A1A2CE46190963BA00B8D46D /* ContentfulSeedDatabase */,
 				A1B8158218F2A8090027B26D /* CoreDataExample */,
