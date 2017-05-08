@@ -289,7 +289,6 @@
 		ED01CB5C1EAAD9C60041E21E /* PublishedSpec_can_fetch_published_content_types.json in Resources */ = {isa = PBXBuildFile; fileRef = ED01CB141EAAD9C60041E21E /* PublishedSpec_can_fetch_published_content_types.json */; };
 		ED01CB5D1EAAD9C60041E21E /* PublishedSpec_fetch-space-before-each.json in Resources */ = {isa = PBXBuildFile; fileRef = ED01CB151EAAD9C60041E21E /* PublishedSpec_fetch-space-before-each.json */; };
 		ED01CB631EAAD9C60041E21E /* SpacesSpec_can_change_name_of_Space.json in Resources */ = {isa = PBXBuildFile; fileRef = ED01CB1B1EAAD9C60041E21E /* SpacesSpec_can_change_name_of_Space.json */; };
-		ED01CB641EAAD9C60041E21E /* SpacesSpec_can_create_new_Space_within_specific_Organization.json in Resources */ = {isa = PBXBuildFile; fileRef = ED01CB1C1EAAD9C60041E21E /* SpacesSpec_can_create_new_Space_within_specific_Organization.json */; };
 		ED01CB651EAAD9C60041E21E /* SpacesSpec_can_create_new_Space.json in Resources */ = {isa = PBXBuildFile; fileRef = ED01CB1D1EAAD9C60041E21E /* SpacesSpec_can_create_new_Space.json */; };
 		ED01CB661EAAD9C60041E21E /* SpacesSpec_can_delete_an_existing_Space.json in Resources */ = {isa = PBXBuildFile; fileRef = ED01CB1E1EAAD9C60041E21E /* SpacesSpec_can_delete_an_existing_Space.json */; };
 		ED01CB671EAAD9C60041E21E /* SpacesSpec_can_retrieve_a_single_Space.json in Resources */ = {isa = PBXBuildFile; fileRef = ED01CB1F1EAAD9C60041E21E /* SpacesSpec_can_retrieve_a_single_Space.json */; };
@@ -820,7 +819,6 @@
 		ED01CB141EAAD9C60041E21E /* PublishedSpec_can_fetch_published_content_types.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PublishedSpec_can_fetch_published_content_types.json; sourceTree = "<group>"; };
 		ED01CB151EAAD9C60041E21E /* PublishedSpec_fetch-space-before-each.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "PublishedSpec_fetch-space-before-each.json"; sourceTree = "<group>"; };
 		ED01CB1B1EAAD9C60041E21E /* SpacesSpec_can_change_name_of_Space.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SpacesSpec_can_change_name_of_Space.json; sourceTree = "<group>"; };
-		ED01CB1C1EAAD9C60041E21E /* SpacesSpec_can_create_new_Space_within_specific_Organization.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SpacesSpec_can_create_new_Space_within_specific_Organization.json; sourceTree = "<group>"; };
 		ED01CB1D1EAAD9C60041E21E /* SpacesSpec_can_create_new_Space.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SpacesSpec_can_create_new_Space.json; sourceTree = "<group>"; };
 		ED01CB1E1EAAD9C60041E21E /* SpacesSpec_can_delete_an_existing_Space.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SpacesSpec_can_delete_an_existing_Space.json; sourceTree = "<group>"; };
 		ED01CB1F1EAAD9C60041E21E /* SpacesSpec_can_retrieve_a_single_Space.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SpacesSpec_can_retrieve_a_single_Space.json; sourceTree = "<group>"; };
@@ -1722,7 +1720,6 @@
 				ED01CB141EAAD9C60041E21E /* PublishedSpec_can_fetch_published_content_types.json */,
 				ED01CB151EAAD9C60041E21E /* PublishedSpec_fetch-space-before-each.json */,
 				ED01CB1B1EAAD9C60041E21E /* SpacesSpec_can_change_name_of_Space.json */,
-				ED01CB1C1EAAD9C60041E21E /* SpacesSpec_can_create_new_Space_within_specific_Organization.json */,
 				ED01CB1D1EAAD9C60041E21E /* SpacesSpec_can_create_new_Space.json */,
 				ED01CB1E1EAAD9C60041E21E /* SpacesSpec_can_delete_an_existing_Space.json */,
 				ED01CB1F1EAAD9C60041E21E /* SpacesSpec_can_retrieve_a_single_Space.json */,
@@ -2287,7 +2284,6 @@
 				ED01CB4D1EAAD9C60041E21E /* EntrySpec_can_be_published.json in Resources */,
 				ED1B1CB31EB1F4E800347DD7 /* RolesSpec_can_fetch_single_role.json in Resources */,
 				ED01CB571EAAD9C60041E21E /* FetchingSpec_can_retrieve_Entries_matching_query.json in Resources */,
-				ED01CB641EAAD9C60041E21E /* SpacesSpec_can_create_new_Space_within_specific_Organization.json in Resources */,
 				ED01CB661EAAD9C60041E21E /* SpacesSpec_can_delete_an_existing_Space.json in Resources */,
 				ED01CB471EAAD9C60041E21E /* EditorInterfaceSpec_can_update_editor_interface.json in Resources */,
 				ED01CACC1EAAB8A60041E21E /* AssetSpec_can_be_updated.json in Resources */,

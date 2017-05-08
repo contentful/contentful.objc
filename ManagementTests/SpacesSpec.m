@@ -91,7 +91,7 @@ describe(@"CMA", ^{
         NSAssert(client, @"Client is not available.");
 
         [client fetchOrganizationsWithSuccess:^(CDAResponse *response, CDAArray *array) {
-            expect(array.items.count).equal(7);
+            expect(array.items.count).equal(1);
 
             for (CMAOrganization* organization in array.items) {
                 expect(organization.name).toNot.beNil();
@@ -188,53 +188,11 @@ describe(@"CMA", ^{
     });
     VCRTestEnd
 
-    VCRTest_it(@"can_create_new_Space_within_specific_Organization")
-
-    waitUntil(^(DoneCallback done) {
-        expect(organization).toNot.beNil;
-
-        NSAssert(client, @"Client is not available.");
-        [client createSpaceWithName:@"MySpace"
-                     inOrganization:organization
-                            success:^(CDAResponse *response, CMASpace *space) {
-                                expect(space).toNot.beNil();
-                                expect(space.name).equal(@"MySpace");
-                                expect(space.identifier).toNot.beNil();
-
-                                [client fetchSpaceWithIdentifier:space.identifier
-                                                         success:^(CDAResponse *response,
-                                                                   CMASpace *newSpace) {
-                                                             expect(newSpace).toNot.beNil();
-                                                             expect(newSpace.name).equal(@"MySpace");
-
-                                                             [space deleteWithSuccess:^{
-                                                                 done();
-                                                             } failure:^(CDAResponse *response,
-                                                                         NSError *error) {
-                                                                 XCTFail(@"Error: %@", error);
-
-                                                                 done();
-                                                             }];
-                                                         } failure:^(CDAResponse *response,
-                                                                     NSError *error) {
-                                                             XCTFail(@"Error: %@", error);
-
-                                                             done();
-                                                         }];
-                            } failure:^(CDAResponse *response, NSError *error) {
-                                XCTFail(@"Error: %@", error);
-
-                                done();
-                            }];
-    });
-    VCRTestEnd
-
-
     VCRTest_it(@"can_delete_an_existing_Space")
 
     waitUntil(^(DoneCallback done) {
         NSAssert(client, @"Client is not available.");
-        [client createSpaceWithName:@"MySpace"
+        [client createSpaceWithName:@"MySpace   "
                      inOrganization:organization
                             success:^(CDAResponse *response, CMASpace *space) {
                                 expect(space).toNot.beNil();
@@ -307,9 +265,9 @@ describe(@"CMA", ^{
     waitUntil(^(DoneCallback done) {
         NSAssert(client, @"Client is not available.");
         [client fetchUserWithSuccess:^(CDAResponse *response, CMAUser *user) {
-            expect(user.firstName).to.equal(@"Boris");
-            expect(user.lastName).to.equal(@"Bügling");
-            expect(user.avatarURL).to.equal([NSURL URLWithString:@"https://www.gravatar.com/avatar/66d863ad05a1af75a0e3c5cedc816943?s=50&d=https%3A%2F%2Fstatic.contentful.com%2Fgatekeeper%2Fusers%2Fdefault-f100256c71c0b6b409ec3c4959841976.png"]);
+            expect(user.firstName).to.equal(@"Ecosystem");
+            expect(user.lastName).to.equal(@"Team");
+            expect(user.avatarURL).to.equal([NSURL URLWithString:@"https://www.gravatar.com/avatar/807070085a93873004f24e0963467835?s=50&d=https%3A%2F%2Fstatic.contentful.com%2Fgatekeeper%2Fusers%2Fdefault-43783205a36955c723acfe0a32bcf72eebe709cac2067249bc80385b78ccc70d.png"]);
             
             done();
         } failure:^(CDAResponse *response, NSError *error) {
