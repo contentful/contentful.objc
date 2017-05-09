@@ -9,7 +9,6 @@
 #import <ContentfulManagementAPI/ContentfulManagementAPI.h>
 #import "CMASpace+Private.h"
 #import <Keys/ManagementSDKKeys.h>
-
 #import <VCRURLConnection/VCR.h>
 
 #import "TestHelpers.h"

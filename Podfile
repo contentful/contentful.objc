@@ -1,22 +1,15 @@
 #!/usr/bin/ruby
 
-plugin 'cocoapods-keys', {
-  :project => 'ContentfulSDK',
-  :keys => [ 'ManagementAPIAccessToken' ]
-}
-
 source 'https://github.com/CocoaPods/Specs.git'
-source 'https://github.com/contentful/CocoaPodsSpecs.git'
-
+#source 'https://github.com/contentful/CocoaPodsSpecs.git'
 
 platform :ios, "8.0"
 
-podspec :path => 'ContentfulDeliveryAPI.podspec'
-podspec :path => 'ContentfulManagementAPI.podspec'
 
-target "ContentfulDeliveryAPI" do
+target 'ContentfulDeliveryAPI' do
+  podspec :path => 'ContentfulDeliveryAPI.podspec'
   
-  target "DeliveryTests" do
+  target 'DeliveryTests' do
     inherit! :search_paths
     pod 'CCLRequestReplay', :git => 'https://github.com/neonichu/CCLRequestReplay.git'
     pod 'OCMock'
@@ -25,24 +18,24 @@ target "ContentfulDeliveryAPI" do
     pod 'FBSnapshotTestCase/Core'
   end
 
-  target "Catalog" do
+  target 'Catalog' do
     inherit! :search_paths
     pod 'PDKTCollectionViewWaterfallLayout'
   end
 
-  target "UFO Example" do
+  target 'UFO Example' do
     inherit! :search_paths
   end
 
-  target "CoreDataExample" do
+  target 'CoreDataExample' do
     inherit! :search_paths
   end
 
-  target "SeedDatabaseExample" do
+  target 'SeedDatabaseExample' do
     inherit! :search_paths
   end
 
-  target "ContentfulSeedDatabase" do
+  target 'ContentfulSeedDatabase' do
     platform :osx, "10.9"
     inherit! :search_paths
   end
@@ -50,20 +43,27 @@ end
 
 
 
+plugin 'cocoapods-keys', {
+  :project => 'ContentfulSDK',
+  :target => 'ContentfulManagementAPI',
+  :keys => [ 'ManagementAPIAccessToken' ]
+}
 
 # Management API
-target "ContentfulManagementAPI" do
+target 'ContentfulManagementAPI' do
+  podspec :path => 'ContentfulManagementAPI.podspec'
 
-  target "ManagementTests" do 
+  target 'ManagementTests' do 
     inherit! :search_paths
+
     pod 'Specta'
     pod 'Expecta'
-    pod 'VCRURLConnection'
+    pod 'VCRURLConnection', :inhibit_warnings => true
   end
 end
 
-post_install do |installer_or_rep|
-  installer = installer_or_rep.respond_to?(:installer) ? installer_or_rep.installer : installer_or_rep
+
+post_install do |installer|
 
   installer.pods_project.targets.each do |target|
     target.build_configurations.each do |config|
