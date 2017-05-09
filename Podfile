@@ -12,10 +12,11 @@ source 'https://github.com/contentful/CocoaPodsSpecs.git'
 platform :ios, "8.0"
 
 podspec :path => 'ContentfulDeliveryAPI.podspec'
+podspec :path => 'ContentfulManagementAPI.podspec'
 
 target "ContentfulDeliveryAPI" do
   
-  target "CDA Tests" do
+  target "DeliveryTests" do
     inherit! :search_paths
     pod 'CCLRequestReplay', :git => 'https://github.com/neonichu/CCLRequestReplay.git'
     pod 'OCMock'
