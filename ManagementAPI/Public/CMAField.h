@@ -6,8 +6,9 @@
 //
 //
 
+#import "CMAValidation.h"
+#import "CDAField.h"
 #import "CDANullabilityStubs.h"
-#import <ContentfulManagementAPI/ContentfulManagementAPI.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

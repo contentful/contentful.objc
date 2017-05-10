@@ -9,7 +9,7 @@
 @import XCTest;
 #import <Specta/Specta.h>
 
-#import <Keys/ManagementSDKKeys.h>
+#import <Keys/ContentfulSDKKeys.h>
 #import <ContentfulManagementAPI/ContentfulManagementAPI.h>
 #import <VCRURLConnection/VCR.h>
 #import "TestHelpers.h"
@@ -28,7 +28,7 @@ describe(@"EditorInterface", ^{
                                                      forClass:self.class];
         waitUntil(^(DoneCallback done) {
 
-            NSString* token = [ManagementSDKKeys new].managementAPIAccessToken;
+            NSString* token = [ContentfulSDKKeys new].managementAPIAccessToken;
             client = [[CMAClient alloc] initWithAccessToken:token];
 
             [client fetchSpaceWithIdentifier:@"hvjkfbzcwrfn"

@@ -6,9 +6,16 @@
 //
 //
 
+#if __has_feature(modules)
 @import Foundation;
+#else
+#import <Foundation/Foundation>
+#endif
+
 
 #import "CDANullabilityStubs.h"
+#import "CDARequest.h"
+#import "CDAClient.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

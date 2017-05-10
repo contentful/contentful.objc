@@ -6,14 +6,19 @@
 //  Copyright (c) 2014 Boris Bügling. All rights reserved.
 //
 
-#import <ContentfulDeliveryAPI/ContentfulDeliveryAPI.h>
-
 #import "CDAArray+Private.h"
 #import "CDAClient+Private.h"
 #import "CDAResource+Private.h"
 #import "CDASpace+Private.h"
 #import "CMAAccessToken.h"
 #import "CMAClient.h"
+#import "CDAResponse.h"
+#import "CDAConfiguration.h"
+#import "CDAContentType.h"
+#import "CMASpace.h"
+#import "CMAOrganization.h"
+#import "CMALocale.h"
+#import "CMAEntry.h"
 
 @interface CMAClient ()
 

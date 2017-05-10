@@ -8,7 +8,7 @@
 
 #import <ContentfulManagementAPI/ContentfulManagementAPI.h>
 #import "CMASpace+Private.h"
-#import <Keys/ManagementSDKKeys.h>
+#import <Keys/ContentfulSDKKeys.h>
 #import <VCRURLConnection/VCR.h>
 
 #import "TestHelpers.h"
@@ -26,7 +26,7 @@ describe(@"Asset", ^{
                                                      forClass:self.class];
         waitUntil(^(DoneCallback done) {
 
-            NSString* token = [ManagementSDKKeys new].managementAPIAccessToken;
+            NSString* token = [ContentfulSDKKeys new].managementAPIAccessToken;
 
             client = [[CMAClient alloc] initWithAccessToken:token];
 

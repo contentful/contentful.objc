@@ -6,7 +6,7 @@
 //  Copyright © 2015 Boris Bügling. All rights reserved.
 //
 
-#import <Keys/ManagementSDKKeys.h>
+#import <Keys/ContentfulSDKKeys.h>
 #import <ContentfulManagementAPI/ContentfulManagementAPI.h>
 #import <VCRURLConnection/VCR.h>
 #import "TestHelpers.h"
@@ -23,7 +23,7 @@ describe(@"Webhooks", ^{
         [TestHelpers startRecordingOrLoadCassetteForTestNamed:beforeEachTestName
                                                      forClass:self.class];
         waitUntil(^(DoneCallback done) {
-            NSString* token = [ManagementSDKKeys new].managementAPIAccessToken;
+            NSString* token = [ContentfulSDKKeys new].managementAPIAccessToken;
 
             client = [[CMAClient alloc] initWithAccessToken:token];
 

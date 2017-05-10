@@ -25,9 +25,6 @@ PODS:
   - CCLRequestReplay/Manager (0.9.0)
   - CCLRequestReplay/Record (0.9.0)
   - CCLRequestReplay/Replay (0.9.0)
-  - ContentfulDeliveryAPI (2.0.1):
-    - AFNetworking (~> 3.1.0)
-    - ISO8601 (~> 0.6.0)
   - Expecta (1.0.5)
   - FBSnapshotTestCase/Core (2.1.4)
   - ISO8601 (0.6.0)
@@ -43,7 +40,6 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
   - CCLRequestReplay (from `https://github.com/neonichu/CCLRequestReplay.git`)
-  - ContentfulDeliveryAPI (~> 2.0.1)
   - Expecta
   - FBSnapshotTestCase/Core
   - ISO8601 (~> 0.6.0)
@@ -68,7 +64,6 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   CCLRequestReplay: a472e52da260c28d7a41df76697b8e518625a44f
-  ContentfulDeliveryAPI: 1795d120a1a7d0484101d89b6ae190ad5b04a538
   Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
   FBSnapshotTestCase: '094f9f314decbabe373b87cc339bea235a63e07a'
   ISO8601: d3ea3ba9b752820cf92c6b47a9ee327e9f0e13fc
@@ -79,6 +74,6 @@ SPEC CHECKSUMS:
   Specta: f506f3a8361de16bc0dcf3b17b75e269072ba465
   VCRURLConnection: 1b14489604ca90b7b144b50dab6f9845d8931a45
 
-PODFILE CHECKSUM: f02ea9212868c4f43511485731bb71efbb51d65b
+PODFILE CHECKSUM: dd33e2872a26fae462f5215528bca376e0e48bde
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.2.1

@@ -7,7 +7,7 @@
 //
 
 
-#import <Keys/ManagementSDKKeys.h>
+#import <Keys/ContentfulSDKKeys.h>
 #import <ContentfulManagementAPI/ContentfulManagementAPI.h>
 #import <VCRURLConnection/VCR.h>
 #import "TestHelpers.h"
@@ -24,7 +24,7 @@ describe(@"Space", ^{
         [TestHelpers startRecordingOrLoadCassetteForTestNamed:beforeEachTestName
                                                      forClass:self.class];
 
-        NSString* token = [ManagementSDKKeys new].managementAPIAccessToken;
+        NSString* token = [ContentfulSDKKeys new].managementAPIAccessToken;
 
         CMAClient* client = [[CMAClient alloc] initWithAccessToken:token];
 

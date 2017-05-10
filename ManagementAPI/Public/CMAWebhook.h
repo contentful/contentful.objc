@@ -6,7 +6,7 @@
 //
 //
 
-#import <ContentfulDeliveryAPI/ContentfulDeliveryAPI.h>
+#import "CDAResource.h"
 #import "CMAResource.h"
 
 NS_ASSUME_NONNULL_BEGIN

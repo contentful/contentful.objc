@@ -6,8 +6,7 @@
 //
 //
 
-#import <ContentfulManagementAPI/ContentfulManagementAPI.h>
-
+#import "CDAResource.h"
 #import "CDAOrganizationContainer.h"
 
 @interface CMAAccessToken : CDAResource <CDAOrganizationContainer>

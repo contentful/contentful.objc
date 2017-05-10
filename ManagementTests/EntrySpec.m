@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Boris Bügling. All rights reserved.
 //
 
-#import <Keys/ManagementSDKKeys.h>
+#import <Keys/ContentfulSDKKeys.h>
 #import <ContentfulManagementAPI/ContentfulManagementAPI.h>
 
 #import "CMASpace+Private.h"
@@ -27,7 +27,7 @@ describe(@"Entry", ^{
                                                      forClass:self.class];
         waitUntil(^(DoneCallback done) {
 
-            NSString* token = [ManagementSDKKeys new].managementAPIAccessToken;
+            NSString* token = [ContentfulSDKKeys new].managementAPIAccessToken;
 
             client = [[CMAClient alloc] initWithAccessToken:token];
 

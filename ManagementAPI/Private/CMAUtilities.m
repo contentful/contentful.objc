@@ -6,8 +6,11 @@
 //
 //
 
-#import <ContentfulDeliveryAPI/ContentfulDeliveryAPI.h>
+#if __has_feature(modules)
 @import MapKit;
+#else
+#import <MapKit/MapKit>
+#endif
 
 #import "CDAResource+Management.h"
 

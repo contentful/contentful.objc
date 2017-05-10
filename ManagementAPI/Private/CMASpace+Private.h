@@ -7,6 +7,7 @@
 //
 
 #import "CMASpace.h"
+#import "CMAClient.h"
 
 @interface CMASpace (Private)
 

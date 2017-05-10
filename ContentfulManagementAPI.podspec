@@ -20,8 +20,15 @@ Pod::Spec.new do |spec|
   spec.osx.deployment_target     = '10.10'
   spec.requires_arc = true
 
-  spec.dependency 'ContentfulDeliveryAPI', '~> 2.0.1'
+  spec.source_files = ['ContentfulDeliveryAPI/Resources/*.{h,m}','ContentfulDeliveryAPI/*.{h,m}', 'ManagementAPI/Private/*.{h,m}', 'ManagementAPI/Public/*.h']
+  
+  spec.public_header_files = ['ManagementAPI/Public/*.h', 'ContentfulDeliveryAPI/Resources/{CDAArray,CDAAsset,CDAContentType,CDAEntry,CDAError,CDASpace,CDAResource,CDAOrganizationContainer}.h','ContentfulDeliveryAPI/{CDAClient,CDAConfiguration,CDANullabilityStubs,CDARequest,CDAResponse,CDAField,CDASyncedSpace,ContentfulDeliveryAPI,CDAPersistenceManager,CDAPersistedAsset,CDAPersistedEntry,CDAPersistedSpace,CDALocalizablePersistedEntry,CDALocalizedPersistedEntry}.h']
 
-  spec.source_files = 'ManagementAPI/*{h,m}'
-  spec.public_header_files = 'ManagementAPI/{}.h'
+  spec.xcconfig = { 'USER_HEADER_SEARCH_PATHS' => ['ContentfulDeliveryAPI/Resources/', 'ContentfulDeliveryAPI/', 'ManagementAPI/Private/', 'ManagementAPI/Public/'] }
+  spec.ios.source_files          = 'ContentfulDeliveryAPI/UIKit/*.{h,m}'
+  spec.ios.frameworks            = 'UIKit', 'MapKit'
+  spec.ios.public_header_files  = 'ContentfulDeliveryAPI/UIKit/{CDAEntriesViewController,CDAFieldsViewController,UIImageView+CDAAsset,CDAMapViewController,CDAResourcesCollectionViewController,CDAResourcesViewController,CDAResourceCell}.h'
+
+  spec.dependency 'AFNetworking', '~> 3.1.0'
+  spec.dependency 'ISO8601', '~> 0.6.0'
 end

@@ -6,7 +6,9 @@
 //
 //
 
-#import <ContentfulManagementAPI/ContentfulManagementAPI.h>
+#import "CDAResource.h"
+#import "CDARequest.h"
+#import "CDAClient.h"
 
 @interface CDAResource (Management)
 

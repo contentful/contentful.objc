@@ -5,6 +5,7 @@
 //  Created by Boris Bügling on 11/07/16.
 //
 
+#import "CDAResource.h"
 #import "CDAResource+Management.h"
 #import "CDAResource+Private.h"
 #import "CMAEditorInterface.h"

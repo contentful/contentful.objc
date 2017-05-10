@@ -6,7 +6,11 @@
 //
 //
 
-#import <ContentfulManagementAPI/ContentfulManagementAPI.h>
+
+#import "CDAAsset.h"
+#import "CMAArchiving.h"
+#import "CMAPublishing.h"
+#import "CMAResource.h"
 #import "CDANullabilityStubs.h"
 
 NS_ASSUME_NONNULL_BEGIN

@@ -6,8 +6,11 @@
 //
 //
 
+#import "CDAResource.h"
+#import "CDAClient.h"
 #import "CDANullabilityStubs.h"
-#import <ContentfulManagementAPI/ContentfulManagementAPI.h>
+
+@class CDARequest;
 
 NS_ASSUME_NONNULL_BEGIN
 

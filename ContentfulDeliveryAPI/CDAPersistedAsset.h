@@ -2,9 +2,12 @@
 //  CDAPersistedAsset.h
 //  ContentfulSDK
 //
-//  Created by Boris Bügling on 14/04/14.
+//  Created by JP Wright on 11.05.17.
 //
 //
+
+#ifndef CDAPersistedAsset_h
+#define CDAPersistedAsset_h
 
 #if __has_feature(modules)
 @import Foundation;
@@ -39,3 +42,5 @@
 @property (nonatomic, nullable) NSNumber* height;
 
 @end
+
+#endif /* CDAPersistedAsset_h */

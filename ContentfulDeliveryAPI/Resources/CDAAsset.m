@@ -6,7 +6,12 @@
 //
 //
 
+#if __has_feature(modules)
 @import Foundation;
+#else
+#import <Foundation/Foundation>
+#endif
+
 #import "CDAAsset+Private.h"
 #import "CDAClient+Private.h"
 #import "CDAInputSanitizer.h"

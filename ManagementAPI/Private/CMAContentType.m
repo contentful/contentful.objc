@@ -7,6 +7,7 @@
 //
 
 #import "CDAClient+Private.h"
+#import "CMAField.h"
 #import "CDAField+Private.h"
 #import "CDAResource+Management.h"
 #import "CDAResource+Private.h"

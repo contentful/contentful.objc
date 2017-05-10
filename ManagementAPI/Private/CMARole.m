@@ -8,6 +8,7 @@
 #import "CDAResource+Private.h"
 #import "CDAResource+Management.h"
 #import "CMARole.h"
+#import "CDARequest.h"
 
 @implementation CMARole
 

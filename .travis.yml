@@ -14,7 +14,6 @@ before_install:
 install:
 - bundle install
 - bundle exec pod repo update --silent
-- bundle exec pod keys set ManagementAPIAccessToken $ManagementAPIAccessToken ManagementTests
 - bundle exec pod install
 script:
 - "./scripts/travis-build-test.sh"

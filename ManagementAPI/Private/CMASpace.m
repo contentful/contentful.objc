@@ -12,6 +12,7 @@
 #import "CMAUtilities.h"
 #import "CMAWebhook+Private.h"
 #import "CDARequestOperationManager.h"
+#import "CMAContentType.h"
 
 @interface CMASpace ()
 

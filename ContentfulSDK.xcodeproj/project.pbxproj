@@ -7,16 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A5E4FDB41E91594904EF688 /* libPods-ContentfulDeliveryAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F711614D4DF65773CFB0F76 /* libPods-ContentfulDeliveryAPI.a */; };
-		356ACA950F80474E2D0937C0 /* libPods-SeedDatabaseExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97F65EA4D4BF558FCF873C43 /* libPods-SeedDatabaseExample.a */; };
-		42ABEA4EE0FBA1FFB19F751D /* libPods-Catalog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79FD60A693665E335D4063D2 /* libPods-Catalog.a */; };
-		5598DAF7BFFCB38062F14B8A /* libPods-UFO Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CDEE026C3CD296EF2AB2935 /* libPods-UFO Example.a */; };
-		645CBE312ED08F6309D67A66 /* libPods-ContentfulSeedDatabase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 51CDFFADCD0148B66469D68E /* libPods-ContentfulSeedDatabase.a */; };
-		6902AB7769256C9D2421063C /* libPods-ContentfulManagementAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC588A7FA6014C4EB6FED56B /* libPods-ContentfulManagementAPI.a */; };
-		9479ECA546BB03E1FAD63A1C /* libPods-ManagementTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63975817A4219C672D385FEF /* libPods-ManagementTests.a */; };
+		07D984B58C47F6EF664E65B1 /* libPods-ManagementTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 13C3F5B7B7FE6D7C58429656 /* libPods-ManagementTests.a */; };
+		0DCC8E4C0ED99E6700AAB926 /* libPods-CoreDataExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4922E54B08D9D5E5BA414800 /* libPods-CoreDataExample.a */; };
+		21B4348C207A707AC607861D /* libPods-DeliveryTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65324B713F7AF5E62A3E44CC /* libPods-DeliveryTests.a */; };
+		3AF212F5BCF98C152E6411B6 /* libPods-ContentfulManagementAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEDF88B996DB8B48DD939C4B /* libPods-ContentfulManagementAPI.a */; };
+		5D2CF5CE1EC4CF37005AB239 /* CDAPersistedEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D2CF5CD1EC4CF37005AB239 /* CDAPersistedEntry.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5D2CF5D61EC4CF8A005AB239 /* CDALocalizablePersistedEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D2CF5D01EC4CF8A005AB239 /* CDALocalizablePersistedEntry.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5D2CF5D81EC4CF8A005AB239 /* CDALocalizedPersistedEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D2CF5D11EC4CF8A005AB239 /* CDALocalizedPersistedEntry.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5D2CF5DA1EC4CF8A005AB239 /* CDAPersistedSpace.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D2CF5D21EC4CF8A005AB239 /* CDAPersistedSpace.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5D2CF5DC1EC4CF8A005AB239 /* CDAPersistenceManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D2CF5D31EC4CF8A005AB239 /* CDAPersistenceManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5D2CF5DE1EC4CF8A005AB239 /* CDALocalizablePersistedEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2CF5D41EC4CF8A005AB239 /* CDALocalizablePersistedEntry.m */; };
+		5D2CF5E01EC4CF8A005AB239 /* CDAPersistenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2CF5D51EC4CF8A005AB239 /* CDAPersistenceManager.m */; };
+		7F7A2716095F7751924406F8 /* libPods-SeedDatabaseExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 476FABE95FC65B5DF9F4FBB9 /* libPods-SeedDatabaseExample.a */; };
 		A10A11FE19090F5D00EFF083 /* CatDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A10A11FD19090F5D00EFF083 /* CatDetailViewController.m */; };
-		A12085771BB2707300A6504B /* CDALocalizablePersistedEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = A12085751BB2707300A6504B /* CDALocalizablePersistedEntry.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A12085781BB2707300A6504B /* CDALocalizablePersistedEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = A12085761BB2707300A6504B /* CDALocalizablePersistedEntry.m */; };
 		A120857B1BB2712300A6504B /* ManagedCatLocalized.m in Sources */ = {isa = PBXBuildFile; fileRef = A120857A1BB2712300A6504B /* ManagedCatLocalized.m */; };
 		A12797A618E1A45700043A44 /* SyncTests in Resources */ = {isa = PBXBuildFile; fileRef = A12797A518E1A45700043A44 /* SyncTests */; };
 		A12797AB18E1B08F00043A44 /* SyncTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A12797AA18E1B08F00043A44 /* SyncTests.m */; };
@@ -37,15 +40,10 @@
 		A160862318CDF0E60047D44F /* CDARequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A160862118CDF0E60047D44F /* CDARequest.m */; };
 		A160862518CDF2AC0047D44F /* CDARequest+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A160862418CDF2AC0047D44F /* CDARequest+Private.h */; };
 		A16675BF1C7C5EC800231AC1 /* RealmClassHierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = A16675BE1C7C5EC800231AC1 /* RealmClassHierarchy.m */; };
-		A17012F418FC1FD90086BE07 /* CDAPersistedEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = A17012F318FC1FD90086BE07 /* CDAPersistedEntry.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A17012F618FC1FF80086BE07 /* CDAPersistedAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = A17012F518FC1FEE0086BE07 /* CDAPersistedAsset.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A17012F818FC20120086BE07 /* CDAPersistedSpace.h in Headers */ = {isa = PBXBuildFile; fileRef = A17012F718FC20120086BE07 /* CDAPersistedSpace.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A17012FB18FC21260086BE07 /* Asset.m in Sources */ = {isa = PBXBuildFile; fileRef = A17012FA18FC21260086BE07 /* Asset.m */; };
 		A17012FE18FC21260086BE07 /* SyncInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A17012FD18FC21260086BE07 /* SyncInfo.m */; };
 		A170130118FC21260086BE07 /* ManagedCat.m in Sources */ = {isa = PBXBuildFile; fileRef = A170130018FC21260086BE07 /* ManagedCat.m */; };
 		A170130418FC25640086BE07 /* PreviewModeSyncTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A170130318FC25640086BE07 /* PreviewModeSyncTests.m */; };
-		A170130718FD291E0086BE07 /* CDAPersistenceManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A170130518FD291E0086BE07 /* CDAPersistenceManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A170130818FD291E0086BE07 /* CDAPersistenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A170130618FD291E0086BE07 /* CDAPersistenceManager.m */; };
 		A170130B18FD30A50086BE07 /* CoreDataBasicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A170130A18FD30A50086BE07 /* CoreDataBasicTests.m */; };
 		A170130F18FD47B70086BE07 /* CoreDataExample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A1B8159518F2A8090027B26D /* CoreDataExample.xcdatamodeld */; };
 		A170131018FD4B9A0086BE07 /* Asset.m in Sources */ = {isa = PBXBuildFile; fileRef = A17012FA18FC21260086BE07 /* Asset.m */; };
@@ -78,7 +76,6 @@
 		A173F59D18D9A2FD000E6F92 /* CDAResourceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A173F59B18D9A2FD000E6F92 /* CDAResourceCell.m */; };
 		A173F60318DB3E1E000E6F92 /* PreviewModeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A173F60218DB3E1E000E6F92 /* PreviewModeTests.m */; };
 		A173F60518DB412C000E6F92 /* PreviewModeTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A173F60418DB412C000E6F92 /* PreviewModeTests.json */; };
-		A18919971BB1E4ED0094256E /* CDALocalizedPersistedEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = A18919961BB1E4EA0094256E /* CDALocalizedPersistedEntry.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A189199B1BB1E7870094256E /* LocalizedModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A18919991BB1E7870094256E /* LocalizedModel.xcdatamodeld */; };
 		A189199E1BB1E8FA0094256E /* LocalizedCat.m in Sources */ = {isa = PBXBuildFile; fileRef = A189199D1BB1E8FA0094256E /* LocalizedCat.m */; };
 		A18919A01BB1EA200094256E /* CoreDataMultipleLocalesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A189199F1BB1EA200094256E /* CoreDataMultipleLocalesTests.m */; };
@@ -229,8 +226,43 @@
 		A1F70C9D1900140D0080C72C /* CDAAsset+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A1F70C9C19000FD90080C72C /* CDAAsset+Private.h */; };
 		A1FAC312190654E30093B308 /* DeepIncludes.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FAC311190654E30093B308 /* DeepIncludes.m */; };
 		A1FAC3581908FDB40093B308 /* CatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FAC3571908FDB40093B308 /* CatListViewController.m */; };
-		B2347139A652739D5AA6E3DC /* libPods-CoreDataExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F0530F0781F0C5475297A699 /* libPods-CoreDataExample.a */; };
-		DE3033F33C4333557C4681B3 /* libPods-DeliveryTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A35E59CAE8BC25A9929A5AFA /* libPods-DeliveryTests.a */; };
+		B697025D35F3622CB4D33216 /* libPods-ContentfulSeedDatabase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F94329D2B96F26C783646C0 /* libPods-ContentfulSeedDatabase.a */; };
+		BB8BDA944EE2AB066F4E2309 /* libPods-Catalog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB5ECFF5E0E0A15B1EAB2916 /* libPods-Catalog.a */; };
+		CE83ECE1863CD48D732F7931 /* libPods-ContentfulDeliveryAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 189B0913C6646027F437D692 /* libPods-ContentfulDeliveryAPI.a */; };
+		ED0112391EC4976A00C04340 /* CDAClient+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A1C1AC4218CE032200DBF0D0 /* CDAClient+Private.h */; };
+		ED01123B1EC4976A00C04340 /* CDAConfiguration+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A17309691981642400F694DA /* CDAConfiguration+Private.h */; };
+		ED01123E1EC4976A00C04340 /* CDAField+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A1E9797418CA2D5900E79632 /* CDAField+Private.h */; };
+		ED0112401EC4976A00C04340 /* CDAFieldValueTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = A1E9797918CC683200E79632 /* CDAFieldValueTransformer.h */; };
+		ED0112411EC4976A00C04340 /* CDAInputSanitizer.h in Headers */ = {isa = PBXBuildFile; fileRef = A1ABC7BA191D12ED0020A964 /* CDAInputSanitizer.h */; };
+		ED0112421EC4976A00C04340 /* CDARequest+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A160862418CDF2AC0047D44F /* CDARequest+Private.h */; };
+		ED0112441EC4976A00C04340 /* CDARequestOperationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A1E3D05818C87D3B00E4F488 /* CDARequestOperationManager.h */; };
+		ED0112451EC4976A00C04340 /* CDARequestSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = A1DE35D6197D384700DE0904 /* CDARequestSerializer.h */; };
+		ED0112461EC4976A00C04340 /* CDAResponse+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A193EB3D18D09AC10017B777 /* CDAResponse+Private.h */; };
+		ED0112481EC4976A00C04340 /* CDAResponseSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A0313918C660F6006470B7 /* CDAResponseSerializer.h */; };
+		ED0112491EC4976A00C04340 /* CDASyncedSpace+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A18AA81018E1D14F00D430D5 /* CDASyncedSpace+Private.h */; };
+		ED0112511EC4976A00C04340 /* CDAArray+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A1E43F0218CE1CF80060A89A /* CDAArray+Private.h */; };
+		ED0112531EC4976A00C04340 /* CDAAsset+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A1F70C9C19000FD90080C72C /* CDAAsset+Private.h */; };
+		ED0112581EC4976A00C04340 /* CDAEntry+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A1B815CB18F5A8250027B26D /* CDAEntry+Private.h */; };
+		ED01125A1EC4976A00C04340 /* CDAError+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A1462B911993B472004906D0 /* CDAError+Private.h */; };
+		ED01125D1EC4976A00C04340 /* CDAResource+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A1E9797518CBE93A00E79632 /* CDAResource+Private.h */; };
+		ED01125F1EC4976A00C04340 /* CDASpace+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A18AA85D18E596A000D430D5 /* CDASpace+Private.h */; };
+		ED0112621EC4976A00C04340 /* CDAFieldCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A193EB4518D0ACFE0017B777 /* CDAFieldCell.h */; };
+		ED0112631EC4976A00C04340 /* CDAFieldsViewController+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A173F59218D851D1000E6F92 /* CDAFieldsViewController+Private.h */; };
+		ED0112651EC4976A00C04340 /* CDAImageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A173F58B18D752A9000E6F92 /* CDAImageViewController.h */; };
+		ED0112661EC4976A00C04340 /* CDALocationViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A173F55018D700B8000E6F92 /* CDALocationViewController.h */; };
+		ED0112681EC4976A00C04340 /* CDAResourceCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A173F59A18D9A2FD000E6F92 /* CDAResourceCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED01126B1EC4976A00C04340 /* CDAResourceTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A1D2DC0018D076F50053DC83 /* CDAResourceTableViewCell.h */; };
+		ED01126C1EC4976A00C04340 /* CDATextViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A173F54C18D6FD03000E6F92 /* CDATextViewController.h */; };
+		ED01126E1EC4976A00C04340 /* CDAFallbackDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = ED1B1E631EB8B76300347DD7 /* CDAFallbackDictionary.h */; };
+		ED01126F1EC4976A00C04340 /* CDANullabilityStubs.h in Headers */ = {isa = PBXBuildFile; fileRef = ED1B1E651EB8B76300347DD7 /* CDANullabilityStubs.h */; };
+		ED0112701EC4976A00C04340 /* CDAUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = ED1B1E661EB8B76300347DD7 /* CDAUtilities.h */; };
+		ED0112721EC4B0A400C04340 /* CDAConfiguration+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A17309691981642400F694DA /* CDAConfiguration+Private.h */; };
+		ED0112731EC4B0B400C04340 /* CDAField+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A1E9797418CA2D5900E79632 /* CDAField+Private.h */; };
+		ED0112741EC4B0D300C04340 /* CDAResponseSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A0313918C660F6006470B7 /* CDAResponseSerializer.h */; };
+		ED0112751EC4B0D600C04340 /* CDASyncedSpace+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A18AA81018E1D14F00D430D5 /* CDASyncedSpace+Private.h */; };
+		ED0112761EC4B11300C04340 /* CDAError+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A1462B911993B472004906D0 /* CDAError+Private.h */; };
+		ED0112781EC4B12600C04340 /* CDASpace+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A18AA85D18E596A000D430D5 /* CDASpace+Private.h */; };
+		ED0112791EC4B13900C04340 /* CDAFieldsViewController+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A173F59218D851D1000E6F92 /* CDAFieldsViewController+Private.h */; };
 		ED01CAC41EAAB8A60041E21E /* AssetSpec_can_be_archived.json in Resources */ = {isa = PBXBuildFile; fileRef = ED01CA9C1EAAB8A60041E21E /* AssetSpec_can_be_archived.json */; };
 		ED01CAC51EAAB8A60041E21E /* AssetSpec_can_be_created.json in Resources */ = {isa = PBXBuildFile; fileRef = ED01CA9D1EAAB8A60041E21E /* AssetSpec_can_be_created.json */; };
 		ED01CAC61EAAB8A60041E21E /* AssetSpec_can_be_deleted.json in Resources */ = {isa = PBXBuildFile; fileRef = ED01CA9E1EAAB8A60041E21E /* AssetSpec_can_be_deleted.json */; };
@@ -301,7 +333,7 @@
 		ED01CB731EAAD9C60041E21E /* ValidationSpec_can_create_ContentType_with_size_validation.json in Resources */ = {isa = PBXBuildFile; fileRef = ED01CB2B1EAAD9C60041E21E /* ValidationSpec_can_create_ContentType_with_size_validation.json */; };
 		ED01CB741EAAD9C60041E21E /* ValidationSpec_can_create_ContentType_with_value_validation.json in Resources */ = {isa = PBXBuildFile; fileRef = ED01CB2C1EAAD9C60041E21E /* ValidationSpec_can_create_ContentType_with_value_validation.json */; };
 		ED0988F61EA8FFC300058BAF /* TestHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0988F51EA8FFC300058BAF /* TestHelpers.m */; };
-		ED10258E1DFED8F500BD7ABE /* CDAClient.h in Headers */ = {isa = PBXBuildFile; fileRef = A19FD86F18C631E60081677E /* CDAClient.h */; };
+		ED10258E1DFED8F500BD7ABE /* CDAClient.h in Headers */ = {isa = PBXBuildFile; fileRef = A19FD86F18C631E60081677E /* CDAClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ED1B1C981EB0E9F700347DD7 /* LocaleSpec_can_be_created_and_deleted.json in Resources */ = {isa = PBXBuildFile; fileRef = ED1B1C961EB0E9F700347DD7 /* LocaleSpec_can_be_created_and_deleted.json */; };
 		ED1B1C991EB0E9F700347DD7 /* LocaleSpec_can_be_updated.json in Resources */ = {isa = PBXBuildFile; fileRef = ED1B1C971EB0E9F700347DD7 /* LocaleSpec_can_be_updated.json */; };
 		ED1B1CB11EB1F4E800347DD7 /* RolesSpec_can_create_and_delete_role.json in Resources */ = {isa = PBXBuildFile; fileRef = ED1B1CAC1EB1F4E800347DD7 /* RolesSpec_can_create_and_delete_role.json */; };
@@ -315,7 +347,6 @@
 		ED1B1E6A1EB8B76300347DD7 /* CDANullabilityStubs.h in Headers */ = {isa = PBXBuildFile; fileRef = ED1B1E651EB8B76300347DD7 /* CDANullabilityStubs.h */; };
 		ED1B1E6B1EB8B76300347DD7 /* CDAUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = ED1B1E661EB8B76300347DD7 /* CDAUtilities.h */; };
 		ED1B1E6C1EB8B76300347DD7 /* CDAUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1B1E671EB8B76300347DD7 /* CDAUtilities.m */; };
-		ED1B1E6D1EB8C34600347DD7 /* CDANullabilityStubs.h in Headers */ = {isa = PBXBuildFile; fileRef = ED1B1E651EB8B76300347DD7 /* CDANullabilityStubs.h */; };
 		ED2133A71EA6175D00C3CE94 /* WebhooksSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8FF6911EA601D000798042 /* WebhooksSpec.m */; };
 		ED2133A81EA6176700C3CE94 /* ValidationSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8FF6901EA601D000798042 /* ValidationSpec.m */; };
 		ED2133A91EA6176800C3CE94 /* UtilitiesSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8FF68F1EA601D000798042 /* UtilitiesSpec.m */; };
@@ -329,13 +360,10 @@
 		ED2133B11EA6177900C3CE94 /* EditorInterfaceSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8FF6851EA601D000798042 /* EditorInterfaceSpec.m */; };
 		ED2133B21EA6177B00C3CE94 /* ContentTypesSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8FF6841EA601D000798042 /* ContentTypesSpec.m */; };
 		ED2133B31EA6177D00C3CE94 /* AssetsSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8FF6831EA601D000798042 /* AssetsSpec.m */; };
-		ED2133C21EA634A500C3CE94 /* CDAClient+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A1C1AC4218CE032200DBF0D0 /* CDAClient+Private.h */; };
 		ED31CED81E534D15007C8E48 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ED31CEC81E534CEE007C8E48 /* CoreDataManager.m */; };
 		ED31CED91E534D15007C8E48 /* RealmAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = ED31CECA1E534CEE007C8E48 /* RealmAsset.m */; };
 		ED31CEDA1E534D15007C8E48 /* RealmManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ED31CECC1E534CEE007C8E48 /* RealmManager.m */; };
 		ED31CEDB1E534D15007C8E48 /* RealmSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = ED31CECE1E534CEE007C8E48 /* RealmSpace.m */; };
-		ED4C46C81EC26652003A0136 /* libContentfulDeliveryAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD86718C631E60081677E /* libContentfulDeliveryAPI.a */; };
-		ED4C46C91EC26652003A0136 /* libContentfulManagementAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED8FF5FA1EA5FF6C00798042 /* libContentfulManagementAPI.a */; };
 		ED571F6A1EC0AB2300216715 /* WebhooksSpec_can_create_and_delete_webhooks.json in Resources */ = {isa = PBXBuildFile; fileRef = ED571F631EC0AB2300216715 /* WebhooksSpec_can_create_and_delete_webhooks.json */; };
 		ED571F6B1EC0AB2300216715 /* WebhooksSpec_can_fetch_all_webhooks_for_space.json in Resources */ = {isa = PBXBuildFile; fileRef = ED571F641EC0AB2300216715 /* WebhooksSpec_can_fetch_all_webhooks_for_space.json */; };
 		ED571F6C1EC0AB2300216715 /* WebhooksSpec_can_fetch_single_webhook.json in Resources */ = {isa = PBXBuildFile; fileRef = ED571F651EC0AB2300216715 /* WebhooksSpec_can_fetch_single_webhook.json */; };
@@ -343,55 +371,124 @@
 		ED571F6E1EC0AB2300216715 /* WebhooksSpec_can_update_single_webhook.json in Resources */ = {isa = PBXBuildFile; fileRef = ED571F671EC0AB2300216715 /* WebhooksSpec_can_update_single_webhook.json */; };
 		ED571F6F1EC0AB2300216715 /* WebhooksSpec_fetch-space-before-each.json in Resources */ = {isa = PBXBuildFile; fileRef = ED571F681EC0AB2300216715 /* WebhooksSpec_fetch-space-before-each.json */; };
 		ED571F701EC0AB2300216715 /* WebhooksSpec_updated_webhook_has_correct_description.json in Resources */ = {isa = PBXBuildFile; fileRef = ED571F691EC0AB2300216715 /* WebhooksSpec_updated_webhook_has_correct_description.json */; };
+		ED69D6381EC4BFD400969B56 /* CDAPersistedAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = ED69D6371EC4BFD400969B56 /* CDAPersistedAsset.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ED76DC141EC250DF002D146B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED8FF6431EA5FFE300798042 /* Foundation.framework */; };
-		ED8CE4581EC260A100DA1930 /* libContentfulDeliveryAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED8CE4571EC260A100DA1930 /* libContentfulDeliveryAPI.a */; };
 		ED8FF6441EA5FFE300798042 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED8FF6431EA5FFE300798042 /* Foundation.framework */; };
-		ED8FF6A21EA6050400798042 /* CDAArray+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A1E43F0218CE1CF80060A89A /* CDAArray+Private.h */; };
-		ED8FF6E41EA605D300798042 /* CDAResource+Management.h in Headers */ = {isa = PBXBuildFile; fileRef = ED8FF6A41EA605B700798042 /* CDAResource+Management.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ED8FF6E51EA605D300798042 /* CMAAccessToken.h in Headers */ = {isa = PBXBuildFile; fileRef = ED8FF6A61EA605B700798042 /* CMAAccessToken.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ED8FF6E61EA605D300798042 /* CMAApiKey.h in Headers */ = {isa = PBXBuildFile; fileRef = ED8FF6A81EA605B700798042 /* CMAApiKey.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ED8FF6E71EA605D300798042 /* CMAArchiving.h in Headers */ = {isa = PBXBuildFile; fileRef = ED8FF6AA1EA605B700798042 /* CMAArchiving.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ED8FF6E81EA605D300798042 /* CMAArray.h in Headers */ = {isa = PBXBuildFile; fileRef = ED8FF6AB1EA605B700798042 /* CMAArray.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ED8FF6E91EA605D300798042 /* CMAAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = ED8FF6AD1EA605B700798042 /* CMAAsset.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ED8FF6EA1EA605D300798042 /* CMAClient.h in Headers */ = {isa = PBXBuildFile; fileRef = ED8FF6AF1EA605B700798042 /* CMAClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ED8FF6EB1EA605D300798042 /* CMAContentType.h in Headers */ = {isa = PBXBuildFile; fileRef = ED8FF6B11EA605B700798042 /* CMAContentType.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ED8FF6EC1EA605D300798042 /* CMAEditorInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = ED8FF6B31EA605B700798042 /* CMAEditorInterface.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ED8FF6ED1EA605D300798042 /* CMAEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = ED8FF6B51EA605B700798042 /* CMAEntry.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ED8FF6EE1EA605D300798042 /* CMAError.h in Headers */ = {isa = PBXBuildFile; fileRef = ED8FF6B71EA605B800798042 /* CMAError.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ED8FF6EF1EA605D300798042 /* CMAField.h in Headers */ = {isa = PBXBuildFile; fileRef = ED8FF6B91EA605B800798042 /* CMAField.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ED8FF6F01EA605D300798042 /* CMALocale.h in Headers */ = {isa = PBXBuildFile; fileRef = ED8FF6BB1EA605B800798042 /* CMALocale.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ED8FF6F11EA605D300798042 /* CMAOrganization.h in Headers */ = {isa = PBXBuildFile; fileRef = ED8FF6BD1EA605B800798042 /* CMAOrganization.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ED8FF6F21EA605D300798042 /* CMAPublishing.h in Headers */ = {isa = PBXBuildFile; fileRef = ED8FF6BF1EA605B800798042 /* CMAPublishing.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ED8FF6F31EA605D300798042 /* CMAResource.h in Headers */ = {isa = PBXBuildFile; fileRef = ED8FF6C01EA605B800798042 /* CMAResource.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ED8FF6F41EA605D300798042 /* CMARole.h in Headers */ = {isa = PBXBuildFile; fileRef = ED8FF6C11EA605B800798042 /* CMARole.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ED8FF6F51EA605D300798042 /* CMASpace.h in Headers */ = {isa = PBXBuildFile; fileRef = ED8FF6C31EA605B800798042 /* CMASpace.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ED8FF6F61EA605D300798042 /* CMASpace+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = ED8FF6C51EA605B800798042 /* CMASpace+Private.h */; };
-		ED8FF6F71EA605D300798042 /* CMAUser.h in Headers */ = {isa = PBXBuildFile; fileRef = ED8FF6C61EA605B800798042 /* CMAUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ED8FF6F81EA605D300798042 /* CMAUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = ED8FF6C81EA605B800798042 /* CMAUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ED8FF6F91EA605D300798042 /* CMAValidation.h in Headers */ = {isa = PBXBuildFile; fileRef = ED8FF6CA1EA605B800798042 /* CMAValidation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ED8FF6FA1EA605D300798042 /* ContentfulManagementAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = ED8FF6D01EA605B800798042 /* ContentfulManagementAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ED8FF6FB1EA605D900798042 /* CMAValidation+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = ED8FF6CC1EA605B800798042 /* CMAValidation+Private.h */; };
-		ED8FF6FC1EA605D900798042 /* CMAWebhook.h in Headers */ = {isa = PBXBuildFile; fileRef = ED8FF6CD1EA605B800798042 /* CMAWebhook.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ED8FF6FD1EA605D900798042 /* CMAWebhook+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = ED8FF6CF1EA605B800798042 /* CMAWebhook+Private.h */; };
-		ED8FF6FE1EA605E300798042 /* CDAResource+Management.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8FF6A51EA605B700798042 /* CDAResource+Management.m */; };
-		ED8FF6FF1EA605E300798042 /* CMAAccessToken.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8FF6A71EA605B700798042 /* CMAAccessToken.m */; };
-		ED8FF7001EA605E300798042 /* CMAApiKey.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8FF6A91EA605B700798042 /* CMAApiKey.m */; };
-		ED8FF7011EA605E300798042 /* CMAArray.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8FF6AC1EA605B700798042 /* CMAArray.m */; };
-		ED8FF7021EA605E300798042 /* CMAAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8FF6AE1EA605B700798042 /* CMAAsset.m */; };
-		ED8FF7031EA605E300798042 /* CMAClient.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8FF6B01EA605B700798042 /* CMAClient.m */; };
-		ED8FF7041EA605E300798042 /* CMAContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8FF6B21EA605B700798042 /* CMAContentType.m */; };
-		ED8FF7051EA605E300798042 /* CMAEditorInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8FF6B41EA605B700798042 /* CMAEditorInterface.m */; };
-		ED8FF7061EA605E300798042 /* CMAEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8FF6B61EA605B700798042 /* CMAEntry.m */; };
-		ED8FF7071EA605E300798042 /* CMAError.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8FF6B81EA605B800798042 /* CMAError.m */; };
-		ED8FF7081EA605E300798042 /* CMAField.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8FF6BA1EA605B800798042 /* CMAField.m */; };
-		ED8FF7091EA605E300798042 /* CMALocale.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8FF6BC1EA605B800798042 /* CMALocale.m */; };
-		ED8FF70A1EA605E300798042 /* CMAOrganization.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8FF6BE1EA605B800798042 /* CMAOrganization.m */; };
-		ED8FF70B1EA605E300798042 /* CMARole.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8FF6C21EA605B800798042 /* CMARole.m */; };
-		ED8FF70C1EA605E300798042 /* CMASpace.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8FF6C41EA605B800798042 /* CMASpace.m */; };
-		ED8FF70D1EA605E300798042 /* CMAUser.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8FF6C71EA605B800798042 /* CMAUser.m */; };
-		ED8FF70E1EA605E300798042 /* CMAUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8FF6C91EA605B800798042 /* CMAUtilities.m */; };
-		ED8FF70F1EA605E300798042 /* CMAValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8FF6CB1EA605B800798042 /* CMAValidation.m */; };
-		ED8FF7101EA605E300798042 /* CMAWebhook.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8FF6CE1EA605B800798042 /* CMAWebhook.m */; };
+		ED9446671EC5E27B00EA2077 /* ContentfulDeliveryAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = A19FD8D918C63DF00081677E /* ContentfulDeliveryAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED9446681EC5E28400EA2077 /* CDAClient.h in Headers */ = {isa = PBXBuildFile; fileRef = A19FD86F18C631E60081677E /* CDAClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED9446691EC5E28800EA2077 /* CDAClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A19FD87118C631E60081677E /* CDAClient.m */; };
+		ED94466A1EC5E29400EA2077 /* CDAConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = A19FD8D618C63AE10081677E /* CDAConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED94466B1EC5E29800EA2077 /* CDAConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = A19FD8D718C63AE10081677E /* CDAConfiguration.m */; };
+		ED94466C1EC5E29E00EA2077 /* CDAContentTypeRegistry.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A0314A18C67527006470B7 /* CDAContentTypeRegistry.m */; };
+		ED94466D1EC5E2A000EA2077 /* CDAContentTypeRegistry.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A0314918C67527006470B7 /* CDAContentTypeRegistry.h */; };
+		ED94466E1EC5E2A100EA2077 /* CDAContentTypeRegistry.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A0314918C67527006470B7 /* CDAContentTypeRegistry.h */; };
+		ED94466F1EC5E2A700EA2077 /* CDAField.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A0314618C6708C006470B7 /* CDAField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED9446701EC5E2AB00EA2077 /* CDAField.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A0314718C6708C006470B7 /* CDAField.m */; };
+		ED9446711EC5E2AE00EA2077 /* CDAFieldValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E9797A18CC683200E79632 /* CDAFieldValueTransformer.m */; };
+		ED9446721EC5E2BC00EA2077 /* CDAInputSanitizer.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ABC7BB191D12ED0020A964 /* CDAInputSanitizer.m */; };
+		ED9446731EC5E2BC00EA2077 /* CDARequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A160862118CDF0E60047D44F /* CDARequest.m */; };
+		ED9446741EC5E2BC00EA2077 /* CDARequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E3D05918C87D3B00E4F488 /* CDARequestOperationManager.m */; };
+		ED9446751EC5E2BC00EA2077 /* CDARequestSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A1DE35D7197D384700DE0904 /* CDARequestSerializer.m */; };
+		ED9446761EC5E2BC00EA2077 /* CDAResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A0313718C644B5006470B7 /* CDAResponse.m */; };
+		ED9446771EC5E2BC00EA2077 /* CDAResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A0313A18C660F6006470B7 /* CDAResponseSerializer.m */; };
+		ED9446781EC5E2BC00EA2077 /* CDASyncedSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = A12797AD18E1B10300043A44 /* CDASyncedSpace.m */; };
+		ED9446791EC5E2C100EA2077 /* CDARequest.h in Headers */ = {isa = PBXBuildFile; fileRef = A160862018CDF0E60047D44F /* CDARequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED94467A1EC5E2CA00EA2077 /* CDAResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A0313618C644B5006470B7 /* CDAResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED94467B1EC5E2D100EA2077 /* CDASyncedSpace.h in Headers */ = {isa = PBXBuildFile; fileRef = A12797AC18E1B10300043A44 /* CDASyncedSpace.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED94467C1EC5E2DC00EA2077 /* CDALocalizablePersistedEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D2CF5D01EC4CF8A005AB239 /* CDALocalizablePersistedEntry.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED94467D1EC5E2E100EA2077 /* CDAPersistedSpace.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D2CF5D21EC4CF8A005AB239 /* CDAPersistedSpace.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED94467E1EC5E2E700EA2077 /* CDAPersistenceManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D2CF5D31EC4CF8A005AB239 /* CDAPersistenceManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED94467F1EC5E2EB00EA2077 /* CDALocalizedPersistedEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D2CF5D11EC4CF8A005AB239 /* CDALocalizedPersistedEntry.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED9446801EC5E2EF00EA2077 /* CDAPersistedEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D2CF5CD1EC4CF37005AB239 /* CDAPersistedEntry.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED9446811EC5E2F400EA2077 /* CDAPersistedAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = ED69D6371EC4BFD400969B56 /* CDAPersistedAsset.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED9446821EC5E2FB00EA2077 /* CDAPersistenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2CF5D51EC4CF8A005AB239 /* CDAPersistenceManager.m */; };
+		ED9446831EC5E2FF00EA2077 /* CDALocalizablePersistedEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2CF5D41EC4CF8A005AB239 /* CDALocalizablePersistedEntry.m */; };
+		ED9446841EC5E33200EA2077 /* CDAArray.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A0313318C6449F006470B7 /* CDAArray.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED9446851EC5E33200EA2077 /* CDAAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A0315718C76D38006470B7 /* CDAAsset.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED9446861EC5E33200EA2077 /* CDAContentType.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A0314018C66E90006470B7 /* CDAContentType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED9446871EC5E33200EA2077 /* CDADeletedAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = A18AA81518E2E2CF00D430D5 /* CDADeletedAsset.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED9446881EC5E33200EA2077 /* CDADeletedEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = A18AA81118E2D98200D430D5 /* CDADeletedEntry.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED9446891EC5E33200EA2077 /* CDAEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A0312A18C64187006470B7 /* CDAEntry.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED94468A1EC5E33200EA2077 /* CDAError.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A0315318C76839006470B7 /* CDAError.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED94468B1EC5E33200EA2077 /* CDAResource.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A0312718C64165006470B7 /* CDAResource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED94468C1EC5E33200EA2077 /* CDASpace.h in Headers */ = {isa = PBXBuildFile; fileRef = A1D1D36018C8B8D100261A1C /* CDASpace.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED94468D1EC5E34100EA2077 /* CDAArray.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A0313418C6449F006470B7 /* CDAArray.m */; };
+		ED94468E1EC5E34100EA2077 /* CDAAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A0315818C76D38006470B7 /* CDAAsset.m */; };
+		ED94468F1EC5E34A00EA2077 /* CDAContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A0314118C66E90006470B7 /* CDAContentType.m */; };
+		ED9446901EC5E34A00EA2077 /* CDADeletedAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = A18AA81618E2E2CF00D430D5 /* CDADeletedAsset.m */; };
+		ED9446911EC5E34A00EA2077 /* CDADeletedEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = A18AA81218E2D98200D430D5 /* CDADeletedEntry.m */; };
+		ED9446921EC5E34A00EA2077 /* CDAEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A0312B18C64187006470B7 /* CDAEntry.m */; };
+		ED9446931EC5E34A00EA2077 /* CDAError.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A0315418C76839006470B7 /* CDAError.m */; };
+		ED9446941EC5E34A00EA2077 /* CDAResource.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A0312818C64165006470B7 /* CDAResource.m */; };
+		ED9446951EC5E34A00EA2077 /* CDASpace.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D1D36118C8B8D100261A1C /* CDASpace.m */; };
+		ED9446961EC5E36700EA2077 /* CDAEntriesViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A1D2DBFE18D076F50053DC83 /* CDAEntriesViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED9446971EC5E37900EA2077 /* CDAEntriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D2DBFF18D076F50053DC83 /* CDAEntriesViewController.m */; };
+		ED9446981EC5E37900EA2077 /* CDAFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A193EB4618D0ACFE0017B777 /* CDAFieldCell.m */; };
+		ED9446991EC5E37900EA2077 /* CDAFieldsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A193EB4218D0AC0C0017B777 /* CDAFieldsViewController.m */; };
+		ED94469A1EC5E37900EA2077 /* CDAImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A173F58C18D752A9000E6F92 /* CDAImageViewController.m */; };
+		ED94469B1EC5E37900EA2077 /* CDALocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A173F55118D700B8000E6F92 /* CDALocationViewController.m */; };
+		ED94469C1EC5E37900EA2077 /* CDAMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1924C9018EC0DF000C97F9D /* CDAMapViewController.m */; };
+		ED94469D1EC5E37900EA2077 /* CDAResourceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A173F59B18D9A2FD000E6F92 /* CDAResourceCell.m */; };
+		ED94469E1EC5E37900EA2077 /* CDAResourcesCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A173F59418D9A269000E6F92 /* CDAResourcesCollectionViewController.m */; };
+		ED94469F1EC5E37900EA2077 /* CDAResourcesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1924C8C18EBFFB600C97F9D /* CDAResourcesViewController.m */; };
+		ED9446A01EC5E37900EA2077 /* CDAResourceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D2DC0118D076F50053DC83 /* CDAResourceTableViewCell.m */; };
+		ED9446A11EC5E37900EA2077 /* CDATextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A173F54D18D6FD03000E6F92 /* CDATextViewController.m */; };
+		ED9446A21EC5E37900EA2077 /* UIImageView+CDAAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = A193EB6418D20FA90017B777 /* UIImageView+CDAAsset.m */; };
+		ED9446A31EC5E38100EA2077 /* CDAFallbackDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1B1E641EB8B76300347DD7 /* CDAFallbackDictionary.m */; };
+		ED9446A41EC5E38100EA2077 /* CDAUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1B1E671EB8B76300347DD7 /* CDAUtilities.m */; };
+		ED9446A51EC5E38C00EA2077 /* UIImageView+CDAAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = A193EB6318D20FA90017B777 /* UIImageView+CDAAsset.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED9446A61EC5E39300EA2077 /* CDAResourcesViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A1924C8B18EBFFB600C97F9D /* CDAResourcesViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED9446A71EC5E39A00EA2077 /* CDAResourcesCollectionViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A173F59318D9A269000E6F92 /* CDAResourcesCollectionViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED9446A81EC5E3A400EA2077 /* CDAMapViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A1924C8F18EC0DF000C97F9D /* CDAMapViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED9446A91EC5E3AD00EA2077 /* CDAFieldsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A193EB4118D0AC0C0017B777 /* CDAFieldsViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED9446AD1EC5F59700EA2077 /* CMAPublishing.h in Headers */ = {isa = PBXBuildFile; fileRef = ED9446AC1EC5F59700EA2077 /* CMAPublishing.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED9446B01EC5F5E800EA2077 /* CMARole.h in Headers */ = {isa = PBXBuildFile; fileRef = ED9446AE1EC5F5E800EA2077 /* CMARole.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED9446B11EC5F5E800EA2077 /* CMAUser.h in Headers */ = {isa = PBXBuildFile; fileRef = ED9446AF1EC5F5E800EA2077 /* CMAUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED9446BA1EC5FCAB00EA2077 /* CDAOrganizationContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = ED9446B91EC5FCAB00EA2077 /* CDAOrganizationContainer.h */; };
+		ED9446BB1EC5FCAB00EA2077 /* CDAOrganizationContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = ED9446B91EC5FCAB00EA2077 /* CDAOrganizationContainer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED9446BC1EC5FEED00EA2077 /* CMAWebhook+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = EDFDCE381EC26F3600978FC8 /* CMAWebhook+Private.h */; };
+		ED9446BD1EC5FEF400EA2077 /* CMAValidation+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = EDFDCE361EC26F3600978FC8 /* CMAValidation+Private.h */; };
+		ED9446BE1EC5FEFC00EA2077 /* CMASpace+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = EDFDCE311EC26F3600978FC8 /* CMASpace+Private.h */; };
+		ED9446BF1EC5FF1F00EA2077 /* CDAResource+Management.h in Headers */ = {isa = PBXBuildFile; fileRef = EDFDCE521EC26F3E00978FC8 /* CDAResource+Management.h */; };
+		EDFDCE7B1EC26F8600978FC8 /* CDAResource+Management.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFDCE201EC26F3600978FC8 /* CDAResource+Management.m */; };
+		EDFDCE7C1EC26F8600978FC8 /* CMAAccessToken.h in Headers */ = {isa = PBXBuildFile; fileRef = EDFDCE531EC26F3E00978FC8 /* CMAAccessToken.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EDFDCE7D1EC26F8600978FC8 /* CMAAccessToken.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFDCE211EC26F3600978FC8 /* CMAAccessToken.m */; };
+		EDFDCE7E1EC26F8600978FC8 /* CMAApiKey.h in Headers */ = {isa = PBXBuildFile; fileRef = EDFDCE541EC26F3E00978FC8 /* CMAApiKey.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EDFDCE7F1EC26F8600978FC8 /* CMAApiKey.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFDCE221EC26F3600978FC8 /* CMAApiKey.m */; };
+		EDFDCE801EC26F8600978FC8 /* CMAArchiving.h in Headers */ = {isa = PBXBuildFile; fileRef = EDFDCE551EC26F3E00978FC8 /* CMAArchiving.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EDFDCE811EC26F8600978FC8 /* CMAArray.h in Headers */ = {isa = PBXBuildFile; fileRef = EDFDCE561EC26F3E00978FC8 /* CMAArray.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EDFDCE821EC26F8600978FC8 /* CMAArray.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFDCE231EC26F3600978FC8 /* CMAArray.m */; };
+		EDFDCE831EC26F8600978FC8 /* CMAAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = EDFDCE571EC26F3E00978FC8 /* CMAAsset.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EDFDCE841EC26F8600978FC8 /* CMAAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFDCE241EC26F3600978FC8 /* CMAAsset.m */; };
+		EDFDCE851EC26F8600978FC8 /* CMAClient.h in Headers */ = {isa = PBXBuildFile; fileRef = EDFDCE581EC26F3E00978FC8 /* CMAClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EDFDCE861EC26F8600978FC8 /* CMAClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFDCE251EC26F3600978FC8 /* CMAClient.m */; };
+		EDFDCE871EC26F8600978FC8 /* CMAContentType.h in Headers */ = {isa = PBXBuildFile; fileRef = EDFDCE591EC26F3E00978FC8 /* CMAContentType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EDFDCE881EC26F8600978FC8 /* CMAContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFDCE261EC26F3600978FC8 /* CMAContentType.m */; };
+		EDFDCE891EC26F8600978FC8 /* CMAEditorInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = EDFDCE5A1EC26F3E00978FC8 /* CMAEditorInterface.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EDFDCE8A1EC26F8600978FC8 /* CMAEditorInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFDCE271EC26F3600978FC8 /* CMAEditorInterface.m */; };
+		EDFDCE8B1EC26F8600978FC8 /* CMAEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = EDFDCE5B1EC26F3E00978FC8 /* CMAEntry.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EDFDCE8C1EC26F8600978FC8 /* CMAEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFDCE281EC26F3600978FC8 /* CMAEntry.m */; };
+		EDFDCE8D1EC26F8600978FC8 /* CMAError.h in Headers */ = {isa = PBXBuildFile; fileRef = EDFDCE5C1EC26F3E00978FC8 /* CMAError.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EDFDCE8E1EC26F8600978FC8 /* CMAError.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFDCE291EC26F3600978FC8 /* CMAError.m */; };
+		EDFDCE8F1EC26F8600978FC8 /* CMAField.h in Headers */ = {isa = PBXBuildFile; fileRef = EDFDCE5D1EC26F3E00978FC8 /* CMAField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EDFDCE901EC26F8600978FC8 /* CMAField.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFDCE2A1EC26F3600978FC8 /* CMAField.m */; };
+		EDFDCE911EC26F8600978FC8 /* CMALocale.h in Headers */ = {isa = PBXBuildFile; fileRef = EDFDCE5E1EC26F3E00978FC8 /* CMALocale.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EDFDCE921EC26F8600978FC8 /* CMALocale.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFDCE2B1EC26F3600978FC8 /* CMALocale.m */; };
+		EDFDCE931EC26F8600978FC8 /* CMAOrganization.h in Headers */ = {isa = PBXBuildFile; fileRef = EDFDCE5F1EC26F3E00978FC8 /* CMAOrganization.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EDFDCE941EC26F8600978FC8 /* CMAOrganization.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFDCE2C1EC26F3600978FC8 /* CMAOrganization.m */; };
+		EDFDCE961EC26F8600978FC8 /* CMAResource.h in Headers */ = {isa = PBXBuildFile; fileRef = EDFDCE601EC26F3E00978FC8 /* CMAResource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EDFDCE981EC26F8600978FC8 /* CMARole.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFDCE2F1EC26F3600978FC8 /* CMARole.m */; };
+		EDFDCE991EC26F8600978FC8 /* CMASpace.h in Headers */ = {isa = PBXBuildFile; fileRef = EDFDCE611EC26F3E00978FC8 /* CMASpace.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EDFDCE9A1EC26F8600978FC8 /* CMASpace.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFDCE301EC26F3600978FC8 /* CMASpace.m */; };
+		EDFDCE9D1EC26F8600978FC8 /* CMAUser.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFDCE331EC26F3600978FC8 /* CMAUser.m */; };
+		EDFDCE9E1EC26F8600978FC8 /* CMAUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = EDFDCE621EC26F3E00978FC8 /* CMAUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EDFDCE9F1EC26F8600978FC8 /* CMAUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFDCE341EC26F3600978FC8 /* CMAUtilities.m */; };
+		EDFDCEA01EC26F8600978FC8 /* CMAValidation.h in Headers */ = {isa = PBXBuildFile; fileRef = EDFDCE631EC26F3E00978FC8 /* CMAValidation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EDFDCEA11EC26F8600978FC8 /* CMAValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFDCE351EC26F3600978FC8 /* CMAValidation.m */; };
+		EDFDCEA31EC26F8600978FC8 /* CMAWebhook.h in Headers */ = {isa = PBXBuildFile; fileRef = EDFDCE641EC26F3E00978FC8 /* CMAWebhook.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EDFDCEA41EC26F8600978FC8 /* CMAWebhook.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFDCE371EC26F3600978FC8 /* CMAWebhook.m */; };
+		EDFDCEA61EC26F8600978FC8 /* ContentfulManagementAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = EDFDCE651EC26F3E00978FC8 /* ContentfulManagementAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F212348D7D40637813552B14 /* libPods-UFO Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC76417C6B884F1EFDC6EDC0 /* libPods-UFO Example.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -402,13 +499,6 @@
 			remoteGlobalIDString = A1A2CE46190963BA00B8D46D;
 			remoteInfo = ContentfulSeedDatabase;
 		};
-		ED2133A01EA6172C00C3CE94 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A19FD85D18C6315E0081677E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = ED8FF5F91EA5FF6C00798042;
-			remoteInfo = ContentfulManagementAPI;
-		};
 		ED31CEE71E534EB5007C8E48 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A19FD85D18C6315E0081677E /* Project object */;
@@ -416,12 +506,12 @@
 			remoteGlobalIDString = A19FD86618C631E60081677E;
 			remoteInfo = ContentfulDeliveryAPI;
 		};
-		ED76DC171EC251D1002D146B /* PBXContainerItemProxy */ = {
+		EDF255661EC2764600CE543C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A19FD85D18C6315E0081677E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = A19FD86618C631E60081677E;
-			remoteInfo = ContentfulDeliveryAPI;
+			remoteGlobalIDString = ED8FF5F91EA5FF6C00798042;
+			remoteInfo = ContentfulManagementAPI;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -457,34 +547,39 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0B510B458AB0AFD13B62E92A /* Pods-CoreDataExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDataExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoreDataExample/Pods-CoreDataExample.debug.xcconfig"; sourceTree = "<group>"; };
-		1684DA05440B2141B04DB3EC /* Pods-ManagementTests.api_coverage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ManagementTests.api_coverage.xcconfig"; path = "Pods/Target Support Files/Pods-ManagementTests/Pods-ManagementTests.api_coverage.xcconfig"; sourceTree = "<group>"; };
-		189AABEAC6026507C048D3EF /* Pods-ManagementTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ManagementTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ManagementTests/Pods-ManagementTests.release.xcconfig"; sourceTree = "<group>"; };
-		19560D03FCA2B4E169F0B0BF /* Pods-ContentfulManagementAPI.api_coverage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContentfulManagementAPI.api_coverage.xcconfig"; path = "Pods/Target Support Files/Pods-ContentfulManagementAPI/Pods-ContentfulManagementAPI.api_coverage.xcconfig"; sourceTree = "<group>"; };
-		1F711614D4DF65773CFB0F76 /* libPods-ContentfulDeliveryAPI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ContentfulDeliveryAPI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		24A55A4365A51BFD5DACFCC2 /* Pods-DeliveryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeliveryTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DeliveryTests/Pods-DeliveryTests.release.xcconfig"; sourceTree = "<group>"; };
-		2F2F8E41682B382FA4966640 /* Pods-CoreDataExample.api_coverage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDataExample.api_coverage.xcconfig"; path = "Pods/Target Support Files/Pods-CoreDataExample/Pods-CoreDataExample.api_coverage.xcconfig"; sourceTree = "<group>"; };
-		3CDEE026C3CD296EF2AB2935 /* libPods-UFO Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UFO Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3DBFD4DCDE17283F418EC188 /* Pods-UFO Example.api_coverage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UFO Example.api_coverage.xcconfig"; path = "Pods/Target Support Files/Pods-UFO Example/Pods-UFO Example.api_coverage.xcconfig"; sourceTree = "<group>"; };
-		47407AE22FDC35D5DFB4AD0F /* Pods-DeliveryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeliveryTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DeliveryTests/Pods-DeliveryTests.debug.xcconfig"; sourceTree = "<group>"; };
-		51CDFFADCD0148B66469D68E /* libPods-ContentfulSeedDatabase.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ContentfulSeedDatabase.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		55A7CDD1129B1E4C6F89DFD7 /* Pods-SeedDatabaseExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeedDatabaseExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-SeedDatabaseExample/Pods-SeedDatabaseExample.release.xcconfig"; sourceTree = "<group>"; };
-		5B8179D441831368CEB0EDCE /* Pods-UFO Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UFO Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UFO Example/Pods-UFO Example.debug.xcconfig"; sourceTree = "<group>"; };
-		6045A615E633B441E22A4D30 /* Pods-ManagementTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ManagementTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ManagementTests/Pods-ManagementTests.debug.xcconfig"; sourceTree = "<group>"; };
-		63975817A4219C672D385FEF /* libPods-ManagementTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ManagementTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		665AAB7A3158ED2A3DB0DA0F /* Pods-DeliveryTests.api_coverage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeliveryTests.api_coverage.xcconfig"; path = "Pods/Target Support Files/Pods-DeliveryTests/Pods-DeliveryTests.api_coverage.xcconfig"; sourceTree = "<group>"; };
-		6863B44E53AF3571A3C423D2 /* Pods-ContentfulSeedDatabase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContentfulSeedDatabase.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ContentfulSeedDatabase/Pods-ContentfulSeedDatabase.debug.xcconfig"; sourceTree = "<group>"; };
-		79FD60A693665E335D4063D2 /* libPods-Catalog.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Catalog.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8479D9BB4E57A8D791C3E68D /* Pods-SeedDatabaseExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeedDatabaseExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SeedDatabaseExample/Pods-SeedDatabaseExample.debug.xcconfig"; sourceTree = "<group>"; };
-		88994C26A2DE4C1E155E658A /* Pods-ContentfulDeliveryAPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContentfulDeliveryAPI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ContentfulDeliveryAPI/Pods-ContentfulDeliveryAPI.debug.xcconfig"; sourceTree = "<group>"; };
-		89171B47C9F2ACF4A8D491E4 /* Pods-Catalog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Catalog.release.xcconfig"; path = "Pods/Target Support Files/Pods-Catalog/Pods-Catalog.release.xcconfig"; sourceTree = "<group>"; };
-		8E594069FCC7062680DBA50A /* Pods-ContentfulDeliveryAPI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContentfulDeliveryAPI.release.xcconfig"; path = "Pods/Target Support Files/Pods-ContentfulDeliveryAPI/Pods-ContentfulDeliveryAPI.release.xcconfig"; sourceTree = "<group>"; };
-		95480CC56AC9CD6BCF7104B2 /* Pods-ContentfulSeedDatabase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContentfulSeedDatabase.release.xcconfig"; path = "Pods/Target Support Files/Pods-ContentfulSeedDatabase/Pods-ContentfulSeedDatabase.release.xcconfig"; sourceTree = "<group>"; };
-		97F65EA4D4BF558FCF873C43 /* libPods-SeedDatabaseExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SeedDatabaseExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		03572AA0C7231718395F2994 /* Pods-UFO Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UFO Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UFO Example/Pods-UFO Example.debug.xcconfig"; sourceTree = "<group>"; };
+		039536B361F6E6AF5F78F26D /* Pods-ContentfulSeedDatabase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContentfulSeedDatabase.release.xcconfig"; path = "Pods/Target Support Files/Pods-ContentfulSeedDatabase/Pods-ContentfulSeedDatabase.release.xcconfig"; sourceTree = "<group>"; };
+		0B471384F2BB94FE13A6D918 /* Pods-DeliveryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeliveryTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DeliveryTests/Pods-DeliveryTests.debug.xcconfig"; sourceTree = "<group>"; };
+		0DE15B645AFC3DF798AA0E41 /* Pods-DeliveryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeliveryTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DeliveryTests/Pods-DeliveryTests.release.xcconfig"; sourceTree = "<group>"; };
+		0EB52DB2686E913862B54EC2 /* Pods-CoreDataExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDataExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoreDataExample/Pods-CoreDataExample.release.xcconfig"; sourceTree = "<group>"; };
+		0FDB185CA19F102CEFFBA550 /* Pods-ContentfulSeedDatabase.api_coverage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContentfulSeedDatabase.api_coverage.xcconfig"; path = "Pods/Target Support Files/Pods-ContentfulSeedDatabase/Pods-ContentfulSeedDatabase.api_coverage.xcconfig"; sourceTree = "<group>"; };
+		13C3F5B7B7FE6D7C58429656 /* libPods-ManagementTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ManagementTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		189B0913C6646027F437D692 /* libPods-ContentfulDeliveryAPI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ContentfulDeliveryAPI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		27B9AD721DF696A33C5B4319 /* Pods-Catalog.api_coverage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Catalog.api_coverage.xcconfig"; path = "Pods/Target Support Files/Pods-Catalog/Pods-Catalog.api_coverage.xcconfig"; sourceTree = "<group>"; };
+		28B7DF2A108D85283F68C150 /* Pods-SeedDatabaseExample.api_coverage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeedDatabaseExample.api_coverage.xcconfig"; path = "Pods/Target Support Files/Pods-SeedDatabaseExample/Pods-SeedDatabaseExample.api_coverage.xcconfig"; sourceTree = "<group>"; };
+		3D5796E3C3190904A90CCE3B /* Pods-Catalog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Catalog.release.xcconfig"; path = "Pods/Target Support Files/Pods-Catalog/Pods-Catalog.release.xcconfig"; sourceTree = "<group>"; };
+		406F7FBDFC3FFFB16331D2CE /* Pods-ContentfulDeliveryAPI.api_coverage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContentfulDeliveryAPI.api_coverage.xcconfig"; path = "Pods/Target Support Files/Pods-ContentfulDeliveryAPI/Pods-ContentfulDeliveryAPI.api_coverage.xcconfig"; sourceTree = "<group>"; };
+		476FABE95FC65B5DF9F4FBB9 /* libPods-SeedDatabaseExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SeedDatabaseExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4922E54B08D9D5E5BA414800 /* libPods-CoreDataExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CoreDataExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E83B426DA20CEF4C9FB0686 /* Pods-ManagementTests.api_coverage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ManagementTests.api_coverage.xcconfig"; path = "Pods/Target Support Files/Pods-ManagementTests/Pods-ManagementTests.api_coverage.xcconfig"; sourceTree = "<group>"; };
+		4F94329D2B96F26C783646C0 /* libPods-ContentfulSeedDatabase.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ContentfulSeedDatabase.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AF75F74744CF837759C1EC3 /* Pods-SeedDatabaseExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeedDatabaseExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SeedDatabaseExample/Pods-SeedDatabaseExample.debug.xcconfig"; sourceTree = "<group>"; };
+		5D2CF5CD1EC4CF37005AB239 /* CDAPersistedEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDAPersistedEntry.h; path = ContentfulDeliveryAPI/CDAPersistedEntry.h; sourceTree = SOURCE_ROOT; };
+		5D2CF5D01EC4CF8A005AB239 /* CDALocalizablePersistedEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDALocalizablePersistedEntry.h; path = ContentfulDeliveryAPI/CDALocalizablePersistedEntry.h; sourceTree = SOURCE_ROOT; };
+		5D2CF5D11EC4CF8A005AB239 /* CDALocalizedPersistedEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDALocalizedPersistedEntry.h; path = ContentfulDeliveryAPI/CDALocalizedPersistedEntry.h; sourceTree = SOURCE_ROOT; };
+		5D2CF5D21EC4CF8A005AB239 /* CDAPersistedSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDAPersistedSpace.h; path = ContentfulDeliveryAPI/CDAPersistedSpace.h; sourceTree = SOURCE_ROOT; };
+		5D2CF5D31EC4CF8A005AB239 /* CDAPersistenceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDAPersistenceManager.h; path = ContentfulDeliveryAPI/CDAPersistenceManager.h; sourceTree = SOURCE_ROOT; };
+		5D2CF5D41EC4CF8A005AB239 /* CDALocalizablePersistedEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDALocalizablePersistedEntry.m; path = ContentfulDeliveryAPI/CDALocalizablePersistedEntry.m; sourceTree = SOURCE_ROOT; };
+		5D2CF5D51EC4CF8A005AB239 /* CDAPersistenceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDAPersistenceManager.m; path = ContentfulDeliveryAPI/CDAPersistenceManager.m; sourceTree = SOURCE_ROOT; };
+		65324B713F7AF5E62A3E44CC /* libPods-DeliveryTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DeliveryTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EAF79CFBEF7458BAFF33EB5 /* Pods-DeliveryTests.api_coverage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeliveryTests.api_coverage.xcconfig"; path = "Pods/Target Support Files/Pods-DeliveryTests/Pods-DeliveryTests.api_coverage.xcconfig"; sourceTree = "<group>"; };
+		889C3EA3840390E33FE74C66 /* Pods-ManagementTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ManagementTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ManagementTests/Pods-ManagementTests.release.xcconfig"; sourceTree = "<group>"; };
+		94188613F3D7E46F003C1C4E /* Pods-ContentfulManagementAPI.api_coverage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContentfulManagementAPI.api_coverage.xcconfig"; path = "Pods/Target Support Files/Pods-ContentfulManagementAPI/Pods-ContentfulManagementAPI.api_coverage.xcconfig"; sourceTree = "<group>"; };
+		95576853B4228C56E62DADEF /* Pods-ContentfulManagementAPI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContentfulManagementAPI.release.xcconfig"; path = "Pods/Target Support Files/Pods-ContentfulManagementAPI/Pods-ContentfulManagementAPI.release.xcconfig"; sourceTree = "<group>"; };
+		9603A78E6BBE3EB3069F02EF /* Pods-CoreDataExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDataExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoreDataExample/Pods-CoreDataExample.debug.xcconfig"; sourceTree = "<group>"; };
+		99E7FEF4726BC091BA9497BB /* Pods-ManagementTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ManagementTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ManagementTests/Pods-ManagementTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A10A11FC19090F5D00EFF083 /* CatDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatDetailViewController.h; sourceTree = "<group>"; };
 		A10A11FD19090F5D00EFF083 /* CatDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatDetailViewController.m; sourceTree = "<group>"; };
-		A12085751BB2707300A6504B /* CDALocalizablePersistedEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = CDALocalizablePersistedEntry.h; path = ../CDALocalizablePersistedEntry.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		A12085761BB2707300A6504B /* CDALocalizablePersistedEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = CDALocalizablePersistedEntry.m; path = ../CDALocalizablePersistedEntry.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A12085791BB2712300A6504B /* ManagedCatLocalized.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagedCatLocalized.h; sourceTree = "<group>"; };
 		A120857A1BB2712300A6504B /* ManagedCatLocalized.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagedCatLocalized.m; sourceTree = "<group>"; };
 		A12797A518E1A45700043A44 /* SyncTests */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SyncTests; path = Data/SyncTests; sourceTree = "<group>"; };
@@ -508,9 +603,6 @@
 		A160862418CDF2AC0047D44F /* CDARequest+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "CDARequest+Private.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A16675BD1C7C5EC800231AC1 /* RealmClassHierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealmClassHierarchy.h; sourceTree = "<group>"; };
 		A16675BE1C7C5EC800231AC1 /* RealmClassHierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealmClassHierarchy.m; sourceTree = "<group>"; };
-		A17012F318FC1FD90086BE07 /* CDAPersistedEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = CDAPersistedEntry.h; path = ../CDAPersistedEntry.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		A17012F518FC1FEE0086BE07 /* CDAPersistedAsset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = CDAPersistedAsset.h; path = ../CDAPersistedAsset.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		A17012F718FC20120086BE07 /* CDAPersistedSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = CDAPersistedSpace.h; path = ../CDAPersistedSpace.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A17012F918FC21260086BE07 /* Asset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Asset.h; sourceTree = "<group>"; };
 		A17012FA18FC21260086BE07 /* Asset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Asset.m; sourceTree = "<group>"; };
 		A17012FC18FC21260086BE07 /* SyncInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncInfo.h; sourceTree = "<group>"; };
@@ -518,8 +610,6 @@
 		A17012FF18FC21260086BE07 /* ManagedCat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagedCat.h; sourceTree = "<group>"; };
 		A170130018FC21260086BE07 /* ManagedCat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagedCat.m; sourceTree = "<group>"; };
 		A170130318FC25640086BE07 /* PreviewModeSyncTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewModeSyncTests.m; sourceTree = "<group>"; };
-		A170130518FD291E0086BE07 /* CDAPersistenceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = CDAPersistenceManager.h; path = ../CDAPersistenceManager.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		A170130618FD291E0086BE07 /* CDAPersistenceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = CDAPersistenceManager.m; path = ../CDAPersistenceManager.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A170130A18FD30A50086BE07 /* CoreDataBasicTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataBasicTests.m; sourceTree = "<group>"; };
 		A170131318FD5DE20086BE07 /* PersistenceTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = PersistenceTests.json; path = Data/Recordings/PersistenceTests.json; sourceTree = "<group>"; };
 		A170131418FD5DE20086BE07 /* PreviewModeSyncTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = PreviewModeSyncTests.json; path = Data/Recordings/PreviewModeSyncTests.json; sourceTree = "<group>"; };
@@ -555,7 +645,6 @@
 		A173F59B18D9A2FD000E6F92 /* CDAResourceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDAResourceCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A173F60218DB3E1E000E6F92 /* PreviewModeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewModeTests.m; sourceTree = "<group>"; };
 		A173F60418DB412C000E6F92 /* PreviewModeTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = PreviewModeTests.json; path = Data/Recordings/PreviewModeTests.json; sourceTree = "<group>"; };
-		A18919961BB1E4EA0094256E /* CDALocalizedPersistedEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = CDALocalizedPersistedEntry.h; path = ../CDALocalizedPersistedEntry.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A189199A1BB1E7870094256E /* LocalizedModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocalizedModel.xcdatamodel; sourceTree = "<group>"; };
 		A189199C1BB1E8FA0094256E /* LocalizedCat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalizedCat.h; sourceTree = "<group>"; };
 		A189199D1BB1E8FA0094256E /* LocalizedCat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalizedCat.m; sourceTree = "<group>"; };
@@ -719,7 +808,6 @@
 		A1D2DC0018D076F50053DC83 /* CDAResourceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAResourceTableViewCell.h; sourceTree = "<group>"; };
 		A1D2DC0118D076F50053DC83 /* CDAResourceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDAResourceTableViewCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A1D2DC0618D0811F0053DC83 /* ArrayTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayTests.m; sourceTree = "<group>"; };
-		A1DA5822AA6AA266020796B8 /* Pods-ContentfulDeliveryAPI.api_coverage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContentfulDeliveryAPI.api_coverage.xcconfig"; path = "Pods/Target Support Files/Pods-ContentfulDeliveryAPI/Pods-ContentfulDeliveryAPI.api_coverage.xcconfig"; sourceTree = "<group>"; };
 		A1DE35D6197D384700DE0904 /* CDARequestSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDARequestSerializer.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A1DE35D7197D384700DE0904 /* CDARequestSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDARequestSerializer.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A1E3D05818C87D3B00E4F488 /* CDARequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDARequestOperationManager.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -731,7 +819,6 @@
 		A1E9797718CBEDFC00E79632 /* ErrorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorTests.m; sourceTree = "<group>"; };
 		A1E9797918CC683200E79632 /* CDAFieldValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDAFieldValueTransformer.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A1E9797A18CC683200E79632 /* CDAFieldValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDAFieldValueTransformer.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		A1F265931987990F00365AEF /* CDAOrganizationContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDAOrganizationContainer.h; sourceTree = "<group>"; };
 		A1F5DE721B8B10DD00F0B554 /* LocaleTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LocaleTests.json; path = Data/Recordings/LocaleTests.json; sourceTree = "<group>"; };
 		A1F5DE741B8B110200F0B554 /* RealmBasicTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = RealmBasicTests.json; path = Data/Recordings/RealmBasicTests.json; sourceTree = "<group>"; };
 		A1F5DE751B8B110200F0B554 /* RealmQuerySyncTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = RealmQuerySyncTests.json; path = Data/Recordings/RealmQuerySyncTests.json; sourceTree = "<group>"; };
@@ -740,16 +827,12 @@
 		A1FAC311190654E30093B308 /* DeepIncludes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeepIncludes.m; sourceTree = "<group>"; };
 		A1FAC3561908FDB40093B308 /* CatListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatListViewController.h; sourceTree = "<group>"; };
 		A1FAC3571908FDB40093B308 /* CatListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatListViewController.m; sourceTree = "<group>"; };
-		A35E59CAE8BC25A9929A5AFA /* libPods-DeliveryTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DeliveryTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A70B02855BBED88A89FC6D6A /* Pods-ContentfulSeedDatabase.api_coverage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContentfulSeedDatabase.api_coverage.xcconfig"; path = "Pods/Target Support Files/Pods-ContentfulSeedDatabase/Pods-ContentfulSeedDatabase.api_coverage.xcconfig"; sourceTree = "<group>"; };
-		AC588A7FA6014C4EB6FED56B /* libPods-ContentfulManagementAPI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ContentfulManagementAPI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BAA4D5BC0FD7957E5B716074 /* Pods-CoreDataExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDataExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoreDataExample/Pods-CoreDataExample.release.xcconfig"; sourceTree = "<group>"; };
-		BAE5073EF26D010C3B942AAE /* Pods-Catalog.api_coverage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Catalog.api_coverage.xcconfig"; path = "Pods/Target Support Files/Pods-Catalog/Pods-Catalog.api_coverage.xcconfig"; sourceTree = "<group>"; };
-		C15649696790419708274A2C /* Pods-Catalog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Catalog.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Catalog/Pods-Catalog.debug.xcconfig"; sourceTree = "<group>"; };
-		C19FCCDC1E7AF541E1D65691 /* Pods-ContentfulManagementAPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContentfulManagementAPI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ContentfulManagementAPI/Pods-ContentfulManagementAPI.debug.xcconfig"; sourceTree = "<group>"; };
-		C9060A03DFE9443327436AB0 /* Pods-SeedDatabaseExample.api_coverage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeedDatabaseExample.api_coverage.xcconfig"; path = "Pods/Target Support Files/Pods-SeedDatabaseExample/Pods-SeedDatabaseExample.api_coverage.xcconfig"; sourceTree = "<group>"; };
-		D61BA2334416CEE42ED6538E /* Pods-ContentfulManagementAPI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContentfulManagementAPI.release.xcconfig"; path = "Pods/Target Support Files/Pods-ContentfulManagementAPI/Pods-ContentfulManagementAPI.release.xcconfig"; sourceTree = "<group>"; };
-		E54247F67C3138F1E620B906 /* Pods-UFO Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UFO Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-UFO Example/Pods-UFO Example.release.xcconfig"; sourceTree = "<group>"; };
+		A6F95B27DAB09528D252DD11 /* Pods-ContentfulManagementAPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContentfulManagementAPI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ContentfulManagementAPI/Pods-ContentfulManagementAPI.debug.xcconfig"; sourceTree = "<group>"; };
+		AEF90F62A0C3518B01B2ABDD /* Pods-UFO Example.api_coverage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UFO Example.api_coverage.xcconfig"; path = "Pods/Target Support Files/Pods-UFO Example/Pods-UFO Example.api_coverage.xcconfig"; sourceTree = "<group>"; };
+		B9E3C4A311DFFB0A1E59BA51 /* Pods-Catalog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Catalog.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Catalog/Pods-Catalog.debug.xcconfig"; sourceTree = "<group>"; };
+		D5BEAC226DE19AAD8F238D86 /* Pods-ContentfulDeliveryAPI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContentfulDeliveryAPI.release.xcconfig"; path = "Pods/Target Support Files/Pods-ContentfulDeliveryAPI/Pods-ContentfulDeliveryAPI.release.xcconfig"; sourceTree = "<group>"; };
+		DC76417C6B884F1EFDC6EDC0 /* libPods-UFO Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UFO Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5B11581AADE8078A25E9705 /* Pods-ContentfulDeliveryAPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContentfulDeliveryAPI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ContentfulDeliveryAPI/Pods-ContentfulDeliveryAPI.debug.xcconfig"; sourceTree = "<group>"; };
 		ED01CA9C1EAAB8A60041E21E /* AssetSpec_can_be_archived.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AssetSpec_can_be_archived.json; sourceTree = "<group>"; };
 		ED01CA9D1EAAB8A60041E21E /* AssetSpec_can_be_created.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AssetSpec_can_be_created.json; sourceTree = "<group>"; };
 		ED01CA9E1EAAB8A60041E21E /* AssetSpec_can_be_deleted.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AssetSpec_can_be_deleted.json; sourceTree = "<group>"; };
@@ -855,12 +938,8 @@
 		ED571F671EC0AB2300216715 /* WebhooksSpec_can_update_single_webhook.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WebhooksSpec_can_update_single_webhook.json; sourceTree = "<group>"; };
 		ED571F681EC0AB2300216715 /* WebhooksSpec_fetch-space-before-each.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "WebhooksSpec_fetch-space-before-each.json"; sourceTree = "<group>"; };
 		ED571F691EC0AB2300216715 /* WebhooksSpec_updated_webhook_has_correct_description.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WebhooksSpec_updated_webhook_has_correct_description.json; sourceTree = "<group>"; };
-		ED76DC1B1EC2527E002D146B /* libPods-ContentfulDeliveryAPI.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ContentfulDeliveryAPI.a"; path = "../../../../Library/Developer/Xcode/DerivedData/ContentfulSDK-bxoqptjjdoydzrbrpyvympuzkkee/Build/Products/Debug-iphonesimulator/libPods-ContentfulDeliveryAPI.a"; sourceTree = "<group>"; };
+		ED69D6371EC4BFD400969B56 /* CDAPersistedAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDAPersistedAsset.h; path = ContentfulDeliveryAPI/CDAPersistedAsset.h; sourceTree = SOURCE_ROOT; };
 		ED8CE4571EC260A100DA1930 /* libContentfulDeliveryAPI.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libContentfulDeliveryAPI.a; path = "../../../../Library/Developer/Xcode/DerivedData/ContentfulSDK-bxoqptjjdoydzrbrpyvympuzkkee/Build/Products/Debug-iphonesimulator/ContentfulDeliveryAPI/libContentfulDeliveryAPI.a"; sourceTree = "<group>"; };
-		ED8CE4591EC260AA00DA1930 /* libPods-ContentfulManagementAPI.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ContentfulManagementAPI.a"; path = "../../../../Library/Developer/Xcode/DerivedData/ContentfulSDK-bxoqptjjdoydzrbrpyvympuzkkee/Build/Products/Debug-iphonesimulator/libPods-ContentfulManagementAPI.a"; sourceTree = "<group>"; };
-		ED8CE45B1EC260B900DA1930 /* libPods-DeliveryTests.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-DeliveryTests.a"; path = "../../../../Library/Developer/Xcode/DerivedData/ContentfulSDK-bxoqptjjdoydzrbrpyvympuzkkee/Build/Products/Debug-iphonesimulator/libPods-DeliveryTests.a"; sourceTree = "<group>"; };
-		ED8CE4601EC260DA00DA1930 /* libPods-SeedDatabaseExample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-SeedDatabaseExample.a"; path = "Pods/../build/Debug-iphoneos/libPods-SeedDatabaseExample.a"; sourceTree = "<group>"; };
-		ED8CE4651EC2611700DA1930 /* libPods-ManagementTests.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ManagementTests.a"; path = "../../../../Library/Developer/Xcode/DerivedData/ContentfulSDK-bxoqptjjdoydzrbrpyvympuzkkee/Build/Products/Debug-iphonesimulator/libPods-ManagementTests.a"; sourceTree = "<group>"; };
 		ED8FF5FA1EA5FF6C00798042 /* libContentfulManagementAPI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libContentfulManagementAPI.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED8FF6431EA5FFE300798042 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		ED8FF6831EA601D000798042 /* AssetsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetsSpec.m; sourceTree = "<group>"; };
@@ -878,54 +957,61 @@
 		ED8FF68F1EA601D000798042 /* UtilitiesSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilitiesSpec.m; sourceTree = "<group>"; };
 		ED8FF6901EA601D000798042 /* ValidationSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValidationSpec.m; sourceTree = "<group>"; };
 		ED8FF6911EA601D000798042 /* WebhooksSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebhooksSpec.m; sourceTree = "<group>"; };
-		ED8FF6A41EA605B700798042 /* CDAResource+Management.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDAResource+Management.h"; sourceTree = "<group>"; };
-		ED8FF6A51EA605B700798042 /* CDAResource+Management.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CDAResource+Management.m"; sourceTree = "<group>"; };
-		ED8FF6A61EA605B700798042 /* CMAAccessToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAAccessToken.h; sourceTree = "<group>"; };
-		ED8FF6A71EA605B700798042 /* CMAAccessToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMAAccessToken.m; sourceTree = "<group>"; };
-		ED8FF6A81EA605B700798042 /* CMAApiKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAApiKey.h; sourceTree = "<group>"; };
-		ED8FF6A91EA605B700798042 /* CMAApiKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMAApiKey.m; sourceTree = "<group>"; };
-		ED8FF6AA1EA605B700798042 /* CMAArchiving.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAArchiving.h; sourceTree = "<group>"; };
-		ED8FF6AB1EA605B700798042 /* CMAArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAArray.h; sourceTree = "<group>"; };
-		ED8FF6AC1EA605B700798042 /* CMAArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMAArray.m; sourceTree = "<group>"; };
-		ED8FF6AD1EA605B700798042 /* CMAAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAAsset.h; sourceTree = "<group>"; };
-		ED8FF6AE1EA605B700798042 /* CMAAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMAAsset.m; sourceTree = "<group>"; };
-		ED8FF6AF1EA605B700798042 /* CMAClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAClient.h; sourceTree = "<group>"; };
-		ED8FF6B01EA605B700798042 /* CMAClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMAClient.m; sourceTree = "<group>"; };
-		ED8FF6B11EA605B700798042 /* CMAContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAContentType.h; sourceTree = "<group>"; };
-		ED8FF6B21EA605B700798042 /* CMAContentType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMAContentType.m; sourceTree = "<group>"; };
-		ED8FF6B31EA605B700798042 /* CMAEditorInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAEditorInterface.h; sourceTree = "<group>"; };
-		ED8FF6B41EA605B700798042 /* CMAEditorInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMAEditorInterface.m; sourceTree = "<group>"; };
-		ED8FF6B51EA605B700798042 /* CMAEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAEntry.h; sourceTree = "<group>"; };
-		ED8FF6B61EA605B700798042 /* CMAEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMAEntry.m; sourceTree = "<group>"; };
-		ED8FF6B71EA605B800798042 /* CMAError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAError.h; sourceTree = "<group>"; };
-		ED8FF6B81EA605B800798042 /* CMAError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMAError.m; sourceTree = "<group>"; };
-		ED8FF6B91EA605B800798042 /* CMAField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAField.h; sourceTree = "<group>"; };
-		ED8FF6BA1EA605B800798042 /* CMAField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMAField.m; sourceTree = "<group>"; };
-		ED8FF6BB1EA605B800798042 /* CMALocale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMALocale.h; sourceTree = "<group>"; };
-		ED8FF6BC1EA605B800798042 /* CMALocale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMALocale.m; sourceTree = "<group>"; };
-		ED8FF6BD1EA605B800798042 /* CMAOrganization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAOrganization.h; sourceTree = "<group>"; };
-		ED8FF6BE1EA605B800798042 /* CMAOrganization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMAOrganization.m; sourceTree = "<group>"; };
-		ED8FF6BF1EA605B800798042 /* CMAPublishing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAPublishing.h; sourceTree = "<group>"; };
-		ED8FF6C01EA605B800798042 /* CMAResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAResource.h; sourceTree = "<group>"; };
-		ED8FF6C11EA605B800798042 /* CMARole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMARole.h; sourceTree = "<group>"; };
-		ED8FF6C21EA605B800798042 /* CMARole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMARole.m; sourceTree = "<group>"; };
-		ED8FF6C31EA605B800798042 /* CMASpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMASpace.h; sourceTree = "<group>"; };
-		ED8FF6C41EA605B800798042 /* CMASpace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMASpace.m; sourceTree = "<group>"; };
-		ED8FF6C51EA605B800798042 /* CMASpace+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CMASpace+Private.h"; sourceTree = "<group>"; };
-		ED8FF6C61EA605B800798042 /* CMAUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAUser.h; sourceTree = "<group>"; };
-		ED8FF6C71EA605B800798042 /* CMAUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMAUser.m; sourceTree = "<group>"; };
-		ED8FF6C81EA605B800798042 /* CMAUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAUtilities.h; sourceTree = "<group>"; };
-		ED8FF6C91EA605B800798042 /* CMAUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMAUtilities.m; sourceTree = "<group>"; };
-		ED8FF6CA1EA605B800798042 /* CMAValidation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAValidation.h; sourceTree = "<group>"; };
-		ED8FF6CB1EA605B800798042 /* CMAValidation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMAValidation.m; sourceTree = "<group>"; };
-		ED8FF6CC1EA605B800798042 /* CMAValidation+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CMAValidation+Private.h"; sourceTree = "<group>"; };
-		ED8FF6CD1EA605B800798042 /* CMAWebhook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAWebhook.h; sourceTree = "<group>"; };
-		ED8FF6CE1EA605B800798042 /* CMAWebhook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMAWebhook.m; sourceTree = "<group>"; };
-		ED8FF6CF1EA605B800798042 /* CMAWebhook+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CMAWebhook+Private.h"; sourceTree = "<group>"; };
-		ED8FF6D01EA605B800798042 /* ContentfulManagementAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentfulManagementAPI.h; sourceTree = "<group>"; };
 		ED8FF7191EA614DA00798042 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		ED8FF71B1EA614DF00798042 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		F0530F0781F0C5475297A699 /* libPods-CoreDataExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CoreDataExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED9446AC1EC5F59700EA2077 /* CMAPublishing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMAPublishing.h; path = Public/CMAPublishing.h; sourceTree = "<group>"; };
+		ED9446AE1EC5F5E800EA2077 /* CMARole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMARole.h; path = Public/CMARole.h; sourceTree = "<group>"; };
+		ED9446AF1EC5F5E800EA2077 /* CMAUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMAUser.h; path = Public/CMAUser.h; sourceTree = "<group>"; };
+		ED9446B91EC5FCAB00EA2077 /* CDAOrganizationContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAOrganizationContainer.h; sourceTree = "<group>"; };
+		EDC66C531EC48A980096998A /* libAFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAFNetworking.a; path = "Pods/../build/Debug-iphoneos/AFNetworking/libAFNetworking.a"; sourceTree = "<group>"; };
+		EDFDCE201EC26F3600978FC8 /* CDAResource+Management.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CDAResource+Management.m"; path = "Private/CDAResource+Management.m"; sourceTree = "<group>"; };
+		EDFDCE211EC26F3600978FC8 /* CMAAccessToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMAAccessToken.m; path = Private/CMAAccessToken.m; sourceTree = "<group>"; };
+		EDFDCE221EC26F3600978FC8 /* CMAApiKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMAApiKey.m; path = Private/CMAApiKey.m; sourceTree = "<group>"; };
+		EDFDCE231EC26F3600978FC8 /* CMAArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMAArray.m; path = Private/CMAArray.m; sourceTree = "<group>"; };
+		EDFDCE241EC26F3600978FC8 /* CMAAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMAAsset.m; path = Private/CMAAsset.m; sourceTree = "<group>"; };
+		EDFDCE251EC26F3600978FC8 /* CMAClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMAClient.m; path = Private/CMAClient.m; sourceTree = "<group>"; };
+		EDFDCE261EC26F3600978FC8 /* CMAContentType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMAContentType.m; path = Private/CMAContentType.m; sourceTree = "<group>"; };
+		EDFDCE271EC26F3600978FC8 /* CMAEditorInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMAEditorInterface.m; path = Private/CMAEditorInterface.m; sourceTree = "<group>"; };
+		EDFDCE281EC26F3600978FC8 /* CMAEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMAEntry.m; path = Private/CMAEntry.m; sourceTree = "<group>"; };
+		EDFDCE291EC26F3600978FC8 /* CMAError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMAError.m; path = Private/CMAError.m; sourceTree = "<group>"; };
+		EDFDCE2A1EC26F3600978FC8 /* CMAField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMAField.m; path = Private/CMAField.m; sourceTree = "<group>"; };
+		EDFDCE2B1EC26F3600978FC8 /* CMALocale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMALocale.m; path = Private/CMALocale.m; sourceTree = "<group>"; };
+		EDFDCE2C1EC26F3600978FC8 /* CMAOrganization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMAOrganization.m; path = Private/CMAOrganization.m; sourceTree = "<group>"; };
+		EDFDCE2F1EC26F3600978FC8 /* CMARole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMARole.m; path = Private/CMARole.m; sourceTree = "<group>"; };
+		EDFDCE301EC26F3600978FC8 /* CMASpace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMASpace.m; path = Private/CMASpace.m; sourceTree = "<group>"; };
+		EDFDCE311EC26F3600978FC8 /* CMASpace+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CMASpace+Private.h"; path = "Private/CMASpace+Private.h"; sourceTree = "<group>"; };
+		EDFDCE331EC26F3600978FC8 /* CMAUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMAUser.m; path = Private/CMAUser.m; sourceTree = "<group>"; };
+		EDFDCE341EC26F3600978FC8 /* CMAUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMAUtilities.m; path = Private/CMAUtilities.m; sourceTree = "<group>"; };
+		EDFDCE351EC26F3600978FC8 /* CMAValidation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMAValidation.m; path = Private/CMAValidation.m; sourceTree = "<group>"; };
+		EDFDCE361EC26F3600978FC8 /* CMAValidation+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CMAValidation+Private.h"; path = "Private/CMAValidation+Private.h"; sourceTree = "<group>"; };
+		EDFDCE371EC26F3600978FC8 /* CMAWebhook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMAWebhook.m; path = Private/CMAWebhook.m; sourceTree = "<group>"; };
+		EDFDCE381EC26F3600978FC8 /* CMAWebhook+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CMAWebhook+Private.h"; path = "Private/CMAWebhook+Private.h"; sourceTree = "<group>"; };
+		EDFDCE521EC26F3E00978FC8 /* CDAResource+Management.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CDAResource+Management.h"; path = "Public/CDAResource+Management.h"; sourceTree = "<group>"; };
+		EDFDCE531EC26F3E00978FC8 /* CMAAccessToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMAAccessToken.h; path = Public/CMAAccessToken.h; sourceTree = "<group>"; };
+		EDFDCE541EC26F3E00978FC8 /* CMAApiKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMAApiKey.h; path = Public/CMAApiKey.h; sourceTree = "<group>"; };
+		EDFDCE551EC26F3E00978FC8 /* CMAArchiving.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMAArchiving.h; path = Public/CMAArchiving.h; sourceTree = "<group>"; };
+		EDFDCE561EC26F3E00978FC8 /* CMAArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMAArray.h; path = Public/CMAArray.h; sourceTree = "<group>"; };
+		EDFDCE571EC26F3E00978FC8 /* CMAAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMAAsset.h; path = Public/CMAAsset.h; sourceTree = "<group>"; };
+		EDFDCE581EC26F3E00978FC8 /* CMAClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMAClient.h; path = Public/CMAClient.h; sourceTree = "<group>"; };
+		EDFDCE591EC26F3E00978FC8 /* CMAContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMAContentType.h; path = Public/CMAContentType.h; sourceTree = "<group>"; };
+		EDFDCE5A1EC26F3E00978FC8 /* CMAEditorInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMAEditorInterface.h; path = Public/CMAEditorInterface.h; sourceTree = "<group>"; };
+		EDFDCE5B1EC26F3E00978FC8 /* CMAEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMAEntry.h; path = Public/CMAEntry.h; sourceTree = "<group>"; };
+		EDFDCE5C1EC26F3E00978FC8 /* CMAError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMAError.h; path = Public/CMAError.h; sourceTree = "<group>"; };
+		EDFDCE5D1EC26F3E00978FC8 /* CMAField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMAField.h; path = Public/CMAField.h; sourceTree = "<group>"; };
+		EDFDCE5E1EC26F3E00978FC8 /* CMALocale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMALocale.h; path = Public/CMALocale.h; sourceTree = "<group>"; };
+		EDFDCE5F1EC26F3E00978FC8 /* CMAOrganization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMAOrganization.h; path = Public/CMAOrganization.h; sourceTree = "<group>"; };
+		EDFDCE601EC26F3E00978FC8 /* CMAResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMAResource.h; path = Public/CMAResource.h; sourceTree = "<group>"; };
+		EDFDCE611EC26F3E00978FC8 /* CMASpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMASpace.h; path = Public/CMASpace.h; sourceTree = "<group>"; };
+		EDFDCE621EC26F3E00978FC8 /* CMAUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMAUtilities.h; path = Public/CMAUtilities.h; sourceTree = "<group>"; };
+		EDFDCE631EC26F3E00978FC8 /* CMAValidation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMAValidation.h; path = Public/CMAValidation.h; sourceTree = "<group>"; };
+		EDFDCE641EC26F3E00978FC8 /* CMAWebhook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMAWebhook.h; path = Public/CMAWebhook.h; sourceTree = "<group>"; };
+		EDFDCE651EC26F3E00978FC8 /* ContentfulManagementAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContentfulManagementAPI.h; path = Public/ContentfulManagementAPI.h; sourceTree = "<group>"; };
+		EDFF26A38621A1942F059BB7 /* Pods-SeedDatabaseExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeedDatabaseExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-SeedDatabaseExample/Pods-SeedDatabaseExample.release.xcconfig"; sourceTree = "<group>"; };
+		F207CEAA122D3E45C749E374 /* Pods-CoreDataExample.api_coverage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDataExample.api_coverage.xcconfig"; path = "Pods/Target Support Files/Pods-CoreDataExample/Pods-CoreDataExample.api_coverage.xcconfig"; sourceTree = "<group>"; };
+		F460A5ACD69C8FC7305857C7 /* Pods-ContentfulSeedDatabase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContentfulSeedDatabase.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ContentfulSeedDatabase/Pods-ContentfulSeedDatabase.debug.xcconfig"; sourceTree = "<group>"; };
+		FB5ECFF5E0E0A15B1EAB2916 /* libPods-Catalog.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Catalog.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD6E40E46B402E1FF0B2F509 /* Pods-UFO Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UFO Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-UFO Example/Pods-UFO Example.release.xcconfig"; sourceTree = "<group>"; };
+		FEDF88B996DB8B48DD939C4B /* libPods-ContentfulManagementAPI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ContentfulManagementAPI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -935,7 +1021,7 @@
 			files = (
 				A173F55A18D705B2000E6F92 /* CoreGraphics.framework in Frameworks */,
 				A173F55918D705B2000E6F92 /* Foundation.framework in Frameworks */,
-				42ABEA4EE0FBA1FFB19F751D /* libPods-Catalog.a in Frameworks */,
+				BB8BDA944EE2AB066F4E2309 /* libPods-Catalog.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -944,7 +1030,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A19FD86B18C631E60081677E /* Foundation.framework in Frameworks */,
-				0A5E4FDB41E91594904EF688 /* libPods-ContentfulDeliveryAPI.a in Frameworks */,
+				CE83ECE1863CD48D732F7931 /* libPods-ContentfulDeliveryAPI.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -952,9 +1038,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED8CE4581EC260A100DA1930 /* libContentfulDeliveryAPI.a in Frameworks */,
 				A19FD87A18C631E60081677E /* Foundation.framework in Frameworks */,
-				DE3033F33C4333557C4681B3 /* libPods-DeliveryTests.a in Frameworks */,
+				21B4348C207A707AC607861D /* libPods-DeliveryTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -964,7 +1049,7 @@
 			files = (
 				A19FD89A18C637400081677E /* CoreGraphics.framework in Frameworks */,
 				A19FD89818C637400081677E /* Foundation.framework in Frameworks */,
-				5598DAF7BFFCB38062F14B8A /* libPods-UFO Example.a in Frameworks */,
+				F212348D7D40637813552B14 /* libPods-UFO Example.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -973,7 +1058,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1A2CE48190963BA00B8D46D /* Foundation.framework in Frameworks */,
-				645CBE312ED08F6309D67A66 /* libPods-ContentfulSeedDatabase.a in Frameworks */,
+				B697025D35F3622CB4D33216 /* libPods-ContentfulSeedDatabase.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -983,7 +1068,7 @@
 			files = (
 				A1A2CE6C190A547C00B8D46D /* CoreGraphics.framework in Frameworks */,
 				A1A2CE6B190A547C00B8D46D /* Foundation.framework in Frameworks */,
-				356ACA950F80474E2D0937C0 /* libPods-SeedDatabaseExample.a in Frameworks */,
+				7F7A2716095F7751924406F8 /* libPods-SeedDatabaseExample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -994,7 +1079,7 @@
 				A1B8158518F2A8090027B26D /* CoreGraphics.framework in Frameworks */,
 				A1B8158818F2A8090027B26D /* CoreData.framework in Frameworks */,
 				A1B8158418F2A8090027B26D /* Foundation.framework in Frameworks */,
-				B2347139A652739D5AA6E3DC /* libPods-CoreDataExample.a in Frameworks */,
+				0DCC8E4C0ED99E6700AAB926 /* libPods-CoreDataExample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1002,10 +1087,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED4C46C81EC26652003A0136 /* libContentfulDeliveryAPI.a in Frameworks */,
-				ED4C46C91EC26652003A0136 /* libContentfulManagementAPI.a in Frameworks */,
 				ED76DC141EC250DF002D146B /* Foundation.framework in Frameworks */,
-				9479ECA546BB03E1FAD63A1C /* libPods-ManagementTests.a in Frameworks */,
+				07D984B58C47F6EF664E65B1 /* libPods-ManagementTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1014,47 +1097,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED8FF6441EA5FFE300798042 /* Foundation.framework in Frameworks */,
-				6902AB7769256C9D2421063C /* libPods-ContentfulManagementAPI.a in Frameworks */,
+				3AF212F5BCF98C152E6411B6 /* libPods-ContentfulManagementAPI.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		51ECD6624DCC5231ED83F9C7 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				C15649696790419708274A2C /* Pods-Catalog.debug.xcconfig */,
-				BAE5073EF26D010C3B942AAE /* Pods-Catalog.api_coverage.xcconfig */,
-				89171B47C9F2ACF4A8D491E4 /* Pods-Catalog.release.xcconfig */,
-				88994C26A2DE4C1E155E658A /* Pods-ContentfulDeliveryAPI.debug.xcconfig */,
-				A1DA5822AA6AA266020796B8 /* Pods-ContentfulDeliveryAPI.api_coverage.xcconfig */,
-				8E594069FCC7062680DBA50A /* Pods-ContentfulDeliveryAPI.release.xcconfig */,
-				C19FCCDC1E7AF541E1D65691 /* Pods-ContentfulManagementAPI.debug.xcconfig */,
-				19560D03FCA2B4E169F0B0BF /* Pods-ContentfulManagementAPI.api_coverage.xcconfig */,
-				D61BA2334416CEE42ED6538E /* Pods-ContentfulManagementAPI.release.xcconfig */,
-				6863B44E53AF3571A3C423D2 /* Pods-ContentfulSeedDatabase.debug.xcconfig */,
-				A70B02855BBED88A89FC6D6A /* Pods-ContentfulSeedDatabase.api_coverage.xcconfig */,
-				95480CC56AC9CD6BCF7104B2 /* Pods-ContentfulSeedDatabase.release.xcconfig */,
-				0B510B458AB0AFD13B62E92A /* Pods-CoreDataExample.debug.xcconfig */,
-				2F2F8E41682B382FA4966640 /* Pods-CoreDataExample.api_coverage.xcconfig */,
-				BAA4D5BC0FD7957E5B716074 /* Pods-CoreDataExample.release.xcconfig */,
-				47407AE22FDC35D5DFB4AD0F /* Pods-DeliveryTests.debug.xcconfig */,
-				665AAB7A3158ED2A3DB0DA0F /* Pods-DeliveryTests.api_coverage.xcconfig */,
-				24A55A4365A51BFD5DACFCC2 /* Pods-DeliveryTests.release.xcconfig */,
-				6045A615E633B441E22A4D30 /* Pods-ManagementTests.debug.xcconfig */,
-				1684DA05440B2141B04DB3EC /* Pods-ManagementTests.api_coverage.xcconfig */,
-				189AABEAC6026507C048D3EF /* Pods-ManagementTests.release.xcconfig */,
-				8479D9BB4E57A8D791C3E68D /* Pods-SeedDatabaseExample.debug.xcconfig */,
-				C9060A03DFE9443327436AB0 /* Pods-SeedDatabaseExample.api_coverage.xcconfig */,
-				55A7CDD1129B1E4C6F89DFD7 /* Pods-SeedDatabaseExample.release.xcconfig */,
-				5B8179D441831368CEB0EDCE /* Pods-UFO Example.debug.xcconfig */,
-				3DBFD4DCDE17283F418EC188 /* Pods-UFO Example.api_coverage.xcconfig */,
-				E54247F67C3138F1E620B906 /* Pods-UFO Example.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		A12F19DC1BB48DE90088C199 /* LinkDeletion-Support */ = {
 			isa = PBXGroup;
 			children = (
@@ -1068,14 +1117,14 @@
 		A17012F218FC1FB00086BE07 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
-				A12085751BB2707300A6504B /* CDALocalizablePersistedEntry.h */,
-				A12085761BB2707300A6504B /* CDALocalizablePersistedEntry.m */,
-				A18919961BB1E4EA0094256E /* CDALocalizedPersistedEntry.h */,
-				A17012F518FC1FEE0086BE07 /* CDAPersistedAsset.h */,
-				A17012F318FC1FD90086BE07 /* CDAPersistedEntry.h */,
-				A17012F718FC20120086BE07 /* CDAPersistedSpace.h */,
-				A170130518FD291E0086BE07 /* CDAPersistenceManager.h */,
-				A170130618FD291E0086BE07 /* CDAPersistenceManager.m */,
+				5D2CF5D01EC4CF8A005AB239 /* CDALocalizablePersistedEntry.h */,
+				5D2CF5D41EC4CF8A005AB239 /* CDALocalizablePersistedEntry.m */,
+				5D2CF5D21EC4CF8A005AB239 /* CDAPersistedSpace.h */,
+				5D2CF5D31EC4CF8A005AB239 /* CDAPersistenceManager.h */,
+				5D2CF5D51EC4CF8A005AB239 /* CDAPersistenceManager.m */,
+				5D2CF5D11EC4CF8A005AB239 /* CDALocalizedPersistedEntry.h */,
+				5D2CF5CD1EC4CF37005AB239 /* CDAPersistedEntry.h */,
+				ED69D6371EC4BFD400969B56 /* CDAPersistedAsset.h */,
 			);
 			name = Persistence;
 			path = ../ContentfulDeliveryAPI/Persistence;
@@ -1191,7 +1240,7 @@
 				A19FD86918C631E60081677E /* Frameworks */,
 				A19FD86818C631E60081677E /* Products */,
 				ED31CEC61E534CAC007C8E48 /* Submodule */,
-				51ECD6624DCC5231ED83F9C7 /* Pods */,
+				AE11CD52A6619F42ED2CB884 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1214,12 +1263,8 @@
 		A19FD86918C631E60081677E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				ED8CE4651EC2611700DA1930 /* libPods-ManagementTests.a */,
-				ED8CE4601EC260DA00DA1930 /* libPods-SeedDatabaseExample.a */,
-				ED8CE45B1EC260B900DA1930 /* libPods-DeliveryTests.a */,
-				ED8CE4591EC260AA00DA1930 /* libPods-ContentfulManagementAPI.a */,
+				EDC66C531EC48A980096998A /* libAFNetworking.a */,
 				ED8CE4571EC260A100DA1930 /* libContentfulDeliveryAPI.a */,
-				ED76DC1B1EC2527E002D146B /* libPods-ContentfulDeliveryAPI.a */,
 				ED2133BB1EA61BCB00C3CE94 /* libISO8601.a */,
 				ED2133C01EA61BEB00C3CE94 /* libKeys.a */,
 				ED2133B91EA61BB400C3CE94 /* libAFNetworking.a */,
@@ -1229,15 +1274,15 @@
 				A19FD89918C637400081677E /* CoreGraphics.framework */,
 				A19FD86A18C631E60081677E /* Foundation.framework */,
 				A1B8158718F2A8090027B26D /* CoreData.framework */,
-				79FD60A693665E335D4063D2 /* libPods-Catalog.a */,
-				1F711614D4DF65773CFB0F76 /* libPods-ContentfulDeliveryAPI.a */,
-				AC588A7FA6014C4EB6FED56B /* libPods-ContentfulManagementAPI.a */,
-				51CDFFADCD0148B66469D68E /* libPods-ContentfulSeedDatabase.a */,
-				F0530F0781F0C5475297A699 /* libPods-CoreDataExample.a */,
-				A35E59CAE8BC25A9929A5AFA /* libPods-DeliveryTests.a */,
-				63975817A4219C672D385FEF /* libPods-ManagementTests.a */,
-				97F65EA4D4BF558FCF873C43 /* libPods-SeedDatabaseExample.a */,
-				3CDEE026C3CD296EF2AB2935 /* libPods-UFO Example.a */,
+				FB5ECFF5E0E0A15B1EAB2916 /* libPods-Catalog.a */,
+				189B0913C6646027F437D692 /* libPods-ContentfulDeliveryAPI.a */,
+				FEDF88B996DB8B48DD939C4B /* libPods-ContentfulManagementAPI.a */,
+				4F94329D2B96F26C783646C0 /* libPods-ContentfulSeedDatabase.a */,
+				4922E54B08D9D5E5BA414800 /* libPods-CoreDataExample.a */,
+				65324B713F7AF5E62A3E44CC /* libPods-DeliveryTests.a */,
+				13C3F5B7B7FE6D7C58429656 /* libPods-ManagementTests.a */,
+				476FABE95FC65B5DF9F4FBB9 /* libPods-SeedDatabaseExample.a */,
+				DC76417C6B884F1EFDC6EDC0 /* libPods-UFO Example.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1626,8 +1671,8 @@
 				A1A0312B18C64187006470B7 /* CDAEntry.m */,
 				A1462B911993B472004906D0 /* CDAError+Private.h */,
 				A1A0315318C76839006470B7 /* CDAError.h */,
+				ED9446B91EC5FCAB00EA2077 /* CDAOrganizationContainer.h */,
 				A1A0315418C76839006470B7 /* CDAError.m */,
-				A1F265931987990F00365AEF /* CDAOrganizationContainer.h */,
 				A1E9797518CBE93A00E79632 /* CDAResource+Private.h */,
 				A1A0312718C64165006470B7 /* CDAResource.h */,
 				A1A0312818C64165006470B7 /* CDAResource.m */,
@@ -1636,6 +1681,40 @@
 				A1D1D36118C8B8D100261A1C /* CDASpace.m */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		AE11CD52A6619F42ED2CB884 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B9E3C4A311DFFB0A1E59BA51 /* Pods-Catalog.debug.xcconfig */,
+				27B9AD721DF696A33C5B4319 /* Pods-Catalog.api_coverage.xcconfig */,
+				3D5796E3C3190904A90CCE3B /* Pods-Catalog.release.xcconfig */,
+				E5B11581AADE8078A25E9705 /* Pods-ContentfulDeliveryAPI.debug.xcconfig */,
+				406F7FBDFC3FFFB16331D2CE /* Pods-ContentfulDeliveryAPI.api_coverage.xcconfig */,
+				D5BEAC226DE19AAD8F238D86 /* Pods-ContentfulDeliveryAPI.release.xcconfig */,
+				A6F95B27DAB09528D252DD11 /* Pods-ContentfulManagementAPI.debug.xcconfig */,
+				94188613F3D7E46F003C1C4E /* Pods-ContentfulManagementAPI.api_coverage.xcconfig */,
+				95576853B4228C56E62DADEF /* Pods-ContentfulManagementAPI.release.xcconfig */,
+				F460A5ACD69C8FC7305857C7 /* Pods-ContentfulSeedDatabase.debug.xcconfig */,
+				0FDB185CA19F102CEFFBA550 /* Pods-ContentfulSeedDatabase.api_coverage.xcconfig */,
+				039536B361F6E6AF5F78F26D /* Pods-ContentfulSeedDatabase.release.xcconfig */,
+				9603A78E6BBE3EB3069F02EF /* Pods-CoreDataExample.debug.xcconfig */,
+				F207CEAA122D3E45C749E374 /* Pods-CoreDataExample.api_coverage.xcconfig */,
+				0EB52DB2686E913862B54EC2 /* Pods-CoreDataExample.release.xcconfig */,
+				0B471384F2BB94FE13A6D918 /* Pods-DeliveryTests.debug.xcconfig */,
+				7EAF79CFBEF7458BAFF33EB5 /* Pods-DeliveryTests.api_coverage.xcconfig */,
+				0DE15B645AFC3DF798AA0E41 /* Pods-DeliveryTests.release.xcconfig */,
+				99E7FEF4726BC091BA9497BB /* Pods-ManagementTests.debug.xcconfig */,
+				4E83B426DA20CEF4C9FB0686 /* Pods-ManagementTests.api_coverage.xcconfig */,
+				889C3EA3840390E33FE74C66 /* Pods-ManagementTests.release.xcconfig */,
+				5AF75F74744CF837759C1EC3 /* Pods-SeedDatabaseExample.debug.xcconfig */,
+				28B7DF2A108D85283F68C150 /* Pods-SeedDatabaseExample.api_coverage.xcconfig */,
+				EDFF26A38621A1942F059BB7 /* Pods-SeedDatabaseExample.release.xcconfig */,
+				03572AA0C7231718395F2994 /* Pods-UFO Example.debug.xcconfig */,
+				AEF90F62A0C3518B01B2ABDD /* Pods-UFO Example.api_coverage.xcconfig */,
+				FD6E40E46B402E1FF0B2F509 /* Pods-UFO Example.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		ED01CA9B1EAAB8950041E21E /* Recordings */ = {
@@ -1757,51 +1836,51 @@
 		ED8FF5FB1EA5FF6C00798042 /* ManagementAPI */ = {
 			isa = PBXGroup;
 			children = (
-				ED8FF6A41EA605B700798042 /* CDAResource+Management.h */,
-				ED8FF6A51EA605B700798042 /* CDAResource+Management.m */,
-				ED8FF6A61EA605B700798042 /* CMAAccessToken.h */,
-				ED8FF6A71EA605B700798042 /* CMAAccessToken.m */,
-				ED8FF6A81EA605B700798042 /* CMAApiKey.h */,
-				ED8FF6A91EA605B700798042 /* CMAApiKey.m */,
-				ED8FF6AA1EA605B700798042 /* CMAArchiving.h */,
-				ED8FF6AB1EA605B700798042 /* CMAArray.h */,
-				ED8FF6AC1EA605B700798042 /* CMAArray.m */,
-				ED8FF6AD1EA605B700798042 /* CMAAsset.h */,
-				ED8FF6AE1EA605B700798042 /* CMAAsset.m */,
-				ED8FF6AF1EA605B700798042 /* CMAClient.h */,
-				ED8FF6B01EA605B700798042 /* CMAClient.m */,
-				ED8FF6B11EA605B700798042 /* CMAContentType.h */,
-				ED8FF6B21EA605B700798042 /* CMAContentType.m */,
-				ED8FF6B31EA605B700798042 /* CMAEditorInterface.h */,
-				ED8FF6B41EA605B700798042 /* CMAEditorInterface.m */,
-				ED8FF6B51EA605B700798042 /* CMAEntry.h */,
-				ED8FF6B61EA605B700798042 /* CMAEntry.m */,
-				ED8FF6B71EA605B800798042 /* CMAError.h */,
-				ED8FF6B81EA605B800798042 /* CMAError.m */,
-				ED8FF6B91EA605B800798042 /* CMAField.h */,
-				ED8FF6BA1EA605B800798042 /* CMAField.m */,
-				ED8FF6BB1EA605B800798042 /* CMALocale.h */,
-				ED8FF6BC1EA605B800798042 /* CMALocale.m */,
-				ED8FF6BD1EA605B800798042 /* CMAOrganization.h */,
-				ED8FF6BE1EA605B800798042 /* CMAOrganization.m */,
-				ED8FF6BF1EA605B800798042 /* CMAPublishing.h */,
-				ED8FF6C01EA605B800798042 /* CMAResource.h */,
-				ED8FF6C11EA605B800798042 /* CMARole.h */,
-				ED8FF6C21EA605B800798042 /* CMARole.m */,
-				ED8FF6C31EA605B800798042 /* CMASpace.h */,
-				ED8FF6C41EA605B800798042 /* CMASpace.m */,
-				ED8FF6C51EA605B800798042 /* CMASpace+Private.h */,
-				ED8FF6C61EA605B800798042 /* CMAUser.h */,
-				ED8FF6C71EA605B800798042 /* CMAUser.m */,
-				ED8FF6C81EA605B800798042 /* CMAUtilities.h */,
-				ED8FF6C91EA605B800798042 /* CMAUtilities.m */,
-				ED8FF6CA1EA605B800798042 /* CMAValidation.h */,
-				ED8FF6CB1EA605B800798042 /* CMAValidation.m */,
-				ED8FF6CC1EA605B800798042 /* CMAValidation+Private.h */,
-				ED8FF6CD1EA605B800798042 /* CMAWebhook.h */,
-				ED8FF6CE1EA605B800798042 /* CMAWebhook.m */,
-				ED8FF6CF1EA605B800798042 /* CMAWebhook+Private.h */,
-				ED8FF6D01EA605B800798042 /* ContentfulManagementAPI.h */,
+				EDFDCE651EC26F3E00978FC8 /* ContentfulManagementAPI.h */,
+				ED9446AE1EC5F5E800EA2077 /* CMARole.h */,
+				ED9446AF1EC5F5E800EA2077 /* CMAUser.h */,
+				EDFDCE581EC26F3E00978FC8 /* CMAClient.h */,
+				EDFDCE251EC26F3600978FC8 /* CMAClient.m */,
+				EDFDCE521EC26F3E00978FC8 /* CDAResource+Management.h */,
+				EDFDCE201EC26F3600978FC8 /* CDAResource+Management.m */,
+				EDFDCE531EC26F3E00978FC8 /* CMAAccessToken.h */,
+				EDFDCE211EC26F3600978FC8 /* CMAAccessToken.m */,
+				EDFDCE541EC26F3E00978FC8 /* CMAApiKey.h */,
+				EDFDCE221EC26F3600978FC8 /* CMAApiKey.m */,
+				EDFDCE551EC26F3E00978FC8 /* CMAArchiving.h */,
+				EDFDCE561EC26F3E00978FC8 /* CMAArray.h */,
+				EDFDCE231EC26F3600978FC8 /* CMAArray.m */,
+				EDFDCE571EC26F3E00978FC8 /* CMAAsset.h */,
+				EDFDCE241EC26F3600978FC8 /* CMAAsset.m */,
+				EDFDCE591EC26F3E00978FC8 /* CMAContentType.h */,
+				EDFDCE261EC26F3600978FC8 /* CMAContentType.m */,
+				ED9446AC1EC5F59700EA2077 /* CMAPublishing.h */,
+				EDFDCE5A1EC26F3E00978FC8 /* CMAEditorInterface.h */,
+				EDFDCE271EC26F3600978FC8 /* CMAEditorInterface.m */,
+				EDFDCE5B1EC26F3E00978FC8 /* CMAEntry.h */,
+				EDFDCE281EC26F3600978FC8 /* CMAEntry.m */,
+				EDFDCE5C1EC26F3E00978FC8 /* CMAError.h */,
+				EDFDCE291EC26F3600978FC8 /* CMAError.m */,
+				EDFDCE5D1EC26F3E00978FC8 /* CMAField.h */,
+				EDFDCE2A1EC26F3600978FC8 /* CMAField.m */,
+				EDFDCE5E1EC26F3E00978FC8 /* CMALocale.h */,
+				EDFDCE2B1EC26F3600978FC8 /* CMALocale.m */,
+				EDFDCE5F1EC26F3E00978FC8 /* CMAOrganization.h */,
+				EDFDCE2C1EC26F3600978FC8 /* CMAOrganization.m */,
+				EDFDCE601EC26F3E00978FC8 /* CMAResource.h */,
+				EDFDCE2F1EC26F3600978FC8 /* CMARole.m */,
+				EDFDCE611EC26F3E00978FC8 /* CMASpace.h */,
+				EDFDCE301EC26F3600978FC8 /* CMASpace.m */,
+				EDFDCE311EC26F3600978FC8 /* CMASpace+Private.h */,
+				EDFDCE331EC26F3600978FC8 /* CMAUser.m */,
+				EDFDCE621EC26F3E00978FC8 /* CMAUtilities.h */,
+				EDFDCE341EC26F3600978FC8 /* CMAUtilities.m */,
+				EDFDCE631EC26F3E00978FC8 /* CMAValidation.h */,
+				EDFDCE351EC26F3600978FC8 /* CMAValidation.m */,
+				EDFDCE361EC26F3600978FC8 /* CMAValidation+Private.h */,
+				EDFDCE641EC26F3E00978FC8 /* CMAWebhook.h */,
+				EDFDCE371EC26F3600978FC8 /* CMAWebhook.m */,
+				EDFDCE381EC26F3600978FC8 /* CMAWebhook+Private.h */,
 			);
 			path = ManagementAPI;
 			sourceTree = "<group>";
@@ -1843,7 +1922,6 @@
 				A1E9797618CBE93A00E79632 /* CDAResource+Private.h in Headers */,
 				A193EB6518D20FA90017B777 /* UIImageView+CDAAsset.h in Headers */,
 				A1E3D04718C8791200E4F488 /* CDAArray.h in Headers */,
-				A18919971BB1E4ED0094256E /* CDALocalizedPersistedEntry.h in Headers */,
 				A1DE35D8197D384700DE0904 /* CDARequestSerializer.h in Headers */,
 				A1F70C9D1900140D0080C72C /* CDAAsset+Private.h in Headers */,
 				A1E8391818CE2A7200B697F6 /* CDASpace.h in Headers */,
@@ -1851,23 +1929,31 @@
 				A160862518CDF2AC0047D44F /* CDARequest+Private.h in Headers */,
 				A1D4BDF31A4B735D008816F3 /* CDAError.h in Headers */,
 				ED1B1E6B1EB8B76300347DD7 /* CDAUtilities.h in Headers */,
+				ED0112741EC4B0D300C04340 /* CDAResponseSerializer.h in Headers */,
 				A1D2DC0418D076F50053DC83 /* CDAResourceTableViewCell.h in Headers */,
+				ED94466D1EC5E2A000EA2077 /* CDAContentTypeRegistry.h in Headers */,
+				ED0112761EC4B11300C04340 /* CDAError+Private.h in Headers */,
 				A1E3D04B18C8795500E4F488 /* CDAEntry.h in Headers */,
-				A17012F818FC20120086BE07 /* CDAPersistedSpace.h in Headers */,
 				A1ABC7BC191D12ED0020A964 /* CDAInputSanitizer.h in Headers */,
 				A173F58D18D752A9000E6F92 /* CDAImageViewController.h in Headers */,
+				5D2CF5CE1EC4CF37005AB239 /* CDAPersistedEntry.h in Headers */,
+				5D2CF5DC1EC4CF8A005AB239 /* CDAPersistenceManager.h in Headers */,
 				A193EB3E18D09AC10017B777 /* CDAResponse+Private.h in Headers */,
 				A12797AE18E1B10300043A44 /* CDASyncedSpace.h in Headers */,
-				A12085771BB2707300A6504B /* CDALocalizablePersistedEntry.h in Headers */,
+				5D2CF5DA1EC4CF8A005AB239 /* CDAPersistedSpace.h in Headers */,
 				A1E3D04C18C8797700E4F488 /* CDAResource.h in Headers */,
 				A1E8391618CE2A1800B697F6 /* CDAConfiguration.h in Headers */,
+				ED69D6381EC4BFD400969B56 /* CDAPersistedAsset.h in Headers */,
 				A1C1AC4318CE032200DBF0D0 /* CDAClient+Private.h in Headers */,
 				A193EB4718D0ACFE0017B777 /* CDAFieldCell.h in Headers */,
 				A1E43F0318CE1CF80060A89A /* CDAArray+Private.h in Headers */,
-				A170130718FD291E0086BE07 /* CDAPersistenceManager.h in Headers */,
 				ED1B1E681EB8B76300347DD7 /* CDAFallbackDictionary.h in Headers */,
+				ED0112731EC4B0B400C04340 /* CDAField+Private.h in Headers */,
+				ED0112751EC4B0D600C04340 /* CDASyncedSpace+Private.h in Headers */,
+				ED0112791EC4B13900C04340 /* CDAFieldsViewController+Private.h in Headers */,
 				A144FAF418C8C98400110B35 /* CDAContentType.h in Headers */,
 				A1E8391518CE29E700B697F6 /* CDAAsset.h in Headers */,
+				ED9446BA1EC5FCAB00EA2077 /* CDAOrganizationContainer.h in Headers */,
 				A173F59C18D9A2FD000E6F92 /* CDAResourceCell.h in Headers */,
 				A193EB3C18D096C50017B777 /* CDAResponse.h in Headers */,
 				ED1B1E6A1EB8B76300347DD7 /* CDANullabilityStubs.h in Headers */,
@@ -1876,15 +1962,17 @@
 				A1924C8D18EBFFB600C97F9D /* CDAResourcesViewController.h in Headers */,
 				A173F59518D9A269000E6F92 /* CDAResourcesCollectionViewController.h in Headers */,
 				A1B815CC18F5A8250027B26D /* CDAEntry+Private.h in Headers */,
+				5D2CF5D81EC4CF8A005AB239 /* CDALocalizedPersistedEntry.h in Headers */,
 				A1E9797B18CC683200E79632 /* CDAFieldValueTransformer.h in Headers */,
-				A17012F618FC1FF80086BE07 /* CDAPersistedAsset.h in Headers */,
 				A1924C9118EC0DF000C97F9D /* CDAMapViewController.h in Headers */,
 				A1D2DC0218D076F50053DC83 /* CDAEntriesViewController.h in Headers */,
 				A173F54E18D6FD03000E6F92 /* CDATextViewController.h in Headers */,
+				5D2CF5D61EC4CF8A005AB239 /* CDALocalizablePersistedEntry.h in Headers */,
 				A18AA81318E2D98200D430D5 /* CDADeletedEntry.h in Headers */,
 				A1E3D05A18C87D3B00E4F488 /* CDARequestOperationManager.h in Headers */,
-				A17012F418FC1FD90086BE07 /* CDAPersistedEntry.h in Headers */,
+				ED0112721EC4B0A400C04340 /* CDAConfiguration+Private.h in Headers */,
 				A160862218CDF0E60047D44F /* CDARequest.h in Headers */,
+				ED0112781EC4B12600C04340 /* CDASpace+Private.h in Headers */,
 				ED10258E1DFED8F500BD7ABE /* CDAClient.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1893,35 +1981,89 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED8FF6F01EA605D300798042 /* CMALocale.h in Headers */,
-				ED8FF6FC1EA605D900798042 /* CMAWebhook.h in Headers */,
-				ED8FF6F91EA605D300798042 /* CMAValidation.h in Headers */,
-				ED8FF6FA1EA605D300798042 /* ContentfulManagementAPI.h in Headers */,
-				ED8FF6FB1EA605D900798042 /* CMAValidation+Private.h in Headers */,
-				ED8FF6E71EA605D300798042 /* CMAArchiving.h in Headers */,
-				ED2133C21EA634A500C3CE94 /* CDAClient+Private.h in Headers */,
-				ED8FF6E91EA605D300798042 /* CMAAsset.h in Headers */,
-				ED8FF6E81EA605D300798042 /* CMAArray.h in Headers */,
-				ED8FF6F81EA605D300798042 /* CMAUtilities.h in Headers */,
-				ED8FF6EC1EA605D300798042 /* CMAEditorInterface.h in Headers */,
-				ED8FF6F61EA605D300798042 /* CMASpace+Private.h in Headers */,
-				ED1B1E6D1EB8C34600347DD7 /* CDANullabilityStubs.h in Headers */,
-				ED8FF6F31EA605D300798042 /* CMAResource.h in Headers */,
-				ED8FF6A21EA6050400798042 /* CDAArray+Private.h in Headers */,
-				ED8FF6F21EA605D300798042 /* CMAPublishing.h in Headers */,
-				ED8FF6E51EA605D300798042 /* CMAAccessToken.h in Headers */,
-				ED8FF6EB1EA605D300798042 /* CMAContentType.h in Headers */,
-				ED8FF6E61EA605D300798042 /* CMAApiKey.h in Headers */,
-				ED8FF6F71EA605D300798042 /* CMAUser.h in Headers */,
-				ED8FF6EE1EA605D300798042 /* CMAError.h in Headers */,
-				ED8FF6EA1EA605D300798042 /* CMAClient.h in Headers */,
-				ED8FF6EF1EA605D300798042 /* CMAField.h in Headers */,
-				ED8FF6F11EA605D300798042 /* CMAOrganization.h in Headers */,
-				ED8FF6F41EA605D300798042 /* CMARole.h in Headers */,
-				ED8FF6FD1EA605D900798042 /* CMAWebhook+Private.h in Headers */,
-				ED8FF6F51EA605D300798042 /* CMASpace.h in Headers */,
-				ED8FF6E41EA605D300798042 /* CDAResource+Management.h in Headers */,
-				ED8FF6ED1EA605D300798042 /* CMAEntry.h in Headers */,
+				ED9446681EC5E28400EA2077 /* CDAClient.h in Headers */,
+				EDFDCEA61EC26F8600978FC8 /* ContentfulManagementAPI.h in Headers */,
+				ED9446B01EC5F5E800EA2077 /* CMARole.h in Headers */,
+				ED94466A1EC5E29400EA2077 /* CDAConfiguration.h in Headers */,
+				ED94468B1EC5E33200EA2077 /* CDAResource.h in Headers */,
+				EDFDCE961EC26F8600978FC8 /* CMAResource.h in Headers */,
+				ED94467D1EC5E2E100EA2077 /* CDAPersistedSpace.h in Headers */,
+				ED9446A91EC5E3AD00EA2077 /* CDAFieldsViewController.h in Headers */,
+				EDFDCEA31EC26F8600978FC8 /* CMAWebhook.h in Headers */,
+				EDFDCE9E1EC26F8600978FC8 /* CMAUtilities.h in Headers */,
+				EDFDCE991EC26F8600978FC8 /* CMASpace.h in Headers */,
+				EDFDCE8B1EC26F8600978FC8 /* CMAEntry.h in Headers */,
+				EDFDCE7E1EC26F8600978FC8 /* CMAApiKey.h in Headers */,
+				EDFDCEA01EC26F8600978FC8 /* CMAValidation.h in Headers */,
+				EDFDCE931EC26F8600978FC8 /* CMAOrganization.h in Headers */,
+				ED9446A61EC5E39300EA2077 /* CDAResourcesViewController.h in Headers */,
+				ED9446BC1EC5FEED00EA2077 /* CMAWebhook+Private.h in Headers */,
+				ED9446B11EC5F5E800EA2077 /* CMAUser.h in Headers */,
+				ED94468C1EC5E33200EA2077 /* CDASpace.h in Headers */,
+				ED9446BB1EC5FCAB00EA2077 /* CDAOrganizationContainer.h in Headers */,
+				EDFDCE831EC26F8600978FC8 /* CMAAsset.h in Headers */,
+				EDFDCE891EC26F8600978FC8 /* CMAEditorInterface.h in Headers */,
+				EDFDCE7C1EC26F8600978FC8 /* CMAAccessToken.h in Headers */,
+				EDFDCE871EC26F8600978FC8 /* CMAContentType.h in Headers */,
+				ED94467A1EC5E2CA00EA2077 /* CDAResponse.h in Headers */,
+				ED9446861EC5E33200EA2077 /* CDAContentType.h in Headers */,
+				ED9446BD1EC5FEF400EA2077 /* CMAValidation+Private.h in Headers */,
+				EDFDCE8F1EC26F8600978FC8 /* CMAField.h in Headers */,
+				EDFDCE801EC26F8600978FC8 /* CMAArchiving.h in Headers */,
+				EDFDCE811EC26F8600978FC8 /* CMAArray.h in Headers */,
+				EDFDCE911EC26F8600978FC8 /* CMALocale.h in Headers */,
+				ED9446BF1EC5FF1F00EA2077 /* CDAResource+Management.h in Headers */,
+				EDFDCE851EC26F8600978FC8 /* CMAClient.h in Headers */,
+				EDFDCE8D1EC26F8600978FC8 /* CMAError.h in Headers */,
+				ED9446961EC5E36700EA2077 /* CDAEntriesViewController.h in Headers */,
+				ED9446A51EC5E38C00EA2077 /* UIImageView+CDAAsset.h in Headers */,
+				ED9446881EC5E33200EA2077 /* CDADeletedEntry.h in Headers */,
+				ED0112391EC4976A00C04340 /* CDAClient+Private.h in Headers */,
+				ED94467B1EC5E2D100EA2077 /* CDASyncedSpace.h in Headers */,
+				ED01123B1EC4976A00C04340 /* CDAConfiguration+Private.h in Headers */,
+				ED01123E1EC4976A00C04340 /* CDAField+Private.h in Headers */,
+				ED9446851EC5E33200EA2077 /* CDAAsset.h in Headers */,
+				ED9446791EC5E2C100EA2077 /* CDARequest.h in Headers */,
+				ED0112401EC4976A00C04340 /* CDAFieldValueTransformer.h in Headers */,
+				ED94468A1EC5E33200EA2077 /* CDAError.h in Headers */,
+				ED9446A81EC5E3A400EA2077 /* CDAMapViewController.h in Headers */,
+				ED0112411EC4976A00C04340 /* CDAInputSanitizer.h in Headers */,
+				ED94466F1EC5E2A700EA2077 /* CDAField.h in Headers */,
+				ED9446841EC5E33200EA2077 /* CDAArray.h in Headers */,
+				ED94467E1EC5E2E700EA2077 /* CDAPersistenceManager.h in Headers */,
+				ED0112421EC4976A00C04340 /* CDARequest+Private.h in Headers */,
+				ED9446811EC5E2F400EA2077 /* CDAPersistedAsset.h in Headers */,
+				ED0112441EC4976A00C04340 /* CDARequestOperationManager.h in Headers */,
+				ED0112451EC4976A00C04340 /* CDARequestSerializer.h in Headers */,
+				ED0112461EC4976A00C04340 /* CDAResponse+Private.h in Headers */,
+				ED9446A71EC5E39A00EA2077 /* CDAResourcesCollectionViewController.h in Headers */,
+				ED0112481EC4976A00C04340 /* CDAResponseSerializer.h in Headers */,
+				ED0112491EC4976A00C04340 /* CDASyncedSpace+Private.h in Headers */,
+				ED9446801EC5E2EF00EA2077 /* CDAPersistedEntry.h in Headers */,
+				ED0112511EC4976A00C04340 /* CDAArray+Private.h in Headers */,
+				ED0112531EC4976A00C04340 /* CDAAsset+Private.h in Headers */,
+				ED0112581EC4976A00C04340 /* CDAEntry+Private.h in Headers */,
+				ED94466E1EC5E2A100EA2077 /* CDAContentTypeRegistry.h in Headers */,
+				ED9446871EC5E33200EA2077 /* CDADeletedAsset.h in Headers */,
+				ED9446671EC5E27B00EA2077 /* ContentfulDeliveryAPI.h in Headers */,
+				ED01125A1EC4976A00C04340 /* CDAError+Private.h in Headers */,
+				ED9446BE1EC5FEFC00EA2077 /* CMASpace+Private.h in Headers */,
+				ED94467F1EC5E2EB00EA2077 /* CDALocalizedPersistedEntry.h in Headers */,
+				ED01125D1EC4976A00C04340 /* CDAResource+Private.h in Headers */,
+				ED01125F1EC4976A00C04340 /* CDASpace+Private.h in Headers */,
+				ED0112621EC4976A00C04340 /* CDAFieldCell.h in Headers */,
+				ED0112631EC4976A00C04340 /* CDAFieldsViewController+Private.h in Headers */,
+				ED0112651EC4976A00C04340 /* CDAImageViewController.h in Headers */,
+				ED9446AD1EC5F59700EA2077 /* CMAPublishing.h in Headers */,
+				ED0112661EC4976A00C04340 /* CDALocationViewController.h in Headers */,
+				ED0112681EC4976A00C04340 /* CDAResourceCell.h in Headers */,
+				ED01126B1EC4976A00C04340 /* CDAResourceTableViewCell.h in Headers */,
+				ED9446891EC5E33200EA2077 /* CDAEntry.h in Headers */,
+				ED94467C1EC5E2DC00EA2077 /* CDALocalizablePersistedEntry.h in Headers */,
+				ED01126C1EC4976A00C04340 /* CDATextViewController.h in Headers */,
+				ED01126E1EC4976A00C04340 /* CDAFallbackDictionary.h in Headers */,
+				ED01126F1EC4976A00C04340 /* CDANullabilityStubs.h in Headers */,
+				ED0112701EC4976A00C04340 /* CDAUtilities.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1932,12 +2074,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A173F57C18D705B2000E6F92 /* Build configuration list for PBXNativeTarget "Catalog" */;
 			buildPhases = (
-				8E6394A970602EC5795B03BD /* [CP] Check Pods Manifest.lock */,
+				A2ECF289F8064F93EBA66545 /* [CP] Check Pods Manifest.lock */,
 				A173F55418D705B2000E6F92 /* Sources */,
 				A173F55518D705B2000E6F92 /* Frameworks */,
 				A173F55618D705B2000E6F92 /* Resources */,
-				DBD8F2BA2652BA5DA061EDF3 /* [CP] Embed Pods Frameworks */,
-				580750421E905E00C7CDE054 /* [CP] Copy Pods Resources */,
+				ACE068C0315FA4CE261676F6 /* [CP] Embed Pods Frameworks */,
+				A240D3B89408E6401BFA3114 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1952,14 +2094,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A19FD88818C631E60081677E /* Build configuration list for PBXNativeTarget "ContentfulDeliveryAPI" */;
 			buildPhases = (
-				A0321CD016122937FFD316CA /* [CP] Check Pods Manifest.lock */,
+				98BD0746F4504B7345813108 /* [CP] Check Pods Manifest.lock */,
 				A19FD86318C631E60081677E /* Sources */,
 				A19FD86418C631E60081677E /* Frameworks */,
 				A19FD86518C631E60081677E /* CopyFiles */,
 				A1A0314D18C721BB006470B7 /* List TODOs and FIXMEs */,
 				A1E3CFF118C8649300E4F488 /* Headers */,
 				A1E3CFF318C8651D00E4F488 /* Prepare Framework */,
-				5EB4105D1E99B8F46E1342CA /* [CP] Copy Pods Resources */,
+				261D442A9A819EC1BCE5EE97 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1974,12 +2116,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A19FD88B18C631E60081677E /* Build configuration list for PBXNativeTarget "DeliveryTests" */;
 			buildPhases = (
-				D55CBD517A5BDF37CE478B8B /* [CP] Check Pods Manifest.lock */,
+				D17F925FA3DD28A67723A0F3 /* [CP] Check Pods Manifest.lock */,
 				A19FD87318C631E60081677E /* Sources */,
 				A19FD87418C631E60081677E /* Frameworks */,
 				A19FD87518C631E60081677E /* Resources */,
-				B7656B11FA3F65C73B8A2592 /* [CP] Embed Pods Frameworks */,
-				3A9295006231B59950BCADC3 /* [CP] Copy Pods Resources */,
+				C0D9A087B1918BAE9CE8EFF6 /* [CP] Embed Pods Frameworks */,
+				C0FF8ECADA0301FD9DBF567C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1995,12 +2137,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A19FD8BC18C637400081677E /* Build configuration list for PBXNativeTarget "UFO Example" */;
 			buildPhases = (
-				53487CFD033C438C24997766 /* [CP] Check Pods Manifest.lock */,
+				5B8DECCF4AC3FBA3BA798E49 /* [CP] Check Pods Manifest.lock */,
 				A19FD89318C637400081677E /* Sources */,
 				A19FD89418C637400081677E /* Frameworks */,
 				A19FD89518C637400081677E /* Resources */,
-				AA85B36DCB71EB63B2B954D9 /* [CP] Embed Pods Frameworks */,
-				9E6F40E7CBF80E045D6AA9E8 /* [CP] Copy Pods Resources */,
+				9B0AF745E83018F21B93A393 /* [CP] Embed Pods Frameworks */,
+				9CE669CA29D78080BDB4FF0C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2015,11 +2157,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A1A2CE52190963BA00B8D46D /* Build configuration list for PBXNativeTarget "ContentfulSeedDatabase" */;
 			buildPhases = (
-				D0D498615A8A7E7BDFFE9322 /* [CP] Check Pods Manifest.lock */,
+				C71155CDD9BEFA5AF7EB2530 /* [CP] Check Pods Manifest.lock */,
 				A1A2CE43190963BA00B8D46D /* Sources */,
 				A1A2CE44190963BA00B8D46D /* Frameworks */,
 				A1A2CE45190963BA00B8D46D /* CopyFiles */,
-				F68713D4538F1D8950D9D5D6 /* [CP] Copy Pods Resources */,
+				7F7FA5601D3B27ABC91A4B75 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2034,13 +2176,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A1A2CE8E190A547D00B8D46D /* Build configuration list for PBXNativeTarget "SeedDatabaseExample" */;
 			buildPhases = (
-				113593955BC7A92424F583EE /* [CP] Check Pods Manifest.lock */,
+				DC78C855D39C4A99335D4F7F /* [CP] Check Pods Manifest.lock */,
 				A1A2CE66190A547C00B8D46D /* Sources */,
 				A1A2CE67190A547C00B8D46D /* Frameworks */,
 				A1A2CE68190A547C00B8D46D /* Resources */,
 				A1A2CEAA190A831700B8D46D /* Copy Initial Seed Data */,
-				DD934BE076BAF9229897DF4F /* [CP] Embed Pods Frameworks */,
-				526BAFC8C6DA552A668CC430 /* [CP] Copy Pods Resources */,
+				3051F5763453E694D017FD7D /* [CP] Embed Pods Frameworks */,
+				09993651DEBB14EF28E7746F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2056,12 +2198,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A1B815B118F2A80A0027B26D /* Build configuration list for PBXNativeTarget "CoreDataExample" */;
 			buildPhases = (
-				1F87FF5FF0517322DEB0DE0F /* [CP] Check Pods Manifest.lock */,
+				243DDB9FBF87667DDDFDC44F /* [CP] Check Pods Manifest.lock */,
 				A1B8157F18F2A8090027B26D /* Sources */,
 				A1B8158018F2A8090027B26D /* Frameworks */,
 				A1B8158118F2A8090027B26D /* Resources */,
-				AEC4A404504BCC02BD0A0AED /* [CP] Embed Pods Frameworks */,
-				525BA81D6295E4266549AD95 /* [CP] Copy Pods Resources */,
+				D1AEE634DC52F459D2D9FA86 /* [CP] Embed Pods Frameworks */,
+				0DAD661672445386DF1F1482 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2076,17 +2218,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ED2133A21EA6172C00C3CE94 /* Build configuration list for PBXNativeTarget "ManagementTests" */;
 			buildPhases = (
-				3E747896A30C465D8D8407DB /* [CP] Check Pods Manifest.lock */,
+				A7EEE98211E386EC11DA5EA3 /* [CP] Check Pods Manifest.lock */,
 				ED2133961EA6172C00C3CE94 /* Sources */,
 				ED2133971EA6172C00C3CE94 /* Frameworks */,
 				ED2133981EA6172C00C3CE94 /* Resources */,
-				63FC63564907D7BCC66CB9DD /* [CP] Embed Pods Frameworks */,
-				5204E3635AF64C4EE48CEDCF /* [CP] Copy Pods Resources */,
+				4FA3058CD4277FB6A1627765 /* [CP] Embed Pods Frameworks */,
+				B976075FD94E992115870085 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				ED2133A11EA6172C00C3CE94 /* PBXTargetDependency */,
+				EDF255671EC2764600CE543C /* PBXTargetDependency */,
 			);
 			name = ManagementTests;
 			productName = ManagementTests;
@@ -2097,17 +2239,16 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ED8FF6031EA5FF6D00798042 /* Build configuration list for PBXNativeTarget "ContentfulManagementAPI" */;
 			buildPhases = (
-				693DF0133A7488AD387686BA /* [CP] Check Pods Manifest.lock */,
+				6B775CE61F4ECF2AD7342842 /* [CP] Check Pods Manifest.lock */,
 				ED8FF5F61EA5FF6C00798042 /* Sources */,
 				ED8FF5F71EA5FF6C00798042 /* Frameworks */,
 				ED8FF5F81EA5FF6C00798042 /* CopyFiles */,
 				ED8FF6461EA5FFF600798042 /* Headers */,
-				F259A9162A4B439F99149B5B /* [CP] Copy Pods Resources */,
+				21E042FEDD95C64370EDA027 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				ED76DC181EC251D1002D146B /* PBXTargetDependency */,
 			);
 			name = ContentfulManagementAPI;
 			productName = ManagementSDK;
@@ -2328,97 +2469,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		113593955BC7A92424F583EE /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		1F87FF5FF0517322DEB0DE0F /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		3A9295006231B59950BCADC3 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DeliveryTests/Pods-DeliveryTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3E747896A30C465D8D8407DB /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		5204E3635AF64C4EE48CEDCF /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ManagementTests/Pods-ManagementTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		525BA81D6295E4266549AD95 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoreDataExample/Pods-CoreDataExample-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		526BAFC8C6DA552A668CC430 /* [CP] Copy Pods Resources */ = {
+		09993651DEBB14EF28E7746F /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2433,22 +2484,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SeedDatabaseExample/Pods-SeedDatabaseExample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		53487CFD033C438C24997766 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		580750421E905E00C7CDE054 /* [CP] Copy Pods Resources */ = {
+		0DAD661672445386DF1F1482 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2460,10 +2496,40 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Catalog/Pods-Catalog-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoreDataExample/Pods-CoreDataExample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5EB4105D1E99B8F46E1342CA /* [CP] Copy Pods Resources */ = {
+		21E042FEDD95C64370EDA027 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ContentfulManagementAPI/Pods-ContentfulManagementAPI-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		243DDB9FBF87667DDDFDC44F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		261D442A9A819EC1BCE5EE97 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2478,7 +2544,22 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ContentfulDeliveryAPI/Pods-ContentfulDeliveryAPI-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		63FC63564907D7BCC66CB9DD /* [CP] Embed Pods Frameworks */ = {
+		3051F5763453E694D017FD7D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SeedDatabaseExample/Pods-SeedDatabaseExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4FA3058CD4277FB6A1627765 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2493,7 +2574,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ManagementTests/Pods-ManagementTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		693DF0133A7488AD387686BA /* [CP] Check Pods Manifest.lock */ = {
+		5B8DECCF4AC3FBA3BA798E49 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2505,10 +2586,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		8E6394A970602EC5795B03BD /* [CP] Check Pods Manifest.lock */ = {
+		6B775CE61F4ECF2AD7342842 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2520,10 +2601,55 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		9E6F40E7CBF80E045D6AA9E8 /* [CP] Copy Pods Resources */ = {
+		7F7FA5601D3B27ABC91A4B75 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ContentfulSeedDatabase/Pods-ContentfulSeedDatabase-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		98BD0746F4504B7345813108 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9B0AF745E83018F21B93A393 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UFO Example/Pods-UFO Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9CE669CA29D78080BDB4FF0C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2536,21 +2662,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UFO Example/Pods-UFO Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A0321CD016122937FFD316CA /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		A1A0314D18C721BB006470B7 /* List TODOs and FIXMEs */ = {
@@ -2595,52 +2706,22 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nmkdir -p \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/Versions/A/Headers\"\n\n# Link the \"Current\" version to \"A\"\n/bin/ln -sfh A \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/Versions/Current\"\n/bin/ln -sfh Versions/Current/Headers \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/Headers\"\n/bin/ln -sfh \"Versions/Current/${PRODUCT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/${PRODUCT_NAME}\"\n\n# The -a ensures that the headers maintain the source modification date so that we don't constantly\n# cause propagating rebuilds of files that import these headers.\n/bin/cp -a \"${TARGET_BUILD_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}/\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/Versions/A/Headers\"";
 		};
-		AA85B36DCB71EB63B2B954D9 /* [CP] Embed Pods Frameworks */ = {
+		A240D3B89408E6401BFA3114 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UFO Example/Pods-UFO Example-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Catalog/Pods-Catalog-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AEC4A404504BCC02BD0A0AED /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoreDataExample/Pods-CoreDataExample-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B7656B11FA3F65C73B8A2592 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DeliveryTests/Pods-DeliveryTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D0D498615A8A7E7BDFFE9322 /* [CP] Check Pods Manifest.lock */ = {
+		A2ECF289F8064F93EBA66545 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2652,10 +2733,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		D55CBD517A5BDF37CE478B8B /* [CP] Check Pods Manifest.lock */ = {
+		A7EEE98211E386EC11DA5EA3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2667,10 +2748,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		DBD8F2BA2652BA5DA061EDF3 /* [CP] Embed Pods Frameworks */ = {
+		ACE068C0315FA4CE261676F6 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2685,7 +2766,22 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Catalog/Pods-Catalog-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DD934BE076BAF9229897DF4F /* [CP] Embed Pods Frameworks */ = {
+		B976075FD94E992115870085 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ManagementTests/Pods-ManagementTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C0D9A087B1918BAE9CE8EFF6 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2697,10 +2793,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SeedDatabaseExample/Pods-SeedDatabaseExample-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DeliveryTests/Pods-DeliveryTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F259A9162A4B439F99149B5B /* [CP] Copy Pods Resources */ = {
+		C0FF8ECADA0301FD9DBF567C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2712,22 +2808,67 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ContentfulManagementAPI/Pods-ContentfulManagementAPI-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DeliveryTests/Pods-DeliveryTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F68713D4538F1D8950D9D5D6 /* [CP] Copy Pods Resources */ = {
+		C71155CDD9BEFA5AF7EB2530 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "[CP] Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ContentfulSeedDatabase/Pods-ContentfulSeedDatabase-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D17F925FA3DD28A67723A0F3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D1AEE634DC52F459D2D9FA86 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoreDataExample/Pods-CoreDataExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC78C855D39C4A99335D4F7F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -2763,7 +2904,6 @@
 				A1D2DC0518D076F50053DC83 /* CDAResourceTableViewCell.m in Sources */,
 				A1E9797C18CC683200E79632 /* CDAFieldValueTransformer.m in Sources */,
 				A18AA81418E2D98200D430D5 /* CDADeletedEntry.m in Sources */,
-				A170130818FD291E0086BE07 /* CDAPersistenceManager.m in Sources */,
 				A173F55318D700B8000E6F92 /* CDALocationViewController.m in Sources */,
 				A1A0314818C6708C006470B7 /* CDAField.m in Sources */,
 				A1D2DC0318D076F50053DC83 /* CDAEntriesViewController.m in Sources */,
@@ -2783,9 +2923,10 @@
 				A1924C8E18EBFFB600C97F9D /* CDAResourcesViewController.m in Sources */,
 				A1A0313518C6449F006470B7 /* CDAArray.m in Sources */,
 				A173F59618D9A269000E6F92 /* CDAResourcesCollectionViewController.m in Sources */,
-				A12085781BB2707300A6504B /* CDALocalizablePersistedEntry.m in Sources */,
 				A193EB6618D20FA90017B777 /* UIImageView+CDAAsset.m in Sources */,
+				5D2CF5E01EC4CF8A005AB239 /* CDAPersistenceManager.m in Sources */,
 				A1DE35D9197D384700DE0904 /* CDARequestSerializer.m in Sources */,
+				5D2CF5DE1EC4CF8A005AB239 /* CDALocalizablePersistedEntry.m in Sources */,
 				ED1B1E6C1EB8B76300347DD7 /* CDAUtilities.m in Sources */,
 				A1A0315918C76D38006470B7 /* CDAAsset.m in Sources */,
 				A1A0312C18C64187006470B7 /* CDAEntry.m in Sources */,
@@ -2938,25 +3079,62 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED8FF7061EA605E300798042 /* CMAEntry.m in Sources */,
-				ED8FF7051EA605E300798042 /* CMAEditorInterface.m in Sources */,
-				ED8FF70C1EA605E300798042 /* CMASpace.m in Sources */,
-				ED8FF7071EA605E300798042 /* CMAError.m in Sources */,
-				ED8FF70D1EA605E300798042 /* CMAUser.m in Sources */,
-				ED8FF7091EA605E300798042 /* CMALocale.m in Sources */,
-				ED8FF7101EA605E300798042 /* CMAWebhook.m in Sources */,
-				ED8FF6FE1EA605E300798042 /* CDAResource+Management.m in Sources */,
-				ED8FF70B1EA605E300798042 /* CMARole.m in Sources */,
-				ED8FF70E1EA605E300798042 /* CMAUtilities.m in Sources */,
-				ED8FF7011EA605E300798042 /* CMAArray.m in Sources */,
-				ED8FF70F1EA605E300798042 /* CMAValidation.m in Sources */,
-				ED8FF7021EA605E300798042 /* CMAAsset.m in Sources */,
-				ED8FF7041EA605E300798042 /* CMAContentType.m in Sources */,
-				ED8FF70A1EA605E300798042 /* CMAOrganization.m in Sources */,
-				ED8FF7001EA605E300798042 /* CMAApiKey.m in Sources */,
-				ED8FF7031EA605E300798042 /* CMAClient.m in Sources */,
-				ED8FF7081EA605E300798042 /* CMAField.m in Sources */,
-				ED8FF6FF1EA605E300798042 /* CMAAccessToken.m in Sources */,
+				ED9446A01EC5E37900EA2077 /* CDAResourceTableViewCell.m in Sources */,
+				EDFDCE8C1EC26F8600978FC8 /* CMAEntry.m in Sources */,
+				ED94469E1EC5E37900EA2077 /* CDAResourcesCollectionViewController.m in Sources */,
+				EDFDCE8A1EC26F8600978FC8 /* CMAEditorInterface.m in Sources */,
+				EDFDCE9A1EC26F8600978FC8 /* CMASpace.m in Sources */,
+				ED9446A31EC5E38100EA2077 /* CDAFallbackDictionary.m in Sources */,
+				ED9446921EC5E34A00EA2077 /* CDAEntry.m in Sources */,
+				ED9446831EC5E2FF00EA2077 /* CDALocalizablePersistedEntry.m in Sources */,
+				ED9446951EC5E34A00EA2077 /* CDASpace.m in Sources */,
+				ED94469C1EC5E37900EA2077 /* CDAMapViewController.m in Sources */,
+				ED94468E1EC5E34100EA2077 /* CDAAsset.m in Sources */,
+				ED9446941EC5E34A00EA2077 /* CDAResource.m in Sources */,
+				ED94466C1EC5E29E00EA2077 /* CDAContentTypeRegistry.m in Sources */,
+				ED9446A41EC5E38100EA2077 /* CDAUtilities.m in Sources */,
+				EDFDCE8E1EC26F8600978FC8 /* CMAError.m in Sources */,
+				ED9446991EC5E37900EA2077 /* CDAFieldsViewController.m in Sources */,
+				EDFDCE9D1EC26F8600978FC8 /* CMAUser.m in Sources */,
+				EDFDCE921EC26F8600978FC8 /* CMALocale.m in Sources */,
+				EDFDCEA41EC26F8600978FC8 /* CMAWebhook.m in Sources */,
+				ED9446731EC5E2BC00EA2077 /* CDARequest.m in Sources */,
+				EDFDCE7B1EC26F8600978FC8 /* CDAResource+Management.m in Sources */,
+				ED94469D1EC5E37900EA2077 /* CDAResourceCell.m in Sources */,
+				EDFDCE981EC26F8600978FC8 /* CMARole.m in Sources */,
+				ED9446691EC5E28800EA2077 /* CDAClient.m in Sources */,
+				ED9446751EC5E2BC00EA2077 /* CDARequestSerializer.m in Sources */,
+				EDFDCE9F1EC26F8600978FC8 /* CMAUtilities.m in Sources */,
+				ED9446721EC5E2BC00EA2077 /* CDAInputSanitizer.m in Sources */,
+				ED9446761EC5E2BC00EA2077 /* CDAResponse.m in Sources */,
+				EDFDCE821EC26F8600978FC8 /* CMAArray.m in Sources */,
+				ED94469F1EC5E37900EA2077 /* CDAResourcesViewController.m in Sources */,
+				ED9446A21EC5E37900EA2077 /* UIImageView+CDAAsset.m in Sources */,
+				EDFDCEA11EC26F8600978FC8 /* CMAValidation.m in Sources */,
+				EDFDCE841EC26F8600978FC8 /* CMAAsset.m in Sources */,
+				EDFDCE881EC26F8600978FC8 /* CMAContentType.m in Sources */,
+				EDFDCE941EC26F8600978FC8 /* CMAOrganization.m in Sources */,
+				ED9446711EC5E2AE00EA2077 /* CDAFieldValueTransformer.m in Sources */,
+				ED9446901EC5E34A00EA2077 /* CDADeletedAsset.m in Sources */,
+				ED94468F1EC5E34A00EA2077 /* CDAContentType.m in Sources */,
+				ED9446981EC5E37900EA2077 /* CDAFieldCell.m in Sources */,
+				ED94466B1EC5E29800EA2077 /* CDAConfiguration.m in Sources */,
+				ED9446781EC5E2BC00EA2077 /* CDASyncedSpace.m in Sources */,
+				EDFDCE7F1EC26F8600978FC8 /* CMAApiKey.m in Sources */,
+				EDFDCE861EC26F8600978FC8 /* CMAClient.m in Sources */,
+				ED9446821EC5E2FB00EA2077 /* CDAPersistenceManager.m in Sources */,
+				ED94468D1EC5E34100EA2077 /* CDAArray.m in Sources */,
+				ED9446771EC5E2BC00EA2077 /* CDAResponseSerializer.m in Sources */,
+				ED9446A11EC5E37900EA2077 /* CDATextViewController.m in Sources */,
+				ED9446971EC5E37900EA2077 /* CDAEntriesViewController.m in Sources */,
+				EDFDCE901EC26F8600978FC8 /* CMAField.m in Sources */,
+				ED94469B1EC5E37900EA2077 /* CDALocationViewController.m in Sources */,
+				EDFDCE7D1EC26F8600978FC8 /* CMAAccessToken.m in Sources */,
+				ED9446911EC5E34A00EA2077 /* CDADeletedEntry.m in Sources */,
+				ED9446741EC5E2BC00EA2077 /* CDARequestOperationManager.m in Sources */,
+				ED9446701EC5E2AB00EA2077 /* CDAField.m in Sources */,
+				ED9446931EC5E34A00EA2077 /* CDAError.m in Sources */,
+				ED94469A1EC5E37900EA2077 /* CDAImageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2968,27 +3146,22 @@
 			target = A1A2CE46190963BA00B8D46D /* ContentfulSeedDatabase */;
 			targetProxy = A1A2CEAB190A844900B8D46D /* PBXContainerItemProxy */;
 		};
-		ED2133A11EA6172C00C3CE94 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = ED8FF5F91EA5FF6C00798042 /* ContentfulManagementAPI */;
-			targetProxy = ED2133A01EA6172C00C3CE94 /* PBXContainerItemProxy */;
-		};
 		ED31CEE81E534EB5007C8E48 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A19FD86618C631E60081677E /* ContentfulDeliveryAPI */;
 			targetProxy = ED31CEE71E534EB5007C8E48 /* PBXContainerItemProxy */;
 		};
-		ED76DC181EC251D1002D146B /* PBXTargetDependency */ = {
+		EDF255671EC2764600CE543C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A19FD86618C631E60081677E /* ContentfulDeliveryAPI */;
-			targetProxy = ED76DC171EC251D1002D146B /* PBXContainerItemProxy */;
+			target = ED8FF5F91EA5FF6C00798042 /* ContentfulManagementAPI */;
+			targetProxy = EDF255661EC2764600CE543C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		A173F57D18D705B2000E6F92 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C15649696790419708274A2C /* Pods-Catalog.debug.xcconfig */;
+			baseConfigurationReference = B9E3C4A311DFFB0A1E59BA51 /* Pods-Catalog.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -3039,7 +3212,7 @@
 		};
 		A173F57E18D705B2000E6F92 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89171B47C9F2ACF4A8D491E4 /* Pods-Catalog.release.xcconfig */;
+			baseConfigurationReference = 3D5796E3C3190904A90CCE3B /* Pods-Catalog.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -3154,7 +3327,7 @@
 		};
 		A19FD88918C631E60081677E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 88994C26A2DE4C1E155E658A /* Pods-ContentfulDeliveryAPI.debug.xcconfig */;
+			baseConfigurationReference = E5B11581AADE8078A25E9705 /* Pods-ContentfulDeliveryAPI.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -3193,12 +3366,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/**",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/AFNetworking",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"$(inherited)",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "$(PROJECT_NAME)Headers";
 				SDKROOT = iphoneos;
@@ -3210,7 +3382,7 @@
 		};
 		A19FD88A18C631E60081677E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8E594069FCC7062680DBA50A /* Pods-ContentfulDeliveryAPI.release.xcconfig */;
+			baseConfigurationReference = D5BEAC226DE19AAD8F238D86 /* Pods-ContentfulDeliveryAPI.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -3243,11 +3415,10 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/**",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/AFNetworking",
 				);
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"$(inherited)",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "$(PROJECT_NAME)Headers";
 				SDKROOT = iphoneos;
@@ -3260,7 +3431,7 @@
 		};
 		A19FD88C18C631E60081677E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 47407AE22FDC35D5DFB4AD0F /* Pods-DeliveryTests.debug.xcconfig */;
+			baseConfigurationReference = 0B471384F2BB94FE13A6D918 /* Pods-DeliveryTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				APPLICATION_EXTENSION_API_ONLY = NO;
@@ -3307,9 +3478,15 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/build/**",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/ContentfulDeliveryAPI",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/AFNetworking",
 				);
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"ContentfulDeliveryAPI\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.contentful.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -3322,7 +3499,7 @@
 		};
 		A19FD88D18C631E60081677E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 24A55A4365A51BFD5DACFCC2 /* Pods-DeliveryTests.release.xcconfig */;
+			baseConfigurationReference = 0DE15B645AFC3DF798AA0E41 /* Pods-DeliveryTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				APPLICATION_EXTENSION_API_ONLY = NO;
@@ -3361,7 +3538,13 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/build/**",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/ContentfulDeliveryAPI",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/AFNetworking",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"ContentfulDeliveryAPI\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.contentful.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3376,7 +3559,7 @@
 		};
 		A19FD8BD18C637400081677E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B8179D441831368CEB0EDCE /* Pods-UFO Example.debug.xcconfig */;
+			baseConfigurationReference = 03572AA0C7231718395F2994 /* Pods-UFO Example.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -3430,7 +3613,7 @@
 		};
 		A19FD8BE18C637400081677E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E54247F67C3138F1E620B906 /* Pods-UFO Example.release.xcconfig */;
+			baseConfigurationReference = FD6E40E46B402E1FF0B2F509 /* Pods-UFO Example.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -3478,7 +3661,7 @@
 		};
 		A1A2CE50190963BA00B8D46D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6863B44E53AF3571A3C423D2 /* Pods-ContentfulSeedDatabase.debug.xcconfig */;
+			baseConfigurationReference = F460A5ACD69C8FC7305857C7 /* Pods-ContentfulSeedDatabase.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -3520,7 +3703,7 @@
 		};
 		A1A2CE51190963BA00B8D46D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 95480CC56AC9CD6BCF7104B2 /* Pods-ContentfulSeedDatabase.release.xcconfig */;
+			baseConfigurationReference = 039536B361F6E6AF5F78F26D /* Pods-ContentfulSeedDatabase.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -3556,7 +3739,7 @@
 		};
 		A1A2CE8F190A547D00B8D46D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8479D9BB4E57A8D791C3E68D /* Pods-SeedDatabaseExample.debug.xcconfig */;
+			baseConfigurationReference = 5AF75F74744CF837759C1EC3 /* Pods-SeedDatabaseExample.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -3607,7 +3790,7 @@
 		};
 		A1A2CE90190A547D00B8D46D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 55A7CDD1129B1E4C6F89DFD7 /* Pods-SeedDatabaseExample.release.xcconfig */;
+			baseConfigurationReference = EDFF26A38621A1942F059BB7 /* Pods-SeedDatabaseExample.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -3652,7 +3835,7 @@
 		};
 		A1B815AD18F2A80A0027B26D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0B510B458AB0AFD13B62E92A /* Pods-CoreDataExample.debug.xcconfig */;
+			baseConfigurationReference = 9603A78E6BBE3EB3069F02EF /* Pods-CoreDataExample.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -3703,7 +3886,7 @@
 		};
 		A1B815AE18F2A80A0027B26D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BAA4D5BC0FD7957E5B716074 /* Pods-CoreDataExample.release.xcconfig */;
+			baseConfigurationReference = 0EB52DB2686E913862B54EC2 /* Pods-CoreDataExample.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -3748,7 +3931,7 @@
 		};
 		ED2133A31EA6172C00C3CE94 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6045A615E633B441E22A4D30 /* Pods-ManagementTests.debug.xcconfig */;
+			baseConfigurationReference = 99E7FEF4726BC091BA9497BB /* Pods-ManagementTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
@@ -3781,12 +3964,14 @@
 				INFOPLIST_FILE = ManagementTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/**",
-					"$(PROJECT_DIR)/build/Debug-iphoneos",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"ContentfulManagementAPI\"",
+				);
+				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.contentful.ManagementTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -3796,7 +3981,7 @@
 		};
 		ED2133A41EA6172C00C3CE94 /* API_Coverage */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1684DA05440B2141B04DB3EC /* Pods-ManagementTests.api_coverage.xcconfig */;
+			baseConfigurationReference = 4E83B426DA20CEF4C9FB0686 /* Pods-ManagementTests.api_coverage.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
@@ -3826,10 +4011,15 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/build/**",
-					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/AFNetworking",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"ContentfulManagementAPI\"",
+				);
+				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.contentful.ManagementTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -3840,7 +4030,7 @@
 		};
 		ED2133A51EA6172C00C3CE94 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 189AABEAC6026507C048D3EF /* Pods-ManagementTests.release.xcconfig */;
+			baseConfigurationReference = 889C3EA3840390E33FE74C66 /* Pods-ManagementTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
@@ -3870,10 +4060,15 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/build/**",
-					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/AFNetworking",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"ContentfulManagementAPI\"",
+				);
+				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.contentful.ManagementTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -3921,7 +4116,7 @@
 		};
 		ED4AD4AB1E5C69BC0049B8D4 /* API_Coverage */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BAE5073EF26D010C3B942AAE /* Pods-Catalog.api_coverage.xcconfig */;
+			baseConfigurationReference = 27B9AD721DF696A33C5B4319 /* Pods-Catalog.api_coverage.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -3972,7 +4167,7 @@
 		};
 		ED4AD4AC1E5C69BC0049B8D4 /* API_Coverage */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 665AAB7A3158ED2A3DB0DA0F /* Pods-DeliveryTests.api_coverage.xcconfig */;
+			baseConfigurationReference = 7EAF79CFBEF7458BAFF33EB5 /* Pods-DeliveryTests.api_coverage.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				APPLICATION_EXTENSION_API_ONLY = NO;
@@ -4019,9 +4214,15 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/build/**",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/ContentfulDeliveryAPI",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/AFNetworking",
 				);
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"ContentfulDeliveryAPI\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.contentful.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -4034,7 +4235,7 @@
 		};
 		ED4AD4AD1E5C69BC0049B8D4 /* API_Coverage */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A1DA5822AA6AA266020796B8 /* Pods-ContentfulDeliveryAPI.api_coverage.xcconfig */;
+			baseConfigurationReference = 406F7FBDFC3FFFB16331D2CE /* Pods-ContentfulDeliveryAPI.api_coverage.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -4073,12 +4274,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/**",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/AFNetworking",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"$(inherited)",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "$(PROJECT_NAME)Headers";
 				SDKROOT = iphoneos;
@@ -4090,7 +4290,7 @@
 		};
 		ED4AD4AE1E5C69BC0049B8D4 /* API_Coverage */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A70B02855BBED88A89FC6D6A /* Pods-ContentfulSeedDatabase.api_coverage.xcconfig */;
+			baseConfigurationReference = 0FDB185CA19F102CEFFBA550 /* Pods-ContentfulSeedDatabase.api_coverage.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -4132,7 +4332,7 @@
 		};
 		ED4AD4AF1E5C69BC0049B8D4 /* API_Coverage */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2F2F8E41682B382FA4966640 /* Pods-CoreDataExample.api_coverage.xcconfig */;
+			baseConfigurationReference = F207CEAA122D3E45C749E374 /* Pods-CoreDataExample.api_coverage.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -4183,7 +4383,7 @@
 		};
 		ED4AD4B01E5C69BC0049B8D4 /* API_Coverage */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C9060A03DFE9443327436AB0 /* Pods-SeedDatabaseExample.api_coverage.xcconfig */;
+			baseConfigurationReference = 28B7DF2A108D85283F68C150 /* Pods-SeedDatabaseExample.api_coverage.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -4234,7 +4434,7 @@
 		};
 		ED4AD4B11E5C69BC0049B8D4 /* API_Coverage */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3DBFD4DCDE17283F418EC188 /* Pods-UFO Example.api_coverage.xcconfig */;
+			baseConfigurationReference = AEF90F62A0C3518B01B2ABDD /* Pods-UFO Example.api_coverage.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -4288,7 +4488,7 @@
 		};
 		ED8FF6001EA5FF6D00798042 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C19FCCDC1E7AF541E1D65691 /* Pods-ContentfulManagementAPI.debug.xcconfig */;
+			baseConfigurationReference = A6F95B27DAB09528D252DD11 /* Pods-ContentfulManagementAPI.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -4314,16 +4514,32 @@
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				HEADER_SEARCH_PATHS = (
+					"\"${SRCROOT}/ContentfulDeliveryAPI/\"",
+					"\"${SRCROOT}/ContentfulDeliveryAPI/Resources/\"",
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/CCLRequestReplay\"",
+					"\"${PODS_ROOT}/Headers/Public/Expecta\"",
+					"\"${PODS_ROOT}/Headers/Public/FBSnapshotTestCase\"",
+					"\"${PODS_ROOT}/Headers/Public/ISO8601\"",
+					"\"${PODS_ROOT}/Headers/Public/Keys\"",
+					"\"${PODS_ROOT}/Headers/Public/OCMock\"",
+					"\"${PODS_ROOT}/Headers/Public/PDKTCollectionViewWaterfallLayout\"",
+					"\"${PODS_ROOT}/Headers/Public/Realm\"",
+					"\"${PODS_ROOT}/Headers/Public/Specta\"",
+					"\"${PODS_ROOT}/Headers/Public/VCRURLConnection\"",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/**",
 				);
 				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-ObjC",
-				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -4332,7 +4548,7 @@
 		};
 		ED8FF6011EA5FF6D00798042 /* API_Coverage */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 19560D03FCA2B4E169F0B0BF /* Pods-ContentfulManagementAPI.api_coverage.xcconfig */;
+			baseConfigurationReference = 94188613F3D7E46F003C1C4E /* Pods-ContentfulManagementAPI.api_coverage.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -4353,16 +4569,32 @@
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				HEADER_SEARCH_PATHS = (
+					"\"${SRCROOT}/ContentfulDeliveryAPI/\"",
+					"\"${SRCROOT}/ContentfulDeliveryAPI/Resources/\"",
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/CCLRequestReplay\"",
+					"\"${PODS_ROOT}/Headers/Public/Expecta\"",
+					"\"${PODS_ROOT}/Headers/Public/FBSnapshotTestCase\"",
+					"\"${PODS_ROOT}/Headers/Public/ISO8601\"",
+					"\"${PODS_ROOT}/Headers/Public/Keys\"",
+					"\"${PODS_ROOT}/Headers/Public/OCMock\"",
+					"\"${PODS_ROOT}/Headers/Public/PDKTCollectionViewWaterfallLayout\"",
+					"\"${PODS_ROOT}/Headers/Public/Realm\"",
+					"\"${PODS_ROOT}/Headers/Public/Specta\"",
+					"\"${PODS_ROOT}/Headers/Public/VCRURLConnection\"",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/**",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-ObjC",
-				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -4372,7 +4604,7 @@
 		};
 		ED8FF6021EA5FF6D00798042 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D61BA2334416CEE42ED6538E /* Pods-ContentfulManagementAPI.release.xcconfig */;
+			baseConfigurationReference = 95576853B4228C56E62DADEF /* Pods-ContentfulManagementAPI.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -4393,16 +4625,32 @@
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				HEADER_SEARCH_PATHS = (
+					"\"${SRCROOT}/ContentfulDeliveryAPI/\"",
+					"\"${SRCROOT}/ContentfulDeliveryAPI/Resources/\"",
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/CCLRequestReplay\"",
+					"\"${PODS_ROOT}/Headers/Public/Expecta\"",
+					"\"${PODS_ROOT}/Headers/Public/FBSnapshotTestCase\"",
+					"\"${PODS_ROOT}/Headers/Public/ISO8601\"",
+					"\"${PODS_ROOT}/Headers/Public/Keys\"",
+					"\"${PODS_ROOT}/Headers/Public/OCMock\"",
+					"\"${PODS_ROOT}/Headers/Public/PDKTCollectionViewWaterfallLayout\"",
+					"\"${PODS_ROOT}/Headers/Public/Realm\"",
+					"\"${PODS_ROOT}/Headers/Public/Specta\"",
+					"\"${PODS_ROOT}/Headers/Public/VCRURLConnection\"",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/**",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-ObjC",
-				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
