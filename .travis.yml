@@ -17,6 +17,7 @@ install:
 - bundle exec pod install
 script:
 - "./scripts/travis-build-test.sh"
+- "./scripts/travis-lint.sh"
 notifications:
   slack:
   - secure: pbLVGeA+577zmld+ie/1KUWxin8PFB+uXogz1zrVhEqnparjbHNMvFfaAGG1gbaAJC0skGksCe+LeBrhLargbLSgAT3HrObwDCIu7H8IjaYOEhpNTHCObrwRIyOeBVHHAhjgjeElM7hvptJjRMuERErcnL65EOlaIdm4ZqOg3/0=
