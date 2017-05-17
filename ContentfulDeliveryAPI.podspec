@@ -1,8 +1,10 @@
 #!/usr/bin/ruby
 
+require 'dotenv/load'
+
 Pod::Spec.new do |s|
   s.name             = "ContentfulDeliveryAPI"
-  s.version          = "2.0.1"
+  s.version          = ENV['DELIVERY_SDK_VERSION']
   s.summary          = "Objective-C SDK for Contentful's Content Delivery API."
   s.homepage         = "https://github.com/contentful/contentful.objc/"
   s.social_media_url = 'https://twitter.com/contentful'

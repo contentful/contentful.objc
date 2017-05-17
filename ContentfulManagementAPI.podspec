@@ -1,9 +1,11 @@
 #!/usr/bin/ruby
 
+require 'dotenv/load'
+
 Pod::Spec.new do |spec|
 
   spec.name             = "ContentfulManagementAPI"
-  spec.version          = "0.10.0"
+  spec.version          = ENV['MANAGEMENT_SDK_VERSION']
   spec.summary          = "Objective-C SDK for Contentful's Content Management API."
   spec.homepage         = "https://github.com/contentful/contentful.objc"
   spec.authors          = { "Boris Bügling" => "boris@buegling.com", "JP Wright" => "jp@contentful.com" }
