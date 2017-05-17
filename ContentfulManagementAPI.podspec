@@ -6,7 +6,7 @@ Pod::Spec.new do |spec|
   spec.version          = "0.10.0"
   spec.summary          = "Objective-C SDK for Contentful's Content Management API."
   spec.homepage         = "https://github.com/contentful/contentful-management.objc"
-  spec.author           = { "Boris Bügling" => "boris@buegling.com" }
+  spec.authors          = { "Boris Bügling" => "boris@buegling.com", "JP Wright" => "jp@contentful.com" }
   spec.source           = { :git => "https://github.com/contentful/contentful-management.objc.git",
                             :tag => spec.version.to_s }
   spec.social_media_url = 'https://twitter.com/contentful'

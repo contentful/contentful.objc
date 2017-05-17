@@ -136,7 +136,7 @@
         configuration.secure = YES;
 
         // Use the default server if the configuration has not been changed by the user
-        if ([configuration.server isEqualToString:(NSString*)CDA_DEFAULT_SERVER]) {
+        if ([configuration.server isEqualToString:[CDA_DEFAULT_SERVER copy]]) {
             configuration.server = @"api.contentful.com";
         }
 
