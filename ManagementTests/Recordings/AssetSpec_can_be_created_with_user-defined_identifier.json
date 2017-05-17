@@ -1,0 +1,59 @@
+[
+  {
+    "body" : "ewogICJmaWVsZHMiOiB7CiAgICAidGl0bGUiOiB7CiAgICAgICJlbi1VUyI6ICJNeSBBc3NldCIKICAgIH0KICB9LAogICJzeXMiOiB7CiAgICAiaWQiOiAiZm9vIiwKICAgICJ0eXBlIjogIkFzc2V0IiwKICAgICJ2ZXJzaW9uIjogMSwKICAgICJjcmVhdGVkQXQiOiAiMjAxNy0wNC0yMVQyMToxNjozNC45NDRaIiwKICAgICJjcmVhdGVkQnkiOiB7CiAgICAgICJzeXMiOiB7CiAgICAgICAgInR5cGUiOiAiTGluayIsCiAgICAgICAgImxpbmtUeXBlIjogIlVzZXIiLAogICAgICAgICJpZCI6ICIxYTlyVXJiM0FqRHFUeFVHT1l4QkRlIgogICAgICB9CiAgICB9LAogICAgInNwYWNlIjogewogICAgICAic3lzIjogewogICAgICAgICJ0eXBlIjogIkxpbmsiLAogICAgICAgICJsaW5rVHlwZSI6ICJTcGFjZSIsCiAgICAgICAgImlkIjogImh2amtmYnpjd3JmbiIKICAgICAgfQogICAgfSwKICAgICJ1cGRhdGVkQXQiOiAiMjAxNy0wNC0yMVQyMToxNjozNC45NDRaIiwKICAgICJ1cGRhdGVkQnkiOiB7CiAgICAgICJzeXMiOiB7CiAgICAgICAgInR5cGUiOiAiTGluayIsCiAgICAgICAgImxpbmtUeXBlIjogIlVzZXIiLAogICAgICAgICJpZCI6ICIxYTlyVXJiM0FqRHFUeFVHT1l4QkRlIgogICAgICB9CiAgICB9CiAgfQp9Cg==",
+    "headers" : {
+      "X-Contentful-RateLimit-Hour-Limit" : "36000",
+      "X-Contentful-RateLimit-Second-Limit" : "10",
+      "Access-Control-Allow-Headers" : "Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent",
+      "Access-Control-Expose-Headers" : "Etag",
+      "X-Content-Type-Options" : "nosniff",
+      "Connection" : "keep-alive",
+      "Access-Control-Allow-Methods" : "DELETE,GET,HEAD,POST,PUT,OPTIONS",
+      "X-Iinfo" : "8-115237829-115237851 SNNN RT(1492809389652 4560) q(0 0 0 -1) r(1 1) U5",
+      "X-Contentful-RateLimit-Second-Remaining" : "7",
+      "Date" : "Fri, 21 Apr 2017 21:16:34 GMT",
+      "Content-Type" : "application\/vnd.contentful.management.v1+json",
+      "Access-Control-Allow-Origin" : "*",
+      "X-CDN" : "Incapsula",
+      "Access-Control-Max-Age" : "1728000",
+      "Strict-Transport-Security" : "max-age=15768000",
+      "X-Contentful-Request-Id" : "ffd63305dfb5250b85085344e9ac3d45",
+      "Etag" : "\"cc23b67a0378d3b0cacbbe7cd145483a\"",
+      "Server" : "Contentful",
+      "X-Contentful-RateLimit-Reset" : "0",
+      "X-Contentful-RateLimit-Hour-Remaining" : "35939",
+      "Content-Length" : "637",
+      "CF-Space-Id" : "hvjkfbzcwrfn"
+    },
+    "method" : "PUT",
+    "status" : 201,
+    "uri" : "https:\/\/api.contentful.com\/spaces\/hvjkfbzcwrfn\/assets\/foo"
+  },
+  {
+    "headers" : {
+      "X-Contentful-RateLimit-Hour-Limit" : "36000",
+      "X-Contentful-RateLimit-Second-Limit" : "10",
+      "Access-Control-Allow-Headers" : "Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent",
+      "Access-Control-Expose-Headers" : "Etag",
+      "X-Content-Type-Options" : "nosniff",
+      "Connection" : "keep-alive",
+      "Access-Control-Allow-Methods" : "DELETE,GET,HEAD,POST,PUT,OPTIONS",
+      "X-Iinfo" : "8-115237829-115237851 SNNN RT(1492809389652 5780) q(0 0 0 -1) r(3 3) U5",
+      "X-Contentful-RateLimit-Second-Remaining" : "9",
+      "Date" : "Fri, 21 Apr 2017 21:16:36 GMT",
+      "Content-Type" : "application\/vnd.contentful.management.v1+json",
+      "Access-Control-Allow-Origin" : "*",
+      "X-CDN" : "Incapsula",
+      "Access-Control-Max-Age" : "1728000",
+      "Strict-Transport-Security" : "max-age=15768000",
+      "X-Contentful-Request-Id" : "cf4f891dcdf16eaf9f8e382b91bf3ead",
+      "Server" : "Contentful",
+      "X-Contentful-RateLimit-Reset" : "0",
+      "X-Contentful-RateLimit-Hour-Remaining" : "35938",
+      "CF-Space-Id" : "hvjkfbzcwrfn"
+    },
+    "method" : "DELETE",
+    "status" : 204,
+    "uri" : "https:\/\/api.contentful.com\/spaces\/hvjkfbzcwrfn\/assets\/foo"
+  }
+]

@@ -1,0 +1,33 @@
+[
+  {
+    "body" : "ewogICJmaWVsZHMiOiB7CiAgICAibG9jYXRpb24iOiB7CiAgICAgICJlbi1VUyI6IHsKICAgICAgICAibG9uIjogNTAsCiAgICAgICAgImxhdCI6IDQwCiAgICAgIH0KICAgIH0KICB9LAogICJzeXMiOiB7CiAgICAiaWQiOiAiOHhkMzRCaHFXNDA0Mk9pWTQ4YWMyIiwKICAgICJ0eXBlIjogIkVudHJ5IiwKICAgICJ2ZXJzaW9uIjogMSwKICAgICJjcmVhdGVkQXQiOiAiMjAxNy0wNC0yMlQwMDoxOTowMy43MzZaIiwKICAgICJjcmVhdGVkQnkiOiB7CiAgICAgICJzeXMiOiB7CiAgICAgICAgInR5cGUiOiAiTGluayIsCiAgICAgICAgImxpbmtUeXBlIjogIlVzZXIiLAogICAgICAgICJpZCI6ICIxYTlyVXJiM0FqRHFUeFVHT1l4QkRlIgogICAgICB9CiAgICB9LAogICAgInNwYWNlIjogewogICAgICAic3lzIjogewogICAgICAgICJ0eXBlIjogIkxpbmsiLAogICAgICAgICJsaW5rVHlwZSI6ICJTcGFjZSIsCiAgICAgICAgImlkIjogImh2amtmYnpjd3JmbiIKICAgICAgfQogICAgfSwKICAgICJjb250ZW50VHlwZSI6IHsKICAgICAgInN5cyI6IHsKICAgICAgICAidHlwZSI6ICJMaW5rIiwKICAgICAgICAibGlua1R5cGUiOiAiQ29udGVudFR5cGUiLAogICAgICAgICJpZCI6ICI2RnhxaFJlVFBVdVlBWVc4Z3FPd1MiCiAgICAgIH0KICAgIH0sCiAgICAidXBkYXRlZEF0IjogIjIwMTctMDQtMjJUMDA6MTk6MDMuNzM2WiIsCiAgICAidXBkYXRlZEJ5IjogewogICAgICAic3lzIjogewogICAgICAgICJ0eXBlIjogIkxpbmsiLAogICAgICAgICJsaW5rVHlwZSI6ICJVc2VyIiwKICAgICAgICAiaWQiOiAiMWE5clVyYjNBakRxVHhVR09ZeEJEZSIKICAgICAgfQogICAgfQogIH0KfQo=",
+    "headers" : {
+      "Content-Encoding" : "gzip",
+      "Access-Control-Allow-Methods" : "DELETE,GET,HEAD,POST,PUT,OPTIONS",
+      "Server" : "Contentful",
+      "Strict-Transport-Security" : "max-age=15768000",
+      "CF-Space-Id" : "hvjkfbzcwrfn",
+      "X-CDN" : "Incapsula",
+      "X-Contentful-RateLimit-Hour-Limit" : "36000",
+      "Access-Control-Allow-Origin" : "*",
+      "X-Contentful-Request-Id" : "21e92545e99e9fd8d348f58441d1b41f",
+      "X-Contentful-RateLimit-Reset" : "0",
+      "X-Contentful-RateLimit-Hour-Remaining" : "35858",
+      "Access-Control-Allow-Headers" : "Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent",
+      "X-Contentful-RateLimit-Second-Limit" : "10",
+      "Date" : "Sat, 22 Apr 2017 00:19:03 GMT",
+      "Connection" : "keep-alive",
+      "X-Iinfo" : "3-82378922-82378927 SNNN RT(1492820267873 75120) q(0 0 0 -1) r(2 2) U5",
+      "X-Contentful-RateLimit-Second-Remaining" : "7",
+      "Access-Control-Expose-Headers" : "Etag",
+      "Transfer-Encoding" : "Identity",
+      "Access-Control-Max-Age" : "1728000",
+      "Content-Type" : "application\/vnd.contentful.management.v1+json",
+      "Etag" : "\"03a8bea2d95bfb2fff36a3be43b2bba8\"",
+      "X-Content-Type-Options" : "nosniff"
+    },
+    "method" : "POST",
+    "status" : 201,
+    "uri" : "https:\/\/api.contentful.com\/spaces\/hvjkfbzcwrfn\/entries"
+  }
+]

@@ -26,7 +26,7 @@ really_clean: clean
 clean_simulators: kill_simulator
 	xcrun simctl erase all
 
-all: test example-static
+all: test example_static
 
 pod:
 	bundle exec pod install
@@ -41,11 +41,11 @@ example:
 		-scheme 'UFO Example' \
 		-sdk iphonesimulator -destination 'id=$(SIM_ID)'| xcpretty -c
 
-example-static: static-lib
+example_static: static_lib
 	cd Examples/UFO; set -o pipefail && xcodebuild clean build \
 		-sdk iphonesimulator -destination 'id=$(SIM_ID)'| xcpretty -c
 
-static-lib:
+static_lib:
 	bundle exec pod repo update >/dev/null
 	bundle exec pod package ContentfulDeliveryAPI.podspec
 
@@ -57,9 +57,17 @@ static-lib:
 kill_simulator:
 	killall "Simulator" || true
 
-test: clean_simulators really_clean
-	set -x -o pipefail && xcodebuild test -workspace $(WORKSPACE) \
+cda_test: clean_simulators really_clean
+	set -x -o pipefail && xcodebuild -jobs `sysctl -n hw.ncpu` test -workspace $(WORKSPACE) \
 		-scheme 'ContentfulDeliveryAPI' -sdk iphonesimulator \
+		-destination 'platform=iOS Simulator,name=iPhone 6s,OS=10.3'| xcpretty -c 
+	kill_simulator	
+	bundle exec pod lib coverage
+
+
+cma_test:
+	set -x -o pipefail && xcodebuild -jobs `sysctl -n hw.ncpu` test -workspace $(WORKSPACE) \
+		-scheme 'ContentfulManagementAPI' -sdk iphonesimulator \
 		-destination 'platform=iOS Simulator,name=iPhone 6s,OS=10.3'| xcpretty -c 
 	kill_simulator	
 	bundle exec pod lib coverage
@@ -78,4 +86,5 @@ lint:
 
 docs:
 	./scripts/reference-docs.sh
+
 

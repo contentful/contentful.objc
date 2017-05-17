@@ -7,7 +7,6 @@
 //
 
 #import "CDAAsset.h"
-#import "CDAPersistedAsset.h"
 
 @interface CDAAsset ()
 

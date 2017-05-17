@@ -33,7 +33,6 @@ extern void __gcov_flush();
 
 @interface ContentfulBaseTestCase ()
 
-@property (nonatomic) NSString* cassetteBaseName;
 @property (nonatomic) CCLRequestReplayManager* requestReplayManager;
 @property (nonatomic) FBSnapshotTestController* snapshotTestController;
 
@@ -48,7 +47,7 @@ extern void __gcov_flush();
 
 #ifdef API_COVERAGE
     // Integration test configuration. Run tests against proxy server instead and record API coverage.
-    
+
     Method m = class_getInstanceMethod(CDAConfiguration.class, @selector(server));
     IMP returnsTestHost = imp_implementationWithBlock(^{
         return @"127.0.0.1:5000";
@@ -62,7 +61,6 @@ extern void __gcov_flush();
     method_setImplementation(m, returnsFalse);
 #endif
 
-    self.cassetteBaseName = NSStringFromClass([self class]);
     self.client = [CDAClient new];
 
     self.requestReplayManager = [CCLRequestReplayManager new];
@@ -87,41 +85,18 @@ extern void __gcov_flush();
     self.requestReplayManager = nil;
 }
 
-+ (NSArray *)testInvocations
-{
-    if (self == [ContentfulBaseTestCase class]) {
-        return nil;
-    }
-    
-    NSMutableArray *testInvocations = [NSMutableArray arrayWithArray:[super testInvocations]];
-    
-    if ([self instancesRespondToSelector:@selector(beforeAll)]) {
-        NSInvocation *beforeAll = [NSInvocation invocationWithMethodSignature:SIG(self, @selector(beforeAll))];
-        beforeAll.selector = @selector(beforeAll);
-        [testInvocations insertObject:beforeAll atIndex:0];
-    }
-    
-    if ([self instancesRespondToSelector:@selector(afterAll)]) {
-        NSInvocation *afterAll = [NSInvocation invocationWithMethodSignature:SIG(self, @selector(afterAll))];
-        afterAll.selector = @selector(afterAll);
-        [testInvocations addObject:afterAll];
-    }
-    
-    return testInvocations;
-}
+#pragma mark - Before and After all tests in class
 
-#pragma mark -
-
-- (void)beforeAll
-{
++ (void)setUp {
+    [super setUp];
     [VCR loadCassetteWithContentsOfURL:[[NSBundle bundleForClass:[self class]]
-                                        URLForResource:self.cassetteBaseName withExtension:@"json"]];
+                                        URLForResource:NSStringFromClass(self) withExtension:@"json"]];
     [VCR start];
 }
 
-- (void)afterAll
-{
-    [VCR save:[NSString stringWithFormat:@"/tmp/%@.json", self.cassetteBaseName]];
++ (void)tearDown {
+    [super tearDown];
+    [VCR save:[NSString stringWithFormat:@"/tmp/%@.json", NSStringFromClass(self)]];
     [VCR stop];
 
 #ifndef __IPHONE_9_0
@@ -178,12 +153,12 @@ extern void __gcov_flush();
     UIImage* referenceImage = [self.snapshotTestController referenceImageForSelector:testSelector
                                                                           identifier:nil
                                                                                error:&error];
-    
+
     if (!referenceImage) {
         self.snapshotTestController.recordMode = YES;
         XCTFail(@"No reference image found.");
     }
-    
+
     XCTAssert([self.snapshotTestController compareSnapshotOfView:view
                                                         selector:testSelector
                                                       identifier:nil
@@ -197,7 +172,7 @@ extern void __gcov_flush();
     NSDictionary* spaceJSON = [NSJSONSerialization JSONObjectWithData:spaceData options:0 error:nil];
     CDASpace* space = [[CDASpace alloc] initWithDictionary:spaceJSON client:self.client localizationAvailable:NO];
     [self.client setSpace:space];
-    
+
     NSDictionary* ct = @{
                          @"name": @"My trolls",
                          @"fields": @[
@@ -214,10 +189,10 @@ extern void __gcov_flush();
                                  ],
                          @"sys": @{ @"id": @"trolololo" },
                          };
-    
+
     CDAContentType* contentType = [[CDAContentType alloc] initWithDictionary:ct client:self.client localizationAvailable:NO];
     XCTAssertEqual(9U, contentType.fields.count, @"");
-    
+
     NSDictionary* entry = @{
                             @"fields": fields,
                             @"sys": @{
@@ -239,7 +214,7 @@ extern void __gcov_flush();
  protocols manually to the session used by CDAClient
  */
 - (void)setUpCCLRequestReplayForNSURLSession {
-     
+
     NSURLSessionConfiguration* config = self.client.requestOperationManager.session.configuration;
 
     NSMutableArray* protocolClasses = [config.protocolClasses mutableCopy];
@@ -262,7 +237,7 @@ extern void __gcov_flush();
                                     return [request.URL.absoluteString isEqualToString:urlString];
                                 }];
     }];
-    
+
     CCLRequestJSONRecording* recording = [[CCLRequestJSONRecording alloc]
                                           initWithBundledJSONNamed:nil
                                           inDirectory:directoryName

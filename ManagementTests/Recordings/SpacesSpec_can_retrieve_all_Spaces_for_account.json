@@ -1,0 +1,31 @@
+[
+  {
+    "body" : "ewogICJ0b3RhbCI6MSwKICAibGltaXQiOjEwMCwKICAic2tpcCI6MCwKICAic3lzIjp7CiAgICAidHlwZSI6IkFycmF5IgogIH0sCiAgIml0ZW1zIjpbCiAgICB7CiAgICAgICJuYW1lIjoiT2JqLUMgQ01BIFRlc3QiLAogICAgICAic3lzIjp7CiAgICAgICAgInR5cGUiOiJTcGFjZSIsCiAgICAgICAgImlkIjoiaHZqa2ZiemN3cmZuIiwKICAgICAgICAidmVyc2lvbiI6NTIzLAogICAgICAgICJjcmVhdGVkQnkiOnsKICAgICAgICAgICJzeXMiOnsKICAgICAgICAgICAgInR5cGUiOiJMaW5rIiwKICAgICAgICAgICAgImxpbmtUeXBlIjoiVXNlciIsCiAgICAgICAgICAgICJpZCI6IjRGTHJVSGZ0SFczdjJCTGk5ZnpmalUiCiAgICAgICAgICB9CiAgICAgICAgfSwKICAgICAgICAiY3JlYXRlZEF0IjoiMjAxNC0wNy0zMVQxMzoxOTo1OVoiLAogICAgICAgICJ1cGRhdGVkQnkiOnsKICAgICAgICAgICJzeXMiOnsKICAgICAgICAgICAgInR5cGUiOiJMaW5rIiwKICAgICAgICAgICAgImxpbmtUeXBlIjoiVXNlciIsCiAgICAgICAgICAgICJpZCI6IjFhOXJVcmIzQWpEcVR4VUdPWXhCRGUiCiAgICAgICAgICB9CiAgICAgICAgfSwKICAgICAgICAidXBkYXRlZEF0IjoiMjAxNy0wNS0wOFQxMjozMzozN1oiCiAgICAgIH0KICAgIH0KICBdCn0KCg==",
+    "headers" : {
+      "Content-Encoding" : "gzip",
+      "Access-Control-Allow-Methods" : "DELETE,GET,HEAD,POST,PUT,OPTIONS",
+      "Server" : "Contentful",
+      "Cache-Control" : "max-age=0",
+      "Strict-Transport-Security" : "max-age=15768000",
+      "Accept-Ranges" : "bytes",
+      "X-CDN" : "Incapsula",
+      "Access-Control-Allow-Origin" : "*",
+      "X-Contentful-Request-Id" : "f50ee4233726edb36d84f2fdaa11bc7c",
+      "Access-Control-Allow-Headers" : "Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent",
+      "X-XSS-Protection" : "1; mode=block",
+      "Date" : "Mon, 08 May 2017 12:33:41 GMT",
+      "Connection" : "keep-alive",
+      "X-Iinfo" : "7-3712941-3703735 SNNN RT(1494246814954 5528) q(0 0 0 -1) r(2 2) U5",
+      "Access-Control-Expose-Headers" : "Etag",
+      "Transfer-Encoding" : "Identity",
+      "X-Frame-Options" : "ALLOWALL",
+      "Access-Control-Max-Age" : "1728000",
+      "Content-Type" : "application\/vnd.contentful.management.v1+json",
+      "Etag" : "W\/\"877e3ada18d33e00b9c072e06a7238d8\"",
+      "X-Content-Type-Options" : "nosniff"
+    },
+    "method" : "GET",
+    "status" : 200,
+    "uri" : "https:\/\/api.contentful.com\/spaces?limit=100"
+  }
+]

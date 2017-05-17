@@ -1,0 +1,60 @@
+[
+  {
+    "body" : "ewogICJmaXJzdE5hbWUiOiJFY29zeXN0ZW0iLAogICJsYXN0TmFtZSI6IlRlYW0iLAogICJhdmF0YXJVcmwiOiJodHRwczovL3d3dy5ncmF2YXRhci5jb20vYXZhdGFyLzgwNzA3MDA4NWE5Mzg3MzAwNGYyNGUwOTYzNDY3ODM1P3M9NTAmZD1odHRwcyUzQSUyRiUyRnN0YXRpYy5jb250ZW50ZnVsLmNvbSUyRmdhdGVrZWVwZXIlMkZ1c2VycyUyRmRlZmF1bHQtNDM3ODMyMDVhMzY5NTVjNzIzYWNmZTBhMzJiY2Y3MmVlYmU3MDljYWMyMDY3MjQ5YmM4MDM4NWI3OGNjYzcwZC5wbmciLAogICJlbWFpbCI6ImNpZGV2ZG9jcytzZGstdGVzdHNAY29udGVudGZ1bC5jb20iLAogICJhY3RpdmF0ZWQiOnRydWUsCiAgInNpZ25JbkNvdW50IjozLAogICJjb25maXJtZWQiOnRydWUsCiAgInN5cyI6ewogICAgInR5cGUiOiJVc2VyIiwKICAgICJpZCI6IjFhOXJVcmIzQWpEcVR4VUdPWXhCRGUiLAogICAgInZlcnNpb24iOjgsCiAgICAiY3JlYXRlZEF0IjoiMjAxNy0wNC0xOVQxMjoxNzo1OFoiLAogICAgInVwZGF0ZWRBdCI6IjIwMTctMDQtMjJUMDA6MTY6NDJaIgogIH0KfQoK",
+    "headers" : {
+      "Transfer-Encoding" : "Identity",
+      "Access-Control-Allow-Headers" : "Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent",
+      "Access-Control-Expose-Headers" : "Etag",
+      "X-Content-Type-Options" : "nosniff",
+      "X-XSS-Protection" : "1; mode=block",
+      "Cache-Control" : "max-age=0",
+      "Connection" : "keep-alive",
+      "Access-Control-Allow-Methods" : "DELETE,GET,HEAD,POST,PUT,OPTIONS",
+      "X-Iinfo" : "3-82378922-82378927 SNNN RT(1492820267873 99653) q(0 0 0 -1) r(1 1) U5",
+      "Content-Type" : "application\/vnd.contentful.management.v1+json",
+      "Date" : "Sat, 22 Apr 2017 00:19:28 GMT",
+      "Content-Encoding" : "gzip",
+      "Access-Control-Allow-Origin" : "*",
+      "Accept-Ranges" : "bytes",
+      "X-CDN" : "Incapsula",
+      "Strict-Transport-Security" : "max-age=15768000",
+      "X-Contentful-Request-Id" : "109f90007dbe006269a3e552e1763cbb",
+      "Access-Control-Max-Age" : "1728000",
+      "Etag" : "W\/\"567e38c5ded523554dd9687d549fc42f\"",
+      "Server" : "Contentful",
+      "X-Frame-Options" : "ALLOWALL"
+    },
+    "method" : "GET",
+    "status" : 200,
+    "uri" : "https:\/\/api.contentful.com\/user"
+  },
+  {
+    "body" : "ewogICJmaXJzdE5hbWUiOiJFY29zeXN0ZW0iLAogICJsYXN0TmFtZSI6IlRlYW0iLAogICJhdmF0YXJVcmwiOiJodHRwczovL3d3dy5ncmF2YXRhci5jb20vYXZhdGFyLzgwNzA3MDA4NWE5Mzg3MzAwNGYyNGUwOTYzNDY3ODM1P3M9NTAmZD1odHRwcyUzQSUyRiUyRnN0YXRpYy5jb250ZW50ZnVsLmNvbSUyRmdhdGVrZWVwZXIlMkZ1c2VycyUyRmRlZmF1bHQtNDM3ODMyMDVhMzY5NTVjNzIzYWNmZTBhMzJiY2Y3MmVlYmU3MDljYWMyMDY3MjQ5YmM4MDM4NWI3OGNjYzcwZC5wbmciLAogICJlbWFpbCI6ImNpZGV2ZG9jcytzZGstdGVzdHNAY29udGVudGZ1bC5jb20iLAogICJhY3RpdmF0ZWQiOnRydWUsCiAgInNpZ25JbkNvdW50Ijo1LAogICJjb25maXJtZWQiOnRydWUsCiAgInN5cyI6ewogICAgInR5cGUiOiJVc2VyIiwKICAgICJpZCI6IjFhOXJVcmIzQWpEcVR4VUdPWXhCRGUiLAogICAgInZlcnNpb24iOjEwLAogICAgImNyZWF0ZWRBdCI6IjIwMTctMDQtMTlUMTI6MTc6NThaIiwKICAgICJ1cGRhdGVkQXQiOiIyMDE3LTA1LTA4VDEyOjIxOjA5WiIKICB9Cn0KCg==",
+    "headers" : {
+      "Content-Encoding" : "gzip",
+      "Access-Control-Allow-Methods" : "DELETE,GET,HEAD,POST,PUT,OPTIONS",
+      "Server" : "Contentful",
+      "Cache-Control" : "max-age=0",
+      "Strict-Transport-Security" : "max-age=15768000",
+      "Accept-Ranges" : "bytes",
+      "X-CDN" : "Incapsula",
+      "Access-Control-Allow-Origin" : "*",
+      "X-Contentful-Request-Id" : "f678f63489dcec77469d77e8a78341d0",
+      "Access-Control-Allow-Headers" : "Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent",
+      "X-XSS-Protection" : "1; mode=block",
+      "Date" : "Mon, 08 May 2017 12:33:42 GMT",
+      "Connection" : "keep-alive",
+      "X-Iinfo" : "7-3712941-3703735 SNNN RT(1494246814954 6138) q(0 0 0 -1) r(2 2) U5",
+      "Access-Control-Expose-Headers" : "Etag",
+      "Transfer-Encoding" : "Identity",
+      "X-Frame-Options" : "ALLOWALL",
+      "Access-Control-Max-Age" : "1728000",
+      "Content-Type" : "application\/vnd.contentful.management.v1+json",
+      "Etag" : "W\/\"3e00c0b6c9d89d735d2126ce63c25f82\"",
+      "X-Content-Type-Options" : "nosniff"
+    },
+    "method" : "GET",
+    "status" : 200,
+    "uri" : "https:\/\/api.contentful.com\/users\/me"
+  }
+]

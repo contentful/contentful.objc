@@ -1,40 +1,34 @@
-
 language: objective-c
 git:
   depth: 50
-  submodules: false # Manually manage submodules so we can swap ssh with http
+  submodules: false
+osx_image: xcode8.3
+rvm:
+- 2.3.0
 cache:
 - bundler
 - cocoapods
-matrix:
-  include:
-    - osx_image: xcode8.3
-      env: 
-      - SDK=iphonesimulator10.3 OS_VERSION=10.3 DEVICE_NAME='iPhone 6s'
-#    - osx_image: xcode7.3
-#      env: 
-#      - SDK=iphonesimulator9.3 OS_VERSION=9.3 DEVICE_NAME='iPhone 5s'
 before_install:
 - git submodule sync
 - git submodule update --init --recursive
-
-# Projects with a Gemfile automatically run `bundle install` on travis
-# and subsequently `bundle exec pod install`, but we need to
-# update the pod specs repo first. Therefore, we override `install` to prevent
-# `bundle install` from running twice
 install:
 - bundle install
 - bundle exec pod repo update --silent
 - bundle exec pod install
 script:
-- ./scripts/travis-build-test.sh
+- "./scripts/travis-build-test.sh"
+- "./scripts/travis-lint.sh"
 notifications:
   slack:
   - secure: pbLVGeA+577zmld+ie/1KUWxin8PFB+uXogz1zrVhEqnparjbHNMvFfaAGG1gbaAJC0skGksCe+LeBrhLargbLSgAT3HrObwDCIu7H8IjaYOEhpNTHCObrwRIyOeBVHHAhjgjeElM7hvptJjRMuERErcnL65EOlaIdm4ZqOg3/0=
 env:
+  matrix:
+  - CONTENTFUL_SDK="CDA"
+  - CONTENTFUL_SDK="CMA"
   global:
+  - IOS_SDK=iphonesimulator10.3 IOS_VERSION=10.3 DEVICE_NAME='iPhone 6s'
   - ARTIFACTS_S3_BUCKET=static.cdnorigin.contentful.com
   - secure: n/hnbmOoeLt4g+Mzm6Nm/fnxwr7fFjfFTlNxEco7kk9oeNklj0vudOwbYtxL2AWuMNWX/tSHlUieKf4UGOiwzFeQmWyLdi0dkwSKRMNBNz2XQrlzjemZNf8V9+E6+JPeH8BVBKyscYgNevrp7R0Lx2h5mcDVogHm416yUiNzGOQ=
   - secure: FAIgFb/XlYTHWXAE7dzl5KFAMmST39forxsfmJdysXdaIUXK1Y44PJnS4HQ0cRa79e+o+NSOJSHLGI+qboXNoDAHqaDGBqtC7QROjW7ed0ZQp0iyNeebSq8TQzuOwdrqEjh9SGK24bgbTgQx+i8brYRJA+N8igfNtVoTUXj7buI=
   - secure: LyiQhHG89Zn0FdprFntjvT34DOcvFU/IITWhhowfgYrXGObUTEOyIyE3ve6fJpMm23B8/u1EUNxBVvqxevdGmA2RuoJiMMy+V/uFsBHmuOeJ8TeDYOgjyWJgsJt1bfDLpFwX2Ztu0smdMeuBpmsOA2I3FW0mDCx5tiAuScNidnE=
-
+  - secure: L0njJqmusJJZPCWwMUTvb1vMJP3r4rNpLgDcWW1XtdZyNHE/F4CFzbawX/ve2ApzMXRV69XBIGLmBfl3hW0XCwyHR9nCe3u8/MRSZxapSNuArSjodHrPrddUGtAsgjKfKw1DlzNGByg2LpXLnfEBLnJYcYCosza3TI52JNcEv3c=

@@ -1,52 +1,70 @@
 #!/usr/bin/ruby
 
 source 'https://github.com/CocoaPods/Specs.git'
-source 'https://github.com/contentful/CocoaPodsSpecs.git'
-
+#source 'https://github.com/contentful/CocoaPodsSpecs.git'
 
 platform :ios, "8.0"
 
-podspec :path => 'ContentfulDeliveryAPI.podspec'
+## Delivery API
+target 'ContentfulDeliveryAPI' do
+  podspec :path => 'ContentfulDeliveryAPI.podspec'
 
-target "ContentfulDeliveryAPI" do
-  
-  target "CDA Tests" do
-    inherit! :search_paths
-    pod 'CCLRequestReplay', :git => 'https://github.com/neonichu/CCLRequestReplay.git'
-    pod 'OCMock'
-    pod 'VCRURLConnection', :inhibit_warnings => true
-    pod 'Realm', '~> 2.5.0' # Realm must be linked for the persistence layer and should match the same version in the submodule
-    pod 'FBSnapshotTestCase/Core'
-  end
-
-  target "Catalog" do
+  target 'Catalog' do
     inherit! :search_paths
     pod 'PDKTCollectionViewWaterfallLayout'
   end
 
-  target "UFO Example" do
+  target 'UFO Example' do
     inherit! :search_paths
   end
 
-  target "CoreDataExample" do
+  target 'CoreDataExample' do
     inherit! :search_paths
   end
 
-  target "SeedDatabaseExample" do
+  target 'SeedDatabaseExample' do
     inherit! :search_paths
   end
 
-  target "ContentfulSeedDatabase" do
+  target 'ContentfulSeedDatabase' do
     platform :osx, "10.9"
     inherit! :search_paths
   end
 end
 
+# Cocoapods docs are wrong and don't work for 
+target 'DeliveryTests' do
+
+  pod 'CCLRequestReplay', :git => 'https://github.com/neonichu/CCLRequestReplay.git'
+  pod 'OCMock', :inhibit_warnings => true
+  pod 'VCRURLConnection', :inhibit_warnings => true
+  pod 'Realm', '~> 2.5.0', :inhibit_warnings => true # Realm must be linked for the persistence layer and should match the same version in the submodule
+  pod 'FBSnapshotTestCase/Core', :inhibit_warnings => true
+end
 
 
 
-post_install do |installer_or_rep|
-  installer = installer_or_rep.respond_to?(:installer) ? installer_or_rep.installer : installer_or_rep
+plugin 'cocoapods-keys', {
+  :project => 'ContentfulSDK',
+  :target => 'ManagementTests',
+  :keys => [ 'ManagementAPIAccessToken' ]
+}
+
+
+## Management API
+target 'ContentfulManagementAPI' do
+  podspec :path => 'ContentfulManagementAPI.podspec'
+end
+
+target 'ManagementTests' do  
+  pod 'Specta'
+  pod 'Expecta'
+  pod 'VCRURLConnection', :inhibit_warnings => true
+end
+
+
+## Post install
+post_install do |installer|
 
   installer.pods_project.targets.each do |target|
     target.build_configurations.each do |config|
