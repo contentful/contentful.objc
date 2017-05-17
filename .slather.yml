@@ -1,3 +1,7 @@
+coverage_service: coveralls
+workspace: ContentfulSDK.xcworkspace
+xcodeproj: ContentfulSDK.xcodeproj
+scheme: "ContentfulDeliveryAPI"
 ignore:
   - Examples/*
   - Tests/*
