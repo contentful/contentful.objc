@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
 
   s.authors      = { "Boris Bügling" => "boris@buegling.com", "JP Wright" => "jp@contentful.com" }
   s.source       = { :git => "https://github.com/contentful/contentful.objc.git",
-                     :tag => s.version.to_s }
+                     :tag => "Delivery-#{s.version.to_s}" }
   s.requires_arc = true
 
   s.source_files         = ['ContentfulDeliveryAPI/Resources/*.{h,m}','ContentfulDeliveryAPI/*.{h,m}']
