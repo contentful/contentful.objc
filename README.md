@@ -6,7 +6,7 @@
 [![Build Status](https://img.shields.io/travis/contentful/contentful.objc/master.svg?style=flat)](https://travis-ci.org/contentful/contentful.objc)
 [![Coverage Status](https://img.shields.io/coveralls/contentful/contentful.objc.svg)](https://coveralls.io/github/contentful/contentful.objc)
 
-Objective-C SDK for [Contentful's][1] Content Delivery API.
+Objective-C SDK's for [Contentful's][1] Content Delivery API and [Content Management API SDK](https://github.com/contentful/contentful.objc/blob/master/mgmt-README.md)
 
 [Contentful][1] is a content management platform for web applications, mobile apps and connected devices. It allows you to create, edit & manage content in the cloud and publish it anywhere via powerful API. Contentful offers tools for managing editorial teams and enabling cooperation between organizations.
 
@@ -99,7 +99,7 @@ For further information, check out the [Developer Documentation][6] or browse th
 [CocoaPods][2] is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries like the Contentful Delivery API in your projects.
 
 ```ruby
-platform :ios, '7.0'
+platform :ios, '8.0'
 pod 'ContentfulDeliveryAPI'
 ```
 
