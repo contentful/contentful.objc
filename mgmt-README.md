@@ -477,16 +477,24 @@ not do that in your real applications.)
 
 ## Installation
 
-[CocoaPods][2] is the dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries like the Contentful Delivery API in your projects.
+### CocoaPods
+
+[CocoaPods][2] is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries like the Contentful Delivery API in your projects. Note that you should *not* also include the delivery API pod as the source code for the delivery SDK is inlined with the source for the Management SDK.
 
 ```ruby
-platform :ios, '7.0'
+platform :ios, '8.0'
 pod 'ContentfulManagementAPI'
 ```
 
-This is the easiest way to keep your copy of the Contentful Management API updated.
+This is the easiest way to keep your copy of the Contentful Delivery API updated.
 
-Alternatively, you can use [pre-built static frameworks][4] for iOS and OS X, which have all the depedencies built-in. Or you include this repository as a Git submodule and include all the code from the Pod/ directory.
+For Swift support using iOS 8, you can enable framework support usage in [CocoaPods][2]:
+
+```ruby
+platform :ios, '8.0'
+use_frameworks!
+pod 'ContentfulDeliveryAPI'
+```
 
 ## Unit Tests
 

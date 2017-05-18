@@ -99,7 +99,7 @@ For further information, check out the [Developer Documentation][6] or browse th
 [CocoaPods][2] is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries like the Contentful Delivery API in your projects.
 
 ```ruby
-platform :ios, '7.0'
+platform :ios, '8.0'
 pod 'ContentfulDeliveryAPI'
 ```
 
