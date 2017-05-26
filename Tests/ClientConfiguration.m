@@ -38,9 +38,15 @@
 
     WaitUntilBlockCompletes();
 
-    NSString* userAgent = request.request.allHTTPHeaderFields[@"User-Agent"];
+    NSString* userAgentString = request.request.allHTTPHeaderFields[@"X-Contentful-User-Agent"];
 
-    XCTAssertTrue([userAgent hasPrefix:@"contentful.objc"], @"");
+    NSString *versionNumberRegexString = @"\\d+\\.\\d+\\.\\d+(-(beta|RC|alpha)\\d*)?";
+
+    NSRegularExpression *regex = [[NSRegularExpression alloc] initWithPattern:[NSString stringWithFormat:@"sdk contentful.objc/%@; os iOS/\\d+\\.\\d+\\.\\d+;", versionNumberRegexString] options:0 error:nil];
+    NSArray<NSTextCheckingResult*> *matches = [regex matchesInString:userAgentString options:0 range:NSMakeRange(0, userAgentString.length)];
+
+
+    XCTAssertTrue(matches.count == 1, @"The user agent header should have had at least one match.");
 }
 
 -(void)testFilterMissingEntities {

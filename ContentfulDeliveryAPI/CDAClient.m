@@ -386,8 +386,9 @@ NSString* const CMAContentTypeHeader = @"application/vnd.contentful.management.v
 }
 
 -(instancetype)initWithSpaceKey:(NSString *)spaceKey
-          accessToken:(NSString *)accessToken
-        configuration:(CDAConfiguration*)configuration {
+                    accessToken:(NSString *)accessToken
+                  configuration:(CDAConfiguration*)configuration {
+
     if (!configuration.usesManagementAPI && !spaceKey) {
         configuration.usesManagementAPI = YES;
     }
