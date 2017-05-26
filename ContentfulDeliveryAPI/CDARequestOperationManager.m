@@ -191,10 +191,6 @@
         self.responseSerializer = [[CDAResponseSerializer alloc] initWithClient:client];
         self.rateLimiting = configuration.rateLimiting;
 
-        if (configuration.userAgent) {
-            [(CDARequestSerializer*)self.requestSerializer setUserAgent:configuration.userAgent];
-        }
-        
         self.dateFormatter = [NSDateFormatter new];
         NSLocale *posixLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
         [self.dateFormatter setLocale:posixLocale];

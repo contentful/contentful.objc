@@ -46,8 +46,8 @@ extern const NSString* const CDA_DEFAULT_SERVER;
 /** The server address to use for accessing any resources. Default value: "cdn.contentful.com" */
 @property (nonatomic) NSString* server;
 
-/** Configure a custom user-agent to be used in the HTTP request headers */
-@property (nonatomic) NSString* userAgent;
+///** Configure a custom user-agent to be used in the HTTP request headers */
+//@property (nonatomic) NSString* userAgent;
 
 /** @name Configure Preview Mode */
 

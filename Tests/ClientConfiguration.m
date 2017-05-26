@@ -43,29 +43,6 @@
     XCTAssertTrue([userAgent hasPrefix:@"contentful.objc"], @"");
 }
 
--(void)testCustomUserAgent {
-    CDAConfiguration* configuration = [CDAConfiguration defaultConfiguration];
-    configuration.userAgent = @"CustomUserAgent/foo";
-    self.client = [[CDAClient alloc] initWithSpaceKey:@"test"
-                                          accessToken:@"test"
-                                        configuration:configuration];
-
-    StartBlock();
-
-    CDARequest* request = [self.client fetchEntriesWithSuccess:^(CDAResponse *response,
-                                                                 CDAArray *array) {
-        EndBlock();
-    } failure:^(CDAResponse *response, NSError *error) {
-        EndBlock();
-    }];
-
-    WaitUntilBlockCompletes();
-
-    NSString* userAgent = request.request.allHTTPHeaderFields[@"User-Agent"];
-
-    XCTAssertTrue([userAgent hasPrefix:@"CustomUserAgent/foo"], @"");
-}
-
 -(void)testFilterMissingEntities {
     CDAConfiguration* configuration = [CDAConfiguration defaultConfiguration];
     configuration.filterNonExistingResources = YES;

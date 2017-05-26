@@ -34,6 +34,7 @@
     userAgentHeader = [userAgentHeader stringByReplacingOccurrencesOfString:@"(null)" withString:@""];
     NSRange bracketRange = [userAgentHeader rangeOfString:@"("];
     [self setValue:[userAgentHeader stringByReplacingCharactersInRange:NSMakeRange(0, bracketRange.location - 1) withString:userAgent] forHTTPHeaderField:@"User-Agent"];
+    NSLog(@"%@", userAgentHeader);
 }
 
 @end
