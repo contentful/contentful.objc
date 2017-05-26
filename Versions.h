@@ -10,6 +10,6 @@
 #define Versions_h
 
 #define MANAGEMENT_SDK_VERSION @"0.10.1"
-#define DELIVERY_SDK_VERSION @"2.0.2"
+#define DELIVERY_SDK_VERSION @"2.0.3"
 
 #endif /* Versions_h */

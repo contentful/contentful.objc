@@ -22,7 +22,12 @@ Pod::Spec.new do |spec|
   spec.osx.deployment_target     = '10.10'
   spec.requires_arc = true
 
-  spec.source_files = ['ContentfulDeliveryAPI/Resources/*.{h,m}','ContentfulDeliveryAPI/*.{h,m}', 'ManagementAPI/Private/*.{h,m}', 'ManagementAPI/Public/*.h']
+  spec.source_files = [
+    'ContentfulDeliveryAPI/Resources/*.{h,m}',
+    'ContentfulDeliveryAPI/*.{h,m}',
+    'ManagementAPI/Private/*.{h,m}',
+    'ManagementAPI/Public/*.h',
+    'Versions.h']
   
   spec.public_header_files = ['ManagementAPI/Public/*.h', 'ContentfulDeliveryAPI/Resources/{CDAArray,CDAAsset,CDAContentType,CDAEntry,CDAError,CDASpace,CDAResource,CDAOrganizationContainer}.h','ContentfulDeliveryAPI/{CDAClient,CDAConfiguration,CDANullabilityStubs,CDARequest,CDAResponse,CDAField,CDASyncedSpace,ContentfulDeliveryAPI,CDAPersistenceManager,CDAPersistedAsset,CDAPersistedEntry,CDAPersistedSpace,CDALocalizablePersistedEntry,CDALocalizedPersistedEntry}.h']
 
