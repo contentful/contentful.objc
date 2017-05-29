@@ -21,13 +21,13 @@
     if (self) {
         [self setValue:[@"Bearer " stringByAppendingString:accessToken] forHTTPHeaderField:@"Authorization"];
 
-        NSString *userAgentHeaderString = [self userAgentHeaderStringIsForCMA:isCMARequest];
+        NSString *userAgentHeaderString = [self userAgentHeaderString:isCMARequest];
         [self setValue:userAgentHeaderString forHTTPHeaderField:@"X-Contentful-User-Agent"];
     }
     return self;
 }
 
-- (NSString *)userAgentHeaderStringIsForCMA:(BOOL)isCMARequest {
+- (NSString *)userAgentHeaderString:(BOOL)isCMARequest {
     NSMutableString *userAgentString = [[NSMutableString alloc] initWithString:@""];
 
     NSString *appVersionString = [self appVersionString];
@@ -36,6 +36,7 @@
     }
 
     [userAgentString appendString:[NSString stringWithFormat:@"sdk %@;", [self sdkVersionString:isCMARequest]]];
+    [userAgentString appendString:[NSString stringWithFormat:@" platform %@;", [self platformVersionString]]];
 
     NSString *operatingSystemVersionString = [self operatingSystemVersionString];
     if (operatingSystemVersionString != nil) {
@@ -53,6 +54,10 @@
     }
 
     return [NSString stringWithFormat:@"%@/%@", appBundleId, versionNumberString];
+}
+
+- (NSString *)platformVersionString {
+    return @"Objective-C";
 }
 
 - (NSString *)sdkVersionString:(BOOL)isCMARequest {

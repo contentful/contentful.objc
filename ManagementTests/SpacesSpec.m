@@ -55,7 +55,7 @@ describe(@"CMA", ^{
 
         NSString *versionNumberRegexString = @"\\d+\\.\\d+\\.\\d+(-(beta|RC|alpha)\\d*)?";
 
-        NSRegularExpression *regex = [[NSRegularExpression alloc] initWithPattern:[NSString stringWithFormat:@"sdk contentful-management.objc/%@; os iOS/\\d+\\.\\d+\\.\\d+;", versionNumberRegexString] options:0 error:nil];
+        NSRegularExpression *regex = [[NSRegularExpression alloc] initWithPattern:[NSString stringWithFormat:@"sdk contentful-management.objc/%@; platform Objective-C; os iOS/\\d+\\.\\d+\\.\\d+;", versionNumberRegexString] options:0 error:nil];
         NSArray<NSTextCheckingResult*> *matches = [regex matchesInString:userAgentString options:0 range:NSMakeRange(0, userAgentString.length)];
         
         expect(matches.count).to.equal(1);
