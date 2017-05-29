@@ -129,8 +129,8 @@ typedef void(^CDASyncedSpaceFetchedBlock)(CDAResponse* response, CDASyncedSpace*
  *  @return A client initialized for requesting data from the server.
  */
 -(instancetype)initWithSpaceKey:(NSString * __nullable)spaceKey
-          accessToken:(NSString *)accessToken
-        configuration:(CDAConfiguration*)configuration;
+                    accessToken:(NSString *)accessToken
+                  configuration:(CDAConfiguration*)configuration;
 
 /** @name Fetching Assets */
 

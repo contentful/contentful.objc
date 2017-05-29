@@ -12,6 +12,7 @@
 
 @property (nonatomic) NSString* userAgent;
 
--(instancetype)initWithAccessToken:(NSString*)accessToken;
+-(instancetype)initWithAccessToken:(NSString*)accessToken
+                      isCMARequest:(BOOL)isCMARequest;
 
 @end

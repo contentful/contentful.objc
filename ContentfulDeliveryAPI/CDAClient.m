@@ -386,8 +386,18 @@ NSString* const CMAContentTypeHeader = @"application/vnd.contentful.management.v
 }
 
 -(instancetype)initWithSpaceKey:(NSString *)spaceKey
+                     accessToken:(NSString *)accessToken
+                   configuration:(CDAConfiguration*)configuration {
+    return [self initWithSpaceKey:spaceKey
+                      accessToken:accessToken
+                    configuration:configuration
+                     isCMARequest:NO];
+}
+
+-(instancetype)initWithSpaceKey:(NSString *)spaceKey
                     accessToken:(NSString *)accessToken
-                  configuration:(CDAConfiguration*)configuration {
+                  configuration:(CDAConfiguration*)configuration
+                   isCMARequest:(BOOL)isCMARequest {
 
     if (!configuration.usesManagementAPI && !spaceKey) {
         configuration.usesManagementAPI = YES;
@@ -399,7 +409,11 @@ NSString* const CMAContentTypeHeader = @"application/vnd.contentful.management.v
         self.configuration = configuration;
         self.contentTypeRegistry = [CDAContentTypeRegistry new];
         self.spaceKey = spaceKey;
-        self.requestOperationManager = [[CDARequestOperationManager alloc] initWithSpaceKey:spaceKey accessToken:accessToken client:self configuration:configuration];
+        self.requestOperationManager = [[CDARequestOperationManager alloc] initWithSpaceKey:spaceKey
+                                                                                accessToken:accessToken
+                                                                                     client:self
+                                                                              configuration:configuration
+                                                                               isCMARequest:isCMARequest];
         self.resourceClassPrefix = @"CDA";
 
 #ifndef DEBUG

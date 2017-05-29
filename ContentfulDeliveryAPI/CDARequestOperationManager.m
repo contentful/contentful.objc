@@ -171,9 +171,11 @@
 }
 
 -(instancetype)initWithSpaceKey:(NSString *)spaceKey
-          accessToken:(NSString *)accessToken
-               client:(CDAClient*)client
-        configuration:(CDAConfiguration*)configuration {
+                    accessToken:(NSString *)accessToken
+                         client:(CDAClient*)client
+                  configuration:(CDAConfiguration*)configuration
+                   isCMARequest:(BOOL)isCMARequest {
+    
     NSString* urlString = nil;
     if ([configuration.server rangeOfString:@"://"].location != NSNotFound) {
         urlString = configuration.server;
@@ -187,7 +189,8 @@
 
     self = [super initWithBaseURL:[NSURL URLWithString:urlString]];
     if (self) {
-        self.requestSerializer = [[CDARequestSerializer alloc] initWithAccessToken:accessToken];
+        self.requestSerializer = [[CDARequestSerializer alloc] initWithAccessToken:accessToken
+                                                                      isCMARequest:isCMARequest];
         self.responseSerializer = [[CDAResponseSerializer alloc] initWithClient:client];
         self.rateLimiting = configuration.rateLimiting;
 

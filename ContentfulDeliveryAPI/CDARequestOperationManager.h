@@ -13,6 +13,12 @@
 
 @interface CDARequestOperationManager : AFHTTPSessionManager
 
+-(instancetype)initWithSpaceKey:(NSString *)spaceKey
+                    accessToken:(NSString *)accessToken
+                         client:(CDAClient*)client
+                  configuration:(CDAConfiguration*)configuration
+                   isCMARequest:(BOOL)isCMARequest;
+
 -(CDARequest*)deleteURLPath:(NSString*)URLPath
                     headers:(NSDictionary*)headers
                  parameters:(NSDictionary*)parameters
@@ -31,10 +37,7 @@
                 parameters:(NSDictionary*)parameters
                    success:(CDAObjectFetchedBlock)success
                    failure:(CDARequestFailureBlock)failure;
--(instancetype)initWithSpaceKey:(NSString *)spaceKey
-          accessToken:(NSString *)accessToken
-               client:(CDAClient*)client
-        configuration:(CDAConfiguration*)configuration;
+
 -(CDARequest*)postURLPath:(NSString*)URLPath
                   headers:(NSDictionary*)headers
                parameters:(NSDictionary*)parameters

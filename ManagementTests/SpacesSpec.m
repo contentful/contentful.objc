@@ -51,8 +51,14 @@ describe(@"CMA", ^{
         NSAssert(client, @"Client is not available.");
         CDARequest* request = [client fetchOrganizationsWithSuccess:^(CDAResponse* r, CDAArray* a){}
                                                             failure:^(CDAResponse* r, NSError* e){}];
-        NSString* userAgent = request.request.allHTTPHeaderFields[@"User-Agent"];
-        expect([userAgent hasPrefix:@"contentful-management.objc"]).to.beTruthy();
+        NSString* userAgentString = request.request.allHTTPHeaderFields[@"X-Contentful-User-Agent"];
+
+        NSString *versionNumberRegexString = @"\\d+\\.\\d+\\.\\d+(-(beta|RC|alpha)\\d*)?";
+
+        NSRegularExpression *regex = [[NSRegularExpression alloc] initWithPattern:[NSString stringWithFormat:@"sdk contentful-management.objc/%@; os iOS/\\d+\\.\\d+\\.\\d+;", versionNumberRegexString] options:0 error:nil];
+        NSArray<NSTextCheckingResult*> *matches = [regex matchesInString:userAgentString options:0 range:NSMakeRange(0, userAgentString.length)];
+        
+        expect(matches.count).to.equal(1);
     });
 
     VCRTest_it(@"can_retrieve_all_Access_Tokens_of_Space")
