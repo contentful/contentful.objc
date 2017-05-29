@@ -21,6 +21,11 @@ extern NSString* const CMAContentTypeHeader;
 @property (nonatomic) CDARequestOperationManager* requestOperationManager;
 @property (nonatomic) NSString* resourceClassPrefix;
 
+-(instancetype)initWithSpaceKey:(NSString *)spaceKey
+                    accessToken:(NSString *)accessToken
+                  configuration:(CDAConfiguration*)configuration
+                   isCMARequest:(BOOL)isCMARequest;
+
 -(CDAConfiguration*)configuration;
 -(instancetype)copyWithSpace:(CDASpace*)space;
 -(CDAContentTypeRegistry*)contentTypeRegistry;

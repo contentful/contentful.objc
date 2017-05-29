@@ -129,7 +129,8 @@
                              failure:failure];
 }
 
--(id)initWithAccessToken:(NSString *)accessToken configuration:(CDAConfiguration*)configuration {
+-(id)initWithAccessToken:(NSString *)accessToken
+           configuration:(CDAConfiguration*)configuration {
     self = [super init];
     if (self) {
         // CMA is only accessible via HTTPS
@@ -140,13 +141,11 @@
             configuration.server = @"api.contentful.com";
         }
 
-        if (!configuration.userAgent) {
-            configuration.userAgent = @"contentful-management.objc/0.10.0";
-        }
-
         self.client = [[CDAClient alloc] initWithSpaceKey:nil
                                               accessToken:accessToken
-                                            configuration:configuration];
+                                            configuration:configuration
+                                             isCMARequest:YES];
+        
         self.client.resourceClassPrefix = @"CMA";
 
         // FIXME: Workaround for contentful/contentful.objc#46

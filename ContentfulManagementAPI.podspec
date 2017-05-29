@@ -1,9 +1,11 @@
 #!/usr/bin/ruby
 
+require 'dotenv/load'
+
 Pod::Spec.new do |spec|
 
   spec.name             = "ContentfulManagementAPI"
-  spec.version          = "0.10.0"
+  spec.version          = ENV['MANAGEMENT_SDK_VERSION']
   spec.summary          = "Objective-C SDK for Contentful's Content Management API."
   spec.homepage         = "https://github.com/contentful/contentful.objc"
   spec.authors          = { "Boris Bügling" => "boris@buegling.com", "JP Wright" => "jp@contentful.com" }
@@ -20,7 +22,12 @@ Pod::Spec.new do |spec|
   spec.osx.deployment_target     = '10.10'
   spec.requires_arc = true
 
-  spec.source_files = ['ContentfulDeliveryAPI/Resources/*.{h,m}','ContentfulDeliveryAPI/*.{h,m}', 'ManagementAPI/Private/*.{h,m}', 'ManagementAPI/Public/*.h']
+  spec.source_files = [
+    'ContentfulDeliveryAPI/Resources/*.{h,m}',
+    'ContentfulDeliveryAPI/*.{h,m}',
+    'ManagementAPI/Private/*.{h,m}',
+    'ManagementAPI/Public/*.h',
+    'Versions.h']
   
   spec.public_header_files = ['ManagementAPI/Public/*.h', 'ContentfulDeliveryAPI/Resources/{CDAArray,CDAAsset,CDAContentType,CDAEntry,CDAError,CDASpace,CDAResource,CDAOrganizationContainer}.h','ContentfulDeliveryAPI/{CDAClient,CDAConfiguration,CDANullabilityStubs,CDARequest,CDAResponse,CDAField,CDASyncedSpace,ContentfulDeliveryAPI,CDAPersistenceManager,CDAPersistedAsset,CDAPersistedEntry,CDAPersistedSpace,CDALocalizablePersistedEntry,CDALocalizedPersistedEntry}.h']
 

@@ -450,6 +450,8 @@
 		ED9446BD1EC5FEF400EA2077 /* CMAValidation+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = EDFDCE361EC26F3600978FC8 /* CMAValidation+Private.h */; };
 		ED9446BE1EC5FEFC00EA2077 /* CMASpace+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = EDFDCE311EC26F3600978FC8 /* CMASpace+Private.h */; };
 		ED9446BF1EC5FF1F00EA2077 /* CDAResource+Management.h in Headers */ = {isa = PBXBuildFile; fileRef = EDFDCE521EC26F3E00978FC8 /* CDAResource+Management.h */; };
+		EDD0B9A61ED873EE002A3ACA /* Versions.h in Headers */ = {isa = PBXBuildFile; fileRef = EDD0B9A51ED873EE002A3ACA /* Versions.h */; };
+		EDD0B9A71ED873EE002A3ACA /* Versions.h in Headers */ = {isa = PBXBuildFile; fileRef = EDD0B9A51ED873EE002A3ACA /* Versions.h */; };
 		EDFDCE7B1EC26F8600978FC8 /* CDAResource+Management.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFDCE201EC26F3600978FC8 /* CDAResource+Management.m */; };
 		EDFDCE7C1EC26F8600978FC8 /* CMAAccessToken.h in Headers */ = {isa = PBXBuildFile; fileRef = EDFDCE531EC26F3E00978FC8 /* CMAAccessToken.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EDFDCE7D1EC26F8600978FC8 /* CMAAccessToken.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFDCE211EC26F3600978FC8 /* CMAAccessToken.m */; };
@@ -712,7 +714,7 @@
 		A1A0313618C644B5006470B7 /* CDAResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDAResponse.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A1A0313718C644B5006470B7 /* CDAResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDAResponse.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A1A0313918C660F6006470B7 /* CDAResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDAResponseSerializer.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		A1A0313A18C660F6006470B7 /* CDAResponseSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDAResponseSerializer.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		A1A0313A18C660F6006470B7 /* CDAResponseSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDAResponseSerializer.m; sourceTree = "<group>"; };
 		A1A0314018C66E90006470B7 /* CDAContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDAContentType.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A1A0314118C66E90006470B7 /* CDAContentType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDAContentType.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A1A0314618C6708C006470B7 /* CDAField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDAField.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -964,6 +966,7 @@
 		ED9446AF1EC5F5E800EA2077 /* CMAUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMAUser.h; path = Public/CMAUser.h; sourceTree = "<group>"; };
 		ED9446B91EC5FCAB00EA2077 /* CDAOrganizationContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAOrganizationContainer.h; sourceTree = "<group>"; };
 		EDC66C531EC48A980096998A /* libAFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAFNetworking.a; path = "Pods/../build/Debug-iphoneos/AFNetworking/libAFNetworking.a"; sourceTree = "<group>"; };
+		EDD0B9A51ED873EE002A3ACA /* Versions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Versions.h; sourceTree = "<group>"; };
 		EDFDCE201EC26F3600978FC8 /* CDAResource+Management.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CDAResource+Management.m"; path = "Private/CDAResource+Management.m"; sourceTree = "<group>"; };
 		EDFDCE211EC26F3600978FC8 /* CMAAccessToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMAAccessToken.m; path = Private/CMAAccessToken.m; sourceTree = "<group>"; };
 		EDFDCE221EC26F3600978FC8 /* CMAApiKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMAApiKey.m; path = Private/CMAApiKey.m; sourceTree = "<group>"; };
@@ -1232,6 +1235,7 @@
 		A19FD85C18C6315E0081677E = {
 			isa = PBXGroup;
 			children = (
+				EDD0B9A51ED873EE002A3ACA /* Versions.h */,
 				A19FD86C18C631E60081677E /* Code */,
 				A19FD88018C631E60081677E /* Tests */,
 				A19FD8D118C6379A0081677E /* Examples */,
@@ -1972,6 +1976,7 @@
 				A1E3D05A18C87D3B00E4F488 /* CDARequestOperationManager.h in Headers */,
 				ED0112721EC4B0A400C04340 /* CDAConfiguration+Private.h in Headers */,
 				A160862218CDF0E60047D44F /* CDARequest.h in Headers */,
+				EDD0B9A61ED873EE002A3ACA /* Versions.h in Headers */,
 				ED0112781EC4B12600C04340 /* CDASpace+Private.h in Headers */,
 				ED10258E1DFED8F500BD7ABE /* CDAClient.h in Headers */,
 			);
@@ -2002,6 +2007,7 @@
 				ED94468C1EC5E33200EA2077 /* CDASpace.h in Headers */,
 				ED9446BB1EC5FCAB00EA2077 /* CDAOrganizationContainer.h in Headers */,
 				EDFDCE831EC26F8600978FC8 /* CMAAsset.h in Headers */,
+				EDD0B9A71ED873EE002A3ACA /* Versions.h in Headers */,
 				EDFDCE891EC26F8600978FC8 /* CMAEditorInterface.h in Headers */,
 				EDFDCE7C1EC26F8600978FC8 /* CMAAccessToken.h in Headers */,
 				EDFDCE871EC26F8600978FC8 /* CMAContentType.h in Headers */,

@@ -38,32 +38,15 @@
 
     WaitUntilBlockCompletes();
 
-    NSString* userAgent = request.request.allHTTPHeaderFields[@"User-Agent"];
+    NSString* userAgentString = request.request.allHTTPHeaderFields[@"X-Contentful-User-Agent"];
 
-    XCTAssertTrue([userAgent hasPrefix:@"contentful.objc"], @"");
-}
+    NSString *versionNumberRegexString = @"\\d+\\.\\d+\\.\\d+(-(beta|RC|alpha)\\d*)?";
 
--(void)testCustomUserAgent {
-    CDAConfiguration* configuration = [CDAConfiguration defaultConfiguration];
-    configuration.userAgent = @"CustomUserAgent/foo";
-    self.client = [[CDAClient alloc] initWithSpaceKey:@"test"
-                                          accessToken:@"test"
-                                        configuration:configuration];
+    NSRegularExpression *regex = [[NSRegularExpression alloc] initWithPattern:[NSString stringWithFormat:@"sdk contentful.objc/%@; platform Objective-C; os iOS/\\d+\\.\\d+\\.\\d+;", versionNumberRegexString] options:0 error:nil];
+    NSArray<NSTextCheckingResult*> *matches = [regex matchesInString:userAgentString options:0 range:NSMakeRange(0, userAgentString.length)];
 
-    StartBlock();
 
-    CDARequest* request = [self.client fetchEntriesWithSuccess:^(CDAResponse *response,
-                                                                 CDAArray *array) {
-        EndBlock();
-    } failure:^(CDAResponse *response, NSError *error) {
-        EndBlock();
-    }];
-
-    WaitUntilBlockCompletes();
-
-    NSString* userAgent = request.request.allHTTPHeaderFields[@"User-Agent"];
-
-    XCTAssertTrue([userAgent hasPrefix:@"CustomUserAgent/foo"], @"");
+    XCTAssertTrue(matches.count == 1, @"The user agent header should have had at least one match.");
 }
 
 -(void)testFilterMissingEntities {
