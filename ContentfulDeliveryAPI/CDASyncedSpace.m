@@ -336,10 +336,11 @@
 -(instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super init];
     if (self) {
-        self.syncedEntries  = [aDecoder decodeObjectForKey:@"syncedEntries"];
-        self.syncedAssets   = [aDecoder decodeObjectForKey:@"syncedAssets"];
-        self.nextPageUrl    = [aDecoder decodeObjectForKey:@"nextPageUrl"];
-        self.nextSyncUrl    = [aDecoder decodeObjectForKey:@"nextSyncUrl"];
+        self.syncedEntries      = [aDecoder decodeObjectForKey:@"syncedEntries"];
+        self.syncedAssets       = [aDecoder decodeObjectForKey:@"syncedAssets"];
+        self.nextPageUrl        = [aDecoder decodeObjectForKey:@"nextPageUrl"];
+        self.nextSyncUrl        = [aDecoder decodeObjectForKey:@"nextSyncUrl"];
+        self.lastSyncTimestamp  = [aDecoder decodeObjectForKey:@"lastSyncTimestamp"];
     }
     return self;
 }
@@ -349,6 +350,7 @@
     [aCoder encodeObject:self.syncedEntries forKey:@"syncedEntries"];
     [aCoder encodeObject:self.nextPageUrl forKey:@"nextPageUrl"];
     [aCoder encodeObject:self.nextSyncUrl forKey:@"nextSyncUrl"];
+    [aCoder encodeObject:self.lastSyncTimestamp forKey:@"lastSyncTimestamp"];
 }
 
 @end
