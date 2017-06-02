@@ -167,7 +167,9 @@ NS_ASSUME_NONNULL_BEGIN
 +(instancetype)shallowSyncSpaceWithToken:(NSString*)syncToken client:(CDAClient*)client;
 
 /**
- *  Timestamp of the last synchronization operation. 
+ *  Represents the timestamp of the update for the most recently updated resource (CDAAsset or CDAEntry)
+ *  in a Contentful space. It does not represent the actual date of a sync, but is keeping the name
+ *  `lastSyncTimestamp` to mitigate future CoreData database migrations in client applications.
  *
  *  Store this alongside the `syncToken` and restore it on a newly created synchronized Space to
  *  ensure that the `delegate` will be correctly informed about updates. If you fail to restore it,
