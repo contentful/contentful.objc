@@ -48,7 +48,8 @@
 
         LocalizedCat* nyancat = (LocalizedCat*)[self.persistenceManager fetchEntryWithIdentifier:@"nyancat"];
         XCTAssertNotNil(nyancat, @"");
-
+        XCTAssertNotNil(nyancat.picture);
+        XCTAssertEqualObjects(nyancat.picture.url, @"https://images.contentful.com/cfexampleapi/4gp6taAwW4CmSgumq2ekUm/9da0cd1936871b8d72343e895a00d611/Nyan_cat_250px_frame.png", @"Unexpected url string for linked persistent asset.");
         for (ManagedCatLocalized* cat in nyancat.localizedEntries) {
             if ([cat.locale isEqualToString:@"en-US"]) {
                 XCTAssertEqualObjects(@"Nyan Cat", cat.name, @"");
