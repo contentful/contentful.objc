@@ -4,7 +4,7 @@ git:
   submodules: false
 osx_image: xcode8.3
 rvm:
-- 2.3.0
+- 2.4
 cache:
 - bundler
 - cocoapods
@@ -26,7 +26,7 @@ env:
   - CONTENTFUL_SDK="CDA"
   - CONTENTFUL_SDK="CMA"
   global:
-  - IOS_SDK=iphonesimulator10.3 IOS_VERSION=10.3 DEVICE_NAME='iPhone 6s'
+  - IOS_SDK=iphonesimulator10.3 IOS_VERSION=10.3.1 DEVICE_NAME='iPhone 6s'
   - ARTIFACTS_S3_BUCKET=static.cdnorigin.contentful.com
   - secure: n/hnbmOoeLt4g+Mzm6Nm/fnxwr7fFjfFTlNxEco7kk9oeNklj0vudOwbYtxL2AWuMNWX/tSHlUieKf4UGOiwzFeQmWyLdi0dkwSKRMNBNz2XQrlzjemZNf8V9+E6+JPeH8BVBKyscYgNevrp7R0Lx2h5mcDVogHm416yUiNzGOQ=
   - secure: FAIgFb/XlYTHWXAE7dzl5KFAMmST39forxsfmJdysXdaIUXK1Y44PJnS4HQ0cRa79e+o+NSOJSHLGI+qboXNoDAHqaDGBqtC7QROjW7ed0ZQp0iyNeebSq8TQzuOwdrqEjh9SGK24bgbTgQx+i8brYRJA+N8igfNtVoTUXj7buI=

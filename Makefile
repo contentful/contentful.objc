@@ -60,7 +60,7 @@ kill_simulator:
 cda_test: clean_simulators really_clean
 	set -x -o pipefail && xcodebuild -jobs `sysctl -n hw.ncpu` test -workspace $(WORKSPACE) \
 		-scheme 'ContentfulDeliveryAPI' -sdk iphonesimulator \
-		-destination 'platform=iOS Simulator,name=iPhone 6s,OS=10.3'| xcpretty -c 
+		-destination 'platform=iOS Simulator,name=iPhone 6s,OS=10.3.1'| xcpretty -c 
 	kill_simulator	
 	bundle exec pod lib coverage
 
@@ -68,7 +68,7 @@ cda_test: clean_simulators really_clean
 cma_test:
 	set -x -o pipefail && xcodebuild -jobs `sysctl -n hw.ncpu` test -workspace $(WORKSPACE) \
 		-scheme 'ContentfulManagementAPI' -sdk iphonesimulator \
-		-destination 'platform=iOS Simulator,name=iPhone 6s,OS=10.3'| xcpretty -c 
+		-destination 'platform=iOS Simulator,name=iPhone 6s,OS=10.3.1'| xcpretty -c 
 	kill_simulator	
 	bundle exec pod lib coverage
 
