@@ -7,7 +7,6 @@
 //
 
 @import Cocoa;
-
 #import <ContentfulDeliveryAPI/ContentfulDeliveryAPI.h>
 
 #import "CoreDataManager+SeedDB.h"

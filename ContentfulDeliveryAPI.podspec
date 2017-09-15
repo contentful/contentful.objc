@@ -34,7 +34,7 @@ Pod::Spec.new do |s|
   s.ios.frameworks            = 'UIKit', 'MapKit'
   s.ios.public_header_files   = 'ContentfulDeliveryAPI/UIKit/{CDAEntriesViewController,CDAFieldsViewController,UIImageView+CDAAsset,CDAMapViewController,CDAResourcesCollectionViewController,CDAResourcesViewController,CDAResourceCell}.h'
 
-  s.osx.deployment_target     = '10.10'
+  s.osx.deployment_target     = '10.12'
 
   s.dependency 'AFNetworking', '~> 3.1.0'
   s.dependency 'ISO8601', '~> 0.6.0'

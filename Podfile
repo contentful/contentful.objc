@@ -3,10 +3,10 @@
 source 'https://github.com/CocoaPods/Specs.git'
 #source 'https://github.com/contentful/CocoaPodsSpecs.git'
 
-platform :ios, "8.0"
 
 ## Delivery API
 target 'ContentfulDeliveryAPI' do
+  platform :ios, "8.0"
   podspec :path => 'ContentfulDeliveryAPI.podspec'
 
   target 'Catalog' do
@@ -25,15 +25,14 @@ target 'ContentfulDeliveryAPI' do
   target 'SeedDatabaseExample' do
     inherit! :search_paths
   end
-
-  target 'ContentfulSeedDatabase' do
-    platform :osx, "10.9"
-    inherit! :search_paths
-  end
 end
+
+
+
 
 # Cocoapods docs are wrong and don't work for 
 target 'DeliveryTests' do
+  platform :ios, "8.0"
 
   pod 'CCLRequestReplay', :git => 'https://github.com/neonichu/CCLRequestReplay.git'
   pod 'OCMock', :inhibit_warnings => true
@@ -53,10 +52,12 @@ plugin 'cocoapods-keys', {
 
 ## Management API
 target 'ContentfulManagementAPI' do
+  platform :ios, "8.0"
   podspec :path => 'ContentfulManagementAPI.podspec'
 end
 
-target 'ManagementTests' do  
+target 'ManagementTests' do
+  platform :ios, "8.0"
   pod 'Specta'
   pod 'Expecta'
   pod 'VCRURLConnection', :inhibit_warnings => true
