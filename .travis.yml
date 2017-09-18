@@ -4,7 +4,7 @@ git:
   submodules: false
 osx_image: xcode8.3
 rvm:
-- 2.4
+- 2.4.1
 cache:
 - bundler
 - cocoapods
@@ -12,7 +12,6 @@ before_install:
 - git submodule sync
 - git submodule update --init --recursive
 install:
-- bundle install
 - bundle exec pod repo update --silent
 - bundle exec pod install
 script:
