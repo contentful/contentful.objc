@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 
 source 'https://github.com/CocoaPods/Specs.git'
-#source 'https://github.com/contentful/CocoaPodsSpecs.git'
+source 'https://github.com/contentful/CocoaPodsSpecs.git'
 
 
 ## Delivery API
@@ -19,10 +19,6 @@ target 'ContentfulDeliveryAPI' do
   end
 
   target 'CoreDataExample' do
-    inherit! :search_paths
-  end
-
-  target 'SeedDatabaseExample' do
     inherit! :search_paths
   end
 end

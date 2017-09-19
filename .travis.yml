@@ -11,8 +11,9 @@ cache:
 before_install:
 - git submodule sync
 - git submodule update --init --recursive
-install:
+- bundle install
 - bundle exec pod repo update --silent
+install:
 - bundle exec pod install
 script:
 - "./scripts/travis-build-test.sh"
