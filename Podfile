@@ -32,7 +32,7 @@ target 'DeliveryTests' do
 
   pod 'CCLRequestReplay', :git => 'https://github.com/neonichu/CCLRequestReplay.git'
   pod 'OCMock', :inhibit_warnings => true
-  pod 'VCRURLConnection', :inhibit_warnings => true
+  pod 'VCRURLConnection', '= 0.2.2', :inhibit_warnings => true
   pod 'Realm', '~> 2.5.0', :inhibit_warnings => true # Realm must be linked for the persistence layer and should match the same version in the submodule
   pod 'FBSnapshotTestCase/Core', :inhibit_warnings => true
 end
@@ -56,7 +56,7 @@ target 'ManagementTests' do
   platform :ios, "8.0"
   pod 'Specta'
   pod 'Expecta'
-  pod 'VCRURLConnection', :inhibit_warnings => true
+  pod 'VCRURLConnection', '= 0.2.2', :inhibit_warnings => true
 end
 
 

@@ -35,7 +35,7 @@ PODS:
     - Realm/Headers (= 2.5.1)
   - Realm/Headers (2.5.1)
   - Specta (1.0.6)
-  - VCRURLConnection (0.2.3)
+  - VCRURLConnection (0.2.2)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
@@ -48,7 +48,7 @@ DEPENDENCIES:
   - PDKTCollectionViewWaterfallLayout
   - Realm (~> 2.5.0)
   - Specta
-  - VCRURLConnection
+  - VCRURLConnection (= 0.2.2)
 
 EXTERNAL SOURCES:
   CCLRequestReplay:
@@ -72,8 +72,8 @@ SPEC CHECKSUMS:
   PDKTCollectionViewWaterfallLayout: a246de22e843bdb2677ab2fe5d6c1fb0a623f93e
   Realm: 32f86104d37c8521f864d4274050b38ba6190733
   Specta: f506f3a8361de16bc0dcf3b17b75e269072ba465
-  VCRURLConnection: 8683b86f1809b24a0f14f3df5000a336f42f9090
+  VCRURLConnection: 1b14489604ca90b7b144b50dab6f9845d8931a45
 
-PODFILE CHECKSUM: '067063810d67f23356dd24931afc72bc29edc332'
+PODFILE CHECKSUM: 0d9b3a1b2d9f95e5d885d2632a7d02b07227cd66
 
 COCOAPODS: 1.2.1
