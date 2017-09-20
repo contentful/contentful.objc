@@ -9,7 +9,7 @@
 #import <ContentfulDeliveryAPI/CDAAsset.h>
 
 #import "Asset.h"
-#import "CoreDataFetchDataSource.h"
+#import <ContentfulPersistenceObjC/CoreDataFetchDataSource.h>
 #import "CoreDataManager+SeedDB.h"
 #import "Document.h"
 #import "DocumentListViewController.h"

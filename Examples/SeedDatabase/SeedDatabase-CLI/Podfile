@@ -1,0 +1,11 @@
+#!/usr/bin/ruby
+
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :osx, "10.12"
+
+target 'ContentfulSeedDatabase' do
+  pod 'ContentfulPersistenceObjC', :path => '../../../Submodules/ContentfulPersistence'
+  pod 'ContentfulDeliveryAPI', :path => '../../..'
+end
+

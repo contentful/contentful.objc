@@ -40,7 +40,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
   - CCLRequestReplay (from `https://github.com/neonichu/CCLRequestReplay.git`)
-  - Expecta
+  - Expecta (= 1.0.5)
   - FBSnapshotTestCase/Core
   - ISO8601 (~> 0.6.0)
   - Keys (from `Pods/CocoaPodsKeys`)
@@ -48,7 +48,7 @@ DEPENDENCIES:
   - PDKTCollectionViewWaterfallLayout
   - Realm (~> 2.5.0)
   - Specta
-  - VCRURLConnection
+  - VCRURLConnection (= 0.2.2)
 
 EXTERNAL SOURCES:
   CCLRequestReplay:
@@ -74,6 +74,6 @@ SPEC CHECKSUMS:
   Specta: f506f3a8361de16bc0dcf3b17b75e269072ba465
   VCRURLConnection: 1b14489604ca90b7b144b50dab6f9845d8931a45
 
-PODFILE CHECKSUM: dd33e2872a26fae462f5215528bca376e0e48bde
+PODFILE CHECKSUM: a4eee46bb912bcb0d1b1e1cb3aeaa75aaab8e69e
 
 COCOAPODS: 1.2.1

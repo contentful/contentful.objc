@@ -9,7 +9,8 @@ doc
 ## Cocoapods
 Pods/
 
-### Other
+### Seed database
+Examples/SeedDatabase/*/Pods
 
 .pt
 Examples/ContentfulDeliveryAPI.zip
