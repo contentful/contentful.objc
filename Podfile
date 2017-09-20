@@ -55,7 +55,7 @@ end
 target 'ManagementTests' do
   platform :ios, "8.0"
   pod 'Specta'
-  pod 'Expecta'
+  pod 'Expecta', '= 1.0.5'
   pod 'VCRURLConnection', '= 0.2.2', :inhibit_warnings => true
 end
 
