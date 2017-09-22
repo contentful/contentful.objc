@@ -19,7 +19,8 @@
 -(void)testFallbackLocalesForAssets {
     StartBlock();
 
-    self.client = [[CDAClient alloc] initWithSpaceKey:@"dmm6iymtengv" accessToken:@"b18e713cf2c3c8916cad0cca8e801a3c230e9e6781098dc50fb0810ebc36a4a1"];
+    self.client = [[CDAClient alloc] initWithSpaceKey:@"dmm6iymtengv"
+                                          accessToken:@"b18e713cf2c3c8916cad0cca8e801a3c230e9e6781098dc50fb0810ebc36a4a1"];
 
     [self.client fetchAssetsMatching:@{ @"locale": @"*" } success:^(CDAResponse* r, CDAArray* array) {
         CDAAsset* asset = array.items.firstObject;

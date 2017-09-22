@@ -52,8 +52,8 @@ const CGFloat CDARadiusNone             = 0.0;
     NSParameterAssert(persistedAsset.internetMediaType);
     NSParameterAssert(persistedAsset.url);
     
-    NSDictionary* fileContent = @{ @"contentType": persistedAsset.internetMediaType,
-                                   @"url": persistedAsset.url };
+    NSDictionary* fileContent = @{ @"contentType": (NSString * _Nonnull)persistedAsset.internetMediaType,
+                                   @"url": (NSString * _Nonnull)persistedAsset.url };
 
     return [[self alloc] initWithDictionary:@{ @"sys": @{ @"id": persistedAsset.identifier,
                                                           @"type": @"Asset" },
