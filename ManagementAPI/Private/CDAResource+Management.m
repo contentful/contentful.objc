@@ -39,8 +39,10 @@
                            success:(void (^)())success
                            failure:(CDARequestFailureBlock)failure {
     NSParameterAssert(self.client);
+    NSString *versionString = [self.sys[@"version"] stringValue];
+    NSParameterAssert(versionString);
     return [self.client putURLPath:[self.URLPath stringByAppendingPathComponent:fragment]
-                           headers:@{ @"X-Contentful-Version": [self.sys[@"version"] stringValue] }
+                           headers:@{ @"X-Contentful-Version": (NSString * _Nonnull)versionString }
                         parameters:parameters
                            success:^(CDAResponse *response, CDAResource* resource) {
                                [self updateWithResource:resource];

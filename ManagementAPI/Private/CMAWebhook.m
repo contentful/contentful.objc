@@ -23,7 +23,8 @@
                                      headers:(NSDictionary*)headers
                            httpBasicUsername:(NSString*)httpBasicUsername
                            httpBasicPassword:(NSString*)httpBasicPassword {
-    NSMutableDictionary* parameters = [@{ @"name": name, @"url": url.absoluteString } mutableCopy];
+    NSParameterAssert(url.absoluteString);
+    NSMutableDictionary* parameters = [@{ @"name": name, @"url": (NSString * _Nonnull)url.absoluteString } mutableCopy];
 
     if (topics) {
         parameters[@"topics"] = topics;
