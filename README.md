@@ -8,7 +8,7 @@
 
 Objective-C SDK's for [Contentful's][1] Content Delivery API and [Content Management API SDK](https://github.com/contentful/contentful.objc/blob/master/mgmt-README.md)
 
-[Contentful][1] is a content management platform for web applications, mobile apps and connected devices. It allows you to create, edit & manage content in the cloud and publish it anywhere via powerful API. Contentful offers tools for managing editorial teams and enabling cooperation between organizations.
+[Contentful][1] provides a content infrastructure for digital teams to power content in websites, apps, and devices. Unlike a CMS, Contentful was built to integrate with the modern software stack. It offers a central hub for structured content, powerful management and delivery APIs, and a customizable web app that enable developers and content creators to ship digital products faster.
 
 ## Usage
 
