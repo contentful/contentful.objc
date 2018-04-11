@@ -1,3 +1,11 @@
+# Deprecation notice
+
+Contentful will stop supporting the ContentfulManagementAPI SDK **JULY 13, 2018**. The source code will still be available, but feature and support requests will no longer be addressed. If you must take advantage of a feature from the Content Management API, or fix a bug, it is recommended that you either fork the codebase (now at [contentful.objc/tree/master/ManagementAPI](https://github.com/contentful/contentful.objc/tree/master/ManagementAPI)), or implement API interaction your own.
+
+Additionally, the source code and documentation has been moved to a new Github repository. Please visit [contentful.objc](https://github.com/contentful/contentful.objc/blob/master/mgmt-README.md).
+
+In order to continue using the ContentfulManagementAPI pod, please ensure your Podfile only has the following line.
+
 # contentful-management.objc
 
 [![CI Status](http://img.shields.io/travis/contentful/contentful.objc.svg?style=flat)](https://travis-ci.org/contentful/contentful.objc)
@@ -6,8 +14,8 @@
 [![Platform](https://img.shields.io/cocoapods/p/ContentfulManagementAPI.svg?style=flat)](http://cocoadocs.org/docsets/ContentfulManagementAPI)
 [![Coverage Status](https://img.shields.io/coveralls/contentful/contentful.objc.svg)](https://coveralls.io/github/contentful/contentful.objc)
 
-Objective-C SDK's for [Contentful's][1] Content Management API and [Content Delivery API SDK](https://github.com/contentful/contentful.objc)
 
+Objective-C SDK's for [Contentful's][1] Content Management API and [Content Delivery API SDK](https://github.com/contentful/contentful.objc)
 
 [Contentful][1] is a content management platform for web applications, mobile apps and connected devices. It allows you to create, edit & manage content in the cloud and publish it anywhere via powerful API. Contentful offers tools for managing editorial teams and enabling cooperation between organizations.
 

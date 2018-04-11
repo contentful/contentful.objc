@@ -6,7 +6,13 @@
 [![Build Status](https://img.shields.io/travis/contentful/contentful.objc/master.svg?style=flat)](https://travis-ci.org/contentful/contentful.objc)
 [![Coverage Status](https://img.shields.io/coveralls/contentful/contentful.objc.svg)](https://coveralls.io/github/contentful/contentful.objc)
 
-Objective-C SDK's for [Contentful's][1] Content Delivery API and [Content Management API SDK](https://github.com/contentful/contentful.objc/blob/master/mgmt-README.md)
+
+> #### Deprecation notice for ContentfulManagementAPI SDK
+> 
+> Contentful will stop supporting the ContentfulManagementAPI SDK **JULY 13, 2018**. The source code will still be available, but feature and support requests will no longer be addressed. If you must take advantage of a feature from the Content Management API, or fix a bug, it is recommended that you either fork this codebase, or implement API interaction your own. 
+> 
+
+Objective-C SDK's for [Contentful's][1] Content Delivery API.
 
 [Contentful][1] provides a content infrastructure for digital teams to power content in websites, apps, and devices. Unlike a CMS, Contentful was built to integrate with the modern software stack. It offers a central hub for structured content, powerful management and delivery APIs, and a customizable web app that enable developers and content creators to ship digital products faster.
 
