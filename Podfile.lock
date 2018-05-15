@@ -28,7 +28,7 @@ PODS:
   - Expecta (1.0.5)
   - FBSnapshotTestCase/Core (2.1.4)
   - ISO8601 (0.6.0)
-  - Keys (1.0.0)
+  - Keys (1.0.1)
   - OCMock (3.4)
   - PDKTCollectionViewWaterfallLayout (0.1)
   - Realm (2.5.1):
@@ -67,7 +67,7 @@ SPEC CHECKSUMS:
   Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
   FBSnapshotTestCase: '094f9f314decbabe373b87cc339bea235a63e07a'
   ISO8601: d3ea3ba9b752820cf92c6b47a9ee327e9f0e13fc
-  Keys: 9c35bf00f612ee1d48556f4a4b9b4551e224e90f
+  Keys: a576f4c9c1c641ca913a959a9c62ed3f215a8de9
   OCMock: 35ae71d6a8fcc1b59434d561d1520b9dd4f15765
   PDKTCollectionViewWaterfallLayout: a246de22e843bdb2677ab2fe5d6c1fb0a623f93e
   Realm: 32f86104d37c8521f864d4274050b38ba6190733
