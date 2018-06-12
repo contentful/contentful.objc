@@ -5,9 +5,6 @@ git:
 osx_image: xcode8.3
 rvm:
 - 2.4.1
-  #cache:
-  #- bundler
-  #- cocoapods
 before_install:
 - git submodule sync
 - git submodule update --init --recursive
@@ -24,7 +21,6 @@ notifications:
 env:
   matrix:
   - CONTENTFUL_SDK="CDA"
-  - CONTENTFUL_SDK="CMA"
   global:
   - IOS_SDK=iphonesimulator10.3 IOS_VERSION=10.3.1 DEVICE_NAME='iPhone 6s'
   - ARTIFACTS_S3_BUCKET=static.cdnorigin.contentful.com
