@@ -35,11 +35,6 @@ target 'DeliveryTests' do
   pod 'FBSnapshotTestCase/Core', :inhibit_warnings => true
 end
 
-plugin 'cocoapods-keys', {
-  :project => 'ContentfulSDK',
-  :target => 'ManagementTests',
-  :keys => [ 'ManagementAPIAccessToken' ]
-}
 
 ## Post install
 post_install do |installer|
