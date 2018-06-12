@@ -14,6 +14,20 @@
 
 #### It is recommended to use [contentful.swift](https://github.com/contentful/contentful.swift) over contentful.objc as future development at Contentful will focus on Swift rather than Objective-C.
 
+#### Full feature comparison of contentful.swift & contentful.objc
+
+| CDA Features | contentful.swift | contentful.objc |
+| -----------  | ----------- | ----------- |
+| API coverage* | :white_check_mark: | :white_check_mark: |
+| Images API | :white_check_mark: | :white_check_mark: |
+| Search Parameters | :white_check_mark: | :no_entry_sign: |
+| Fallback locales for sync api | :white_check_mark: | :no_entry_sign: |
+| Rate limit handling | :white_check_mark: | :no_entry_sign: |
+| Space environments | :white_check_mark: | :no_entry_sign: |
+
+*API Coverage definition: all endpoints can be interfaced with and complex queries can be constructed by passing in dictionaries of http parameter/argument pairs. Note that the Swift SDK provides much more comprehensive coverage and takes advantage of type system, outdoing the "stringly typed" interface that the Objective-C SDK offers.
+
+
 Objective-C SDK's for [Contentful's][1] Content Delivery API.
 
 [Contentful][1] provides a content infrastructure for digital teams to power content in websites, apps, and devices. Unlike a CMS, Contentful was built to integrate with the modern software stack. It offers a central hub for structured content, powerful management and delivery APIs, and a customizable web app that enable developers and content creators to ship digital products faster.
