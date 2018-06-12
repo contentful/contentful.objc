@@ -24,8 +24,6 @@ target 'ContentfulDeliveryAPI' do
 end
 
 
-
-
 # Cocoapods docs are wrong and don't work for 
 target 'DeliveryTests' do
   platform :ios, "8.0"
@@ -35,28 +33,6 @@ target 'DeliveryTests' do
   pod 'VCRURLConnection', '= 0.2.2', :inhibit_warnings => true
   pod 'Realm', '~> 2.5.0', :inhibit_warnings => true # Realm must be linked for the persistence layer and should match the same version in the submodule
   pod 'FBSnapshotTestCase/Core', :inhibit_warnings => true
-end
-
-
-
-plugin 'cocoapods-keys', {
-  :project => 'ContentfulSDK',
-  :target => 'ManagementTests',
-  :keys => [ 'ManagementAPIAccessToken' ]
-}
-
-
-## Management API
-target 'ContentfulManagementAPI' do
-  platform :ios, "8.0"
-  podspec :path => 'ContentfulManagementAPI.podspec'
-end
-
-target 'ManagementTests' do
-  platform :ios, "8.0"
-  pod 'Specta'
-  pod 'Expecta', '= 1.0.5'
-  pod 'VCRURLConnection', '= 0.2.2', :inhibit_warnings => true
 end
 
 
