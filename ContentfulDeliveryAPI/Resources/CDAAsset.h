@@ -9,8 +9,6 @@
 #import "CDAEntry.h"
 #import "CDANullabilityStubs.h"
 
-#import "CDAPersistedAsset.h"
-
 /** Pass this constant as image quality to not modify the quality. */
 extern const CGFloat CDAImageQualityOriginal;
 
@@ -158,28 +156,5 @@ typedef NS_ENUM(NSInteger, CDAFitType) {
  *  @return Cached data or `nil` if none was found.
  */
 +(NSData* __nullable)cachedDataForAsset:(CDAAsset* __nonnull)asset;
-
-/**
- *  Access previously cached data for an Asset.
- *
- *  @param persistedAsset   The Asset whose cached data should be accessed.
- *  @param client           The client to use for Contentful requests.
- *
- *  @return Cached data or `nil` if none was found.
- */
-+(NSData* __nullable)cachedDataForPersistedAsset:(id<CDAPersistedAsset> __nonnull)persistedAsset client:(CDAClient* __nonnull)client;
-
-/**
- *  Cache the data of an Asset to disk.
- *
- *  @param persistedAsset The Asset whose cached data should be cached.
- *  @param client         The client to use for Contentful requests.
- *  @param forceOverwrite If `NO` and file already exists, nothing will be done.
- *  @param handler        This block will be called after persisting the asset.
- */
-+(void)cachePersistedAsset:(id<CDAPersistedAsset> __nonnull)persistedAsset
-                    client:(CDAClient* __nonnull)client
-          forcingOverwrite:(BOOL)forceOverwrite
-         completionHandler:(void (^ __nonnull)(BOOL success))handler;
 
 @end

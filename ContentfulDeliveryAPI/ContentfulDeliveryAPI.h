@@ -26,12 +26,3 @@
 #import "CDASpace.h"
 #import "CDASyncedSpace.h"
 
-#if TARGET_OS_IPHONE
-#import "CDAEntriesViewController.h"
-#import "CDAFieldsViewController.h"
-#import "CDAMapViewController.h"
-#import "CDAResourceCell.h"
-#import "CDAResourcesCollectionViewController.h"
-#import "CDAResourcesViewController.h"
-#import "UIImageView+CDAAsset.h"
-#endif

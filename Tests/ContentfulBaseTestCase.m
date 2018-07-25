@@ -21,7 +21,7 @@
 
 #define SIG(class, selector) [class instanceMethodSignatureForSelector:selector]
 
-extern void __gcov_flush();
+extern void __gcov_flush(void);
 
 @interface CDAClient ()
 

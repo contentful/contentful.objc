@@ -28,10 +28,7 @@ PODS:
   - FBSnapshotTestCase/Core (2.1.4)
   - ISO8601 (0.6.0)
   - OCMock (3.4.2)
-  - Realm (2.5.1):
-    - Realm/Headers (= 2.5.1)
-  - Realm/Headers (2.5.1)
-  - VCRURLConnection (0.2.2)
+  - VCRURLConnection (0.2.4)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.2.1)
@@ -39,8 +36,7 @@ DEPENDENCIES:
   - FBSnapshotTestCase/Core
   - ISO8601 (~> 0.6.0)
   - OCMock
-  - Realm (~> 2.5.0)
-  - VCRURLConnection (= 0.2.2)
+  - VCRURLConnection (= 0.2.4)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -48,7 +44,6 @@ SPEC REPOS:
     - FBSnapshotTestCase
     - ISO8601
     - OCMock
-    - Realm
     - VCRURLConnection
 
 EXTERNAL SOURCES:
@@ -66,9 +61,8 @@ SPEC CHECKSUMS:
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   ISO8601: d3ea3ba9b752820cf92c6b47a9ee327e9f0e13fc
   OCMock: ebe9ee1dca7fbed0ff9193ac0b3e2d8862ea56f6
-  Realm: 32f86104d37c8521f864d4274050b38ba6190733
-  VCRURLConnection: 1b14489604ca90b7b144b50dab6f9845d8931a45
+  VCRURLConnection: c522ba51c372f6ec79df4f0cd2cb0ac6cdb8ad65
 
-PODFILE CHECKSUM: 8ef6bb58f16f0c19e0b8de919bf4e07f28b58ae5
+PODFILE CHECKSUM: 3efbeb1b5f60537cf4c08fafe3183222402255a3
 
 COCOAPODS: 1.5.3
