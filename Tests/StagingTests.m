@@ -29,35 +29,35 @@
 }
 
 - (void)testContentTypes {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [self.client fetchContentTypesWithSuccess:^(CDAResponse *response, CDAArray *array) {
         XCTAssertNotNil(array, @"");
         
-        EndBlock();
+        [expectation fulfill];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 - (void)testEntries {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [self.client fetchEntriesWithSuccess:^(CDAResponse *response, CDAArray *array) {
         XCTAssertNotNil(array, @"");
         
-        EndBlock();
+        [expectation fulfill];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 #endif
 

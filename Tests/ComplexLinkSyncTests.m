@@ -42,32 +42,32 @@
 }
 
 -(void)testComplexLinkSync {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
         space.delegate = self;
         
         [space performSynchronizationWithSuccess:^{
             [space performSynchronizationWithSuccess:^{
-                EndBlock();
+                [expectation fulfill];
             } failure:^(CDAResponse *response, NSError *error) {
                 XCTFail(@"Error: %@", error);
                 
-                EndBlock();
+                [expectation fulfill];
             }];
         } failure:^(CDAResponse *response, NSError *error) {
             XCTFail(@"Error: %@", error);
             
-            EndBlock();
+            [expectation fulfill];
         }];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     XCTAssertNotNil(request, @"");
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
     
     XCTAssertEqual(1U, self.numberOfEntriesCreated, @"");
     XCTAssertEqual(0U, self.numberOfEntriesUpdated, @"");
@@ -80,7 +80,7 @@
  normally be a create, but a shallow synchronized space will treat it as an update.
  */
 -(void)testComplexLinkSyncWithoutSyncSpaceInstance {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
         CDASyncedSpace* shallowSyncSpace = [CDASyncedSpace shallowSyncSpaceWithToken:space.syncToken
@@ -90,25 +90,25 @@
         
         [shallowSyncSpace performSynchronizationWithSuccess:^{
             [shallowSyncSpace performSynchronizationWithSuccess:^{
-                EndBlock();
+                [expectation fulfill];
             } failure:^(CDAResponse *response, NSError *error) {
                 XCTFail(@"Error: %@", error);
                 
-                EndBlock();
+                [expectation fulfill];
             }];
         } failure:^(CDAResponse *response, NSError *error) {
             XCTFail(@"Error: %@", error);
             
-            EndBlock();
+            [expectation fulfill];
         }];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     XCTAssertNotNil(request, @"");
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
     
     XCTAssertEqual(0U, self.numberOfEntriesCreated, @"");
     XCTAssertEqual(1U, self.numberOfEntriesUpdated, @"");

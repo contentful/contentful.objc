@@ -7,6 +7,7 @@
 //
 
 #import "SyncBaseTestCase.h"
+@import XCTest;
 
 @interface AddContentTypesSyncTests : SyncBaseTestCase
 
@@ -28,26 +29,26 @@
 }
 
 -(void)testAddContentTypesDuringSyncSession {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
         space.delegate = self;
         
         [space performSynchronizationWithSuccess:^{
-            EndBlock();
+            [expectation fulfill];
         } failure:^(CDAResponse *response, NSError *error) {
             XCTFail(@"Error: %@", error);
             
-            EndBlock();
+            [expectation fulfill];
         }];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     XCTAssertNotNil(request, @"");
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
     
     XCTAssertEqual(1U, self.numberOfEntriesCreated, @"");
 }

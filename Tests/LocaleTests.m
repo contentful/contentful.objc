@@ -17,7 +17,7 @@
 @implementation LocaleTests
 
 -(void)testFallbackLocalesForAssets {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
 
     self.client = [[CDAClient alloc] initWithSpaceKey:@"dmm6iymtengv"
                                           accessToken:@"b18e713cf2c3c8916cad0cca8e801a3c230e9e6781098dc50fb0810ebc36a4a1"];
@@ -29,31 +29,31 @@
         asset.locale = @"es";
         XCTAssertNotNil(asset.URL);
 
-        EndBlock();
+        [expectation fulfill];
     } failure:^(CDAResponse* response, NSError* error) {
         XCTFail(@"Error: %@", error);
 
-        EndBlock();
+        [expectation fulfill];
     }];
 
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 -(void)testWildcardLocales {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
 
     [self.client fetchEntriesMatching:@{ @"locale": @"*", @"sys.id": @"nyancat" }
                               success:^(CDAResponse* response, CDAArray* array) {
                                   NSLog(@"yolo: %@", array);
 
-                                  EndBlock();
+                                  [expectation fulfill];
                               } failure:^(CDAResponse* response, NSError* error) {
                                   XCTFail(@"Error: %@", error);
                                   
-                                  EndBlock();
+                                  [expectation fulfill];
                               }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 @end

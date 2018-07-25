@@ -57,7 +57,7 @@
 }
 
 -(void)testCacheFileNameForQuery {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     CDAClient* client = [CDAClient new];
     [client fetchSpaceWithSuccess:^(CDAResponse *response, CDASpace *space) {
@@ -65,18 +65,18 @@
                                                            CDAResourceTypeAsset, @{ @"foo": @"bar" });
         [self assertCacheFile:cacheFileName againstSuffix:@"com.contentful.sdk/cache_cfexampleapi_0_{foo=bar;}.data"];
         
-        EndBlock();
+        [expectation fulfill];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 -(void)testCacheFileNameForResource {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     CDAClient* client = [CDAClient new];
     [client fetchSpaceWithSuccess:^(CDAResponse *response, CDASpace *space) {
@@ -86,14 +86,14 @@
         NSString* cacheFileName = CDACacheFileNameForResource(resource);
         [self assertCacheFile:cacheFileName againstSuffix:@"com.contentful.sdk/cache_cfexampleapi_Asset_foo.foo"];
         
-        EndBlock();
+        [expectation fulfill];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 -(void)testClassComparison {

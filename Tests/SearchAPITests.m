@@ -19,7 +19,7 @@
 @implementation SearchAPITests
 
 - (void)testContentTypeSearch {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [self.client fetchEntriesMatching:@{ @"content_type": @"cat" }
         success:^(CDAResponse *response, CDAArray *array) {
@@ -31,36 +31,36 @@
                 }
             }
             
-            EndBlock();
+            [expectation fulfill];
         } failure:^(CDAResponse *response, NSError *error) {
             XCTFail(@"Error: %@", error);
             
-            EndBlock();
+            [expectation fulfill];
     }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 - (void)testEqualitySearch {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [self.client fetchEntriesMatching:@{ @"sys.id": @"nyancat" }
         success:^(CDAResponse *response, CDAArray *array) {
             XCTAssertEqual(1U, array.items.count, @"");
             XCTAssertEqualObjects(@"Nyan Cat", [[array.items firstObject] fields][@"name"], @"");
             
-            EndBlock();
+            [expectation fulfill];
         } failure:^(CDAResponse *response, NSError *error) {
             XCTFail(@"Error: %@", error);
             
-            EndBlock();
+            [expectation fulfill];
     }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 - (void)testInequalitySearch {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [self.client fetchEntriesMatching:@{ @"sys.id[ne]": @"nyancat" }
         success:^(CDAResponse *response, CDAArray *array) {
@@ -69,18 +69,18 @@
                 XCTAssertNotEqualObjects(@"Nyan Cat", entry.fields[@"name"], @"");
             }
             
-            EndBlock();
+            [expectation fulfill];
         } failure:^(CDAResponse *response, NSError *error) {
             XCTFail(@"Error: %@", error);
             
-            EndBlock();
+            [expectation fulfill];
     }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 - (void)testArrayEqualitySearch {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [self.client fetchEntriesMatching:@{ @"content_type": @"cat",
                                          @"fields.likes": @"lasagna" }
@@ -88,18 +88,18 @@
             XCTAssertEqual(1U, array.items.count, @"");
             XCTAssertEqualObjects(@"garfield", [[array.items firstObject] identifier], @"");
                                   
-            EndBlock();
+            [expectation fulfill];
         } failure:^(CDAResponse *response, NSError *error) {
             XCTFail(@"Error: %@", error);
                                   
-            EndBlock();
+            [expectation fulfill];
     }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 - (void)testInclusionSearch {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [self.client fetchEntriesMatching:@{ @"sys.id[in]": @[ @"finn", @"jake" ] }
         success:^(CDAResponse *response, CDAArray *array) {
@@ -108,18 +108,18 @@
                 XCTAssert([entry.identifier isEqualToString:@"finn"] || [entry.identifier isEqualToString:@"jake"], @"");
             }
             
-            EndBlock();
+            [expectation fulfill];
         } failure:^(CDAResponse *response, NSError *error) {
             XCTFail(@"Error: %@", error);
             
-            EndBlock();
+            [expectation fulfill];
     }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 - (void)testCompoundSearch {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [self.client fetchEntriesMatching:@{ @"content_type": @"cat",
                                          @"fields.likes[nin]": @[ @"rainbows", @"lasagna" ] }
@@ -132,18 +132,18 @@
             XCTAssertEqualObjects([NSURL URLWithString:@"https://images.contentful.com/cfexampleapi/3MZPnjZTIskAIIkuuosCss/382a48dfa2cb16c47aa2c72f7b23bf09/happycatw.jpg"],
                                   [((CDAAsset*)entry.fields[@"image"]) URL], @"");
             
-            EndBlock();
+            [expectation fulfill];
         } failure:^(CDAResponse *response, NSError *error) {
             XCTFail(@"Error: %@", error);
             
-            EndBlock();
+            [expectation fulfill];
     }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 - (void)testNumberRangeSearch {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [self.client fetchEntriesMatching:@{ @"content_type": @"cat",
                                          @"fields.lives[lte]": @(3) }
@@ -151,18 +151,18 @@
             XCTAssertEqual(1U, array.items.count, @"");
             XCTAssertEqualObjects(@"happycat", [[array.items firstObject] identifier], @"");
             
-            EndBlock();
+            [expectation fulfill];
         } failure:^(CDAResponse *response, NSError *error) {
             XCTFail(@"Error: %@", error);
             
-            EndBlock();
+            [expectation fulfill];
     }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 - (void)testDateRangeSearch {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     NSDate* date = [NSDate dateWithISO8601String:@"2013-01-01T00:00:00Z"];
     
@@ -170,18 +170,18 @@
         success:^(CDAResponse *response, CDAArray *array) {
             XCTAssertEqual(10U, array.items.count, @"");
             
-            EndBlock();
+            [expectation fulfill];
         } failure:^(CDAResponse *response, NSError *error) {
             XCTFail(@"Error: %@", error);
             
-            EndBlock();
+            [expectation fulfill];
     }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 - (void)testFullTextSearch {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [self.client fetchEntriesMatching:@{ @"query": @"bacon" }
         success:^(CDAResponse *response, CDAArray *array) {
@@ -190,18 +190,18 @@
             XCTAssertEqualObjects(@"Bacon pancakes, makin' bacon pancakes!",
                                   [[array.items firstObject] fields][@"description"], @"");
             
-            EndBlock();
+            [expectation fulfill];
         } failure:^(CDAResponse *response, NSError *error) {
             XCTFail(@"Error: %@", error);
             
-            EndBlock();
+            [expectation fulfill];
     }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 - (void)testFullTextSearchOnSpecificFields {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [self.client fetchEntriesMatching:@{ @"content_type": @"dog",
                                          @"fields.description[match]": @"bacon pancakes" }
@@ -211,18 +211,18 @@
             XCTAssertEqualObjects(@"Bacon pancakes, makin' bacon pancakes!",
                                   [[array.items firstObject] fields][@"description"], @"");
             
-            EndBlock();
+            [expectation fulfill];
         } failure:^(CDAResponse *response, NSError *error) {
             XCTFail(@"Error: %@", error);
             
-            EndBlock();
+            [expectation fulfill];
     }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 -(void)testLocationSearchReturnsError {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [self.client fetchEntriesMatching:@{ @"fields.location[near]": @[ @(23), @(42) ],
                                          @"content_type": @"restaurant" }
@@ -237,14 +237,14 @@
                                   error.userInfo[@"details"], @"");
             XCTAssertEqualObjects(@"InvalidQuery", error.userInfo[@"identifier"], @"");
             
-            EndBlock();
+            [expectation fulfill];
     }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 - (void)testSearchOrder {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [self.client fetchEntriesMatching:@{ @"order": @"sys.createdAt" }
         success:^(CDAResponse *response, CDAArray *array) {
@@ -252,18 +252,18 @@
             XCTAssertEqualObjects(@"7qVBlCjpWE86Oseo40gAEY",
                                   [[array.items lastObject] identifier], @"");
             
-            EndBlock();
+            [expectation fulfill];
         } failure:^(CDAResponse *response, NSError *error) {
             XCTFail(@"Error: %@", error);
             
-            EndBlock();
+            [expectation fulfill];
     }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 - (void)testSearchOrderReversed {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [self.client fetchEntriesMatching:@{ @"order": @"-sys.updatedAt" }
         success:^(CDAResponse *response, CDAArray *array) {
@@ -271,38 +271,38 @@
                                   [[array.items firstObject] identifier], @"");
             XCTAssertEqualObjects(@"garfield", [[array.items lastObject] identifier], @"");
                                   
-            EndBlock();
+            [expectation fulfill];
         } failure:^(CDAResponse *response, NSError *error) {
             XCTFail(@"Error: %@", error);
                                   
-            EndBlock();
+            [expectation fulfill];
     }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 - (void)testSearchLimit {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [self.client fetchEntriesMatching:@{ @"limit": @3 }
                               success:^(CDAResponse *response, CDAArray *array) {
                                   XCTAssertEqual(3U, array.items.count, @"");
                                   XCTAssertEqual(3U, array.limit, @"");
                                   
-                                  EndBlock();
+                                  [expectation fulfill];
                               } failure:^(CDAResponse *response, NSError *error) {
                                   XCTFail(@"Error: %@", error);
                                   
-                                  EndBlock();
+                                  [expectation fulfill];
                               }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 // FIXME: Source space has been deleted, test data needs to be recreated
 #if 0
 - (void)testSearchLimitZero {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     CDAConfiguration* configuration = [CDAConfiguration defaultConfiguration];
     configuration.server = @"cdn.flinkly.com";
@@ -315,37 +315,37 @@
                              XCTAssertEqual(0U, array.limit, @"");
                              XCTAssertEqual(4U, array.total, @"");
                              
-                             EndBlock();
+                             [expectation fulfill];
                          } failure:^(CDAResponse *response, NSError *error) {
                              XCTFail(@"Error: %@", error);
                              
-                             EndBlock();
+                             [expectation fulfill];
                          }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 #endif
 
 - (void)testSearchSkip {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [self.client fetchEntriesMatching:@{ @"skip": @3 }
                               success:^(CDAResponse *response, CDAArray *array) {
                                   XCTAssertEqual(7U, array.items.count, @"");
                                   XCTAssertEqual(3U, array.skip, @"");
                                   
-                                  EndBlock();
+                                  [expectation fulfill];
                               } failure:^(CDAResponse *response, NSError *error) {
                                   XCTFail(@"Error: %@", error);
                                   
-                                  EndBlock();
+                                  [expectation fulfill];
                               }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 - (void)testIncludes {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [self.client fetchEntriesMatching:@{ @"sys.id": @"nyancat", @"include": @(1) }
                               success:^(CDAResponse *response, CDAArray *array) {
@@ -354,14 +354,14 @@
                                   XCTAssertEqualObjects(@"image/png", [nyanCat.fields[@"image"] MIMEType], @"");
                                   XCTAssertEqualObjects(@"happycat", [nyanCat.fields[@"bestFriend"] identifier], @"");
                                   
-                                  EndBlock();
+                                  [expectation fulfill];
                               } failure:^(CDAResponse *response, NSError *error) {
                                   XCTFail(@"Error: %@", error);
                                   
-                                  EndBlock();
+                                  [expectation fulfill];
                               }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 @end

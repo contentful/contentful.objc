@@ -28,33 +28,33 @@
 }
 
 -(void)testSyncWithLinks {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
         space.delegate = self;
         
         [space performSynchronizationWithSuccess:^{
-            EndBlock();
+            [expectation fulfill];
         } failure:^(CDAResponse *response, NSError *error) {
             XCTFail(@"Error: %@", error);
             
-            EndBlock();
+            [expectation fulfill];
         }];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     XCTAssertNotNil(request, @"");
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
     
     XCTAssertEqual(2U, self.numberOfEntriesCreated, @"");
     XCTAssertEqual(0U, self.numberOfEntriesUpdated, @"");
 }
 
 -(void)testSyncWithLinksWithoutSyncSpaceInstance {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
         NSString* syncToken = space.syncToken;
@@ -67,20 +67,20 @@
         shallowSyncSpace.delegate = self;
         
         [shallowSyncSpace performSynchronizationWithSuccess:^{
-            EndBlock();
+            [expectation fulfill];
         } failure:^(CDAResponse *response, NSError *error) {
             XCTFail(@"Error: %@", error);
             
-            EndBlock();
+            [expectation fulfill];
         }];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     XCTAssertNotNil(request, @"");
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
     
     XCTAssertEqual(2U, self.numberOfEntriesCreated, @"");
     XCTAssertEqual(0U, self.numberOfEntriesUpdated, @"");

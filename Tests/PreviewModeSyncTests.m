@@ -23,7 +23,7 @@
 }
 
 -(void)testInitialSync {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
         XCTAssertEqual(2U, space.assets.count, @"");
@@ -33,20 +33,20 @@
             XCTAssertEqual(2U, space.assets.count, @"");
             XCTAssertEqual(9U, space.entries.count, @"");
             
-            EndBlock();
+            [expectation fulfill];
         } failure:^(CDAResponse *response, NSError *error) {
             XCTFail(@"Error: %@", error);
             
-            EndBlock();
+            [expectation fulfill];
         }];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     XCTAssertNotNil(request, @"");
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 @end

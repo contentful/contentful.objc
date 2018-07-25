@@ -24,26 +24,26 @@
 }
 
 - (void)testFetchResourcesOfTypeAsset {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [self.client fetchResourcesOfType:CDAResourceTypeAsset
                              matching:nil
                               success:^(CDAResponse *response, CDAArray *array) {
                                   XCTAssertEqual(0U, array.items.count, @"");
                                   
-                                  EndBlock();
+                                  [expectation fulfill];
                               }
                               failure:^(CDAResponse *response, NSError *error) {
                                   XCTFail(@"%@", error);
                                   
-                                  EndBlock();
+                                  [expectation fulfill];
                               }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 - (void)testFetchResourcesOfTypeContentType {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [self.client fetchResourcesOfType:CDAResourceTypeContentType
                              matching:nil
@@ -54,19 +54,19 @@
                                       XCTAssert(CDAClassIsOfType([ct class], CDAContentType.class));
                                   }
                                   
-                                  EndBlock();
+                                  [expectation fulfill];
                               }
                               failure:^(CDAResponse *response, NSError *error) {
                                   XCTFail(@"%@", error);
                                   
-                                  EndBlock();
+                                  [expectation fulfill];
                               }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 - (void)testFetchResourcesOfTypeEntry {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [self.client fetchResourcesOfType:CDAResourceTypeEntry
                              matching:nil
@@ -77,19 +77,19 @@
                                       XCTAssert(CDAClassIsOfType([entry class], CDAEntry.class));
                                   }
                                   
-                                  EndBlock();
+                                  [expectation fulfill];
                               }
                               failure:^(CDAResponse *response, NSError *error) {
                                   XCTFail(@"%@", error);
                                   
-                                  EndBlock();
+                                  [expectation fulfill];
                               }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 - (void)testIncludes {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     self.client = [[CDAClient alloc] initWithSpaceKey:@"b61be4nhwivb" accessToken:@"92df7fe7c01a0429a8d22a1cd6173a7f05a7313835202ae1170158825d35e64f"];
     [self.client fetchEntriesMatching:@{ @"content_type": @"1IXmNJUSVOcuCiKaQUiSO4", @"include": @1 } success:^(CDAResponse *response, CDAArray *array) {
@@ -106,18 +106,18 @@
                       @"Unexpected name '%@'", name);
         }
         
-        EndBlock();
+        [expectation fulfill];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"%@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 - (void)testPaging {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [self.client fetchEntriesMatching:@{ @"content_type": @"7ocuA1dfoccWqWwWUY4UY" }
                               success:^(CDAResponse *response, CDAArray *array) {
@@ -127,24 +127,24 @@
                                                                                  items.count,
                                                                                  @"");
                                                                   
-                                                                  EndBlock();
+                                                                  [expectation fulfill];
                                                               } failure:^(CDAResponse *response,
                                                                           NSError *error) {
                                                                   XCTFail(@"%@", error);
                                                                   
-                                                                  EndBlock();
+                                                                  [expectation fulfill];
                                                               }];
                               } failure:^(CDAResponse *response, NSError *error) {
                                   XCTFail(@"%@", error);
                                   
-                                  EndBlock();
+                                  [expectation fulfill];
                               }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 - (void)testRequest {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     __block CDARequest* request = [self.client fetchSpaceWithSuccess:^(CDAResponse *response,
                                                                CDASpace *space) {
@@ -154,14 +154,14 @@
         XCTAssertEqual((NSUInteger)NSUTF8StringEncoding,
                        (NSUInteger)request.responseStringEncoding, @"");
         
-        EndBlock();
+        [expectation fulfill];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"%@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 @end

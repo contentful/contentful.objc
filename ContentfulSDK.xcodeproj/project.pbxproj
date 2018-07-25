@@ -430,7 +430,6 @@
 		A1A0314918C67527006470B7 /* CDAContentTypeRegistry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDAContentTypeRegistry.h; path = ../ContentfulDeliveryAPI/CDAContentTypeRegistry.h; sourceTree = "<group>"; };
 		A1A0314A18C67527006470B7 /* CDAContentTypeRegistry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = CDAContentTypeRegistry.m; path = ../ContentfulDeliveryAPI/CDAContentTypeRegistry.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A1A0314E18C756B7006470B7 /* SearchAPITests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchAPITests.m; sourceTree = "<group>"; };
-		A1A0315018C75B2A006470B7 /* AsyncTesting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AsyncTesting.h; sourceTree = "<group>"; };
 		A1A0315318C76839006470B7 /* CDAError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDAError.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A1A0315418C76839006470B7 /* CDAError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDAError.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A1A0315718C76D38006470B7 /* CDAAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAAsset.h; sourceTree = "<group>"; };
@@ -759,7 +758,6 @@
 			isa = PBXGroup;
 			children = (
 				A19FD88218C631E60081677E /* Tests-Info.plist */,
-				A1A0315018C75B2A006470B7 /* AsyncTesting.h */,
 				A1D1D35D18C8A99A00261A1C /* ContentfulBaseTestCase.h */,
 				A1D1D35B18C8A94800261A1C /* ContentfulBaseTestCase.m */,
 				A1B815C018F56ED20027B26D /* SyncBaseTestCase.h */,

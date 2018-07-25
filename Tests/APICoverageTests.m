@@ -19,73 +19,73 @@ typedef void(^CDAEntriesFetchBlock)(NSArray* entries);
 @implementation APICoverageTests
 
 -(void)testFetchSingleAsset {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
 
     [self.client fetchAssetWithIdentifier:@"nyancat" success:^(CDAResponse* response,
                                                                CDAAsset* asset) {
         XCTAssertEqualObjects(asset.identifier, @"nyancat");
 
-        EndBlock();
+        [expectation fulfill];
     } failure:^(CDAResponse* response, NSError* error) {
         XCTFail(@"%@", error);
 
-        EndBlock();
+        [expectation fulfill];
     }];
 
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 -(void)testFetchSingleContentType {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
 
     [self.client fetchContentTypeWithIdentifier:@"cat" success:^(CDAResponse* response,
                                                                  CDAContentType* contentType) {
         XCTAssertEqualObjects(contentType.identifier, @"cat");
 
-        EndBlock();
+        [expectation fulfill];
     } failure:^(CDAResponse* response, NSError* error) {
         XCTFail(@"%@", error);
 
-        EndBlock();
+        [expectation fulfill];
     }];
 
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 -(void)testFetchSingleEntry {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
 
     [self.client fetchEntryWithIdentifier:@"nyancat" success:^(CDAResponse* response,
                                                                CDAEntry* entry) {
         XCTAssertEqualObjects(entry.identifier, @"nyancat");
 
-        EndBlock();
+        [expectation fulfill];
     } failure:^(CDAResponse* response, NSError* error) {
         XCTFail(@"%@", error);
 
-        EndBlock();
+        [expectation fulfill];
     }];
 
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 #pragma mark -
 
 -(void)fetchEntriesMatching:(NSDictionary*)matching success:(CDAEntriesFetchBlock)success {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
 
     [self.client fetchEntriesMatching:matching
                               success:^(CDAResponse* response, CDAArray* array) {
                                   success(array.items);
 
-                                  EndBlock();
+                                  [expectation fulfill];
                               } failure:^(CDAResponse* response, NSError* error) {
                                   XCTFail(@"%@", error);
                                   
-                                  EndBlock();
+                                  [expectation fulfill];
                               }];
 
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 -(void)testFetchEntriesByAttributeExistsQuery {
@@ -136,20 +136,20 @@ typedef void(^CDAEntriesFetchBlock)(NSArray* entries);
 #pragma mark -
 
 -(void)testFetchAssetsByMimetypeGroup {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
 
     [self.client fetchAssetsMatching:@{ @"mimetype_group": @"image" } success:^(CDAResponse* response,
                                                                                 CDAArray* array) {
         XCTAssertEqual(array.items.count, 4);
 
-        EndBlock();
+        [expectation fulfill];
     } failure:^(CDAResponse* response, NSError* error) {
         XCTFail(@"%@", error);
 
-        EndBlock();
+        [expectation fulfill];
     }];
 
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 /*
