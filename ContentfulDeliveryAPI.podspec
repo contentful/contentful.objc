@@ -32,7 +32,6 @@ Pod::Spec.new do |s|
   s.ios.deployment_target     = '8.0'
   s.ios.source_files          = 'ContentfulDeliveryAPI/UIKit/*.{h,m}'
   s.ios.frameworks            = 'UIKit', 'MapKit'
-  s.ios.public_header_files   = 'ContentfulDeliveryAPI/UIKit/{CDAEntriesViewController,CDAFieldsViewController,UIImageView+CDAAsset,CDAMapViewController,CDAResourcesCollectionViewController,CDAResourcesViewController,CDAResourceCell}.h'
 
   # macOS specific
   s.osx.deployment_target     = '10.12'
@@ -41,7 +40,6 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target    = '9.0'
   s.tvos.source_files          = 'ContentfulDeliveryAPI/UIKit/*.{h,m}'
   s.tvos.frameworks            = 'UIKit', 'MapKit'
-  s.tvos.public_header_files   = 'ContentfulDeliveryAPI/UIKit/{CDAEntriesViewController,CDAFieldsViewController,UIImageView+CDAAsset,CDAMapViewController,CDAResourcesCollectionViewController,CDAResourcesViewController,CDAResourceCell}.h'
 
 
   s.dependency 'AFNetworking', '~> 3.2.1'

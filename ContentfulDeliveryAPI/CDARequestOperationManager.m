@@ -274,7 +274,10 @@
                                    success:(CDAObjectFetchedBlock)success
                                    failure:(CDARequestFailureBlock)failure {
     
-    NSURLSessionTask* task = [self dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+    NSURLSessionTask* task = [self dataTaskWithRequest:request
+                                        uploadProgress:nil
+                                      downloadProgress:nil
+                                     completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
         NSAssert(!response || [response isKindOfClass:NSHTTPURLResponse.class], @"Invalid response.");
         NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
 

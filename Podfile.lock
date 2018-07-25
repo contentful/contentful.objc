@@ -28,7 +28,6 @@ PODS:
   - FBSnapshotTestCase/Core (2.1.4)
   - ISO8601 (0.6.0)
   - OCMock (3.4.2)
-  - PDKTCollectionViewWaterfallLayout (0.1)
   - Realm (2.5.1):
     - Realm/Headers (= 2.5.1)
   - Realm/Headers (2.5.1)
@@ -40,7 +39,6 @@ DEPENDENCIES:
   - FBSnapshotTestCase/Core
   - ISO8601 (~> 0.6.0)
   - OCMock
-  - PDKTCollectionViewWaterfallLayout
   - Realm (~> 2.5.0)
   - VCRURLConnection (= 0.2.2)
 
@@ -50,7 +48,6 @@ SPEC REPOS:
     - FBSnapshotTestCase
     - ISO8601
     - OCMock
-    - PDKTCollectionViewWaterfallLayout
     - Realm
     - VCRURLConnection
 
@@ -69,10 +66,9 @@ SPEC CHECKSUMS:
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   ISO8601: d3ea3ba9b752820cf92c6b47a9ee327e9f0e13fc
   OCMock: ebe9ee1dca7fbed0ff9193ac0b3e2d8862ea56f6
-  PDKTCollectionViewWaterfallLayout: a246de22e843bdb2677ab2fe5d6c1fb0a623f93e
   Realm: 32f86104d37c8521f864d4274050b38ba6190733
   VCRURLConnection: 1b14489604ca90b7b144b50dab6f9845d8931a45
 
-PODFILE CHECKSUM: df5e1b9b1737f4a118a22a5fa4e663dab8ce3f9b
+PODFILE CHECKSUM: 8ef6bb58f16f0c19e0b8de919bf4e07f28b58ae5
 
 COCOAPODS: 1.5.3

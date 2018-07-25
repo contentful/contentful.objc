@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		219E56722537C14F1B9FAA8A /* libPods-UFO Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A36B6241746F29EA99C901F2 /* libPods-UFO Example.a */; };
-		23F5671F2B51250C59B71E77 /* libPods-DeliveryTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2287CCB2C05FD36F60397C89 /* libPods-DeliveryTests.a */; };
+		0C2A3B82DFE793482447206D /* libPods-DeliveryTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4220F3E3026CB149EEB9B9AD /* libPods-DeliveryTests.a */; };
 		5D2CF5CE1EC4CF37005AB239 /* CDAPersistedEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D2CF5CD1EC4CF37005AB239 /* CDAPersistedEntry.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D2CF5D61EC4CF8A005AB239 /* CDALocalizablePersistedEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D2CF5D01EC4CF8A005AB239 /* CDALocalizablePersistedEntry.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D2CF5D81EC4CF8A005AB239 /* CDALocalizedPersistedEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D2CF5D11EC4CF8A005AB239 /* CDALocalizedPersistedEntry.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -16,15 +15,12 @@
 		5D2CF5DC1EC4CF8A005AB239 /* CDAPersistenceManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D2CF5D31EC4CF8A005AB239 /* CDAPersistenceManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D2CF5DE1EC4CF8A005AB239 /* CDALocalizablePersistedEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2CF5D41EC4CF8A005AB239 /* CDALocalizablePersistedEntry.m */; };
 		5D2CF5E01EC4CF8A005AB239 /* CDAPersistenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2CF5D51EC4CF8A005AB239 /* CDAPersistenceManager.m */; };
-		60044455849831A672175A98 /* libPods-CoreDataExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C93D6144F8D567AD8120D59 /* libPods-CoreDataExample.a */; };
-		A10A11FE19090F5D00EFF083 /* CatDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A10A11FD19090F5D00EFF083 /* CatDetailViewController.m */; };
+		802F84AB1F9850147C806E5A /* libPods-ContentfulDeliveryAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED042828350C348F040AB04F /* libPods-ContentfulDeliveryAPI.a */; };
 		A120857B1BB2712300A6504B /* ManagedCatLocalized.m in Sources */ = {isa = PBXBuildFile; fileRef = A120857A1BB2712300A6504B /* ManagedCatLocalized.m */; };
 		A12797A618E1A45700043A44 /* SyncTests in Resources */ = {isa = PBXBuildFile; fileRef = A12797A518E1A45700043A44 /* SyncTests */; };
 		A12797AB18E1B08F00043A44 /* SyncTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A12797AA18E1B08F00043A44 /* SyncTests.m */; };
 		A12797AE18E1B10300043A44 /* CDASyncedSpace.h in Headers */ = {isa = PBXBuildFile; fileRef = A12797AC18E1B10300043A44 /* CDASyncedSpace.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A12797AF18E1B10300043A44 /* CDASyncedSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = A12797AD18E1B10300043A44 /* CDASyncedSpace.m */; };
-		A12F19DE1BB48F190088C199 /* CoreDataMultipleLocalesTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A12F19DD1BB48F190088C199 /* CoreDataMultipleLocalesTests.json */; };
-		A12F19E01BB48F380088C199 /* ComplexSyncTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A12F19DF1BB48F380088C199 /* ComplexSyncTests.json */; };
 		A144FAF418C8C98400110B35 /* CDAContentType.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A0314018C66E90006470B7 /* CDAContentType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A144FAF618C90DD100110B35 /* StagingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A144FAF518C90DD100110B35 /* StagingTests.m */; };
 		A144FAFC18C9F8C200110B35 /* StagingTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A144FAFB18C9F8C200110B35 /* StagingTests.json */; };
@@ -38,15 +34,8 @@
 		A160862318CDF0E60047D44F /* CDARequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A160862118CDF0E60047D44F /* CDARequest.m */; };
 		A160862518CDF2AC0047D44F /* CDARequest+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A160862418CDF2AC0047D44F /* CDARequest+Private.h */; };
 		A16675BF1C7C5EC800231AC1 /* RealmClassHierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = A16675BE1C7C5EC800231AC1 /* RealmClassHierarchy.m */; };
-		A17012FB18FC21260086BE07 /* Asset.m in Sources */ = {isa = PBXBuildFile; fileRef = A17012FA18FC21260086BE07 /* Asset.m */; };
-		A17012FE18FC21260086BE07 /* SyncInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A17012FD18FC21260086BE07 /* SyncInfo.m */; };
-		A170130118FC21260086BE07 /* ManagedCat.m in Sources */ = {isa = PBXBuildFile; fileRef = A170130018FC21260086BE07 /* ManagedCat.m */; };
 		A170130418FC25640086BE07 /* PreviewModeSyncTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A170130318FC25640086BE07 /* PreviewModeSyncTests.m */; };
 		A170130B18FD30A50086BE07 /* CoreDataBasicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A170130A18FD30A50086BE07 /* CoreDataBasicTests.m */; };
-		A170130F18FD47B70086BE07 /* CoreDataExample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A1B8159518F2A8090027B26D /* CoreDataExample.xcdatamodeld */; };
-		A170131018FD4B9A0086BE07 /* Asset.m in Sources */ = {isa = PBXBuildFile; fileRef = A17012FA18FC21260086BE07 /* Asset.m */; };
-		A170131118FD4B9D0086BE07 /* ManagedCat.m in Sources */ = {isa = PBXBuildFile; fileRef = A170130018FC21260086BE07 /* ManagedCat.m */; };
-		A170131218FD4BA00086BE07 /* SyncInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A17012FD18FC21260086BE07 /* SyncInfo.m */; };
 		A170131518FD5DE20086BE07 /* PersistenceTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A170131318FD5DE20086BE07 /* PersistenceTests.json */; };
 		A170131618FD5DE20086BE07 /* PreviewModeSyncTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A170131418FD5DE20086BE07 /* PreviewModeSyncTests.json */; };
 		A170131B18FEA0AD0086BE07 /* Fixtures in Resources */ = {isa = PBXBuildFile; fileRef = A170131918FEA0AD0086BE07 /* Fixtures */; };
@@ -55,23 +44,6 @@
 		A171BD5119EC6E8B008D7F0D /* ClientConfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = A171BD4819EC6E0E008D7F0D /* ClientConfiguration.json */; };
 		A171BD5219EC6E98008D7F0D /* SyncSpecificContentTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A171BD4E19EC6E53008D7F0D /* SyncSpecificContentTests.json */; };
 		A173F54618D386CD000E6F92 /* ErrorTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A173F54518D386CD000E6F92 /* ErrorTests.json */; };
-		A173F54E18D6FD03000E6F92 /* CDATextViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A173F54C18D6FD03000E6F92 /* CDATextViewController.h */; };
-		A173F54F18D6FD03000E6F92 /* CDATextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A173F54D18D6FD03000E6F92 /* CDATextViewController.m */; };
-		A173F55218D700B8000E6F92 /* CDALocationViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A173F55018D700B8000E6F92 /* CDALocationViewController.h */; };
-		A173F55318D700B8000E6F92 /* CDALocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A173F55118D700B8000E6F92 /* CDALocationViewController.m */; };
-		A173F55918D705B2000E6F92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD86A18C631E60081677E /* Foundation.framework */; };
-		A173F55A18D705B2000E6F92 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD89918C637400081677E /* CoreGraphics.framework */; };
-		A173F56318D705B2000E6F92 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A173F56218D705B2000E6F92 /* main.m */; };
-		A173F56718D705B2000E6F92 /* CDAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A173F56618D705B2000E6F92 /* CDAAppDelegate.m */; };
-		A173F58418D7071C000E6F92 /* CDAExampleSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A173F58318D7071C000E6F92 /* CDAExampleSelectionViewController.m */; };
-		A173F58718D7091B000E6F92 /* CDALoadAssetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A173F58618D7091B000E6F92 /* CDALoadAssetsViewController.m */; };
-		A173F58D18D752A9000E6F92 /* CDAImageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A173F58B18D752A9000E6F92 /* CDAImageViewController.h */; };
-		A173F58E18D752A9000E6F92 /* CDAImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A173F58C18D752A9000E6F92 /* CDAImageViewController.m */; };
-		A173F59518D9A269000E6F92 /* CDAResourcesCollectionViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A173F59318D9A269000E6F92 /* CDAResourcesCollectionViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A173F59618D9A269000E6F92 /* CDAResourcesCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A173F59418D9A269000E6F92 /* CDAResourcesCollectionViewController.m */; };
-		A173F59918D9A2A9000E6F92 /* CDAImageGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A173F59818D9A2A9000E6F92 /* CDAImageGalleryViewController.m */; };
-		A173F59C18D9A2FD000E6F92 /* CDAResourceCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A173F59A18D9A2FD000E6F92 /* CDAResourceCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A173F59D18D9A2FD000E6F92 /* CDAResourceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A173F59B18D9A2FD000E6F92 /* CDAResourceCell.m */; };
 		A173F60318DB3E1E000E6F92 /* PreviewModeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A173F60218DB3E1E000E6F92 /* PreviewModeTests.m */; };
 		A173F60518DB412C000E6F92 /* PreviewModeTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A173F60418DB412C000E6F92 /* PreviewModeTests.json */; };
 		A189199B1BB1E7870094256E /* LocalizedModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A18919991BB1E7870094256E /* LocalizedModel.xcdatamodeld */; };
@@ -85,37 +57,19 @@
 		A18AA85918E48B4200D430D5 /* AssetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A18AA85818E48B4200D430D5 /* AssetTests.m */; };
 		A18AA85C18E4952C00D430D5 /* AssetTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A18AA85A18E4952800D430D5 /* AssetTests.json */; };
 		A18AA86418E5DB1A00D430D5 /* UtilityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A18AA86318E5DB1A00D430D5 /* UtilityTests.m */; };
-		A1924C8D18EBFFB600C97F9D /* CDAResourcesViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A1924C8B18EBFFB600C97F9D /* CDAResourcesViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A1924C8E18EBFFB600C97F9D /* CDAResourcesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1924C8C18EBFFB600C97F9D /* CDAResourcesViewController.m */; };
-		A1924C9118EC0DF000C97F9D /* CDAMapViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A1924C8F18EC0DF000C97F9D /* CDAMapViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A1924C9218EC0DF000C97F9D /* CDAMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1924C9018EC0DF000C97F9D /* CDAMapViewController.m */; };
-		A1924C9518EC15A100C97F9D /* CDASimpleMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1924C9418EC15A100C97F9D /* CDASimpleMapViewController.m */; };
-		A1924C9818EC3A1B00C97F9D /* CDASyncDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1924C9718EC3A1B00C97F9D /* CDASyncDemoViewController.m */; };
-		A1924C9B18EC43E100C97F9D /* CDADateQueryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1924C9A18EC43E100C97F9D /* CDADateQueryViewController.m */; };
 		A193EB3B18D084C50017B777 /* ValueObjectsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A193EB3A18D084C50017B777 /* ValueObjectsTests.m */; };
 		A193EB3C18D096C50017B777 /* CDAResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A0313618C644B5006470B7 /* CDAResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A193EB3E18D09AC10017B777 /* CDAResponse+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A193EB3D18D09AC10017B777 /* CDAResponse+Private.h */; };
 		A193EB4018D09D180017B777 /* UIKitAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A193EB3F18D09D180017B777 /* UIKitAdditionsTests.m */; };
-		A193EB4318D0AC0C0017B777 /* CDAFieldsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A193EB4118D0AC0C0017B777 /* CDAFieldsViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A193EB4418D0AC0C0017B777 /* CDAFieldsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A193EB4218D0AC0C0017B777 /* CDAFieldsViewController.m */; };
-		A193EB4718D0ACFE0017B777 /* CDAFieldCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A193EB4518D0ACFE0017B777 /* CDAFieldCell.h */; };
-		A193EB4818D0ACFE0017B777 /* CDAFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A193EB4618D0ACFE0017B777 /* CDAFieldCell.m */; };
 		A193EB5518D1C88A0017B777 /* ArrayTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A193EB5218D1C88A0017B777 /* ArrayTests.json */; };
 		A193EB5618D1C88A0017B777 /* UIKitAdditionsTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A193EB5318D1C88A0017B777 /* UIKitAdditionsTests.json */; };
 		A193EB5718D1C88A0017B777 /* ValueObjectsTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A193EB5418D1C88A0017B777 /* ValueObjectsTests.json */; };
-		A193EB6518D20FA90017B777 /* UIImageView+CDAAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = A193EB6318D20FA90017B777 /* UIImageView+CDAAsset.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A193EB6618D20FA90017B777 /* UIImageView+CDAAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = A193EB6418D20FA90017B777 /* UIImageView+CDAAsset.m */; };
 		A193EB6818D21B260017B777 /* UIKitAdditionsTests in Resources */ = {isa = PBXBuildFile; fileRef = A193EB6718D21B260017B777 /* UIKitAdditionsTests */; };
 		A19CA3EA1B84EFF800A0EFCD /* LocaleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A19CA3E91B84EFF800A0EFCD /* LocaleTests.m */; };
 		A19FD86B18C631E60081677E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD86A18C631E60081677E /* Foundation.framework */; };
 		A19FD87018C631E60081677E /* CDAClient.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = A19FD86F18C631E60081677E /* CDAClient.h */; };
 		A19FD87218C631E60081677E /* CDAClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A19FD87118C631E60081677E /* CDAClient.m */; };
 		A19FD87A18C631E60081677E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD86A18C631E60081677E /* Foundation.framework */; };
-		A19FD89818C637400081677E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD86A18C631E60081677E /* Foundation.framework */; };
-		A19FD89A18C637400081677E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD89918C637400081677E /* CoreGraphics.framework */; };
-		A19FD8A318C637400081677E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A19FD8A218C637400081677E /* main.m */; };
-		A19FD8A718C637400081677E /* UFOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A19FD8A618C637400081677E /* UFOAppDelegate.m */; };
-		A19FD8D518C639C10081677E /* UFOMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A19FD8D418C639C10081677E /* UFOMapViewController.m */; };
 		A19FD8D818C63AE10081677E /* CDAConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = A19FD8D718C63AE10081677E /* CDAConfiguration.m */; };
 		A1A0312918C64165006470B7 /* CDAResource.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A0312818C64165006470B7 /* CDAResource.m */; };
 		A1A0312C18C64187006470B7 /* CDAEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A0312B18C64187006470B7 /* CDAEntry.m */; };
@@ -125,7 +79,6 @@
 		A1A0314218C66E90006470B7 /* CDAContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A0314118C66E90006470B7 /* CDAContentType.m */; };
 		A1A0314818C6708C006470B7 /* CDAField.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A0314718C6708C006470B7 /* CDAField.m */; };
 		A1A0314B18C67527006470B7 /* CDAContentTypeRegistry.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A0314A18C67527006470B7 /* CDAContentTypeRegistry.m */; };
-		A1A0314C18C67D40006470B7 /* UFOSighting.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A0312E18C641B6006470B7 /* UFOSighting.m */; };
 		A1A0314F18C756B7006470B7 /* SearchAPITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A0314E18C756B7006470B7 /* SearchAPITests.m */; };
 		A1A0315618C7683E006470B7 /* CDAError.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A0315418C76839006470B7 /* CDAError.m */; };
 		A1A0315918C76D38006470B7 /* CDAAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A0315818C76D38006470B7 /* CDAAsset.m */; };
@@ -140,14 +93,6 @@
 		A1ABC7BC191D12ED0020A964 /* CDAInputSanitizer.h in Headers */ = {isa = PBXBuildFile; fileRef = A1ABC7BA191D12ED0020A964 /* CDAInputSanitizer.h */; };
 		A1ABC7BD191D12ED0020A964 /* CDAInputSanitizer.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ABC7BB191D12ED0020A964 /* CDAInputSanitizer.m */; };
 		A1AE68B519B74F1C00D2C35F /* CoreDataIssues.m in Sources */ = {isa = PBXBuildFile; fileRef = A1AE68B419B74F1C00D2C35F /* CoreDataIssues.m */; };
-		A1AE68B819B761B100D2C35F /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = A1AE68B719B761B100D2C35F /* Group.m */; };
-		A1AE68BB19B761B200D2C35F /* Member.m in Sources */ = {isa = PBXBuildFile; fileRef = A1AE68BA19B761B200D2C35F /* Member.m */; };
-		A1B8158418F2A8090027B26D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD86A18C631E60081677E /* Foundation.framework */; };
-		A1B8158518F2A8090027B26D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19FD89918C637400081677E /* CoreGraphics.framework */; };
-		A1B8158818F2A8090027B26D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B8158718F2A8090027B26D /* CoreData.framework */; };
-		A1B8159018F2A8090027B26D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B8158F18F2A8090027B26D /* main.m */; };
-		A1B8159418F2A8090027B26D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B8159318F2A8090027B26D /* AppDelegate.m */; };
-		A1B8159718F2A8090027B26D /* CoreDataExample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A1B8159518F2A8090027B26D /* CoreDataExample.xcdatamodeld */; };
 		A1B815B418F2ACCB0027B26D /* PersistenceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B815B318F2ACCB0027B26D /* PersistenceTests.m */; };
 		A1B815BB18F56BFD0027B26D /* ComplexSyncTests in Resources */ = {isa = PBXBuildFile; fileRef = A1B815BA18F56BFD0027B26D /* ComplexSyncTests */; };
 		A1B815BD18F56C150027B26D /* ComplexSyncTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B815BC18F56C150027B26D /* ComplexSyncTests.m */; };
@@ -162,7 +107,6 @@
 		A1C180691A038B3300117DB3 /* RobustnessTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C180671A0388F800117DB3 /* RobustnessTests.m */; };
 		A1C1AC4318CE032200DBF0D0 /* CDAClient+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A1C1AC4218CE032200DBF0D0 /* CDAClient+Private.h */; };
 		A1C4EE8E1C4E61F10065EA72 /* APICoverageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C4EE8D1C4E61F10065EA72 /* APICoverageTests.m */; };
-		A1C4EE901C4E6B730065EA72 /* APICoverageTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A1C4EE8F1C4E6B730065EA72 /* APICoverageTests.json */; };
 		A1C8DCD318E098E80019A519 /* LinkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C8DCD218E098E80019A519 /* LinkTests.m */; };
 		A1CEC1651A35B142007B4565 /* PersistenceBaseTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CEC1641A35B142007B4565 /* PersistenceBaseTest.m */; };
 		A1CEC16B1A35DCA1007B4565 /* PersistenceBaseTest+Basic.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CEC16A1A35DCA1007B4565 /* PersistenceBaseTest+Basic.m */; };
@@ -173,10 +117,6 @@
 		A1CEC1B71A360D2C007B4565 /* ManagedRealmCat.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CEC1B61A360D2C007B4565 /* ManagedRealmCat.m */; };
 		A1D1D35C18C8A94800261A1C /* ContentfulBaseTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D1D35B18C8A94800261A1C /* ContentfulBaseTestCase.m */; };
 		A1D1D35F18C8ABB800261A1C /* DocumentationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D1D35E18C8ABB800261A1C /* DocumentationTests.m */; };
-		A1D2DC0218D076F50053DC83 /* CDAEntriesViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A1D2DBFE18D076F50053DC83 /* CDAEntriesViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A1D2DC0318D076F50053DC83 /* CDAEntriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D2DBFF18D076F50053DC83 /* CDAEntriesViewController.m */; };
-		A1D2DC0418D076F50053DC83 /* CDAResourceTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A1D2DC0018D076F50053DC83 /* CDAResourceTableViewCell.h */; };
-		A1D2DC0518D076F50053DC83 /* CDAResourceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D2DC0118D076F50053DC83 /* CDAResourceTableViewCell.m */; };
 		A1D2DC0718D0811F0053DC83 /* ArrayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D2DC0618D0811F0053DC83 /* ArrayTests.m */; };
 		A1D4BDF31A4B735D008816F3 /* CDAError.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A0315318C76839006470B7 /* CDAError.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1DE35D8197D384700DE0904 /* CDARequestSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = A1DE35D6197D384700DE0904 /* CDARequestSerializer.h */; };
@@ -204,8 +144,6 @@
 		A1F70C9B18FFDE030080C72C /* CoreDataBasicTests.json in Resources */ = {isa = PBXBuildFile; fileRef = A1F70C9A18FFDE030080C72C /* CoreDataBasicTests.json */; };
 		A1F70C9D1900140D0080C72C /* CDAAsset+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A1F70C9C19000FD90080C72C /* CDAAsset+Private.h */; };
 		A1FAC312190654E30093B308 /* DeepIncludes.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FAC311190654E30093B308 /* DeepIncludes.m */; };
-		A1FAC3581908FDB40093B308 /* CatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FAC3571908FDB40093B308 /* CatListViewController.m */; };
-		D507071809EE9EA61371EE5C /* libPods-ContentfulDeliveryAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D0F3B0CED56B19D7731503B /* libPods-ContentfulDeliveryAPI.a */; };
 		ED0112391EC4976A00C04340 /* CDAClient+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A1C1AC4218CE032200DBF0D0 /* CDAClient+Private.h */; };
 		ED01123B1EC4976A00C04340 /* CDAConfiguration+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A17309691981642400F694DA /* CDAConfiguration+Private.h */; };
 		ED01123E1EC4976A00C04340 /* CDAField+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A1E9797418CA2D5900E79632 /* CDAField+Private.h */; };
@@ -223,13 +161,6 @@
 		ED01125A1EC4976A00C04340 /* CDAError+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A1462B911993B472004906D0 /* CDAError+Private.h */; };
 		ED01125D1EC4976A00C04340 /* CDAResource+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A1E9797518CBE93A00E79632 /* CDAResource+Private.h */; };
 		ED01125F1EC4976A00C04340 /* CDASpace+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A18AA85D18E596A000D430D5 /* CDASpace+Private.h */; };
-		ED0112621EC4976A00C04340 /* CDAFieldCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A193EB4518D0ACFE0017B777 /* CDAFieldCell.h */; };
-		ED0112631EC4976A00C04340 /* CDAFieldsViewController+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A173F59218D851D1000E6F92 /* CDAFieldsViewController+Private.h */; };
-		ED0112651EC4976A00C04340 /* CDAImageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A173F58B18D752A9000E6F92 /* CDAImageViewController.h */; };
-		ED0112661EC4976A00C04340 /* CDALocationViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A173F55018D700B8000E6F92 /* CDALocationViewController.h */; };
-		ED0112681EC4976A00C04340 /* CDAResourceCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A173F59A18D9A2FD000E6F92 /* CDAResourceCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ED01126B1EC4976A00C04340 /* CDAResourceTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A1D2DC0018D076F50053DC83 /* CDAResourceTableViewCell.h */; };
-		ED01126C1EC4976A00C04340 /* CDATextViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A173F54C18D6FD03000E6F92 /* CDATextViewController.h */; };
 		ED01126E1EC4976A00C04340 /* CDAFallbackDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = ED1B1E631EB8B76300347DD7 /* CDAFallbackDictionary.h */; };
 		ED01126F1EC4976A00C04340 /* CDANullabilityStubs.h in Headers */ = {isa = PBXBuildFile; fileRef = ED1B1E651EB8B76300347DD7 /* CDANullabilityStubs.h */; };
 		ED0112701EC4976A00C04340 /* CDAUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = ED1B1E661EB8B76300347DD7 /* CDAUtilities.h */; };
@@ -239,7 +170,6 @@
 		ED0112751EC4B0D600C04340 /* CDASyncedSpace+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A18AA81018E1D14F00D430D5 /* CDASyncedSpace+Private.h */; };
 		ED0112761EC4B11300C04340 /* CDAError+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A1462B911993B472004906D0 /* CDAError+Private.h */; };
 		ED0112781EC4B12600C04340 /* CDASpace+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A18AA85D18E596A000D430D5 /* CDASpace+Private.h */; };
-		ED0112791EC4B13900C04340 /* CDAFieldsViewController+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A173F59218D851D1000E6F92 /* CDAFieldsViewController+Private.h */; };
 		ED01CAC41EAAB8A60041E21E /* AssetSpec_can_be_archived.json in Resources */ = {isa = PBXBuildFile; fileRef = ED01CA9C1EAAB8A60041E21E /* AssetSpec_can_be_archived.json */; };
 		ED01CAC51EAAB8A60041E21E /* AssetSpec_can_be_created.json in Resources */ = {isa = PBXBuildFile; fileRef = ED01CA9D1EAAB8A60041E21E /* AssetSpec_can_be_created.json */; };
 		ED01CAC61EAAB8A60041E21E /* AssetSpec_can_be_deleted.json in Resources */ = {isa = PBXBuildFile; fileRef = ED01CA9E1EAAB8A60041E21E /* AssetSpec_can_be_deleted.json */; };
@@ -398,26 +328,8 @@
 		ED9446931EC5E34A00EA2077 /* CDAError.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A0315418C76839006470B7 /* CDAError.m */; };
 		ED9446941EC5E34A00EA2077 /* CDAResource.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A0312818C64165006470B7 /* CDAResource.m */; };
 		ED9446951EC5E34A00EA2077 /* CDASpace.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D1D36118C8B8D100261A1C /* CDASpace.m */; };
-		ED9446961EC5E36700EA2077 /* CDAEntriesViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A1D2DBFE18D076F50053DC83 /* CDAEntriesViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ED9446971EC5E37900EA2077 /* CDAEntriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D2DBFF18D076F50053DC83 /* CDAEntriesViewController.m */; };
-		ED9446981EC5E37900EA2077 /* CDAFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A193EB4618D0ACFE0017B777 /* CDAFieldCell.m */; };
-		ED9446991EC5E37900EA2077 /* CDAFieldsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A193EB4218D0AC0C0017B777 /* CDAFieldsViewController.m */; };
-		ED94469A1EC5E37900EA2077 /* CDAImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A173F58C18D752A9000E6F92 /* CDAImageViewController.m */; };
-		ED94469B1EC5E37900EA2077 /* CDALocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A173F55118D700B8000E6F92 /* CDALocationViewController.m */; };
-		ED94469C1EC5E37900EA2077 /* CDAMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1924C9018EC0DF000C97F9D /* CDAMapViewController.m */; };
-		ED94469D1EC5E37900EA2077 /* CDAResourceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A173F59B18D9A2FD000E6F92 /* CDAResourceCell.m */; };
-		ED94469E1EC5E37900EA2077 /* CDAResourcesCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A173F59418D9A269000E6F92 /* CDAResourcesCollectionViewController.m */; };
-		ED94469F1EC5E37900EA2077 /* CDAResourcesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1924C8C18EBFFB600C97F9D /* CDAResourcesViewController.m */; };
-		ED9446A01EC5E37900EA2077 /* CDAResourceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D2DC0118D076F50053DC83 /* CDAResourceTableViewCell.m */; };
-		ED9446A11EC5E37900EA2077 /* CDATextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A173F54D18D6FD03000E6F92 /* CDATextViewController.m */; };
-		ED9446A21EC5E37900EA2077 /* UIImageView+CDAAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = A193EB6418D20FA90017B777 /* UIImageView+CDAAsset.m */; };
 		ED9446A31EC5E38100EA2077 /* CDAFallbackDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1B1E641EB8B76300347DD7 /* CDAFallbackDictionary.m */; };
 		ED9446A41EC5E38100EA2077 /* CDAUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1B1E671EB8B76300347DD7 /* CDAUtilities.m */; };
-		ED9446A51EC5E38C00EA2077 /* UIImageView+CDAAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = A193EB6318D20FA90017B777 /* UIImageView+CDAAsset.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ED9446A61EC5E39300EA2077 /* CDAResourcesViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A1924C8B18EBFFB600C97F9D /* CDAResourcesViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ED9446A71EC5E39A00EA2077 /* CDAResourcesCollectionViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A173F59318D9A269000E6F92 /* CDAResourcesCollectionViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ED9446A81EC5E3A400EA2077 /* CDAMapViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A1924C8F18EC0DF000C97F9D /* CDAMapViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ED9446A91EC5E3AD00EA2077 /* CDAFieldsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A193EB4118D0AC0C0017B777 /* CDAFieldsViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ED9446AD1EC5F59700EA2077 /* CMAPublishing.h in Headers */ = {isa = PBXBuildFile; fileRef = ED9446AC1EC5F59700EA2077 /* CMAPublishing.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ED9446B01EC5F5E800EA2077 /* CMARole.h in Headers */ = {isa = PBXBuildFile; fileRef = ED9446AE1EC5F5E800EA2077 /* CMARole.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ED9446B11EC5F5E800EA2077 /* CMAUser.h in Headers */ = {isa = PBXBuildFile; fileRef = ED9446AF1EC5F5E800EA2077 /* CMAUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -467,7 +379,6 @@
 		EDFDCEA31EC26F8600978FC8 /* CMAWebhook.h in Headers */ = {isa = PBXBuildFile; fileRef = EDFDCE641EC26F3E00978FC8 /* CMAWebhook.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EDFDCEA41EC26F8600978FC8 /* CMAWebhook.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFDCE371EC26F3600978FC8 /* CMAWebhook.m */; };
 		EDFDCEA61EC26F8600978FC8 /* ContentfulManagementAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = EDFDCE651EC26F3E00978FC8 /* ContentfulManagementAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EFD76DF47AD401DE20628B19 /* libPods-Catalog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D67B214413986F77AF13D77 /* libPods-Catalog.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -510,15 +421,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		12981065B43E176599A5F3AB /* libPods-ManagementTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ManagementTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		13C3895CD781AD3FB34F8710 /* libPods-ContentfulManagementAPI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ContentfulManagementAPI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1579F674E49E0B3750D6AE2A /* Pods-Catalog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Catalog.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Catalog/Pods-Catalog.debug.xcconfig"; sourceTree = "<group>"; };
-		2287CCB2C05FD36F60397C89 /* libPods-DeliveryTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DeliveryTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		303113FA1B50FA45CB42DEF2 /* Pods-CoreDataExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDataExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoreDataExample/Pods-CoreDataExample.release.xcconfig"; sourceTree = "<group>"; };
-		3C93D6144F8D567AD8120D59 /* libPods-CoreDataExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CoreDataExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		550A38692C6874E7B5575A85 /* Pods-UFO Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UFO Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UFO Example/Pods-UFO Example.debug.xcconfig"; sourceTree = "<group>"; };
-		59FAD4CCA3EDA470869F7747 /* Pods-DeliveryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeliveryTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DeliveryTests/Pods-DeliveryTests.debug.xcconfig"; sourceTree = "<group>"; };
-		5AA38502CC084CBB4F5D1BCF /* Pods-UFO Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UFO Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-UFO Example/Pods-UFO Example.release.xcconfig"; sourceTree = "<group>"; };
+		4220F3E3026CB149EEB9B9AD /* libPods-DeliveryTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DeliveryTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BB06AC52458227EF9EF6E2D /* Pods-ContentfulDeliveryAPI.api_coverage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContentfulDeliveryAPI.api_coverage.xcconfig"; path = "Pods/Target Support Files/Pods-ContentfulDeliveryAPI/Pods-ContentfulDeliveryAPI.api_coverage.xcconfig"; sourceTree = "<group>"; };
+		5635C33349F6DFD6533A67F9 /* Pods-ContentfulDeliveryAPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContentfulDeliveryAPI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ContentfulDeliveryAPI/Pods-ContentfulDeliveryAPI.debug.xcconfig"; sourceTree = "<group>"; };
 		5D2CF5CD1EC4CF37005AB239 /* CDAPersistedEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDAPersistedEntry.h; path = ContentfulDeliveryAPI/CDAPersistedEntry.h; sourceTree = SOURCE_ROOT; };
 		5D2CF5D01EC4CF8A005AB239 /* CDALocalizablePersistedEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDALocalizablePersistedEntry.h; path = ContentfulDeliveryAPI/CDALocalizablePersistedEntry.h; sourceTree = SOURCE_ROOT; };
 		5D2CF5D11EC4CF8A005AB239 /* CDALocalizedPersistedEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDALocalizedPersistedEntry.h; path = ContentfulDeliveryAPI/CDALocalizedPersistedEntry.h; sourceTree = SOURCE_ROOT; };
@@ -526,12 +431,6 @@
 		5D2CF5D31EC4CF8A005AB239 /* CDAPersistenceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDAPersistenceManager.h; path = ContentfulDeliveryAPI/CDAPersistenceManager.h; sourceTree = SOURCE_ROOT; };
 		5D2CF5D41EC4CF8A005AB239 /* CDALocalizablePersistedEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDALocalizablePersistedEntry.m; path = ContentfulDeliveryAPI/CDALocalizablePersistedEntry.m; sourceTree = SOURCE_ROOT; };
 		5D2CF5D51EC4CF8A005AB239 /* CDAPersistenceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDAPersistenceManager.m; path = ContentfulDeliveryAPI/CDAPersistenceManager.m; sourceTree = SOURCE_ROOT; };
-		6BA2A4E87E52DB656DADCFED /* Pods-UFO Example.api_coverage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UFO Example.api_coverage.xcconfig"; path = "Pods/Target Support Files/Pods-UFO Example/Pods-UFO Example.api_coverage.xcconfig"; sourceTree = "<group>"; };
-		88F0A96CAE34A9C4DDB08D03 /* Pods-DeliveryTests.api_coverage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeliveryTests.api_coverage.xcconfig"; path = "Pods/Target Support Files/Pods-DeliveryTests/Pods-DeliveryTests.api_coverage.xcconfig"; sourceTree = "<group>"; };
-		8D0F3B0CED56B19D7731503B /* libPods-ContentfulDeliveryAPI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ContentfulDeliveryAPI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D67B214413986F77AF13D77 /* libPods-Catalog.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Catalog.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A10A11FC19090F5D00EFF083 /* CatDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatDetailViewController.h; sourceTree = "<group>"; };
-		A10A11FD19090F5D00EFF083 /* CatDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatDetailViewController.m; sourceTree = "<group>"; };
 		A12085791BB2712300A6504B /* ManagedCatLocalized.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagedCatLocalized.h; sourceTree = "<group>"; };
 		A120857A1BB2712300A6504B /* ManagedCatLocalized.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagedCatLocalized.m; sourceTree = "<group>"; };
 		A12797A518E1A45700043A44 /* SyncTests */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SyncTests; path = Data/SyncTests; sourceTree = "<group>"; };
@@ -555,12 +454,6 @@
 		A160862418CDF2AC0047D44F /* CDARequest+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "CDARequest+Private.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A16675BD1C7C5EC800231AC1 /* RealmClassHierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealmClassHierarchy.h; sourceTree = "<group>"; };
 		A16675BE1C7C5EC800231AC1 /* RealmClassHierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealmClassHierarchy.m; sourceTree = "<group>"; };
-		A17012F918FC21260086BE07 /* Asset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Asset.h; sourceTree = "<group>"; };
-		A17012FA18FC21260086BE07 /* Asset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Asset.m; sourceTree = "<group>"; };
-		A17012FC18FC21260086BE07 /* SyncInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncInfo.h; sourceTree = "<group>"; };
-		A17012FD18FC21260086BE07 /* SyncInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncInfo.m; sourceTree = "<group>"; };
-		A17012FF18FC21260086BE07 /* ManagedCat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagedCat.h; sourceTree = "<group>"; };
-		A170130018FC21260086BE07 /* ManagedCat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagedCat.m; sourceTree = "<group>"; };
 		A170130318FC25640086BE07 /* PreviewModeSyncTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewModeSyncTests.m; sourceTree = "<group>"; };
 		A170130A18FD30A50086BE07 /* CoreDataBasicTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataBasicTests.m; sourceTree = "<group>"; };
 		A170131318FD5DE20086BE07 /* PersistenceTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = PersistenceTests.json; path = Data/Recordings/PersistenceTests.json; sourceTree = "<group>"; };
@@ -572,29 +465,6 @@
 		A171BD4E19EC6E53008D7F0D /* SyncSpecificContentTests.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = SyncSpecificContentTests.json; path = Data/Recordings/SyncSpecificContentTests.json; sourceTree = "<group>"; };
 		A17309691981642400F694DA /* CDAConfiguration+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = "CDAConfiguration+Private.h"; path = "../ContentfulDeliveryAPI/CDAConfiguration+Private.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A173F54518D386CD000E6F92 /* ErrorTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = ErrorTests.json; path = Data/Recordings/ErrorTests.json; sourceTree = "<group>"; };
-		A173F54C18D6FD03000E6F92 /* CDATextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDATextViewController.h; sourceTree = "<group>"; };
-		A173F54D18D6FD03000E6F92 /* CDATextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDATextViewController.m; sourceTree = "<group>"; };
-		A173F55018D700B8000E6F92 /* CDALocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDALocationViewController.h; sourceTree = "<group>"; };
-		A173F55118D700B8000E6F92 /* CDALocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDALocationViewController.m; sourceTree = "<group>"; };
-		A173F55818D705B2000E6F92 /* Catalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Catalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A173F55E18D705B2000E6F92 /* Catalog-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Catalog-Info.plist"; sourceTree = "<group>"; };
-		A173F56218D705B2000E6F92 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A173F56418D705B2000E6F92 /* Catalog-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Catalog-Prefix.pch"; sourceTree = "<group>"; };
-		A173F56518D705B2000E6F92 /* CDAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDAAppDelegate.h; sourceTree = "<group>"; };
-		A173F56618D705B2000E6F92 /* CDAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDAAppDelegate.m; sourceTree = "<group>"; };
-		A173F58218D7071C000E6F92 /* CDAExampleSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAExampleSelectionViewController.h; sourceTree = "<group>"; };
-		A173F58318D7071C000E6F92 /* CDAExampleSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAExampleSelectionViewController.m; sourceTree = "<group>"; };
-		A173F58518D7091B000E6F92 /* CDALoadAssetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDALoadAssetsViewController.h; sourceTree = "<group>"; };
-		A173F58618D7091B000E6F92 /* CDALoadAssetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDALoadAssetsViewController.m; sourceTree = "<group>"; };
-		A173F58B18D752A9000E6F92 /* CDAImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAImageViewController.h; sourceTree = "<group>"; };
-		A173F58C18D752A9000E6F92 /* CDAImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDAImageViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		A173F59218D851D1000E6F92 /* CDAFieldsViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "CDAFieldsViewController+Private.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		A173F59318D9A269000E6F92 /* CDAResourcesCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDAResourcesCollectionViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		A173F59418D9A269000E6F92 /* CDAResourcesCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDAResourcesCollectionViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		A173F59718D9A2A9000E6F92 /* CDAImageGalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAImageGalleryViewController.h; sourceTree = "<group>"; };
-		A173F59818D9A2A9000E6F92 /* CDAImageGalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAImageGalleryViewController.m; sourceTree = "<group>"; };
-		A173F59A18D9A2FD000E6F92 /* CDAResourceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDAResourceCell.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		A173F59B18D9A2FD000E6F92 /* CDAResourceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDAResourceCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A173F60218DB3E1E000E6F92 /* PreviewModeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewModeTests.m; sourceTree = "<group>"; };
 		A173F60418DB412C000E6F92 /* PreviewModeTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = PreviewModeTests.json; path = Data/Recordings/PreviewModeTests.json; sourceTree = "<group>"; };
 		A189199A1BB1E7870094256E /* LocalizedModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocalizedModel.xcdatamodel; sourceTree = "<group>"; };
@@ -611,28 +481,12 @@
 		A18AA85A18E4952800D430D5 /* AssetTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = AssetTests.json; path = Data/Recordings/AssetTests.json; sourceTree = "<group>"; };
 		A18AA85D18E596A000D430D5 /* CDASpace+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "CDASpace+Private.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A18AA86318E5DB1A00D430D5 /* UtilityTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilityTests.m; sourceTree = "<group>"; };
-		A1924C8B18EBFFB600C97F9D /* CDAResourcesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDAResourcesViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		A1924C8C18EBFFB600C97F9D /* CDAResourcesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDAResourcesViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		A1924C8F18EC0DF000C97F9D /* CDAMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDAMapViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		A1924C9018EC0DF000C97F9D /* CDAMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDAMapViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		A1924C9318EC15A100C97F9D /* CDASimpleMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDASimpleMapViewController.h; sourceTree = "<group>"; };
-		A1924C9418EC15A100C97F9D /* CDASimpleMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDASimpleMapViewController.m; sourceTree = "<group>"; };
-		A1924C9618EC3A1B00C97F9D /* CDASyncDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDASyncDemoViewController.h; sourceTree = "<group>"; };
-		A1924C9718EC3A1B00C97F9D /* CDASyncDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDASyncDemoViewController.m; sourceTree = "<group>"; };
-		A1924C9918EC43E100C97F9D /* CDADateQueryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDADateQueryViewController.h; sourceTree = "<group>"; };
-		A1924C9A18EC43E100C97F9D /* CDADateQueryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDADateQueryViewController.m; sourceTree = "<group>"; };
 		A193EB3A18D084C50017B777 /* ValueObjectsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValueObjectsTests.m; sourceTree = "<group>"; };
 		A193EB3D18D09AC10017B777 /* CDAResponse+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "CDAResponse+Private.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A193EB3F18D09D180017B777 /* UIKitAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIKitAdditionsTests.m; sourceTree = "<group>"; };
-		A193EB4118D0AC0C0017B777 /* CDAFieldsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDAFieldsViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		A193EB4218D0AC0C0017B777 /* CDAFieldsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDAFieldsViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		A193EB4518D0ACFE0017B777 /* CDAFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAFieldCell.h; sourceTree = "<group>"; };
-		A193EB4618D0ACFE0017B777 /* CDAFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDAFieldCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A193EB5218D1C88A0017B777 /* ArrayTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = ArrayTests.json; path = Data/Recordings/ArrayTests.json; sourceTree = "<group>"; };
 		A193EB5318D1C88A0017B777 /* UIKitAdditionsTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = UIKitAdditionsTests.json; path = Data/Recordings/UIKitAdditionsTests.json; sourceTree = "<group>"; };
 		A193EB5418D1C88A0017B777 /* ValueObjectsTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = ValueObjectsTests.json; path = Data/Recordings/ValueObjectsTests.json; sourceTree = "<group>"; };
-		A193EB6318D20FA90017B777 /* UIImageView+CDAAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "UIImageView+CDAAsset.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		A193EB6418D20FA90017B777 /* UIImageView+CDAAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "UIImageView+CDAAsset.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A193EB6718D21B260017B777 /* UIKitAdditionsTests */ = {isa = PBXFileReference; lastKnownFileType = folder; name = UIKitAdditionsTests; path = Data/UIKitAdditionsTests; sourceTree = "<group>"; };
 		A19CA3E91B84EFF800A0EFCD /* LocaleTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocaleTests.m; sourceTree = "<group>"; };
 		A19FD86718C631E60081677E /* libContentfulDeliveryAPI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libContentfulDeliveryAPI.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -641,15 +495,7 @@
 		A19FD87118C631E60081677E /* CDAClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = CDAClient.m; path = ../ContentfulDeliveryAPI/CDAClient.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A19FD87718C631E60081677E /* DeliveryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeliveryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A19FD88218C631E60081677E /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
-		A19FD89718C637400081677E /* UFO Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UFO Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A19FD89918C637400081677E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		A19FD89E18C637400081677E /* UFO Example-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UFO Example-Info.plist"; sourceTree = "<group>"; };
-		A19FD8A218C637400081677E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A19FD8A418C637400081677E /* UFO Example-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UFO Example-Prefix.pch"; sourceTree = "<group>"; };
-		A19FD8A518C637400081677E /* UFOAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UFOAppDelegate.h; sourceTree = "<group>"; };
-		A19FD8A618C637400081677E /* UFOAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UFOAppDelegate.m; sourceTree = "<group>"; };
-		A19FD8D318C639C10081677E /* UFOMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UFOMapViewController.h; sourceTree = "<group>"; };
-		A19FD8D418C639C10081677E /* UFOMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UFOMapViewController.m; sourceTree = "<group>"; };
 		A19FD8D618C63AE10081677E /* CDAConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = CDAConfiguration.h; path = ../ContentfulDeliveryAPI/CDAConfiguration.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A19FD8D718C63AE10081677E /* CDAConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDAConfiguration.m; path = ../ContentfulDeliveryAPI/CDAConfiguration.m; sourceTree = "<group>"; };
 		A19FD8D918C63DF00081677E /* ContentfulDeliveryAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ContentfulDeliveryAPI.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -657,8 +503,6 @@
 		A1A0312818C64165006470B7 /* CDAResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDAResource.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A1A0312A18C64187006470B7 /* CDAEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDAEntry.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A1A0312B18C64187006470B7 /* CDAEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDAEntry.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		A1A0312D18C641B6006470B7 /* UFOSighting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UFOSighting.h; sourceTree = "<group>"; };
-		A1A0312E18C641B6006470B7 /* UFOSighting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UFOSighting.m; sourceTree = "<group>"; };
 		A1A0313318C6449F006470B7 /* CDAArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAArray.h; sourceTree = "<group>"; };
 		A1A0313418C6449F006470B7 /* CDAArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDAArray.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A1A0313618C644B5006470B7 /* CDAResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDAResponse.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -689,18 +533,7 @@
 		A1ABC7BA191D12ED0020A964 /* CDAInputSanitizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAInputSanitizer.h; sourceTree = "<group>"; };
 		A1ABC7BB191D12ED0020A964 /* CDAInputSanitizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAInputSanitizer.m; sourceTree = "<group>"; };
 		A1AE68B419B74F1C00D2C35F /* CoreDataIssues.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataIssues.m; sourceTree = "<group>"; };
-		A1AE68B619B761B100D2C35F /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
-		A1AE68B719B761B100D2C35F /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
-		A1AE68B919B761B200D2C35F /* Member.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Member.h; sourceTree = "<group>"; };
-		A1AE68BA19B761B200D2C35F /* Member.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Member.m; sourceTree = "<group>"; };
-		A1B8158318F2A8090027B26D /* CoreDataExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B8158718F2A8090027B26D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		A1B8158B18F2A8090027B26D /* CoreDataExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CoreDataExample-Info.plist"; sourceTree = "<group>"; };
-		A1B8158F18F2A8090027B26D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A1B8159118F2A8090027B26D /* CoreDataExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CoreDataExample-Prefix.pch"; sourceTree = "<group>"; };
-		A1B8159218F2A8090027B26D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		A1B8159318F2A8090027B26D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		A1B8159618F2A8090027B26D /* CoreDataExample.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataExample.xcdatamodel; sourceTree = "<group>"; };
 		A1B815B318F2ACCB0027B26D /* PersistenceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistenceTests.m; sourceTree = "<group>"; };
 		A1B815BA18F56BFD0027B26D /* ComplexSyncTests */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ComplexSyncTests; path = Data/ComplexSyncTests; sourceTree = "<group>"; };
 		A1B815BC18F56C150027B26D /* ComplexSyncTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComplexSyncTests.m; sourceTree = "<group>"; };
@@ -735,10 +568,6 @@
 		A1D1D35E18C8ABB800261A1C /* DocumentationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentationTests.m; sourceTree = "<group>"; };
 		A1D1D36018C8B8D100261A1C /* CDASpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDASpace.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A1D1D36118C8B8D100261A1C /* CDASpace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDASpace.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		A1D2DBFE18D076F50053DC83 /* CDAEntriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDAEntriesViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		A1D2DBFF18D076F50053DC83 /* CDAEntriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDAEntriesViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		A1D2DC0018D076F50053DC83 /* CDAResourceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAResourceTableViewCell.h; sourceTree = "<group>"; };
-		A1D2DC0118D076F50053DC83 /* CDAResourceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDAResourceTableViewCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A1D2DC0618D0811F0053DC83 /* ArrayTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayTests.m; sourceTree = "<group>"; };
 		A1DE35D6197D384700DE0904 /* CDARequestSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CDARequestSerializer.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A1DE35D7197D384700DE0904 /* CDARequestSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CDARequestSerializer.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -757,17 +586,8 @@
 		A1F70C9A18FFDE030080C72C /* CoreDataBasicTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = CoreDataBasicTests.json; path = Data/Recordings/CoreDataBasicTests.json; sourceTree = "<group>"; };
 		A1F70C9C19000FD90080C72C /* CDAAsset+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CDAAsset+Private.h"; sourceTree = "<group>"; };
 		A1FAC311190654E30093B308 /* DeepIncludes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeepIncludes.m; sourceTree = "<group>"; };
-		A1FAC3561908FDB40093B308 /* CatListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatListViewController.h; sourceTree = "<group>"; };
-		A1FAC3571908FDB40093B308 /* CatListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatListViewController.m; sourceTree = "<group>"; };
-		A36B6241746F29EA99C901F2 /* libPods-UFO Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UFO Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A49B9CD1197157A6EE40A504 /* Pods-CoreDataExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDataExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoreDataExample/Pods-CoreDataExample.debug.xcconfig"; sourceTree = "<group>"; };
-		A522F8AC69B3A2692BAAD3D8 /* Pods-ContentfulDeliveryAPI.api_coverage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContentfulDeliveryAPI.api_coverage.xcconfig"; path = "Pods/Target Support Files/Pods-ContentfulDeliveryAPI/Pods-ContentfulDeliveryAPI.api_coverage.xcconfig"; sourceTree = "<group>"; };
-		AFD140B7DCCED0C683B7BE7F /* Pods-Catalog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Catalog.release.xcconfig"; path = "Pods/Target Support Files/Pods-Catalog/Pods-Catalog.release.xcconfig"; sourceTree = "<group>"; };
-		B5E9441BB41AF504D321C282 /* Pods-ContentfulDeliveryAPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContentfulDeliveryAPI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ContentfulDeliveryAPI/Pods-ContentfulDeliveryAPI.debug.xcconfig"; sourceTree = "<group>"; };
-		BA455CE8DAC5A206234AF90E /* Pods-ContentfulDeliveryAPI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContentfulDeliveryAPI.release.xcconfig"; path = "Pods/Target Support Files/Pods-ContentfulDeliveryAPI/Pods-ContentfulDeliveryAPI.release.xcconfig"; sourceTree = "<group>"; };
-		CB6FED955230A391841A9BCE /* Pods-Catalog.api_coverage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Catalog.api_coverage.xcconfig"; path = "Pods/Target Support Files/Pods-Catalog/Pods-Catalog.api_coverage.xcconfig"; sourceTree = "<group>"; };
-		CF9022B894FA8C9097409226 /* Pods-CoreDataExample.api_coverage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDataExample.api_coverage.xcconfig"; path = "Pods/Target Support Files/Pods-CoreDataExample/Pods-CoreDataExample.api_coverage.xcconfig"; sourceTree = "<group>"; };
-		D40D273D19D7A5AB2CAC0F4D /* Pods-DeliveryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeliveryTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DeliveryTests/Pods-DeliveryTests.release.xcconfig"; sourceTree = "<group>"; };
+		A2896DBB6710D3A45D416576 /* Pods-ContentfulDeliveryAPI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContentfulDeliveryAPI.release.xcconfig"; path = "Pods/Target Support Files/Pods-ContentfulDeliveryAPI/Pods-ContentfulDeliveryAPI.release.xcconfig"; sourceTree = "<group>"; };
+		A8D6EBFD73BF7FA7C5C6C02D /* Pods-DeliveryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeliveryTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DeliveryTests/Pods-DeliveryTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED01CA9C1EAAB8A60041E21E /* AssetSpec_can_be_archived.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AssetSpec_can_be_archived.json; sourceTree = "<group>"; };
 		ED01CA9D1EAAB8A60041E21E /* AssetSpec_can_be_created.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AssetSpec_can_be_created.json; sourceTree = "<group>"; };
 		ED01CA9E1EAAB8A60041E21E /* AssetSpec_can_be_deleted.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AssetSpec_can_be_deleted.json; sourceTree = "<group>"; };
@@ -837,6 +657,7 @@
 		ED01CB2A1EAAD9C60041E21E /* ValidationSpec_can_create_ContentType_with_size_validation_without_max_value.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ValidationSpec_can_create_ContentType_with_size_validation_without_max_value.json; sourceTree = "<group>"; };
 		ED01CB2B1EAAD9C60041E21E /* ValidationSpec_can_create_ContentType_with_size_validation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ValidationSpec_can_create_ContentType_with_size_validation.json; sourceTree = "<group>"; };
 		ED01CB2C1EAAD9C60041E21E /* ValidationSpec_can_create_ContentType_with_value_validation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ValidationSpec_can_create_ContentType_with_value_validation.json; sourceTree = "<group>"; };
+		ED042828350C348F040AB04F /* libPods-ContentfulDeliveryAPI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ContentfulDeliveryAPI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED0988F41EA8FFC300058BAF /* TestHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestHelpers.h; sourceTree = "<group>"; };
 		ED0988F51EA8FFC300058BAF /* TestHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestHelpers.m; sourceTree = "<group>"; };
 		ED1B1C961EB0E9F700347DD7 /* LocaleSpec_can_be_created_and_deleted.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LocaleSpec_can_be_created_and_deleted.json; sourceTree = "<group>"; };
@@ -942,25 +763,17 @@
 		EDFDCE631EC26F3E00978FC8 /* CMAValidation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMAValidation.h; path = Public/CMAValidation.h; sourceTree = "<group>"; };
 		EDFDCE641EC26F3E00978FC8 /* CMAWebhook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMAWebhook.h; path = Public/CMAWebhook.h; sourceTree = "<group>"; };
 		EDFDCE651EC26F3E00978FC8 /* ContentfulManagementAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContentfulManagementAPI.h; path = Public/ContentfulManagementAPI.h; sourceTree = "<group>"; };
+		F4A4063EA39F39374E4D961E /* Pods-DeliveryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeliveryTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DeliveryTests/Pods-DeliveryTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F865A781924E4BF42F296397 /* Pods-DeliveryTests.api_coverage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeliveryTests.api_coverage.xcconfig"; path = "Pods/Target Support Files/Pods-DeliveryTests/Pods-DeliveryTests.api_coverage.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		A173F55518D705B2000E6F92 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A173F55A18D705B2000E6F92 /* CoreGraphics.framework in Frameworks */,
-				A173F55918D705B2000E6F92 /* Foundation.framework in Frameworks */,
-				EFD76DF47AD401DE20628B19 /* libPods-Catalog.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		A19FD86418C631E60081677E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				A19FD86B18C631E60081677E /* Foundation.framework in Frameworks */,
-				D507071809EE9EA61371EE5C /* libPods-ContentfulDeliveryAPI.a in Frameworks */,
+				802F84AB1F9850147C806E5A /* libPods-ContentfulDeliveryAPI.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -969,28 +782,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A19FD87A18C631E60081677E /* Foundation.framework in Frameworks */,
-				23F5671F2B51250C59B71E77 /* libPods-DeliveryTests.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A19FD89418C637400081677E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A19FD89A18C637400081677E /* CoreGraphics.framework in Frameworks */,
-				A19FD89818C637400081677E /* Foundation.framework in Frameworks */,
-				219E56722537C14F1B9FAA8A /* libPods-UFO Example.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A1B8158018F2A8090027B26D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A1B8158518F2A8090027B26D /* CoreGraphics.framework in Frameworks */,
-				A1B8158818F2A8090027B26D /* CoreData.framework in Frameworks */,
-				A1B8158418F2A8090027B26D /* Foundation.framework in Frameworks */,
-				60044455849831A672175A98 /* libPods-CoreDataExample.a in Frameworks */,
+				0C2A3B82DFE793482447206D /* libPods-DeliveryTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1013,28 +805,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		55492C3328C0882C381E5619 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				1579F674E49E0B3750D6AE2A /* Pods-Catalog.debug.xcconfig */,
-				CB6FED955230A391841A9BCE /* Pods-Catalog.api_coverage.xcconfig */,
-				AFD140B7DCCED0C683B7BE7F /* Pods-Catalog.release.xcconfig */,
-				B5E9441BB41AF504D321C282 /* Pods-ContentfulDeliveryAPI.debug.xcconfig */,
-				A522F8AC69B3A2692BAAD3D8 /* Pods-ContentfulDeliveryAPI.api_coverage.xcconfig */,
-				BA455CE8DAC5A206234AF90E /* Pods-ContentfulDeliveryAPI.release.xcconfig */,
-				A49B9CD1197157A6EE40A504 /* Pods-CoreDataExample.debug.xcconfig */,
-				CF9022B894FA8C9097409226 /* Pods-CoreDataExample.api_coverage.xcconfig */,
-				303113FA1B50FA45CB42DEF2 /* Pods-CoreDataExample.release.xcconfig */,
-				59FAD4CCA3EDA470869F7747 /* Pods-DeliveryTests.debug.xcconfig */,
-				88F0A96CAE34A9C4DDB08D03 /* Pods-DeliveryTests.api_coverage.xcconfig */,
-				D40D273D19D7A5AB2CAC0F4D /* Pods-DeliveryTests.release.xcconfig */,
-				550A38692C6874E7B5575A85 /* Pods-UFO Example.debug.xcconfig */,
-				6BA2A4E87E52DB656DADCFED /* Pods-UFO Example.api_coverage.xcconfig */,
-				5AA38502CC084CBB4F5D1BCF /* Pods-UFO Example.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		A12F19DC1BB48DE90088C199 /* LinkDeletion-Support */ = {
 			isa = PBXGroup;
 			children = (
@@ -1061,23 +831,6 @@
 			path = ../ContentfulDeliveryAPI/Persistence;
 			sourceTree = "<group>";
 		};
-		A170130218FC212E0086BE07 /* Managed Objects */ = {
-			isa = PBXGroup;
-			children = (
-				A17012F918FC21260086BE07 /* Asset.h */,
-				A17012FA18FC21260086BE07 /* Asset.m */,
-				A1AE68B619B761B100D2C35F /* Group.h */,
-				A1AE68B719B761B100D2C35F /* Group.m */,
-				A17012FF18FC21260086BE07 /* ManagedCat.h */,
-				A170130018FC21260086BE07 /* ManagedCat.m */,
-				A1AE68B919B761B200D2C35F /* Member.h */,
-				A1AE68BA19B761B200D2C35F /* Member.m */,
-				A17012FC18FC21260086BE07 /* SyncInfo.h */,
-				A17012FD18FC21260086BE07 /* SyncInfo.m */,
-			);
-			name = "Managed Objects";
-			sourceTree = "<group>";
-		};
 		A170130918FD30880086BE07 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -1101,38 +854,6 @@
 				A1A1CCB1190E382E00BE37EB /* CoreDataQuerySyncTests.m */,
 			);
 			name = "Core Data";
-			sourceTree = "<group>";
-		};
-		A173F55C18D705B2000E6F92 /* Catalog */ = {
-			isa = PBXGroup;
-			children = (
-				A173F56518D705B2000E6F92 /* CDAAppDelegate.h */,
-				A173F56618D705B2000E6F92 /* CDAAppDelegate.m */,
-				A1924C9918EC43E100C97F9D /* CDADateQueryViewController.h */,
-				A1924C9A18EC43E100C97F9D /* CDADateQueryViewController.m */,
-				A173F58218D7071C000E6F92 /* CDAExampleSelectionViewController.h */,
-				A173F58318D7071C000E6F92 /* CDAExampleSelectionViewController.m */,
-				A173F59718D9A2A9000E6F92 /* CDAImageGalleryViewController.h */,
-				A173F59818D9A2A9000E6F92 /* CDAImageGalleryViewController.m */,
-				A173F58518D7091B000E6F92 /* CDALoadAssetsViewController.h */,
-				A173F58618D7091B000E6F92 /* CDALoadAssetsViewController.m */,
-				A1924C9318EC15A100C97F9D /* CDASimpleMapViewController.h */,
-				A1924C9418EC15A100C97F9D /* CDASimpleMapViewController.m */,
-				A1924C9618EC3A1B00C97F9D /* CDASyncDemoViewController.h */,
-				A1924C9718EC3A1B00C97F9D /* CDASyncDemoViewController.m */,
-				A173F55D18D705B2000E6F92 /* Supporting Files */,
-			);
-			path = Catalog;
-			sourceTree = "<group>";
-		};
-		A173F55D18D705B2000E6F92 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				A173F55E18D705B2000E6F92 /* Catalog-Info.plist */,
-				A173F56418D705B2000E6F92 /* Catalog-Prefix.pch */,
-				A173F56218D705B2000E6F92 /* main.m */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		A18919981BB1E7090094256E /* Localization */ = {
@@ -1166,13 +887,12 @@
 				EDD0B9A51ED873EE002A3ACA /* Versions.h */,
 				A19FD86C18C631E60081677E /* Code */,
 				A19FD88018C631E60081677E /* Tests */,
-				A19FD8D118C6379A0081677E /* Examples */,
 				ED8FF5FB1EA5FF6C00798042 /* ManagementAPI */,
 				ED8FF6761EA601B600798042 /* ManagementTests */,
 				A19FD86918C631E60081677E /* Frameworks */,
 				A19FD86818C631E60081677E /* Products */,
 				ED31CEC61E534CAC007C8E48 /* Submodule */,
-				55492C3328C0882C381E5619 /* Pods */,
+				B2682F4DF3E10745DDE63745 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1181,9 +901,6 @@
 			children = (
 				A19FD86718C631E60081677E /* libContentfulDeliveryAPI.a */,
 				A19FD87718C631E60081677E /* DeliveryTests.xctest */,
-				A19FD89718C637400081677E /* UFO Example.app */,
-				A173F55818D705B2000E6F92 /* Catalog.app */,
-				A1B8158318F2A8090027B26D /* CoreDataExample.app */,
 				ED8FF5FA1EA5FF6C00798042 /* libContentfulManagementAPI.a */,
 				ED21339A1EA6172C00C3CE94 /* ManagementTests.xctest */,
 			);
@@ -1204,13 +921,8 @@
 				A19FD89918C637400081677E /* CoreGraphics.framework */,
 				A19FD86A18C631E60081677E /* Foundation.framework */,
 				A1B8158718F2A8090027B26D /* CoreData.framework */,
-				9D67B214413986F77AF13D77 /* libPods-Catalog.a */,
-				8D0F3B0CED56B19D7731503B /* libPods-ContentfulDeliveryAPI.a */,
-				13C3895CD781AD3FB34F8710 /* libPods-ContentfulManagementAPI.a */,
-				3C93D6144F8D567AD8120D59 /* libPods-CoreDataExample.a */,
-				2287CCB2C05FD36F60397C89 /* libPods-DeliveryTests.a */,
-				12981065B43E176599A5F3AB /* libPods-ManagementTests.a */,
-				A36B6241746F29EA99C901F2 /* libPods-UFO Example.a */,
+				ED042828350C348F040AB04F /* libPods-ContentfulDeliveryAPI.a */,
+				4220F3E3026CB149EEB9B9AD /* libPods-DeliveryTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1224,7 +936,6 @@
 				A1D9D56518CF52B20089D4A2 /* Perform Requests */,
 				A17012F218FC1FB00086BE07 /* Persistence */,
 				A1D9D56818CF533B0089D4A2 /* Resources */,
-				A1D2DBF418CF618A0053DC83 /* UIKit Extensions */,
 				A18AA85E18E5D5DB00D430D5 /* Utilities */,
 			);
 			name = Code;
@@ -1250,74 +961,6 @@
 				A1B815C818F582790027B26D /* Utilities */,
 			);
 			path = Tests;
-			sourceTree = "<group>";
-		};
-		A19FD89C18C637400081677E /* UFO */ = {
-			isa = PBXGroup;
-			children = (
-				A19FD8D218C637BC0081677E /* Code */,
-				A19FD89D18C637400081677E /* Supporting Files */,
-			);
-			path = UFO;
-			sourceTree = "<group>";
-		};
-		A19FD89D18C637400081677E /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				A19FD8A218C637400081677E /* main.m */,
-				A19FD89E18C637400081677E /* UFO Example-Info.plist */,
-				A19FD8A418C637400081677E /* UFO Example-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		A19FD8D118C6379A0081677E /* Examples */ = {
-			isa = PBXGroup;
-			children = (
-				A173F55C18D705B2000E6F92 /* Catalog */,
-				A1B8158918F2A8090027B26D /* CoreDataExample */,
-				A19FD89C18C637400081677E /* UFO */,
-			);
-			path = Examples;
-			sourceTree = "<group>";
-		};
-		A19FD8D218C637BC0081677E /* Code */ = {
-			isa = PBXGroup;
-			children = (
-				A19FD8A518C637400081677E /* UFOAppDelegate.h */,
-				A19FD8A618C637400081677E /* UFOAppDelegate.m */,
-				A19FD8D318C639C10081677E /* UFOMapViewController.h */,
-				A19FD8D418C639C10081677E /* UFOMapViewController.m */,
-				A1A0312D18C641B6006470B7 /* UFOSighting.h */,
-				A1A0312E18C641B6006470B7 /* UFOSighting.m */,
-			);
-			name = Code;
-			sourceTree = "<group>";
-		};
-		A1B8158918F2A8090027B26D /* CoreDataExample */ = {
-			isa = PBXGroup;
-			children = (
-				A170130218FC212E0086BE07 /* Managed Objects */,
-				A1B8159218F2A8090027B26D /* AppDelegate.h */,
-				A1B8159318F2A8090027B26D /* AppDelegate.m */,
-				A10A11FC19090F5D00EFF083 /* CatDetailViewController.h */,
-				A10A11FD19090F5D00EFF083 /* CatDetailViewController.m */,
-				A1FAC3561908FDB40093B308 /* CatListViewController.h */,
-				A1FAC3571908FDB40093B308 /* CatListViewController.m */,
-				A1B8159518F2A8090027B26D /* CoreDataExample.xcdatamodeld */,
-				A1B8158A18F2A8090027B26D /* Supporting Files */,
-			);
-			path = CoreDataExample;
-			sourceTree = "<group>";
-		};
-		A1B8158A18F2A8090027B26D /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				A1B8158B18F2A8090027B26D /* CoreDataExample-Info.plist */,
-				A1B8159118F2A8090027B26D /* CoreDataExample-Prefix.pch */,
-				A1B8158F18F2A8090027B26D /* main.m */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		A1B815C218F5812F0027B26D /* Basic Functionality */ = {
@@ -1442,39 +1085,6 @@
 			name = Realm;
 			sourceTree = "<group>";
 		};
-		A1D2DBF418CF618A0053DC83 /* UIKit Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				A1D2DBFE18D076F50053DC83 /* CDAEntriesViewController.h */,
-				A1D2DBFF18D076F50053DC83 /* CDAEntriesViewController.m */,
-				A193EB4518D0ACFE0017B777 /* CDAFieldCell.h */,
-				A193EB4618D0ACFE0017B777 /* CDAFieldCell.m */,
-				A173F59218D851D1000E6F92 /* CDAFieldsViewController+Private.h */,
-				A193EB4118D0AC0C0017B777 /* CDAFieldsViewController.h */,
-				A193EB4218D0AC0C0017B777 /* CDAFieldsViewController.m */,
-				A173F58B18D752A9000E6F92 /* CDAImageViewController.h */,
-				A173F58C18D752A9000E6F92 /* CDAImageViewController.m */,
-				A173F55018D700B8000E6F92 /* CDALocationViewController.h */,
-				A173F55118D700B8000E6F92 /* CDALocationViewController.m */,
-				A1924C8F18EC0DF000C97F9D /* CDAMapViewController.h */,
-				A1924C9018EC0DF000C97F9D /* CDAMapViewController.m */,
-				A173F59A18D9A2FD000E6F92 /* CDAResourceCell.h */,
-				A173F59B18D9A2FD000E6F92 /* CDAResourceCell.m */,
-				A173F59318D9A269000E6F92 /* CDAResourcesCollectionViewController.h */,
-				A173F59418D9A269000E6F92 /* CDAResourcesCollectionViewController.m */,
-				A1924C8B18EBFFB600C97F9D /* CDAResourcesViewController.h */,
-				A1924C8C18EBFFB600C97F9D /* CDAResourcesViewController.m */,
-				A1D2DC0018D076F50053DC83 /* CDAResourceTableViewCell.h */,
-				A1D2DC0118D076F50053DC83 /* CDAResourceTableViewCell.m */,
-				A173F54C18D6FD03000E6F92 /* CDATextViewController.h */,
-				A173F54D18D6FD03000E6F92 /* CDATextViewController.m */,
-				A193EB6318D20FA90017B777 /* UIImageView+CDAAsset.h */,
-				A193EB6418D20FA90017B777 /* UIImageView+CDAAsset.m */,
-			);
-			name = "UIKit Extensions";
-			path = ../ContentfulDeliveryAPI/UIKit;
-			sourceTree = "<group>";
-		};
 		A1D9D56518CF52B20089D4A2 /* Perform Requests */ = {
 			isa = PBXGroup;
 			children = (
@@ -1556,6 +1166,19 @@
 				A1D1D36118C8B8D100261A1C /* CDASpace.m */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		B2682F4DF3E10745DDE63745 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5635C33349F6DFD6533A67F9 /* Pods-ContentfulDeliveryAPI.debug.xcconfig */,
+				4BB06AC52458227EF9EF6E2D /* Pods-ContentfulDeliveryAPI.api_coverage.xcconfig */,
+				A2896DBB6710D3A45D416576 /* Pods-ContentfulDeliveryAPI.release.xcconfig */,
+				F4A4063EA39F39374E4D961E /* Pods-DeliveryTests.debug.xcconfig */,
+				F865A781924E4BF42F296397 /* Pods-DeliveryTests.api_coverage.xcconfig */,
+				A8D6EBFD73BF7FA7C5C6C02D /* Pods-DeliveryTests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		ED01CA9B1EAAB8950041E21E /* Recordings */ = {
@@ -1759,9 +1382,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1E3CFF218C864A400E4F488 /* ContentfulDeliveryAPI.h in Headers */,
-				A193EB4318D0AC0C0017B777 /* CDAFieldsViewController.h in Headers */,
 				A1E9797618CBE93A00E79632 /* CDAResource+Private.h in Headers */,
-				A193EB6518D20FA90017B777 /* UIImageView+CDAAsset.h in Headers */,
 				A1E3D04718C8791200E4F488 /* CDAArray.h in Headers */,
 				A1DE35D8197D384700DE0904 /* CDARequestSerializer.h in Headers */,
 				A1F70C9D1900140D0080C72C /* CDAAsset+Private.h in Headers */,
@@ -1771,12 +1392,10 @@
 				A1D4BDF31A4B735D008816F3 /* CDAError.h in Headers */,
 				ED1B1E6B1EB8B76300347DD7 /* CDAUtilities.h in Headers */,
 				ED0112741EC4B0D300C04340 /* CDAResponseSerializer.h in Headers */,
-				A1D2DC0418D076F50053DC83 /* CDAResourceTableViewCell.h in Headers */,
 				ED94466D1EC5E2A000EA2077 /* CDAContentTypeRegistry.h in Headers */,
 				ED0112761EC4B11300C04340 /* CDAError+Private.h in Headers */,
 				A1E3D04B18C8795500E4F488 /* CDAEntry.h in Headers */,
 				A1ABC7BC191D12ED0020A964 /* CDAInputSanitizer.h in Headers */,
-				A173F58D18D752A9000E6F92 /* CDAImageViewController.h in Headers */,
 				5D2CF5CE1EC4CF37005AB239 /* CDAPersistedEntry.h in Headers */,
 				5D2CF5DC1EC4CF8A005AB239 /* CDAPersistenceManager.h in Headers */,
 				A193EB3E18D09AC10017B777 /* CDAResponse+Private.h in Headers */,
@@ -1786,28 +1405,19 @@
 				A1E8391618CE2A1800B697F6 /* CDAConfiguration.h in Headers */,
 				ED69D6381EC4BFD400969B56 /* CDAPersistedAsset.h in Headers */,
 				A1C1AC4318CE032200DBF0D0 /* CDAClient+Private.h in Headers */,
-				A193EB4718D0ACFE0017B777 /* CDAFieldCell.h in Headers */,
 				A1E43F0318CE1CF80060A89A /* CDAArray+Private.h in Headers */,
 				ED1B1E681EB8B76300347DD7 /* CDAFallbackDictionary.h in Headers */,
 				ED0112731EC4B0B400C04340 /* CDAField+Private.h in Headers */,
 				ED0112751EC4B0D600C04340 /* CDASyncedSpace+Private.h in Headers */,
-				ED0112791EC4B13900C04340 /* CDAFieldsViewController+Private.h in Headers */,
 				A144FAF418C8C98400110B35 /* CDAContentType.h in Headers */,
 				A1E8391518CE29E700B697F6 /* CDAAsset.h in Headers */,
 				ED9446BA1EC5FCAB00EA2077 /* CDAOrganizationContainer.h in Headers */,
-				A173F59C18D9A2FD000E6F92 /* CDAResourceCell.h in Headers */,
 				A193EB3C18D096C50017B777 /* CDAResponse.h in Headers */,
 				ED1B1E6A1EB8B76300347DD7 /* CDANullabilityStubs.h in Headers */,
-				A173F55218D700B8000E6F92 /* CDALocationViewController.h in Headers */,
 				A1E8391718CE2A5400B697F6 /* CDAField.h in Headers */,
-				A1924C8D18EBFFB600C97F9D /* CDAResourcesViewController.h in Headers */,
-				A173F59518D9A269000E6F92 /* CDAResourcesCollectionViewController.h in Headers */,
 				A1B815CC18F5A8250027B26D /* CDAEntry+Private.h in Headers */,
 				5D2CF5D81EC4CF8A005AB239 /* CDALocalizedPersistedEntry.h in Headers */,
 				A1E9797B18CC683200E79632 /* CDAFieldValueTransformer.h in Headers */,
-				A1924C9118EC0DF000C97F9D /* CDAMapViewController.h in Headers */,
-				A1D2DC0218D076F50053DC83 /* CDAEntriesViewController.h in Headers */,
-				A173F54E18D6FD03000E6F92 /* CDATextViewController.h in Headers */,
 				5D2CF5D61EC4CF8A005AB239 /* CDALocalizablePersistedEntry.h in Headers */,
 				A18AA81318E2D98200D430D5 /* CDADeletedEntry.h in Headers */,
 				A1E3D05A18C87D3B00E4F488 /* CDARequestOperationManager.h in Headers */,
@@ -1830,7 +1440,6 @@
 				ED94468B1EC5E33200EA2077 /* CDAResource.h in Headers */,
 				EDFDCE961EC26F8600978FC8 /* CMAResource.h in Headers */,
 				ED94467D1EC5E2E100EA2077 /* CDAPersistedSpace.h in Headers */,
-				ED9446A91EC5E3AD00EA2077 /* CDAFieldsViewController.h in Headers */,
 				EDFDCEA31EC26F8600978FC8 /* CMAWebhook.h in Headers */,
 				EDFDCE9E1EC26F8600978FC8 /* CMAUtilities.h in Headers */,
 				EDFDCE991EC26F8600978FC8 /* CMASpace.h in Headers */,
@@ -1838,7 +1447,6 @@
 				EDFDCE7E1EC26F8600978FC8 /* CMAApiKey.h in Headers */,
 				EDFDCEA01EC26F8600978FC8 /* CMAValidation.h in Headers */,
 				EDFDCE931EC26F8600978FC8 /* CMAOrganization.h in Headers */,
-				ED9446A61EC5E39300EA2077 /* CDAResourcesViewController.h in Headers */,
 				ED9446BC1EC5FEED00EA2077 /* CMAWebhook+Private.h in Headers */,
 				ED9446B11EC5F5E800EA2077 /* CMAUser.h in Headers */,
 				ED94468C1EC5E33200EA2077 /* CDASpace.h in Headers */,
@@ -1858,8 +1466,6 @@
 				ED9446BF1EC5FF1F00EA2077 /* CDAResource+Management.h in Headers */,
 				EDFDCE851EC26F8600978FC8 /* CMAClient.h in Headers */,
 				EDFDCE8D1EC26F8600978FC8 /* CMAError.h in Headers */,
-				ED9446961EC5E36700EA2077 /* CDAEntriesViewController.h in Headers */,
-				ED9446A51EC5E38C00EA2077 /* UIImageView+CDAAsset.h in Headers */,
 				ED9446881EC5E33200EA2077 /* CDADeletedEntry.h in Headers */,
 				ED0112391EC4976A00C04340 /* CDAClient+Private.h in Headers */,
 				ED94467B1EC5E2D100EA2077 /* CDASyncedSpace.h in Headers */,
@@ -1869,7 +1475,6 @@
 				ED9446791EC5E2C100EA2077 /* CDARequest.h in Headers */,
 				ED0112401EC4976A00C04340 /* CDAFieldValueTransformer.h in Headers */,
 				ED94468A1EC5E33200EA2077 /* CDAError.h in Headers */,
-				ED9446A81EC5E3A400EA2077 /* CDAMapViewController.h in Headers */,
 				ED0112411EC4976A00C04340 /* CDAInputSanitizer.h in Headers */,
 				ED94466F1EC5E2A700EA2077 /* CDAField.h in Headers */,
 				ED9446841EC5E33200EA2077 /* CDAArray.h in Headers */,
@@ -1879,7 +1484,6 @@
 				ED0112441EC4976A00C04340 /* CDARequestOperationManager.h in Headers */,
 				ED0112451EC4976A00C04340 /* CDARequestSerializer.h in Headers */,
 				ED0112461EC4976A00C04340 /* CDAResponse+Private.h in Headers */,
-				ED9446A71EC5E39A00EA2077 /* CDAResourcesCollectionViewController.h in Headers */,
 				ED0112481EC4976A00C04340 /* CDAResponseSerializer.h in Headers */,
 				ED0112491EC4976A00C04340 /* CDASyncedSpace+Private.h in Headers */,
 				ED9446801EC5E2EF00EA2077 /* CDAPersistedEntry.h in Headers */,
@@ -1894,16 +1498,9 @@
 				ED94467F1EC5E2EB00EA2077 /* CDALocalizedPersistedEntry.h in Headers */,
 				ED01125D1EC4976A00C04340 /* CDAResource+Private.h in Headers */,
 				ED01125F1EC4976A00C04340 /* CDASpace+Private.h in Headers */,
-				ED0112621EC4976A00C04340 /* CDAFieldCell.h in Headers */,
-				ED0112631EC4976A00C04340 /* CDAFieldsViewController+Private.h in Headers */,
-				ED0112651EC4976A00C04340 /* CDAImageViewController.h in Headers */,
 				ED9446AD1EC5F59700EA2077 /* CMAPublishing.h in Headers */,
-				ED0112661EC4976A00C04340 /* CDALocationViewController.h in Headers */,
-				ED0112681EC4976A00C04340 /* CDAResourceCell.h in Headers */,
-				ED01126B1EC4976A00C04340 /* CDAResourceTableViewCell.h in Headers */,
 				ED9446891EC5E33200EA2077 /* CDAEntry.h in Headers */,
 				ED94467C1EC5E2DC00EA2077 /* CDALocalizablePersistedEntry.h in Headers */,
-				ED01126C1EC4976A00C04340 /* CDATextViewController.h in Headers */,
 				ED01126E1EC4976A00C04340 /* CDAFallbackDictionary.h in Headers */,
 				ED01126F1EC4976A00C04340 /* CDANullabilityStubs.h in Headers */,
 				ED0112701EC4976A00C04340 /* CDAUtilities.h in Headers */,
@@ -1913,29 +1510,11 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		A173F55718D705B2000E6F92 /* Catalog */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A173F57C18D705B2000E6F92 /* Build configuration list for PBXNativeTarget "Catalog" */;
-			buildPhases = (
-				0AF031AD07EEC5E15B6B1612 /* [CP] Check Pods Manifest.lock */,
-				A173F55418D705B2000E6F92 /* Sources */,
-				A173F55518D705B2000E6F92 /* Frameworks */,
-				A173F55618D705B2000E6F92 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Catalog;
-			productName = Catalog;
-			productReference = A173F55818D705B2000E6F92 /* Catalog.app */;
-			productType = "com.apple.product-type.application";
-		};
 		A19FD86618C631E60081677E /* ContentfulDeliveryAPI */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A19FD88818C631E60081677E /* Build configuration list for PBXNativeTarget "ContentfulDeliveryAPI" */;
 			buildPhases = (
-				397E750A26CC5CDDB03FAE5F /* [CP] Check Pods Manifest.lock */,
+				45F242B6BC3863F04ED152AB /* [CP] Check Pods Manifest.lock */,
 				A19FD86318C631E60081677E /* Sources */,
 				A19FD86418C631E60081677E /* Frameworks */,
 				A19FD86518C631E60081677E /* CopyFiles */,
@@ -1956,7 +1535,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A19FD88B18C631E60081677E /* Build configuration list for PBXNativeTarget "DeliveryTests" */;
 			buildPhases = (
-				BC2EAF956AEC3BDAD1787763 /* [CP] Check Pods Manifest.lock */,
+				AEFF2A48C620E5C9DA6189FD /* [CP] Check Pods Manifest.lock */,
 				A19FD87318C631E60081677E /* Sources */,
 				A19FD87418C631E60081677E /* Frameworks */,
 				A19FD87518C631E60081677E /* Resources */,
@@ -1970,42 +1549,6 @@
 			productName = ContentfulDeliveryAPITests;
 			productReference = A19FD87718C631E60081677E /* DeliveryTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		A19FD89618C637400081677E /* UFO Example */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A19FD8BC18C637400081677E /* Build configuration list for PBXNativeTarget "UFO Example" */;
-			buildPhases = (
-				F3A7B8031F7ABED827E701CF /* [CP] Check Pods Manifest.lock */,
-				A19FD89318C637400081677E /* Sources */,
-				A19FD89418C637400081677E /* Frameworks */,
-				A19FD89518C637400081677E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "UFO Example";
-			productName = "UFO Example";
-			productReference = A19FD89718C637400081677E /* UFO Example.app */;
-			productType = "com.apple.product-type.application";
-		};
-		A1B8158218F2A8090027B26D /* CoreDataExample */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A1B815B118F2A80A0027B26D /* Build configuration list for PBXNativeTarget "CoreDataExample" */;
-			buildPhases = (
-				20571604CCF9D7622227E122 /* [CP] Check Pods Manifest.lock */,
-				A1B8157F18F2A8090027B26D /* Sources */,
-				A1B8158018F2A8090027B26D /* Frameworks */,
-				A1B8158118F2A8090027B26D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = CoreDataExample;
-			productName = CoreDataExample;
-			productReference = A1B8158318F2A8090027B26D /* CoreDataExample.app */;
-			productType = "com.apple.product-type.application";
 		};
 		ED2133991EA6172C00C3CE94 /* ManagementTests */ = {
 			isa = PBXNativeTarget;
@@ -2050,13 +1593,10 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0940;
 				TargetAttributes = {
 					A19FD87618C631E60081677E = {
 						TestTargetID = A173F50A18D31151000E6F92;
-					};
-					A19FD89618C637400081677E = {
-						DevelopmentTeam = RWJ5E97L7R;
 					};
 					ED2133991EA6172C00C3CE94 = {
 						CreatedOnToolsVersion = 8.3.1;
@@ -2085,24 +1625,11 @@
 				ED8FF5F91EA5FF6C00798042 /* ContentfulManagementAPI */,
 				A19FD87618C631E60081677E /* DeliveryTests */,
 				ED2133991EA6172C00C3CE94 /* ManagementTests */,
-				A1B8158218F2A8090027B26D /* CoreDataExample */,
-				A19FD89618C637400081677E /* UFO Example */,
-				A173F55718D705B2000E6F92 /* Catalog */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		A173F55618D705B2000E6F92 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A12F19DE1BB48F190088C199 /* CoreDataMultipleLocalesTests.json in Resources */,
-				A12F19E01BB48F380088C199 /* ComplexSyncTests.json in Resources */,
-				A1C4EE901C4E6B730065EA72 /* APICoverageTests.json in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		A19FD87518C631E60081677E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2137,20 +1664,6 @@
 				A171BD4F19EC6E79008D7F0D /* CoreDataMultipleContentTypesTests.json in Resources */,
 				A173F60518DB412C000E6F92 /* PreviewModeTests.json in Resources */,
 				A1F70C9B18FFDE030080C72C /* CoreDataBasicTests.json in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A19FD89518C637400081677E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A1B8158118F2A8090027B26D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2248,43 +1761,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0AF031AD07EEC5E15B6B1612 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Catalog-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		20571604CCF9D7622227E122 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CoreDataExample-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		397E750A26CC5CDDB03FAE5F /* [CP] Check Pods Manifest.lock */ = {
+		45F242B6BC3863F04ED152AB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2330,7 +1807,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nmkdir -p \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/Versions/A/Headers\"\n\n# Link the \"Current\" version to \"A\"\n/bin/ln -sfh A \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/Versions/Current\"\n/bin/ln -sfh Versions/Current/Headers \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/Headers\"\n/bin/ln -sfh \"Versions/Current/${PRODUCT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/${PRODUCT_NAME}\"\n\n# The -a ensures that the headers maintain the source modification date so that we don't constantly\n# cause propagating rebuilds of files that import these headers.\n/bin/cp -a \"${TARGET_BUILD_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}/\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/Versions/A/Headers\"";
 		};
-		BC2EAF956AEC3BDAD1787763 /* [CP] Check Pods Manifest.lock */ = {
+		AEFF2A48C620E5C9DA6189FD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2348,77 +1825,32 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F3A7B8031F7ABED827E701CF /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-UFO Example-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		A173F55418D705B2000E6F92 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A173F59918D9A2A9000E6F92 /* CDAImageGalleryViewController.m in Sources */,
-				A173F56318D705B2000E6F92 /* main.m in Sources */,
-				A1924C9B18EC43E100C97F9D /* CDADateQueryViewController.m in Sources */,
-				A173F56718D705B2000E6F92 /* CDAAppDelegate.m in Sources */,
-				A173F58718D7091B000E6F92 /* CDALoadAssetsViewController.m in Sources */,
-				A173F58418D7071C000E6F92 /* CDAExampleSelectionViewController.m in Sources */,
-				A1924C9818EC3A1B00C97F9D /* CDASyncDemoViewController.m in Sources */,
-				A1924C9518EC15A100C97F9D /* CDASimpleMapViewController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		A19FD86318C631E60081677E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1924C9218EC0DF000C97F9D /* CDAMapViewController.m in Sources */,
 				A12797AF18E1B10300043A44 /* CDASyncedSpace.m in Sources */,
 				ED1B1E691EB8B76300347DD7 /* CDAFallbackDictionary.m in Sources */,
-				A173F59D18D9A2FD000E6F92 /* CDAResourceCell.m in Sources */,
-				A173F54F18D6FD03000E6F92 /* CDATextViewController.m in Sources */,
 				A160862318CDF0E60047D44F /* CDARequest.m in Sources */,
 				A1A0314218C66E90006470B7 /* CDAContentType.m in Sources */,
-				A193EB4818D0ACFE0017B777 /* CDAFieldCell.m in Sources */,
-				A1D2DC0518D076F50053DC83 /* CDAResourceTableViewCell.m in Sources */,
 				A1E9797C18CC683200E79632 /* CDAFieldValueTransformer.m in Sources */,
 				A18AA81418E2D98200D430D5 /* CDADeletedEntry.m in Sources */,
-				A173F55318D700B8000E6F92 /* CDALocationViewController.m in Sources */,
 				A1A0314818C6708C006470B7 /* CDAField.m in Sources */,
-				A1D2DC0318D076F50053DC83 /* CDAEntriesViewController.m in Sources */,
 				A1A0312918C64165006470B7 /* CDAResource.m in Sources */,
 				A1A0315618C7683E006470B7 /* CDAError.m in Sources */,
 				A19FD87218C631E60081677E /* CDAClient.m in Sources */,
 				A1E3D05B18C87D3B00E4F488 /* CDARequestOperationManager.m in Sources */,
-				A193EB4418D0AC0C0017B777 /* CDAFieldsViewController.m in Sources */,
 				A1A0314B18C67527006470B7 /* CDAContentTypeRegistry.m in Sources */,
 				A1A0313818C644B5006470B7 /* CDAResponse.m in Sources */,
-				A173F58E18D752A9000E6F92 /* CDAImageViewController.m in Sources */,
 				A19FD8D818C63AE10081677E /* CDAConfiguration.m in Sources */,
 				A18AA81818E2E2CF00D430D5 /* CDADeletedAsset.m in Sources */,
 				A1E8391918CE2AB500B697F6 /* CDASpace.m in Sources */,
 				A1A0313C18C6627D006470B7 /* CDAResponseSerializer.m in Sources */,
 				A1ABC7BD191D12ED0020A964 /* CDAInputSanitizer.m in Sources */,
-				A1924C8E18EBFFB600C97F9D /* CDAResourcesViewController.m in Sources */,
 				A1A0313518C6449F006470B7 /* CDAArray.m in Sources */,
-				A173F59618D9A269000E6F92 /* CDAResourcesCollectionViewController.m in Sources */,
-				A193EB6618D20FA90017B777 /* UIImageView+CDAAsset.m in Sources */,
 				5D2CF5E01EC4CF8A005AB239 /* CDAPersistenceManager.m in Sources */,
 				A1DE35D9197D384700DE0904 /* CDARequestSerializer.m in Sources */,
 				5D2CF5DE1EC4CF8A005AB239 /* CDALocalizablePersistedEntry.m in Sources */,
@@ -2434,11 +1866,8 @@
 			files = (
 				A1A1CCC21911248600BE37EB /* SyncSpecificContentTests.m in Sources */,
 				A1CEC16B1A35DCA1007B4565 /* PersistenceBaseTest+Basic.m in Sources */,
-				A170131218FD4BA00086BE07 /* SyncInfo.m in Sources */,
 				A189199B1BB1E7870094256E /* LocalizedModel.xcdatamodeld in Sources */,
 				A1A1CCB2190E382E00BE37EB /* CoreDataQuerySyncTests.m in Sources */,
-				A170131118FD4B9D0086BE07 /* ManagedCat.m in Sources */,
-				A1AE68BB19B761B200D2C35F /* Member.m in Sources */,
 				A1CEC1AA1A35EE9D007B4565 /* RealmBasicTests.m in Sources */,
 				A1B815D618F7E2F20027B26D /* AddContentTypesSyncTests.m in Sources */,
 				A1521F221BB446960010B9C8 /* LinkedEntry.m in Sources */,
@@ -2460,11 +1889,9 @@
 				A1B815CA18F588D70027B26D /* LinkedAssetSyncTest.m in Sources */,
 				A1C8DCD318E098E80019A519 /* LinkTests.m in Sources */,
 				A18919A01BB1EA200094256E /* CoreDataMultipleLocalesTests.m in Sources */,
-				A170130F18FD47B70086BE07 /* CoreDataExample.xcdatamodeld in Sources */,
 				A1C180691A038B3300117DB3 /* RobustnessTests.m in Sources */,
 				A1AB590A1974069E00098F87 /* CoreDataMultipleContentTypesTests.m in Sources */,
 				ED31CED91E534D15007C8E48 /* RealmAsset.m in Sources */,
-				A1AE68B819B761B100D2C35F /* Group.m in Sources */,
 				A120857B1BB2712300A6504B /* ManagedCatLocalized.m in Sources */,
 				A18AA86418E5DB1A00D430D5 /* UtilityTests.m in Sources */,
 				A1A1CCB4190E387B00BE37EB /* CoreDataBaseTestCase.m in Sources */,
@@ -2486,36 +1913,9 @@
 				ED31CED81E534D15007C8E48 /* CoreDataManager.m in Sources */,
 				A19CA3EA1B84EFF800A0EFCD /* LocaleTests.m in Sources */,
 				ED31CEDB1E534D15007C8E48 /* RealmSpace.m in Sources */,
-				A170131018FD4B9A0086BE07 /* Asset.m in Sources */,
 				A1CEC1B71A360D2C007B4565 /* ManagedRealmCat.m in Sources */,
 				A1D2DC0718D0811F0053DC83 /* ArrayTests.m in Sources */,
 				A170130B18FD30A50086BE07 /* CoreDataBasicTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A19FD89318C637400081677E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A19FD8D518C639C10081677E /* UFOMapViewController.m in Sources */,
-				A19FD8A318C637400081677E /* main.m in Sources */,
-				A19FD8A718C637400081677E /* UFOAppDelegate.m in Sources */,
-				A1A0314C18C67D40006470B7 /* UFOSighting.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A1B8157F18F2A8090027B26D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A170130118FC21260086BE07 /* ManagedCat.m in Sources */,
-				A17012FB18FC21260086BE07 /* Asset.m in Sources */,
-				A1B8159418F2A8090027B26D /* AppDelegate.m in Sources */,
-				A1B8159018F2A8090027B26D /* main.m in Sources */,
-				A1FAC3581908FDB40093B308 /* CatListViewController.m in Sources */,
-				A10A11FE19090F5D00EFF083 /* CatDetailViewController.m in Sources */,
-				A17012FE18FC21260086BE07 /* SyncInfo.m in Sources */,
-				A1B8159718F2A8090027B26D /* CoreDataExample.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2544,28 +1944,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED9446A01EC5E37900EA2077 /* CDAResourceTableViewCell.m in Sources */,
 				EDFDCE8C1EC26F8600978FC8 /* CMAEntry.m in Sources */,
-				ED94469E1EC5E37900EA2077 /* CDAResourcesCollectionViewController.m in Sources */,
 				EDFDCE8A1EC26F8600978FC8 /* CMAEditorInterface.m in Sources */,
 				EDFDCE9A1EC26F8600978FC8 /* CMASpace.m in Sources */,
 				ED9446A31EC5E38100EA2077 /* CDAFallbackDictionary.m in Sources */,
 				ED9446921EC5E34A00EA2077 /* CDAEntry.m in Sources */,
 				ED9446831EC5E2FF00EA2077 /* CDALocalizablePersistedEntry.m in Sources */,
 				ED9446951EC5E34A00EA2077 /* CDASpace.m in Sources */,
-				ED94469C1EC5E37900EA2077 /* CDAMapViewController.m in Sources */,
 				ED94468E1EC5E34100EA2077 /* CDAAsset.m in Sources */,
 				ED9446941EC5E34A00EA2077 /* CDAResource.m in Sources */,
 				ED94466C1EC5E29E00EA2077 /* CDAContentTypeRegistry.m in Sources */,
 				ED9446A41EC5E38100EA2077 /* CDAUtilities.m in Sources */,
 				EDFDCE8E1EC26F8600978FC8 /* CMAError.m in Sources */,
-				ED9446991EC5E37900EA2077 /* CDAFieldsViewController.m in Sources */,
 				EDFDCE9D1EC26F8600978FC8 /* CMAUser.m in Sources */,
 				EDFDCE921EC26F8600978FC8 /* CMALocale.m in Sources */,
 				EDFDCEA41EC26F8600978FC8 /* CMAWebhook.m in Sources */,
 				ED9446731EC5E2BC00EA2077 /* CDARequest.m in Sources */,
 				EDFDCE7B1EC26F8600978FC8 /* CDAResource+Management.m in Sources */,
-				ED94469D1EC5E37900EA2077 /* CDAResourceCell.m in Sources */,
 				EDFDCE981EC26F8600978FC8 /* CMARole.m in Sources */,
 				ED9446691EC5E28800EA2077 /* CDAClient.m in Sources */,
 				ED9446751EC5E2BC00EA2077 /* CDARequestSerializer.m in Sources */,
@@ -2573,8 +1968,6 @@
 				ED9446721EC5E2BC00EA2077 /* CDAInputSanitizer.m in Sources */,
 				ED9446761EC5E2BC00EA2077 /* CDAResponse.m in Sources */,
 				EDFDCE821EC26F8600978FC8 /* CMAArray.m in Sources */,
-				ED94469F1EC5E37900EA2077 /* CDAResourcesViewController.m in Sources */,
-				ED9446A21EC5E37900EA2077 /* UIImageView+CDAAsset.m in Sources */,
 				EDFDCEA11EC26F8600978FC8 /* CMAValidation.m in Sources */,
 				EDFDCE841EC26F8600978FC8 /* CMAAsset.m in Sources */,
 				EDFDCE881EC26F8600978FC8 /* CMAContentType.m in Sources */,
@@ -2582,7 +1975,6 @@
 				ED9446711EC5E2AE00EA2077 /* CDAFieldValueTransformer.m in Sources */,
 				ED9446901EC5E34A00EA2077 /* CDADeletedAsset.m in Sources */,
 				ED94468F1EC5E34A00EA2077 /* CDAContentType.m in Sources */,
-				ED9446981EC5E37900EA2077 /* CDAFieldCell.m in Sources */,
 				ED94466B1EC5E29800EA2077 /* CDAConfiguration.m in Sources */,
 				ED9446781EC5E2BC00EA2077 /* CDASyncedSpace.m in Sources */,
 				EDFDCE7F1EC26F8600978FC8 /* CMAApiKey.m in Sources */,
@@ -2590,16 +1982,12 @@
 				ED9446821EC5E2FB00EA2077 /* CDAPersistenceManager.m in Sources */,
 				ED94468D1EC5E34100EA2077 /* CDAArray.m in Sources */,
 				ED9446771EC5E2BC00EA2077 /* CDAResponseSerializer.m in Sources */,
-				ED9446A11EC5E37900EA2077 /* CDATextViewController.m in Sources */,
-				ED9446971EC5E37900EA2077 /* CDAEntriesViewController.m in Sources */,
 				EDFDCE901EC26F8600978FC8 /* CMAField.m in Sources */,
-				ED94469B1EC5E37900EA2077 /* CDALocationViewController.m in Sources */,
 				EDFDCE7D1EC26F8600978FC8 /* CMAAccessToken.m in Sources */,
 				ED9446911EC5E34A00EA2077 /* CDADeletedEntry.m in Sources */,
 				ED9446741EC5E2BC00EA2077 /* CDARequestOperationManager.m in Sources */,
 				ED9446701EC5E2AB00EA2077 /* CDAField.m in Sources */,
 				ED9446931EC5E34A00EA2077 /* CDAError.m in Sources */,
-				ED94469A1EC5E37900EA2077 /* CDAImageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2619,112 +2007,24 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		A173F57D18D705B2000E6F92 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1579F674E49E0B3750D6AE2A /* Pods-Catalog.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Examples/Catalog/Catalog-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "$(SRCROOT)/Examples/Catalog/Catalog-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.contentful.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		A173F57E18D705B2000E6F92 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = AFD140B7DCCED0C683B7BE7F /* Pods-Catalog.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Examples/Catalog/Catalog-Prefix.pch";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "$(SRCROOT)/Examples/Catalog/Catalog-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.contentful.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				VALIDATE_PRODUCT = YES;
-				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
 		A19FD86118C6315E0081677E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_CODE_COVERAGE = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -2757,12 +2057,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_CODE_COVERAGE = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -2789,7 +2097,7 @@
 		};
 		A19FD88918C631E60081677E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B5E9441BB41AF504D321C282 /* Pods-ContentfulDeliveryAPI.debug.xcconfig */;
+			baseConfigurationReference = 5635C33349F6DFD6533A67F9 /* Pods-ContentfulDeliveryAPI.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -2824,7 +2132,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/**",
@@ -2845,7 +2153,7 @@
 		};
 		A19FD88A18C631E60081677E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BA455CE8DAC5A206234AF90E /* Pods-ContentfulDeliveryAPI.release.xcconfig */;
+			baseConfigurationReference = A2896DBB6710D3A45D416576 /* Pods-ContentfulDeliveryAPI.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -2874,7 +2182,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/**",
@@ -2895,7 +2203,7 @@
 		};
 		A19FD88C18C631E60081677E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 59FAD4CCA3EDA470869F7747 /* Pods-DeliveryTests.debug.xcconfig */;
+			baseConfigurationReference = F4A4063EA39F39374E4D961E /* Pods-DeliveryTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				APPLICATION_EXTENSION_API_ONLY = NO;
@@ -2939,7 +2247,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/ContentfulDeliveryAPI",
@@ -2963,7 +2271,7 @@
 		};
 		A19FD88D18C631E60081677E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D40D273D19D7A5AB2CAC0F4D /* Pods-DeliveryTests.release.xcconfig */;
+			baseConfigurationReference = A8D6EBFD73BF7FA7C5C6C02D /* Pods-DeliveryTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				APPLICATION_EXTENSION_API_ONLY = NO;
@@ -2999,7 +2307,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/ContentfulDeliveryAPI",
@@ -3018,204 +2326,6 @@
 				VALID_ARCHS = "arm64 armv7 armv7s";
 				WARNING_CFLAGS = "";
 				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
-		A19FD8BD18C637400081677E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 550A38692C6874E7B5575A85 /* Pods-UFO Example.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Examples/UFO/UFO Example-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "$(SRCROOT)/Examples/UFO/UFO Example-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.contentful.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SDKROOT = iphoneos;
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		A19FD8BE18C637400081677E /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5AA38502CC084CBB4F5D1BCF /* Pods-UFO Example.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Examples/UFO/UFO Example-Prefix.pch";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "$(SRCROOT)/Examples/UFO/UFO Example-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.contentful.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SDKROOT = iphoneos;
-				VALIDATE_PRODUCT = YES;
-				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		A1B815AD18F2A80A0027B26D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A49B9CD1197157A6EE40A504 /* Pods-CoreDataExample.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Examples/CoreDataExample/CoreDataExample-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "$(SRCROOT)/Examples/CoreDataExample/CoreDataExample-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.vu0.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		A1B815AE18F2A80A0027B26D /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 303113FA1B50FA45CB42DEF2 /* Pods-CoreDataExample.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Examples/CoreDataExample/CoreDataExample-Prefix.pch";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "$(SRCROOT)/Examples/CoreDataExample/CoreDataExample-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.vu0.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				VALIDATE_PRODUCT = YES;
-				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
 		};
@@ -3368,12 +2478,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_CODE_COVERAGE = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -3402,60 +2520,9 @@
 			};
 			name = API_Coverage;
 		};
-		ED4AD4AB1E5C69BC0049B8D4 /* API_Coverage */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CB6FED955230A391841A9BCE /* Pods-Catalog.api_coverage.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Examples/Catalog/Catalog-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"API_COVERAGE=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "$(SRCROOT)/Examples/Catalog/Catalog-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.contentful.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				WRAPPER_EXTENSION = app;
-			};
-			name = API_Coverage;
-		};
 		ED4AD4AC1E5C69BC0049B8D4 /* API_Coverage */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 88F0A96CAE34A9C4DDB08D03 /* Pods-DeliveryTests.api_coverage.xcconfig */;
+			baseConfigurationReference = F865A781924E4BF42F296397 /* Pods-DeliveryTests.api_coverage.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				APPLICATION_EXTENSION_API_ONLY = NO;
@@ -3499,7 +2566,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/ContentfulDeliveryAPI",
@@ -3523,7 +2590,7 @@
 		};
 		ED4AD4AD1E5C69BC0049B8D4 /* API_Coverage */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A522F8AC69B3A2692BAAD3D8 /* Pods-ContentfulDeliveryAPI.api_coverage.xcconfig */;
+			baseConfigurationReference = 4BB06AC52458227EF9EF6E2D /* Pods-ContentfulDeliveryAPI.api_coverage.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -3558,7 +2625,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/**",
@@ -3574,111 +2641,6 @@
 				STRIP_STYLE = "non-global";
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				VALID_ARCHS = "arm64 armv7 armv7s";
-			};
-			name = API_Coverage;
-		};
-		ED4AD4AF1E5C69BC0049B8D4 /* API_Coverage */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CF9022B894FA8C9097409226 /* Pods-CoreDataExample.api_coverage.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Examples/CoreDataExample/CoreDataExample-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"API_COVERAGE=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "$(SRCROOT)/Examples/CoreDataExample/CoreDataExample-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.vu0.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				WRAPPER_EXTENSION = app;
-			};
-			name = API_Coverage;
-		};
-		ED4AD4B11E5C69BC0049B8D4 /* API_Coverage */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6BA2A4E87E52DB656DADCFED /* Pods-UFO Example.api_coverage.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Examples/UFO/UFO Example-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"API_COVERAGE=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "$(SRCROOT)/Examples/UFO/UFO Example-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.contentful.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SDKROOT = iphoneos;
-				WRAPPER_EXTENSION = app;
 			};
 			name = API_Coverage;
 		};
@@ -3726,7 +2688,7 @@
 					"\"${PODS_ROOT}/Headers/Public/Specta\"",
 					"\"${PODS_ROOT}/Headers/Public/VCRURLConnection\"",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/**",
@@ -3780,7 +2742,7 @@
 					"\"${PODS_ROOT}/Headers/Public/Specta\"",
 					"\"${PODS_ROOT}/Headers/Public/VCRURLConnection\"",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/**",
@@ -3835,7 +2797,7 @@
 					"\"${PODS_ROOT}/Headers/Public/Specta\"",
 					"\"${PODS_ROOT}/Headers/Public/VCRURLConnection\"",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/**",
@@ -3854,16 +2816,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A173F57C18D705B2000E6F92 /* Build configuration list for PBXNativeTarget "Catalog" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A173F57D18D705B2000E6F92 /* Debug */,
-				ED4AD4AB1E5C69BC0049B8D4 /* API_Coverage */,
-				A173F57E18D705B2000E6F92 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		A19FD86018C6315E0081677E /* Build configuration list for PBXProject "ContentfulSDK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -3890,26 +2842,6 @@
 				A19FD88C18C631E60081677E /* Debug */,
 				ED4AD4AC1E5C69BC0049B8D4 /* API_Coverage */,
 				A19FD88D18C631E60081677E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A19FD8BC18C637400081677E /* Build configuration list for PBXNativeTarget "UFO Example" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A19FD8BD18C637400081677E /* Debug */,
-				ED4AD4B11E5C69BC0049B8D4 /* API_Coverage */,
-				A19FD8BE18C637400081677E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A1B815B118F2A80A0027B26D /* Build configuration list for PBXNativeTarget "CoreDataExample" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A1B815AD18F2A80A0027B26D /* Debug */,
-				ED4AD4AF1E5C69BC0049B8D4 /* API_Coverage */,
-				A1B815AE18F2A80A0027B26D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3954,16 +2886,6 @@
 			);
 			currentVersion = A189199A1BB1E7870094256E /* LocalizedModel.xcdatamodel */;
 			path = LocalizedModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-		A1B8159518F2A8090027B26D /* CoreDataExample.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				A1B8159618F2A8090027B26D /* CoreDataExample.xcdatamodel */,
-			);
-			currentVersion = A1B8159618F2A8090027B26D /* CoreDataExample.xcdatamodel */;
-			path = CoreDataExample.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

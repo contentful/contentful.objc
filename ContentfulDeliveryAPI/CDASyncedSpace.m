@@ -64,7 +64,7 @@
 }
 
 -(void)handleSynchronizationResponseWithArray:(CDAArray*)array
-                                      success:(void (^)())success
+                                      success:(void (^)(void))success
                                       failure:(CDARequestFailureBlock)failure {
     NSMutableDictionary* newAssets = [@{} mutableCopy];
     NSMutableDictionary* newEntries = [@{} mutableCopy];
@@ -200,7 +200,7 @@
     return self;
 }
 
--(void)performSynchronizationWithSuccess:(void (^)())success
+-(void)performSynchronizationWithSuccess:(void (^)(void))success
                                  failure:(CDARequestFailureBlock)failure {
     NSParameterAssert(self.client);
     
@@ -233,7 +233,7 @@
 }
 
 -(void)resolveLinksInArray:(CDAArray*)array
-                   success:(void (^)())success
+                   success:(void (^)(void))success
                    failure:(CDARequestFailureBlock)failure {
     NSMutableArray* entriesInQuery = [@[] mutableCopy];
     NSMutableArray* unresolvedAssets = [@[] mutableCopy];
@@ -277,8 +277,8 @@
 
 -(void)resolveLinksInEntries:(NSArray*)entries
                  usingAssets:(NSArray*)assets
-            unresolvedEntryIds:(NSArray*)unresolvedEntryIds
-                       success:(void (^)())success
+          unresolvedEntryIds:(NSArray*)unresolvedEntryIds
+                     success:(void (^)(void))success
                        failure:(CDARequestFailureBlock)failure  {
     if (assets.count == 0 && unresolvedEntryIds.count == 0) {
         success();

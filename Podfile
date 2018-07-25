@@ -6,27 +6,15 @@ source 'https://github.com/contentful/CocoaPodsSpecs.git'
 
 ## Delivery API
 target 'ContentfulDeliveryAPI' do
-  platform :ios, "8.0"
+  platform :ios, "9.3"
   podspec :path => 'ContentfulDeliveryAPI.podspec'
 
-  target 'Catalog' do
-    inherit! :search_paths
-    pod 'PDKTCollectionViewWaterfallLayout'
-  end
-
-  target 'UFO Example' do
-    inherit! :search_paths
-  end
-
-  target 'CoreDataExample' do
-    inherit! :search_paths
-  end
 end
 
 
 # Cocoapods docs are wrong and don't work for 
 target 'DeliveryTests' do
-  platform :ios, "8.0"
+  platform :ios, "9.3"
 
   pod 'CCLRequestReplay', :git => 'https://github.com/neonichu/CCLRequestReplay.git'
   pod 'OCMock', :inhibit_warnings => true

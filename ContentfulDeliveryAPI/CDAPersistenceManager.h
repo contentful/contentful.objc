@@ -54,7 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param success Completion handler called when the synchronization finished successfully.
  *  @param failure Error handler called when any problem occured during the synchronization.
  */
--(void)performSynchronizationWithSuccess:(void (^)())success
+-(void)performSynchronizationWithSuccess:(void (^)(void))success
                                  failure:(CDARequestFailureBlock)failure;
 
 /** @name Defining Classes for Persistent Resources */
@@ -266,7 +266,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param block A block to be performed asynchronously
  */
--(void)performBlock:(void (^)())block;
+-(void)performBlock:(void (^)(void))block;
 
 /**
  *  Save all changes of the object model to the persistent store.
