@@ -261,7 +261,7 @@
     XCTestExpectation *expectation = [self expectationWithDescription:@""];
 
     CDAConfiguration* configuration = [CDAConfiguration defaultConfiguration];
-    configuration.server = @"http://cdn.contentful.com";
+    configuration.server = @"https://cdn.contentful.com";
     self.client = [[CDAClient alloc] initWithSpaceKey:@"cfexampleapi"
                                           accessToken:@"b4c0n73n7ful"
                                         configuration:configuration];
@@ -276,6 +276,7 @@
 
                                   [expectation fulfill];
                               }];
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 @end

@@ -61,6 +61,10 @@ extern void __gcov_flush(void);
 #endif
 
     self.client = [CDAClient new];
+//
+//    self.requestReplayManager = [CCLRequestReplayManager new];
+//
+//    [self.requestReplayManager replay];
 }
 
 
@@ -99,13 +103,13 @@ extern void __gcov_flush(void);
                       inDirectory:(NSString*)directory
                           matcher:(CCLURLRequestMatcher)matcher {
 
-    NSDictionary *headerFields = @{ @"Content-Type": @"application/vnd.contentful.delivery.v1+json" };
-    CCLRequestJSONRecording* recording = [[CCLRequestJSONRecording alloc] initWithBundledJSONNamed:JSONName
-                                                                                       inDirectory:directory
-                                                                                           matcher:matcher
-                                                                                        statusCode:200
-                                                                                      headerFields:headerFields];
-    [self.requestReplayManager addRecording:recording];
+//    NSDictionary *headerFields = @{ @"Content-Type": @"application/vnd.contentful.delivery.v1+json" };
+//    CCLRequestJSONRecording* recording = [[CCLRequestJSONRecording alloc] initWithBundledJSONNamed:JSONName
+//                                                                                       inDirectory:directory
+//                                                                                           matcher:matcher
+//                                                                                        statusCode:200
+//                                                                                      headerFields:headerFields];
+//    [self.requestReplayManager addRecording:recording];
 }
 
 - (void)assertField:(CDAField*)field
@@ -122,18 +126,18 @@ extern void __gcov_flush(void);
                  statusCode:(NSInteger)statusCode
                     headers:(NSDictionary*)headers
                     matcher:(CCLURLRequestMatcher)matcher {
-    NSURL* baseURL = [NSURL URLWithString:@"/"];
-    NSParameterAssert(baseURL);
-
-    CCLRequestRecording* recording = [[CCLRequestRecording alloc] initWithRequest:nil response:[[NSHTTPURLResponse alloc] initWithURL:baseURL statusCode:statusCode HTTPVersion:@"1.1" headerFields:headers] data:data];
-    recording.matcher = matcher;
-    [self.requestReplayManager addRecording:recording];
+//    NSURL* baseURL = [NSURL URLWithString:@"/"];
+//    NSParameterAssert(baseURL);
+//
+//    CCLRequestRecording* recording = [[CCLRequestRecording alloc] initWithRequest:nil response:[[NSHTTPURLResponse alloc] initWithURL:baseURL statusCode:statusCode HTTPVersion:@"1.1" headerFields:headers] data:data];
+//    recording.matcher = matcher;
+//    [self.requestReplayManager addRecording:recording];
 }
 
 - (void)addResponseWithError:(NSError*)error matcher:(CCLURLRequestMatcher)matcher {
-    CCLRequestRecording* recording = [[CCLRequestRecording alloc] initWithRequest:nil error:error];
-    recording.matcher = matcher;
-    [self.requestReplayManager addRecording:recording];
+//    CCLRequestRecording* recording = [[CCLRequestRecording alloc] initWithRequest:nil error:error];
+//    recording.matcher = matcher;
+//    [self.requestReplayManager addRecording:recording];
 }
 
 - (CDAEntry*)customEntryHelperWithFields:(NSDictionary*)fields
@@ -184,39 +188,39 @@ extern void __gcov_flush(void);
  protocols manually to the session used by CDAClient
  */
 - (void)setUpCCLRequestReplayForNSURLSession {
-
-    NSURLSessionConfiguration* config = self.client.requestOperationManager.session.configuration;
-
-    NSMutableArray* protocolClasses = [config.protocolClasses mutableCopy];
-    [protocolClasses insertObject:[CCLRequestRecordProtocol class] atIndex:0];
-    [protocolClasses insertObject:[CCLRequestReplayProtocol class] atIndex:0];
-    config.protocolClasses = protocolClasses;
-
-    NSURLSession *newSession = [NSURLSession sessionWithConfiguration:config delegate:self.client.requestOperationManager delegateQueue:self.client.requestOperationManager.operationQueue];
-    [self.client.requestOperationManager setValue:newSession forKey:@"session"];
+//
+//    NSURLSessionConfiguration* config = self.client.requestOperationManager.session.configuration;
+//
+//    NSMutableArray* protocolClasses = [config.protocolClasses mutableCopy];
+//    [protocolClasses insertObject:[CCLRequestRecordProtocol class] atIndex:0];
+//    [protocolClasses insertObject:[CCLRequestReplayProtocol class] atIndex:0];
+//    config.protocolClasses = protocolClasses;
+//
+//    NSURLSession *newSession = [NSURLSession sessionWithConfiguration:config delegate:self.client.requestOperationManager delegateQueue:self.client.requestOperationManager.operationQueue];
+//    [self.client.requestOperationManager setValue:newSession forKey:@"session"];
 }
 
 - (void)stubHTTPRequestUsingFixtures:(NSDictionary*)fixtureMap inDirectory:(NSString*)directoryName {
-
-    [self setUpCCLRequestReplayForNSURLSession];
-
-    [fixtureMap enumerateKeysAndObjectsUsingBlock:^(NSString* urlString, NSString* JSONName, BOOL *stop) {
-        [self addRecordingWithJSONNamed:JSONName
-                            inDirectory:directoryName
-                                matcher:^BOOL(NSURLRequest *request) {
-                                    return [request.URL.absoluteString isEqualToString:urlString];
-                                }];
-    }];
-
-    CCLRequestJSONRecording* recording = [[CCLRequestJSONRecording alloc]
-                                          initWithBundledJSONNamed:nil
-                                          inDirectory:directoryName
-                                          matcher:^BOOL(NSURLRequest *request) {
-                                              return YES;
-                                          }
-                                          statusCode:404
-                                          headerFields:nil];
-    [self.requestReplayManager addRecording:recording];
+//
+//    [self setUpCCLRequestReplayForNSURLSession];
+//
+//    [fixtureMap enumerateKeysAndObjectsUsingBlock:^(NSString* urlString, NSString* JSONName, BOOL *stop) {
+//        [self addRecordingWithJSONNamed:JSONName
+//                            inDirectory:directoryName
+//                                matcher:^BOOL(NSURLRequest *request) {
+//                                    return [request.URL.absoluteString isEqualToString:urlString];
+//                                }];
+//    }];
+//
+//    CCLRequestJSONRecording* recording = [[CCLRequestJSONRecording alloc]
+//                                          initWithBundledJSONNamed:nil
+//                                          inDirectory:directoryName
+//                                          matcher:^BOOL(NSURLRequest *request) {
+//                                              return YES;
+//                                          }
+//                                          statusCode:404
+//                                          headerFields:nil];
+//    [self.requestReplayManager addRecording:recording];
 }
 
 @end

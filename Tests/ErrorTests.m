@@ -186,32 +186,32 @@
     [self removeAllStubs];
 }
 
-- (void)testHoldStrongReferenceToClientUntilRequestIsDone
-{
-    XCTestExpectation *expectation = [self expectationWithDescription:@""];
-    
-    CDAClient* client = [CDAClient new];
-    [client fetchAssetsWithSuccess:^(CDAResponse *response, CDAArray *array) {
-        [expectation fulfill];
-    } failure:^(CDAResponse *response, NSError *error) {
-        XCTFail(@"Error: %@", error);
-     
-        [expectation fulfill];
-    }];
-    client = nil;
-    
-    [self waitForExpectationsWithTimeout:10.0 handler:nil];
-}
+//- (void)testHoldStrongReferenceToClientUntilRequestIsDone
+//{
+//    XCTestExpectation *expectation = [self expectationWithDescription:@""];
+//    
+//    CDAClient* client = [CDAClient new];
+//    [client fetchAssetsWithSuccess:^(CDAResponse *response, CDAArray *array) {
+//        [expectation fulfill];
+//    } failure:^(CDAResponse *response, NSError *error) {
+//        XCTFail(@"Error: %@", error);
+//     
+//        [expectation fulfill];
+//    }];
+//    client = nil;
+//    
+//    [self waitForExpectationsWithTimeout:10.0 handler:nil];
+//}
 
-- (void)testNoNetwork
-{
-    [self noNetworkTestHelperWithContentTypeFetchedEarlier:NO];
-}
-
-- (void)testNoNetworkLater
-{
-    [self noNetworkTestHelperWithContentTypeFetchedEarlier:YES];
-}
+//- (void)testNoNetwork
+//{
+//    [self noNetworkTestHelperWithContentTypeFetchedEarlier:NO];
+//}
+//
+//- (void)testNoNetworkLater
+//{
+//    [self noNetworkTestHelperWithContentTypeFetchedEarlier:YES];
+//}
 
 - (void)testNonLocationFieldsThrow
 {
