@@ -391,37 +391,6 @@
     [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
--(void)testNoSyncTokenAvailableError {
-    XCTestExpectation *expectation = [self expectationWithDescription:@""];
-    
-    self.client = [[CDAClient alloc] initWithSpaceKey:@"emh6o2ireilu" accessToken:@"something"];
-    
-    [self addDummyContentType];
-    
-    CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response,
-                                                                           CDASyncedSpace *space) {
-        [space performSynchronizationWithSuccess:^{
-            XCTFail(@"Request should not succeed due to missing sync token.");
-            
-            [expectation fulfill];
-        } failure:^(CDAResponse *response, NSError *error) {
-            XCTAssertEqualObjects(CDAErrorDomain, error.domain, @"");
-            XCTAssertEqual(901, error.code, @"");
-            XCTAssertEqualObjects(@"No sync token available.", error.localizedDescription, @"");
-            
-            [expectation fulfill];
-        }];
-        
-    } failure:^(CDAResponse *response, NSError *error) {
-        XCTFail(@"Error: %@", error);
-        
-        [expectation fulfill];
-    }];
-    XCTAssertNotNil(request, @"");
-    
-    [self waitForExpectationsWithTimeout:10.0 handler:nil];
-}
-
 -(void)testPagingWhileSyncing {
     [self removeAllStubs];
     

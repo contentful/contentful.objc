@@ -282,6 +282,7 @@
 		ED9446BD1EC5FEF400EA2077 /* CMAValidation+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = EDFDCE361EC26F3600978FC8 /* CMAValidation+Private.h */; };
 		ED9446BE1EC5FEFC00EA2077 /* CMASpace+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = EDFDCE311EC26F3600978FC8 /* CMASpace+Private.h */; };
 		ED9446BF1EC5FF1F00EA2077 /* CDAResource+Management.h in Headers */ = {isa = PBXBuildFile; fileRef = EDFDCE521EC26F3E00978FC8 /* CDAResource+Management.h */; };
+		EDB8250E2108CB4200C344EB /* SyncTests in Resources */ = {isa = PBXBuildFile; fileRef = EDB8250D2108CB3400C344EB /* SyncTests */; };
 		EDD0B9A61ED873EE002A3ACA /* Versions.h in Headers */ = {isa = PBXBuildFile; fileRef = EDD0B9A51ED873EE002A3ACA /* Versions.h */; };
 		EDD0B9A71ED873EE002A3ACA /* Versions.h in Headers */ = {isa = PBXBuildFile; fileRef = EDD0B9A51ED873EE002A3ACA /* Versions.h */; };
 		EDFDCE7B1EC26F8600978FC8 /* CDAResource+Management.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFDCE201EC26F3600978FC8 /* CDAResource+Management.m */; };
@@ -596,6 +597,7 @@
 		ED9446AE1EC5F5E800EA2077 /* CMARole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMARole.h; path = Public/CMARole.h; sourceTree = "<group>"; };
 		ED9446AF1EC5F5E800EA2077 /* CMAUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMAUser.h; path = Public/CMAUser.h; sourceTree = "<group>"; };
 		ED9446B91EC5FCAB00EA2077 /* CDAOrganizationContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAOrganizationContainer.h; sourceTree = "<group>"; };
+		EDB8250D2108CB3400C344EB /* SyncTests */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SyncTests; path = Data/SyncTests; sourceTree = "<group>"; };
 		EDC66C531EC48A980096998A /* libAFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAFNetworking.a; path = "Pods/../build/Debug-iphoneos/AFNetworking/libAFNetworking.a"; sourceTree = "<group>"; };
 		EDD0B9A51ED873EE002A3ACA /* Versions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Versions.h; sourceTree = "<group>"; };
 		EDFDCE201EC26F3600978FC8 /* CDAResource+Management.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CDAResource+Management.m"; path = "Private/CDAResource+Management.m"; sourceTree = "<group>"; };
@@ -800,6 +802,7 @@
 		A1B815C318F581690027B26D /* Synchronization */ = {
 			isa = PBXGroup;
 			children = (
+				EDB8250D2108CB3400C344EB /* SyncTests */,
 				A1B815BA18F56BFD0027B26D /* ComplexSyncTests */,
 				A1B815D518F7E2F20027B26D /* AddContentTypesSyncTests.m */,
 				A1B815D718F830C00027B26D /* ComplexLinkSyncTests.m */,
@@ -1372,6 +1375,7 @@
 				A1A1CCBE190E96FC00BE37EB /* UtilityTests.json in Resources */,
 				A171BD5119EC6E8B008D7F0D /* ClientConfiguration.json in Resources */,
 				A170131618FD5DE20086BE07 /* PreviewModeSyncTests.json in Resources */,
+				EDB8250E2108CB4200C344EB /* SyncTests in Resources */,
 				A18AA85C18E4952C00D430D5 /* AssetTests.json in Resources */,
 				A1E832D818E0A1640092F926 /* LinkTests.json in Resources */,
 				A18AA85718E45C5E00D430D5 /* SyncTests.json in Resources */,

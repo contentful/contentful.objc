@@ -113,16 +113,16 @@
 - (void)testBrokenContent
 {
     CDAEntry* brokenEntry = [self customEntryHelperWithFields:@{
-                                                                @"someArray": @1,
-                                                                @"someBool": @"foo",
-                                                                @"someDate": @[],
-                                                                @"someInteger": @{},
-                                                                @"someLink": @YES,
-                                                                @"someLocation": @23,
-                                                                @"someNumber": @{},
-                                                                @"someSymbol": @7,
-                                                                @"someText": @[],
-                                                                }];
+                                    @"someArray": @1,
+                                    @"someBool": @"foo",
+                                    @"someDate": @[],
+                                    @"someInteger": @{},
+                                    @"someLink": @YES,
+                                    @"someLocation": @23,
+                                    @"someNumber": @{},
+                                    @"someSymbol": @7,
+                                    @"someText": @[],
+                                    }];
     
     XCTAssertEqualObjects(@[], brokenEntry.fields[@"someArray"], @"");
     XCTAssertEqual(NO, [brokenEntry.fields[@"someBool"] boolValue], @"");
