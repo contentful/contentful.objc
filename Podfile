@@ -3,13 +3,19 @@
 source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/contentful/CocoaPodsSpecs.git'
 
-
-## Delivery API
+## iOS
 target 'ContentfulDeliveryAPI' do
   platform :ios, "9.3"
   podspec :path => 'ContentfulDeliveryAPI.podspec'
 
 end
+
+## tvOS
+target 'ContentfulDeliveryAPI_tvOS' do
+  platform :tvos, "9.3"
+  podspec :path => 'ContentfulDeliveryAPI.podspec'
+end
+
 
 
 # Cocoapods docs are wrong and don't work for 

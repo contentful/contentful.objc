@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
     'ContentfulDeliveryAPI/{CDAClient,CDAConfiguration,CDANullabilityStubs,CDARequest,CDAResponse,CDAField,CDASyncedSpace,ContentfulDeliveryAPI,CDAPersistenceManager,CDAPersistedAsset,CDAPersistedEntry,CDAPersistedSpace,CDALocalizablePersistedEntry,CDALocalizedPersistedEntry}.h'
   ]
   # iOS specific
-  s.ios.deployment_target     = '8.0'
+  s.ios.deployment_target     = '9.0'
   s.ios.source_files          = 'ContentfulDeliveryAPI/UIKit/*.{h,m}'
   s.ios.frameworks            = 'UIKit', 'MapKit'
 

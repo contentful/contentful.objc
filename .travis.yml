@@ -6,27 +6,20 @@ osx_image: xcode9.3
 rvm:
 - 2.4.1
 before_install:
-- git submodule sync
-- git submodule update --init --recursive
 - bundle install
 - bundle exec pod repo update --silent
 install:
 - bundle exec pod install
 script:
 - "./scripts/travis-build-test.sh"
-- "./scripts/travis-lint.sh"
 after_success:
 - bundle exec pod lib lint ContentfulDeliveryAPI.podspec
 notifications:
   slack:
   - secure: pbLVGeA+577zmld+ie/1KUWxin8PFB+uXogz1zrVhEqnparjbHNMvFfaAGG1gbaAJC0skGksCe+LeBrhLargbLSgAT3HrObwDCIu7H8IjaYOEhpNTHCObrwRIyOeBVHHAhjgjeElM7hvptJjRMuERErcnL65EOlaIdm4ZqOg3/0=
 env:
-  matrix:
-  - CONTENTFUL_SDK="CDA"
   global:
-    iOS Simulator,name=iPhone 6s,OS=11.3
-  - IOS_SDK=iphonesimulator10.3 IOS_VERSION=11.3 DEVICE_NAME='iPhone 6s'
-  - ARTIFACTS_S3_BUCKET=static.cdnorigin.contentful.com
+  - IOS_SDK=iphonesimulator IOS_VERSION=11.4 DEVICE_NAME='iPhone 6s'
   - secure: n/hnbmOoeLt4g+Mzm6Nm/fnxwr7fFjfFTlNxEco7kk9oeNklj0vudOwbYtxL2AWuMNWX/tSHlUieKf4UGOiwzFeQmWyLdi0dkwSKRMNBNz2XQrlzjemZNf8V9+E6+JPeH8BVBKyscYgNevrp7R0Lx2h5mcDVogHm416yUiNzGOQ=
   - secure: FAIgFb/XlYTHWXAE7dzl5KFAMmST39forxsfmJdysXdaIUXK1Y44PJnS4HQ0cRa79e+o+NSOJSHLGI+qboXNoDAHqaDGBqtC7QROjW7ed0ZQp0iyNeebSq8TQzuOwdrqEjh9SGK24bgbTgQx+i8brYRJA+N8igfNtVoTUXj7buI=
   - secure: LyiQhHG89Zn0FdprFntjvT34DOcvFU/IITWhhowfgYrXGObUTEOyIyE3ve6fJpMm23B8/u1EUNxBVvqxevdGmA2RuoJiMMy+V/uFsBHmuOeJ8TeDYOgjyWJgsJt1bfDLpFwX2Ztu0smdMeuBpmsOA2I3FW0mDCx5tiAuScNidnE=
