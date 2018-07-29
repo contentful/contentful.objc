@@ -5,17 +5,20 @@ source 'https://github.com/contentful/CocoaPodsSpecs.git'
 
 ## iOS
 target 'ContentfulDeliveryAPI' do
-  platform :ios, "9.3"
   podspec :path => 'ContentfulDeliveryAPI.podspec'
-
+  platform :ios, "9.3"
 end
 
 ## tvOS
 target 'ContentfulDeliveryAPI_tvOS' do
-  platform :tvos, "9.3"
   podspec :path => 'ContentfulDeliveryAPI.podspec'
+  platform :tvos, "9.2"
 end
 
+target 'ContentfulDeliveryAPI_macOS' do
+  podspec :path => 'ContentfulDeliveryAPI.podspec'
+  platform :osx, "10.12"
+end
 
 
 # Cocoapods docs are wrong and don't work for 
@@ -27,6 +30,8 @@ target 'DeliveryTests' do
   pod 'VCRURLConnection', '= 0.2.4', :inhibit_warnings => true
   pod 'FBSnapshotTestCase/Core', :inhibit_warnings => true
 end
+
+
 
 
 ## Post install

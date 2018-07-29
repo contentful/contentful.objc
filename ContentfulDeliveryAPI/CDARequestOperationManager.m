@@ -7,11 +7,6 @@
 //
 
 @import Darwin.TargetConditionals;
-
-#if TARGET_OS_IPHONE
-#import <AFNetworking/AFNetworkActivityIndicatorManager.h>
-#endif
-
 @import ObjectiveC.runtime;
 
 #import "CDAConfiguration.h"
@@ -198,10 +193,6 @@
         NSLocale *posixLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
         [self.dateFormatter setLocale:posixLocale];
         [self.dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
-        
-#if TARGET_OS_IPHONE
-        [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
-#endif
     }
     return self;
 }

@@ -30,7 +30,6 @@ Pod::Spec.new do |s|
   ]
   # iOS specific
   s.ios.deployment_target     = '9.0'
-  s.ios.source_files          = 'ContentfulDeliveryAPI/UIKit/*.{h,m}'
   s.ios.frameworks            = 'UIKit', 'MapKit'
 
   # macOS specific
@@ -38,8 +37,7 @@ Pod::Spec.new do |s|
   
   # tvOS specific
   s.tvos.deployment_target    = '9.0'
-  s.tvos.source_files          = 'ContentfulDeliveryAPI/UIKit/*.{h,m}'
-  s.tvos.frameworks            = 'UIKit', 'MapKit'
+  s.tvos.frameworks           = 'UIKit', 'MapKit'
 
 
   s.dependency 'AFNetworking', '~> 3.2.1'
