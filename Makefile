@@ -53,7 +53,7 @@ static_lib:
 kill_simulator:
 	killall "Simulator" || true
 
-cda_test: clean_simulators
+cda: clean_simulators
 	set -x -o pipefail && xcodebuild -jobs `sysctl -n hw.ncpu` test -workspace $(WORKSPACE) \
 		-scheme 'ContentfulDeliveryAPI' -sdk iphonesimulator \
 		-destination 'platform=iOS Simulator,name=iPhone 6s,OS=11.4'| xcpretty -c 
