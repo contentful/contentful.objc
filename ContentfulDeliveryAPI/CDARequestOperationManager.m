@@ -184,8 +184,7 @@
 
     self = [super initWithBaseURL:[NSURL URLWithString:urlString]];
     if (self) {
-        self.requestSerializer = [[CDARequestSerializer alloc] initWithAccessToken:accessToken
-                                                                      isCMARequest:isCMARequest];
+        self.requestSerializer = [[CDARequestSerializer alloc] initWithAccessToken:accessToken];
         self.responseSerializer = [[CDAResponseSerializer alloc] initWithClient:client];
         self.rateLimiting = configuration.rateLimiting;
 
