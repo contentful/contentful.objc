@@ -25,7 +25,7 @@
         XCTAssertNil(asset.URL, @"");
     }
     
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [self.client resolveLinksFromArray:assetArray success:^(NSArray *items) {
         items = [items sortedArrayUsingComparator:^NSComparisonResult(CDAAsset* asset1,
@@ -36,14 +36,14 @@
         XCTAssertEqualObjects(@"happycatw.jpg", [[items[0] URL] lastPathComponent], @"");
         XCTAssertEqualObjects(@"Nyan_cat_250px_frame.png", [[items[1] URL] lastPathComponent], @"");
         
-        EndBlock();
+        [expectation fulfill];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 -(void)testResolveAssetLink {
@@ -54,7 +54,7 @@
     XCTAssertFalse(asset.fetched, @"");
     XCTAssertNil(asset.URL, @"");
     
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [asset resolveWithSuccess:^(CDAResponse *response, CDAResource *resource) {
         CDAAsset* asset = (CDAAsset*)resource;
@@ -64,19 +64,19 @@
             CDAAsset* asset = (CDAAsset*)resource;
             XCTAssertEqualObjects(@"Nyan_cat_250px_frame.png", [asset.URL lastPathComponent], @"");
             
-            EndBlock();
+            [expectation fulfill];
         } failure:^(CDAResponse *response, NSError *error) {
             XCTFail(@"Error: %@", error);
             
-            EndBlock();
+            [expectation fulfill];
         }];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 -(void)testResolveContentTypeLink {
@@ -84,7 +84,7 @@
     XCTAssertFalse(contentType.fetched, @"");
     XCTAssertEqual(0U, contentType.fields.count, @"");
     
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [contentType resolveWithSuccess:^(CDAResponse *response, CDAResource *resource) {
         CDAContentType* contentType = (CDAContentType*)resource;
@@ -95,19 +95,19 @@
             XCTAssertEqual(8U, contentType.fields.count, @"");
             XCTAssertEqualObjects(@"Cat", contentType.name, @"");
             
-            EndBlock();
+            [expectation fulfill];
         } failure:^(CDAResponse *response, NSError *error) {
             XCTFail(@"Error: %@", error);
             
-            EndBlock();
+            [expectation fulfill];
         }];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 -(void)testResolveEntry {
@@ -118,7 +118,7 @@
     XCTAssertFalse(entry.fetched, @"");
     XCTAssertEqual(0U, entry.fields.count, @"");
     
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [entry resolveWithSuccess:^(CDAResponse *response, CDAResource *resource) {
         CDAEntry* entry = (CDAEntry*)resource;
@@ -131,19 +131,19 @@
             XCTAssertEqualObjects(@"Nyan Cat", entry.fields[@"name"], @"");
             XCTAssertNotNil(entry.contentType, @"");
             
-            EndBlock();
+            [expectation fulfill];
         } failure:^(CDAResponse *response, NSError *error) {
             XCTFail(@"Error: %@", error);
             
-            EndBlock();
+            [expectation fulfill];
         }];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 -(void)testResolveResource {
@@ -152,17 +152,17 @@
                                                              client:self.client
                                               localizationAvailable:NO];
     
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [resource resolveWithSuccess:^(CDAResponse *response, CDAResource *resource) {
-        EndBlock();
+        [expectation fulfill];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 -(void)testUnimplementedResolveThrows {

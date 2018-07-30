@@ -143,7 +143,7 @@
     }
 }
 
--(void)handleResponseArray:(CDAArray*)array withSuccess:(void (^)())success {
+-(void)handleResponseArray:(CDAArray*)array withSuccess:(void (^)(void))success {
     for (CDAEntry* entry in array.items) {
         [self handleEntry:entry];
         
@@ -267,11 +267,11 @@
     return [relationshipMapping copy];
 }
 
--(void)performBlock:(void (^)())block {
+-(void)performBlock:(void (^)(void))block {
     block();
 }
 
--(void)performInitalSynchronizationForQueryWithSuccess:(void (^)())success
+-(void)performInitalSynchronizationForQueryWithSuccess:(void (^)(void))success
                                                failure:(CDARequestFailureBlock)failure {
     NSDate* syncTimestamp = [self roundedCurrentDate];
     
@@ -285,7 +285,7 @@
     } failure:failure];
 }
 
--(void)performSubsequentSynchronizationWithSuccess:(void (^)())success
+-(void)performSubsequentSynchronizationWithSuccess:(void (^)(void))success
                                            failure:(CDARequestFailureBlock)failure {
     NSDate* syncTimestamp = [self roundedCurrentDate];
     NSMutableDictionary* query = [self.query mutableCopy];
@@ -318,7 +318,7 @@
     } failure:failure];
 }
 
--(void)performSynchronizationWithSuccess:(void (^)())success
+-(void)performSynchronizationWithSuccess:(void (^)(void))success
                                  failure:(CDARequestFailureBlock)failure {
     NSAssert(self.classesForEntries.count > 0, @"At least one Entry class should be defined.");
     NSParameterAssert(self.classForAssets);

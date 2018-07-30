@@ -50,7 +50,7 @@
                             radius:(CGFloat)radius
                         background:(NSString*)backgroundColor
                        progressive:(BOOL)progressive {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
 
     [self.client fetchAssetWithIdentifier:@"nyancat" success:^(CDAResponse *response, CDAAsset *asset) {
         __block NSURL* imageURL = [asset imageURLWithSize:CGSizeZero
@@ -63,15 +63,15 @@
                                               progressive:progressive];
 
         [self fetchImageAtURL:imageURL completionBlock:^(UIImage *image, NSDictionary* properties) {
-            EndBlock();
+            [expectation fulfill];
         }];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
 
-        EndBlock();
+        [expectation fulfill];
     }];
 
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 -(void)testChangeImageBackgroundBlue {
@@ -179,7 +179,7 @@
 }
 
 -(void)testChangeImageFormatToJPEG {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [self.client fetchAssetWithIdentifier:@"nyancat" success:^(CDAResponse *response, CDAAsset *asset) {
         __block NSURL* imageURL = [asset imageURLWithSize:CGSizeZero
@@ -187,19 +187,19 @@
                                                    format:CDAImageFormatJPEG];
         
         [self fetchImageAtURL:imageURL completionBlock:^(UIImage *image, NSDictionary* properties) {
-            EndBlock();
+            [expectation fulfill];
         }];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 -(void)testChangeImageFormatToPNG {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [self.client fetchAssetWithIdentifier:@"nyancat" success:^(CDAResponse *response, CDAAsset *asset) {
         __block NSURL* imageURL = [asset imageURLWithSize:CGSizeZero
@@ -207,19 +207,19 @@
                                                    format:CDAImageFormatPNG];
         
         [self fetchImageAtURL:imageURL completionBlock:^(UIImage *image, NSDictionary* properties) {
-            EndBlock();
+            [expectation fulfill];
         }];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 -(void)testAssertImageQuality {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
 
     [self.client fetchAssetWithIdentifier:@"nyancat" success:^(CDAResponse *response, CDAAsset *asset) {
         XCTAssertThrowsSpecificNamed([asset imageURLWithSize:CGSizeZero
@@ -227,18 +227,18 @@
                                                       format:CDAImageFormatOriginal],
                                      NSException, NSInternalInconsistencyException, @"");
 
-        EndBlock();
+        [expectation fulfill];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
 
-        EndBlock();
+        [expectation fulfill];
     }];
 
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 -(void)testChangeImageQuality {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [self.client fetchAssetWithIdentifier:@"nyancat" success:^(CDAResponse *response, CDAAsset *asset) {
         __block NSURL* imageURL = [asset imageURLWithSize:CGSizeZero
@@ -246,19 +246,19 @@
                                                    format:CDAImageFormatJPEG];
         
         [self fetchImageAtURL:imageURL completionBlock:^(UIImage *image, NSDictionary* properties) {
-            EndBlock();
+            [expectation fulfill];
         }];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 -(void)testDoNotRequireClientPropertyForGeneratingURL {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
 
     [self.client fetchAssetWithIdentifier:@"nyancat" success:^(CDAResponse *response, CDAAsset *asset) {
         NSURL* imageURL = [asset imageURLWithSize:CGSizeMake(50.0, 50.0)];
@@ -267,18 +267,18 @@
         NSURL* otherImageURL = [asset imageURLWithSize:CGSizeMake(50.0, 50.0)];
 
         XCTAssertEqualObjects(imageURL, otherImageURL);
-        EndBlock();
+        [expectation fulfill];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
 
-        EndBlock();
+        [expectation fulfill];
     }];
 
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 -(void)testResizeAsset {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [self.client fetchAssetWithIdentifier:@"nyancat" success:^(CDAResponse *response, CDAAsset *asset) {
         __block NSURL* imageURL = [asset imageURLWithSize:CGSizeMake(50.0, 50.0)];
@@ -297,17 +297,17 @@
                     XCTAssertEqual(asset.size.width, image.size.width, @"");
                     XCTAssertEqual(asset.size.height, image.size.height, @"");
                     
-                    EndBlock();
+                    [expectation fulfill];
                 }];
             }];
         }];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 @end

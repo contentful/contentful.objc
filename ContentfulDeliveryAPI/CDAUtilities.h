@@ -12,7 +12,7 @@
 
 @class CDAResource;
 
-NSString* CDACacheDirectory();
+NSString* CDACacheDirectory(void);
 NSString* CDACacheFileNameForQuery(CDAClient* client, CDAResourceType resourceType, NSDictionary* query);
 NSString* CDACacheFileNameForResource(CDAResource* resource);
 NSArray* CDAClassGetSubclasses(Class parentClass);

@@ -12,7 +12,9 @@
 #import <Foundation/Foundation>
 #endif
 
-#import "CDAAsset+Private.h"
+@import CoreGraphics;
+
+#import "CDAAsset.h"
 #import "CDAClient+Private.h"
 #import "CDAInputSanitizer.h"
 #import "CDAResource+Private.h"
@@ -46,41 +48,11 @@ const CGFloat CDARadiusNone             = 0.0;
 
 #pragma mark -
 
-+(instancetype)assetFromPersistedAsset:(id<CDAPersistedAsset>)persistedAsset client:(CDAClient*)client {
-    NSParameterAssert(persistedAsset);
-    NSParameterAssert(persistedAsset.identifier);
-    NSParameterAssert(persistedAsset.internetMediaType);
-    NSParameterAssert(persistedAsset.url);
-    
-    NSDictionary* fileContent = @{ @"contentType": (NSString * _Nonnull)persistedAsset.internetMediaType,
-                                   @"url": (NSString * _Nonnull)persistedAsset.url };
-
-    return [[self alloc] initWithDictionary:@{ @"sys": @{ @"id": persistedAsset.identifier,
-                                                          @"type": @"Asset" },
-                                               @"fields": @{ @"file": fileContent } }
-                                     client:client
-                      localizationAvailable:NO];
-}
-
 +(NSData*)cachedDataForAsset:(CDAAsset*)asset {
     NSString* fileName = CDACacheFileNameForResource(asset);
     return [NSData dataWithContentsOfFile:fileName];
 }
 
-+(NSData*)cachedDataForPersistedAsset:(id<CDAPersistedAsset>)persistedAsset client:(CDAClient*)client {
-    if (!persistedAsset) {
-        return nil;
-    }
-    return [self cachedDataForAsset:[self assetFromPersistedAsset:persistedAsset client:client]];
-}
-
-+(void)cachePersistedAsset:(id<CDAPersistedAsset>)persistedAsset
-                    client:(CDAClient*)client
-          forcingOverwrite:(BOOL)forceOverwrite
-         completionHandler:(void (^)(BOOL success))handler {
-    CDAAsset* asset = [self assetFromPersistedAsset:persistedAsset client:client];
-    [asset cacheAssetForcingOverwrite:forceOverwrite completionHandler:handler];
-}
 
 +(NSString *)CDAType {
     return @"Asset";

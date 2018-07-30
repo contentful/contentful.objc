@@ -7,11 +7,6 @@
 //
 
 @import Darwin.TargetConditionals;
-
-#if TARGET_OS_IPHONE
-#import <AFNetworking/AFNetworkActivityIndicatorManager.h>
-#endif
-
 @import ObjectiveC.runtime;
 
 #import "CDAConfiguration.h"
@@ -189,8 +184,7 @@
 
     self = [super initWithBaseURL:[NSURL URLWithString:urlString]];
     if (self) {
-        self.requestSerializer = [[CDARequestSerializer alloc] initWithAccessToken:accessToken
-                                                                      isCMARequest:isCMARequest];
+        self.requestSerializer = [[CDARequestSerializer alloc] initWithAccessToken:accessToken];
         self.responseSerializer = [[CDAResponseSerializer alloc] initWithClient:client];
         self.rateLimiting = configuration.rateLimiting;
 
@@ -198,10 +192,6 @@
         NSLocale *posixLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
         [self.dateFormatter setLocale:posixLocale];
         [self.dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
-        
-#if TARGET_OS_IPHONE
-        [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
-#endif
     }
     return self;
 }
@@ -274,7 +264,10 @@
                                    success:(CDAObjectFetchedBlock)success
                                    failure:(CDARequestFailureBlock)failure {
     
-    NSURLSessionTask* task = [self dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+    NSURLSessionTask* task = [self dataTaskWithRequest:request
+                                        uploadProgress:nil
+                                      downloadProgress:nil
+                                     completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
         NSAssert(!response || [response isKindOfClass:NSHTTPURLResponse.class], @"Invalid response.");
         NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
 

@@ -63,7 +63,7 @@
 @implementation ValueObjectsTests
 
 - (void)testEqualityOfEntries {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [self.client registerClass:[Cat class] forContentTypeWithIdentifier:@"cat"];
     
@@ -73,23 +73,23 @@
             XCTAssertNotNil(cat, @"");
             XCTAssertEqualObjects(entry, cat, @"");
             
-            EndBlock();
+            [expectation fulfill];
         } failure:^(CDAResponse *response, NSError *error) {
             XCTFail(@"Error: %@", error);
             
-            EndBlock();
+            [expectation fulfill];
         }];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 - (void)testCustomClassesWithContentTypeIdentifier {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [self.client registerClass:[Cat class] forContentTypeWithIdentifier:@"cat"];
     
@@ -97,18 +97,18 @@
         XCTAssert([cat isKindOfClass:[Cat class]], @"");
         XCTAssertEqualObjects(@"Nyan Cat", ((Cat*)cat).name, @"");
         
-        EndBlock();
+        [expectation fulfill];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 - (void)testCustomClassesWithContentTypeInstance {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [self.client fetchContentTypesWithSuccess:^(CDAResponse *response, CDAArray *array) {
         CDAContentType* catContentType = nil;
@@ -125,25 +125,25 @@
             XCTAssert([cat isKindOfClass:[Cat class]], @"");
             XCTAssertEqualObjects(@"Nyan Cat", ((Cat*)cat).name, @"");
             
-            EndBlock();
+            [expectation fulfill];
         } failure:^(CDAResponse *response, NSError *error) {
             XCTFail(@"Error: %@", error);
             
-            EndBlock();
+            [expectation fulfill];
         }];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 - (void)testLocationValues {
     CDAClient* client = [[CDAClient alloc] initWithSpaceKey:@"lzjz8hygvfgu" accessToken:@"0c6ef483524b5e46b3bafda1bf355f38f5f40b4830f7599f790a410860c7c271"];
     
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [client fetchEntriesMatching:@{ @"content_type": @"7ocuA1dfoccWqWwWUY4UY" }
                          success:^(CDAResponse *response, CDAArray *array) {
@@ -152,20 +152,20 @@
                              XCTAssertEqualWithAccuracy(40.31, coordinate.latitude, 0.01, @"");
                              XCTAssertEqualWithAccuracy(-75.13, coordinate.longitude, 0.01, @"");
                              
-                             EndBlock();
+                             [expectation fulfill];
                          } failure:^(CDAResponse *response, NSError *error) {
                              XCTFail(@"Error: %@", error);
                              
-                             EndBlock();
+                             [expectation fulfill];
                          }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 - (void)testNonUSDefaultLocale {
     self.client = [[CDAClient alloc] initWithSpaceKey:@"icgl406qq59m" accessToken:@"77a3cc4cfaef46d2d93d7924f571d45392a4abb998c1d17d301bc7dc62f3dfd4"];
     
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [self.client fetchEntriesWithSuccess:^(CDAResponse *response, CDAArray *array) {
         XCTAssertEqual(1UL, array.items.count, @"");
@@ -174,18 +174,18 @@
         XCTAssertEqualObjects(@"My first entry", entry.fields[@"title"], @"");
         XCTAssertEqualObjects(@"Hello, world!", entry.fields[@"body"], @"");
         
-        EndBlock();
+        [expectation fulfill];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 - (void)testObjectMapping {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [self.client fetchEntryWithIdentifier:@"nyancat" success:^(CDAResponse *response, CDAEntry *entry) {
         OtherCat* cat = [entry mapFieldsToObject:[OtherCat new]
@@ -198,14 +198,14 @@
         XCTAssertEqualObjects((@[ @"rainbows", @"fish" ]), cat.likes, @"");
         XCTAssertEqual(1337U, cat.lives, @"");
         
-        EndBlock();
+        [expectation fulfill];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 @end

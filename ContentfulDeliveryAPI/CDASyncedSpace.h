@@ -111,7 +111,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param success A block which is called upon the successful synchronization of the Space.
  *  @param failure A block which is called if any errors occur during the synchronization process.
  */
--(void)performSynchronizationWithSuccess:(void (^)())success failure:(CDARequestFailureBlock __nullable)failure;
+-(void)performSynchronizationWithSuccess:(void (^)(void))success failure:(CDARequestFailureBlock __nullable)failure;
 
 /** @name Persisting Synchronized Spaces */
 

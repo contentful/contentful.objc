@@ -88,7 +88,7 @@
 }
 
 -(void)testContinueSyncAfterPersisting {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
         XCTAssertEqual(1U, space.assets.count, @"");
@@ -104,24 +104,24 @@
             XCTAssertEqual(1U, space.assets.count, @"");
             XCTAssertEqual(2U, space.entries.count, @"");
             
-            EndBlock();
+            [expectation fulfill];
         } failure:^(CDAResponse *response, NSError *error) {
             XCTFail(@"Error: %@", error);
             
-            EndBlock();
+            [expectation fulfill];
         }];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     XCTAssertNotNil(request, @"");
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 -(void)testContinueSyncWithoutSyncSpaceInstance {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
         XCTAssertEqual(1U, space.assets.count, @"");
@@ -168,40 +168,40 @@
                             XCTAssertNotEqualObjects(shallowSyncSpace.lastSyncTimestamp,
                                                      lastSyncTimestamp, @"");
                             
-                            EndBlock();
+                            [expectation fulfill];
                         } failure:^(CDAResponse *response, NSError *error) {
                             XCTFail(@"Error: %@", error);
                             
-                            EndBlock();
+                            [expectation fulfill];
                         }];
                     } failure:^(CDAResponse *response, NSError *error) {
                         XCTFail(@"Error: %@", error);
                         
-                        EndBlock();
+                        [expectation fulfill];
                     }];
                 } failure:^(CDAResponse *response, NSError *error) {
                     XCTFail(@"Error: %@", error);
                     
-                    EndBlock();
+                    [expectation fulfill];
                 }];
             } failure:^(CDAResponse *response, NSError *error) {
                 XCTFail(@"Error: %@", error);
                 
-                EndBlock();
+                [expectation fulfill];
             }];
         } failure:^(CDAResponse *response, NSError *error) {
             XCTFail(@"Error: %@", error);
             
-            EndBlock();
+            [expectation fulfill];
         }];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     XCTAssertNotNil(request, @"");
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
     
     XCTAssertEqual(1U, self.numberOfAssetsCreated, @"");
     XCTAssertEqual(1U, self.numberOfAssetsDeleted, @"");
@@ -213,7 +213,7 @@
 }
 
 -(void)testDelegateIsActuallyOptional {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     SyncedSpaceDelegate* delegate = [SyncedSpaceDelegate new];
     
@@ -226,46 +226,46 @@
                 [space performSynchronizationWithSuccess:^{
                     [space performSynchronizationWithSuccess:^{
                         [space performSynchronizationWithSuccess:^{
-                            EndBlock();
+                            [expectation fulfill];
                         } failure:^(CDAResponse *response, NSError *error) {
                             XCTFail(@"Error: %@", error);
                             
-                            EndBlock();
+                            [expectation fulfill];
                         }];
                     } failure:^(CDAResponse *response, NSError *error) {
                         XCTFail(@"Error: %@", error);
                         
-                        EndBlock();
+                        [expectation fulfill];
                     }];
                 } failure:^(CDAResponse *response, NSError *error) {
                     XCTFail(@"Error: %@", error);
                     
-                    EndBlock();
+                    [expectation fulfill];
                 }];
             } failure:^(CDAResponse *response, NSError *error) {
                 XCTFail(@"Error: %@", error);
                 
-                EndBlock();
+                [expectation fulfill];
             }];
         } failure:^(CDAResponse *response, NSError *error) {
             XCTFail(@"Error: %@", error);
             
-            EndBlock();
+            [expectation fulfill];
         }];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     XCTAssertNotNil(request, @"");
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
     
     XCTAssertNotNil(delegate, @"");
 }
 
 -(void)testInitialSync {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
         XCTAssertEqual(1U, space.assets.count, @"");
@@ -274,15 +274,15 @@
         CDAEntry* entry = [space.entries firstObject];
         XCTAssertEqualObjects(@"Test", entry.fields[@"title"], @"");
         
-        EndBlock();
+        [expectation fulfill];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     XCTAssertNotNil(request, @"");
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
     
     XCTAssertEqual(0U, self.numberOfAssetsCreated, @"");
     XCTAssertEqual(0U, self.numberOfAssetsDeleted, @"");
@@ -296,7 +296,7 @@
     [self removeAllStubs];
     self.client = [[CDAClient alloc] initWithSpaceKey:@"icgl406qq59m" accessToken:@"77a3cc4cfaef46d2d93d7924f571d45392a4abb998c1d17d301bc7dc62f3dfd4"];
     
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
         XCTAssertEqual(0UL, space.assets.count, @"");
@@ -306,15 +306,15 @@
         XCTAssertEqualObjects(@"My first entry", entry.fields[@"title"], @"");
         XCTAssertEqualObjects(@"Hello, world!", entry.fields[@"body"], @"");
         
-        EndBlock();
+        [expectation fulfill];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     XCTAssertNotNil(request, @"");
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
     
     XCTAssertEqual(0U, self.numberOfAssetsCreated, @"");
     XCTAssertEqual(0U, self.numberOfAssetsDeleted, @"");
@@ -327,7 +327,7 @@
 -(void)testAssetWithMultipleLocalesWhileSyncing {
     [self removeAllStubs];
     
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     CDAConfiguration* configuration = [CDAConfiguration defaultConfiguration];
     self.client = [[CDAClient alloc] initWithSpaceKey:@"bht13amj0fva" accessToken:@"bb703a05e107148bed6ee246a9f6b3678c63fed7335632eb68fe1b689c801534" configuration:configuration];
@@ -341,21 +341,21 @@
         XCTAssertEqualObjects(@"ES Title", asset.fields[@"title"], @"");
         XCTAssertEqualObjects(@"Flag_of_Spain.svg", asset.URL.lastPathComponent, @"");
 
-        EndBlock();
+        [expectation fulfill];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     XCTAssertNotNil(request, @"");
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 -(void)testEntryWithMultipleLocalesWhileSyncing {
     [self removeAllStubs];
     
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     self.client = [[CDAClient alloc] initWithSpaceKey:@"cfexampleapi" accessToken:@"b4c0n73n7fu1"];
     CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
@@ -380,81 +380,51 @@
         XCTAssertEqualObjects(@"Nyan Cat", nyanCat.fields[@"name"], @"");
         XCTAssertNotNil([nyanCat.fields[@"image"] URL], @"");
 
-        EndBlock();
+        [expectation fulfill];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     XCTAssertNotNil(request, @"");
     
-    WaitUntilBlockCompletes();
-}
-
--(void)testNoSyncTokenAvailableError {
-    StartBlock();
-    
-    self.client = [[CDAClient alloc] initWithSpaceKey:@"emh6o2ireilu" accessToken:@"something"];
-    
-    [self addDummyContentType];
-    
-    CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response,
-                                                                           CDASyncedSpace *space) {
-        [space performSynchronizationWithSuccess:^{
-            XCTFail(@"Request should not succeed due to missing sync token.");
-            
-            EndBlock();
-        } failure:^(CDAResponse *response, NSError *error) {
-            XCTAssertEqualObjects(CDAErrorDomain, error.domain, @"");
-            XCTAssertEqual(901, error.code, @"");
-            XCTAssertEqualObjects(@"No sync token available.", error.localizedDescription, @"");
-            
-            EndBlock();
-        }];
-        
-        EndBlock();
-    } failure:^(CDAResponse *response, NSError *error) {
-        XCTFail(@"Error: %@", error);
-        
-        EndBlock();
-    }];
-    XCTAssertNotNil(request, @"");
-    
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 -(void)testPagingWhileSyncing {
     [self removeAllStubs];
     
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
-    self.client = [[CDAClient alloc] initWithSpaceKey:@"lzjz8hygvfgu" accessToken:@"0c6ef483524b5e46b3bafda1bf355f38f5f40b4830f7599f790a410860c7c271"];
+    self.client = [[CDAClient alloc] initWithSpaceKey:@"lzjz8hygvfgu"
+                                          accessToken:@"0c6ef483524b5e46b3bafda1bf355f38f5f40b4830f7599f790a410860c7c271"];
+
     CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
         XCTAssertEqual(594U, space.entries.count, @"");
-        
+
         [space performSynchronizationWithSuccess:^{
             XCTAssertEqual(594U, space.entries.count, @"");
-            
-            EndBlock();
+
+            [expectation fulfill];
         } failure:^(CDAResponse *response, NSError *error) {
             XCTFail(@"Error: %@", error);
             
-            EndBlock();
+            [expectation fulfill];
         }];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     XCTAssertNotNil(request, @"");
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 -(void)testSyncedSpaceSupportsKeyValueObservation {
     __block CDASyncedSpace* aSpace = nil;
     
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response,
                                                                            CDASyncedSpace *space) {
@@ -467,20 +437,20 @@
             XCTAssertEqual(1U, space.assets.count, @"");
             XCTAssertEqual(2U, space.entries.count, @"");
             
-            EndBlock();
+            [expectation fulfill];
         } failure:^(CDAResponse *response, NSError *error) {
             XCTFail(@"Error: %@", error);
             
-            EndBlock();
+            [expectation fulfill];
         }];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     XCTAssertNotNil(request, @"");
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
     
     [aSpace removeObserver:self forKeyPath:@"assets" context:NULL];
     [aSpace removeObserver:self forKeyPath:@"entries" context:NULL];
@@ -489,7 +459,7 @@
 }
 
 -(void)testSyncAddAsset {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response,
                                                                            CDASyncedSpace *space) {
@@ -511,30 +481,30 @@
                     CDAAsset* asset = [assets lastObject];
                     XCTAssertEqualObjects(@"6koKmTXVzUquae6ewQQ8Eu", asset.identifier, @"");
                     
-                    EndBlock();
+                    [expectation fulfill];
                 } failure:^(CDAResponse *response, NSError *error) {
                     XCTFail(@"Error: %@", error);
                     
-                    EndBlock();
+                    [expectation fulfill];
                 }];
             } failure:^(CDAResponse *response, NSError *error) {
                 XCTFail(@"Error: %@", error);
                 
-                EndBlock();
+                [expectation fulfill];
             }];
         } failure:^(CDAResponse *response, NSError *error) {
             XCTFail(@"Error: %@", error);
             
-            EndBlock();
+            [expectation fulfill];
         }];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     XCTAssertNotNil(request, @"");
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
     
     XCTAssertEqual(1U, self.numberOfAssetsCreated, @"");
     XCTAssertEqual(1U, self.numberOfEntriesCreated, @"");
@@ -544,7 +514,7 @@
 -(void)testSyncRemoveAsset {
     self.expectFieldsInDeletedResources = YES;
     
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response,
                                                                            CDASyncedSpace *space) {
@@ -569,35 +539,35 @@
                         CDAAsset* asset = [space.assets firstObject];
                         XCTAssertEqualObjects(@"6koKmTXVzUquae6ewQQ8Eu", asset.identifier, @"");
                         
-                        EndBlock();
+                        [expectation fulfill];
                     } failure:^(CDAResponse *response, NSError *error) {
                         XCTFail(@"Error: %@", error);
                         
-                        EndBlock();
+                        [expectation fulfill];
                     }];
                 } failure:^(CDAResponse *response, NSError *error) {
                     XCTFail(@"Error: %@", error);
                     
-                    EndBlock();
+                    [expectation fulfill];
                 }];
             } failure:^(CDAResponse *response, NSError *error) {
                 XCTFail(@"Error: %@", error);
                 
-                EndBlock();
+                [expectation fulfill];
             }];
         } failure:^(CDAResponse *response, NSError *error) {
             XCTFail(@"Error: %@", error);
             
-            EndBlock();
+            [expectation fulfill];
         }];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     XCTAssertNotNil(request, @"");
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
     
     XCTAssertEqual(1U, self.numberOfAssetsCreated, @"");
     XCTAssertEqual(1U, self.numberOfAssetsDeleted, @"");
@@ -606,7 +576,7 @@
 }
 
 -(void)testSyncEmptyField {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
 
     self.client = [[CDAClient alloc] initWithSpaceKey:@"a7uc4j82xa5d" accessToken:@"966a679442707ea882caec4592bf3058e188a35b9bfcf1968a870cfc5e5441d5"];
 
@@ -621,25 +591,25 @@
             CDAEntry* updatedEntry = space.entries[0];
             XCTAssertEqualObjects(updatedEntry.fields[@"test"], @"");
 
-            EndBlock();
+            [expectation fulfill];
         } failure:^(CDAResponse *response, NSError *error) {
             XCTFail(@"Error: %@", error);
 
-            EndBlock();
+            [expectation fulfill];
         }];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
 
-        EndBlock();
+        [expectation fulfill];
     }];
 
     XCTAssertNotNil(request, @"");
 
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 -(void)testSyncAddEntry {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response,
                                                                            CDASyncedSpace *space) {
@@ -661,20 +631,20 @@
             
             XCTAssert(entryFound, @"Second entry not found.");
             
-            EndBlock();
+            [expectation fulfill];
         } failure:^(CDAResponse *response, NSError *error) {
             XCTFail(@"Error: %@", error);
             
-            EndBlock();
+            [expectation fulfill];
         }];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     XCTAssertNotNil(request, @"");
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
     
     XCTAssertEqual(1U, self.numberOfEntriesCreated, @"");
 }
@@ -682,7 +652,7 @@
 -(void)testSyncAddEntryUsingCustomClass {
     [self.client registerClass:[MYCustomClass class] forContentTypeWithIdentifier:@"6bAvxqodl6s4MoKuWYkmqe"];
     
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
         space.delegate = self;
@@ -703,20 +673,20 @@
             
             XCTAssert(entryFound, @"Second entry not found.");
             
-            EndBlock();
+            [expectation fulfill];
         } failure:^(CDAResponse *response, NSError *error) {
             XCTFail(@"Error: %@", error);
             
-            EndBlock();
+            [expectation fulfill];
         }];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     XCTAssertNotNil(request, @"");
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
     
     XCTAssertEqual(1U, self.numberOfEntriesCreated, @"");
 }
@@ -724,7 +694,7 @@
 -(void)testSyncRemoveEntry {
     self.expectFieldsInDeletedResources = YES;
     
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response,
                                                                            CDASyncedSpace *space) {
@@ -741,32 +711,32 @@
                 CDAEntry* entry = [space.entries firstObject];
                 XCTAssertEqualObjects(@"Test", entry.fields[@"title"], @"");
                 
-                EndBlock();
+                [expectation fulfill];
             } failure:^(CDAResponse *response, NSError *error) {
                 XCTFail(@"Error: %@", error);
                 
-                EndBlock();
+                [expectation fulfill];
             }];
         } failure:^(CDAResponse *response, NSError *error) {
             XCTFail(@"Error: %@", error);
             
-            EndBlock();
+            [expectation fulfill];
         }];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     XCTAssertNotNil(request, @"");
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
     
     XCTAssertEqual(1U, self.numberOfEntriesCreated, @"");
     XCTAssertEqual(1U, self.numberOfEntriesDeleted, @"");
 }
 
 -(void)testSyncUpdate {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response,
                                                                            CDASyncedSpace *space) {
@@ -792,40 +762,40 @@
                             XCTAssertEqual(1U, space.assets.count, @"");
                             XCTAssertEqual(1U, space.entries.count, @"");
                             
-                            EndBlock();
+                            [expectation fulfill];
                         } failure:^(CDAResponse *response, NSError *error) {
                             XCTFail(@"Error: %@", error);
                             
-                            EndBlock();
+                            [expectation fulfill];
                         }];
                     } failure:^(CDAResponse *response, NSError *error) {
                         XCTFail(@"Error: %@", error);
                         
-                        EndBlock();
+                        [expectation fulfill];
                     }];
                 } failure:^(CDAResponse *response, NSError *error) {
                     XCTFail(@"Error: %@", error);
                     
-                    EndBlock();
+                    [expectation fulfill];
                 }];
             } failure:^(CDAResponse *response, NSError *error) {
                 XCTFail(@"Error: %@", error);
                 
-                EndBlock();
+                [expectation fulfill];
             }];
         } failure:^(CDAResponse *response, NSError *error) {
             XCTFail(@"Error: %@", error);
             
-            EndBlock();
+            [expectation fulfill];
         }];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     XCTAssertNotNil(request, @"");
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
     
     XCTAssertEqual(1U, self.numberOfAssetsCreated, @"");
     XCTAssertEqual(1U, self.numberOfAssetsDeleted, @"");

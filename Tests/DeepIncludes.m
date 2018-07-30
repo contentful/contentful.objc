@@ -29,7 +29,7 @@
 }
 
 - (void)testDeepIncludesInsideIncludesInPreviewMode {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     CDAConfiguration* configuration = [CDAConfiguration defaultConfiguration];
     configuration.previewMode = YES;
@@ -59,18 +59,18 @@
                                   XCTAssertNotNil(someEntry, @"");
                                   XCTAssertNotNil(someEntry.fields, @"");
                                   
-                                  EndBlock();
+                                  [expectation fulfill];
                               } failure:^(CDAResponse *response, NSError *error) {
                                   XCTFail(@"Error: %@", error);
                                   
-                                  EndBlock();
+                                  [expectation fulfill];
                               }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 - (void)testDeepIncludesInsideIncludes {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [self.client fetchEntriesMatching:@{ @"content_type": @"1JomZcABA4soOysGeE2QIE", @"include": @2 }
                               success:^(CDAResponse *response, CDAArray *array) {
@@ -94,18 +94,18 @@
                                   XCTAssertNotNil(someEntry, @"");
                                   XCTAssertNotNil(someEntry.fields, @"");
                                   
-                                  EndBlock();
+                                  [expectation fulfill];
                               } failure:^(CDAResponse *response, NSError *error) {
                                   XCTFail(@"Error: %@", error);
                                   
-                                  EndBlock();
+                                  [expectation fulfill];
                               }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 - (void)testDeepIncludesWithOneEntry {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [self.client fetchEntriesMatching:@{ @"sys.id": @"3nYOvKqu2IsKCIwEoUE20e", @"include": @2 }
                               success:^(CDAResponse *response, CDAArray *array) {
@@ -114,18 +114,18 @@
                                   XCTAssertNotNil(someEntry, @"");
                                   XCTAssertNotNil(someEntry.fields, @"");
                                   
-                                  EndBlock();
+                                  [expectation fulfill];
                               } failure:^(CDAResponse *response, NSError *error) {
                                   XCTFail(@"Error: %@", error);
                                   
-                                  EndBlock();
+                                  [expectation fulfill];
                               }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 - (void)testDeepIncludesWithMultipleEntries {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [self.client fetchEntriesMatching:@{ @"include": @2 }
                               success:^(CDAResponse *response, CDAArray *array) {
@@ -142,14 +142,14 @@
                                   XCTAssertNotNil(someEntry, @"");
                                   XCTAssertNotNil(someEntry.fields, @"");
                                   
-                                  EndBlock();
+                                  [expectation fulfill];
                               } failure:^(CDAResponse *response, NSError *error) {
                                   XCTFail(@"Error: %@", error);
                                   
-                                  EndBlock();
+                                  [expectation fulfill];
                               }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 #endif

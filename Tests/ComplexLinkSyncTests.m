@@ -22,7 +22,13 @@
     /*
      Map URLs to JSON response files
      */
-    NSDictionary* stubs = @{ @"https://cdn.contentful.com/spaces/emh6o2ireilu/sync?initial=true": @"ComplexLinkTestInitial", @"https://cdn.contentful.com/spaces/emh6o2ireilu/": @"space", @"https://cdn.contentful.com/spaces/emh6o2ireilu/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdyZxwrTDssOKwr9SACovw47Ckn1vcwjDuEXCqV3DlMKiw6LDjxPCjDfDisONc8KtcHvDrsKsP8O2w5Azw6rCglcncRM7w7fDmyh3QzEpKcKiWsOOw5LDtsOlcgXCi8Omw7M": @"ComplexLinkTestUpdate1", @"https://cdn.contentful.com/spaces/emh6o2ireilu/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdyY9wrEfW8KYwpROLH55G8O-U2rCq8OsQn3DvcOrw4cGwpkjIAvDgWxYwrITw4xUa8O4UCXDojMJDk8fw6RzSMK6J2vDqMOUJm_CiMKaw6lVF1jCg2vCosOFwpo": @"ComplexLinkTestUpdate2", @"https://cdn.contentful.com/spaces/emh6o2ireilu/entries?sys.id%5Bin%5D=1Wl5HnguK8CiaykiQAiGu6%2C4upDPGUMMEkG8w8UUs2OiO%2C1gQ4P2tG7QaGkQwkC4a6Gg": @"ComplexLinkTestContentTypes", @"https://cdn.contentful.com/spaces/emh6o2ireilu/entries?limit=3&sys.id%5Bin%5D=1Wl5HnguK8CiaykiQAiGu6%2C4upDPGUMMEkG8w8UUs2OiO%2C1gQ4P2tG7QaGkQwkC4a6Gg": @"ComplexLinkTestEntries", @"https://cdn.contentful.com/spaces/emh6o2ireilu/content_types?limit=2&sys.id%5Bin%5D=4yCmJfmk1WeqACagaemOIs%2C5kLp8FbRwAG0kcOOYa6GMa": @"ComplexLinkTestContentTypes2", };
+    NSDictionary* stubs = @{ @"https://cdn.contentful.com/spaces/emh6o2ireilu/sync?initial=true": @"ComplexLinkTestInitial",
+                             @"https://cdn.contentful.com/spaces/emh6o2ireilu/": @"space",
+                             @"https://cdn.contentful.com/spaces/emh6o2ireilu/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdyZxwrTDssOKwr9SACovw47Ckn1vcwjDuEXCqV3DlMKiw6LDjxPCjDfDisONc8KtcHvDrsKsP8O2w5Azw6rCglcncRM7w7fDmyh3QzEpKcKiWsOOw5LDtsOlcgXCi8Omw7M": @"ComplexLinkTestUpdate1",
+                             @"https://cdn.contentful.com/spaces/emh6o2ireilu/sync?sync_token=w5ZGw6JFwqZmVcKsE8Kow4grw45QdyY9wrEfW8KYwpROLH55G8O-U2rCq8OsQn3DvcOrw4cGwpkjIAvDgWxYwrITw4xUa8O4UCXDojMJDk8fw6RzSMK6J2vDqMOUJm_CiMKaw6lVF1jCg2vCosOFwpo": @"ComplexLinkTestUpdate2",
+                             @"https://cdn.contentful.com/spaces/emh6o2ireilu/entries?sys.id%5Bin%5D=1Wl5HnguK8CiaykiQAiGu6%2C4upDPGUMMEkG8w8UUs2OiO%2C1gQ4P2tG7QaGkQwkC4a6Gg": @"ComplexLinkTestContentTypes",
+                             @"https://cdn.contentful.com/spaces/emh6o2ireilu/entries?limit=3&sys.id%5Bin%5D=1Wl5HnguK8CiaykiQAiGu6%2C4upDPGUMMEkG8w8UUs2OiO%2C1gQ4P2tG7QaGkQwkC4a6Gg": @"ComplexLinkTestEntries",
+                             @"https://cdn.contentful.com/spaces/emh6o2ireilu/content_types?limit=2&sys.id%5Bin%5D=4yCmJfmk1WeqACagaemOIs%2C5kLp8FbRwAG0kcOOYa6GMa": @"ComplexLinkTestContentTypes2", };
     
     [self stubHTTPRequestUsingFixtures:stubs inDirectory:@"ComplexSyncTests"];
 }
@@ -42,32 +48,32 @@
 }
 
 -(void)testComplexLinkSync {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
         space.delegate = self;
         
         [space performSynchronizationWithSuccess:^{
             [space performSynchronizationWithSuccess:^{
-                EndBlock();
+                [expectation fulfill];
             } failure:^(CDAResponse *response, NSError *error) {
                 XCTFail(@"Error: %@", error);
                 
-                EndBlock();
+                [expectation fulfill];
             }];
         } failure:^(CDAResponse *response, NSError *error) {
             XCTFail(@"Error: %@", error);
             
-            EndBlock();
+            [expectation fulfill];
         }];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     XCTAssertNotNil(request, @"");
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
     
     XCTAssertEqual(1U, self.numberOfEntriesCreated, @"");
     XCTAssertEqual(0U, self.numberOfEntriesUpdated, @"");
@@ -80,7 +86,7 @@
  normally be a create, but a shallow synchronized space will treat it as an update.
  */
 -(void)testComplexLinkSyncWithoutSyncSpaceInstance {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     CDARequest* request = [self.client initialSynchronizationWithSuccess:^(CDAResponse *response, CDASyncedSpace *space) {
         CDASyncedSpace* shallowSyncSpace = [CDASyncedSpace shallowSyncSpaceWithToken:space.syncToken
@@ -90,25 +96,25 @@
         
         [shallowSyncSpace performSynchronizationWithSuccess:^{
             [shallowSyncSpace performSynchronizationWithSuccess:^{
-                EndBlock();
+                [expectation fulfill];
             } failure:^(CDAResponse *response, NSError *error) {
                 XCTFail(@"Error: %@", error);
                 
-                EndBlock();
+                [expectation fulfill];
             }];
         } failure:^(CDAResponse *response, NSError *error) {
             XCTFail(@"Error: %@", error);
             
-            EndBlock();
+            [expectation fulfill];
         }];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     XCTAssertNotNil(request, @"");
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
     
     XCTAssertEqual(0U, self.numberOfEntriesCreated, @"");
     XCTAssertEqual(1U, self.numberOfEntriesUpdated, @"");

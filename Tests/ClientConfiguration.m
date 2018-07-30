@@ -27,16 +27,16 @@
 }
 
 -(void)testDefaultUserAgent {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
 
     CDARequest* request = [self.client fetchEntriesWithSuccess:^(CDAResponse *response,
                                                                  CDAArray *array) {
-        EndBlock();
+        [expectation fulfill];
     } failure:^(CDAResponse *response, NSError *error) {
-        EndBlock();
+        [expectation fulfill];
     }];
 
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 
     NSString* userAgentString = request.request.allHTTPHeaderFields[@"X-Contentful-User-Agent"];
 
@@ -57,7 +57,7 @@
                                           accessToken:@"422588c021896d2ae01eaf2d68faa720aaf6da4b361e7c99e9afac6feacb498b"
                                         configuration:configuration];
 
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
 
     [self.client fetchEntriesWithSuccess:^(CDAResponse* response, CDAArray* array) {
         XCTAssertEqual(array.items.count, 1);
@@ -65,21 +65,21 @@
         CDAEntry* me = array.items.firstObject;
         XCTAssertNil(me.fields[@"link"]);
 
-        EndBlock();
+        [expectation fulfill];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
 
-        EndBlock();
+        [expectation fulfill];
     }];
 
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 -(void)testNotFilterMissingEntitiesIfNotConfigured {
     self.client = [[CDAClient alloc] initWithSpaceKey:@"vfvjfjyjrbbp"
                                           accessToken:@"422588c021896d2ae01eaf2d68faa720aaf6da4b361e7c99e9afac6feacb498b"];
 
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
 
     [self.client fetchEntriesWithSuccess:^(CDAResponse* response, CDAArray* array) {
         XCTAssertEqual(array.items.count, 1);
@@ -87,14 +87,14 @@
         CDAEntry* me = array.items.firstObject;
         XCTAssertNotNil(me.fields[@"link"]);
 
-        EndBlock();
+        [expectation fulfill];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
 
-        EndBlock();
+        [expectation fulfill];
     }];
 
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 @end

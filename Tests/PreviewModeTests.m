@@ -26,23 +26,23 @@
 }
 
 - (void)testAssetsInPreviewMode {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [self.client fetchAssetWithIdentifier:@"nyancat" success:^(CDAResponse *response, CDAAsset *asset) {
         XCTAssertNotNil(asset.URL, @"");
         
-        EndBlock();
+        [expectation fulfill];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 - (void)testFetchLotsOfResources {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     CDAConfiguration* conf = [CDAConfiguration defaultConfiguration];
     conf.previewMode = YES;
@@ -51,18 +51,18 @@
                                   XCTAssertNotNil(array, @"");
                                   XCTAssertTrue(array.items.count > 0, @"");
                                   
-                                  EndBlock();
+                                  [expectation fulfill];
                               } failure:^(CDAResponse *response, NSError *error) {
                                   XCTFail(@"Error: %@", error);
                                   
-                                  EndBlock();
+                                  [expectation fulfill];
                               }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 - (void)testReturnsUnpublishedContent {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [self.client fetchEntriesMatching:@{ @"content_type": @"1t9IbcfdCk6m04uISSsaIK" }
                               success:^(CDAResponse *response, CDAArray* array) {
@@ -79,18 +79,18 @@
                                   }
                                   
                                   XCTAssertTrue(foundEntries, @"Expected Entries not found.");
-                                  EndBlock();
+                                  [expectation fulfill];
                               } failure:^(CDAResponse *response, NSError *error) {
                                   XCTFail(@"Error: %@", error);
                                   
-                                  EndBlock();
+                                  [expectation fulfill];
                               }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 - (void)testRevisionFieldAccessible {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [[CDAClient new] fetchEntryWithIdentifier:@"nyancat" success:^(CDAResponse *response,
                                                                    CDAEntry *entry) {
@@ -101,19 +101,19 @@
                                           XCTAssertNotNil(entry.sys[@"revision"], @"");
                                           XCTAssertEqualObjects(revision, entry.sys[@"revision"], @"");
                                           
-                                          EndBlock();
+                                          [expectation fulfill];
                                       } failure:^(CDAResponse *response, NSError *error) {
                                           XCTFail(@"Error: %@", error);
                                           
-                                          EndBlock();
+                                          [expectation fulfill];
                                       }];
     } failure:^(CDAResponse *response, NSError *error) {
         XCTFail(@"Error: %@", error);
         
-        EndBlock();
+        [expectation fulfill];
     }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 @end

@@ -19,40 +19,40 @@
 -(void)performSyncTestWithQuery:(NSDictionary*)query
          expectedNumberOfAssets:(NSUInteger)numberOfAssets
                         entries:(NSUInteger)numberOfEntries {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [self.client initialSynchronizationMatching:query
                                         success:^(CDAResponse *response, CDASyncedSpace *space) {
                                             XCTAssertEqual(numberOfAssets, space.assets.count, @"");
                                             XCTAssertEqual(numberOfEntries, space.entries.count, @"");
                                             
-                                            EndBlock();
+                                            [expectation fulfill];
                                         } failure:^(CDAResponse *response, NSError *error) {
                                             XCTFail(@"Error: %@", error);
                                             
-                                            EndBlock();
+                                            [expectation fulfill];
                                         }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 #pragma mark -
 
 -(void)testThrowsWhenSpecifyingInvalidQuery {
-    StartBlock();
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     
     [self.client initialSynchronizationMatching:@{ @"type": @"bar" }
                                         success:^(CDAResponse *response, CDASyncedSpace *space) {
                                             XCTFail(@"This shouldn't be reached.");
                                             
-                                            EndBlock();
+                                            [expectation fulfill];
                                         } failure:^(CDAResponse *response, NSError *error) {
                                             XCTAssertNotNil(error, @"");
                                             
-                                            EndBlock();
+                                            [expectation fulfill];
                                         }];
     
-    WaitUntilBlockCompletes();
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 -(void)testSyncAll {

@@ -13,21 +13,20 @@
 
 @implementation CDARequestSerializer
 
--(instancetype)initWithAccessToken:(NSString*)accessToken
-                      isCMARequest:(BOOL)isCMARequest {
+-(instancetype)initWithAccessToken:(NSString*)accessToken {
     NSParameterAssert(accessToken);
 
     self = [super init];
     if (self) {
         [self setValue:[@"Bearer " stringByAppendingString:accessToken] forHTTPHeaderField:@"Authorization"];
 
-        NSString *userAgentHeaderString = [self userAgentHeaderString:isCMARequest];
+        NSString *userAgentHeaderString = [self userAgentHeaderString];
         [self setValue:userAgentHeaderString forHTTPHeaderField:@"X-Contentful-User-Agent"];
     }
     return self;
 }
 
-- (NSString *)userAgentHeaderString:(BOOL)isCMARequest {
+- (NSString *)userAgentHeaderString {
     NSMutableString *userAgentString = [[NSMutableString alloc] initWithString:@""];
 
     NSString *appVersionString = [self appVersionString];
@@ -35,7 +34,7 @@
         [userAgentString appendString:[NSString stringWithFormat:@"app %@; ", appVersionString]];
     }
 
-    [userAgentString appendString:[NSString stringWithFormat:@"sdk %@;", [self sdkVersionString:isCMARequest]]];
+    [userAgentString appendString:[NSString stringWithFormat:@"sdk %@;", [self sdkVersionString]]];
     [userAgentString appendString:[NSString stringWithFormat:@" platform %@;", [self platformVersionString]]];
 
     NSString *operatingSystemVersionString = [self operatingSystemVersionString];
@@ -60,15 +59,10 @@
     return @"Objective-C";
 }
 
-- (NSString *)sdkVersionString:(BOOL)isCMARequest {
+- (NSString *)sdkVersionString {
 
     NSString *sdkVersion = DELIVERY_SDK_VERSION;
     NSString *sdkVersionString = [NSString stringWithFormat:@"contentful.objc/%@", sdkVersion];
-
-    if (isCMARequest) {
-        sdkVersion = MANAGEMENT_SDK_VERSION;
-        sdkVersionString = [NSString stringWithFormat:@"contentful-management.objc/%@", sdkVersion];
-    }
 
     return sdkVersionString;
 }

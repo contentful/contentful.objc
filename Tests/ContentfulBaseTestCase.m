@@ -21,7 +21,7 @@
 
 #define SIG(class, selector) [class instanceMethodSignatureForSelector:selector]
 
-extern void __gcov_flush();
+extern void __gcov_flush(void);
 
 @interface CDAClient ()
 
@@ -34,7 +34,6 @@ extern void __gcov_flush();
 @interface ContentfulBaseTestCase ()
 
 @property (nonatomic) CCLRequestReplayManager* requestReplayManager;
-@property (nonatomic) FBSnapshotTestController* snapshotTestController;
 
 @end
 
@@ -67,9 +66,6 @@ extern void __gcov_flush();
 
     [self.requestReplayManager replay];
 
-    self.snapshotTestController = [[FBSnapshotTestController alloc] initWithTestClass:[self class]];
-    self.snapshotTestController.referenceImagesDirectory = [[NSBundle bundleForClass:[self class]]
-                                                            bundlePath];
 }
 
 
@@ -143,27 +139,6 @@ extern void __gcov_flush();
     CCLRequestRecording* recording = [[CCLRequestRecording alloc] initWithRequest:nil error:error];
     recording.matcher = matcher;
     [self.requestReplayManager addRecording:recording];
-}
-
-
-
-- (void)compareView:(UIView*)view forTestSelector:(SEL)testSelector
-{
-    NSError* error;
-    UIImage* referenceImage = [self.snapshotTestController referenceImageForSelector:testSelector
-                                                                          identifier:nil
-                                                                               error:&error];
-
-    if (!referenceImage) {
-        self.snapshotTestController.recordMode = YES;
-        XCTFail(@"No reference image found.");
-    }
-
-    XCTAssert([self.snapshotTestController compareSnapshotOfView:view
-                                                        selector:testSelector
-                                                      identifier:nil
-                                                           error:&error],
-              @"Error ocurred: %@", error);
 }
 
 - (CDAEntry*)customEntryHelperWithFields:(NSDictionary*)fields
