@@ -7,9 +7,13 @@
 [![Coverage Status](https://img.shields.io/coveralls/contentful/contentful.objc.svg)](https://coveralls.io/github/contentful/contentful.objc)
 
 
+> #### Deprecation notice for ContentfulDeliveryAPI SDK
+> 
+> Contentful will stop supporting the ContentfulDeliveryAPI SDK **January 18, 2019**. The source code will still be available, but feature and support requests will no longer be addressed. Migrate to [contentful.swift](https://github.com/contentful/contentful.swift) to continue using Contentful on iOS, tvOS, watchOS, or macOS.
+> 
 > #### Deprecation notice for ContentfulManagementAPI SDK
 > 
-> Contentful will stop supporting the ContentfulManagementAPI SDK **JULY 13, 2018**. The source code will still be available, but feature and support requests will no longer be addressed. If you must take advantage of a feature from the Content Management API, or fix a bug, it is recommended that you either fork this codebase, or implement API interaction your own. 
+> Contentful stopped supporting the ContentfulManagementAPI SDK **JULY 13, 2018**. The source code is still available, but feature and support requests are no longer being addressed. If you must take advantage of a feature from the Content Management API, or fix a bug, it is recommended that you either fork this codebase, or implement API interaction your own. 
 > 
 
 #### It is recommended to use [contentful.swift](https://github.com/contentful/contentful.swift) over contentful.objc as future development at Contentful will focus on Swift rather than Objective-C.
